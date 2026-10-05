@@ -1,0 +1,13 @@
+[
+  { "id": "rukia", "name": "Rukia", "online": true, "status": "Looking for something...", "color": "#7E57C2", "photo": "photos/rukia.jpg" },
+  { "id": "ichigo", "name": "Ichigo", "online": false, "status": "Busy", "color": "#FF7043", "photo": "photos/ichigo.jpg" },
+  { "id": "orihime", "name": "Orihime", "online": true, "status": "", "color": "#EC407A", "photo": "photos/orihime.jpg" },
+  { "id": "uryu", "name": "Uryu", "online": false, "status": "In the lab", "color": "#1E88E5", "photo": "photos/uryu.jpg" },
+  { "id": "renji", "name": "Renji", "online": true, "status": "On patrol", "color": "#E53935", "photo": "photos/renji.jpg" },
+  { "id": "chad", "name": "Chad", "online": false, "status": "...", "color": "#6D4C41", "photo": "photos/chad.jpg" },
+  { "id": "kisuke", "name": "Kisuke", "online": true, "status": "Shop's open", "color": "#43A047", "photo": "photos/kisuke.jpg" },
+  { "id": "yoruichi", "name": "Yoruichi", "online": false, "status": "Out", "color": "#8E24AA", "photo": "photos/yoruichi.jpg" },
+  { "id": "toshiro", "name": "Toshiro", "online": false, "status": "Do not disturb", "color": "#00ACC1", "photo": "photos/toshiro.jpg" },
+  { "id": "rangiku", "name": "Rangiku", "online": true, "status": "Night out!", "color": "#FB8C00", "photo": "photos/rangiku.jpg" },
+  { "id": "jaume", "name": "Jaume", "online": true, "status": "Testing notifications", "color": "#3949AB", "photo": "photos/jaume.jpg" }
+]
