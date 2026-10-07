@@ -31,14 +31,14 @@ de momento #delay: 30 #caduca: D2 01:00
     tranqui. no diré nada #delay: 20
     pero me debes una explicación #delay: 4
 * [qué tío?]
-    ni idea. tu madre le llamaba «guía» o algo así #delay: 25
-    es lo de la secta esa de la que me hablaste una vez? #delay: 6 #caduca: D2 01:00
+    ni idea. tu madre le llamaba ignasi. le hablaba como si fuera un cura o algo #delay: 25
+    es lo de la gente esa de meditación de la que me hablaste una vez? #delay: 6 #caduca: D2 01:00
     ** [sí. no les digas nada de mí porfa]
         ~ pol_calla = true
         ~ sabe_secta = true
         joder ali #delay: 15
         vale. no digo nada #delay: 3
-    ** [no es una secta, son amigos de mi madre]
+    ** [son amigos de mi madre, nada más]
         ya. amigos #delay: 20
     ** [(sin responder)]
         vale. ya me contarás #delay: 1

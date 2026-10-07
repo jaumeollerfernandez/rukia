@@ -1,5 +1,7 @@
 package com.rukia.game
 
+import com.rukia.phone.DEBUG_CASE_PREFIX
+
 /**
  * A playable case. Its content lives in assets/cases/<id>/ (characters.json, chats/, story/, police/case.json, media/)
  * and its progress in files/cases/<id>/, so cases never share chats or saves. Add a case here and give it a folder.
@@ -15,5 +17,10 @@ val cases = listOf(
         "ruk-93429049", 1, "RUK-93429049",
         "Desaparición de A. S. V., mujer, 18 años, vecina de L'Hostalnou de Bianya (Garrotxa). Vista por última vez hace dos noches. " +
             "Dejó el terminal móvil en el domicilio. La denunciante, la madre, solicita máxima discreción. Sin indicios de violencia hasta la fecha. Prioridad: alta.",
+    ),
+    // Simulador para probar los .ink: el mismo caso con su propia partida y una barra arriba para adelantar el tiempo.
+    GameCase(
+        "${DEBUG_CASE_PREFIX}ruk-93429049", 1, "DEBUG:RUK-93429049",
+        "Simulador de RUK-93429049. Misma historia y chats, partida aparte, sin notificaciones. La barra de arriba adelanta la hora y los días.",
     ),
 )

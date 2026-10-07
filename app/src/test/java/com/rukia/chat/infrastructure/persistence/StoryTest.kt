@@ -2,6 +2,7 @@ package com.rukia.chat.infrastructure.persistence
 
 import com.rukia.chat.domain.port.StoryStep
 import com.rukia.game.cases
+import com.rukia.phone.CaseFolders
 import java.io.File
 import kotlin.io.path.createTempDirectory
 import kotlin.test.Test
@@ -14,7 +15,7 @@ class StoryTest {
     private fun tempState() = File(createTempDirectory().toFile(), "state.json")
 
     @Test fun `every case in the list has a content folder`() {
-        for (c in cases) assertTrue(File(allCases, c.id).isDirectory, "no folder assets/cases/${c.id}")
+        for (c in cases) assertTrue(File("src/main/assets", CaseFolders.content(c.id)).isDirectory, "no folder assets/${CaseFolders.content(c.id)}")
     }
 
     @Test fun `every case's story compiles and every chat has a story that starts`() {

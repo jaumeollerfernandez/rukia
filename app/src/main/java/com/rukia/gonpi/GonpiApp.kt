@@ -59,7 +59,7 @@ fun GonpiApp(caseId: String) {
         val all = runCatching { assets.open("${CaseFolders.content(caseId)}/${Gonpi.PATH}") }.getOrNull()
             ?.use { Gonpi.parse(it.bufferedReader().readText()) } ?: Gonpi()
         val start = CaseClock.start(context, caseId)
-        all.publishedBy(System.currentTimeMillis()) { caseTime(it, start, ZoneId.systemDefault()) }
+        all.publishedBy(CaseClock.now(caseId)) { caseTime(it, start, ZoneId.systemDefault()) }
     }
     var profileId by rememberSaveable { mutableStateOf<String?>(null) }
     var postIndex by rememberSaveable { mutableStateOf<Int?>(null) }

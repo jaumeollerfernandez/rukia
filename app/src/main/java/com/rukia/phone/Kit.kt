@@ -83,6 +83,7 @@ object RukiaIcons {
     val ChevronLeft = icon("M15 5l-7 7 7 7")
     val Exit = icon("M14 4h5v16h-5", "M10 8l-4 4 4 4", "M6 12h10")
     val Warning = icon("M12 3l10 18H2z", "M12 10v4", "M12 17.5v.5")
+    val Mail = icon("M3 6h18v12H3z", "M3 6l9 7 9-7")
     val Check = icon("M5 12.5l4.5 4.5L19 7.5")
     val Send = icon("M12 19V5", "M5 12l7-7 7 7")
     val Camera = icon("M4 8h3l2-3h6l2 3h3v11H4z", "M8.5 13a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0")

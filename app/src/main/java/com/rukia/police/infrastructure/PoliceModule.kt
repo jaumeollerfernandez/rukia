@@ -37,8 +37,8 @@ class PoliceModule(context: Context, caseId: String, save: SaveFile, onSolved: (
 
     val getCaseQuestion = GetCaseQuestion(caseFile)
     val solveCase = SolveCase(caseFile, onSolved, resetSave)
-    val getOperations = GetOperations(operations, dispatches, timeOf)
-    val dispatchSquad = DispatchSquad(operations, dispatches, radio, timeOf)
+    val getOperations = GetOperations(operations, dispatches, timeOf, CaseClock.clock(caseId))
+    val dispatchSquad = DispatchSquad(operations, dispatches, radio, timeOf, CaseClock.clock(caseId))
     /** Whether the case has field operations at all (police/actions.json). */
     val hasOperations = operations.operations().squads.isNotEmpty()
     val operationLabels = operations.operations().operations.associate { it.id to it.label }

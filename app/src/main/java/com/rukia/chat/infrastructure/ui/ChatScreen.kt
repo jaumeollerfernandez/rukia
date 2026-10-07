@@ -32,7 +32,9 @@ import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.Message
 import com.rukia.chat.infrastructure.notifications.VisibleChat
+import com.rukia.phone.CaseClock
 import com.rukia.phone.Kit
+import com.rukia.phone.LocalCaseId
 import com.rukia.phone.RukiaIcons
 import com.rukia.phone.rememberMediaImage
 import kotlinx.coroutines.delay
@@ -56,7 +58,8 @@ fun ChatScreen(
     onChoose: (Int) -> Unit,
     onEndCall: (answered: Boolean) -> Unit,
 ) {
-    var shown by remember(chat.id) { mutableIntStateOf(minOf(revealFrom, chat.arrivedCount(System.currentTimeMillis()))) }
+    val caseId = LocalCaseId.current
+    var shown by remember(chat.id) { mutableIntStateOf(minOf(revealFrom, chat.arrivedCount(CaseClock.now(caseId)))) }
     // While this chat is on screen, its arriving messages show here instead of as notifications.
     DisposableEffect(chat.id) {
         VisibleChat.id = chat.id
@@ -71,7 +74,8 @@ fun ChatScreen(
             if (!next.fromPlayer) {
                 // A delayed message waits silently until shortly before it arrives, then "types".
                 val typing = typingMillis(next.text)
-                delay((next.deliverAt - System.currentTimeMillis() - typing).coerceAtLeast(0))
+                // Checked every second rather than slept through, so a debug case skipping time ahead shows it at once.
+                while (next.deliverAt - CaseClock.now(caseId) - typing > 0) delay(minOf(next.deliverAt - CaseClock.now(caseId) - typing, 1_000))
                 typingId = next.from
                 delay(typing)
             }
@@ -93,7 +97,7 @@ fun ChatScreen(
     val subtitle = when {
         typingId != null && solo != null -> "typing…"
         typingId != null -> "${characters[typingId]?.name ?: typingId} is typing…"
-        solo != null -> if (solo.onlineAt(System.currentTimeMillis())) "online" else solo.status
+        solo != null -> if (solo.onlineAt(CaseClock.now(caseId))) "online" else solo.status
         else -> (chat.participants.map { characters[it]?.name ?: it } + "You").joinToString()
     }
     val visible = chat.messages.take(shown)
@@ -112,7 +116,7 @@ fun ChatScreen(
                     val newDay = msg.deliverAt > 0 && (prev == null || prev.deliverAt <= 0 || dayOf(prev.deliverAt) != dayOf(msg.deliverAt))
                     if (msg.time.isNotEmpty() && (newDay || msg.time != prev?.time)) {
                         Text(
-                            if (newDay) "${dayLabel(msg.deliverAt, System.currentTimeMillis())} ${msg.time}" else msg.time,
+                            if (newDay) "${dayLabel(msg.deliverAt, CaseClock.now(caseId))} ${msg.time}" else msg.time,
                             Modifier.fillMaxWidth().padding(top = if (i == 0) 0.dp else 12.dp, bottom = 2.dp),
                             color = p.subText, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center,
                         )

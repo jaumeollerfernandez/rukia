@@ -13,6 +13,11 @@ import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.ui.Modifier
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -51,16 +56,21 @@ fun PhoneScreen(caseId: String, onReturnToTitle: () -> Unit) {
     BackHandler { openId = null }
     CompositionLocalProvider(LocalCaseId provides caseId) {
         // Every app inherits the kit's font through this; their own MaterialTheme calls keep it.
-        MaterialTheme(typography = FigtreeTypography) { Box {
-            AnimatedContent(
-                openId,
-                transitionSpec = { (fadeIn() + scaleIn(initialScale = 0.85f)) togetherWith (fadeOut() + scaleOut(targetScale = 0.85f)) },
-                label = "app",
-            ) { id ->
-                val app = apps.find { it.id == id }
-                if (app == null) LauncherScreen(apps) { openId = it.id } else app.content()
+        MaterialTheme(typography = FigtreeTypography) { Column {
+            // A debug case gets the time bar on top; the apps below no longer pad for the status bar it covers.
+            val debug = isDebugCase(caseId)
+            if (debug) DebugTimeBar(caseId)
+            Box(Modifier.weight(1f).then(if (debug) Modifier.consumeWindowInsets(WindowInsets.statusBars) else Modifier)) {
+                AnimatedContent(
+                    openId,
+                    transitionSpec = { (fadeIn() + scaleIn(initialScale = 0.85f)) togetherWith (fadeOut() + scaleOut(targetScale = 0.85f)) },
+                    label = "app",
+                ) { id ->
+                    val app = apps.find { it.id == id }
+                    if (app == null) LauncherScreen(apps) { openId = it.id } else app.content()
+                }
+                EffectsLayer(caseId)
             }
-            EffectsLayer(caseId)
         } }
     }
 }

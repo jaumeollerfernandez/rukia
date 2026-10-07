@@ -45,6 +45,7 @@ INCLUDE central.ink
 INCLUDE familia.ink
 INCLUDE berta.ink
 INCLUDE banco.ink
+INCLUDE casal.ink
 
 // Números ocultos que aparecen más tarde.
 INCLUDE rosalia.ink
@@ -66,6 +67,18 @@ INCLUDE clase.ink
 INCLUDE elena.ink
 INCLUDE pilar.ink
 INCLUDE eric.ink
+
+// Grupos del pueblo y actividades: vida normal de Alicia, para que Rosa d'Abril sea una más.
+INCLUDE lectura.ink
+INCLUDE coral.ink
+INCLUDE aliments.ink
+INCLUDE ioga.ink
+INCLUDE esplai.ink
+INCLUDE festa.ink
+INCLUDE veins.ink
+INCLUDE autoescola.ink
+INCLUDE teatre.ink
+INCLUDE repas.ink
 INCLUDE voley.ink
 
 -> DONE

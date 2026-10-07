@@ -1,5 +1,5 @@
 [
-  { "id": "laia", "name": "Sgt. Puig 🔒", "status": "", "color": "#263238", "hidden": true, "hours": "08:00-15:00,20:00-23:00" },
+  { "id": "laia", "name": "Sgt. Puig 🔒", "status": "", "color": "#263238", "hidden": true },
   { "id": "central", "name": "Central Mossos · Olot 📻", "status": "", "color": "#1A237E", "hidden": true },
 
   { "id": "mama", "name": "Mamá", "status": "Cada amanecer es una promesa ☀️", "color": "#F9A825", "hours": "09:00-22:00", "photo": "photos/mama.jpg" },
@@ -27,9 +27,37 @@
   { "id": "judit", "name": "Judit 🏐", "status": "", "color": "#26A69A", "hours": "17:00-22:00", "photo": "photos/judit.jpg" },
   { "id": "ona", "name": "Ona 🏐", "status": "", "color": "#9575CD", "hours": "17:00-22:00", "photo": "photos/ona.jpg" },
 
+  { "id": "teresa", "name": "Teresa (biblioteca)", "status": "📚 Biblioteca de L'Hostalnou", "color": "#5E35B1", "hours": "09:00-20:00", "photo": "photos/teresa.jpg" },
+  { "id": "ramon", "name": "Ramon", "status": "Jubilat i feliç", "color": "#8D6E63", "hours": "08:00-21:00", "photo": "photos/ramon.jpg" },
+  { "id": "gemma", "name": "Gemma", "status": "", "color": "#EC407A", "hours": "09:00-23:00", "photo": "photos/gemma.jpg" },
+  { "id": "xavier", "name": "Xavier (coral)", "status": "🎶", "color": "#3F51B5", "hours": "10:00-22:00", "photo": "photos/xavier.jpg" },
+  { "id": "roser", "name": "Roser (coral)", "status": "", "color": "#E91E63", "hours": "08:00-22:00", "photo": "photos/roser.jpg" },
+  { "id": "pep", "name": "Pep (coral)", "status": "", "color": "#607D8B", "hours": "08:00-22:00", "photo": "photos/pep.jpg" },
+  { "id": "lluisa", "name": "Lluïsa (Banc d'Aliments)", "status": "Cap persona sense menjar 🥫", "color": "#43A047", "hours": "09:00-20:00", "photo": "photos/lluisa.jpg" },
+  { "id": "toni", "name": "Toni", "status": "", "color": "#F4511E", "hours": "10:00-00:00", "photo": "photos/toni.jpg" },
+  { "id": "fatima", "name": "Fàtima", "status": "", "color": "#00ACC1", "hours": "09:00-23:00", "photo": "photos/fatima.jpg" },
+  { "id": "claudia", "name": "Clàudia (ioga)", "status": "Respira 🧘‍♀️", "color": "#26A69A", "hours": "08:00-21:00", "photo": "photos/claudia.jpg" },
+  { "id": "imma", "name": "Imma", "status": "", "color": "#AB47BC", "hours": "09:00-22:00", "photo": "photos/imma.jpg" },
+  { "id": "pau", "name": "Pau (esplai)", "status": "⛺", "color": "#FB8C00", "hours": "10:00-00:00", "photo": "photos/pau.jpg" },
+  { "id": "clara", "name": "Clara (esplai)", "status": "", "color": "#FFB300", "hours": "10:00-00:00", "photo": "photos/clara.jpg" },
+  { "id": "biel", "name": "Biel (esplai)", "status": "", "color": "#7CB342", "hours": "11:00-01:00", "photo": "photos/biel.jpg" },
+  { "id": "quim", "name": "Quim (Ajuntament)", "status": "Festa Major 🎉", "color": "#00695C", "hours": "08:00-21:00", "photo": "photos/quim.jpg" },
+  { "id": "marc", "name": "Marc", "status": "tractor > coche", "color": "#827717", "hours": "07:00-23:00", "photo": "photos/marc.jpg" },
+  { "id": "laura", "name": "Laura", "status": "🌻", "color": "#F57F17", "hours": "10:00-00:00", "photo": "photos/laura.jpg" },
+  { "id": "conxita", "name": "Conxita (veïna)", "status": "", "color": "#795548", "hours": "07:00-21:00", "photo": "photos/conxita.jpg" },
+  { "id": "enric", "name": "Enric (veí)", "status": "", "color": "#455A64", "hours": "07:00-22:00", "photo": "photos/enric.jpg" },
+  { "id": "rafa", "name": "Rafa (autoescola)", "status": "Autoescola Garrotxa 🚗", "color": "#1E88E5", "hours": "09:00-20:00", "photo": "photos/rafa.jpg" },
+  { "id": "hugo", "name": "Hugo", "status": "", "color": "#546E7A", "hours": "12:00-02:00", "photo": "photos/hugo.jpg" },
+  { "id": "dolors", "name": "Dolors (teatre)", "status": "🎭", "color": "#6A1B9A", "hours": "10:00-23:00", "photo": "photos/dolors.jpg" },
+  { "id": "queralt", "name": "Queralt", "status": "", "color": "#C62828", "hours": "10:00-00:00", "photo": "photos/queralt.jpg" },
+  { "id": "jan", "name": "Jan", "status": "", "color": "#2E7D32", "hours": "12:00-02:00", "photo": "photos/jan.jpg" },
+  { "id": "anna", "name": "Anna (mare Martina)", "status": "", "color": "#D81B60", "hours": "08:00-22:00", "photo": "photos/anna.jpg" },
+  { "id": "silvia", "name": "Sílvia (mare Leo)", "status": "", "color": "#8E24AA", "hours": "08:00-22:00", "photo": "photos/silvia.jpg" },
+
   { "id": "iris", "name": "Iris", "status": "", "color": "#B39DDB", "hidden": true, "hours": "00:00-02:00", "photo": "photos/iris.jpg" },
-  { "id": "guia", "name": "El Guía", "status": "", "color": "#FFD54F", "hidden": true, "hours": "05:00-07:00,22:00-00:00", "photo": "photos/guia.jpg" },
+  { "id": "guia", "name": "Ignasi", "status": "", "color": "#FFD54F", "hidden": true, "hours": "05:00-07:00,22:00-00:00", "photo": "photos/guia.jpg" },
   { "id": "rosalia", "name": "+34 972 ·· ·· ··", "status": "", "color": "#795548", "hidden": true },
   { "id": "desconocido", "name": "+34 6·· ··· ···", "status": "", "color": "#607D8B", "hidden": true, "hours": "23:00-01:00" },
-  { "id": "banco", "name": "BancRural", "status": "", "color": "#004D40", "hidden": true }
+  { "id": "banco", "name": "BancRural", "status": "", "color": "#004D40", "hidden": true },
+  { "id": "casal", "name": "Rosa d'Abril 🌹", "status": "Mindfulness · Retiros · Sanar el alma", "color": "#C9A227", "hidden": true, "photo": "photos/casal.jpg" }
 ]

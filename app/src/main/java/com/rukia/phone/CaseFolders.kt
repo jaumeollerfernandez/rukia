@@ -11,7 +11,8 @@ import java.io.File
 object CaseFolders {
     const val SHARED_MEDIA = "shared/media"
 
-    fun content(caseId: String) = "cases/$caseId"
+    /** A debug case plays the content of the case it copies. */
+    fun content(caseId: String) = "cases/${caseId.removePrefix(DEBUG_CASE_PREFIX)}"
 
     fun saves(context: Context, caseId: String, app: String) =
         File(context.filesDir, "cases/$caseId/$app").apply { mkdirs() }

@@ -45,7 +45,7 @@ cómo sé que no eres de ellos #delay: 6 #caduca: D5 01:00
 - escucha. no me preguntes dónde estoy. no te lo voy a decir #delay: 10
 si los mossos lo saben, mi madre lo sabrá #delay: 4
 lo que sí te digo: en el séptimo amanecer lo van a hacer #delay: 8
-el guía lo llama «tránsito». les ha hecho firmar un papel a todos. a mamá. a berta #delay: 6
+ignasi lo llama «el tránsito». les ha hecho firmar las voluntades a todos. a mamá. a berta #delay: 6
 yo no firmé. por eso me fui #delay: 5
 y por eso me buscan. «solo familias completas» #delay: 6
 me queda poca batería. aquí no hay luz #delay: 10

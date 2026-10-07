@@ -23,7 +23,9 @@ import com.rukia.chat.domain.model.CallStatus
 import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.Message
+import com.rukia.phone.CaseClock
 import com.rukia.phone.Kit
+import com.rukia.phone.LocalCaseId
 import com.rukia.phone.RukiaIcons
 import java.time.Instant
 import java.time.ZoneId
@@ -65,7 +67,7 @@ fun ChatListScreen(
 @Composable
 fun ChatAvatar(chat: Chat, characters: Map<String, Character>, size: Int, showOnline: Boolean = true) {
     if (chat.isGroup) GroupAvatar(characters[chat.participants[0]], characters[chat.participants[1]], size)
-    else Avatar(characters[chat.participants.first()], size, online = showOnline && characters[chat.participants.first()]?.onlineAt(System.currentTimeMillis()) == true)
+    else Avatar(characters[chat.participants.first()], size, online = showOnline && characters[chat.participants.first()]?.onlineAt(CaseClock.now(LocalCaseId.current)) == true)
 }
 
 @Composable
@@ -90,6 +92,10 @@ private fun ChatRow(chat: Chat, characters: Map<String, Character>, now: Long, o
                 }
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     Box(Modifier.weight(1f)) { last?.let { Preview(chat, characters, it) } }
+                    // Hint that the player can answer this chat now.
+                    if (chat.arrivedCount(now) == chat.messages.size && chat.visibleChoices().isNotEmpty()) {
+                        Icon(RukiaIcons.Mail, "You can reply", Modifier.size(18.dp), tint = p.tint)
+                    }
                     if (unread > 0) CountBadge(unread)
                 }
             }
@@ -150,7 +156,7 @@ fun ContactsScreen(characters: Map<String, Character>, onOpen: (Character) -> Un
                 )
             }
             items(group, key = { it.id }) { c ->
-                PersonRow(c, if (c.onlineAt(System.currentTimeMillis())) "online" else c.status, onClick = { onOpen(c) })
+                PersonRow(c, if (c.onlineAt(CaseClock.now(LocalCaseId.current))) "online" else c.status, onClick = { onOpen(c) })
             }
         }
     }
@@ -164,7 +170,7 @@ fun PersonRow(c: Character?, subtitle: String, nameColor: Color = Color.Unspecif
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Avatar(c, 42, online = c?.onlineAt(System.currentTimeMillis()) == true)
+        Avatar(c, 42, online = c?.onlineAt(CaseClock.now(LocalCaseId.current)) == true)
         Column(Modifier.weight(1f)) {
             Text(c?.name.orEmpty(), color = nameColor, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
             if (subtitle.isNotEmpty()) {

@@ -10,8 +10,8 @@
     { "id": "eric", "username": "eric.forner", "name": "Èric", "photo": "photos/eric.jpg", "bio": "pan, masa madre y malas decisiones 🥖", "color": "#FF7043", "followers": 344, "following": 290 },
     { "id": "berta", "username": "berta.luz", "name": "Berta", "photo": "photos/berta.jpg", "bio": "Cada amanecer es una puerta ☀️ · @rosadabril.casal", "color": "#EF6C00", "followers": 1017, "following": 12 },
     { "id": "mama", "username": "montse.vidal", "name": "Montse", "photo": "photos/mama.jpg", "bio": "Gratitud. Familia. Luz.", "color": "#F9A825", "followers": 156, "following": 9 },
-    { "id": "guia", "username": "rosadabril.guia", "name": "El Guía", "photo": "photos/guia.jpg", "bio": "El que se suelta, renace. Encuentros en el Casal.", "color": "#FFD54F", "followers": 3420, "following": 0 },
-    { "id": "casal", "username": "rosadabril.casal", "name": "Rosa d'Abril", "photo": "photos/casal.jpg", "bio": "Comunitat Rosa d'Abril · Garrotxa", "color": "#C9A227", "followers": 1890, "following": 1 },
+    { "id": "guia", "username": "ignasi.coll.acompanya", "name": "Ignasi Coll", "photo": "photos/guia.jpg", "bio": "Facilitador de mindfulness · Retiros espirituales para sanar el alma · Acompaño procesos en el Casal 🌹", "color": "#FFD54F", "followers": 3420, "following": 0 },
+    { "id": "casal", "username": "rosadabril.casal", "name": "Rosa d'Abril", "photo": "photos/casal.jpg", "bio": "Associació Rosa d'Abril · Mindfulness y retiros espirituales para sanar el alma 🌿 · Sant Joan les Fonts", "color": "#C9A227", "followers": 1890, "following": 1 },
     { "id": "iris", "username": "iris.ambllum", "name": "Iris", "photo": "photos/iris.jpg", "bio": "buscando mi luz", "color": "#B39DDB", "followers": 233, "following": 140 },
     { "id": "oriol", "username": "oriol.pedals", "name": "Oriol", "photo": "photos/oriol.jpg", "bio": "🚴 subo puertos de noche porque de día hace calor", "color": "#6D4C41", "followers": 640, "following": 320 },
     { "id": "voley", "username": "voleiolot", "name": "Vòlei Olot", "photo": "photos/voley.jpg", "bio": "Vòlei Olot · Juvenil y Sénior", "color": "#0277BD", "followers": 1530, "following": 210 },
@@ -19,7 +19,19 @@
     { "id": "hostalnou", "username": "hostalnou.debianya", "name": "L'Hostalnou de Bianya", "photo": "photos/hostalnou.jpg", "bio": "L'Hostalnou de Bianya · avisos y fiestas", "color": "#00695C", "followers": 1120, "following": 45 },
     { "id": "marc", "username": "marc.hostalnou", "name": "Marc", "photo": "photos/marc.jpg", "bio": "tractor > coche", "color": "#827717", "followers": 410, "following": 388 },
     { "id": "laura", "username": "lauravila_", "name": "Laura", "photo": "photos/laura.jpg", "bio": "🌻", "color": "#F57F17", "followers": 760, "following": 702 },
-    { "id": "forn", "username": "forncanbatlle", "name": "Forn Can Batlle", "photo": "photos/forn.jpg", "bio": "Forn Can Batlle · Olot · desde 1964", "color": "#A1887F", "followers": 2050, "following": 60 }
+    { "id": "forn", "username": "forncanbatlle", "name": "Forn Can Batlle", "photo": "photos/forn.jpg", "bio": "Forn Can Batlle · Olot · desde 1964", "color": "#A1887F", "followers": 2050, "following": 60 },
+    { "id": "lectura", "username": "clublectura.hostalnou", "name": "Club de lectura", "photo": "photos/lectura.jpg", "bio": "Biblioteca de L'Hostalnou · Último martes de mes 📚", "color": "#5E35B1", "followers": 312, "following": 88 },
+    { "id": "coral", "username": "coral.hostalnou", "name": "Coral l'Hostalnou", "photo": "photos/coral.jpg", "bio": "Cantamos desde 1979 🎶 · Ensayos los jueves", "color": "#3F51B5", "followers": 455, "following": 60 },
+    { "id": "aliments", "username": "bancaliments.garrotxa", "name": "Banc d'Aliments Garrotxa", "photo": "photos/aliments.jpg", "bio": "Cap persona sense menjar 🥫 · Voluntariado los sábados", "color": "#43A047", "followers": 1380, "following": 140 },
+    { "id": "claudia", "username": "claudia.ioga", "name": "Clàudia Ioga", "photo": "photos/claudia.jpg", "bio": "Ioga en el Poliesportiu · Sin permanencia 🧘‍♀️", "color": "#26A69A", "followers": 690, "following": 300 },
+    { "id": "esplai", "username": "esplai.bianya", "name": "Esplai Bianya", "photo": "photos/esplai.jpg", "bio": "Sábados de juego en la Vall de Bianya ⛺", "color": "#FB8C00", "followers": 540, "following": 210 },
+    { "id": "teatre", "username": "teatre.hostalnou", "name": "Teatre l'Hostalnou", "photo": "photos/teatre.jpg", "bio": "Grupo de teatro amateur 🎭 · Estreno en la Festa Major", "color": "#6A1B9A", "followers": 402, "following": 95 },
+    { "id": "autoescola", "username": "autoescolagarrotxa", "name": "Autoescola Garrotxa", "photo": "photos/autoescola.jpg", "bio": "Olot · Teórica y práctica 🚗", "color": "#1E88E5", "followers": 880, "following": 20 },
+    { "id": "pau", "username": "pau.esplai", "name": "Pau", "photo": "photos/pau.jpg", "bio": "moni ⛺ · estudiante de magisterio", "color": "#FB8C00", "followers": 377, "following": 402 },
+    { "id": "queralt", "username": "queralt.dramas", "name": "Queralt", "photo": "photos/queralt.jpg", "bio": "actriz de pueblo, drama de capital 🎭", "color": "#C62828", "followers": 611, "following": 580 },
+    { "id": "gemma", "username": "gemma_ferrer", "name": "Gemma", "photo": "photos/gemma.jpg", "bio": "libros que no termino y vermuts que sí 🍸", "color": "#EC407A", "followers": 298, "following": 340 },
+    { "id": "toni", "username": "toni.voluntari", "name": "Toni", "photo": "photos/toni.jpg", "bio": "voluntario · bici · siempre con hambre", "color": "#F4511E", "followers": 210, "following": 260 },
+    { "id": "joan", "username": "joan.pericot", "name": "Joan Pericot", "photo": "photos/joan.jpg", "bio": "Olot", "color": "#455A64", "followers": 98, "following": 120 }
   ],
   "posts": [
     { "author": "guia", "image": "gonpi/guia_d7.jpg", "caption": "Hoy amanece para todos.", "at": "D7 05:00", "likes": 203 },
@@ -27,19 +39,26 @@
     { "author": "excursions", "image": "gonpi/excursions_d6.jpg", "caption": "Hoy no hemos podido llegar al Mas de la Rosalia: unos señores de una furgoneta blanca nos han dicho que el camino estaba cortado. ¿Alguien sabe algo?", "at": "D6 18:30", "likes": 87 },
     { "author": "mama", "image": "gonpi/montse_d6.jpg", "caption": "Mañana volvemos a estar todas.", "at": "D6 13:00", "likes": 14 },
     { "author": "hostalnou", "image": "gonpi/hostalnou_d6.jpg", "caption": "Corte de suministro eléctrico programado en L'Hostalnou de 18:00 a 22:00 por mantenimiento. Disculpad las molestias.", "at": "D6 10:00", "likes": 33 },
-    { "author": "berta", "image": "gonpi/berta_d6.jpg", "caption": "Mañana.", "at": "D6 07:00", "likes": 58 },
+    { "author": "berta", "image": "gonpi/berta_d6.jpg", "caption": "☀️ Frase del alba: «Lo mejor está a punto de amanecer.»", "at": "D6 07:00", "likes": 58 },
 
     { "author": "laura", "image": "gonpi/laura_d5.jpg", "caption": "atardeceres del Hostalnou 🧡", "at": "D5 22:30", "likes": 96, "comments": [
       { "author": "marc", "text": "oye esta tarde ha pasado una furgo blanca del Casal subiendo hacia Bracons, iban parando en cada mas 🤨", "at": "D5 22:45" }
     ] },
     { "author": "casal", "image": "gonpi/casal_d5.jpg", "caption": "El séptimo amanecer nos reunirá donde la tierra se abrió. Solo familias completas. 🌹", "at": "D5 22:00", "likes": 140 },
+    { "author": "toni", "image": "gonpi/toni_d5.jpg", "caption": "71 lotes. récord 🥫💪", "at": "D5 16:00", "likes": 57 },
     { "author": "voley", "image": "gonpi/voley_d5.jpg", "caption": "Derrota 1-3 sin nuestra colocadora titular. ¡Te esperamos, Ali! 🏐", "at": "D5 12:00", "likes": 118 },
-    { "author": "berta", "image": "gonpi/berta_d5.jpg", "caption": "Dos amaneceres.", "at": "D5 07:00", "likes": 55 },
+    { "author": "berta", "image": "gonpi/berta_d5.jpg", "caption": "☀️ Frase del alba: «Viste el alma de blanco y el mundo se vuelve ligero.»", "at": "D5 07:00", "likes": 55 },
 
     { "author": "nuria", "image": "gonpi/nuria_d4.jpg", "caption": "vuelve pronto. sé que estás bien. lo sé", "at": "D4 21:00", "likes": 233, "comments": [ { "author": "carla", "text": "🥺💛" }, { "author": "mireia", "text": "💛" } ] },
+    { "author": "teatre", "image": "gonpi/teatre_d4.jpg", "caption": "Cambio de reparto: buscamos una Adela para «La casa de Bernarda Alba». ¿Alguien se anima? 🎭", "at": "D4 20:00", "likes": 44, "comments": [{"author": "queralt", "text": "😢", "at": "D4 20:30"}] },
+    { "author": "casal", "image": "gonpi/casal_d4.jpg", "caption": "Tarde de mindfulness abierta en el jardín. Ven tal como eres 🌿", "at": "D4 18:00", "likes": 64, "comments": [
+      { "author": "laura", "text": "qué paz 😍 cuánto cuesta?", "at": "D4 18:30" },
+      { "author": "casal", "text": "La primera vez, nada 🌹 Escríbenos por privado y te contamos.", "at": "D4 18:35" }
+    ] },
     { "author": "iris", "image": "gonpi/iris_d4.jpg", "caption": "no todos los amaneceres son iguales", "at": "D4 16:00", "likes": 19, "comments": [ { "author": "berta", "text": "¿Qué quieres decir, hermana? 🙏", "at": "D4 16:40" } ] },
+    { "author": "autoescola", "image": "gonpi/autoescola_d4.jpg", "caption": "¡Enhorabuena a nuestros aprobados del teórico de hoy! 🎉🚗", "at": "D4 14:00", "likes": 39 },
     { "author": "hostalnou", "image": "gonpi/hostalnou_d4.jpg", "caption": "Aviso: la carretera de Bracons tendrá obras en el tramo de Sant Salvador de 9 a 14 h.", "at": "D4 09:00", "likes": 21 },
-    { "author": "berta", "image": "gonpi/berta_d4.jpg", "caption": "Tres amaneceres.", "at": "D4 07:00", "likes": 53 },
+    { "author": "berta", "image": "gonpi/berta_d4.jpg", "caption": "☀️ Frase del alba: «No todo el que se aleja se pierde. Y quien se pierde, vuelve a casa.»", "at": "D4 07:00", "likes": 53 },
 
     { "author": "mireia", "image": "gonpi/mireia_d3.jpg", "caption": "los 18 con mis personas (falta una 💔)", "at": "D3 20:00", "likes": 187, "comments": [ { "author": "carla", "text": "la mejor noche 🥳" } ] },
     { "author": "oriol", "image": "gonpi/oriol_d3.jpg", "caption": "Subida nocturna a Bracons 🌙 · 1:12 h", "at": "D3 14:20", "likes": 74, "comments": [
@@ -47,39 +66,57 @@
       { "author": "carla", "text": "qué mal rollo oriol", "at": "D3 15:10" }
     ] },
     { "author": "dani", "image": "gonpi/dani_d3.jpg", "caption": "Barna anteanoche 🔥", "at": "D3 11:00", "likes": 302 },
-    { "author": "berta", "image": "gonpi/berta_d3.jpg", "caption": "Cuatro amaneceres.", "at": "D3 07:00", "likes": 50 },
+    { "author": "berta", "image": "gonpi/berta_d3.jpg", "caption": "☀️ Frase del alba: «Quien de verdad te quiere, te espera sin hacer preguntas.»", "at": "D3 07:00", "likes": 50 },
 
     { "author": "pol", "image": "gonpi/pol_d2.jpg", "caption": "taxi nocturno 🚕", "at": "D2 22:00", "likes": 41 },
     { "author": "arnau", "image": "gonpi/arnau_d2.jpg", "caption": "la rotonda maldita 💀", "at": "D2 18:40", "likes": 2034, "comments": [ { "author": "marc", "text": "JAJAJAJA" }, { "author": "berta", "text": "¿A qué hora grabaste esto, primo?", "at": "D3 10:00" } ] },
     { "author": "eric", "image": "gonpi/eric_d2.jpg", "caption": "Caso abierto: seis barras de payés desaparecidas 🕵️🥖", "at": "D2 13:00", "likes": 66, "comments": [ { "author": "forn", "text": "Èric, a trabajar 😤", "at": "D2 13:30" } ] },
+    { "author": "aliments", "image": "gonpi/aliments_d2.jpg", "caption": "Gracias a la familia del pueblo que hoy nos ha donado cuatro cajas de ropa, mantas y menaje 💚 Así da gusto.", "at": "D2 12:00", "likes": 83 },
+    { "author": "casal", "image": "gonpi/casal_d2.jpg", "caption": "Hoy una de nuestras familias ha dado un paso más en su camino de desprendimiento. Gracias 🌹", "at": "D2 11:00", "likes": 58, "comments": [ { "author": "mama", "text": "🙏", "at": "D2 11:10" } ] },
     { "author": "mama", "image": "gonpi/montse_d2.jpg", "caption": "Dar es liberarse. Hoy he soltado lo último que me ataba.", "at": "D2 10:30", "likes": 11 },
-    { "author": "berta", "image": "gonpi/berta_d2.jpg", "caption": "Cinco amaneceres.", "at": "D2 07:05", "likes": 49 },
+    { "author": "berta", "image": "gonpi/berta_d2.jpg", "caption": "☀️ Frase del alba: «Dar es la forma más pura de recibir.»", "at": "D2 07:05", "likes": 49 },
 
     { "author": "carla", "image": "gonpi/carla_d1.jpg", "caption": "falta alguien 💔", "at": "D1 21:15", "likes": 154 },
     { "author": "marc", "image": "gonpi/marc_d1.jpg", "caption": "fiesta del pueblo con el mejor vehículo 🚜", "at": "D1 19:30", "likes": 88, "comments": [ { "author": "laura", "text": "tú y ese tractor 🙄" } ] },
     { "author": "hostalnou", "image": "gonpi/hostalnou_d1.jpg", "caption": "Se busca perro perdido, mestizo negro, responde a Rocky. Si lo veis, avisad al ayuntamiento 🐕", "at": "D1 12:00", "likes": 45 },
-    { "author": "berta", "image": "gonpi/berta_d1.jpg", "caption": "Seis amaneceres.", "at": "D1 07:10", "likes": 47 },
+    { "author": "berta", "image": "gonpi/berta_d1.jpg", "caption": "☀️ Frase del alba: «Suelta lo que pesa. Lo que es tuyo, siempre vuelve.» Cada mañana, una frase para acompañaros en el día 🌹", "at": "D1 07:10", "likes": 47 },
 
     { "author": "alicia", "image": "gonpi/alicia_dm1.jpg", "caption": "a veces hay que irse para salvarse", "time": "hace 2 días", "likes": 96, "comments": [
       { "author": "nuria", "text": "??? 🥺" },
       { "author": "berta", "text": "🌅", "at": "D1 07:10" },
-      { "author": "guia", "text": "La luz te espera, pequeña. Siempre vuelve a casa quien sabe dónde está su casa.", "at": "D3 23:10" }
+      { "author": "guia", "text": "Te echamos de menos en la Casa, Alicia. Aquí nadie te juzga. Vuelve cuando estés preparada 🌹", "at": "D3 23:10" }
     ] },
+    { "author": "guia", "image": "gonpi/guia_d.jpg", "caption": "Hoy en el círculo una joven me ha preguntado por qué cuesta tanto soltar. Le he dicho: porque te enseñaron que lo que tienes es lo que eres.", "time": "hace 3 días", "likes": 171, "comments": [ { "author": "berta", "text": "🌹" } ] },
+    { "author": "gemma", "image": "gonpi/gemma_a.jpg", "caption": "domingo de ioga y vermut, el equilibrio perfecto 🧘‍♀️🍸", "time": "hace 5 días", "likes": 61 },
     { "author": "mama", "image": "gonpi/montse_a.jpg", "caption": "Gratitud por cada amanecer ☀️", "time": "hace 5 días", "likes": 9 },
-    { "author": "guia", "image": "gonpi/guia_a.jpg", "caption": "El dinero es un peso. Suéltalo y vuela.", "time": "hace 6 días", "likes": 188 },
+    { "author": "lectura", "image": "gonpi/lectura_a.jpg", "caption": "Tertulia de «Nada» 📚 Gracias a todos. Mención especial a nuestra lectora más joven por lo que dijo de la familia de Andrea 👏", "time": "hace 6 días", "likes": 47, "comments": [{"author": "gemma", "text": "qué nivel 🙌"},{"author": "alicia", "text": "🙈"}] },
+    { "author": "guia", "image": "gonpi/guia_a.jpg", "caption": "Lo que posees acaba poseyéndote. Soltar también es un acto de amor.", "time": "hace 6 días", "likes": 188 },
+    { "author": "aliments", "image": "gonpi/aliments_a.jpg", "caption": "64 lotes repartidos este sábado. Gracias a nuestros voluntarios 🥫", "time": "hace 7 días", "likes": 112, "comments": [{"author": "toni", "text": "el mejor equipo 💪"}] },
     { "author": "dani", "image": "gonpi/dani_a.jpg", "caption": "domingo de curvas 🏍️", "time": "hace 8 días", "likes": 210 },
-    { "author": "casal", "image": "gonpi/casal_b.jpg", "caption": "Meditación de las familias. Juntas hacia la luz. 🌹", "time": "hace 10 días", "likes": 97 },
+    { "author": "esplai", "image": "gonpi/esplai_a.jpg", "caption": "Gincana con globos de agua 💦 ¡Gracias, monis!", "time": "hace 9 días", "likes": 93, "comments": [{"author": "pau", "text": "ali la reina de los globos"},{"author": "alicia", "text": "💛"}] },
+    { "author": "queralt", "image": "gonpi/queralt_a.jpg", "caption": "selfie en el ensayo con mi Adela 🖤", "time": "hace 10 días", "likes": 128, "comments": [{"author": "alicia", "text": "bernarda dame un respiro"}] },
+    { "author": "casal", "image": "gonpi/casal_b.jpg", "caption": "Meditación de las familias. Cuando una familia entera despierta, nadie se queda atrás. 🌹", "time": "hace 10 días", "likes": 97, "comments": [
+      { "author": "joan", "text": "Mi hermana Carme lleva dos años sin hablar con nadie de la familia desde que va con vosotros. Si alguien la ve, que le diga que nuestra madre está en el hospital." },
+      { "author": "casal", "text": "Te enviamos luz, Joan 🌹 Carme está en su proceso. Cuando estés preparado, aquí también hay sitio para ti." }
+    ] },
     { "author": "alicia", "image": "gonpi/alicia_dm12.jpg", "caption": "el sitio de siempre ✨", "time": "hace 12 días", "likes": 74, "comments": [
       { "author": "nuria", "text": "nuestro sitio 🥹" },
       { "author": "excursions", "text": "¡Esta vista es desde la subida a Bracons! ¿En qué mas estabais? 😍" }
     ] },
+    { "author": "casal", "image": "gonpi/casal_c.jpg", "caption": "Retiro de silencio de tres días. Sin móviles, sin relojes, sin prisa. Volver a lo esencial. 🌹", "time": "hace 14 días", "likes": 72, "comments": [ { "author": "mama", "text": "He vuelto nueva ☀️ Gracias, Ignasi." } ] },
+    { "author": "teatre", "image": "gonpi/teatre_a.jpg", "caption": "Empezamos los ensayos de «La casa de Bernarda Alba» para la Festa Major 🎭", "time": "hace 2 semanas", "likes": 76, "comments": [{"author": "queralt", "text": "Bernarda al poder"}] },
     { "author": "excursions", "image": "gonpi/excursions_dm15.jpg", "caption": "Cascada escondida en la Alta Garrotxa. Agua fría y cero cobertura 💧", "time": "hace 15 días", "likes": 156 },
-    { "author": "guia", "image": "gonpi/guia_b.jpg", "caption": "Quien se aferra a lo que tiene, se queda en la oscuridad.", "time": "hace 18 días", "likes": 166 },
+    { "author": "guia", "image": "gonpi/guia_b.jpg", "caption": "Hay vínculos que sanan y vínculos que pesan. Aprende a distinguirlos, aunque lleven tu apellido.", "time": "hace 18 días", "likes": 166, "comments": [ { "author": "mama", "text": "Gracias por devolverme a mi familia 🙏" }, { "author": "berta", "text": "🌹" } ] },
     { "author": "mama", "image": "gonpi/montse_b.jpg", "caption": "El valle en calma.", "time": "hace 20 días", "likes": 8 },
-    { "author": "casal", "image": "gonpi/casal_a.jpg", "caption": "Encuentro de los jueves. La rosa se abre a quien sabe esperar.", "time": "hace 25 días", "likes": 81 },
+    { "author": "coral", "image": "gonpi/coral_a.jpg", "caption": "Concierto de Sant Jordi en la parroquia 🎶 Gracias por venir.", "time": "hace 3 semanas", "likes": 69, "comments": [{"author": "gemma", "text": "precioso 😍"}] },
+    { "author": "claudia", "image": "gonpi/claudia_a.jpg", "caption": "Nuevo trimestre de ioga en el Poliesportiu. 45 €, sin permanencia. Ven a probar 🧘‍♀️", "time": "hace 3 semanas", "likes": 54, "comments": [{"author": "gemma", "text": "la mejor profe"}] },
+    { "author": "casal", "image": "gonpi/casal_d.jpg", "caption": "Retiro «Sanar el alma» · Tres días en la Alta Garrotxa. Silencio, naturaleza y acompañamiento. Plazas limitadas 🌿", "time": "hace 3 semanas", "likes": 88, "comments": [ { "author": "iris", "text": "este retiro me cambió la vida 🙏" }, { "author": "berta", "text": "Volver a casa 🌹" } ] },
+    { "author": "casal", "image": "gonpi/casal_a.jpg", "caption": "Encuentro de los jueves. La primera vez, entrada libre 🌹 Después, aportación voluntaria.", "time": "hace 25 días", "likes": 81 },
+    { "author": "casal", "image": "gonpi/casal_e.jpg", "caption": "«Llegué rota. Hoy tengo una familia.» Testimonio de M., 52 años 🌹", "time": "hace un mes", "likes": 102 },
     { "author": "excursions", "image": "gonpi/excursions_dm30.jpg", "caption": "Subida al Santuari del Mont. Vistas de toda la Garrotxa ⛰️", "time": "hace un mes", "likes": 201 },
     { "author": "dani", "image": "gonpi/dani_b.jpg", "caption": "leg day 💪", "time": "hace un mes", "likes": 133 },
     { "author": "alicia", "image": "gonpi/alicia_dm40.jpg", "caption": "18 🎂 gracias a mi persona favorita por esto", "time": "hace 40 días", "likes": 189, "comments": [ { "author": "nuria", "text": "es para siempre eh ❤️" }, { "author": "carla", "text": "felicidades reina 🎉" } ] },
+    { "author": "pau", "image": "gonpi/pau_a.jpg", "caption": "campamento de verano con el mejor equipo de monis ⛺", "time": "hace 2 meses", "likes": 140, "comments": [{"author": "alicia", "text": "volvemos ya"}] },
     { "author": "guia", "image": "gonpi/guia_c.jpg", "caption": "Abril siempre vuelve. La rosa también.", "time": "hace 2 meses", "likes": 150 },
     { "author": "excursions", "image": "gonpi/excursions_dm60.jpg", "caption": "Ruta Sant Salvador de Bianya → Collada de Bracons. A media subida, el Mas de la Rosalia, el de la porta blava, sigue en pie. La Rosalia (78 años, ¡como una rosa!) nos dio agua del pozo y nos presentó a su perra Trufa 🐕. Sin luz eléctrica ni cobertura: así se vive allí arriba.", "time": "hace 2 meses", "likes": 264, "comments": [ { "author": "laura", "text": "qué bonita esa puerta azul 💙" } ] },
     { "author": "mama", "image": "gonpi/montse_c.jpg", "caption": "Flores del jardín 🌸", "time": "hace 2 meses", "likes": 12 },

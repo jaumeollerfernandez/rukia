@@ -87,7 +87,7 @@ faltabas tú, ali 💔 #from: mireia #delay: 30
 -> d5
 
 = d5
-habéis visto lo que ha subido la cuenta esa de la secta? #from: carla #at: D5 22:20
+habéis visto lo que ha subido la cuenta esa del casal? la de la madre de ali #from: carla #at: D5 22:20
 lo del cráter? #from: mireia #delay: 60
 «solo familias completas». qué mal rollo #from: carla #delay: 10
 ali dime que no vas a ir a eso #from: mireia #delay: 30

@@ -67,7 +67,7 @@ class PhoneApp(
 fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit) = listOf(
     PhoneApp(
         "chat", "Chats", RukiaIcons.Chat, Color(0xFF25D366),
-        badge = { ChatModule.of(context, caseId).listChats().count { it.unreadCount(System.currentTimeMillis()) > 0 } },
+        badge = { ChatModule.of(context, caseId).listChats().count { it.unreadCount(CaseClock.now(caseId)) > 0 } },
     ) { ChatApp(caseId) },
     PhoneApp("police", "Police Department", RukiaIcons.Shield, PoliceBlue) {
         val case = cases.first { it.id == caseId }
@@ -177,10 +177,11 @@ fun LauncherScreen(apps: List<PhoneApp>, onOpen: (PhoneApp) -> Unit) {
 
 @Composable
 private fun ClockWidget() {
-    var now by remember { mutableStateOf(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES)) }
+    val clock = CaseClock.clock(LocalCaseId.current)
+    var now by remember { mutableStateOf(LocalDateTime.now(clock).truncatedTo(ChronoUnit.MINUTES)) }
     LaunchedEffect(Unit) {
         // State only changes when the minute does, so this doesn't recompose every second.
-        while (true) { delay(1_000); now = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES) }
+        while (true) { delay(1_000); now = LocalDateTime.now(clock).truncatedTo(ChronoUnit.MINUTES) }
     }
     Column(Modifier.fillMaxWidth().padding(start = 6.dp, top = 24.dp)) {
         Text(

@@ -71,7 +71,9 @@ Characters can also have a `photo` (path inside `media/`), used as their profile
 
 ## Saving
 
-Story files are read-only. Each case saves its progress separately, under `files/cases/<caseId>/chat/` in the app's internal storage: `chats/<id>.json` holds each chat's messages and current choices, and `story-state.json` holds the ink state (position in every chat plus all variables). Uninstall the app or clear its data to reset progress.
+Story files are read-only. Each case saves its progress separately, under `files/cases/<caseId>/chat/` in the app's internal storage: `chats/<id>.json` holds each chat's messages and current choices, and `story-state.json` holds the ink state (position in every chat plus all variables). To restart a case, open the Police Department app and tap "Reset chats": it wipes that case's chats and the week starts again (D1, without the opening notifications) the next time the case is opened. Uninstalling the app or clearing its data resets every case.
+
+**Debug cases.** A case whose id starts with `debug-` (e.g. `debug-ruk-93429049`, "DEBUG:RUK-93429049") plays the content of the case it copies with its own save, never sends notifications, and has a yellow time bar on top: "Next" jumps to the story's next event (a timed line or choices expiring), the others move the clock ahead (+10m, +1h, +6h, next 08:00). The skip stops at every event on the way, so lines arrive and choices expire in order. The clock only moves forward; "Reset chats" puts it back to real time. To add one, list it in `game/Cases.kt`.
 
 ## Build
 

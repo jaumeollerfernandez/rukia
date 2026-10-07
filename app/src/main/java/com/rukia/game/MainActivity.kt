@@ -17,6 +17,7 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import com.rukia.phone.AppLaunch
+import com.rukia.phone.CaseClock
 import com.rukia.phone.PhoneScreen
 
 /** The game: title screen, or the phone of the case being played. */
@@ -24,6 +25,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        CaseClock.init(this)
         AppLaunch.handle(intent)
         setContent {
             // Story messages arrive as notifications, which need permission on Android 13+.

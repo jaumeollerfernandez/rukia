@@ -1,4 +1,4 @@
-// Iris, 20 años, de la secta. Era amiga de Alicia en el Casal. Duda. Solo escribe de madrugada, a escondidas.
+// Iris, 20 años, de Rosa d'Abril. Era amiga de Alicia en el Casal. Duda. Solo escribe de madrugada, a escondidas.
 // Su primer mensaje llega la noche del D4 (pasada la medianoche).
 
 === iris ===
@@ -10,7 +10,7 @@ tu hermana dice que no tienes el móvil #delay: 10
 pero si alguien lee esto: ali tenía razón #delay: 6
 lo de los papeles #delay: 4 #caduca: D5 02:00
 * [¿Qué papeles?]
-    el guía nos ha hecho firmar que lo donamos todo a la comunidad «en caso de tránsito» #delay: 60
+    ignasi nos ha hecho firmar las voluntades. que lo donamos todo a la comunidad «en caso de tránsito» #delay: 60
     casa, cuentas, todo #delay: 4
     y nos ha dado una fecha #delay: 5
 * [¿Quién eres?]
@@ -28,7 +28,7 @@ borro esto #delay: 3
 = d6
 📞 #at: D6 00:45 #call: audio/iris.m4a
 por si no lo has cogido: es a las seis y media. en el cráter de santa margarida #delay: 60
-el guía lleva unas botellas en la furgoneta. dice que es «agua de luz» #delay: 6
+ignasi lleva unas botellas en la furgoneta. dice que es «agua de luz» #delay: 6
 no voy a ir. creo #delay: 10 #caduca: D6 02:00
 * [Iris, ve a los Mossos de Olot. Pregunta por la sargento Puig.]
     ~ iris_ayuda = true

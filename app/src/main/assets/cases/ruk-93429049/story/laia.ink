@@ -39,12 +39,12 @@ Te escribo esta noche para el parte. #delay: 3
     Normal. El primer día todo el mundo miente un poco. #delay: 6
 * [La madre y la hermana hablan raro en su grupo.]
     Raro cómo. #delay: 4
-    ** [Hablan de un «Guía» y de una tal «Rosa d'Abril».]
+    ** [Hablan de un tal Ignasi y de una asociación, «Rosa d'Abril».]
         ~ sabe_secta = true
         «Rosa d'Abril». Me suena. #delay: 8
         Hace un año hubo una denuncia contra un grupo con ese nombre. Estafa. Se archivó. #delay: 5
         Lo miro mañana. Buen trabajo. #delay: 3
-    ** [No sé. Como de secta.]
+    ** [No sé. Parece una secta.]
         Las sectas no se denuncian solas. Necesito nombres. #delay: 5
 * [Su padre cree que está en casa de una amiga.]
     Eso le dijo la madre, ¿no? #delay: 4
@@ -116,8 +116,9 @@ Buenos días. #at: D3 08:45
 }
 {sabe_secta:
     Lo del banco. La «Comunitat Rosa d'Abril» es una asociación registrada en Sant Joan les Fonts. Sede: un mas reformado. Lo llaman el Casal. #at: D3 12:10
+    Sobre el papel, mindfulness y retiros espirituales. «Para sanar el alma». Cuotas, no. Aportaciones voluntarias. Muchas. #delay: 6
     Presidente: Ignasi Coll Ferrer, 61 años. Una denuncia por estafa hace un año, archivada. #delay: 5
-    Ese es tu «Guía». #delay: 3
+    Ese es el Ignasi del que hablan. Se anuncia como «acompañante». #delay: 3
 }
 Mi comisario me pregunta por qué pierdo el tiempo con una mayor de edad que se ha ido de casa. #at: D3 15:30
 Le he dicho que es intuición. No le ha hecho gracia. #delay: 4
@@ -265,7 +266,7 @@ Mañana amanece. #delay: 3
 // Alicia a salvo y la ceremonia parada. Si la secta la había encontrado, la rescatan en el mismo cráter.
 = final_bueno
 06:31. Entramos. #at: D7 06:31
-El Guía, Ignasi Coll, detenido. Las botellas, requisadas. Ya veremos qué llevaban. #delay: 30
+Ignasi Coll, detenido. Las botellas, requisadas. Ya veremos qué llevaban. #delay: 30
 Montse y Berta están bien. Asustadas. Berta grita que les hemos robado la luz. #delay: 8
 {capturada():
     Y entre ellos estaba Alicia. La traían de la mano su madre y su hermana, con la ropa blanca encima del jersey. #delay: 10
@@ -284,7 +285,7 @@ Alicia está a salvo. Está conmigo. #at: D7 06:31
 Pero en el cráter no había nadie nuestro. Cuando han llegado los primeros, ya había amanecido. #delay: 10
 Hay ambulancias. Muchas. #delay: 6
 Su madre y su hermana están entre los que se han llevado al hospital. Vivas. De momento. #delay: 10
-El Guía no estaba. Ya lo encontraremos. #delay: 6
+Ignasi Coll no estaba. Ya lo encontraremos. #delay: 6
 Alguien quiere hablar contigo. #delay: 30 #call: audio/alicia_final.m4a
 Hiciste lo que pudiste. Yo también. No basta, pero es lo que hay. #delay: 60
 -> fin
@@ -300,7 +301,7 @@ Lo siento. #delay: 10
 // Nadie la encontró: ni la policía ni la secta. Sigue escondida en el bosque.
 = final_escondida
 {familia_salvada():
-    06:31. Entramos. El Guía, detenido. Montse y Berta, a salvo. #at: D7 06:31
+    06:31. Entramos. Ignasi Coll, detenido. Montse y Berta, a salvo. #at: D7 06:31
     De Alicia, nada. Sigue escondida en algún sitio del valle. #delay: 8
     Si te escribe, dile que ya puede volver. #delay: 5
 - else:

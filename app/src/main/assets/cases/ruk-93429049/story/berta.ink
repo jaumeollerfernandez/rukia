@@ -15,7 +15,7 @@ Siempre igual 🙄 #at: D-5 08:41
     Sé que no eres Ali. #at: D2 23:10
     El móvil de Ali está en casa. Y tú estás dentro. #delay: 8
     No sé quién eres. Pero sé que nos lees. #delay: 6
-    El Guía dice que todo lo que se esconde acaba saliendo a la luz. #delay: 10
+    Ignasi dice que todo lo que se esconde acaba saliendo a la luz. #delay: 10
 - else:
     Sé que vas a volver. #at: D2 23:10
     Siempre vuelves. #delay: 5
@@ -33,14 +33,14 @@ Buenas noches 🌹 #delay: 15 #caduca: D3 08:00
 
 = d3
 {sospecha_familia >= 3:
-    Cuatro amaneceres. #at: D3 07:05
-    ¿Tú también los cuentas? #delay: 10
+    Hoy he visto salir el sol desde tu ventana. #at: D3 07:05
+    Tu cama sigue hecha. Quien seas, no la toques. #delay: 10
 }
 -> d4
 
 = d4
 {sospecha_familia >= 3:
-    Tres. #at: D4 07:05
+    Sigues ahí. Lo noto. #at: D4 07:05
 }
 -> d5
 

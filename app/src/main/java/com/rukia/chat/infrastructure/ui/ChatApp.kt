@@ -12,6 +12,7 @@ import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.infrastructure.ChatModule
 import com.rukia.chat.infrastructure.notifications.VisibleChat
 import com.rukia.phone.AppLaunch
+import com.rukia.phone.CaseClock
 import com.rukia.phone.SystemBars
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -53,7 +54,7 @@ fun ChatApp(caseId: String) {
             var tab by rememberSaveable { mutableStateOf(Tab.Chats) }
             val openChat = { chat: Chat ->
                 // What already arrived shows at once; anything newer is animated in when it arrives.
-                revealFrom = chat.arrivedCount(System.currentTimeMillis())
+                revealFrom = chat.arrivedCount(CaseClock.now(caseId))
                 m.advanceChat(chat.id)
                 chats = m.listChats()
                 openId = chat.id
@@ -65,8 +66,8 @@ fun ChatApp(caseId: String) {
                 chats.find { it.id == id }?.let(openChat)
             }
             // Ticks so the chat list picks up delayed messages as they arrive.
-            val now by produceState(System.currentTimeMillis()) {
-                while (true) { delay(1_000); value = System.currentTimeMillis() }
+            val now by produceState(CaseClock.now(caseId)) {
+                while (true) { delay(1_000); value = CaseClock.now(caseId) }
             }
             if (open == null) {
                 val unreadChats = chats.count { it.unreadCount(now) > 0 }

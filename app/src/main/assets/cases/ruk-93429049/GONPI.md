@@ -20,8 +20,8 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | `eric` | @eric.forner | Èric | «pan, masa madre y malas decisiones 🥖» | 344 |
 | `berta` | @berta.luz | Berta | «Cada amanecer es una puerta ☀️ · @rosadabril.casal» | 1.017 |
 | `mama` | @montse.vidal | Montse | «Gratitud. Familia. Luz.» | 156 |
-| `guia` | @rosadabril.guia | El Guía | «El que se suelta, renace. Encuentros en el Casal.» | 3.420 |
-| `casal` | @rosadabril.casal | Cuenta de la secta | «Comunitat Rosa d'Abril · Garrotxa» | 1.890 |
+| `guia` | @ignasi.coll.acompanya | Ignasi Coll, el líder. Se presenta como coach | «Acompaño procesos de transformación personal · Meditación · Constelaciones familiares · Encuentros en el Casal 🌹» | 3.420 |
+| `casal` | @rosadabril.casal | La asociación (la secta, aunque nunca lo dice) | «Associació Rosa d'Abril · Meditación, crecimiento personal y vida en comunidad · Sant Joan les Fonts» | 1.890 |
 | `iris` | @iris.ambllum | Iris | «buscando mi luz» | 233 |
 | `oriol` | @oriol.pedals | Oriol, de clase | «🚴 subo puertos de noche porque de día hace calor» | 640 |
 | `voley` | @voleiolot | Club de vóley | «Vòlei Olot · Juvenil y Sénior» | 1.530 |
@@ -30,6 +30,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | `marc` | @marc.hostalnou | Colega del pueblo (19) | «tractor > coche» | 410 |
 | `laura` | @lauravila_ | Colega del pueblo (18), excompañera de instituto | «🌻» | 760 |
 | `forn` | @forncanbatlle | La panadería | «Forn Can Batlle · Olot · desde 1964» | 2.050 |
+| `joan` | @joan.pericot | Hermano de Carme, otra miembro | «Olot» | 98 |
 
 ## Antes del D1 (visible desde el principio)
 
@@ -44,7 +45,9 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 - **D-60**: una masía con la **puerta azul** y el dintel de 1782 🔎🔎. *«Ruta Sant Salvador de Bianya → Collada de Bracons. A media subida, el Mas de la Rosalia, el de la porta blava, sigue en pie. La Rosalia (78 años, ¡como una rosa!) nos dio agua del pozo y nos presentó a su perra Trufa 🐕. Sin luz eléctrica ni cobertura: así se vive allí arriba.»* Esta es la publicación que une `IMG_0391` (puerta azul, Trufa), `IMG_0405` (la vista de Bracons) y la llamada de Rosalia.
 - **D-30**, **D-15**: rutas por la Alta Garrotxa, el Santuari del Mont, una cascada. ⚪
 
-**@rosadabril.guia**: frases inspiradoras sobre amaneceres, soltar y desprenderse («El dinero es un peso. Suéltalo y vuela.») 🔎. **@rosadabril.casal**: fotos de meditaciones en grupo, siempre de espaldas y sin caras. En una se ve a Montse y a Berta.
+**@ignasi.coll.acompanya**: parece la cuenta de un facilitador de mindfulness. Hace tres días cuenta que «una joven» le preguntó en el círculo por qué cuesta soltar: es Alicia, la noche que el chat Familia llama «lo que has compartido» 🔎. Frases sobre soltar lo material («Lo que posees acaba poseyéndote») 🔎 y sobre alejarse de la familia («Hay vínculos que sanan y vínculos que pesan… aunque lleven tu apellido»), que Montse agradece: «Gracias por devolverme a mi familia» 🔎.
+
+**@rosadabril.casal**: la tapadera es una asociación de mindfulness y retiros espirituales «para sanar el alma»: todo transmite calma (jardines, velas, cojines, testimonios como «Llegué rota. Hoy tengo una familia.», de «M., 52 años», que es Montse 🔎). El retiro «Sanar el alma» lo comenta Iris: «este retiro me cambió la vida». Fotos de meditaciones en grupo, siempre de espaldas y sin caras. En una se ve a Montse y a Berta, y debajo comenta @joan.pericot: su hermana Carme lleva dos años sin hablar con la familia; la cuenta le contesta «Te enviamos luz… Carme está en su proceso» 🔎 (aislamiento). Un retiro de silencio «sin móviles, sin relojes» 🔎 (control) y encuentros con «aportación voluntaria» 🔎 (dinero). Nadie usa la palabra secta: el jugador la deduce.
 
 **@montse.vidal**: flores, el valle, frases. Hace unos meses dejó de publicar fotos con Alicia. ⚪/🔎
 
@@ -54,7 +57,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 07:10 | @berta.luz | Amanecer en el valle. *«Seis amaneceres.»* Le da «me gusta» @rosadabril.guia | 🔎 Cuenta atrás (cada día una menos) |
+| 07:10 | @berta.luz | Amanecer en el valle. Empieza su serie diaria *«☀️ Frase del alba: «Suelta lo que pesa. Lo que es tuyo, siempre vuelve.»» Cada mañana, una frase para acompañaros en el día 🌹*. Le da «me gusta» @ignasi.coll.acompanya | 🔎 Autoayuda inofensiva a primera vista; leídas en orden, las frases hablan de Alicia y de lo que preparan |
 | 07:10 | @berta.luz | Comenta el último post de Alicia: «🌅» | 🔎 |
 | 12:00 | @hostalnou.debianya | «Se busca perro perdido, mestizo negro, responde a Rocky» | ⚪ |
 | 19:30 | @marc.hostalnou | Foto del tractor en la fiesta del pueblo. Comentario de @lauravila_: «tú y ese tractor 🙄» | ⚪ |
@@ -64,8 +67,9 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 07:05 | @berta.luz | *«Cinco amaneceres.»* | 🔎 |
+| 07:05 | @berta.luz | *«Frase del alba: Dar es la forma más pura de recibir.»* | 🔎 El día de la transferencia |
 | 10:30 | @montse.vidal | Unas manos abiertas al sol. *«Dar es liberarse. Hoy he soltado lo último que me ataba.»* Coincide con la transferencia de 2.840 € del banco | 🔎 |
+| 11:00 | @rosadabril.casal | Dos manos con una rosa. *«Hoy una de nuestras familias ha dado un paso más en su camino de desprendimiento. Gracias 🌹»*. Montse comenta «🙏» | 🔎 Media hora después de la transferencia: el «desprendimiento» es el dinero de Alicia |
 | 13:00 | @eric.forner | Cesta vacía en el Forn. *«Caso abierto: seis barras de payés desaparecidas 🕵️🥖»*. Comentario de @forncanbatlle: «Èric, a trabajar 😤» | 🔎 Pista del pan, en tono de broma |
 | 18:40 | @arnau.gg | Foto de un «fail» con la bici, hecha **anteanoche a las 22:50 en la rotonda del Hostalnou**. Al fondo, borrosa, una chica con mochila y una **bolsa con barras que asoman**. *«la rotonda maldita 💀»* | 🔎🔎 Es Alicia esperando a Pol con el pan. Encaja con el chat de Arnau del D2 |
 | 22:00 | @pol.rider | Foto nocturna del salpicadero, con el reloj a las **23:41**; por la ventana se ve la estación de autobuses de Olot. *«taxi nocturno 🚕»*. La publicó anteanoche y la vuelve a subir hoy, o aparece archivada | 🎭 Confirma que la dejó en la estación |
@@ -74,26 +78,27 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 07:00 | @berta.luz | *«Cuatro amaneceres.»* | 🔎 |
+| 07:00 | @berta.luz | *«Frase del alba: Quien de verdad te quiere, te espera sin hacer preguntas.»* | 🔎 |
 | 11:00 | @dani.moto | Carrusel de un concierto en Barcelona. *«Barna anteanoche 🔥»*, con la entrada fechada | 🎭→⚪ Es la coartada de Dani: estaba en Barcelona |
 | 14:20 | @oriol.pedals | Captura de la ruta en bici: *«Subida nocturna a Bracons 🌙 · 1:12 h»*, hecha anteanoche entre la 01:00 y las 02:30. Comentario de @oriol.pedals: «por cierto a mitad de subida vi a una chica sola andando por el arcén con una mochila. a esas horas! casi me paro» | 🔎🔎 Alicia subiendo andando hacia Bracons. Se cruza con `IMG_0409` (ruta a pie «…de Bianya») |
 | 20:00 | @mire.ia | Fiesta de cumpleaños (la que planeaban en el grupo). *«los 18 con mis personas (falta una 💔)»* | ⚪ |
-| 23:10 | @rosadabril.guia | Comenta el último post de Alicia: **«La luz te espera, pequeña. Siempre vuelve a casa quien sabe dónde está su casa.»** | 🔎 Amenaza velada |
+| 23:10 | @ignasi.coll.acompanya | Comenta el último post de Alicia: **«Te echamos de menos en la Casa, Alicia. Aquí nadie te juzga. Vuelve cuando estés preparada 🌹»**. A la misma hora le escribe por privado | 🔎 Cariño que presiona |
 
 ## D4
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 07:00 | @berta.luz | *«Tres amaneceres.»* | 🔎 |
+| 07:00 | @berta.luz | *«Frase del alba: No todo el que se aleja se pierde. Y quien se pierde, vuelve a casa.»* | 🔎 |
 | 09:00 | @hostalnou.debianya | «Aviso: la carretera de Bracons tendrá obras en el tramo de Sant Salvador de 9 a 14 h» | ⚪ (pero sitúa el lugar) |
 | 16:00 | @iris.ambllum | Amanecer, foto movida. *«no todos los amaneceres son iguales»*. Comentario de @berta.luz: «¿Qué quieres decir, hermana? 🙏». Iris no contesta | 🔎 Las dudas de Iris; ese mismo día empieza a escribir |
+| 18:00 | @rosadabril.casal | *«Tarde de mindfulness abierta en el jardín. Ven tal como eres 🌿»*. @lauravila_ pregunta cuánto cuesta; la cuenta contesta «La primera vez, nada 🌹 Escríbenos por privado» | ⚪/🔎 Captación: el precio nunca se dice en público |
 | 21:00 | @nuriii.g | Foto antigua con Alicia. *«vuelve pronto. sé que estás bien. lo sé»* (si `confianza_nuria` es alta, añade «✨🏡»: guiño a las estrellas) | 🔎 |
 
 ## D5
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 07:00 | @berta.luz | *«Dos amaneceres.»* | 🔎 |
+| 07:00 | @berta.luz | *«Frase del alba: Viste el alma de blanco y el mundo se vuelve ligero.»* | 🔎 La ropa blanca |
 | 12:00 | @voleiolot | *«Derrota 1-3 sin nuestra colocadora titular. ¡Te esperamos, Ali! 🏐»* | ⚪ |
 | 22:00 | @rosadabril.casal | **Anuncio:** foto del **cráter de Santa Margarida** con su ermita. *«El séptimo amanecer nos reunirá donde la tierra se abrió. Solo familias completas.»* | 🔎🔎 El lugar de la ceremonia. «Familias completas»: por eso necesitan a Alicia |
 | 22:30 | @lauravila_ | Atardecer en el Hostalnou. Comentario de @marc.hostalnou: «oye esta tarde ha pasado una furgo blanca del Casal subiendo hacia Bracons, iban parando en cada mas 🤨» | 🔎 La secta busca por la zona correcta: presión |
@@ -102,7 +107,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 07:00 | @berta.luz | *«Mañana.»* | 🔎 |
+| 07:00 | @berta.luz | *«Frase del alba: Lo mejor está a punto de amanecer.»* | 🔎 Es el día antes |
 | 10:00 | @hostalnou.debianya | **«Corte de suministro eléctrico programado en L'Hostalnou de 18:00 a 22:00 por mantenimiento.»** | 🔎 Anticipa el apagón del D6: el jugador puede prepararse |
 | 13:00 | @montse.vidal | Mesa puesta para tres. *«Mañana volvemos a estar todas.»* | 🔎 Inquietante |
 | 18:30 | @excursions.bianya | Nuevo post: «Hoy no hemos podido llegar al Mas de la Rosalia: unos señores de una furgoneta blanca nos han dicho que el camino estaba cortado. ¿Alguien sabe algo?» | 🔎🔎 La secta está al lado: la confirmación definitiva |
@@ -111,6 +116,29 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 05:00 | @rosadabril.guia | Negro total. *«Hoy amanece para todos.»* | 🔎 |
+| 05:00 | @ignasi.coll.acompanya | Negro total. *«Hoy amanece para todos.»* | 🔎 |
 | 06:30 | Final bueno: @hostalnou.debianya | «Gracias a los Mossos por su trabajo esta madrugada en el valle 💙» | |
 | 06:30 | Final malo: @berta.luz | Amanecer. *«Ya estamos todas.»* | |
+
+## Canal «Rosa d'Abril 🌹» (chat de solo lectura, `story/casal.ink`)
+
+La lista de difusión de la asociación en el móvil de Alicia. Tono de calma (horarios de mindfulness, lecturas), pero cada pocos mensajes se cuela una norma: móviles en la cesta durante los retiros, «lo que se comparte en el círculo pertenece al círculo», aportaciones por transferencia, «si alguien os hace dudar, traedlo al taller», «cada alma trae a una persona de fuera». Durante el caso: el ciclo de preparación del Amanecer con ayunos (D1), el «desprendimiento» de una familia (D2, tras la transferencia), una «alma joven que se ha alejado» y que hay que avisar si se la ve (D3), firmar las voluntades y no responder a los de fuera (D4), ropa blanca sin bolsos, móviles ni llaves (D5) y ayuno completo (D6).
+
+## Grupos del pueblo (camuflaje)
+
+Para que Rosa d'Abril sea «una actividad más» de Alicia, su móvil tiene diez grupos del pueblo con su propia vida (chats `lectura`, `coral`, `aliments`, `ioga`, `esplai`, `festa`, `veins`, `autoescola`, `teatre`, `repas`). Casi todo es ruido ⚪, con alguna señal suelta 🔎:
+
+| Grupo | Gente | Señal |
+|---|---|---|
+| Club de lectura 📚 | Teresa (biblioteca), Ramon, Gemma | 🔎 D5: Montse devuelve el libro y dice que Alicia deja el club porque tiene «otras lecturas» |
+| Coral l'Hostalnou 🎶 | Xavier (director), Roser, Pep | 🔎 Montse dejó la coral hace un año; D2 Roser la ve en el mercado con una bolsa llena de velas |
+| Voluntaris Banc d'Aliments 🥫 | Lluïsa, Toni, Fàtima | 🔎 D2: Montse dona cuatro cajas, «se están desprendiendo de lo material» (también en Gonpi) |
+| Ioga al Poli 🧘‍♀️ | Clàudia (profe), Imma, Gemma | 🔎 Contraste: cuota clara, sin permanencia. D2 Imma pregunta por un folleto de Rosa d'Abril; Clàudia: «desconfiad de quien os prometa cambiaros la vida en un fin de semana» |
+| Monis Esplai Bianya ⛺ | Pau, Clara, Biel | ⚪ |
+| Comissió Festa Major 🎉 | Quim (Ajuntament), Marc, Laura | ⚪ |
+| Veïns carrer del Pont 🏘️ | Conxita, Enric y Montse | 🔎 Montse, muy serena: «estamos de recogimiento»; un coche gris con una rosa en el cristal (D4); el corte de luz del D6 |
+| Autoescola · Teòrica 🚗 | Rafa (profe), Hugo | 🔎 D4: Alicia no va al examen; su madre dice que ha «cambiado de prioridades» |
+| Teatre l'Hostalnou 🎭 | Dolors (directora), Queralt, Jan | ⚪ Ensayan «La casa de Bernarda Alba» (una madre que encierra a sus hijas) |
+| Repàs Martina i Leo 📐 | Anna y Sílvia (madres) | 🔎 D2: persianas bajadas, no hay nadie en casa |
+
+Cuentas nuevas en Gonpi: `lectura`, `coral`, `aliments`, `claudia`, `esplai`, `teatre`, `autoescola`, `pau`, `queralt`, `gemma`, `toni`. Publicaciones antiguas con Alicia en sus actividades (tertulia, gincana, ensayo, campamento) y algunas durante el caso: la donación de cajas (D2 12:00), el aprobado del teórico (D4), «buscamos una Adela» (D4) y el récord de lotes (D5).

@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import com.rukia.phone.CaseClock
 import com.rukia.phone.Kit
 import com.rukia.phone.RukiaIcons
 import com.rukia.phone.SystemBars
@@ -113,7 +114,7 @@ fun PoliceApp(
                             CaseCard(caseLabel, caseTitle, m.getCaseQuestion().question)
                             Section("Game") {
                                 // Past the case's deadline there's nothing left to solve.
-                                val closed = m.deadline?.let { System.currentTimeMillis() > it } == true
+                                val closed = m.deadline?.let { CaseClock.now(caseId) > it } == true
                                 if (closed) ActionRow(RukiaIcons.Search, Danger, "Solve the case", "Closed: the deadline has passed", trailing = {}) {}
                                 else ActionRow(RukiaIcons.Search, Danger, "Solve the case", "One attempt only. Choose wisely") { solving = true }
                                 RowDivider()

@@ -19,9 +19,11 @@ Tu madre nunca te deja ir ni a Girona sola. ¿Seguro que estás bien? #delay: 15
 * [tía, tú qué sabes de la gente con la que va mamá?]
     ~ sabe_secta = true
     Lo de «Rosa d'Abril». #delay: 400
+    Tu madre dice que es mindfulness. Retiros para «sanar el alma». #delay: 20
+    Yo solo veo que cada año tiene menos dinero y menos familia. #delay: 8
     Tu padre y yo intentamos hablar con ella hace un año. No hubo manera. #delay: 20
     Le dio a ese hombre el dinero del piso de la abuela, ¿lo sabías? Todo. #delay: 15
-    Ese «Guía» no es ningún guía. Es un sinvergüenza con muy buena labia. #delay: 10
+    Ese Ignasi se hace llamar «acompañante». Acompañante de qué, digo yo. Es un sinvergüenza con muy buena labia. #delay: 10
     ¿Por qué me lo preguntas ahora? ¿Te han hecho algo? #delay: 8 #caduca: D2 10:00
     ** [no, solo quería saberlo]
         Ali, si un día necesitas salir de esa casa, la mía está abierta. Día y noche. #delay: 300

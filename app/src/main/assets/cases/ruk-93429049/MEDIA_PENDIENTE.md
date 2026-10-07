@@ -18,7 +18,7 @@ Todo lo que hay que crear a mano para que el caso tenga sentido. Marca cada casi
 - [ ] `audio/berta.m4a`: D5, Berta (~25 s). Eco, mantra de fondo y una vela; que la consigna de la rosa se entienda
 - [ ] `audio/iris.m4a`: D6, Iris (~50 s). Susurro, grifo, pasos. Que se oigan claros «seis y media», «cráter de Santa Margarida» y «agua de luz»
 - [ ] `audio/alicia_final.m4a`: D7, Alicia (~30 s). Coche patrulla, radio policial, la perra. Sirve para el final bueno y para el agridulce
-- [ ] `audio/guia_final.m4a`: D7, el Guía (~20 s). Viento y pájaros; solo en el final malo
+- [ ] `audio/guia_final.m4a`: D7, Ignasi (~20 s). Viento y pájaros; solo en el final malo
 
 ## 2. Galería de Alicia (`multimedia/`)
 
@@ -55,45 +55,51 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/excursions_dm60.jpg` 🔎 El Mas de la Rosalia: **puerta azul, dintel 1782**, la perra
 - [ ] `gonpi/excursions_dm30.jpg` Santuari del Mont
 - [ ] `gonpi/excursions_dm15.jpg` Cascada de la Alta Garrotxa
-- [ ] `gonpi/guia_a.jpg`, `gonpi/guia_b.jpg`, `gonpi/guia_c.jpg`: amaneceres con frases sobreimpresas
+- [ ] `gonpi/guia_a.jpg`, `gonpi/guia_b.jpg`, `gonpi/guia_c.jpg`: estilo coach: amaneceres, manos, una taza de infusión, con frases sobreimpresas
 - [ ] `gonpi/casal_a.jpg` Meditación en grupo, de espaldas
 - [ ] `gonpi/casal_b.jpg` 🔎 Meditación donde se reconocen Montse y Berta
+- [ ] `gonpi/casal_c.jpg` Cesta llena de móviles apagados a la entrada del Casal (retiro de silencio)
+- [ ] `gonpi/casal_d.jpg` Cartel del retiro «Sanar el alma»: bosque con niebla, cojines de meditación en círculo, tonos cálidos
+- [ ] `gonpi/casal_e.jpg` Testimonio: manos de mujer sujetando una taza, texto «Llegué rota. Hoy tengo una familia.»
+- [ ] `gonpi/guia_d.jpg` Círculo de cojines vacío con velas, de noche
 - [ ] `gonpi/montse_a.jpg`, `gonpi/montse_b.jpg`, `gonpi/montse_c.jpg`: flores, el valle, frases
 - [ ] `gonpi/dani_a.jpg`, `gonpi/dani_b.jpg`: moto y gimnasio
 
 **D1**
-- [ ] `gonpi/berta_d1.jpg` Amanecer («Seis amaneceres.»)
+- [ ] `gonpi/berta_d1.jpg` Amanecer con la frase del alba sobreimpresa («Suelta lo que pesa…»)
 - [ ] `gonpi/hostalnou_d1.jpg` Cartel del perro perdido **Rocky**
 - [ ] `gonpi/marc_d1.jpg` Tractor en la fiesta del pueblo
 - [ ] `gonpi/carla_d1.jpg` Foto antigua de las cuatro amigas
 
 **D2**
-- [ ] `gonpi/berta_d2.jpg` Amanecer («Cinco amaneceres.»)
+- [ ] `gonpi/berta_d2.jpg` Amanecer con frase («Dar es la forma más pura de recibir.»)
 - [ ] `gonpi/montse_d2.jpg` 🔎 Manos abiertas al sol
+- [ ] `gonpi/casal_d2.jpg` 🔎 Dos manos sujetando una rosa abierta (el «desprendimiento» de la transferencia)
 - [ ] `gonpi/eric_d2.jpg` 🔎 Cesta de pan vacía en el Forn
 - [ ] `gonpi/arnau_d2.jpg` 🔎 Arnau en la rotonda del Hostalnou; al fondo, una chica con mochila y **barras que asoman**, con la chaqueta verde
 - [ ] `gonpi/pol_d2.jpg` Salpicadero de noche, reloj a las **23:41**, la estación de Olot por la ventana
 
 **D3**
-- [ ] `gonpi/berta_d3.jpg` Amanecer («Cuatro amaneceres.»)
+- [ ] `gonpi/berta_d3.jpg` Amanecer con frase («Quien de verdad te quiere, te espera…»)
 - [ ] `gonpi/dani_d3.jpg` 🔎 Concierto en Barcelona con la entrada fechada
 - [ ] `gonpi/oriol_d3.jpg` 🔎 Captura de la ruta en bici «Subida nocturna a Bracons 🌙 · 1:12 h»
 - [ ] `gonpi/mireia_d3.jpg` Fiesta de cumpleaños de Mireia
 
 **D4**
-- [ ] `gonpi/berta_d4.jpg` Amanecer («Tres amaneceres.»)
+- [ ] `gonpi/berta_d4.jpg` Amanecer con frase («No todo el que se aleja se pierde…»)
 - [ ] `gonpi/hostalnou_d4.jpg` Cartel de obras en la carretera de Bracons
 - [ ] `gonpi/iris_d4.jpg` Amanecer movido
+- [ ] `gonpi/casal_d4.jpg` Jardín del Casal al atardecer, esterillas en el césped
 - [ ] `gonpi/nuria_d4.jpg` Foto antigua de Núria con Alicia
 
 **D5**
-- [ ] `gonpi/berta_d5.jpg` Amanecer («Dos amaneceres.»)
+- [ ] `gonpi/berta_d5.jpg` Amanecer con frase («Viste el alma de blanco…»)
 - [ ] `gonpi/voley_d5.jpg` El equipo tras perder el partido
 - [ ] `gonpi/casal_d5.jpg` 🔎 Cráter de Santa Margarida con la ermita (anuncio de la ceremonia)
 - [ ] `gonpi/laura_d5.jpg` Atardecer en el Hostalnou
 
 **D6**
-- [ ] `gonpi/berta_d6.jpg` Amanecer («Mañana.»)
+- [ ] `gonpi/berta_d6.jpg` Amanecer con frase («Lo mejor está a punto de amanecer.»)
 - [ ] `gonpi/hostalnou_d6.jpg` 🔎 Cartel del corte de luz de 18:00 a 22:00
 - [ ] `gonpi/montse_d6.jpg` 🔎 Mesa puesta para tres
 - [ ] `gonpi/excursions_d6.jpg` 🔎 Camino de tierra cortado; una furgoneta blanca al fondo
@@ -103,12 +109,27 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/hostalnou_d7.jpg` Final bueno: agradecimiento a los Mossos
 - [ ] `gonpi/berta_d7.jpg` Final malo: amanecer («Ya estamos todas.»)
 
+**Grupos del pueblo** (ruido: la vida normal de Alicia)
+- [ ] `gonpi/lectura_a.jpg` Tertulia del club de lectura en la biblioteca, ejemplares de «Nada» sobre la mesa
+- [ ] `gonpi/coral_a.jpg` La coral cantando en la parroquia, camisas blancas
+- [ ] `gonpi/aliments_a.jpg` Voluntarios con cajas de comida; Alicia de espaldas con chaleco
+- [ ] `gonpi/aliments_d2.jpg` 🔎 Cuatro cajas de donación: ropa, mantas, una cafetera y un reloj de pared
+- [ ] `gonpi/claudia_a.jpg` Sala del polideportivo con esterillas
+- [ ] `gonpi/esplai_a.jpg` Niños con globos de agua en el parque, monitores empapados
+- [ ] `gonpi/teatre_a.jpg` Ensayo en el escenario del local social
+- [ ] `gonpi/teatre_d4.jpg` Cartel «Buscamos Adela»
+- [ ] `gonpi/autoescola_d4.jpg` Coche de autoescuela con una «L» y confeti
+- [ ] `gonpi/pau_a.jpg` Monitores de campamento, Alicia entre ellos
+- [ ] `gonpi/queralt_a.jpg` Selfie de Queralt y Alicia con vestidos negros de ensayo
+- [ ] `gonpi/gemma_a.jpg` Esterilla enrollada y un vermut en una terraza
+- [ ] `gonpi/toni_d5.jpg` Almacén lleno de lotes preparados
+
 ## 4. Fotos de perfil (`media/photos/`)
 
 Sirven de avatar en los chats y en Gonpi. Sin foto, se ve la inicial con el color del personaje.
 
-- [ ] Chats: `mama`, `berta`, `jordi`, `marta`, `arnau`, `nuria`, `carla`, `mireia`, `pol`, `dani`, `sergi`, `aina`, `oriol`, `paula`, `elena`, `pilar`, `eric`, `sonia`, `judit`, `ona`, `iris`, `guia`
-- [ ] Solo Gonpi: `alicia`, `casal` (la rosa dorada), `voley`, `excursions`, `hostalnou` (escudo del pueblo), `marc`, `laura`, `forn`
+- [ ] Chats: `mama`, `berta`, `jordi`, `marta`, `arnau`, `nuria`, `carla`, `mireia`, `pol`, `dani`, `sergi`, `aina`, `oriol`, `paula`, `elena`, `pilar`, `eric`, `sonia`, `judit`, `ona`, `iris`, `guia`, `teresa`, `ramon`, `gemma`, `xavier`, `roser`, `pep`, `lluisa`, `toni`, `fatima`, `claudia`, `imma`, `pau`, `clara`, `biel`, `quim`, `marc`, `laura`, `conxita`, `enric`, `rafa`, `hugo`, `dolors`, `queralt`, `jan`, `anna`, `silvia`
+- [ ] Solo Gonpi: `alicia`, `casal` (la rosa dorada), `voley`, `excursions`, `hostalnou` (escudo del pueblo), `forn`, `joan`, `lectura`, `coral`, `aliments`, `esplai`, `teatre`, `autoescola`
 - [ ] Sin foto, a propósito: `laia`, `central`, `rosalia`, `desconocido` y `banco` (números desconocidos, la radio y los avisos)
 
 Nombre: `photos/<id>.jpg`. Después se añade `"photo": "photos/<id>.jpg"` en `characters.json` (chats) o en `gonpi.json` (cuentas).
