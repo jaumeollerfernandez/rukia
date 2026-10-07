@@ -1,5 +1,7 @@
 package com.rukia.phone
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
@@ -60,7 +62,7 @@ fun DebugTimeBar(caseId: String) {
             color = Color.Black, fontSize = 15.sp, fontWeight = FontWeight.Bold, modifier = Modifier.widthIn(min = 82.dp),
         )
         Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            SkipButton("Next ⏭") { skip { now -> (nextEvent(ChatModule.of(context, caseId).listChats(), now) ?: now) - now } }
+            SkipButton(stringResource(R.string.debug_next)) { skip { now -> (nextEvent(ChatModule.of(context, caseId).listChats(), now) ?: now) - now } }
             SkipButton("+10m") { skip { 10 * MINUTE } }
             SkipButton("+1h") { skip { HOUR } }
             SkipButton("+6h") { skip { 6 * HOUR } }

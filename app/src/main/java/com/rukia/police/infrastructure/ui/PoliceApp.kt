@@ -1,5 +1,7 @@
 package com.rukia.police.infrastructure.ui
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -108,25 +110,25 @@ fun PoliceApp(
                             verticalArrangement = Arrangement.spacedBy(22.dp),
                         ) {
                             Text(
-                                "Police Department", Modifier.padding(start = 4.dp, top = 8.dp),
+                                stringResource(R.string.app_police), Modifier.padding(start = 4.dp, top = 8.dp),
                                 fontSize = 34.sp, lineHeight = 40.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.6).sp,
                             )
                             CaseCard(caseLabel, caseTitle, m.getCaseQuestion().question)
-                            Section("Game") {
+                            Section(stringResource(R.string.section_game)) {
                                 // Past the case's deadline there's nothing left to solve.
                                 val closed = m.deadline?.let { CaseClock.now(caseId) > it } == true
-                                if (closed) ActionRow(RukiaIcons.Search, Danger, "Solve the case", "Closed: the deadline has passed", trailing = {}) {}
-                                else ActionRow(RukiaIcons.Search, Danger, "Solve the case", "One attempt only. Choose wisely") { solving = true }
+                                if (closed) ActionRow(RukiaIcons.Search, Danger, stringResource(R.string.solve_case), stringResource(R.string.solve_closed), trailing = {}) {}
+                                else ActionRow(RukiaIcons.Search, Danger, stringResource(R.string.solve_case), stringResource(R.string.solve_one_try)) { solving = true }
                                 RowDivider()
-                                ActionRow(RukiaIcons.Exit, PoliceBlue, "Return to title", "Leave the case. Progress is kept", onClick = onReturnToTitle)
+                                ActionRow(RukiaIcons.Exit, PoliceBlue, stringResource(R.string.return_title), stringResource(R.string.return_title_sub), onClick = onReturnToTitle)
                             }
                             if (m.hasOperations) OperationsSection(board, m.operationLabels) { picked = it }
-                            Section("Evidence") {
-                                ActionRow(RukiaIcons.Phone, Kit.Accept, "Call recordings", "Listen again to the calls you answered") { listeningCalls = true }
+                            Section(stringResource(R.string.section_evidence)) {
+                                ActionRow(RukiaIcons.Phone, Kit.Accept, stringResource(R.string.call_recordings), stringResource(R.string.call_recordings_sub)) { listeningCalls = true }
                             }
-                            Section("Administration", footer = "Deletes every conversation and story choice in this case.") {
+                            Section(stringResource(R.string.section_admin), footer = stringResource(R.string.admin_footer)) {
                                 Text(
-                                    "Reset chats",
+                                    stringResource(R.string.reset_chats),
                                     Modifier.fillMaxWidth().clickable(role = Role.Button) { confirming = true }.heightIn(min = 48.dp)
                                         .padding(horizontal = 16.dp, vertical = 12.dp),
                                     color = c.red, fontSize = 17.sp, fontWeight = FontWeight.Medium,
@@ -138,32 +140,33 @@ fun PoliceApp(
                 }
 
                 picked?.let { op ->
+                    val onWay = stringResource(R.string.officers_on_way)
+                    val noneLeft = stringResource(R.string.no_squad_anymore)
                     IosAlert(
-                        title = "Send officers?",
-                        text = "${board.squad?.label ?: "The squad"} will go to: ${op.label}. Their report will arrive in Chats. " +
-                            "This squad can't be sent anywhere else.",
-                        confirm = "Send",
+                        title = stringResource(R.string.send_officers_q),
+                        text = stringResource(R.string.send_officers_text, board.squad?.label ?: stringResource(R.string.the_squad), op.label),
+                        confirm = stringResource(R.string.send),
                         onDismiss = { picked = null },
                     ) {
                         picked = null
                         // The squad may have gone off shift while the alert was open.
                         val ok = runCatching { m.dispatchSquad(op.id) }.isSuccess
                         sent++
-                        scope.launch { snackbar.showSnackbar(if (ok) "Officers on their way" else "No squad available anymore") }
+                        scope.launch { snackbar.showSnackbar(if (ok) onWay else noneLeft) }
                     }
                 }
 
                 if (confirming) {
+                    val resetDone = stringResource(R.string.chats_reset)
                     IosAlert(
-                        title = "Reset all chats?",
-                        text = "All data related to this save file will be deleted: every conversation, call and choice " +
-                            "made in the story. The story will start again from the beginning. This can't be undone.",
-                        confirm = "Delete everything",
+                        title = stringResource(R.string.reset_q),
+                        text = stringResource(R.string.reset_text, CaseClock.LATE_START_HOUR),
+                        confirm = stringResource(R.string.delete_everything),
                         onDismiss = { confirming = false },
                     ) {
                         confirming = false
                         m.resetSave.reset()
-                        scope.launch { snackbar.showSnackbar("Chats have been reset") }
+                        scope.launch { snackbar.showSnackbar(resetDone) }
                     }
                 }
             }
@@ -232,7 +235,7 @@ internal fun SubHeader(title: String, onBack: () -> Unit) {
     Row(Modifier.fillMaxWidth().statusBarsPadding().padding(start = 8.dp, end = 8.dp, top = 4.dp, bottom = 6.dp), verticalAlignment = Alignment.CenterVertically) {
         Row(Modifier.width(90.dp).heightIn(min = 44.dp).clickable(role = Role.Button, onClick = onBack), verticalAlignment = Alignment.CenterVertically) {
             Icon(RukiaIcons.ChevronLeft, null, Modifier.size(24.dp), tint = c.tint)
-            Text("Police", color = c.tint, fontSize = 17.sp)
+            Text(stringResource(R.string.police), color = c.tint, fontSize = 17.sp)
         }
         Text(title, Modifier.weight(1f), fontSize = 17.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center)
         Spacer(Modifier.width(90.dp))
@@ -252,7 +255,7 @@ internal fun IosAlert(title: String, text: String, confirm: String, onDismiss: (
             HorizontalDivider(thickness = 0.5.dp, color = c.alertSeparator)
             Row(Modifier.height(46.dp)) {
                 Box(Modifier.weight(1f).fillMaxHeight().clickable(role = Role.Button, onClick = onDismiss), contentAlignment = Alignment.Center) {
-                    Text("Cancel", color = c.tint, fontSize = 17.sp)
+                    Text(stringResource(R.string.cancel), color = c.tint, fontSize = 17.sp)
                 }
                 VerticalDivider(thickness = 0.5.dp, color = c.alertSeparator)
                 Box(Modifier.weight(1f).fillMaxHeight().clickable(role = Role.Button, onClick = onConfirm), contentAlignment = Alignment.Center) {

@@ -1,5 +1,8 @@
 package com.rukia.phone
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -58,7 +61,7 @@ import java.time.temporal.ChronoUnit
 
 /** [badge] is the count shown on the icon (0 hides it); the home screen re-reads it every few seconds, off the main thread. */
 class PhoneApp(
-    val id: String, val label: String, val icon: ImageVector, val color: Color,
+    val id: String, @StringRes val label: Int, val icon: ImageVector, val color: Color,
     val badge: () -> Int = { 0 },
     val content: @Composable () -> Unit,
 )
@@ -66,13 +69,13 @@ class PhoneApp(
 /** Apps on the phone of case [caseId]. Add new ones here. [onReturnToTitle] leaves the phone for the game's title screen. */
 fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit) = listOf(
     PhoneApp(
-        "chat", "Chats", RukiaIcons.Chat, Color(0xFF25D366),
+        "chat", R.string.app_chats, RukiaIcons.Chat, Color(0xFF25D366),
         badge = { ChatModule.of(context, caseId).listChats().count { it.unreadCount(CaseClock.now(caseId)) > 0 } },
     ) { ChatApp(caseId) },
-    PhoneApp("police", "Police Department", RukiaIcons.Shield, PoliceBlue) {
+    PhoneApp("police", R.string.app_police, RukiaIcons.Shield, PoliceBlue) {
         val case = cases.first { it.id == caseId }
         PoliceApp(
-            caseId, caseLabel = "CASE ${case.number}", caseTitle = case.title,
+            caseId, caseLabel = stringResource(R.string.case_number, case.number), caseTitle = case.title,
             listCallRecordings = {
                 val chat = ChatModule.of(context, caseId)
                 chat.listCalls().filter { it.status == CallStatus.ANSWERED }.mapNotNull { call ->
@@ -88,8 +91,8 @@ fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit)
             onReturnToTitle = onReturnToTitle,
         )
     },
-    PhoneApp("multimedia", "Multimedia", Icons.Filled.Face, MultimediaOrange) { MultimediaApp(caseId) },
-    PhoneApp("gonpi", "Gonpi", Icons.Filled.Favorite, GonpiPink) { GonpiApp(caseId) },
+    PhoneApp("multimedia", R.string.app_multimedia, Icons.Filled.Face, MultimediaOrange) { MultimediaApp(caseId) },
+    PhoneApp("gonpi", R.string.app_gonpi, Icons.Filled.Favorite, GonpiPink) { GonpiApp(caseId) },
 )
 
 
@@ -188,7 +191,7 @@ private fun ClockWidget() {
             now.format(DateTimeFormatter.ofPattern("HH:mm")), color = Color.White,
             fontSize = 82.sp, lineHeight = 86.sp, fontWeight = FontWeight.Light, letterSpacing = (-3).sp,
         )
-        Text(now.format(DateTimeFormatter.ofPattern("EEEE, d MMMM")), color = Color.White.copy(alpha = 0.86f), fontSize = 18.sp, fontWeight = FontWeight.Medium)
+        Text(now.format(DateTimeFormatter.ofPattern(stringResource(R.string.clock_date))).replaceFirstChar { it.titlecase() }, color = Color.White.copy(alpha = 0.86f), fontSize = 18.sp, fontWeight = FontWeight.Medium)
     }
 }
 
@@ -215,7 +218,7 @@ private fun AppIcon(app: PhoneApp, badge: Int, cellHeight: Dp, modifier: Modifie
             }
         }
         Text(
-            app.label, Modifier.padding(top = 5.dp), color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Medium,
+            stringResource(app.label), Modifier.padding(top = 5.dp), color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Medium,
             style = labelShadow, textAlign = TextAlign.Center, maxLines = 2, lineHeight = 14.sp,
         )
     }

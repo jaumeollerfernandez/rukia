@@ -4,7 +4,6 @@ import android.content.Context
 import java.io.File
 import java.time.Clock
 import java.time.Instant
-import java.time.LocalDate
 import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 import java.util.concurrent.ConcurrentHashMap
@@ -20,17 +19,26 @@ fun isDebugCase(caseId: String) = caseId.startsWith(DEBUG_CASE_PREFIX)
  * Its "now" is real time, except in a debug case, which runs [skipped] ahead.
  */
 object CaseClock {
+    /** Opening a case from this hour on starts its D1 the next day. */
+    const val LATE_START_HOUR = 14
+
     private var filesDir: File? = null
     private val skips = ConcurrentHashMap<String, Long>()
 
     /** Lets [now] find the debug cases' saved skips; the game calls it once when it starts. */
     fun init(context: Context) { filesDir = context.filesDir }
 
-    /** Midnight of D1, saved the first time it's asked for so the week keeps its dates. */
+    /**
+     * Midnight of D1, saved the first time it's asked for so the week keeps its dates. Opened in the morning, D1 is
+     * today; from [LATE_START_HOUR] on it's tomorrow, so the day's timed lines don't all arrive at once. That evening
+     * is D0: stories can tell (`dia` is 0) and introduce the case before it starts.
+     */
     fun start(context: Context, caseId: String, zone: ZoneId = ZoneId.systemDefault()): Long {
         val file = file(context, caseId)
         file.takeIf { it.exists() }?.readText()?.trim()?.toLongOrNull()?.let { return it }
-        val start = LocalDate.now(zone).atStartOfDay(zone).toInstant().toEpochMilli()
+        val now = Instant.ofEpochMilli(now(caseId)).atZone(zone)
+        val day = if (now.hour >= LATE_START_HOUR) now.toLocalDate().plusDays(1) else now.toLocalDate()
+        val start = day.atStartOfDay(zone).toInstant().toEpochMilli()
         file.parentFile?.mkdirs()
         file.writeText("$start")
         return start

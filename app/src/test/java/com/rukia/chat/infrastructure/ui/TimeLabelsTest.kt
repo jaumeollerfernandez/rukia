@@ -11,6 +11,7 @@ class TimeLabelsTest {
     private val now = at(12, 15) // a Thursday
 
     @Test fun `the chat list says the time today and the day otherwise`() {
+        java.util.Locale.setDefault(java.util.Locale.ENGLISH) // weekdays follow the interface language
         assertEquals("09:00", listTime(Message("a", "x", "09:00", deliverAt = at(12, 9)), now))
         assertEquals("Yesterday", listTime(Message("a", "x", "22:33", deliverAt = at(11, 22)), now))
         assertEquals("Monday", listTime(Message("a", "x", "10:00", deliverAt = at(9, 10)), now))

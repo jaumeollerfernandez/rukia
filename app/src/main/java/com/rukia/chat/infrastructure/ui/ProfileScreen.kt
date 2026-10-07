@@ -1,14 +1,10 @@
 package com.rukia.chat.infrastructure.ui
 
-import android.net.Uri
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
@@ -23,59 +19,37 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.rukia.chat.domain.model.MAX_NAME_LENGTH
+import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.PlayerProfile
 import com.rukia.phone.Kit
-import com.rukia.phone.RukiaIcons
 
+/** The phone owner's photo and name (fixed by the case: the player uses someone else's phone) and the app's settings. */
 @Composable
-fun ProfileScreen(profile: PlayerProfile, onPickAvatar: (Uri) -> Unit, onUpdate: (PlayerProfile) -> Unit) {
+fun ProfileScreen(owner: Character?, profile: PlayerProfile, onUpdate: (PlayerProfile) -> Unit) {
     val p = LocalPalette.current
-    var editingName by remember { mutableStateOf(false) }
-    // System photo picker: no storage permission needed.
-    val picker = rememberLauncherForActivityResult(PickVisualMedia()) { uri -> uri?.let(onPickAvatar) }
+    val name = owner?.name ?: stringResource(R.string.you)
 
     Column(Modifier.fillMaxSize().background(p.grouped).verticalScroll(rememberScrollState())) {
-        LargeTitle("Profile", Modifier.padding(bottom = 0.dp))
+        LargeTitle(stringResource(R.string.tab_profile), Modifier.padding(bottom = 0.dp))
         Column(Modifier.fillMaxWidth().padding(top = 26.dp, bottom = 28.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Box(
-                Modifier.clickable { picker.launch(PickVisualMediaRequest(PickVisualMedia.ImageOnly)) }
-                    .semantics { contentDescription = "Change your photo" },
-            ) {
-                PlayerAvatar(profile, size = 132)
-                Box(
-                    Modifier.align(Alignment.BottomEnd).padding(2.dp).size(40.dp).border(3.dp, p.grouped, CircleShape)
-                        .padding(3.dp).background(Kit.Tint, CircleShape),
-                    contentAlignment = Alignment.Center,
-                ) { Icon(RukiaIcons.Camera, null, Modifier.size(18.dp), tint = Color.White) }
-            }
-            Text(profile.name, Modifier.padding(top = 10.dp), fontSize = 26.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.3).sp)
-            Text("Your photo and name show in every chat", Modifier.padding(top = 6.dp), color = p.subText, fontSize = 15.sp)
+            Avatar(owner, size = 132)
+            Text(name, Modifier.padding(top = 10.dp), fontSize = 26.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.3).sp)
         }
         Column(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(16.dp)).background(p.card)) {
-            SettingRow(Modifier.clickable { editingName = true }) {
-                Text("Name", Modifier.weight(1f), fontSize = 17.sp)
-                Text(profile.name, color = p.subText, fontSize = 17.sp)
+            SettingRow(Modifier) {
+                Text(stringResource(R.string.name), Modifier.weight(1f), fontSize = 17.sp)
+                Text(name, color = p.subText, fontSize = 17.sp)
             }
             HorizontalDivider(Modifier.padding(start = 16.dp), thickness = 0.5.dp, color = p.separator)
             SettingRow(Modifier.toggleable(profile.darkMode, role = Role.Switch) { onUpdate(profile.copy(darkMode = it)) }) {
-                Text("Dark mode", Modifier.weight(1f), fontSize = 17.sp)
+                Text(stringResource(R.string.dark_mode), Modifier.weight(1f), fontSize = 17.sp)
                 IosSwitch(profile.darkMode)
             }
         }
-        Text("Dark mode changes the Chats app only.", Modifier.padding(start = 32.dp, end = 32.dp, top = 8.dp), color = p.subText, fontSize = 13.sp, lineHeight = 18.sp)
-    }
-
-    if (editingName) {
-        NameDialog(profile.name, onDismiss = { editingName = false }) {
-            editingName = false
-            onUpdate(profile.copy(name = it))
-        }
+        Text(stringResource(R.string.dark_mode_note), Modifier.padding(start = 32.dp, end = 32.dp, top = 8.dp), color = p.subText, fontSize = 13.sp, lineHeight = 18.sp)
     }
 }
 
@@ -92,22 +66,4 @@ private fun IosSwitch(checked: Boolean) {
     Box(Modifier.size(51.dp, 31.dp).background(track, RoundedCornerShape(16.dp)).padding(2.dp)) {
         Box(Modifier.offset(x = knob).size(27.dp).shadow(3.dp, CircleShape).background(Color.White, CircleShape))
     }
-}
-
-@Composable
-private fun NameDialog(current: String, onDismiss: () -> Unit, onSave: (String) -> Unit) {
-    var name by remember { mutableStateOf(current) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text("Your name") },
-        text = {
-            OutlinedTextField(
-                name, { if (it.length <= MAX_NAME_LENGTH) name = it },
-                singleLine = true,
-                supportingText = { Text("${name.length}/$MAX_NAME_LENGTH") },
-            )
-        },
-        confirmButton = { TextButton(enabled = name.isNotBlank(), onClick = { onSave(name) }) { Text("Save") } },
-        dismissButton = { TextButton(onDismiss) { Text("Cancel") } },
-    )
 }

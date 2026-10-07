@@ -2,11 +2,8 @@ package com.rukia.chat.domain.model
 
 import kotlinx.serialization.Serializable
 
-const val MAX_NAME_LENGTH = 25
-
+/** The player's settings. The phone's name and photo belong to the case: its `me` character. */
 @Serializable
 data class PlayerProfile(
-    val name: String = "Player",
-    val avatarPath: String? = null,
     val darkMode: Boolean = false,
 )

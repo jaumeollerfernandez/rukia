@@ -1,5 +1,7 @@
 package com.rukia.chat.infrastructure.ui
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
@@ -31,7 +33,6 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
-import java.util.Locale
 
 @Composable
 fun ChatListScreen(
@@ -44,7 +45,7 @@ fun ChatListScreen(
     var deleting by remember { mutableStateOf<Chat?>(null) }
 
     LazyColumn(Modifier.fillMaxSize()) {
-        item { LargeTitle("Chats") }
+        item { LargeTitle(stringResource(R.string.tab_chats)) }
         // A chat shows up once its first message arrives, e.g. a group someone creates later; the latest conversation goes first.
         val shown = chats.filter { it.arrivedCount(now) > 0 }.sortedByDescending { it.lastArrived(now)?.deliverAt ?: 0 }
         items(shown, key = { it.id }) { chat ->
@@ -55,10 +56,10 @@ fun ChatListScreen(
     deleting?.let { chat ->
         AlertDialog(
             onDismissRequest = { deleting = null },
-            title = { Text(if (chat.isGroup) "Delete group?" else "Delete chat?") },
-            text = { Text("\"${chat.displayTitle(characters)}\" and its messages will be removed.") },
-            confirmButton = { TextButton({ onDelete(chat); deleting = null }) { Text("Delete", color = LocalPalette.current.red) } },
-            dismissButton = { TextButton({ deleting = null }) { Text("Cancel") } },
+            title = { Text(stringResource(if (chat.isGroup) R.string.delete_group_q else R.string.delete_chat_q)) },
+            text = { Text(stringResource(R.string.delete_chat_text, chat.displayTitle(characters))) },
+            confirmButton = { TextButton({ onDelete(chat); deleting = null }) { Text(stringResource(R.string.delete), color = LocalPalette.current.red) } },
+            dismissButton = { TextButton({ deleting = null }) { Text(stringResource(R.string.cancel)) } },
         )
     }
 }
@@ -86,7 +87,7 @@ private fun ChatRow(chat: Chat, characters: Map<String, Character>, now: Long, o
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(chat.displayTitle(characters), Modifier.weight(1f), fontSize = 17.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Text(
-                        last?.let { listTime(it, now) }.orEmpty(), Modifier.padding(start = 8.dp), fontSize = 14.sp,
+                        last?.let { listTime(it, now, stringResource(R.string.today), stringResource(R.string.yesterday)) }.orEmpty(), Modifier.padding(start = 8.dp), fontSize = 14.sp,
                         color = if (unread > 0) p.tint else p.subText, fontWeight = if (unread > 0) FontWeight.SemiBold else FontWeight.Normal,
                     )
                 }
@@ -94,7 +95,7 @@ private fun ChatRow(chat: Chat, characters: Map<String, Character>, now: Long, o
                     Box(Modifier.weight(1f)) { last?.let { Preview(chat, characters, it) } }
                     // Hint that the player can answer this chat now.
                     if (chat.arrivedCount(now) == chat.messages.size && chat.visibleChoices().isNotEmpty()) {
-                        Icon(RukiaIcons.Mail, "You can reply", Modifier.size(18.dp), tint = p.tint)
+                        Icon(RukiaIcons.Mail, stringResource(R.string.can_reply), Modifier.size(18.dp), tint = p.tint)
                     }
                     if (unread > 0) CountBadge(unread)
                 }
@@ -116,7 +117,7 @@ private fun Preview(chat: Chat, characters: Map<String, Character>, msg: Message
         return
     }
     val sender = when {
-        msg.fromPlayer -> "You"
+        msg.fromPlayer -> stringResource(R.string.you)
         chat.isGroup -> characters[msg.from]?.name ?: msg.from
         else -> null
     }
@@ -144,8 +145,8 @@ fun ContactsScreen(characters: Map<String, Character>, onOpen: (Character) -> Un
     val people = characters.values.filterNot { it.hidden }.sortedBy { it.name }
     LazyColumn(Modifier.fillMaxSize()) {
         item {
-            LargeTitle("Contacts", Modifier.padding(bottom = 0.dp))
-            Text("${people.size} people in this case", Modifier.padding(start = 20.dp, bottom = 10.dp), color = p.subText, fontSize = 15.sp)
+            LargeTitle(stringResource(R.string.tab_contacts), Modifier.padding(bottom = 0.dp))
+            Text(stringResource(R.string.contacts_count, people.size), Modifier.padding(start = 20.dp, bottom = 10.dp), color = p.subText, fontSize = 15.sp)
         }
         people.groupBy { it.name.take(1).uppercase() }.forEach { (letter, group) ->
             item(key = "letter-$letter") {
@@ -156,7 +157,7 @@ fun ContactsScreen(characters: Map<String, Character>, onOpen: (Character) -> Un
                 )
             }
             items(group, key = { it.id }) { c ->
-                PersonRow(c, if (c.onlineAt(CaseClock.now(LocalCaseId.current))) "online" else c.status, onClick = { onOpen(c) })
+                PersonRow(c, if (c.onlineAt(CaseClock.now(LocalCaseId.current))) stringResource(R.string.online) else c.status, onClick = { onOpen(c) })
             }
         }
     }
@@ -186,16 +187,16 @@ fun PersonRow(c: Character?, subtitle: String, nameColor: Color = Color.Unspecif
 internal fun dayOf(millis: Long) = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
 
 /** The day of [millis] as a messaging app says it: "Today", "Yesterday", the weekday within the last week, else the date. */
-internal fun dayLabel(millis: Long, now: Long): String {
+internal fun dayLabel(millis: Long, now: Long, today: String = "Today", yesterday: String = "Yesterday"): String {
     val day = dayOf(millis)
     return when (ChronoUnit.DAYS.between(day, dayOf(now))) {
-        0L -> "Today"
-        1L -> "Yesterday"
-        in 2L..6L -> day.format(DateTimeFormatter.ofPattern("EEEE", Locale.ENGLISH))
-        else -> day.format(DateTimeFormatter.ofPattern("d MMM yyyy", Locale.ENGLISH))
+        0L -> today
+        1L -> yesterday
+        in 2L..6L -> day.format(DateTimeFormatter.ofPattern("EEEE")).replaceFirstChar { it.titlecase() }
+        else -> day.format(DateTimeFormatter.ofPattern("d MMM yyyy"))
     }
 }
 
 /** When a message arrived, for the chat list: its time if it was today, else its day. Messages without a timestamp show their time as saved. */
-internal fun listTime(msg: Message, now: Long) =
-    if (msg.deliverAt <= 0 || dayOf(msg.deliverAt) == dayOf(now)) msg.time else dayLabel(msg.deliverAt, now)
+internal fun listTime(msg: Message, now: Long, today: String = "Today", yesterday: String = "Yesterday") =
+    if (msg.deliverAt <= 0 || dayOf(msg.deliverAt) == dayOf(now)) msg.time else dayLabel(msg.deliverAt, now, today, yesterday)

@@ -37,6 +37,26 @@ class StoryTest {
         }
     }
 
+    @Test fun `Laia introduces the case tonight when it starts tomorrow, and at 10 when it starts today`() {
+        val case = File(allCases, "ruk-93429049")
+        val zone = java.time.ZoneId.of("Europe/Madrid")
+        val today = java.time.LocalDate.of(2026, 10, 7)
+        fun laia(hour: Int, start: java.time.LocalDate): InkStoryEngine {
+            val clock = java.time.Clock.fixed(today.atTime(hour, 0).atZone(zone).toInstant(), zone)
+            val startMillis = start.atStartOfDay(zone).toInstant().toEpochMilli()
+            return InkStoryEngine({ File(case, it).readText() }, tempState(), { startMillis }, clock)
+        }
+        val evening = laia(20, today.plusDays(1))
+        assertTrue("Desapareció anoche. Se dejó el móvil en casa, cargando. Este móvil." in evening.advance("laia").lines.map { it.text })
+        val plan = evening.choose("laia", 0).lines.map { it.text }
+        assertTrue("Así que esta noche no escribes. Lees." in plan, "the plan follows the first choice tonight: $plan")
+
+        val morning = laia(11, today)
+        assertTrue("Desapareció anteanoche. Se dejó el móvil en casa, cargando. Este móvil." in morning.advance("laia").lines.map { it.text })
+        val noPlan = morning.choose("laia", 0).lines.map { it.text }
+        assertTrue(noPlan.none { "esta noche no escribes" in it }, "no plan when it starts today: $noPlan")
+    }
+
     // The engine itself, on a small script that doesn't depend on any case's content.
     private val script = """
         VAR knows = false

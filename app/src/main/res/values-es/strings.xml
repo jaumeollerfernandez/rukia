@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Textos de la interfaz en español de España. El contenido de los casos (.ink, Gonpi, títulos) no se traduce. -->
+<resources>
+    <!-- Menú principal -->
+    <string name="menu_start">Empezar</string>
+    <string name="menu_options">Opciones</string>
+    <string name="menu_exit">Salir</string>
+    <string name="options_title">Opciones</string>
+    <string name="options_language">Idioma</string>
+    <string name="choose_case">Elige un caso</string>
+    <string name="case_number">CASO %1$02d</string>
+    <string name="signed_in">Sesión iniciada · Google Play Games</string>
+    <string name="back">Atrás</string>
+    <string name="play">Jugar</string>
+
+    <!-- Apps del móvil -->
+    <string name="app_chats">Chats</string>
+    <string name="app_police">Policía</string>
+    <string name="app_multimedia">Multimedia</string>
+    <string name="clock_date" translatable="false">"EEEE, d 'de' MMMM"</string>
+    <string name="system_compromised">SISTEMA COMPROMETIDO</string>
+    <string name="debug_next">Siguiente ⏭</string>
+
+    <!-- Chats -->
+    <string name="tab_chats">Chats</string>
+    <string name="tab_calls">Llamadas</string>
+    <string name="tab_contacts">Contactos</string>
+    <string name="tab_profile">Perfil</string>
+    <string name="delete_group_q">¿Eliminar el grupo?</string>
+    <string name="delete_chat_q">¿Eliminar el chat?</string>
+    <string name="delete_chat_text">Se eliminarán «%1$s» y sus mensajes.</string>
+    <string name="delete">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="can_reply">Puedes responder</string>
+    <string name="you">Tú</string>
+    <string name="contacts_count">%1$d personas en este caso</string>
+    <string name="online">en línea</string>
+    <string name="today">Hoy</string>
+    <string name="yesterday">Ayer</string>
+    <string name="typing">escribiendo…</string>
+    <string name="typing_name">%1$s está escribiendo…</string>
+    <string name="back_to_chats">Volver a Chats</string>
+    <string name="choose_reply">Elige tu respuesta</string>
+    <string name="call_incoming">Llamada de voz entrante</string>
+    <string name="call_voice">Llamada de voz</string>
+    <string name="call_missed">Llamada de voz perdida</string>
+    <string name="call_badge">Llamada de voz de Chats</string>
+    <string name="call_incoming_status">Llamada entrante…</string>
+    <string name="decline">Rechazar</string>
+    <string name="accept">Aceptar</string>
+    <string name="mute">Silenciar</string>
+    <string name="speaker">Altavoz</string>
+    <string name="hang_up">Colgar</string>
+    <string name="no_calls">Aún no hay llamadas</string>
+    <string name="name">Nombre</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="dark_mode_note">El modo oscuro solo cambia la app Chats.</string>
+    <string name="notif_channel">Mensajes</string>
+    <string name="notif_call">📞 Llamada de voz</string>
+
+    <!-- Gonpi y Multimedia -->
+    <string name="gonpi_post">Publicación</string>
+    <string name="gonpi_no_posts">Aún no hay publicaciones</string>
+    <string name="like">Me gusta</string>
+    <string name="unlike">Ya no me gusta</string>
+    <string name="likes">%1$d me gusta</string>
+    <string name="view_comments">Ver los %1$d comentarios</string>
+    <string name="posts">publicaciones</string>
+    <string name="followers">seguidores</string>
+    <string name="following">seguidos</string>
+    <string name="no_photos">No hay fotos</string>
+
+    <!-- Policía -->
+    <string name="police">Policía</string>
+    <string name="section_game">Partida</string>
+    <string name="solve_case">Resolver el caso</string>
+    <string name="solve_closed">Cerrado: el plazo ha terminado</string>
+    <string name="solve_one_try">Un solo intento. Elige bien</string>
+    <string name="return_title">Volver al menú</string>
+    <string name="return_title_sub">Sal del caso. El progreso se guarda</string>
+    <string name="section_evidence">Pruebas</string>
+    <string name="call_recordings">Grabaciones de llamadas</string>
+    <string name="call_recordings_sub">Vuelve a escuchar las llamadas que contestaste</string>
+    <string name="section_admin">Administración</string>
+    <string name="admin_footer">Borra todas las conversaciones y decisiones de la historia de este caso.</string>
+    <string name="reset_chats">Reiniciar chats</string>
+    <string name="send_officers_q">¿Enviar agentes?</string>
+    <string name="send_officers_text">%1$s irá a: %2$s. Su informe llegará a Chats. Esta patrulla no se podrá enviar a ningún otro sitio.</string>
+    <string name="the_squad">La patrulla</string>
+    <string name="send">Enviar</string>
+    <string name="officers_on_way">Agentes en camino</string>
+    <string name="no_squad_anymore">Ya no queda ninguna patrulla disponible</string>
+    <string name="reset_q">¿Reiniciar todos los chats?</string>
+    <string name="reset_text">Se borrarán todos los datos de esta partida: cada conversación, llamada y decisión de la historia. La historia volverá a empezar desde el principio: al momento si es por la mañana, o mañana por la mañana a partir de las %1$d:00. No se puede deshacer.</string>
+    <string name="delete_everything">Borrar todo</string>
+    <string name="chats_reset">Se han reiniciado los chats</string>
+    <string name="operations">Operaciones</string>
+    <string name="ops_none_free">Ahora mismo no hay agentes libres. Las patrullas quedan disponibles a horas concretas durante el caso.</string>
+    <string name="ops_squad_until">%1$s, disponible hasta las %2$s. Una patrulla, un sitio: elige con cuidado.</string>
+    <string name="send_patrol">Enviar una patrulla</string>
+    <string name="send_inspect">Enviar agentes a inspeccionar</string>
+    <string name="squad_sent_at">Patrulla enviada a las %1$s</string>
+    <string name="no_squad">No hay patrullas disponibles</string>
+    <string name="next_shift">Espera al siguiente turno</string>
+    <string name="no_recordings">Aún no hay llamadas grabadas. Aquí aparecerán las que contestes.</string>
+    <string name="answered_calls">Llamadas contestadas</string>
+    <string name="tap_to_listen">Toca una llamada para volver a escucharla.</string>
+    <string name="playing">Reproduciendo…</string>
+    <string name="call_at">Llamada de las %1$s</string>
+    <string name="one_try_warning">Solo tienes un intento. Una respuesta equivocada termina la partida y borra estos datos.</string>
+    <string name="accuse_x">Elegir: %1$s</string>
+    <string name="choose_suspect">Elige una respuesta</string>
+    <string name="accuse_q">¿Elegir «%1$s»?</string>
+    <string name="accuse_text">Es tu único intento. Si te equivocas, la partida termina y se borran todos los datos de esta partida.</string>
+    <string name="accuse">Elegir</string>
+    <string name="case_solved">CASO RESUELTO</string>
+    <string name="game_over">FIN DE LA PARTIDA</string>
+    <string name="solved_text">Has descubierto la verdad.\nEl caso está cerrado.</string>
+    <string name="failed_text">Respuesta equivocada. Se te ha escapado.\nSe han borrado los datos de la partida.</string>
+</resources>

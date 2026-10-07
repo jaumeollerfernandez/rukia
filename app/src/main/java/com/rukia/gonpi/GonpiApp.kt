@@ -1,5 +1,7 @@
 package com.rukia.gonpi
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -80,14 +82,14 @@ fun GonpiApp(caseId: String) {
                 TopAppBar(
                     title = {
                         val profile = profileId?.let(gonpi::account)
-                        if (postIndex != null) Text("Post", fontWeight = FontWeight.Bold)
+                        if (postIndex != null) Text(stringResource(R.string.gonpi_post), fontWeight = FontWeight.Bold)
                         else if (profile != null) Text(profile.username, fontWeight = FontWeight.Bold)
                         else Text("Gonpi", fontFamily = FontFamily.Cursive, fontWeight = FontWeight.Bold, fontSize = 30.sp)
                     },
                     navigationIcon = {
                         if (profileId != null || postIndex != null) {
                             IconButton({ if (postIndex != null) postIndex = null else profileId = null }) {
-                                Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back")
+                                Icon(Icons.AutoMirrored.Filled.ArrowBack, stringResource(R.string.back))
                             }
                         }
                     },
@@ -102,7 +104,7 @@ fun GonpiApp(caseId: String) {
                 post != null -> LazyColumn(Modifier.padding(padding)) { item { card(post) } }
                 profile != null -> ProfileScreen(gonpi, profile, Modifier.padding(padding)) { postIndex = it }
                 gonpi.posts.isEmpty() -> Box(Modifier.padding(padding).fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text("No posts yet", color = Subtle)
+                    Text(stringResource(R.string.gonpi_no_posts), color = Subtle)
                 }
                 else -> LazyColumn(Modifier.padding(padding)) {
                     items(gonpi.posts) { card(it); Spacer(Modifier.height(12.dp)) }
@@ -128,13 +130,13 @@ private fun PostCard(gonpi: Gonpi, post: Post, liked: Boolean, onLike: () -> Uni
         PostImage(post.image, Modifier.fillMaxWidth().aspectRatio(1f).pointerInput(liked) { detectTapGestures(onDoubleTap = { if (!liked) onLike() }) })
         Column(Modifier.padding(horizontal = 12.dp, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Icon(
-                if (liked) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder, if (liked) "Unlike" else "Like",
+                if (liked) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder, stringResource(if (liked) R.string.unlike else R.string.like),
                 Modifier.size(26.dp).clickable(onClick = onLike), tint = if (liked) GonpiPink else LocalContentColor.current,
             )
-            Text("${post.likes + if (liked) 1 else 0} likes", fontWeight = FontWeight.SemiBold)
+            Text(stringResource(R.string.likes, post.likes + if (liked) 1 else 0), fontWeight = FontWeight.SemiBold)
             if (post.caption.isNotEmpty()) UserText(author.username, post.caption)
             if (post.comments.isNotEmpty() && !showComments) {
-                Text("View all ${post.comments.size} comments", Modifier.clickable { showComments = true }, color = Subtle)
+                Text(stringResource(R.string.view_comments, post.comments.size), Modifier.clickable { showComments = true }, color = Subtle)
             }
             if (showComments) post.comments.forEach { c ->
                 UserText(gonpi.account(c.author).username, c.text, Modifier.clickable { onOpenProfile(c.author) })
@@ -152,13 +154,13 @@ private fun ProfileScreen(gonpi: Gonpi, account: Account, modifier: Modifier, on
             Column(Modifier.padding(16.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     AccountAvatar(account, 86)
-                    Stat(posts.size, "posts", Modifier.weight(1f))
-                    Stat(account.followers, "followers", Modifier.weight(1f))
-                    Stat(account.following, "following", Modifier.weight(1f))
+                    Stat(posts.size, stringResource(R.string.posts), Modifier.weight(1f))
+                    Stat(account.followers, stringResource(R.string.followers), Modifier.weight(1f))
+                    Stat(account.following, stringResource(R.string.following), Modifier.weight(1f))
                 }
                 if (account.name.isNotEmpty()) Text(account.name, Modifier.padding(top = 10.dp), fontWeight = FontWeight.SemiBold)
                 if (account.bio.isNotEmpty()) Text(account.bio)
-                if (posts.isEmpty()) Text("No posts yet", Modifier.padding(top = 32.dp).fillMaxWidth(), color = Subtle)
+                if (posts.isEmpty()) Text(stringResource(R.string.gonpi_no_posts), Modifier.padding(top = 32.dp).fillMaxWidth(), color = Subtle)
             }
         }
         items(posts) { (i, post) -> PostImage(post.image, Modifier.padding(1.dp).aspectRatio(1f).clickable { onOpenPost(i) }) }

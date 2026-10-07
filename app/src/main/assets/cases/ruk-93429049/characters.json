@@ -1,4 +1,5 @@
 [
+  { "id": "me", "name": "Alicia", "status": "", "color": "#7E57C2", "hidden": true, "photo": "photos/alicia.jpg" },
   { "id": "laia", "name": "Sgt. Puig 🔒", "status": "", "color": "#263238", "hidden": true },
   { "id": "central", "name": "Central Mossos · Olot 📻", "status": "", "color": "#1A237E", "hidden": true },
 

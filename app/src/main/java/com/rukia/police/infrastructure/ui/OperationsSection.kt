@@ -1,5 +1,7 @@
 package com.rukia.police.infrastructure.ui
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.runtime.Composable
 import com.rukia.phone.Kit
@@ -19,25 +21,25 @@ private fun clock(millis: Long) = Instant.ofEpochMilli(millis).atZone(ZoneId.sys
 @Composable
 internal fun OperationsSection(board: OperationsBoard, labels: Map<String, String>, onPick: (Operation) -> Unit) {
     val squad = board.squad
-    val footer = if (squad == null) "No officers are free right now. Squads become available at set times during the case."
-        else "${squad.label}, available until ${board.squadUntil?.let(::clock) ?: "—"}. One squad, one place: choose carefully."
-    Section("Operations", footer = footer) {
+    val footer = if (squad == null) stringResource(R.string.ops_none_free)
+        else stringResource(R.string.ops_squad_until, squad.label, board.squadUntil?.let(::clock) ?: "—")
+    Section(stringResource(R.string.operations), footer = footer) {
         if (squad == null && board.dispatched.isEmpty()) NoSquadRow()
         board.operations.forEachIndexed { i, op ->
             if (i > 0) RowDivider()
             val patrol = op.type == "patrol"
             ActionRow(
                 if (patrol) RukiaIcons.Shield else RukiaIcons.Search, if (patrol) PoliceBlue else Kit.Tint,
-                op.label, if (patrol) "Send a patrol" else "Send officers to inspect",
+                op.label, stringResource(if (patrol) R.string.send_patrol else R.string.send_inspect),
             ) { onPick(op) }
         }
         board.dispatched.forEachIndexed { i, d ->
             if (i > 0 || board.operations.isNotEmpty()) RowDivider()
-            ActionRow(RukiaIcons.Check, Kit.Accept, labels[d.operation] ?: d.operation, "Squad sent at ${clock(d.at)}", trailing = {}) {}
+            ActionRow(RukiaIcons.Check, Kit.Accept, labels[d.operation] ?: d.operation, stringResource(R.string.squad_sent_at, clock(d.at)), trailing = {}) {}
         }
     }
 }
 
 @Composable
 private fun ColumnScope.NoSquadRow() =
-    ActionRow(RukiaIcons.Shield, LocalPolice.current.chevron, "No squad available", "Wait for the next shift", trailing = {}) {}
+    ActionRow(RukiaIcons.Shield, LocalPolice.current.chevron, stringResource(R.string.no_squad), stringResource(R.string.next_shift), trailing = {}) {}

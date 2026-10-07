@@ -1,5 +1,7 @@
 package com.rukia.police.infrastructure.ui
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -32,21 +34,21 @@ fun CallRecordingsScreen(calls: List<RecordedCall>, onBack: () -> Unit) {
     }
 
     Column(Modifier.fillMaxSize().background(c.background)) {
-        SubHeader("Call recordings", onBack)
+        SubHeader(stringResource(R.string.call_recordings), onBack)
         Column(
             Modifier.fillMaxSize().verticalScroll(rememberScrollState()).navigationBarsPadding().padding(start = 16.dp, end = 16.dp, top = 10.dp, bottom = 24.dp),
         ) {
             if (calls.isEmpty()) {
-                Text("No calls recorded yet. Calls you answer show up here.", color = c.subText, fontSize = 15.sp)
+                Text(stringResource(R.string.no_recordings), color = c.subText, fontSize = 15.sp)
                 return@Column
             }
-            Section("Answered calls", footer = "Tap a call to listen to it again.") {
+            Section(stringResource(R.string.answered_calls), footer = stringResource(R.string.tap_to_listen)) {
                 calls.forEachIndexed { i, call ->
                     if (i > 0) RowDivider()
                     val isPlaying = playing == i
                     ActionRow(
                         if (isPlaying) RukiaIcons.Stop else RukiaIcons.Play, Kit.Accept, call.caller,
-                        if (isPlaying) "Playing…" else "Call at ${call.time}",
+                        if (isPlaying) stringResource(R.string.playing) else stringResource(R.string.call_at, call.time),
                         trailing = { Icon(RukiaIcons.Phone, null, Modifier.size(18.dp), tint = c.chevron) },
                     ) { playing = if (isPlaying) null else i }
                 }

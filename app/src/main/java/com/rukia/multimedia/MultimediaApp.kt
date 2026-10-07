@@ -1,5 +1,7 @@
 package com.rukia.multimedia
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -53,13 +55,13 @@ fun MultimediaApp(caseId: String) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Multimedia", fontWeight = FontWeight.Bold) },
+                title = { Text(stringResource(R.string.app_multimedia), fontWeight = FontWeight.Bold) },
                 colors = TopAppBarDefaults.topAppBarColors(containerColor = MultimediaOrange, titleContentColor = Color.White),
             )
         },
     ) { padding ->
         if (photos.isEmpty()) {
-            Box(Modifier.padding(padding).fillMaxSize(), contentAlignment = Alignment.Center) { Text("No photos", color = Color.Gray) }
+            Box(Modifier.padding(padding).fillMaxSize(), contentAlignment = Alignment.Center) { Text(stringResource(R.string.no_photos), color = Color.Gray) }
         } else {
             LazyVerticalGrid(GridCells.Fixed(3), Modifier.padding(padding), contentPadding = PaddingValues(2.dp)) {
                 items(photos) { name ->

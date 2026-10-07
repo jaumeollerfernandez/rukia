@@ -9,6 +9,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.rukia.chat.domain.model.Chat
+import com.rukia.chat.domain.model.PLAYER_ID
 import com.rukia.chat.infrastructure.ChatModule
 import com.rukia.chat.infrastructure.notifications.VisibleChat
 import com.rukia.phone.AppLaunch
@@ -16,7 +17,6 @@ import com.rukia.phone.CaseClock
 import com.rukia.phone.SystemBars
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 @Composable
@@ -29,7 +29,8 @@ fun ChatApp(caseId: String) {
         onDispose { if (VisibleChat.caseId == caseId) VisibleChat.caseId = null }
     }
     var profile by remember { mutableStateOf(m.getProfile()) }
-    val scope = rememberCoroutineScope()
+    // Whose phone this is: the case's `me` character (its name and photo), e.g. Alicia.
+    val owner = m.characters[PLAYER_ID]
 
     RukiaTheme(dark = profile.darkMode) {
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
@@ -71,7 +72,7 @@ fun ChatApp(caseId: String) {
             }
             if (open == null) {
                 val unreadChats = chats.count { it.unreadCount(now) > 0 }
-                HomeScreen(tab, onTab = { tab = it }, profile, unreadChats) { current ->
+                HomeScreen(tab, onTab = { tab = it }, owner, unreadChats) { current ->
                     when (current) {
                         Tab.Chats -> ChatListScreen(
                             chats, m.characters, now,
@@ -81,16 +82,7 @@ fun ChatApp(caseId: String) {
                         Tab.Calls -> CallsScreen(remember(chats) { m.listCalls() }, m.characters)
                         // Opens the 1-to-1 chat with the contact, starting it the first time.
                         Tab.Contacts -> ContactsScreen(m.characters) { c -> openChat(m.createChat(listOf(c.id))) }
-                        Tab.Profile -> ProfileScreen(
-                            profile,
-                            onPickAvatar = { uri ->
-                                scope.launch {
-                                    val path = withContext(Dispatchers.IO) { m.avatars.import(uri) }
-                                    if (path != null) profile = m.updateProfile(profile.copy(avatarPath = path))
-                                }
-                            },
-                            onUpdate = { profile = m.updateProfile(it) },
-                        )
+                        Tab.Profile -> ProfileScreen(owner, profile, onUpdate = { profile = m.updateProfile(it) })
                     }
                 }
             } else {

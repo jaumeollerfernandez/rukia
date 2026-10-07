@@ -4,12 +4,9 @@ import com.rukia.chat.domain.model.CallRecord
 import com.rukia.chat.domain.model.CallStatus
 import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.Chat
-import com.rukia.chat.domain.model.MAX_NAME_LENGTH
-import com.rukia.chat.domain.model.PlayerProfile
 import com.rukia.chat.domain.model.SILENT_CHOICE
 import com.rukia.chat.domain.port.CharacterRepository
 import com.rukia.chat.domain.port.ChatRepository
-import com.rukia.chat.domain.port.ProfileRepository
 import com.rukia.chat.domain.port.StoryEngine
 import com.rukia.chat.domain.port.StoryLine
 import com.rukia.chat.domain.port.StoryStep
@@ -225,19 +222,6 @@ class ChatUseCasesTest {
         ResetProgress(repo, story)()
         assertEquals(emptyList(), repo.all())
         assertTrue(storyReset)
-    }
-
-    @Test fun `profile name is trimmed, capped and never blank`() {
-        var stored: PlayerProfile? = null
-        val profiles = object : ProfileRepository {
-            override fun get() = stored ?: PlayerProfile()
-            override fun save(profile: PlayerProfile) { stored = profile }
-        }
-        val update = UpdateProfile(profiles)
-        assertEquals("Ana", update(PlayerProfile(name = "  Ana ")).name)
-        assertEquals(MAX_NAME_LENGTH, update(PlayerProfile(name = "x".repeat(40))).name.length)
-        assertFailsWith<IllegalArgumentException> { update(PlayerProfile(name = "   ")) }
-        assertEquals(MAX_NAME_LENGTH, GetProfile(profiles)().name.length)
     }
 
     @Test fun `deleting removes the chat`() {

@@ -1,5 +1,8 @@
 package com.rukia.chat.infrastructure.ui
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -17,15 +20,15 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.rukia.chat.domain.model.PlayerProfile
+import com.rukia.chat.domain.model.Character
 import com.rukia.phone.Kit
 import com.rukia.phone.RukiaIcons
 
-enum class Tab(val label: String) { Chats("Chats"), Calls("Calls"), Contacts("Contacts"), Profile("Profile") }
+enum class Tab(@StringRes val label: Int) { Chats(R.string.tab_chats), Calls(R.string.tab_calls), Contacts(R.string.tab_contacts), Profile(R.string.tab_profile) }
 
 /** The tab's content above the iOS-style tab bar. [unreadChats] badges the Chats tab. */
 @Composable
-fun HomeScreen(tab: Tab, onTab: (Tab) -> Unit, profile: PlayerProfile, unreadChats: Int, content: @Composable (Tab) -> Unit) {
+fun HomeScreen(tab: Tab, onTab: (Tab) -> Unit, owner: Character?, unreadChats: Int, content: @Composable (Tab) -> Unit) {
     val p = LocalPalette.current
     Column(Modifier.fillMaxSize().background(if (tab == Tab.Profile) p.grouped else p.background)) {
         Box(Modifier.weight(1f).statusBarsPadding()) { content(tab) }
@@ -44,11 +47,10 @@ fun HomeScreen(tab: Tab, onTab: (Tab) -> Unit, profile: PlayerProfile, unreadCha
                             Tab.Chats -> Icon(if (selected) RukiaIcons.ChatFilled else RukiaIcons.Chat, null, Modifier.size(26.dp), tint = color)
                             Tab.Calls -> Icon(RukiaIcons.Phone, null, Modifier.size(26.dp), tint = color)
                             Tab.Contacts -> Icon(if (selected) RukiaIcons.PersonFilled else RukiaIcons.Person, null, Modifier.size(26.dp), tint = color)
-                            // Your own picture, ringed when the tab is selected.
-                            Tab.Profile -> PlayerAvatar(
-                                profile, size = if (selected) 22 else 26,
-                                modifier = if (selected) Modifier.border(2.dp, color, CircleShape).padding(2.dp) else Modifier,
-                            )
+                            // The phone owner's picture, ringed when the tab is selected.
+                            Tab.Profile -> Box(if (selected) Modifier.border(2.dp, color, CircleShape).padding(2.dp) else Modifier) {
+                                Avatar(owner, size = if (selected) 22 else 26)
+                            }
                         }
                         if (t == Tab.Chats && unreadChats > 0) {
                             Box(
@@ -58,7 +60,7 @@ fun HomeScreen(tab: Tab, onTab: (Tab) -> Unit, profile: PlayerProfile, unreadCha
                             ) { Text("$unreadChats", color = Color.White, fontSize = 11.sp, fontWeight = FontWeight.Bold) }
                         }
                     }
-                    Text(t.label, color = color, fontSize = 11.sp, fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Medium)
+                    Text(stringResource(t.label), color = color, fontSize = 11.sp, fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Medium)
                 }
             }
         }

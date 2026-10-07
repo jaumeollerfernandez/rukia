@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Interface texts (English). Spanish in values-es/. Case content (.ink, Gonpi, case titles) isn't translated. -->
+<resources>
+    <!-- Main menu -->
+    <string name="menu_start">Start</string>
+    <string name="menu_options">Options</string>
+    <string name="menu_exit">Exit</string>
+    <string name="options_title">Options</string>
+    <string name="options_language">Language</string>
+    <string name="choose_case">Choose a case</string>
+    <string name="case_number">CASE %1$02d</string>
+    <string name="signed_in">Signed in · Google Play Games</string>
+    <string name="back">Back</string>
+    <string name="play">Play</string>
+
+    <!-- Phone apps -->
+    <string name="app_chats">Chats</string>
+    <string name="app_police">Police Department</string>
+    <string name="app_multimedia">Multimedia</string>
+    <string name="app_gonpi" translatable="false">Gonpi</string>
+    <string name="clock_date" translatable="false">EEEE, d MMMM</string>
+    <string name="system_compromised">SYSTEM COMPROMISED</string>
+    <string name="debug_next">Next ⏭</string>
+
+    <!-- Chats -->
+    <string name="tab_chats">Chats</string>
+    <string name="tab_calls">Calls</string>
+    <string name="tab_contacts">Contacts</string>
+    <string name="tab_profile">Profile</string>
+    <string name="delete_group_q">Delete group?</string>
+    <string name="delete_chat_q">Delete chat?</string>
+    <string name="delete_chat_text">"%1$s" and its messages will be removed.</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="can_reply">You can reply</string>
+    <string name="you">You</string>
+    <string name="contacts_count">%1$d people in this case</string>
+    <string name="online">online</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="typing">typing…</string>
+    <string name="typing_name">%1$s is typing…</string>
+    <string name="back_to_chats">Back to Chats</string>
+    <string name="choose_reply">Choose your reply</string>
+    <string name="call_incoming">Incoming voice call</string>
+    <string name="call_voice">Voice call</string>
+    <string name="call_missed">Missed voice call</string>
+    <string name="call_badge">Chats voice call</string>
+    <string name="call_incoming_status">Incoming call…</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+    <string name="mute">Mute</string>
+    <string name="speaker">Speaker</string>
+    <string name="hang_up">Hang up</string>
+    <string name="no_calls">No calls yet</string>
+    <string name="name">Name</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="dark_mode_note">Dark mode changes the Chats app only.</string>
+    <string name="notif_channel">Messages</string>
+    <string name="notif_call">📞 Voice call</string>
+
+    <!-- Gonpi and Multimedia -->
+    <string name="gonpi_post">Post</string>
+    <string name="gonpi_no_posts">No posts yet</string>
+    <string name="like">Like</string>
+    <string name="unlike">Unlike</string>
+    <string name="likes">%1$d likes</string>
+    <string name="view_comments">View all %1$d comments</string>
+    <string name="posts">posts</string>
+    <string name="followers">followers</string>
+    <string name="following">following</string>
+    <string name="no_photos">No photos</string>
+
+    <!-- Police Department -->
+    <string name="police">Police</string>
+    <string name="section_game">Game</string>
+    <string name="solve_case">Solve the case</string>
+    <string name="solve_closed">Closed: the deadline has passed</string>
+    <string name="solve_one_try">One attempt only. Choose wisely</string>
+    <string name="return_title">Return to title</string>
+    <string name="return_title_sub">Leave the case. Progress is kept</string>
+    <string name="section_evidence">Evidence</string>
+    <string name="call_recordings">Call recordings</string>
+    <string name="call_recordings_sub">Listen again to the calls you answered</string>
+    <string name="section_admin">Administration</string>
+    <string name="admin_footer">Deletes every conversation and story choice in this case.</string>
+    <string name="reset_chats">Reset chats</string>
+    <string name="send_officers_q">Send officers?</string>
+    <string name="send_officers_text">%1$s will go to: %2$s. Their report will arrive in Chats. This squad can\'t be sent anywhere else.</string>
+    <string name="the_squad">The squad</string>
+    <string name="send">Send</string>
+    <string name="officers_on_way">Officers on their way</string>
+    <string name="no_squad_anymore">No squad available anymore</string>
+    <string name="reset_q">Reset all chats?</string>
+    <string name="reset_text">All data related to this save file will be deleted: every conversation, call and choice made in the story. The story will start again from the beginning: right away if it\'s morning, or tomorrow morning from %1$d:00 on. This can\'t be undone.</string>
+    <string name="delete_everything">Delete everything</string>
+    <string name="chats_reset">Chats have been reset</string>
+    <string name="operations">Operations</string>
+    <string name="ops_none_free">No officers are free right now. Squads become available at set times during the case.</string>
+    <string name="ops_squad_until">%1$s, available until %2$s. One squad, one place: choose carefully.</string>
+    <string name="send_patrol">Send a patrol</string>
+    <string name="send_inspect">Send officers to inspect</string>
+    <string name="squad_sent_at">Squad sent at %1$s</string>
+    <string name="no_squad">No squad available</string>
+    <string name="next_shift">Wait for the next shift</string>
+    <string name="no_recordings">No calls recorded yet. Calls you answer show up here.</string>
+    <string name="answered_calls">Answered calls</string>
+    <string name="tap_to_listen">Tap a call to listen to it again.</string>
+    <string name="playing">Playing…</string>
+    <string name="call_at">Call at %1$s</string>
+    <string name="one_try_warning">You only have one try. A wrong answer ends the game and erases this save file.</string>
+    <string name="accuse_x">Accuse %1$s</string>
+    <string name="choose_suspect">Choose a suspect</string>
+    <string name="accuse_q">Accuse %1$s?</string>
+    <string name="accuse_text">This is your only attempt. If you\'re wrong, the game is over and all data in this save file is erased.</string>
+    <string name="accuse">Accuse</string>
+    <string name="case_solved">CASE SOLVED</string>
+    <string name="game_over">GAME OVER</string>
+    <string name="solved_text">You found the truth.\nThe case is closed.</string>
+    <string name="failed_text">Wrong accusation. The culprit got away.\nYour save file has been erased.</string>
+</resources>

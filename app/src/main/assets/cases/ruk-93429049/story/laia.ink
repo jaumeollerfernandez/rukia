@@ -1,17 +1,38 @@
-// Sargento Laia Puig, Mossos d'Esquadra (Olot). Canal cifrado con el jugador, que es el hacker, no Alicia.
+// Sargento Laia Puig, Mossos d'Esquadra (Olot). Canal cifrado con el jugador: Kimo, hacker de la élite del CNI a quien la
+// policía llama cuando un caso ya no tiene salida. Nunca ha dejado uno sin resolver. Laia ha pedido su ayuda para este.
 // Le habla de tú y nunca le asigna género.
 
 === laia ===
+// Abierto por la tarde o la noche, el caso empieza al día siguiente y hoy es el D0 (dia = 0):
+// Laia presenta el caso esta misma noche y traza la estrategia; el D1 a las 10:00 solo da la salida.
+{dia < 1: -> d0}
 -> d1
+
+= d0
+Conexión establecida. Canal cifrado. #effect: glitch
+-> presentacion ->
+-> estrategia ->
+Buenos días. Son las diez. #at: D1 10:00
+Desde ahora el móvil de Alicia está despierto. Su gente va a empezar a escribir. #delay: 4
+Lee antes de escribir. Y escribe como ella. #delay: 4
+Te escribo esta noche para el parte. #delay: 3
+-> d1_noche
 
 = d1
 Conexión establecida. Canal cifrado. #at: D1 10:00 #effect: glitch
+-> presentacion ->
+Te escribo esta noche para el parte. #delay: 3
+-> d1_noche
+
+// El encargo: quién es Alicia, las normas y la prisa (el tiempo corre). Sirve para la noche del D0 y para la mañana del D1.
+= presentacion
 Soy la sargento Laia Puig. Mossos d'Esquadra, comisaría de Olot. #delay: 4
+Me ha costado mucho que el CNI te prestara, Kimo. Dicen que nunca has dejado un caso sin cerrar. #delay: 5
 Te llamo. Contesta. #delay: 3 #call: audio/laia_encargo.m4a
 Te lo dejo también por escrito. #delay: 6
 Alicia Serra Vidal. 18 años. Vive en L'Hostalnou de Bianya con su madre, Montse, y su hermana mayor, Berta. #delay: 4
-Desapareció anteanoche. Se dejó el móvil en casa, cargando. Este móvil. #delay: 4
-La madre vino ayer a denunciarlo. Sola, sin hacer ruido. Pidió que no saliera en ningún sitio. #delay: 5
+{dia < 1:Desapareció anoche.|Desapareció anteanoche.} Se dejó el móvil en casa, cargando. Este móvil. #delay: 4
+{dia < 1:La madre ha venido esta tarde a denunciarlo.|La madre vino ayer a denunciarlo.} Sola, sin hacer ruido. Pidió que no saliera en ningún sitio. #delay: 5
 No quiso dejarnos el teléfono. Dice que no saben el PIN. #delay: 4
 Puede ser. Pero no me gustó cómo me miraba. #delay: 4
 Oficialmente esto no existe. Y tú tampoco. #delay: 4
@@ -24,16 +45,38 @@ Tres: me lo cuentas todo a mí. A nadie más. #delay: 4 #caduca: D1 23:59
     Fíjate en cómo escribe ella. Las amigas notan esas cosas. #delay: 4
 * [¿Por qué yo y no un equipo?]
     Porque un equipo deja papeles. #delay: 4
-    Y porque me han dicho que eres de lo mejor que hay en esto. #delay: 3
+    Y porque cuando a un caso ya no le queda nadie, se llama a Kimo. #delay: 3
 * [¿Cuánto cobro?]
     Lo hablamos cuando aparezca. Viva. #delay: 5
 * [(sin responder)]
     Doy por hecho que lo has leído. #delay: 2
 - Otra cosa. #delay: 4
-La madre insistió mucho en un plazo. Dijo, palabra por palabra: «tiene que estar en casa antes del séptimo amanecer». #delay: 5
-No sé qué significa. Averígualo. #delay: 3
-Te escribo esta noche para el parte. #delay: 3
+En una desaparición, las primeras horas son las que más valen. Y ya hemos perdido unas cuantas. #delay: 5
+Hay que encontrarla cuanto antes. El tiempo corre. #delay: 3
+->->
 
+// Solo la noche del D0: por qué esperar a mañana y qué hacer mientras tanto.
+= estrategia
+Una cosa más. Ya es tarde. #delay: 5
+A estas horas Alicia no le escribe a nadie. Si su móvil se pone a hablar de noche, la madre lo notará. #delay: 5
+Así que esta noche no escribes. Lees. #delay: 3
+El plan. #delay: 3
+Uno: repasa todos sus chats, de arriba abajo. Cómo escribe, con quién habla, qué dejó pendiente. #delay: 5
+Dos: Gonpi y su galería de fotos. La gente cuenta mucho más de lo que cree. #delay: 5
+Tres: mañana a las diez el móvil «se despierta». Empieza por su gente: amigas, el ex, el trabajo. #delay: 5
+Cuatro: el grupo familiar, ni tocarlo. Se lee, no se escribe. #delay: 4
+Y cada noche, a las 21:30, me pasas el parte. #delay: 4 #caduca: D1 09:00
+* [¿Y si alguien le escribe esta noche?]
+    Alicia está dormida. Ni lo abras. #delay: 6
+    Mañana contestas, como haría ella. #delay: 3
+* [Entendido. Mañana a las diez.]
+    Bien. #delay: 3
+* [(sin responder)]
+    Lo tomo como un sí. #delay: 2
+- Duerme algo. Mañana empezamos. #delay: 4
+->->
+
+= d1_noche
 ¿Algo para el parte de hoy? #at: D1 21:30 #caduca: D2 08:00
 * [Aún nada claro.]
     Normal. El primer día todo el mundo miente un poco. #delay: 6
@@ -100,7 +143,7 @@ Y la madre o lo sabe o quiere que no lo sepamos. Una de dos. #delay: 4
     Al padre, una amiga. A nosotros, que no sabe nada. #delay: 6
     Esa mujer no busca a su hija. Controla lo que se sabe de ella. #delay: 4
 * [Nada nuevo.]
-    Según esa gente quedan cinco días. No me digas «nada nuevo» muchas veces. #delay: 5
+    Cada día sin noticias juega en contra. No me digas «nada nuevo» muchas veces. #delay: 5
 * [(sin responder)]
     Otra noche en silencio. Espero que estés trabajando. #delay: 1
 - Mañana más. #delay: 3
@@ -144,7 +187,7 @@ Parte. ¿Qué tienes? #at: D3 21:30 #caduca: D4 08:00
     Esa carretera sube hasta la collada. Pocas casas, mucho bosque. #delay: 4
     Si iba andando con peso, no pudo ir muy lejos. #delay: 4
 * [Nada nuevo.]
-    Quedan cuatro días. #delay: 5
+    Otro día perdido. El tiempo corre. #delay: 5
 * [(sin responder)]
     ... #delay: 1
 - Mañana más. #delay: 3
@@ -163,7 +206,7 @@ Parte. ¿Qué tienes? #at: D3 21:30 #caduca: D4 08:00
     Dirección: «Disseminat». Ni calle ni número. #delay: 4
     En ese diseminado hay unas cuarenta masías. Desde aquí no sé cuál es la suya. #delay: 5
 }
-Quedan tres días. Mañana pido permiso para mover a gente. No te prometo nada. #at: D4 15:00
+Cada día que pasa, más difícil. Mañana pido permiso para mover a gente. No te prometo nada. #at: D4 15:00
 -> d4_noche
 
 = d4_noche
@@ -180,7 +223,7 @@ Parte. #at: D4 21:30 #caduca: D5 08:00
     Las sectas siempre tienen grietas. #delay: 8
     Si alguien de dentro duda, cuídala. Y no la quemes. #delay: 4
 * [Nada nuevo.]
-    Quedan tres días. Tres. #delay: 5
+    El reloj no se para. Nosotros tampoco deberíamos. #delay: 5
 * [(sin responder)]
     ... #delay: 1
 - Mañana más. #delay: 3
@@ -218,7 +261,7 @@ Parte. ¿Qué tienes? #at: D5 21:45 #caduca: D6 08:00
     Una puerta azul. #delay: 8
     Lo apunto. No voy a mandar a nadie a mirar puertas sin saber dónde están. #delay: 5
 * [Nada nuevo.]
-    Quedan dos días. #delay: 4
+    «Nada nuevo» no me sirve. Cada hora cuenta. #delay: 4
 * [(sin responder)]
 - Mañana es el día. Duerme algo. #delay: 3
 -> d6

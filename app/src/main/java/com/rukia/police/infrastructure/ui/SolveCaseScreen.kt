@@ -1,5 +1,7 @@
 package com.rukia.police.infrastructure.ui
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -46,7 +48,7 @@ fun SolveCaseScreen(question: CaseQuestion, onBack: () -> Unit, onAccuse: (Suspe
     val selected = question.options.find { it.id == selectedId }
 
     Column(Modifier.fillMaxSize().background(c.background)) {
-        SubHeader("Solve the case", onBack)
+        SubHeader(stringResource(R.string.solve_case), onBack)
         LazyVerticalGrid(
             GridCells.Fixed(3),
             Modifier.weight(1f),
@@ -62,7 +64,7 @@ fun SolveCaseScreen(question: CaseQuestion, onBack: () -> Unit, onAccuse: (Suspe
                         horizontalArrangement = Arrangement.spacedBy(10.dp),
                     ) {
                         Icon(RukiaIcons.Warning, null, Modifier.size(18.dp), tint = c.warnText)
-                        Text("You only have one try. A wrong answer ends the game and erases this save file.", color = c.warnText, fontSize = 14.sp, lineHeight = 19.sp)
+                        Text(stringResource(R.string.one_try_warning), color = c.warnText, fontSize = 14.sp, lineHeight = 19.sp)
                     }
                 }
             }
@@ -79,14 +81,14 @@ fun SolveCaseScreen(question: CaseQuestion, onBack: () -> Unit, onAccuse: (Suspe
                 containerColor = AccuseRed, contentColor = Color.White,
                 disabledContainerColor = c.ctaOffBackground, disabledContentColor = c.ctaOffText,
             ),
-        ) { Text(selected?.let { "Accuse ${it.label}" } ?: "Choose a suspect", fontSize = 17.sp, fontWeight = FontWeight.SemiBold) }
+        ) { Text(selected?.let { stringResource(R.string.accuse_x, it.label) } ?: stringResource(R.string.choose_suspect), fontSize = 17.sp, fontWeight = FontWeight.SemiBold) }
     }
 
     if (confirming && selected != null) {
         IosAlert(
-            title = "Accuse ${selected.label}?",
-            text = "This is your only attempt. If you're wrong, the game is over and all data in this save file is erased.",
-            confirm = "Accuse",
+            title = stringResource(R.string.accuse_q, selected.label),
+            text = stringResource(R.string.accuse_text),
+            confirm = stringResource(R.string.accuse),
             onDismiss = { confirming = false },
         ) { confirming = false; onAccuse(selected) }
     }
@@ -142,15 +144,15 @@ fun VerdictScreen(verdict: Verdict, onReturnToTitle: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Text(if (solved) "CASE SOLVED" else "GAME OVER", color = accent, fontSize = 40.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 4.sp, textAlign = TextAlign.Center)
+        Text(stringResource(if (solved) R.string.case_solved else R.string.game_over), color = accent, fontSize = 40.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 4.sp, textAlign = TextAlign.Center)
         Text(
-            if (solved) "You found the truth.\nThe case is closed." else "Wrong accusation. The culprit got away.\nYour save file has been erased.",
+            stringResource(if (solved) R.string.solved_text else R.string.failed_text),
             Modifier.padding(top = 16.dp), color = Color.White.copy(alpha = 0.82f), fontSize = 17.sp, lineHeight = 24.sp, textAlign = TextAlign.Center,
         )
         Button(
             onReturnToTitle, Modifier.padding(top = 48.dp).height(50.dp), shape = RoundedCornerShape(25.dp),
             contentPadding = PaddingValues(horizontal = 28.dp),
             colors = ButtonDefaults.buttonColors(containerColor = accent, contentColor = Color(0xFF0D1117)),
-        ) { Text("Return to title", fontSize = 17.sp, fontWeight = FontWeight.Bold) }
+        ) { Text(stringResource(R.string.return_title), fontSize = 17.sp, fontWeight = FontWeight.Bold) }
     }
 }

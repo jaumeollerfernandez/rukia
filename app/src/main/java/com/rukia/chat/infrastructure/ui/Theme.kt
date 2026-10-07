@@ -1,6 +1,5 @@
 package com.rukia.chat.infrastructure.ui
 
-import android.graphics.BitmapFactory
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -17,13 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rukia.chat.domain.model.Character
-import com.rukia.chat.domain.model.PlayerProfile
 import com.rukia.phone.Kit
 import com.rukia.phone.RukiaIcons
 import com.rukia.phone.rememberMediaImage
@@ -114,22 +111,6 @@ fun GroupAvatar(first: Character?, second: Character?, size: Int) {
     Box(Modifier.size(size.dp)) {
         Box(Modifier.align(Alignment.TopStart)) { Avatar(first, small) }
         Box(Modifier.align(Alignment.BottomEnd).border(2.5.dp, ring, CircleShape).padding(2.dp)) { Avatar(second, small - 4) }
-    }
-}
-
-@Composable
-fun PlayerAvatar(profile: PlayerProfile, size: Int, modifier: Modifier = Modifier) {
-    // Avatars are stored pre-shrunk to 512px, so decoding on the main thread is cheap.
-    val image = remember(profile.avatarPath) {
-        profile.avatarPath?.let { BitmapFactory.decodeFile(it)?.asImageBitmap() }
-    }
-    val shape = modifier.size(size.dp).clip(CircleShape)
-    if (image != null) {
-        Image(image, "Your avatar", shape, contentScale = ContentScale.Crop)
-    } else {
-        Box(shape.background(Color(0xFFB0BEC5)), contentAlignment = Alignment.Center) {
-            Icon(RukiaIcons.PersonFilled, "Your avatar", Modifier.size((size * 0.6).dp), tint = Color.White)
-        }
     }
 }
 

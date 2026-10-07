@@ -53,7 +53,7 @@ Que no la busquemos con miedo. Que el miedo la aleja más. #from: berta #delay: 
 Que es una semilla que se ha escapado del cesto. Y que las semillas vuelven solas cuando tienen frío. #from: berta #delay: 8
 Y que la familia tiene que estar completa. Las tres. #from: berta #delay: 5
 Lo sé. #from: mama #delay: 60
-Esta mañana fui a los Mossos. Ignasi dice que mejor que conste, por si alguien pregunta. #from: mama #delay: 10
+Ayer fui a los Mossos. Ignasi dice que mejor que conste, por si alguien pregunta. #from: mama #delay: 10
 De la Casa no he dicho nada. #from: mama #delay: 4
 Bien. Lo de dentro se queda dentro. #from: berta #delay: 30
 ¿Has comido algo? #from: berta #delay: 20

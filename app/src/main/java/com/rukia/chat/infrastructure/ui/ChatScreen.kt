@@ -1,5 +1,7 @@
 package com.rukia.chat.infrastructure.ui
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,6 +15,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -59,7 +62,7 @@ fun ChatScreen(
     onEndCall: (answered: Boolean) -> Unit,
 ) {
     val caseId = LocalCaseId.current
-    var shown by remember(chat.id) { mutableIntStateOf(minOf(revealFrom, chat.arrivedCount(CaseClock.now(caseId)))) }
+    var shown by rememberSaveable(chat.id) { mutableIntStateOf(minOf(revealFrom, chat.arrivedCount(CaseClock.now(caseId)))) }
     // While this chat is on screen, its arriving messages show here instead of as notifications.
     DisposableEffect(chat.id) {
         VisibleChat.id = chat.id
@@ -95,10 +98,10 @@ fun ChatScreen(
     val p = LocalPalette.current
     val solo = characters[chat.participants.singleOrNull()]
     val subtitle = when {
-        typingId != null && solo != null -> "typing…"
-        typingId != null -> "${characters[typingId]?.name ?: typingId} is typing…"
-        solo != null -> if (solo.onlineAt(CaseClock.now(caseId))) "online" else solo.status
-        else -> (chat.participants.map { characters[it]?.name ?: it } + "You").joinToString()
+        typingId != null && solo != null -> stringResource(R.string.typing)
+        typingId != null -> stringResource(R.string.typing_name, characters[typingId]?.name ?: typingId.orEmpty())
+        solo != null -> if (solo.onlineAt(CaseClock.now(caseId))) stringResource(R.string.online) else solo.status
+        else -> (chat.participants.map { characters[it]?.name ?: it } + stringResource(R.string.you)).joinToString()
     }
     val visible = chat.messages.take(shown)
 
@@ -116,7 +119,7 @@ fun ChatScreen(
                     val newDay = msg.deliverAt > 0 && (prev == null || prev.deliverAt <= 0 || dayOf(prev.deliverAt) != dayOf(msg.deliverAt))
                     if (msg.time.isNotEmpty() && (newDay || msg.time != prev?.time)) {
                         Text(
-                            if (newDay) "${dayLabel(msg.deliverAt, CaseClock.now(caseId))} ${msg.time}" else msg.time,
+                            if (newDay) "${dayLabel(msg.deliverAt, CaseClock.now(caseId), stringResource(R.string.today), stringResource(R.string.yesterday))} ${msg.time}" else msg.time,
                             Modifier.fillMaxWidth().padding(top = if (i == 0) 0.dp else 12.dp, bottom = 2.dp),
                             color = p.subText, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center,
                         )
@@ -138,7 +141,8 @@ fun ChatScreen(
         }
         if (ringing != null) {
             // Answering a call with audio plays it before hanging up; without audio it ends right away.
-            var answered by remember(ringing) { mutableStateOf(false) }
+            // Saved, so a recreated screen keeps the call going instead of ringing again.
+            var answered by rememberSaveable(ringing) { mutableStateOf(false) }
             val audio = ringing.audio
             if (answered && audio != null) {
                 OngoingCallScreen(characters[ringing.from], audio, onHangUp = { onEndCall(true) })
@@ -157,10 +161,11 @@ fun ChatScreen(
 @Composable
 private fun Header(chat: Chat, characters: Map<String, Character>, subtitle: String, otherUnread: Int, onBack: () -> Unit) {
     val p = LocalPalette.current
+    val backLabel = stringResource(R.string.back_to_chats)
     Column(Modifier.background(p.bar)) {
         Row(Modifier.statusBarsPadding().padding(start = 12.dp, end = 12.dp, top = 4.dp, bottom = 8.dp), verticalAlignment = Alignment.CenterVertically) {
             Row(
-                Modifier.width(76.dp).heightIn(min = 44.dp).clickable(onClick = onBack).semantics { contentDescription = "Back to Chats" },
+                Modifier.width(76.dp).heightIn(min = 44.dp).clickable(onClick = onBack).semantics { contentDescription = backLabel },
                 verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(2.dp),
             ) {
                 Icon(RukiaIcons.ChevronLeft, null, Modifier.size(26.dp), tint = p.tint)
@@ -189,7 +194,7 @@ private fun Choices(choices: List<IndexedValue<String>>, onChoose: (Int) -> Unit
         Modifier.fillMaxWidth().background(p.bar).navigationBarsPadding().padding(start = 14.dp, end = 14.dp, top = 10.dp, bottom = 12.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Text("Choose your reply", Modifier.padding(horizontal = 4.dp), color = p.subText, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
+        Text(stringResource(R.string.choose_reply), Modifier.padding(horizontal = 4.dp), color = p.subText, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
         choices.forEach { (i, text) ->
             val shape = RoundedCornerShape(24.dp)
             Row(

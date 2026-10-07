@@ -1,5 +1,7 @@
 package com.rukia.phone
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import android.content.Context
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -105,7 +107,7 @@ private fun HackedEffect(onDone: () -> Unit) {
         }
         if (tick % 6 < 4) {
             Text(
-                "SYSTEM COMPROMISED", Modifier.align(Alignment.Center).background(Color.Black).padding(16.dp),
+                stringResource(R.string.system_compromised), Modifier.align(Alignment.Center).background(Color.Black).padding(16.dp),
                 color = Color.Red, fontSize = 28.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace,
             )
         }

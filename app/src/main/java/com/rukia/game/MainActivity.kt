@@ -1,6 +1,7 @@
 package com.rukia.game
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -18,10 +19,17 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import com.rukia.phone.AppLaunch
 import com.rukia.phone.CaseClock
+import com.rukia.phone.Language
 import com.rukia.phone.PhoneScreen
 
-/** The game: title screen, or the phone of the case being played. */
+/** Screens before a case is open. */
+private enum class Menu { Main, Cases, Options }
+
+/** The game: the main menu (Start, Options, Exit), the case list, or the phone of the case being played. */
 class MainActivity : ComponentActivity() {
+    // The whole interface uses the language picked in Options.
+    override fun attachBaseContext(newBase: Context) = super.attachBaseContext(Language.wrap(newBase))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,13 +45,18 @@ class MainActivity : ComponentActivity() {
             }
 
             var caseId by rememberSaveable { mutableStateOf<String?>(null) }
+            var menu by rememberSaveable { mutableStateOf(Menu.Main) }
             // A tapped notification goes straight into its case's phone.
             LaunchedEffect(AppLaunch.request) {
                 AppLaunch.request?.caseId?.takeIf { requested -> cases.any { it.id == requested } }?.let { caseId = it }
             }
-            AnimatedContent(caseId, transitionSpec = { fadeIn() togetherWith fadeOut() }, label = "screen") { id ->
-                if (id == null) TitleScreen(cases, onPlay = { caseId = it.id })
-                else PhoneScreen(id, onReturnToTitle = { caseId = null })
+            AnimatedContent(caseId ?: menu, transitionSpec = { fadeIn() togetherWith fadeOut() }, label = "screen") { screen ->
+                when (screen) {
+                    Menu.Main -> MainMenu(onStart = { menu = Menu.Cases }, onOptions = { menu = Menu.Options })
+                    Menu.Cases -> TitleScreen(cases, onBack = { menu = Menu.Main }, onPlay = { caseId = it.id })
+                    Menu.Options -> OptionsScreen(onBack = { menu = Menu.Main })
+                    else -> PhoneScreen(screen as String, onReturnToTitle = { caseId = null; menu = Menu.Main })
+                }
             }
         }
     }

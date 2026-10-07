@@ -1,7 +1,10 @@
 package com.rukia.chat.infrastructure.ui
 
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
 import android.media.MediaPlayer
 import android.media.RingtoneManager
+import android.os.PowerManager
 import android.os.VibrationEffect
 import android.os.Vibrator
 import androidx.activity.compose.BackHandler
@@ -22,6 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.Role
@@ -36,15 +40,17 @@ import com.rukia.phone.LocalCaseId
 import com.rukia.phone.RukiaIcons
 import com.rukia.phone.SystemBars
 import com.rukia.phone.callBackdrop
-import com.rukia.phone.glass
 import com.rukia.phone.playMedia
 import kotlinx.coroutines.delay
 
-fun callLabel(status: CallStatus) = when (status) {
-    CallStatus.RINGING -> "Incoming voice call"
-    CallStatus.ANSWERED -> "Voice call"
-    CallStatus.DECLINED -> "Missed voice call"
-}
+@Composable
+fun callLabel(status: CallStatus) = stringResource(
+    when (status) {
+        CallStatus.RINGING -> R.string.call_incoming
+        CallStatus.ANSWERED -> R.string.call_voice
+        CallStatus.DECLINED -> R.string.call_missed
+    }
+)
 
 private fun Character?.tint() = this?.colorValue() ?: Color(0xFF7E57C2)
 
@@ -64,7 +70,7 @@ fun IncomingCallScreen(caller: Character?, onAnswer: () -> Unit, onDecline: () -
             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             Icon(RukiaIcons.Phone, null, Modifier.size(14.dp), tint = Color.White.copy(alpha = 0.88f))
-            Text("Chats voice call", color = Color.White.copy(alpha = 0.88f), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+            Text(stringResource(R.string.call_badge), color = Color.White.copy(alpha = 0.88f), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
         }
         Box(Modifier.padding(top = 56.dp).size(132.dp), contentAlignment = Alignment.Center) {
             // Two rings spreading out of the avatar, half a beat apart.
@@ -78,21 +84,19 @@ fun IncomingCallScreen(caller: Character?, onAnswer: () -> Unit, onDecline: () -
             Box(Modifier.border(4.dp, Color.White.copy(alpha = 0.18f), CircleShape)) { Avatar(caller, size = 132) }
         }
         Text(caller?.name.orEmpty(), Modifier.padding(top = 30.dp), color = Color.White, fontSize = 40.sp, lineHeight = 44.sp, fontWeight = FontWeight.SemiBold, letterSpacing = (-1).sp)
-        Text("Incoming call…", Modifier.padding(top = 6.dp), color = Color.White.copy(alpha = 0.75f), fontSize = 18.sp, fontWeight = FontWeight.Medium)
+        Text(stringResource(R.string.call_incoming_status), Modifier.padding(top = 6.dp), color = Color.White.copy(alpha = 0.75f), fontSize = 18.sp, fontWeight = FontWeight.Medium)
         Spacer(Modifier.weight(1f))
         Row(Modifier.fillMaxWidth().padding(horizontal = 22.dp), horizontalArrangement = Arrangement.SpaceBetween) {
-            RoundCallButton("Decline", Kit.Decline, iconRotation = 135f, onClick = onDecline)
-            RoundCallButton("Accept", Kit.Accept, iconRotation = 0f, onClick = onAnswer)
+            RoundCallButton(stringResource(R.string.decline), Kit.Decline, iconRotation = 135f, onClick = onDecline)
+            RoundCallButton(stringResource(R.string.accept), Kit.Accept, iconRotation = 0f, onClick = onAnswer)
         }
     }
 }
 
-/** Heights of the waveform's 40 bars, from the design. */
-private val WAVE = intArrayOf(18, 30, 46, 26, 58, 40, 22, 50, 62, 34, 20, 44, 56, 28, 38, 60, 24, 48, 32, 16, 42, 54, 26, 36, 58, 30, 20, 46, 40, 24, 52, 34, 18, 44, 28, 38, 22, 30, 16, 24)
-
-private fun clock(millis: Int) = (millis / 1000).let { "%d:%02d".format(it / 60, it % 60) }
-
-/** An answered call: plays what the caller says from [audio], and hangs up when it ends or the player hangs up. */
+/**
+ * An answered call, shown like a real one: who's on the line and how long the call has lasted. What the caller
+ * says plays from [audio]; the call hangs up when it ends or the player hangs up.
+ */
 @Composable
 fun OngoingCallScreen(caller: Character?, audio: String, onHangUp: () -> Unit) {
     BackHandler {} // hang up with the button
@@ -102,61 +106,51 @@ fun OngoingCallScreen(caller: Character?, audio: String, onHangUp: () -> Unit) {
     val hangUp by rememberUpdatedState(onHangUp)
     var player by remember { mutableStateOf<MediaPlayer?>(null) }
     var seconds by remember { mutableIntStateOf(0) }
-    var position by remember { mutableIntStateOf(0) }
     var muted by remember { mutableStateOf(false) }
+    var speaker by remember { mutableStateOf(false) }
     LaunchedEffect(Unit) { while (true) { delay(1_000); seconds++ } }
     DisposableEffect(audio) {
         // A missing file just means a silent call the player hangs up themselves.
         player = runCatching { playMedia(context, caseId, audio) { hangUp() } }.getOrNull()
         onDispose { player?.release(); player = null }
     }
-    LaunchedEffect(player) { while (true) { position = runCatching { player?.currentPosition }.getOrNull() ?: 0; delay(200) } }
     LaunchedEffect(muted, player) { player?.setVolume(if (muted) 0f else 1f, if (muted) 0f else 1f) }
-    val duration = remember(player) { runCatching { player?.duration }.getOrNull()?.takeIf { it > 0 } ?: 0 }
-    val tint = caller.tint()
+    // Like a real call: the screen goes dark against the ear, so a cheek can't press anything.
+    DisposableEffect(Unit) {
+        val power = context.getSystemService(PowerManager::class.java)
+        val lock = power?.takeIf { it.isWakeLockLevelSupported(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK) }
+            ?.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "kimo:call")
+            ?.apply { acquire(10 * 60_000L) } // released on hang-up; the timeout only guards against a leak
+        onDispose { if (lock?.isHeld == true) lock.release() }
+    }
 
     Column(
-        Modifier.fillMaxSize().callBackdrop(tint).safeDrawingPadding().padding(start = 24.dp, end = 24.dp, top = 40.dp, bottom = 40.dp),
+        Modifier.fillMaxSize().callBackdrop(caller.tint()).safeDrawingPadding().padding(start = 28.dp, end = 28.dp, top = 48.dp, bottom = 40.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Row(Modifier.fillMaxWidth().padding(horizontal = 4.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-            Box(Modifier.border(3.dp, Color.White.copy(alpha = 0.18f), CircleShape)) { Avatar(caller, size = 56) }
-            Column {
-                Text(caller?.name.orEmpty(), color = Color.White, fontSize = 28.sp, lineHeight = 32.sp, fontWeight = FontWeight.SemiBold, letterSpacing = (-0.5).sp)
-                Text("%02d:%02d".format(seconds / 60, seconds % 60), color = Color.White.copy(alpha = 0.75f), fontSize = 16.sp, fontWeight = FontWeight.Medium)
-            }
-        }
-        Column(
-            Modifier.padding(top = 40.dp).fillMaxWidth().glass(RoundedCornerShape(28.dp), alpha = 0.10f).padding(start = 18.dp, end = 18.dp, top = 20.dp, bottom = 18.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Box(Modifier.size(8.dp).background(Color(0xFF3DDC84), CircleShape))
-                Text("${caller?.name ?: "Caller"} is speaking", color = Color.White.copy(alpha = 0.8f), fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
-            }
-            val played = if (duration > 0) position.toFloat() / duration else 0f
-            Row(Modifier.fillMaxWidth().height(64.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(3.dp)) {
-                WAVE.forEachIndexed { i, h ->
-                    val color = if (i.toFloat() / WAVE.size < played) Color.White else Color.White.copy(alpha = 0.32f)
-                    Box(Modifier.weight(1f).height(h.dp).background(color, RoundedCornerShape(2.dp)))
-                }
-            }
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                Text(clock(position), color = Color.White.copy(alpha = 0.65f), fontSize = 13.sp, fontWeight = FontWeight.Medium)
-                Text(clock(duration), color = Color.White.copy(alpha = 0.65f), fontSize = 13.sp, fontWeight = FontWeight.Medium)
-            }
-        }
+        Box(Modifier.padding(top = 56.dp).border(4.dp, Color.White.copy(alpha = 0.18f), CircleShape)) { Avatar(caller, size = 132) }
+        Text(caller?.name.orEmpty(), Modifier.padding(top = 30.dp), color = Color.White, fontSize = 40.sp, lineHeight = 44.sp, fontWeight = FontWeight.SemiBold, letterSpacing = (-1).sp)
+        Text("%02d:%02d".format(seconds / 60, seconds % 60), Modifier.padding(top = 6.dp), color = Color.White.copy(alpha = 0.75f), fontSize = 18.sp, fontWeight = FontWeight.Medium)
         Spacer(Modifier.weight(1f))
-        // Glass when off, white when on, as in the kit.
-        Column(Modifier.padding(bottom = 44.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            Box(
-                Modifier.size(72.dp).clip(CircleShape).background(if (muted) Color.White else Color.White.copy(alpha = 0.16f))
-                    .toggleable(muted, role = Role.Switch) { muted = it },
-                contentAlignment = Alignment.Center,
-            ) { Icon(RukiaIcons.MicOff, "Mute", Modifier.size(26.dp), tint = if (muted) Color(0xFF14141F) else Color.White) }
-            Text("Mute", color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Medium)
+        Row(Modifier.fillMaxWidth().padding(bottom = 44.dp), horizontalArrangement = Arrangement.SpaceEvenly) {
+            CallToggle(RukiaIcons.MicOff, stringResource(R.string.mute), muted) { muted = it }
+            // ponytail: the speaker button only lights up; the clip always plays through the phone's usual output.
+            CallToggle(RukiaIcons.Speaker, stringResource(R.string.speaker), speaker) { speaker = it }
         }
-        RoundCallButton(null, Kit.Decline, iconRotation = 135f, contentDescription = "Hang up", onClick = onHangUp)
+        RoundCallButton(null, Kit.Decline, iconRotation = 135f, contentDescription = stringResource(R.string.hang_up), onClick = onHangUp)
+    }
+}
+
+/** Round in-call button: glass when off, white when on, as in the kit. */
+@Composable
+private fun CallToggle(icon: ImageVector, label: String, on: Boolean, onChange: (Boolean) -> Unit) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Box(
+            Modifier.size(72.dp).clip(CircleShape).background(if (on) Color.White else Color.White.copy(alpha = 0.16f))
+                .toggleable(on, role = Role.Switch, onValueChange = onChange),
+            contentAlignment = Alignment.Center,
+        ) { Icon(icon, label, Modifier.size(26.dp), tint = if (on) Color(0xFF14141F) else Color.White) }
+        Text(label, color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Medium)
     }
 }
 
@@ -193,8 +187,8 @@ private fun Ringing() {
 fun CallsScreen(calls: List<CallRecord>, characters: Map<String, Character>) {
     val p = LocalPalette.current
     LazyColumn(Modifier.fillMaxSize()) {
-        item { LargeTitle("Calls") }
-        if (calls.isEmpty()) item { Text("No calls yet", Modifier.padding(horizontal = 20.dp), color = p.subText, fontSize = 15.sp) }
+        item { LargeTitle(stringResource(R.string.tab_calls)) }
+        if (calls.isEmpty()) item { Text(stringResource(R.string.no_calls), Modifier.padding(horizontal = 20.dp), color = p.subText, fontSize = 15.sp) }
         items(calls) { call ->
             val missed = call.status == CallStatus.DECLINED
             val color = if (missed) p.red else p.subText

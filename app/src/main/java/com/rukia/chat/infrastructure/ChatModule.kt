@@ -4,7 +4,6 @@ import android.content.Context
 import com.rukia.chat.application.*
 import com.rukia.chat.infrastructure.notifications.WorkManagerNotifier
 import com.rukia.chat.infrastructure.persistence.AssetCharacterRepository
-import com.rukia.chat.infrastructure.persistence.AvatarImporter
 import com.rukia.chat.infrastructure.persistence.InkStoryEngine
 import com.rukia.chat.infrastructure.persistence.JsonChatRepository
 import com.rukia.chat.infrastructure.persistence.JsonProfileRepository
@@ -34,7 +33,6 @@ class ChatModule private constructor(context: Context, caseId: String) {
     private val notifier = WorkManagerNotifier(context, caseId).apply { if (isDebugCase(caseId)) quietUntil = Long.MAX_VALUE }
     private val isStarted = { CaseClock.isStarted(context, caseId) }
 
-    val avatars = AvatarImporter(context.contentResolver, saveRoot)
     val listChats = ListChats(chatRepo)
     val advanceChat = AdvanceChat(chatRepo, story, notifier, clock)
     val chooseReply = ChooseReply(chatRepo, story, characterRepo, notifier, clock)

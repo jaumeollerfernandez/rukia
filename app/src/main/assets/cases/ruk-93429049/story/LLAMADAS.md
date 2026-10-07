@@ -8,8 +8,8 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 
 ## 1. `audio/laia_encargo.m4a`: el encargo
 
-- **Cuándo:** D1, 10:00, en el chat de la sargento Puig, justo después de «Te llamo. Contesta.».
-- **Quién:** sargento Laia Puig, Mossos d'Esquadra. Unos 45 años. Voz grave y seca, de alguien que tiene prisa y no se fía de nadie.
+- **Cuándo:** en el chat de la sargento Puig, justo después de «Te llamo. Contesta.». Si el caso empieza por la mañana, el D1 a las 10:00; si empieza por la tarde o la noche, esa misma noche (D0), un día antes. **El guion tiene que servir para los dos**: nada de «ayer», «anoche» ni «hoy».
+- **Quién:** sargento Laia Puig, Mossos d'Esquadra. Unos 45 años. Voz grave y seca, de alguien que tiene prisa y no se fía de nadie. Habla con Kimo, la persona del CNI que ha pedido para el caso (sin género: nunca dice «él» ni «ella»). Le tiene respeto, pero no le pone las cosas fáciles.
 - **Dónde:** dentro de un coche aparcado. Ruido suave de motor al ralentí; un intermitente se apaga al principio.
 - **Duración:** unos 60 s.
 
@@ -17,11 +17,11 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 >
 > No hace falta que digas nada. Mejor así.
 >
-> Soy Puig. Ya sabes de qué va esto, o te lo imaginas.
+> Soy Puig. Ya sabes de qué va esto, o te lo imaginas. En Madrid me han dicho que no has dejado ningún caso sin cerrar. *(Pausa.)* Espero que este no sea el primero.
 >
 > *(Pausa breve.)*
 >
-> Una chica de dieciocho años, Alicia, lleva dos noches sin aparecer. Su madre vino ayer a comisaría a denunciarlo… pero pidiéndome por favor que no hiciéramos ruido. Nada de carteles. Nada de prensa. *(Pausa.)* En veinte años no había visto a una madre pedir eso.
+> Una chica de dieciocho años, Alicia, ha desaparecido. Su madre ha venido a comisaría a denunciarlo… pero pidiéndome por favor que no hiciéramos ruido. Nada de carteles. Nada de prensa. *(Pausa.)* En veinte años no había visto a una madre pedir eso.
 >
 > El móvil de la chica está en su casa. Ya tienes acceso. Lo que veas ahí es lo único que tenemos.
 >
@@ -29,17 +29,17 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 >
 > *(El motor se para. Silencio.)*
 >
-> La madre ha dicho una cosa que no me quito de la cabeza. Que la niña «tiene que estar en casa antes del séptimo amanecer». Así, tal cual.
+> En una desaparición, las primeras horas son oro. Y ya hemos perdido unas cuantas.
 >
 > *(Pausa larga.)*
 >
-> Hoy es el primero.
+> El tiempo corre. Hay que encontrarla cuanto antes.
 >
 > Te escribo por aquí. No me llames tú.
 >
 > *(Cuelga.)*
 
-**Notas de interpretación:** nada de dramatismo de película; cansada, profesional y algo inquieta. La frase «hoy es el primero» va más baja, casi para sí misma. Tiene que quedar claro que empieza la cuenta atrás.
+**Notas de interpretación:** nada de dramatismo de película; cansada, profesional y algo inquieta. «El tiempo corre» va más baja, casi para sí misma: es la frase de alguien que ha visto muchos casos acabar mal por llegar tarde. Tiene que quedar claro que hay prisa, pero sin dar ningún plazo concreto: el del «séptimo amanecer» lo tiene que descubrir el jugador.
 
 ---
 

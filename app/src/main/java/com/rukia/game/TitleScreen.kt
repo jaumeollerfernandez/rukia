@@ -1,5 +1,6 @@
 package com.rukia.game
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -17,40 +18,31 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rukia.R
 import com.rukia.phone.SystemBars
 
-private val Gold = Color(0xFFE0B354)
-
-/** Main window. Sign-in is faked as already done until Google Play Games is added. */
+/** Start: the cases there are so far. Back returns to the main menu. */
 @Composable
-fun TitleScreen(cases: List<GameCase>, onPlay: (GameCase) -> Unit) {
+fun TitleScreen(cases: List<GameCase>, onBack: () -> Unit, onPlay: (GameCase) -> Unit) {
     SystemBars(lightBottomIcons = true)
-    Column(
-        Modifier.fillMaxSize()
-            .background(Brush.verticalGradient(listOf(Color(0xFF0D1117), Color(0xFF1B2433))))
-            .safeDrawingPadding()
-            .padding(horizontal = 20.dp),
-    ) {
-        SignedInChip(Modifier.align(Alignment.End).padding(top = 12.dp))
-        Spacer(Modifier.height(48.dp))
-        Text("1ife", color = Color.White, fontSize = 52.sp, fontWeight = FontWeight.Black, letterSpacing = 8.sp)
-        Text("forgotten tales", color = Gold, fontSize = 14.sp, fontWeight = FontWeight.SemiBold, letterSpacing = 4.sp)
-        Spacer(Modifier.height(48.dp))
-        Text("Choose a case", color = Color.White.copy(alpha = 0.7f), fontSize = 15.sp)
-        Spacer(Modifier.height(12.dp))
-        LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+    BackHandler(onBack = onBack)
+    Column(Modifier.menuBackdrop()) {
+        BackTitle(stringResource(R.string.choose_case), onBack)
+        Spacer(Modifier.height(20.dp))
+        LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp), contentPadding = PaddingValues(bottom = 20.dp)) {
             items(cases, key = { it.id }) { CaseCard(it) { onPlay(it) } }
         }
     }
 }
 
+/** Sign-in is faked as already done until Google Play Games is added. */
 @Composable
-private fun SignedInChip(modifier: Modifier) {
+internal fun SignedInChip(modifier: Modifier) {
     Row(
         modifier.background(Color.White.copy(alpha = 0.08f), RoundedCornerShape(50)).padding(start = 6.dp, end = 14.dp, top = 6.dp, bottom = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -59,8 +51,8 @@ private fun SignedInChip(modifier: Modifier) {
             Icon(Icons.Filled.Person, null, Modifier.size(20.dp), tint = Color.White)
         }
         Column(Modifier.padding(start = 8.dp)) {
-            Text("Detective", color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Medium)
-            Text("Signed in · Google Play Games", color = Color.White.copy(alpha = 0.6f), fontSize = 11.sp)
+            Text("Kimo", color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Medium)
+            Text(stringResource(R.string.signed_in), color = Color.White.copy(alpha = 0.6f), fontSize = 11.sp)
         }
     }
 }
@@ -77,10 +69,10 @@ private fun CaseCard(case: GameCase, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
-            Text("CASE %02d".format(case.number), color = Gold, fontSize = 12.sp, fontWeight = FontWeight.Bold, letterSpacing = 2.sp)
+            Text(stringResource(R.string.case_number, case.number), color = Gold, fontSize = 12.sp, fontWeight = FontWeight.Bold, letterSpacing = 2.sp)
             Text(case.title, color = Color.White, fontSize = 22.sp, fontWeight = FontWeight.SemiBold)
             Text(case.summary, Modifier.padding(top = 4.dp), color = Color.White.copy(alpha = 0.7f), fontSize = 14.sp)
         }
-        Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, "Play", tint = Gold)
+        Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, stringResource(R.string.play), tint = Gold)
     }
 }
