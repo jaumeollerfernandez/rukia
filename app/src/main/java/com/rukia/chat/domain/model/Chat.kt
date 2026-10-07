@@ -68,6 +68,9 @@ data class Chat(
 
     val ringingCall get() = messages.lastOrNull { it.call == CallStatus.RINGING }
 
+    /** The newest message that has arrived, which the chat list shows and sorts by. */
+    fun lastArrived(nowMillis: Long) = messages.take(arrivedCount(nowMillis)).lastOrNull()
+
     /** Messages from others that have arrived but the player hasn't seen yet. */
     fun unreadCount(nowMillis: Long) = messages.take(arrivedCount(nowMillis)).drop(readCount).count { !it.fromPlayer }
 

@@ -108,10 +108,12 @@ fun ChatScreen(
             ) {
                 itemsIndexed(visible) { i, msg ->
                     val prev = visible.getOrNull(i - 1)
-                    // A time label whenever the clock moved on, like the design's "Today 21:30".
-                    if (msg.time.isNotEmpty() && msg.time != prev?.time) {
+                    // A time label whenever the clock moved on, with the day when it changed ("Yesterday 22:33").
+                    val newDay = msg.deliverAt > 0 && (prev == null || prev.deliverAt <= 0 || dayOf(prev.deliverAt) != dayOf(msg.deliverAt))
+                    if (msg.time.isNotEmpty() && (newDay || msg.time != prev?.time)) {
                         Text(
-                            msg.time, Modifier.fillMaxWidth().padding(top = if (i == 0) 0.dp else 12.dp, bottom = 2.dp),
+                            if (newDay) "${dayLabel(msg.deliverAt, System.currentTimeMillis())} ${msg.time}" else msg.time,
+                            Modifier.fillMaxWidth().padding(top = if (i == 0) 0.dp else 12.dp, bottom = 2.dp),
                             color = p.subText, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center,
                         )
                     }

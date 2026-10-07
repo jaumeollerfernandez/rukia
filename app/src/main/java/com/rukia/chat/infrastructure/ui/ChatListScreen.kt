@@ -25,6 +25,11 @@ import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.Message
 import com.rukia.phone.Kit
 import com.rukia.phone.RukiaIcons
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
+import java.util.Locale
 
 @Composable
 fun ChatListScreen(
@@ -38,8 +43,9 @@ fun ChatListScreen(
 
     LazyColumn(Modifier.fillMaxSize()) {
         item { LargeTitle("Chats") }
-        // A chat shows up once its first message arrives, e.g. a group someone creates later.
-        items(chats.filter { it.arrivedCount(now) > 0 }, key = { it.id }) { chat ->
+        // A chat shows up once its first message arrives, e.g. a group someone creates later; the latest conversation goes first.
+        val shown = chats.filter { it.arrivedCount(now) > 0 }.sortedByDescending { it.lastArrived(now)?.deliverAt ?: 0 }
+        items(shown, key = { it.id }) { chat ->
             ChatRow(chat, characters, now, onClick = { onOpen(chat) }, onLongClick = { deleting = chat })
         }
     }
@@ -65,7 +71,7 @@ fun ChatAvatar(chat: Chat, characters: Map<String, Character>, size: Int, showOn
 @Composable
 private fun ChatRow(chat: Chat, characters: Map<String, Character>, now: Long, onClick: () -> Unit, onLongClick: () -> Unit) {
     val p = LocalPalette.current
-    val last = chat.messages.lastOrNull { it.arrivedBy(now) }
+    val last = chat.lastArrived(now)
     val unread = chat.unreadCount(now)
     Row(
         Modifier.fillMaxWidth().combinedClickable(onClick = onClick, onLongClick = onLongClick).padding(start = 20.dp, top = 10.dp),
@@ -78,7 +84,7 @@ private fun ChatRow(chat: Chat, characters: Map<String, Character>, now: Long, o
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(chat.displayTitle(characters), Modifier.weight(1f), fontSize = 17.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Text(
-                        last?.time.orEmpty(), Modifier.padding(start = 8.dp), fontSize = 14.sp,
+                        last?.let { listTime(it, now) }.orEmpty(), Modifier.padding(start = 8.dp), fontSize = 14.sp,
                         color = if (unread > 0) p.tint else p.subText, fontWeight = if (unread > 0) FontWeight.SemiBold else FontWeight.Normal,
                     )
                 }
@@ -170,3 +176,20 @@ fun PersonRow(c: Character?, subtitle: String, nameColor: Color = Color.Unspecif
         }
     }
 }
+
+internal fun dayOf(millis: Long) = Instant.ofEpochMilli(millis).atZone(ZoneId.systemDefault()).toLocalDate()
+
+/** The day of [millis] as a messaging app says it: "Today", "Yesterday", the weekday within the last week, else the date. */
+internal fun dayLabel(millis: Long, now: Long): String {
+    val day = dayOf(millis)
+    return when (ChronoUnit.DAYS.between(day, dayOf(now))) {
+        0L -> "Today"
+        1L -> "Yesterday"
+        in 2L..6L -> day.format(DateTimeFormatter.ofPattern("EEEE", Locale.ENGLISH))
+        else -> day.format(DateTimeFormatter.ofPattern("d MMM yyyy", Locale.ENGLISH))
+    }
+}
+
+/** When a message arrived, for the chat list: its time if it was today, else its day. Messages without a timestamp show their time as saved. */
+internal fun listTime(msg: Message, now: Long) =
+    if (msg.deliverAt <= 0 || dayOf(msg.deliverAt) == dayOf(now)) msg.time else dayLabel(msg.deliverAt, now)

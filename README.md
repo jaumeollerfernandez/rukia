@@ -65,6 +65,8 @@ Characters can also have a `photo` (path inside `media/`), used as their profile
 
 **`gonpi/gonpi.json`**: the Gonpi app, the phone's Instagram. `accounts` lists everyone on it, contacts or strangers: an `id`, a `username`, and optionally `name`, `photo` (path inside `media/`; without it the avatar shows the initial in `color`), `bio`, `followers` and `following`. `posts` show in the feed in file order, so put the newest first. Each has an `author` (an account id), an `image` (path inside `media/`), and optionally a `caption`, a `time` shown as written ("2 hours ago"), `likes` and `comments` (`{ "author": "<account id>", "text": "..." }`). Tapping a username opens that account's profile with all its posts, so strangers who only comment can hide clues too. A post or comment with `"at": "D3 21:00"` (case time) only appears from then on; without it, it's there from the start. Without the file, Gonpi is empty.
 
+**Placeholder media.** `tools/placeholders.ps1 -Case app\src\main\assets\cases\<caseId>` (Windows PowerShell, needs ffmpeg) creates a provisional file for everything a case's `MEDIA_PENDIENTE.md` lists: a colored card with the file's path and description for each image, and the call's script read by the system's Spanish voice for each audio. It never overwrites a file, so it only fills in what's missing; replace a placeholder by saving the real file under the same name.
+
 **`multimedia/`**: the player's photo gallery, shown by the Multimedia app. Every image dropped here (`.jpg`, `.png`, `.webp`, ...) appears in the grid, sorted by file name; tapping one opens it full screen. No list to edit: add or remove files and rebuild.
 
 ## Saving
