@@ -29,3 +29,6 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.12.0")
     testImplementation(kotlin("test-junit"))
 }
+
+// The story tests read the case files in src/main/assets: rerun them when those change, not only when code does.
+tasks.withType<Test>().configureEach { inputs.dir("src/main/assets").withPropertyName("caseAssets") }

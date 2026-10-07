@@ -1,0 +1,61 @@
+{
+  "accounts": [
+    { "id": "rukia", "username": "rukia.kuchiki", "name": "Rukia", "photo": "photos/rukia.jpg", "bio": "Chappy enthusiast 🐰", "followers": 412, "following": 88 },
+    { "id": "ichigo", "username": "strawberry_15", "name": "Ichigo", "photo": "photos/ichigo.jpg", "bio": "Not a strawberry.", "followers": 230, "following": 41 },
+    { "id": "orihime", "username": "orihime.bakes", "name": "Orihime", "photo": "photos/orihime.jpg", "bio": "Red bean paste + everything ✨", "followers": 980, "following": 512 },
+    { "id": "uryu", "username": "uryu.ishida", "name": "Uryu", "photo": "photos/uryu.jpg", "bio": "Research. Sewing. Nothing else.", "followers": 154, "following": 3 },
+    { "id": "kisuke", "username": "urahara_shop", "name": "Kisuke", "photo": "photos/kisuke.jpg", "bio": "Candy, curiosities and more. Open late.", "followers": 2301, "following": 0 },
+    { "id": "kenji", "username": "kenji_nightshift", "name": "Kenji Mori", "bio": "Security guard. I see everything after 10pm 👀", "color": "#455A64", "followers": 37, "following": 120 },
+    { "id": "mika", "username": "mika.runs", "name": "Mika", "bio": "5am runner 🏃‍♀️", "color": "#26A69A", "followers": 610, "following": 598 }
+  ],
+  "posts": [
+    {
+      "author": "kenji",
+      "image": "photos/van.jpg",
+      "caption": "Same van behind the lab again. 1:10am, lights off, nobody inside. Anyone know whose it is?",
+      "time": "6 hours ago",
+      "likes": 4,
+      "comments": [
+        { "author": "mika", "text": "Saw it too on my run, it left around 1:40" },
+        { "author": "uryu", "text": "Delete this." }
+      ]
+    },
+    {
+      "author": "uryu",
+      "image": "photos/uryu.jpg",
+      "caption": "Finishing the experiment tonight. The lab is quieter after midnight.",
+      "time": "8 hours ago",
+      "likes": 21,
+      "comments": [
+        { "author": "ichigo", "text": "Don't you sleep?" },
+        { "author": "kisuke", "text": "Remember to lock up 😉" }
+      ]
+    },
+    {
+      "author": "orihime",
+      "image": "photos/orihime.jpg",
+      "caption": "New recipe: wasabi pudding! Who wants to try? 🍮",
+      "time": "1 day ago",
+      "likes": 133,
+      "comments": [
+        { "author": "rukia", "text": "...I'll pass" },
+        { "author": "ichigo", "text": "Absolutely not" }
+      ]
+    },
+    {
+      "author": "rukia",
+      "image": "photos/rukia.jpg",
+      "caption": "Drew a new Chappy. Thoughts?",
+      "time": "2 days ago",
+      "likes": 58,
+      "comments": [{ "author": "ichigo", "text": "Your drawings are terrible" }]
+    },
+    {
+      "author": "kisuke",
+      "image": "photos/kisuke.jpg",
+      "caption": "Late opening hours this week. Come by after midnight for the special stock.",
+      "time": "3 days ago",
+      "likes": 87
+    }
+  ]
+}

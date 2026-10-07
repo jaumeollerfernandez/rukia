@@ -5,18 +5,31 @@ import com.bladecoder.ink.compiler.IFileHandler
 import com.rukia.chat.domain.port.StoryEngine
 import com.rukia.chat.domain.port.StoryLine
 import com.rukia.chat.domain.port.StoryStep
+import com.rukia.phone.caseDay
+import com.rukia.phone.caseTime
 import com.bladecoder.ink.runtime.Story
 import java.io.File
+import java.time.Clock
+import java.time.Instant
 
 /**
  * Runs the ink story in [STORY_DIR]/main.ink (plus its INCLUDEs). Each chat is the knot named like the chat id,
  * played in its own ink flow so chats keep separate places but share variables. The whole ink state is saved
- * to [stateFile] after every step.
+ * to [stateFile] after every step. [caseStart] is midnight of the case's D1, for the case-time tags.
  *
  * Supported line tags: `#from: <characterId>` sets the speaker; `#call` makes the speaker call the player after the line (`#call: audio/x.m4a` plays that clip if answered);
- * `#delay: <seconds>` makes the line arrive that long after the previous one (with a notification if the app is closed).
+ * `#delay: <seconds>` makes the line arrive that long after the previous one (with a notification if the app is closed);
+ * `#at: D3 22:15` makes it arrive at that case time instead, and the story pauses there until then;
+ * `#caduca: D3 23:00` on the line before some choices makes them expire then (the silent choice is taken);
+ * `#effect: <name>` plays a phone screen effect when the line arrives; `#image: <media path>` shows a picture in the bubble.
+ * Before each step the story's `dia` and `hora` variables, if it declares them, are set to the current case day and hour.
  */
-class InkStoryEngine(private val readFile: (path: String) -> String, private val stateFile: File) : StoryEngine {
+class InkStoryEngine(
+    private val readFile: (path: String) -> String,
+    private val stateFile: File,
+    private val caseStart: () -> Long = { 0L },
+    private val clock: Clock = Clock.systemDefaultZone(),
+) : StoryEngine {
     // ponytail: compiles on first use on the calling thread; precompile to JSON at build time if the story gets big enough to stall.
     private val lazyStory = lazy {
         val options = Compiler.Options().apply {
@@ -34,38 +47,74 @@ class InkStoryEngine(private val readFile: (path: String) -> String, private val
 
     private val story by lazyStory
 
-    override fun reset() {
+    @Synchronized override fun reset() {
         stateFile.delete()
         if (lazyStory.isInitialized()) story.resetState()
     }
 
-    override fun advance(chatId: String): StoryStep {
+    @Synchronized override fun advance(chatId: String): StoryStep {
         if (!story.mainContentContainer.namedContent.containsKey(chatId)) return StoryStep(emptyList(), emptyList())
         story.switchFlow(chatId)
         if (story.state.visitCountAtPathString(chatId) == 0) story.choosePathString(chatId)
         return play()
     }
 
-    override fun choose(chatId: String, index: Int): StoryStep {
+    @Synchronized override fun choose(chatId: String, index: Int): StoryStep {
         story.switchFlow(chatId)
         // A choice left in a chat saved before the story changed: the reply is sent, but the story has nothing to say.
         if (index !in story.currentChoices.indices) return StoryStep(emptyList(), emptyList())
         story.chooseChoiceIndex(index)
-        return play()
+        return play(changed = true)
     }
 
-    private fun play(): StoryStep {
+    @Synchronized override fun jump(chatId: String, knot: String): StoryStep {
+        if (!story.mainContentContainer.namedContent.containsKey(knot)) return StoryStep(emptyList(), emptyList())
+        story.switchFlow(chatId)
+        story.choosePathString(knot)
+        return play(changed = true)
+    }
+
+    @Synchronized override fun setVariable(name: String, value: Boolean) {
+        if (story.variablesState[name] == null) return
+        story.variablesState[name] = value
+        stateFile.writeText(story.state.toJson())
+    }
+
+    private fun play(changed: Boolean = false): StoryStep {
+        val now = clock.millis()
+        val start = caseStart()
+        setClockVariables(now, start)
+        var expiresAt: Long? = null
         val lines = buildList {
             while (story.canContinue()) {
                 val text = story.Continue().trim()
                 val tags = story.currentTags.associate { it.substringBefore(':').trim() to it.substringAfter(':', "").trim() }
+                val at = tags["at"]?.let { caseTime(it, start, clock.zone) }
+                tags["caduca"]?.let { expiresAt = caseTime(it, start, clock.zone) }
                 if (text.isNotEmpty()) {
-                    add(StoryLine(tags["from"]?.takeIf { it.isNotEmpty() }, text, "call" in tags, tags["delay"]?.toIntOrNull() ?: 0, tags["call"]?.takeIf { it.isNotEmpty() }))
+                    add(StoryLine(
+                        tags["from"]?.takeIf { it.isNotEmpty() }, text, "call" in tags, tags["delay"]?.toIntOrNull() ?: 0,
+                        tags["call"]?.takeIf { it.isNotEmpty() }, tags["effect"]?.takeIf { it.isNotEmpty() },
+                        // A time already gone during the case just means "now"; one before the case is history and keeps its date.
+                        at = at?.takeIf { it > now || it < start },
+                        image = tags["image"]?.takeIf { it.isNotEmpty() },
+                    ))
                 }
+                // The rest is written once this line has arrived, so its conditions see the story as it is then.
+                if (at != null && at > now) break
             }
         }
-        stateFile.writeText(story.state.toJson())
-        return StoryStep(lines, story.currentChoices.map { it.text })
+        // Chats with nothing new are advanced every few seconds: only save when the story moved.
+        if (changed || lines.isNotEmpty()) stateFile.writeText(story.state.toJson())
+        val choices = if (story.canContinue()) emptyList() else story.currentChoices.map { it.text }
+        return StoryStep(lines, choices, expiresAt.takeIf { choices.isNotEmpty() })
+    }
+
+    /** `dia` and `hora`, if the story declares them: the case day (1 = D1) and the hour, so a chat can answer differently each day. */
+    private fun setClockVariables(now: Long, start: Long) {
+        val vars = story.variablesState
+        if (vars["dia"] != null) vars["dia"] = caseDay(now, start, clock.zone)
+        if (vars["hora"] != null) vars["hora"] = Instant.ofEpochMilli(now).atZone(clock.zone).hour
     }
 
     companion object { const val STORY_DIR = "story" }

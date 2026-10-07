@@ -26,6 +26,16 @@ class StoryTest {
         }
     }
 
+    @Test fun `every police operation plays a report knot in a chat that exists`() {
+        for (case in allCases.listFiles()!!) {
+            val file = File(case, "police/actions.json").takeIf { it.exists() } ?: continue
+            val ops = kotlinx.serialization.json.Json.decodeFromString<com.rukia.police.domain.model.Operations>(file.readText())
+            assertTrue(File(case, "chats/${ops.channel}.json").exists(), "${case.name}: no chat '${ops.channel}' for the reports")
+            val engine = InkStoryEngine({ File(case, it).readText() }, tempState())
+            for (op in ops.operations) assertTrue(engine.jump(ops.channel, op.knot).lines.isNotEmpty(), "${case.name}: operation '${op.id}' has no knot '${op.knot}'")
+        }
+    }
+
     // The engine itself, on a small script that doesn't depend on any case's content.
     private val script = """
         VAR knows = false
@@ -70,6 +80,37 @@ class StoryTest {
         assertEquals(null, first.lines.first().from)
         assertEquals(listOf("ichigo", "orihime"), engine().advance("group").lines.map { it.from })
         assertTrue(engine().advance("nobody").lines.isEmpty())
+    }
+
+    @Test fun `case-time tags - history keeps its date, the story pauses at a future line, choices expire, dia follows the clock`() {
+        val zone = java.time.ZoneOffset.UTC
+        val start = java.time.LocalDate.of(2026, 1, 1).atStartOfDay(zone).toInstant().toEpochMilli()
+        fun at(day: Int, hour: Int) = java.time.Clock.fixed(java.time.Instant.ofEpochMilli(start + (day - 1) * 86_400_000L + hour * 3_600_000L), zone)
+        val timed = """
+            VAR dia = 0
+            -> DONE
+            === laia ===
+            Before. #at: D-1 20:00
+            Day {dia}. #image: photos/x.jpg
+            Later. #at: D2 10:00
+            On day {dia}. #caduca: D2 12:00
+            * [Ok.]
+            * [(sin responder)]
+            - -> DONE
+        """.trimIndent()
+        val file = tempState()
+        fun engine(clock: java.time.Clock) = InkStoryEngine({ timed }, file, caseStart = { start }, clock = clock)
+
+        val first = engine(at(1, 9)).advance("laia")
+        assertEquals(listOf("Before.", "Day 1.", "Later."), first.lines.map { it.text })
+        assertEquals(listOf(start - 28 * 3_600_000L, null, start + 34 * 3_600_000L), first.lines.map { it.at }, "D-1 is two days before D1")
+        assertEquals("photos/x.jpg", first.lines[1].image)
+        assertEquals(emptyList(), first.choices, "paused at the line of D2")
+
+        val second = engine(at(2, 11)).advance("laia")
+        assertEquals(listOf("On day 2."), second.lines.map { it.text })
+        assertEquals(listOf("Ok.", "(sin responder)"), second.choices)
+        assertEquals(start + 36 * 3_600_000L, second.expiresAt)
     }
 
     @Test fun `a save from an older story starts over instead of crashing`() {

@@ -1,0 +1,35 @@
+[
+  { "id": "laia", "name": "Sgt. Puig 🔒", "status": "", "color": "#263238", "hidden": true, "hours": "08:00-15:00,20:00-23:00" },
+  { "id": "central", "name": "Central Mossos · Olot 📻", "status": "", "color": "#1A237E", "hidden": true },
+
+  { "id": "mama", "name": "Mamá", "status": "Cada amanecer es una promesa ☀️", "color": "#F9A825", "hours": "09:00-22:00", "photo": "photos/mama.jpg" },
+  { "id": "berta", "name": "Berta", "status": "Luz 🌅", "color": "#EF6C00", "hours": "07:00-23:00", "photo": "photos/berta.jpg" },
+  { "id": "jordi", "name": "Papá", "status": "Disponible", "color": "#5D4037", "hours": "07:00-09:00,19:00-23:00", "photo": "photos/jordi.jpg" },
+  { "id": "marta", "name": "Tía Marta", "status": "", "color": "#AD1457", "hours": "09:00-21:00", "photo": "photos/marta.jpg" },
+  { "id": "arnau", "name": "Arnau 🎮", "status": "no molestar estoy en ranked", "color": "#2E7D32", "hours": "15:00-01:00", "photo": "photos/arnau.jpg" },
+
+  { "id": "nuria", "name": "Nuri 💛", "status": "Girona ✈️ Bianya", "color": "#FDD835", "hours": "10:00-02:00", "photo": "photos/nuria.jpg" },
+  { "id": "carla", "name": "Carla", "status": "🦋", "color": "#EC407A", "hours": "11:00-00:00", "photo": "photos/carla.jpg" },
+  { "id": "mireia", "name": "Mireia", "status": "a dieta de dramas", "color": "#8E24AA", "hours": "11:00-00:00", "photo": "photos/mireia.jpg" },
+  { "id": "pol", "name": "Pol", "status": "", "color": "#1565C0", "hours": "17:00-01:00", "photo": "photos/pol.jpg" },
+  { "id": "dani", "name": "Dani", "status": "🏍️", "color": "#424242", "hours": "20:00-03:00", "photo": "photos/dani.jpg" },
+
+  { "id": "sergi", "name": "Sergi (clase)", "status": "Estudiando", "color": "#00897B", "hours": "08:00-23:00", "photo": "photos/sergi.jpg" },
+  { "id": "aina", "name": "Aina (clase)", "status": "", "color": "#7CB342", "hours": "08:00-23:00", "photo": "photos/aina.jpg" },
+  { "id": "oriol", "name": "Oriol (clase)", "status": "", "color": "#6D4C41", "hours": "08:00-23:00", "photo": "photos/oriol.jpg" },
+  { "id": "paula", "name": "Paula (clase)", "status": "☕", "color": "#C2185B", "hours": "08:00-23:00", "photo": "photos/paula.jpg" },
+  { "id": "elena", "name": "Elena (tutora)", "status": "CFGS Integración Social", "color": "#3949AB", "hours": "08:00-17:00", "photo": "photos/elena.jpg" },
+
+  { "id": "pilar", "name": "Pilar Forn", "status": "Forn Can Batlle 🥖", "color": "#A1887F", "hours": "05:00-14:00", "photo": "photos/pilar.jpg" },
+  { "id": "eric", "name": "Èric Forn", "status": "", "color": "#FF7043", "hours": "13:00-02:00", "photo": "photos/eric.jpg" },
+
+  { "id": "sonia", "name": "Sonia (entrenadora)", "status": "Vòlei Olot 🏐", "color": "#0277BD", "hours": "17:00-22:00", "photo": "photos/sonia.jpg" },
+  { "id": "judit", "name": "Judit 🏐", "status": "", "color": "#26A69A", "hours": "17:00-22:00", "photo": "photos/judit.jpg" },
+  { "id": "ona", "name": "Ona 🏐", "status": "", "color": "#9575CD", "hours": "17:00-22:00", "photo": "photos/ona.jpg" },
+
+  { "id": "iris", "name": "Iris", "status": "", "color": "#B39DDB", "hidden": true, "hours": "00:00-02:00", "photo": "photos/iris.jpg" },
+  { "id": "guia", "name": "El Guía", "status": "", "color": "#FFD54F", "hidden": true, "hours": "05:00-07:00,22:00-00:00", "photo": "photos/guia.jpg" },
+  { "id": "rosalia", "name": "+34 972 ·· ·· ··", "status": "", "color": "#795548", "hidden": true },
+  { "id": "desconocido", "name": "+34 6·· ··· ···", "status": "", "color": "#607D8B", "hidden": true, "hours": "23:00-01:00" },
+  { "id": "banco", "name": "BancRural", "status": "", "color": "#004D40", "hidden": true }
+]

@@ -22,5 +22,6 @@ INCLUDE yoruichi.ink
 INCLUDE toshiro.ink
 INCLUDE rangiku.ink
 INCLUDE jaume.ink
+INCLUDE hacker.ink
 
 -> DONE

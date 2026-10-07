@@ -6,19 +6,25 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rukia.chat.domain.model.CallStatus
 import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.Message
+import com.rukia.phone.Kit
+import com.rukia.phone.RukiaIcons
 
 @Composable
 fun ChatListScreen(
@@ -27,11 +33,11 @@ fun ChatListScreen(
     now: Long,
     onOpen: (Chat) -> Unit,
     onDelete: (Chat) -> Unit,
-    contentPadding: PaddingValues = PaddingValues(),
 ) {
     var deleting by remember { mutableStateOf<Chat?>(null) }
 
-    LazyColumn(contentPadding = contentPadding) {
+    LazyColumn(Modifier.fillMaxSize()) {
+        item { LargeTitle("Chats") }
         // A chat shows up once its first message arrives, e.g. a group someone creates later.
         items(chats.filter { it.arrivedCount(now) > 0 }, key = { it.id }) { chat ->
             ChatRow(chat, characters, now, onClick = { onOpen(chat) }, onLongClick = { deleting = chat })
@@ -43,78 +49,122 @@ fun ChatListScreen(
             onDismissRequest = { deleting = null },
             title = { Text(if (chat.isGroup) "Delete group?" else "Delete chat?") },
             text = { Text("\"${chat.displayTitle(characters)}\" and its messages will be removed.") },
-            confirmButton = { TextButton({ onDelete(chat); deleting = null }) { Text("Delete") } },
+            confirmButton = { TextButton({ onDelete(chat); deleting = null }) { Text("Delete", color = LocalPalette.current.red) } },
             dismissButton = { TextButton({ deleting = null }) { Text("Cancel") } },
         )
     }
 }
 
+/** The chat's picture: the other person's avatar, or two overlapping ones for a group. */
+@Composable
+fun ChatAvatar(chat: Chat, characters: Map<String, Character>, size: Int, showOnline: Boolean = true) {
+    if (chat.isGroup) GroupAvatar(characters[chat.participants[0]], characters[chat.participants[1]], size)
+    else Avatar(characters[chat.participants.first()], size, online = showOnline && characters[chat.participants.first()]?.onlineAt(System.currentTimeMillis()) == true)
+}
+
 @Composable
 private fun ChatRow(chat: Chat, characters: Map<String, Character>, now: Long, onClick: () -> Unit, onLongClick: () -> Unit) {
+    val p = LocalPalette.current
     val last = chat.messages.lastOrNull { it.arrivedBy(now) }
+    val unread = chat.unreadCount(now)
     Row(
-        Modifier.fillMaxWidth().combinedClickable(onClick = onClick, onLongClick = onLongClick)
-            .padding(horizontal = 16.dp, vertical = 10.dp),
+        Modifier.fillMaxWidth().combinedClickable(onClick = onClick, onLongClick = onLongClick).padding(start = 20.dp, top = 10.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Avatar(
-            characters[chat.participants.first()], size = 52,
-            online = chat.participants.any { characters[it]?.online == true },
-        )
-        // Unread chats stand out like in WhatsApp: bold name and preview, green time and a count badge.
-        val unread = chat.unreadCount(now)
-        Column(Modifier.padding(start = 14.dp).weight(1f)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
+        ChatAvatar(chat, characters, 54)
+        Column(Modifier.weight(1f)) {
+            Column(Modifier.padding(end = 20.dp, bottom = 10.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(chat.displayTitle(characters), Modifier.weight(1f), fontSize = 17.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                    Text(
+                        last?.time.orEmpty(), Modifier.padding(start = 8.dp), fontSize = 14.sp,
+                        color = if (unread > 0) p.tint else p.subText, fontWeight = if (unread > 0) FontWeight.SemiBold else FontWeight.Normal,
+                    )
+                }
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Box(Modifier.weight(1f)) { last?.let { Preview(chat, characters, it) } }
+                    if (unread > 0) CountBadge(unread)
+                }
+            }
+            HorizontalDivider(thickness = 0.5.dp, color = p.separator)
+        }
+    }
+}
+
+@Composable
+private fun Preview(chat: Chat, characters: Map<String, Character>, msg: Message) {
+    val p = LocalPalette.current
+    if (msg.call != null) {
+        val color = if (msg.call == CallStatus.DECLINED) p.red else p.preview
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(5.dp)) {
+            Icon(RukiaIcons.Phone, null, Modifier.size(15.dp), tint = color)
+            Text(callLabel(msg.call), color = color, fontSize = 15.sp, lineHeight = 20.sp, maxLines = 1)
+        }
+        return
+    }
+    val sender = when {
+        msg.fromPlayer -> "You"
+        chat.isGroup -> characters[msg.from]?.name ?: msg.from
+        else -> null
+    }
+    Text(
+        buildAnnotatedString {
+            sender?.let { withStyle(SpanStyle(fontWeight = FontWeight.SemiBold, color = p.text)) { append("$it: ") } }
+            append(msg.text)
+        },
+        color = p.preview, fontSize = 15.sp, lineHeight = 20.sp, maxLines = 2, overflow = TextOverflow.Ellipsis,
+    )
+}
+
+/** Blue unread count, as on each chat row and the conversation's back button. */
+@Composable
+fun CountBadge(count: Int) {
+    Box(
+        Modifier.defaultMinSize(22.dp, 22.dp).background(Kit.Tint, RoundedCornerShape(11.dp)).padding(horizontal = 7.dp),
+        contentAlignment = Alignment.Center,
+    ) { Text("$count", color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold) }
+}
+
+@Composable
+fun ContactsScreen(characters: Map<String, Character>, onOpen: (Character) -> Unit) {
+    val p = LocalPalette.current
+    val people = characters.values.filterNot { it.hidden }.sortedBy { it.name }
+    LazyColumn(Modifier.fillMaxSize()) {
+        item {
+            LargeTitle("Contacts", Modifier.padding(bottom = 0.dp))
+            Text("${people.size} people in this case", Modifier.padding(start = 20.dp, bottom = 10.dp), color = p.subText, fontSize = 15.sp)
+        }
+        people.groupBy { it.name.take(1).uppercase() }.forEach { (letter, group) ->
+            item(key = "letter-$letter") {
+                HorizontalDivider(thickness = 0.5.dp, color = p.separator)
                 Text(
-                    chat.displayTitle(characters), Modifier.weight(1f), fontSize = 17.sp,
-                    fontWeight = if (unread > 0) FontWeight.Bold else FontWeight.Medium,
-                    maxLines = 1, overflow = TextOverflow.Ellipsis,
-                )
-                Text(
-                    last?.time.orEmpty(), fontSize = 12.sp,
-                    color = if (unread > 0) Accent else LocalPalette.current.subText,
-                    fontWeight = if (unread > 0) FontWeight.Bold else FontWeight.Normal,
+                    letter, Modifier.fillMaxWidth().background(p.section).padding(start = 20.dp, top = 6.dp, bottom = 2.dp),
+                    color = p.subText, fontSize = 13.sp, fontWeight = FontWeight.Bold,
                 )
             }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    last?.let { preview(chat, characters, it) }.orEmpty(), Modifier.weight(1f),
-                    color = if (unread > 0) MaterialTheme.colorScheme.onBackground else LocalPalette.current.subText,
-                    fontWeight = if (unread > 0) FontWeight.SemiBold else FontWeight.Normal,
-                    fontSize = 14.sp, maxLines = 1, overflow = TextOverflow.Ellipsis,
-                )
-                if (unread > 0) {
-                    Box(
-                        Modifier.padding(start = 8.dp).defaultMinSize(minWidth = 22.dp, minHeight = 22.dp)
-                            .background(Accent, CircleShape).padding(horizontal = 6.dp),
-                        contentAlignment = Alignment.Center,
-                    ) { Text("$unread", color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Bold) }
-                }
+            items(group, key = { it.id }) { c ->
+                PersonRow(c, if (c.onlineAt(System.currentTimeMillis())) "online" else c.status, onClick = { onOpen(c) })
             }
         }
     }
 }
 
-private fun preview(chat: Chat, characters: Map<String, Character>, msg: Message) = when {
-    msg.call != null -> "📞 ${callLabel(msg.call)}"
-    msg.fromPlayer -> "✓✓ ${msg.text}"
-    chat.isGroup -> "${characters[msg.from]?.name ?: msg.from}: ${msg.text}"
-    else -> msg.text
-}
-
+/** Avatar, name and one line under it, as in Contacts and Calls. */
 @Composable
-fun ContactsScreen(characters: Map<String, Character>, contentPadding: PaddingValues = PaddingValues(), onOpen: (Character) -> Unit) {
-    LazyColumn(contentPadding = contentPadding) {
-        items(characters.values.sortedBy { it.name }, key = { it.id }) { c ->
-            Row(
-                Modifier.fillMaxWidth().clickable { onOpen(c) }.padding(horizontal = 16.dp, vertical = 10.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Avatar(c, size = 48, online = c.online)
-                Column(Modifier.padding(start = 14.dp)) {
-                    Text(c.name, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
-                    val status = if (c.online) "online" else c.status
-                    if (status.isNotEmpty()) Text(status, color = LocalPalette.current.subText, fontSize = 14.sp, maxLines = 1)
+fun PersonRow(c: Character?, subtitle: String, nameColor: Color = Color.Unspecified, subtitleIcon: (@Composable () -> Unit)? = null, onClick: (() -> Unit)? = null) {
+    Row(
+        Modifier.fillMaxWidth().then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier).padding(horizontal = 20.dp, vertical = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Avatar(c, 42, online = c?.onlineAt(System.currentTimeMillis()) == true)
+        Column(Modifier.weight(1f)) {
+            Text(c?.name.orEmpty(), color = nameColor, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
+            if (subtitle.isNotEmpty()) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(5.dp)) {
+                    subtitleIcon?.invoke()
+                    Text(subtitle, color = LocalPalette.current.subText, fontSize = 14.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 }
             }
         }

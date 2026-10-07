@@ -1,0 +1,13 @@
+{
+  "question": "¿Dónde está Alicia ahora mismo?",
+  "answer": "mas_rosalia",
+  "deadline": "D7 06:30",
+  "options": [
+    { "id": "estacion_olot", "label": "Estación de autobuses de Olot", "image": "places/estacion_olot.jpg", "color": "#546E7A" },
+    { "id": "barcelona", "label": "Barcelona, con su padre", "image": "places/barcelona.jpg", "color": "#5D4037" },
+    { "id": "girona", "label": "El piso de Núria en Girona", "image": "places/girona.jpg", "color": "#FDD835" },
+    { "id": "casa_pol", "label": "Casa de Pol, en Olot", "image": "places/casa_pol.jpg", "color": "#1565C0" },
+    { "id": "santa_margarida", "label": "Cráter del volcán de Santa Margarida", "image": "places/santa_margarida.jpg", "color": "#F9A825" },
+    { "id": "mas_rosalia", "label": "Mas de la Rosalia, Sant Salvador de Bianya", "image": "places/mas_rosalia.jpg", "color": "#795548" }
+  ]
+}

@@ -34,20 +34,38 @@ The files inside a case folder:
 - In 1-to-1 chats, lines are said by the other person. In group chats, mark each line with its speaker: `Hello. #from: ichigo`.
 - `#delay: <seconds>` on a line makes it arrive that long after the previous line, in real time (`Okay, I'm back. #delay: 30`). Later lines and the choices wait for it. If the player isn't looking at that chat when it arrives, even with the game closed, a WhatsApp-style notification appears; tapping it opens the chat. A chat appears in the list only once its first line has arrived, so a delayed first line (`#delay: 60`) makes a chat or group show up a minute into the case.
 - `#call` on a line makes its speaker call the player right after it (`Okay. Calling you now. #call`). The incoming-call screen rings until the player answers or declines, and the rest of the chat waits for it. Every call shows in the chat and in the Calls tab. `#call: audio/x.m4a` gives the call a voice clip (from the case's `media/`, or shared media): answering plays it on an in-call screen and hangs up when it ends. Declining, or a call without audio, just hangs up.
+- **Case time.** A case runs on its own calendar: D1 is the day the player first opens it (saved, and started over by "Reset chats" or a wrong answer), D2 the next day, and D0, D-1... the days before. `#at: D3 22:15` makes a line arrive at that moment instead of after a delay. The story pauses on that line until then, so whatever comes after it (conditions, variables set by other chats) is decided at that moment, not in advance. A line with a time that has already passed during the case arrives right away; one before D1 keeps its date and time, which is how a chat starts with the phone's history (`ok #from: me #at: D-2 18:20` is an old message the player "sent"). `./gradlew testDebugUnitTest` checks every `#at` and `#caduca` in every story.
+- **Choices that expire.** Put `#caduca: D2 08:00` on the line just before some choices and add a choice `* [(sin responder)]`. That choice is never shown; if the player hasn't picked one by then, the story takes it on its own and nothing is sent, so an unanswered chat never blocks the rest of the week.
+- **Online hours.** `"hours": "08:00-15:00,20:00-23:00"` on a character (a range may cross midnight, `"23:00-01:00"`) decides when they show as online, and when they answer: a reply to the player outside those hours waits until the next range starts. Lines with `#at` ignore it. To make someone sometimes not answer at all, use ink's randomness (`{~...}`, `RANDOM`).
+- **Story variables the phone sets.** If `main.ink` declares them, `VAR dia` and `VAR hora` are kept at the current case day (1 = D1) and hour before every step, and `VAR caso_resuelto` becomes `true` when the player solves the case in the Police app.
+- `#image: photos/x.jpg` on a line shows that picture (from the case's `media/`) in the bubble, above the line's text. Until the file exists, only the text shows.
+- `#effect: <name>` on a line plays a screen effect when the line arrives, over whatever the player is looking at (home screen or any app), even if they never open the chat; if the game was closed, it plays when the case is opened. Each effect plays once. Available: `hacked` (the phone gets taken over: scrolling code and a warning, ~5 s), `glitch` (a short burst of interference, ~1 s), `blackout` (the screen dies for a few seconds). Combine with other tags: `Hello. #delay: 60 #effect: hacked`. To add an effect, write a composable in `app/src/main/java/com/rukia/phone/Effects.kt` and list it in `effects` under its name; a test fails if a story uses a name that isn't there.
 - You can write and play-test the `.ink` files in [Inky](https://github.com/inkle/inky) before running the app. The app compiles them when a chat is first opened.
 - `./gradlew testDebugUnitTest` compiles the story files, so ink errors and chats with no matching knot fail the tests.
 - [INK_CHEATSHEET.md](INK_CHEATSHEET.md) has the ink syntax you need, with examples for this game.
 
-**`police/case.json`**: the final question of the case, shown by "Solve the case" in the Police Department app. `answer` is the `id` of the correct option. Each option has a `label`, an `image` (path inside `media/`) and a `color` used for the placeholder tile while the image is missing. The player gets one try: a wrong answer is game over and erases the save.
+**`police/case.json`**: the final question of the case, shown by "Solve the case" in the Police Department app. `answer` is the `id` of the correct option. Each option has a `label`, an `image` (path inside `media/`) and a `color` used for the placeholder tile while the image is missing. The player gets one try: a wrong answer is game over and erases the save. An optional `"deadline": "D7 06:30"` (case time) closes the case: after it, it can no longer be solved.
+
+**`police/actions.json`** (optional): field operations in the Police app. `squads` are groups of officers, each available once between two case times; `operations` are where they can be sent. Sending a squad plays the operation's ink `knot` in the chat `channel` (a chat in `chats/`), which is where the officers' report arrives. A report is ordinary ink: lines with `#delay` for the time it takes them to get there, and variables it sets (`~ patrulla_en_mas = true`) for the rest of the story. `type` is `"patrol"` or `"inspect"` (only the icon changes), and `squads` limits an operation to some squads. The tests check that every knot exists.
+
+```json
+{ "channel": "central",
+  "squads": [ { "id": "manana", "label": "Two officers and a car", "from": "D6 08:00", "until": "D6 12:00" } ],
+  "operations": [ { "id": "farm", "label": "The farm with the blue door", "knot": "envio_mas", "type": "patrol" } ] }
+``` The app's Evidence section lists every call the player answered that had audio (`#call: audio/x.m4a`), newest first, to listen to again.
 
 ```json
 { "question": "Who entered the lab after midnight?", "answer": "uryu",
   "options": [ { "id": "uryu", "label": "Uryu", "image": "photos/uryu.jpg", "color": "#1E88E5" } ] }
 ```
 
-Characters can also have a `photo` (path inside `media/`), used as their profile picture in chats. Without the file, the avatar shows their initial.
+Characters can also have a `photo` (path inside `media/`), used as their profile picture in chats. Without the file, the avatar shows their initial. `"hidden": true` keeps a character out of the Contacts tab (an unknown number, a hacker): they can still write to the player from a chat in `chats/`.
 
 **`media/`**: audio, photos and videos used by the story, in `audio/`, `photos/` and `videos/`. Refer to files by their path inside `media/` (for example `photos/station.jpg`), and use lowercase names without spaces. Media used by every case (a ringtone, app sounds) can go once in `assets/shared/media/` instead: a path is looked up in the case's `media/` first, then in the shared one. Recommended formats: `.ogg` or `.mp3` for audio, `.jpg` or `.webp` for photos, `.mp4` (H.264) for video. Large videos make the APK bigger, so keep them short and compressed.
+
+**`gonpi/gonpi.json`**: the Gonpi app, the phone's Instagram. `accounts` lists everyone on it, contacts or strangers: an `id`, a `username`, and optionally `name`, `photo` (path inside `media/`; without it the avatar shows the initial in `color`), `bio`, `followers` and `following`. `posts` show in the feed in file order, so put the newest first. Each has an `author` (an account id), an `image` (path inside `media/`), and optionally a `caption`, a `time` shown as written ("2 hours ago"), `likes` and `comments` (`{ "author": "<account id>", "text": "..." }`). Tapping a username opens that account's profile with all its posts, so strangers who only comment can hide clues too. A post or comment with `"at": "D3 21:00"` (case time) only appears from then on; without it, it's there from the start. Without the file, Gonpi is empty.
+
+**`multimedia/`**: the player's photo gallery, shown by the Multimedia app. Every image dropped here (`.jpg`, `.png`, `.webp`, ...) appears in the grid, sorted by file name; tapping one opens it full screen. No list to edit: add or remove files and rebuild.
 
 ## Saving
 
@@ -63,7 +81,9 @@ Story files are read-only. Each case saves its progress separately, under `files
 
 The phone is simulated by `com.rukia.phone`, the "OS": `PhoneScreen`, the home screen (`LauncherScreen`) and `installedApps`, the list of apps on the phone. To add an app, add a `PhoneApp` entry there whose `content` is the app's root composable.
 
-Each phone app is its own hexagon in its own package, with its saves in `files/<app>/`. The chat app lives in `com.rukia.chat`, with `infrastructure/ChatModule.kt` as its composition root and `infrastructure/ui/ChatApp.kt` as its entry screen.
+Each phone app is its own hexagon in its own package, with its saves in `files/<app>/`. The chat app lives in `com.rukia.chat`, with `infrastructure/ChatModule.kt` as its composition root and `infrastructure/ui/ChatApp.kt` as its entry screen. There is one `ChatModule` per case (`ChatModule.of`), shared by the screens, the notification jobs and the story clock, so they never hold different copies of the story state.
+
+The story keeps time on its own: while a case is open, `PhoneScreen` advances every chat every 10 seconds (timed lines, expired choices, new chats), and each notification job advances them too, so the week goes on with the game closed. `CaseClock` (in `com.rukia.phone`) holds the case's D1 and turns case times like "D3 22:15" into real ones for the chat, Gonpi and Police apps.
 
 Apps never import each other. When one needs another's feature, the phone passes it in from `installedApps`: for example the Police Department app (`com.rukia.police`) gets a reset action that calls the chat app's `ResetProgress` use case.
 

@@ -1,0 +1,17 @@
+{
+  "channel": "central",
+  "squads": [
+    { "id": "manana", "label": "Dos agentes y un coche", "from": "D6 08:00", "until": "D6 12:00" },
+    { "id": "noche", "label": "Última salida", "from": "D6 22:05", "until": "D7 02:00" }
+  ],
+  "operations": [
+    { "id": "mas_rosalia", "label": "Mas de la Rosalia, Sant Salvador de Bianya", "knot": "envio_mas", "type": "patrol" },
+    { "id": "masias_bracons", "label": "Batida por las masías de la subida a Bracons", "knot": "envio_masias", "type": "inspect" },
+    { "id": "estacion_olot", "label": "Estación de autobuses de Olot", "knot": "envio_estacion", "type": "inspect" },
+    { "id": "casa_pol", "label": "Casa de Pol, en Olot", "knot": "envio_pol", "type": "inspect" },
+    { "id": "girona", "label": "El piso de Núria en Girona", "knot": "envio_girona", "type": "inspect" },
+    { "id": "barcelona", "label": "Casa del padre, en Barcelona", "knot": "envio_barcelona", "type": "inspect" },
+    { "id": "crater", "label": "Cráter de Santa Margarida", "knot": "envio_crater", "type": "inspect", "squads": ["manana"] },
+    { "id": "vigilar_crater", "label": "Vigilar el cráter de Santa Margarida al amanecer", "knot": "envio_vigilancia", "type": "patrol", "squads": ["noche"] }
+  ]
+}

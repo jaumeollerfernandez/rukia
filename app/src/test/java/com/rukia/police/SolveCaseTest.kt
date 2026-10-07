@@ -18,8 +18,9 @@ class SolveCaseTest {
 
     @Test fun `right answer solves the case and keeps the save`() {
         var resets = 0
-        assertEquals(Verdict.SOLVED, SolveCase(caseFile) { resets++ }("b"))
-        assertEquals(0, resets)
+        var told = 0
+        assertEquals(Verdict.SOLVED, SolveCase(caseFile, onSolved = { told++ }) { resets++ }("b"))
+        assertEquals(0 to 1, resets to told, "the story hears about it")
     }
 
     @Test fun `wrong answer is game over and erases the save`() {

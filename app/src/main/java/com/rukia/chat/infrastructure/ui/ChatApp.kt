@@ -21,7 +21,7 @@ import kotlinx.coroutines.withContext
 @Composable
 fun ChatApp(caseId: String) {
     val context = LocalContext.current.applicationContext
-    val m = remember(caseId) { ChatModule(context, caseId) }
+    val m = remember(caseId) { ChatModule.of(context, caseId) }
     // Lets notifications know which case is on screen.
     DisposableEffect(caseId) {
         VisibleChat.caseId = caseId
@@ -37,12 +37,19 @@ fun ChatApp(caseId: String) {
                 m.advanceAll()
                 mutableStateOf(m.listChats())
             }
+            // The story keeps moving while the app is open (timed lines, expired choices): pick up what it wrote.
+            LaunchedEffect(m) {
+                while (true) {
+                    delay(5_000)
+                    chats = withContext(Dispatchers.IO) { m.advanceAll(); m.listChats() }
+                }
+            }
             var openId by rememberSaveable { mutableStateOf<String?>(null) }
             // Messages from this index on are animated in; after a restart everything is shown at once.
             var revealFrom by rememberSaveable { mutableIntStateOf(Int.MAX_VALUE) }
             val open = chats.find { it.id == openId }
             // The call screen restyles the system bars; re-apply ours once a call ends.
-            SystemBars(lightBottomIcons = profile.darkMode, key = open?.ringingCall)
+            SystemBars(lightBottomIcons = profile.darkMode, lightTopIcons = profile.darkMode, key = open?.ringingCall)
             var tab by rememberSaveable { mutableStateOf(Tab.Chats) }
             val openChat = { chat: Chat ->
                 // What already arrived shows at once; anything newer is animated in when it arrives.
@@ -62,17 +69,17 @@ fun ChatApp(caseId: String) {
                 while (true) { delay(1_000); value = System.currentTimeMillis() }
             }
             if (open == null) {
-                HomeScreen(tab, onTab = { tab = it }, profile) { current, padding ->
+                val unreadChats = chats.count { it.unreadCount(now) > 0 }
+                HomeScreen(tab, onTab = { tab = it }, profile, unreadChats) { current ->
                     when (current) {
                         Tab.Chats -> ChatListScreen(
                             chats, m.characters, now,
                             onOpen = openChat,
                             onDelete = { chat -> m.deleteChat(chat.id); chats = m.listChats() },
-                            contentPadding = padding,
                         )
-                        Tab.Calls -> CallsScreen(remember(chats) { m.listCalls() }, m.characters, padding)
+                        Tab.Calls -> CallsScreen(remember(chats) { m.listCalls() }, m.characters)
                         // Opens the 1-to-1 chat with the contact, starting it the first time.
-                        Tab.Contacts -> ContactsScreen(m.characters, padding) { c -> openChat(m.createChat(listOf(c.id))) }
+                        Tab.Contacts -> ContactsScreen(m.characters) { c -> openChat(m.createChat(listOf(c.id))) }
                         Tab.Profile -> ProfileScreen(
                             profile,
                             onPickAvatar = { uri ->
@@ -82,7 +89,6 @@ fun ChatApp(caseId: String) {
                                 }
                             },
                             onUpdate = { profile = m.updateProfile(it) },
-                            contentPadding = padding,
                         )
                     }
                 }
@@ -91,7 +97,8 @@ fun ChatApp(caseId: String) {
                 val close = { openId = null; chats = m.listChats() }
                 BackHandler(onBack = close)
                 ChatScreen(
-                    open, m.characters, profile, revealFrom,
+                    open, m.characters, revealFrom,
+                    otherUnread = chats.count { it.id != open.id && it.unreadCount(now) > 0 },
                     onBack = close,
                     onRead = { count -> m.markChatRead(open.id, count) },
                     onChoose = { choice ->

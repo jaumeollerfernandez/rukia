@@ -10,4 +10,10 @@ val cases = listOf(
     // Every feature in one place, to try things out: choices, calls with audio, delayed messages and notifications,
     // a group that appears a minute in, contacts and the police question.
     GameCase("test-case", 0, "Test Case", "Every feature of the phone in one place. Rukia calls, Jaume makes you wait, and a group appears after a minute."),
+    // Una semana en tiempo real: el jugador es un hacker con el móvil de Alicia y tiene que encontrarla antes del séptimo amanecer.
+    GameCase(
+        "ruk-93429049", 1, "RUK-93429049",
+        "Desaparición de A. S. V., mujer, 18 años, vecina de L'Hostalnou de Bianya (Garrotxa). Vista por última vez hace dos noches. " +
+            "Dejó el terminal móvil en el domicilio. La denunciante, la madre, solicita máxima discreción. Sin indicios de violencia hasta la fecha. Prioridad: alta.",
+    ),
 )

@@ -9,5 +9,6 @@
   { "id": "yoruichi", "name": "Yoruichi", "online": false, "status": "Out", "color": "#8E24AA", "photo": "photos/yoruichi.jpg" },
   { "id": "toshiro", "name": "Toshiro", "online": false, "status": "Do not disturb", "color": "#00ACC1", "photo": "photos/toshiro.jpg" },
   { "id": "rangiku", "name": "Rangiku", "online": true, "status": "Night out!", "color": "#FB8C00", "photo": "photos/rangiku.jpg" },
-  { "id": "jaume", "name": "Jaume", "online": true, "status": "Testing notifications", "color": "#3949AB", "photo": "photos/jaume.jpg" }
+  { "id": "jaume", "name": "Jaume", "online": true, "status": "Testing notifications", "color": "#3949AB", "photo": "photos/jaume.jpg" },
+  { "id": "hacker", "name": "Unknown", "status": "", "color": "#00C853", "hidden": true }
 ]
