@@ -9,7 +9,26 @@
     <string name="options_language">Idioma</string>
     <string name="choose_case">Elige un caso</string>
     <string name="case_number">CASO %1$02d</string>
-    <string name="signed_in">Sesión iniciada · Google Play Games</string>
+    <string name="session_verified">● Sesión verificada · Google Play Games</string>
+    <string name="cni_division">CNI · DIV. INTELIGENCIA DIGITAL</string>
+    <string name="restricted">RESTRINGIDO</string>
+    <string name="agent_kimo">AGENTE · KIMO</string>
+    <string name="agent_short">AGENTE KIMO</string>
+    <string name="special_ops">UNIDAD DE OPERACIONES ESPECIALES</string>
+    <string name="channel_established">&gt; canal cifrado establecido</string>
+    <string name="menu_coords">MADRID · 40.4168 N · 3.7038 O</string>
+    <string name="options_kicker">CONFIGURACIÓN DEL TERMINAL</string>
+    <string name="options_language_note">La pantalla se reinicia en el idioma elegido. El contenido de los casos no se traduce.</string>
+    <string name="credential">Credencial K-05 · Nivel de acceso 5</string>
+    <string name="cases_kicker">EXPEDIENTES · NIVEL 5</string>
+    <string name="case_file">EXP. %1$s</string>
+    <string name="case_status_open">ABIERTO</string>
+    <string name="open_case_file">ABRIR EXPEDIENTE</string>
+    <string name="training">ENTRENAMIENTO</string>
+    <plurals name="cases_footer">
+        <item quantity="one">%1$d EXPEDIENTES · %2$d ACTIVO</item>
+        <item quantity="other">%1$d EXPEDIENTES · %2$d ACTIVOS</item>
+    </plurals>
     <string name="back">Atrás</string>
     <string name="play">Jugar</string>
 

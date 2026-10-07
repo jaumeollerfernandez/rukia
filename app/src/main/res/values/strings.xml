@@ -9,7 +9,27 @@
     <string name="options_language">Language</string>
     <string name="choose_case">Choose a case</string>
     <string name="case_number">CASE %1$02d</string>
-    <string name="signed_in">Signed in · Google Play Games</string>
+    <string name="session_verified">● Verified session · Google Play Games</string>
+    <string name="cni_division">CNI · DIGITAL INTELLIGENCE DIV.</string>
+    <string name="restricted">RESTRICTED</string>
+    <string name="agent_kimo">AGENT · KIMO</string>
+    <string name="agent_short">AGENT KIMO</string>
+    <string name="special_ops">SPECIAL OPERATIONS UNIT</string>
+    <string name="channel_established">&gt; encrypted channel established</string>
+    <string name="menu_coords">MADRID · 40.4168 N · 3.7038 W</string>
+    <string name="terminal_id" translatable="false">TERMINAL K-05</string>
+    <string name="options_kicker">TERMINAL SETTINGS</string>
+    <string name="options_language_note">The screen restarts in the language you pick. Case content isn\'t translated.</string>
+    <string name="credential">Credential K-05 · Access level 5</string>
+    <string name="cases_kicker">CASE FILES · LEVEL 5</string>
+    <string name="case_file">FILE %1$s</string>
+    <string name="case_status_open">OPEN</string>
+    <string name="open_case_file">OPEN CASE FILE</string>
+    <string name="training">TRAINING</string>
+    <plurals name="cases_footer">
+        <item quantity="one">%1$d CASE FILES · %2$d ACTIVE</item>
+        <item quantity="other">%1$d CASE FILES · %2$d ACTIVE</item>
+    </plurals>
     <string name="back">Back</string>
     <string name="play">Play</string>
 
