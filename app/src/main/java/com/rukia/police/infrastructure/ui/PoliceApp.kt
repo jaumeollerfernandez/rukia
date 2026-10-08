@@ -65,7 +65,7 @@ internal val LocalPolice = staticCompositionLocalOf { LightPolice }
 /**
  * Police Department app for the case shown as [caseLabel] ("CASE 0") and [caseTitle]. [listCallRecordings] gives the
  * answered calls, [onResetChats] wipes the chat app's save, [onSolved] tells the story the case was solved and
- * [onReturnToTitle] leaves the phone; the phone wires them in.
+ * [onReturnToTitle] leaves the phone; [onCaseOver] tells the game the case has its verdict. The phone wires them in.
  */
 @Composable
 fun PoliceApp(
@@ -77,6 +77,7 @@ fun PoliceApp(
     onSolved: () -> Unit,
     onReport: (channel: String, knot: String) -> Unit,
     onReturnToTitle: () -> Unit,
+    onCaseOver: () -> Unit,
 ) {
     val dark = isSystemInDarkTheme()
     val c = if (dark) DarkPolice else LightPolice
@@ -102,7 +103,7 @@ fun PoliceApp(
                 when {
                     v != null -> VerdictScreen(v, onReturnToTitle)
                     listeningCalls -> CallRecordingsScreen(remember { listCallRecordings() }) { listeningCalls = false }
-                    solving -> SolveCaseScreen(m.getCaseQuestion(), onBack = { solving = false }) { verdict = m.solveCase(it.id) }
+                    solving -> SolveCaseScreen(m.getCaseQuestion(), onBack = { solving = false }) { verdict = m.solveCase(it.id).also { onCaseOver() } }
                     else -> Box(Modifier.fillMaxSize().background(c.background)) {
                         Column(
                             Modifier.fillMaxSize().verticalScroll(rememberScrollState()).statusBarsPadding().navigationBarsPadding()

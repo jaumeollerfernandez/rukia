@@ -49,6 +49,21 @@ class ChatModule private constructor(context: Context, caseId: String) {
     val updateProfile = UpdateProfile(profileRepo)
     val characters = GetCharacters(characterRepo)()
 
+    init {
+        // A save made with other .ink files can't be resumed reliably: ink may lose its place, crash or repeat lines.
+        // So when the story has changed since the case was saved, the case starts over, as with "Reset chats".
+        val storyDir = "$content/${InkStoryEngine.STORY_DIR}"
+        val version = context.assets.list(storyDir).orEmpty().filter { it.endsWith(".ink") }.sorted()
+            .joinToString("\n") { context.assets.readText("$storyDir/$it") }.hashCode().toString()
+        val savedVersion = File(saveRoot, "story-version.txt")
+        val hasStory = File(saveRoot, "story-state.json").exists()
+        if (hasStory && savedVersion.takeIf { it.exists() }?.readText() != version) {
+            resetProgress()
+            CaseClock.reset(context, caseId)
+        }
+        savedVersion.writeText(version)
+    }
+
     /** Plays every story chat's new lines: timed ones that are due, expired choices, and new chats' openings. */
     fun advanceAll() {
         // The first time the case is opened every chat's opening arrives at once: no burst of notifications for those.

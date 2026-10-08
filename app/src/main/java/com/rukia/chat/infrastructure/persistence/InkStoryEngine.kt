@@ -7,7 +7,9 @@ import com.rukia.chat.domain.port.StoryLine
 import com.rukia.chat.domain.port.StoryStep
 import com.rukia.phone.caseDay
 import com.rukia.phone.caseTime
+import com.bladecoder.ink.runtime.Error
 import com.bladecoder.ink.runtime.Story
+import com.bladecoder.ink.runtime.StoryException
 import java.io.File
 import java.time.Clock
 import java.time.Instant
@@ -40,6 +42,12 @@ class InkStoryEngine(
             }
         }
         Compiler(readFile("$STORY_DIR/main.ink"), options).compile().apply {
+            // A save from before the .ink files changed can point inside a knot that has moved: ink resumes from the
+            // nearest place and warns. That mustn't crash the game; only real errors stop the story.
+            onError = Error.ErrorHandler { message, type ->
+                if (type == Error.ErrorType.Error) throw StoryException(message)
+                System.err.println("ink: $message")
+            }
             // A save from before the .ink files changed can point at knots that no longer exist: start the story over.
             if (stateFile.exists()) runCatching { state.loadJson(stateFile.readText()) }.onFailure { resetState() }
         }

@@ -30,11 +30,11 @@ import kotlinx.coroutines.withContext
 /** How often the open case moves its story on. */
 private const val STORY_TICK_MILLIS = 10_000L
 
-/** The simulated phone of case [caseId]: shows the home screen, or the app the player opened. */
+/** The simulated phone of case [caseId]: shows the home screen, or the app the player opened. [onCaseOver]: the case got its verdict. */
 @Composable
-fun PhoneScreen(caseId: String, onReturnToTitle: () -> Unit) {
+fun PhoneScreen(caseId: String, onReturnToTitle: () -> Unit, onCaseOver: () -> Unit) {
     val context = LocalContext.current.applicationContext
-    val apps = remember(caseId, onReturnToTitle) { installedApps(context, caseId, onReturnToTitle) }
+    val apps = remember(caseId, onReturnToTitle, onCaseOver) { installedApps(context, caseId, onReturnToTitle, onCaseOver) }
     // The story runs while the case is open, on any screen: timed lines arrive, choices expire, new chats appear.
     LaunchedEffect(caseId) {
         val chat = ChatModule.of(context, caseId)

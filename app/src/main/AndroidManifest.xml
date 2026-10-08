@@ -3,8 +3,12 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Story messages notify at their exact time, even while the phone sleeps. -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="kimo"
         android:theme="@android:style/Theme.Material.NoActionBar">
         <activity
@@ -18,5 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name=".chat.infrastructure.notifications.MessageAlarmReceiver"
+            android:exported="false" />
     </application>
 </manifest>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- KIMO launcher icon, from the design "Rukia Phone Redesign" (KimoIcon). 108 dp adaptive icon layer. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:pathData="M23,54 a31,31 0 1,0 62,0 a31,31 0 1,0 -62,0" android:strokeColor="#FFFFFF" android:strokeWidth="1.6" />
+    <path android:pathData="M54,19.5v5.5M54,83v5.5M19.5,54h5.5M83,54h5.5" android:strokeColor="#FFFFFF" android:strokeWidth="1.6" />
+    <group android:pivotX="55.5" android:pivotY="54" android:scaleX="0.86" android:scaleY="0.86" android:translateX="-1.5" android:translateY="-1">
+        <path android:pathData="M39,39L43,35H47V50L61,35H71L54,53L72,73H62L49.5,58.5L47,61V73H39Z" android:fillColor="#FFFFFF" />
+    </group>
+    <path android:pathData="M46,74.5h16v2h-16z" android:fillColor="#FFFFFF" />
+</vector>
