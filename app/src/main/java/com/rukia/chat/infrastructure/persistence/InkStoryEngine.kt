@@ -5,8 +5,8 @@ import com.bladecoder.ink.compiler.IFileHandler
 import com.rukia.chat.domain.port.StoryEngine
 import com.rukia.chat.domain.port.StoryLine
 import com.rukia.chat.domain.port.StoryStep
-import com.rukia.phone.caseDay
-import com.rukia.phone.caseTime
+import com.rukia.phone.domain.model.caseDay
+import com.rukia.phone.domain.model.caseTime
 import com.bladecoder.ink.runtime.Error
 import com.bladecoder.ink.runtime.Story
 import com.bladecoder.ink.runtime.StoryException

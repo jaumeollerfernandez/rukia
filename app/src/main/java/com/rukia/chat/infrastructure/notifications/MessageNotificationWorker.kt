@@ -7,8 +7,8 @@ import androidx.work.WorkManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.rukia.chat.infrastructure.ChatModule
-import com.rukia.phone.AppLaunch
-import com.rukia.phone.CaseClock
+import com.rukia.phone.infrastructure.AppLaunch
+import com.rukia.phone.infrastructure.CaseClock
 import kotlin.concurrent.thread
 
 /** Chat currently on screen (and its case), so a message arriving there doesn't also pop a notification. */

@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -25,10 +26,10 @@ import com.rukia.chat.domain.model.CallStatus
 import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.Message
-import com.rukia.phone.CaseClock
-import com.rukia.phone.Kit
-import com.rukia.phone.LocalCaseId
-import com.rukia.phone.RukiaIcons
+import com.rukia.phone.infrastructure.CaseClock
+import com.rukia.phone.infrastructure.ui.Kit
+import com.rukia.phone.infrastructure.LocalCaseId
+import com.rukia.phone.infrastructure.ui.RukiaIcons
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -39,12 +40,13 @@ fun ChatListScreen(
     chats: List<Chat>,
     characters: Map<String, Character>,
     now: Long,
+    listState: LazyListState,
     onOpen: (Chat) -> Unit,
     onDelete: (Chat) -> Unit,
 ) {
     var deleting by remember { mutableStateOf<Chat?>(null) }
 
-    LazyColumn(Modifier.fillMaxSize()) {
+    LazyColumn(Modifier.fillMaxSize(), listState) {
         item { LargeTitle(stringResource(R.string.tab_chats)) }
         // A chat shows up once its first message arrives, e.g. a group someone creates later; the latest conversation goes first.
         val shown = chats.filter { it.arrivedCount(now) > 0 }.sortedByDescending { it.lastArrived(now)?.deliverAt ?: 0 }
@@ -64,11 +66,11 @@ fun ChatListScreen(
     }
 }
 
-/** The chat's picture: the other person's avatar, or two overlapping ones for a group. */
+/** The chat's picture: the other person's avatar (tap it to see their photo up close), or two overlapping ones for a group. */
 @Composable
 fun ChatAvatar(chat: Chat, characters: Map<String, Character>, size: Int, showOnline: Boolean = true) {
     if (chat.isGroup) GroupAvatar(characters[chat.participants[0]], characters[chat.participants[1]], size)
-    else Avatar(characters[chat.participants.first()], size, online = showOnline && characters[chat.participants.first()]?.onlineAt(CaseClock.now(LocalCaseId.current)) == true)
+    else Avatar(characters[chat.participants.first()], size, online = showOnline && characters[chat.participants.first()]?.onlineAt(CaseClock.now(LocalCaseId.current)) == true, zoomable = true)
 }
 
 @Composable
@@ -140,10 +142,10 @@ fun CountBadge(count: Int) {
 }
 
 @Composable
-fun ContactsScreen(characters: Map<String, Character>, onOpen: (Character) -> Unit) {
+fun ContactsScreen(characters: Map<String, Character>, listState: LazyListState, onOpen: (Character) -> Unit) {
     val p = LocalPalette.current
     val people = characters.values.filterNot { it.hidden }.sortedBy { it.name }
-    LazyColumn(Modifier.fillMaxSize()) {
+    LazyColumn(Modifier.fillMaxSize(), listState) {
         item {
             LargeTitle(stringResource(R.string.tab_contacts), Modifier.padding(bottom = 0.dp))
             Text(stringResource(R.string.contacts_count, people.size), Modifier.padding(start = 20.dp, bottom = 10.dp), color = p.subText, fontSize = 15.sp)
@@ -171,7 +173,7 @@ fun PersonRow(c: Character?, subtitle: String, nameColor: Color = Color.Unspecif
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Avatar(c, 42, online = c?.onlineAt(CaseClock.now(LocalCaseId.current)) == true)
+        Avatar(c, 42, online = c?.onlineAt(CaseClock.now(LocalCaseId.current)) == true, zoomable = true)
         Column(Modifier.weight(1f)) {
             Text(c?.name.orEmpty(), color = nameColor, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
             if (subtitle.isNotEmpty()) {

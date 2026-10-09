@@ -1,0 +1,225 @@
+package com.rukia.phone.infrastructure.ui
+
+import com.rukia.phone.domain.model.HomeLayout
+import com.rukia.phone.infrastructure.PhoneModule
+import com.rukia.phone.infrastructure.CaseClock
+import com.rukia.phone.infrastructure.LocalCaseId
+import com.rukia.phone.infrastructure.media.rememberMediaImage
+import androidx.compose.ui.res.stringResource
+import com.rukia.R
+import androidx.annotation.StringRes
+import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import android.content.Context
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.onClick
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.round
+import androidx.compose.ui.zIndex
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.rukia.chat.domain.model.CallStatus
+import com.rukia.chat.domain.model.PLAYER_ID
+import com.rukia.chat.infrastructure.ChatModule
+import com.rukia.police.domain.model.RecordedCall
+import com.rukia.chat.infrastructure.ui.ChatApp
+import com.rukia.game.infrastructure.cases
+import com.rukia.gonpi.infrastructure.ui.GonpiApp
+import com.rukia.gonpi.infrastructure.ui.GonpiPink
+import com.rukia.multimedia.infrastructure.ui.MultimediaApp
+import com.rukia.multimedia.infrastructure.ui.MultimediaOrange
+import com.rukia.police.infrastructure.ui.PoliceApp
+import com.rukia.police.infrastructure.ui.PoliceBlue
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
+
+/** [badge] is the count shown on the icon (0 hides it); the home screen re-reads it every few seconds, off the main thread. */
+class PhoneApp(
+    val id: String, @StringRes val label: Int, val icon: ImageVector, val color: Color,
+    val badge: () -> Int = { 0 },
+    val content: @Composable () -> Unit,
+)
+
+/**
+ * Apps on the phone of case [caseId]. Add new ones here. [onReturnToTitle] leaves the phone for the game's title screen;
+ * [onCaseOver] says the case got its verdict.
+ */
+fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit, onCaseOver: () -> Unit) = listOf(
+    PhoneApp(
+        "chat", R.string.app_chats, RukiaIcons.Chat, Color(0xFF25D366),
+        badge = { ChatModule.of(context, caseId).listChats().count { it.unreadCount(CaseClock.now(caseId)) > 0 } },
+    ) { ChatApp(caseId) },
+    PhoneApp("police", R.string.app_police, RukiaIcons.Shield, PoliceBlue) {
+        val case = cases.first { it.id == caseId }
+        PoliceApp(
+            caseId, caseLabel = stringResource(R.string.case_number, case.number), caseTitle = case.title,
+            listCallRecordings = {
+                val chat = ChatModule.of(context, caseId)
+                chat.listCalls().filter { it.status == CallStatus.ANSWERED }.mapNotNull { call ->
+                    call.audio?.let { RecordedCall(chat.characters[call.from]?.name ?: call.from, call.time, it) }
+                }
+            },
+            onResetChats = {
+                ChatModule.of(context, caseId).resetProgress()
+                CaseClock.reset(context, caseId) // the week starts again the next time the case is opened
+            },
+            onSolved = { ChatModule.of(context, caseId).markCaseSolved() },
+            onReport = { channel, knot -> ChatModule.of(context, caseId).playStoryEvent(channel, knot) },
+            onReturnToTitle = onReturnToTitle,
+            onCaseOver = onCaseOver,
+        )
+    },
+    PhoneApp("multimedia", R.string.app_multimedia, Icons.Filled.Face, MultimediaOrange) { MultimediaApp(caseId) },
+    PhoneApp("gonpi", R.string.app_gonpi, Icons.Filled.Favorite, GonpiPink) {
+        // Gonpi's search finds the people in the chat app's Contacts tab.
+        GonpiApp(caseId) { ChatModule.of(context, caseId).characters.values.filter { !it.hidden && it.id != PLAYER_ID }.map { it.id }.toSet() }
+    },
+)
+
+
+private const val COLUMNS = HomeLayout.COLUMNS
+private const val ROWS = HomeLayout.ROWS
+private val labelShadow = TextStyle(shadow = Shadow(Color.Black.copy(alpha = 0.5f), blurRadius = 6f))
+
+/** Home screen: a clock and a COLUMNS x ROWS grid of apps. Tap an app to open it; long-press and drag to move it (dropping on another app swaps them). */
+@Composable
+fun LauncherScreen(apps: List<PhoneApp>, onOpen: (PhoneApp) -> Unit) {
+    SystemBars(lightBottomIcons = true)
+    // Each case's phone keeps its own layout.
+    val context = LocalContext.current
+    val caseId = LocalCaseId.current
+    val phone = remember(caseId) { PhoneModule(context.applicationContext, caseId) }
+    var cells by remember(phone, apps) { mutableStateOf(phone.getHomeLayout(apps.map { it.id })) }
+    var dragging by remember { mutableStateOf<String?>(null) }
+    // ponytail: re-reads every badge each 3 s; have apps push counts if one gets expensive to count.
+    val badges by produceState(emptyMap<String, Int>(), apps) {
+        while (true) {
+            value = withContext(Dispatchers.IO) { apps.associate { it.id to runCatching(it.badge).getOrDefault(0) } }
+            delay(3_000)
+        }
+    }
+    var dragOffset by remember { mutableStateOf(Offset.Zero) }
+    // Alicia's wallpaper, if the case has one (the shared media folder is checked too).
+    val wallpaper = rememberMediaImage("photos/wallpaper.jpg", maxSize = 1920)
+
+    Column(
+        Modifier.fillMaxSize()
+            .wallpaper(wallpaper)
+            .safeDrawingPadding()
+            .padding(start = 20.dp, end = 20.dp, bottom = 16.dp),
+    ) {
+        ClockWidget()
+        BoxWithConstraints(Modifier.fillMaxWidth().weight(1f).padding(top = 16.dp)) {
+            val cellWidth = maxWidth / COLUMNS
+            val cellHeight = maxHeight / ROWS
+            val cellPx = with(LocalDensity.current) { Offset(cellWidth.toPx(), cellHeight.toPx()) }
+            for (app in apps) {
+                val cell = cells[app.id] ?: continue
+                val isDragged = dragging == app.id
+                AppIcon(
+                    app, badges[app.id] ?: 0, cellHeight,
+                    Modifier.size(cellWidth, cellHeight)
+                        .offset(cellWidth * (cell % COLUMNS), cellHeight * (cell / COLUMNS))
+                        .offset { if (isDragged) dragOffset.round() else IntOffset.Zero }
+                        .zIndex(if (isDragged) 1f else 0f)
+                        .graphicsLayer { if (isDragged) { scaleX = 1.15f; scaleY = 1.15f } }
+                        // Taps outside, drag inside: the drag sees moves first, and a long press never counts as a tap.
+                        .pointerInput(app) { detectTapGestures(onLongPress = {}, onTap = { onOpen(app) }) }
+                        .pointerInput(app.id, cellPx) {
+                            detectDragGesturesAfterLongPress(
+                                onDragStart = { dragging = app.id; dragOffset = Offset.Zero },
+                                onDrag = { change, amount -> change.consume(); dragOffset += amount },
+                                onDragEnd = {
+                                    val from = cells.getValue(app.id)
+                                    val col = ((from % COLUMNS + 0.5f) + dragOffset.x / cellPx.x).toInt().coerceIn(0, COLUMNS - 1)
+                                    val row = ((from / COLUMNS + 0.5f) + dragOffset.y / cellPx.y).toInt().coerceIn(0, ROWS - 1)
+                                    val to = row * COLUMNS + col
+                                    cells = phone.moveApp(cells, app.id, to)
+                                    dragging = null
+                                },
+                                onDragCancel = { dragging = null },
+                            )
+                        }
+                        .semantics(mergeDescendants = true) { role = Role.Button; onClick { onOpen(app); true } },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ClockWidget() {
+    val clock = CaseClock.clock(LocalCaseId.current)
+    var now by remember { mutableStateOf(LocalDateTime.now(clock).truncatedTo(ChronoUnit.MINUTES)) }
+    LaunchedEffect(Unit) {
+        // State only changes when the minute does, so this doesn't recompose every second.
+        while (true) { delay(1_000); now = LocalDateTime.now(clock).truncatedTo(ChronoUnit.MINUTES) }
+    }
+    Column(Modifier.fillMaxWidth().padding(start = 6.dp, top = 24.dp)) {
+        Text(
+            now.format(DateTimeFormatter.ofPattern("HH:mm")), color = Color.White,
+            fontSize = 82.sp, lineHeight = 86.sp, fontWeight = FontWeight.Light, letterSpacing = (-3).sp,
+        )
+        Text(now.format(DateTimeFormatter.ofPattern(stringResource(R.string.clock_date))).replaceFirstChar { it.titlecase() }, color = Color.White.copy(alpha = 0.86f), fontSize = 18.sp, fontWeight = FontWeight.Medium)
+    }
+}
+
+/** Squircle tile from the kit (62 dp, 16 dp corners), shrunk on short screens so a 2-line label still fits in [cellHeight]. */
+@Composable
+private fun AppIcon(app: PhoneApp, badge: Int, cellHeight: Dp, modifier: Modifier) {
+    Column(modifier.padding(vertical = 4.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+        val iconSize = (cellHeight - 44.dp).coerceIn(36.dp, 62.dp)
+        val shape = RoundedCornerShape(iconSize * 16f / 62f)
+        Box {
+            Box(
+                Modifier.size(iconSize).shadow(10.dp, shape, ambientColor = Color.Black, spotColor = Color.Black.copy(alpha = 0.4f))
+                    .background(app.color, shape)
+                    // The kit's inner top highlight.
+                    .background(Brush.verticalGradient(0f to Color.White.copy(alpha = 0.22f), 0.08f to Color.Transparent), shape),
+                contentAlignment = Alignment.Center,
+            ) { Icon(app.icon, null, Modifier.size(iconSize * 0.5f), tint = Color.White) }
+            if (badge > 0) {
+                Box(
+                    Modifier.align(Alignment.TopEnd).offset(6.dp, (-6).dp).defaultMinSize(22.dp, 22.dp)
+                        .background(Kit.Decline, RoundedCornerShape(11.dp)).padding(horizontal = 6.dp),
+                    contentAlignment = Alignment.Center,
+                ) { Text("$badge", color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.Bold) }
+            }
+        }
+        Text(
+            stringResource(app.label), Modifier.padding(top = 5.dp), color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Medium,
+            style = labelShadow, textAlign = TextAlign.Center, maxLines = 2, lineHeight = 14.sp,
+        )
+    }
+}

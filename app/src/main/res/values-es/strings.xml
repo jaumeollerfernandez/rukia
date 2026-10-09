@@ -80,6 +80,35 @@
     <!-- Gonpi y Multimedia -->
     <string name="gonpi_post">Publicación</string>
     <string name="gonpi_no_posts">Aún no hay publicaciones</string>
+    <string name="gonpi_home">Inicio</string>
+    <string name="gonpi_search">Buscar</string>
+    <string name="gonpi_sponsored">Publicidad</string>
+    <string name="gonpi_no_accounts">No se han encontrado cuentas para «%1$s»</string>
+    <plurals name="gonpi_comments">
+        <item quantity="one">%1$d comentario</item>
+        <item quantity="other">%1$d comentarios</item>
+    </plurals>
+    <plurals name="gonpi_minutes_ago">
+        <item quantity="one">hace %1$d minuto</item>
+        <item quantity="other">hace %1$d minutos</item>
+    </plurals>
+    <plurals name="gonpi_hours_ago">
+        <item quantity="one">hace %1$d hora</item>
+        <item quantity="other">hace %1$d horas</item>
+    </plurals>
+    <plurals name="gonpi_days_ago">
+        <item quantity="one">hace %1$d día</item>
+        <item quantity="other">hace %1$d días</item>
+    </plurals>
+    <plurals name="gonpi_weeks_ago">
+        <item quantity="one">hace %1$d semana</item>
+        <item quantity="other">hace %1$d semanas</item>
+    </plurals>
+    <plurals name="gonpi_months_ago">
+        <item quantity="one">hace %1$d mes</item>
+        <item quantity="other">hace %1$d meses</item>
+    </plurals>
+    <string name="gonpi_notif_posted">%1$s ha publicado recientemente</string>
     <string name="like">Me gusta</string>
     <string name="unlike">Ya no me gusta</string>
     <string name="likes">%1$d me gusta</string>
@@ -94,7 +123,6 @@
     <string name="section_game">Partida</string>
     <string name="solve_case">Resolver el caso</string>
     <string name="solve_closed">Cerrado: el plazo ha terminado</string>
-    <string name="solve_one_try">Un solo intento. Elige bien</string>
     <string name="return_title">Volver al menú</string>
     <string name="return_title_sub">Sal del caso. El progreso se guarda</string>
     <string name="section_evidence">Pruebas</string>
@@ -126,14 +154,20 @@
     <string name="tap_to_listen">Toca una llamada para volver a escucharla.</string>
     <string name="playing">Reproduciendo…</string>
     <string name="call_at">Llamada de las %1$s</string>
-    <string name="one_try_warning">Solo tienes un intento. Una respuesta equivocada termina la partida y borra estos datos.</string>
-    <string name="accuse_x">Elegir: %1$s</string>
-    <string name="choose_suspect">Elige una respuesta</string>
-    <string name="accuse_q">¿Elegir «%1$s»?</string>
-    <string name="accuse_text">Es tu único intento. Si te equivocas, la partida termina y se borran todos los datos de esta partida.</string>
-    <string name="accuse">Elegir</string>
     <string name="case_solved">CASO RESUELTO</string>
-    <string name="game_over">FIN DE LA PARTIDA</string>
     <string name="solved_text">Has descubierto la verdad.\nEl caso está cerrado.</string>
-    <string name="failed_text">Respuesta equivocada. Se te ha escapado.\nSe han borrado los datos de la partida.</string>
+    <string name="solve_sub">Una zona al día: envía una patrulla a buscar</string>
+    <string name="map_hint">Toca el mapa para marcar la zona. Pellizca para hacer zoom.</string>
+    <string name="radius">Radio</string>
+    <string name="send_squad">Enviar patrulla</string>
+    <string name="place_zone_first">Toca el mapa para marcar una zona</string>
+    <string name="send_squad_q">¿Enviar una patrulla?</string>
+    <string name="send_squad_text">Los agentes saldrán de la comisaría a buscar en esta zona. Solo puedes enviar una al día.</string>
+    <string name="squad_searching">La patrulla está buscando en la zona</string>
+    <string name="result_in">Resultado en %1$s</string>
+    <string name="zone_miss_title">Ni rastro en esta zona</string>
+    <string name="zone_miss_text">La patrulla no ha encontrado nada. Prueba otra zona mañana.</string>
+    <string name="zone_hit_title">Dentro de esta zona · %1$d%%</string>
+    <string name="zone_hit_text">Demasiado amplia para dar con el sitio exacto. Marca una zona más pequeña mañana.</string>
+    <string name="station">Comisaría</string>
 </resources>

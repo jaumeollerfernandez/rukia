@@ -35,12 +35,12 @@ import androidx.compose.ui.unit.sp
 import com.rukia.chat.domain.model.CallRecord
 import com.rukia.chat.domain.model.CallStatus
 import com.rukia.chat.domain.model.Character
-import com.rukia.phone.Kit
-import com.rukia.phone.LocalCaseId
-import com.rukia.phone.RukiaIcons
-import com.rukia.phone.SystemBars
-import com.rukia.phone.callBackdrop
-import com.rukia.phone.playMedia
+import com.rukia.phone.infrastructure.ui.Kit
+import com.rukia.phone.infrastructure.LocalCaseId
+import com.rukia.phone.infrastructure.ui.RukiaIcons
+import com.rukia.phone.infrastructure.ui.SystemBars
+import com.rukia.phone.infrastructure.ui.callBackdrop
+import com.rukia.phone.infrastructure.media.playMedia
 import kotlinx.coroutines.delay
 
 @Composable

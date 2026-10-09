@@ -27,6 +27,7 @@ dependencies {
     implementation("com.bladecoder.ink:blade-ink:1.3.2")
     implementation("com.bladecoder.ink:blade-ink-compiler:1.3.2")
     implementation("androidx.work:work-runtime-ktx:2.12.0")
+    implementation("org.osmdroid:osmdroid-android:6.1.20")
     testImplementation(kotlin("test-junit"))
 }
 

@@ -42,7 +42,8 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 5. **D-120**: vóley, foto de equipo. ⚪
 
 **@excursions.bianya** (desconocido: el jugador solo llega aquí si cotillea los comentarios):
-- **D-60**: una masía con la **puerta azul** y el dintel de 1782 🔎🔎. *«Ruta Sant Salvador de Bianya → Collada de Bracons. A media subida, el Mas de la Rosalia, el de la porta blava, sigue en pie. La Rosalia (78 años, ¡como una rosa!) nos dio agua del pozo y nos presentó a su perra Trufa 🐕. Sin luz eléctrica ni cobertura: así se vive allí arriba.»* Esta es la publicación que une `IMG_0391` (puerta azul, Trufa), `IMG_0405` (la vista de Bracons) y la llamada de Rosalia.
+- **D-60**: una masía con la **puerta azul** y el dintel de 1782 🔎🔎. *«Ruta Sant Salvador de Bianya → Collada de Bracons. A media subida, un mas de 1782 con la porta blava y un pozo que todavía da agua. La señora de la casa (78 años, ¡como una rosa!) nos invitó a un vaso y nos presentó a su perra 🐕. Sin luz eléctrica ni cobertura: así se vive allí arriba.»* Ya no dice el nombre del mas ni el de la perra: «como una rosa» es el único guiño. Une `IMG_0391` (puerta azul, pozo, perra), `IMG_0405` (la vista de Bracons) y la llamada de Rosalia.
+- **D-45**: 🎭 **Can Pericot**, en Capsec: otra masía con la **puerta azul** (descolorida), vacía, sin pozo ni perro. *«Capsec. Can Pericot, vacío desde hace años, con su porta blava ya descolorida. Ahora es el refugio del esplai: si pasáis, ¡dejadlo limpio! 🙏»*. Comentan .esplai («Las llaves, en el local del esplai 😉») y **.serra** («el mejor refugi del mundo 💙»). El señuelo de la segunda puerta azul: la yaya Mercè pintó las dos (ver `PISTAS.md`).
 - **D-30**, **D-15**: rutas por la Alta Garrotxa, el Santuari del Mont, una cascada. ⚪
 
 **@ignasi.coll.acompanya**: parece la cuenta de un facilitador de mindfulness. Hace tres días cuenta que «una joven» le preguntó en el círculo por qué cuesta soltar: es Alicia, la noche que el chat Familia llama «lo que has compartido» 🔎. Frases sobre soltar lo material («Lo que posees acaba poseyéndote») 🔎 y sobre alejarse de la familia («Hay vínculos que sanan y vínculos que pesan… aunque lleven tu apellido»), que Montse agradece: «Gracias por devolverme a mi familia» 🔎.
@@ -81,6 +82,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | 07:00 | @berta.luz | *«Frase del alba: Quien de verdad te quiere, te espera sin hacer preguntas.»* | 🔎 |
 | 11:00 | @dani.moto | Carrusel de un concierto en Barcelona. *«Barna anteanoche 🔥»*, con la entrada fechada | 🎭→⚪ Es la coartada de Dani: estaba en Barcelona |
 | 14:20 | @oriol.pedals | Captura de la ruta en bici: *«Subida nocturna a Bracons 🌙 · 1:12 h»*, hecha anteanoche entre la 01:00 y las 02:30. Comentario de @oriol.pedals: «por cierto a mitad de subida vi a una chica sola andando por el arcén con una mochila. a esas horas! casi me paro» | 🔎🔎 Alicia subiendo andando hacia Bracons. Se cruza con `IMG_0409` (ruta a pie «…de Bianya») |
+| 18:30 | @lauravila_ | Cojines y velas en un jardín. *«primera sesión de mindfulness 🌿 qué paz»*. Comenta @berta.luz: «Bienvenida a casa, hermana 🌹» | 🔎 Laura entra en el Casal: lo que le cuentes llega a Berta (chat `laura`) |
 | 20:00 | @mire.ia | Fiesta de cumpleaños (la que planeaban en el grupo). *«los 18 con mis personas (falta una 💔)»* | ⚪ |
 | 23:10 | @ignasi.coll.acompanya | Comenta el último post de Alicia: **«Te echamos de menos en la Casa, Alicia. Aquí nadie te juzga. Vuelve cuando estés preparada 🌹»**. A la misma hora le escribe por privado | 🔎 Cariño que presiona |
 
@@ -134,7 +136,7 @@ Para que Rosa d'Abril sea «una actividad más» de Alicia, su móvil tiene diez
 | Coral l'Hostalnou 🎶 | Xavier (director), Roser, Pep | 🔎 Montse dejó la coral hace un año; D2 Roser la ve en el mercado con una bolsa llena de velas |
 | Voluntaris Banc d'Aliments 🥫 | Lluïsa, Toni, Fàtima | 🔎 D2: Montse dona cuatro cajas, «se están desprendiendo de lo material» (también en Gonpi) |
 | Ioga al Poli 🧘‍♀️ | Clàudia (profe), Imma, Gemma | 🔎 Contraste: cuota clara, sin permanencia. D2 Imma pregunta por un folleto de Rosa d'Abril; Clàudia: «desconfiad de quien os prometa cambiaros la vida en un fin de semana» |
-| Monis Esplai Bianya ⛺ | Pau, Clara, Biel | ⚪ |
+| Monis Esplai Bianya ⛺ | Pau, Clara, Biel | 🎭 D3: falta un juego de llaves del refugio de Can Pericot (Capsec). Las tiene Biel |
 | Comissió Festa Major 🎉 | Quim (Ajuntament), Marc, Laura | ⚪ |
 | Veïns carrer del Pont 🏘️ | Conxita, Enric y Montse | 🔎 Montse, muy serena: «estamos de recogimiento»; un coche gris con una rosa en el cristal (D4); el corte de luz del D6 |
 | Autoescola · Teòrica 🚗 | Rafa (profe), Hugo | 🔎 D4: Alicia no va al examen; su madre dice que ha «cambiado de prioridades» |
@@ -142,3 +144,46 @@ Para que Rosa d'Abril sea «una actividad más» de Alicia, su móvil tiene diez
 | Repàs Martina i Leo 📐 | Anna y Sílvia (madres) | 🔎 D2: persianas bajadas, no hay nadie en casa |
 
 Cuentas nuevas en Gonpi: `lectura`, `coral`, `aliments`, `claudia`, `esplai`, `teatre`, `autoescola`, `pau`, `queralt`, `gemma`, `toni`. Publicaciones antiguas con Alicia en sus actividades (tertulia, gincana, ensayo, campamento) y algunas durante el caso: la donación de cajas (D2 12:00), el aprobado del teórico (D4), «buscamos una Adela» (D4) y el récord de lotes (D5).
+
+## Perfiles de los contactos
+
+Todos los contactos del móvil tienen cuenta en Gonpi, y el buscador **solo encuentra a los contactos** (por usuario o nombre, sin importar acentos ni mayúsculas). Las cuentas que no son contactos (Ignasi, el Casal, Iris, excursions.bianya, hostalnou, los grupos del pueblo…) solo se alcanzan tocando un nombre en el feed o en un comentario: hay que cotillear.
+
+Cada cuenta tiene entre dos y cinco publicaciones escritas con la voz de su ficha en [story/perfiles/](story/perfiles/). Casi todas son ruido ⚪ que da realismo; estas llevan algo:
+
+| Publicación | Tipo | Qué aporta |
+|---|---|---|
+| @teresa.llibres, D-35: novedades de la sección local | 🔎 | En el lomo de un libro se lee «Masies de la Vall de Bianya» (el que se llevó Alicia) |
+| @roser.canta, D-70: la coral en 1979 | 🔎 | La yaya Mercè, la Rosalia y la Pepita juntas: las dos amigas existen |
+| @imma.respira, D2 21:00: el folleto del mercado | ⚪/🔎 | Captación de Rosa d'Abril en el mercado |
+| @clara.moni, D4 15:00: el dibujo de la Laieta | 🔎 | Puerta azul **con perro** y estrellas: no es Can Pericot |
+| @biel.gg, D2 23:30: «noche épica 🕯️🌲» | 🎭 | Velas y saco de dormir en Can Pericot. Pau comenta «eso es el refugi???»: la luz de Capsec era Biel |
+| @jordi.serra.bcn, D-45: la habitación de Ali | ⚪ | El padre que espera |
+| @marta (fruites.canserra), D4 13:00 | ⚪ | Cierra la parada después de que Montse no le abra |
+| @pilar.batlle, D7 05:40: «Encendiendo el horno.» | ⚪ | La mañana del final |
+
+**Fechas.** Las publicaciones ya no llevan `"time": "hace 12 días"`: todas tienen `"at"`, también las del pasado (`"at": "D-12 19:30"`). El feed las ordena por fecha, la más nueva primero, y escribe «hace 2 horas», «hace 3 semanas»… según la hora del caso. Así se pueden añadir publicaciones en cualquier lugar del archivo.
+
+## Cuentas que sigue Alicia
+
+Para que el feed no sea solo gente del pueblo: grupos, influencers, divulgadores y locales de Olot. **Todas inventadas** (ningún artista ni marca real) y elegidas según los gustos de Alicia (ver «Gustos» en [story/perfiles/alicia.md](story/perfiles/alicia.md)). No son contactos, así que el buscador no las encuentra: salen en el feed y se abren tocando su nombre. Los anuncios llevan `"sponsored": true` y se ven con «Publicidad».
+
+| Cuenta | Qué es | Detalle |
+|---|---|---|
+| @lesnitsdagost | Grupo indie-folk, su favorito | Single «Estels» («para los que habéis mirado el cel des d'una finestra que no era casa vostra»); Ali: «la yaya habría llorado con esta». Concierto en Girona con Núria. D3: fecha en el Fanals |
+| @julia.vents | Cantautora | «Casa és on et deixen ser»; Ali: «esta canción me ha salvado la semana». D5: «No cal que ningú entengui per què te'n vas» |
+| @nova.oficial | Estrella del pop | Anuncio del disco (D1). Ali no comenta: le da vergüenza |
+| @festival.fanals | Festival de luz de Olot | Anuncio (D2) |
+| @cel.fosc | Astrofotografía de la Garrotxa | 🔎 suave: los mejores cielos, entre ellos «las masías de la subida a Bracons»; Ali: «conozco uno mejor 🤫». D5: Vía Láctea esta noche |
+| @nord.enlla | Viajes al norte, auroras | Su sueño: Ali comenta «algún día» en una cabaña sin luz |
+| @tinta.lenta | Ilustradora | Masías, ventanas, chicas mirando el cielo; Ali le pide que le enseñe |
+| @psicologia.amable | Psicóloga divulgadora | ⚪/🔎 temático: límites con la familia (Ali: «necesitaba leer esto»), ansiedad, D3 «señales de que un grupo te está aislando» |
+| @fil.social | Asociación contra la soledad rural | Su vocación (Ali: «quiero hacer esto toda mi vida»); taller con su clase y Elena |
+| @protectora.garrotxa | Protectora de animales | D2: Nit, perro grande y viejo; Ona: «ali este es para ti» |
+| @marroig.7 | Colocadora de Vòlei Girona | Clínic en Olot: «me firmó la rodillera 😭😭» |
+| @memes.de.poble | Memes rurales en catalán | Madres («ja en parlarem»), tractores, Girona-Nueva York |
+| @llibreria.lacova | Librería de Olot | «Nada», «Mujercitas» |
+| @granja.delfiral | Granja (chocolate) de Olot | Anuncio; Núria: «ali nuestro sitio» |
+| @vintage.olot | Tienda de segunda mano | La chaqueta verde de Ali salió de aquí; anuncio (D2) |
+| @pizzeria.lavolcanica | Pizzería | Anuncio de 2x1 para el vóley (D4) |
+| @cinema.garrotxa | Cine de Olot | Anuncio: «La casa de los veranos» (una nieta y su abuela) |

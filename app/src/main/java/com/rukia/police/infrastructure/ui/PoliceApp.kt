@@ -24,14 +24,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import com.rukia.phone.CaseClock
-import com.rukia.phone.Kit
-import com.rukia.phone.RukiaIcons
-import com.rukia.phone.SystemBars
+import com.rukia.phone.infrastructure.CaseClock
+import com.rukia.phone.infrastructure.ui.Kit
+import com.rukia.phone.infrastructure.ui.RukiaIcons
+import com.rukia.phone.infrastructure.ui.SystemBars
 import com.rukia.police.domain.model.Operation
 import com.rukia.police.domain.model.RecordedCall
 import com.rukia.police.domain.port.Radio
-import com.rukia.police.domain.model.Verdict
 import com.rukia.police.infrastructure.PoliceModule
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -83,15 +82,18 @@ fun PoliceApp(
     val c = if (dark) DarkPolice else LightPolice
     SystemBars(lightBottomIcons = dark, lightTopIcons = dark)
     val context = LocalContext.current.applicationContext
-    val m = remember(caseId) { PoliceModule(context, caseId, save = { onResetChats() }, onSolved = onSolved, radio = Radio(onReport)) }
+    val m = remember(caseId) { PoliceModule(context, caseId, save = { onResetChats() }, radio = Radio(onReport)) }
     var confirming by remember { mutableStateOf(false) }
     var solving by rememberSaveable { mutableStateOf(false) }
     var listeningCalls by rememberSaveable { mutableStateOf(false) }
-    var verdict by rememberSaveable { mutableStateOf<Verdict?>(null) }
     var picked by remember { mutableStateOf<Operation?>(null) }
     // Squads come and go with the case's clock: look again every few seconds.
     var sent by remember { mutableIntStateOf(0) } // bumped after sending a squad, to show it at once
     val board by produceState(m.getOperations(), m, sent) { while (true) { value = m.getOperations(); delay(5_000) } }
+    var searched by remember { mutableIntStateOf(0) } // bumped after a search, to show it at once
+    val searches by produceState(m.getSearches(), m, searched) { while (true) { value = m.getSearches(); delay(1_000) } }
+    // The result that solves it may come in while the app is closed: tell the story and the game when it's first seen.
+    LaunchedEffect(searches.solved) { if (searches.solved) { onSolved(); onCaseOver() } }
     val snackbar = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -99,11 +101,13 @@ fun PoliceApp(
     CompositionLocalProvider(LocalPolice provides c) {
         MaterialTheme(colorScheme = scheme) {
             CompositionLocalProvider(LocalContentColor provides c.text) {
-                val v = verdict
                 when {
-                    v != null -> VerdictScreen(v, onReturnToTitle)
+                    searches.solved -> VerdictScreen(onReturnToTitle)
                     listeningCalls -> CallRecordingsScreen(remember { listCallRecordings() }) { listeningCalls = false }
-                    solving -> SolveCaseScreen(m.getCaseQuestion(), onBack = { solving = false }) { verdict = m.solveCase(it.id).also { onCaseOver() } }
+                    solving -> SolveCaseScreen(m.getCaseQuestion(), searches, { CaseClock.now(caseId) }, onBack = { solving = false }) { at, radius ->
+                        runCatching { m.searchZone(at, radius) } // the deadline may have passed while the alert was open
+                        searched++
+                    }
                     else -> Box(Modifier.fillMaxSize().background(c.background)) {
                         Column(
                             Modifier.fillMaxSize().verticalScroll(rememberScrollState()).statusBarsPadding().navigationBarsPadding()
@@ -116,10 +120,10 @@ fun PoliceApp(
                             )
                             CaseCard(caseLabel, caseTitle, m.getCaseQuestion().question)
                             Section(stringResource(R.string.section_game)) {
-                                // Past the case's deadline there's nothing left to solve.
-                                val closed = m.deadline?.let { CaseClock.now(caseId) > it } == true
+                                // Past the case's deadline there's nothing left to solve, unless the last squad is still out.
+                                val closed = m.deadline?.let { CaseClock.now(caseId) > it } == true && searches.pending(CaseClock.now(caseId)) == null
                                 if (closed) ActionRow(RukiaIcons.Search, Danger, stringResource(R.string.solve_case), stringResource(R.string.solve_closed), trailing = {}) {}
-                                else ActionRow(RukiaIcons.Search, Danger, stringResource(R.string.solve_case), stringResource(R.string.solve_one_try)) { solving = true }
+                                else ActionRow(RukiaIcons.Search, Danger, stringResource(R.string.solve_case), stringResource(R.string.solve_sub)) { solving = true }
                                 RowDivider()
                                 ActionRow(RukiaIcons.Exit, PoliceBlue, stringResource(R.string.return_title), stringResource(R.string.return_title_sub), onClick = onReturnToTitle)
                             }

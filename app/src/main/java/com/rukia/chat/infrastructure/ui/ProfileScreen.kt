@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.PlayerProfile
-import com.rukia.phone.Kit
+import com.rukia.phone.infrastructure.ui.Kit
 
 /** The phone owner's photo and name (fixed by the case: the player uses someone else's phone) and the app's settings. */
 @Composable
@@ -35,7 +35,7 @@ fun ProfileScreen(owner: Character?, profile: PlayerProfile, onUpdate: (PlayerPr
     Column(Modifier.fillMaxSize().background(p.grouped).verticalScroll(rememberScrollState())) {
         LargeTitle(stringResource(R.string.tab_profile), Modifier.padding(bottom = 0.dp))
         Column(Modifier.fillMaxWidth().padding(top = 26.dp, bottom = 28.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Avatar(owner, size = 132)
+            Avatar(owner, size = 132, zoomable = true)
             Text(name, Modifier.padding(top = 10.dp), fontSize = 26.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.3).sp)
         }
         Column(Modifier.padding(horizontal = 16.dp).clip(RoundedCornerShape(16.dp)).background(p.card)) {

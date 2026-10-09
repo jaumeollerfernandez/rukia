@@ -1,8 +1,8 @@
 package com.rukia.chat.infrastructure.persistence
 
 import com.rukia.chat.domain.port.StoryStep
-import com.rukia.game.cases
-import com.rukia.phone.CaseFolders
+import com.rukia.game.infrastructure.cases
+import com.rukia.phone.infrastructure.CaseFolders
 import java.io.File
 import kotlin.io.path.createTempDirectory
 import kotlin.test.Test

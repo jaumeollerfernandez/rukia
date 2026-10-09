@@ -1,12 +1,6 @@
 {
-  "question": "Who entered the lab after midnight?",
-  "answer": "uryu",
-  "options": [
-    { "id": "rukia", "label": "Rukia", "image": "photos/rukia.jpg", "color": "#7E57C2" },
-    { "id": "ichigo", "label": "Ichigo", "image": "photos/ichigo.jpg", "color": "#FF7043" },
-    { "id": "orihime", "label": "Orihime", "image": "photos/orihime.jpg", "color": "#EC407A" },
-    { "id": "uryu", "label": "Uryu", "image": "photos/uryu.jpg", "color": "#1E88E5" },
-    { "id": "kisuke", "label": "Kisuke", "image": "photos/kisuke.jpg", "color": "#43A047" },
-    { "id": "van", "label": "The driver of the van", "image": "photos/van.jpg", "color": "#455A64" }
-  ]
+  "question": "Where is the hacker hiding?",
+  "target": { "lat": 41.3851, "lon": 2.1734 },
+  "station": { "lat": 41.3809, "lon": 2.1228 },
+  "tolerance": 500
 }

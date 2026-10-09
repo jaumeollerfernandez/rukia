@@ -1,5 +1,6 @@
 package com.rukia.chat.infrastructure.ui
 
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
@@ -12,9 +13,9 @@ import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.PLAYER_ID
 import com.rukia.chat.infrastructure.ChatModule
 import com.rukia.chat.infrastructure.notifications.VisibleChat
-import com.rukia.phone.AppLaunch
-import com.rukia.phone.CaseClock
-import com.rukia.phone.SystemBars
+import com.rukia.phone.infrastructure.AppLaunch
+import com.rukia.phone.infrastructure.CaseClock
+import com.rukia.phone.infrastructure.ui.SystemBars
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -53,6 +54,9 @@ fun ChatApp(caseId: String) {
             // The call screen restyles the system bars; re-apply ours once a call ends.
             SystemBars(lightBottomIcons = profile.darkMode, lightTopIcons = profile.darkMode, key = open?.ringingCall)
             var tab by rememberSaveable { mutableStateOf(Tab.Chats) }
+            // Kept out here so going back from a chat returns to the same spot in the list, not to the top.
+            val chatListState = rememberLazyListState()
+            val contactsState = rememberLazyListState()
             val openChat = { chat: Chat ->
                 // What already arrived shows at once; anything newer is animated in when it arrives.
                 revealFrom = chat.arrivedCount(CaseClock.now(caseId))
@@ -75,13 +79,13 @@ fun ChatApp(caseId: String) {
                 HomeScreen(tab, onTab = { tab = it }, owner, unreadChats) { current ->
                     when (current) {
                         Tab.Chats -> ChatListScreen(
-                            chats, m.characters, now,
+                            chats, m.characters, now, chatListState,
                             onOpen = openChat,
                             onDelete = { chat -> m.deleteChat(chat.id); chats = m.listChats() },
                         )
                         Tab.Calls -> CallsScreen(remember(chats) { m.listCalls() }, m.characters)
                         // Opens the 1-to-1 chat with the contact, starting it the first time.
-                        Tab.Contacts -> ContactsScreen(m.characters) { c -> openChat(m.createChat(listOf(c.id))) }
+                        Tab.Contacts -> ContactsScreen(m.characters, contactsState) { c -> openChat(m.createChat(listOf(c.id))) }
                         Tab.Profile -> ProfileScreen(owner, profile, onUpdate = { profile = m.updateProfile(it) })
                     }
                 }

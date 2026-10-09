@@ -8,9 +8,9 @@ import com.rukia.chat.infrastructure.persistence.InkStoryEngine
 import com.rukia.chat.infrastructure.persistence.JsonChatRepository
 import com.rukia.chat.infrastructure.persistence.JsonProfileRepository
 import com.rukia.chat.infrastructure.persistence.readText
-import com.rukia.phone.CaseClock
-import com.rukia.phone.CaseFolders
-import com.rukia.phone.isDebugCase
+import com.rukia.phone.infrastructure.CaseClock
+import com.rukia.phone.infrastructure.CaseFolders
+import com.rukia.phone.domain.model.isDebugCase
 import java.io.File
 
 /**

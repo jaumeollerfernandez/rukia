@@ -30,7 +30,8 @@ Llámame cuando puedas. Hace mucho que no hablamos. #delay: 50 #caduca: D2 09:00
         Bueno, ya me dirás. Papá #delay: 1
 * [(sin responder)]
     Supongo que estás liada. Un beso. Papá #delay: 1
-- -> d2
+- -> charla("D2 20:25") ->
+-> d2
 
 = d2
 Cariño, te llamo un momento. #at: D2 20:30 #call: audio/jordi.m4a
@@ -40,7 +41,8 @@ Escríbeme cuando puedas. Papá #delay: 5 #caduca: D3 09:00
     Vale. No le diré nada. #delay: 300
     Pero si en dos días no sé de ti, cojo el coche y subo. Papá #delay: 5
 * [(sin responder)]
-- -> d3
+- -> charla("D3 08:15") ->
+-> d3
 
 = d3
 {laia.d2.a_barcelona or laia.d2.a_barcelona_sin:
@@ -59,7 +61,8 @@ Escríbeme cuando puedas. Papá #delay: 5 #caduca: D3 09:00
     Esa mujer... #delay: 10
     Mañana mismo hablo con un abogado. Y con los Mossos, si hace falta. Papá #delay: 8
 * [(sin responder)]
-- -> d4
+- -> charla("D4 19:55") ->
+-> d4
 
 = d4
 He hablado con un abogado, cariño. #at: D4 20:00
@@ -86,3 +89,24 @@ Mañana a primera hora voy a tu casa. Me abra o no me abra tu madre. Papá #dela
     ¿Dónde estáis? Papá #delay: 60
 }
 -> DONE
+
+// Huecos para escribirle. Jordi recuerda poco y mal, pero lo intenta.
+= charla(limite)
+- (opciones)
+#caduca: {limite}
+* [papa te acuerdas de la casa de la amiga de la yaya mercè? la de las estrellas]
+    Vagamente, cariño. Fuimos un par de veranos, cuando eras muy pequeña. #delay: 300
+    Una masía sin luz, con un perro que me mordió el pantalón. Me acuerdo del perro más que de la casa. #delay: 6
+    Subíamos por la carretera de Bracons... o por la de Capsacosta. Hace quince años, perdóname. #delay: 8
+    Tu madre lo sabrá mejor. Papá #delay: 4
+    -> opciones
+* {dia >= 2} [papa mamá te ha pedido dinero alguna vez?]
+    ~ sabe_secta = true
+    El año pasado. Diez mil euros «para un curso». No se los di. #delay: 300
+    Desde entonces no me coge el teléfono. Hasta esta semana. Papá #delay: 6
+    -> opciones
+* {dia >= 3} [papa no subas. de verdad]
+    Lo siento, cariño. Esta vez no te voy a hacer caso. Papá #delay: 300
+    -> opciones
++ [(sin responder)]
+- ->->

@@ -47,7 +47,8 @@ de momento #delay: 30 #caduca: D2 01:00
     bueno, no me lo digas. mejor no saberlo #delay: 10
 * [(sin responder)]
     vale, ni caso. como siempre #delay: 1
-- -> d2
+- -> charla("D2 18:25") ->
+-> d2
 
 = d2
 oye #at: D2 18:30
@@ -66,7 +67,8 @@ qué está pasando ali #delay: 10 #caduca: D3 01:00
     pero si te pasa algo y yo me he callado, no me lo perdono #delay: 6
 * [(sin responder)]
     vale. vale #delay: 1
-- -> d3
+- -> charla("D3 21:55") ->
+-> d3
 
 = d3
 ali solo dime una cosa #at: D3 22:00
@@ -76,7 +78,8 @@ estás a salvo? #delay: 5 #caduca: D4 01:00
     cuídate #delay: 4
 * [(sin responder)]
     vale #delay: 1
-- -> d4
+- -> charla("D4 19:25") ->
+-> d4
 
 = d4
 {pol_calla:
@@ -114,3 +117,30 @@ estás a salvo? #delay: 5 #caduca: D4 01:00
     pues eso. que me alegro un montón #delay: 10
 }
 -> DONE
+
+// Huecos en los que el jugador puede escribirle. Pol habla poco y sin preguntas: cuanto más raro escribe «Ali», más se preocupa.
+= charla(limite)
+- (opciones)
+#caduca: {limite}
+* [pol en el coche te dije algo? estaba fatal y no me acuerdo de nada]
+    me preguntaste si había autobuses a camprodon por la mañana #delay: 120
+    te dije que ni idea, que lo mirases en el móvil #delay: 4
+    y que si alguien preguntaba, dijera que te había dejado en la estación. tal cual. lo repetiste dos veces #delay: 6
+    como si te lo hubieras aprendido #delay: 5
+    -> opciones
+* [el coche gris era el tuyo, no?]
+    el golf de mi padre. el de siempre #delay: 90
+    ali estás bien? #delay: 3
+    -> opciones
+* {dia >= 2} [has visto alguna moto rara por el hostalnou?]
+    ~ dani_sospechoso = true
+    una moto negra, sí. el otro día dio tres vueltas a tu calle #delay: 120
+    creo que era el dani ese de gonpi. el que te escribía tanto #delay: 5
+    si te molesta, dímelo y hablo yo con él #delay: 4
+    -> opciones
+* {dia >= 3} [gracias por no preguntar, pol]
+    a mandar #delay: 60
+    pero un día me lo cuentas todo. con una birra #delay: 4
+    -> opciones
++ [(sin responder)]
+- ->->

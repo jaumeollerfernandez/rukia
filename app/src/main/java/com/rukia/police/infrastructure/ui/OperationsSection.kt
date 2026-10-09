@@ -4,8 +4,8 @@ import androidx.compose.ui.res.stringResource
 import com.rukia.R
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.runtime.Composable
-import com.rukia.phone.Kit
-import com.rukia.phone.RukiaIcons
+import com.rukia.phone.infrastructure.ui.Kit
+import com.rukia.phone.infrastructure.ui.RukiaIcons
 import com.rukia.police.domain.model.Operation
 import com.rukia.police.domain.model.OperationsBoard
 import java.time.Instant

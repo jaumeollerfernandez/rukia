@@ -15,6 +15,7 @@ import java.time.ZoneId
 import java.time.ZoneOffset
 import kotlin.io.path.createTempDirectory
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 /**
@@ -47,6 +48,8 @@ class CaseWeekTest {
             val all = storyJson.decodeFromString<List<Character>>(case.resolve("characters.json").readText()).associateBy { it.id }
             override fun all() = all
         }
+        // The player opens every contact in the Contacts tab too, as CreateChat does: a 1-to-1 chat named like the contact.
+        characters.all.values.filter { !it.hidden && it.id !in chats.all }.forEach { chats.all[it.id] = Chat(it.id, listOf(it.id)) }
         val notifier = object : MessageNotifier { override fun notifyWhenDelivered(chatId: String, message: com.rukia.chat.domain.model.Message) {} }
         val story = InkStoryEngine({ case.resolve(it).readText() }, File(createTempDirectory().toFile(), "state.json"), { start }, clock)
         val advance = AdvanceChat(chats, story, notifier, clock)
@@ -80,4 +83,16 @@ class CaseWeekTest {
     @Test fun `answering every first choice reaches the ending`() = assertEnded(playWeek(answer = true), "answering", ending = "Y Alicia está en el coche patrulla")
 
     @Test fun `never answering still reaches the ending`() = assertEnded(playWeek(answer = false), "silent", ending = "Hemos llegado tarde.")
+
+    @Test fun `a contact's questions expire at midnight and the next day brings new ones`() {
+        val clock = FakeClock(start + 10 * 3_600_000L) // D1 10:00
+        val story = InkStoryEngine({ case.resolve(it).readText() }, File(createTempDirectory().toFile(), "state.json"), { start }, clock)
+        val d1 = story.advance("oriol")
+        assertEquals(start + 86_400_000L, d1.expiresAt, "open until midnight")
+        assertTrue(d1.choices.none { "bracons" in it }, "the D2 question isn't there yet: ${d1.choices}")
+        clock.millis += 86_400_000L
+        val d2 = story.choose("oriol", d1.choices.indexOf("(sin responder)"))
+        assertTrue(d2.lines.isEmpty() && d2.choices.any { "bracons" in it }, "D2 brings its question: ${d2.choices}")
+        assertEquals(start + 2 * 86_400_000L, d2.expiresAt)
+    }
 }

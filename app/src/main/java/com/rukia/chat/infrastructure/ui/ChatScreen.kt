@@ -35,11 +35,11 @@ import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.Message
 import com.rukia.chat.infrastructure.notifications.VisibleChat
-import com.rukia.phone.CaseClock
-import com.rukia.phone.Kit
-import com.rukia.phone.LocalCaseId
-import com.rukia.phone.RukiaIcons
-import com.rukia.phone.rememberMediaImage
+import com.rukia.phone.infrastructure.CaseClock
+import com.rukia.phone.infrastructure.ui.Kit
+import com.rukia.phone.infrastructure.LocalCaseId
+import com.rukia.phone.infrastructure.ui.RukiaIcons
+import com.rukia.phone.infrastructure.media.rememberMediaImage
 import kotlinx.coroutines.delay
 
 /** Rough time a character "types" before a message appears. */

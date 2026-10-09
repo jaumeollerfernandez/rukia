@@ -7,6 +7,8 @@
   "operations": [
     { "id": "mas_rosalia", "label": "Mas de la Rosalia, Sant Salvador de Bianya", "knot": "envio_mas", "type": "patrol" },
     { "id": "masias_bracons", "label": "Batida por las masías de la subida a Bracons", "knot": "envio_masias", "type": "inspect" },
+    { "id": "can_pericot", "label": "Can Pericot, el refugio del esplai en Capsec", "knot": "envio_capsec", "type": "inspect" },
+    { "id": "residencia", "label": "Residencias de ancianos de Olot", "knot": "envio_residencia", "type": "inspect" },
     { "id": "estacion_olot", "label": "Estación de autobuses de Olot", "knot": "envio_estacion", "type": "inspect" },
     { "id": "casa_pol", "label": "Casa de Pol, en Olot", "knot": "envio_pol", "type": "inspect" },
     { "id": "girona", "label": "El piso de Núria en Girona", "knot": "envio_girona", "type": "inspect" },

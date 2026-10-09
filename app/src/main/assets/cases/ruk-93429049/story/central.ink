@@ -60,3 +60,24 @@ Dejamos a un agente vigilando el camino. Si alguien sube, lo sabremos. #delay: 5
 Recibido. Con lo de los papeles y el «tránsito», fiscalía nos da gente. #delay: 60
 A las cinco estaremos en el cráter de Santa Margarida. Sin uniforme. La sargento Puig viene con nosotros. #delay: 10
 -> DONE
+
+// Pista falsa: el refugio del esplai. Alguien ha dormido allí, pero no Alicia (Biel y su novia).
+=== envio_capsec ===
+Unidad en camino a Can Pericot, en Capsec. #delay: 5
+En el mas. Puerta azul, muy descolorida. Ni pozo ni perro: aquí no vive nadie. #delay: 2100
+La puerta trasera está abierta. Dentro, un saco de dormir, latas de cerveza, colillas y velas gastadas. #delay: 60
+Alguien ha dormido aquí hace poco. Dos personas, por las colillas. #delay: 10
+En la pared, recién grabado con una navaja: «B + N». #delay: 8
+En un armario, una mochila con mantas, latas de conserva y una linterna. Tiene polvo encima: nadie la ha tocado en semanas. #delay: 30
+De la chica, nada. Volvemos. #delay: 20
+-> DONE
+
+// Pista falsa: lo que va diciendo Montse. Rosalia no ha estado nunca en una residencia.
+=== envio_residencia ===
+Unidad en camino a las residencias de Olot. #delay: 5
+Residència Sant Jaume: ninguna Rosalia Masó. Nunca ha estado aquí. #delay: 1500
+Las otras dos, igual. #delay: 600
+{secta_sabe_rosalia:
+    Una enfermera dice que hace unos días llamó un hombre preguntando lo mismo. Hablaba muy bajito, muy tranquilo. #delay: 8
+}
+-> DONE

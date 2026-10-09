@@ -82,6 +82,35 @@
     <!-- Gonpi and Multimedia -->
     <string name="gonpi_post">Post</string>
     <string name="gonpi_no_posts">No posts yet</string>
+    <string name="gonpi_home">Home</string>
+    <string name="gonpi_search">Search</string>
+    <string name="gonpi_sponsored">Sponsored</string>
+    <string name="gonpi_no_accounts">No accounts found for "%1$s"</string>
+    <plurals name="gonpi_comments">
+        <item quantity="one">%1$d comment</item>
+        <item quantity="other">%1$d comments</item>
+    </plurals>
+    <plurals name="gonpi_minutes_ago">
+        <item quantity="one">%1$d minute ago</item>
+        <item quantity="other">%1$d minutes ago</item>
+    </plurals>
+    <plurals name="gonpi_hours_ago">
+        <item quantity="one">%1$d hour ago</item>
+        <item quantity="other">%1$d hours ago</item>
+    </plurals>
+    <plurals name="gonpi_days_ago">
+        <item quantity="one">%1$d day ago</item>
+        <item quantity="other">%1$d days ago</item>
+    </plurals>
+    <plurals name="gonpi_weeks_ago">
+        <item quantity="one">%1$d week ago</item>
+        <item quantity="other">%1$d weeks ago</item>
+    </plurals>
+    <plurals name="gonpi_months_ago">
+        <item quantity="one">%1$d month ago</item>
+        <item quantity="other">%1$d months ago</item>
+    </plurals>
+    <string name="gonpi_notif_posted">%1$s posted recently</string>
     <string name="like">Like</string>
     <string name="unlike">Unlike</string>
     <string name="likes">%1$d likes</string>
@@ -96,7 +125,6 @@
     <string name="section_game">Game</string>
     <string name="solve_case">Solve the case</string>
     <string name="solve_closed">Closed: the deadline has passed</string>
-    <string name="solve_one_try">One attempt only. Choose wisely</string>
     <string name="return_title">Return to title</string>
     <string name="return_title_sub">Leave the case. Progress is kept</string>
     <string name="section_evidence">Evidence</string>
@@ -128,14 +156,20 @@
     <string name="tap_to_listen">Tap a call to listen to it again.</string>
     <string name="playing">Playing…</string>
     <string name="call_at">Call at %1$s</string>
-    <string name="one_try_warning">You only have one try. A wrong answer ends the game and erases this save file.</string>
-    <string name="accuse_x">Accuse %1$s</string>
-    <string name="choose_suspect">Choose a suspect</string>
-    <string name="accuse_q">Accuse %1$s?</string>
-    <string name="accuse_text">This is your only attempt. If you\'re wrong, the game is over and all data in this save file is erased.</string>
-    <string name="accuse">Accuse</string>
     <string name="case_solved">CASE SOLVED</string>
-    <string name="game_over">GAME OVER</string>
     <string name="solved_text">You found the truth.\nThe case is closed.</string>
-    <string name="failed_text">Wrong accusation. The culprit got away.\nYour save file has been erased.</string>
+    <string name="solve_sub">One zone a day: send a squad to search it</string>
+    <string name="map_hint">Tap the map to place the zone. Pinch to zoom.</string>
+    <string name="radius">Radius</string>
+    <string name="send_squad">Send squad</string>
+    <string name="place_zone_first">Tap the map to place a zone</string>
+    <string name="send_squad_q">Send a squad?</string>
+    <string name="send_squad_text">Officers will leave the station to search this zone. You can only send one a day.</string>
+    <string name="squad_searching">The squad is searching the zone</string>
+    <string name="result_in">Result in %1$s</string>
+    <string name="zone_miss_title">No trace in this zone</string>
+    <string name="zone_miss_text">The squad found nothing. Try another area tomorrow.</string>
+    <string name="zone_hit_title">Inside this zone · %1$d%%</string>
+    <string name="zone_hit_text">Too wide to find the exact place. Draw a smaller zone tomorrow.</string>
+    <string name="station">Station</string>
 </resources>

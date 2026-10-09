@@ -95,7 +95,8 @@ Y cada noche, a las 21:30, me pasas el parte. #delay: 4 #caduca: D1 09:00
     Alguien miente. #delay: 2
 * [(sin responder)]
     Silencio. Lo tomaré como un «nada». #delay: 2
-- Descansa. Mañana más. #delay: 3
+- -> consulta("D2 08:25") ->
+Descansa. Mañana más. #delay: 3
 -> d2
 
 = d2
@@ -146,7 +147,8 @@ Y la madre o lo sabe o quiere que no lo sepamos. Una de dos. #delay: 4
     Cada día sin noticias juega en contra. No me digas «nada nuevo» muchas veces. #delay: 5
 * [(sin responder)]
     Otra noche en silencio. Espero que estés trabajando. #delay: 1
-- Mañana más. #delay: 3
+- -> consulta("D3 08:40") ->
+Mañana más. #delay: 3
 -> d3
 
 = d3
@@ -190,7 +192,8 @@ Parte. ¿Qué tienes? #at: D3 21:30 #caduca: D4 08:00
     Otro día perdido. El tiempo corre. #delay: 5
 * [(sin responder)]
     ... #delay: 1
-- Mañana más. #delay: 3
+- -> consulta("D4 09:25") ->
+Mañana más. #delay: 3
 -> d4
 
 = d4
@@ -226,7 +229,8 @@ Parte. #at: D4 21:30 #caduca: D5 08:00
     El reloj no se para. Nosotros tampoco deberíamos. #delay: 5
 * [(sin responder)]
     ... #delay: 1
-- Mañana más. #delay: 3
+- -> consulta("D5 08:25") ->
+Mañana más. #delay: 3
 -> d5
 
 = d5
@@ -263,7 +267,8 @@ Parte. ¿Qué tienes? #at: D5 21:45 #caduca: D6 08:00
 * [Nada nuevo.]
     «Nada nuevo» no me sirve. Cada hora cuenta. #delay: 4
 * [(sin responder)]
-- Mañana es el día. Duerme algo. #delay: 3
+- -> consulta("D6 07:55") ->
+Mañana es el día. Duerme algo. #delay: 3
 -> d6
 
 // D6: el jugador decide dónde van los agentes desde la app de Policía (police/actions.json).
@@ -353,6 +358,41 @@ Lo siento. #delay: 10
     Y Alicia sigue en algún sitio del valle. Sola. #delay: 6
 }
 -> fin
+
+// Tras cada parte: una comprobación para el día siguiente. Solo una por noche, y cada pregunta se puede hacer una vez.
+// Las opciones salen según lo que el jugador haya averiguado en otros chats. [limite]: hasta cuándo espera Laia.
+= consulta(limite)
+{
+- dia <= 1: Antes de cerrar. Mañana tengo una hora de un agente para comprobar algo. Una cosa. ¿Qué miro? #delay: 4
+- else: {~¿Quieres que compruebe algo? Una cosa, no más.|Una consulta para mañana. Elige bien.|Tengo un hueco para una comprobación. ¿Qué miro?} #delay: 4
+}
+#caduca: {limite}
+* {sabe_residencia or dia >= 3} [Comprueba si en alguna residencia de Olot hay una tal Rosalia.]
+    ~ residencia_falsa = true
+    Hecho. #delay: 300
+    En las tres residencias de Olot, ninguna Rosalia. Ni ahora ni en los últimos diez años. #delay: 5
+    Quien te lo haya dicho, o se equivoca o miente. #delay: 4
+* {sabe_capsec} [¿De quién es Can Pericot, un mas abandonado de Capsec?]
+    Era de Josepa Pericot. Murió hace seis años. Los sobrinos se lo cedieron al Ayuntamiento. #delay: 400
+    Ahora lo usa el esplai del pueblo como refugio. Las llaves las tienen los monitores. #delay: 5
+    Una casa vacía, sin luz, y Alicia es monitora. No lo descarto. #delay: 4
+* {dani_sospechoso} [Mira la coartada de un tal Dani, el de la moto. La agobiaba mucho.]
+    ~ dani_descartado = true
+    Daniel Rius, 22 años, Olot. Una multa por velocidad. Nada más. #delay: 400
+    La noche que ella se fue, pagó con tarjeta en un bar de Barcelona a las 23:50 y a las 02:10. #delay: 5
+    Pesado, puede. Pero esa noche no estaba aquí. #delay: 4
+* {sabe_prepago} [Alicia compró un móvil prepago en un estanco de Olot hace un mes.]
+    Sin el número no lo puedo rastrear. Y en el estanco no piden nombre. #delay: 300
+    Si algún día te escribe un número que no conoces, apúntalo y me lo pasas. Al momento. #delay: 4
+* {dia >= 4} [¿De quién es el coche gris con una rosa dorada que ronda su casa?]
+    ~ sabe_secta = true
+    Seat gris a nombre de la Comunitat Rosa d'Abril. #delay: 300
+    Tres multas de aparcamiento en Olot. Lo conduce Ignasi Coll. #delay: 5
+    Y anteanoche lo pararon en un control de Sant Joan les Fonts a las tres de la madrugada. Volvía del valle. #delay: 5
++ [Nada por ahora.]
+    Vale. #delay: 3
++ [(sin responder)]
+- ->->
 
 = fin
 // Fin del caso.

@@ -35,7 +35,8 @@ ali si no contestas hoy mañana vamos a tu casa #from: carla #at: D1 22:50 #cadu
     ...vale #from: nuria #delay: 300
 * (vienen) [(sin responder)]
     vale pues mañana vamos #from: carla #delay: 1
-- -> d2
+- -> charla("D2 11:55") ->
+-> d2
 
 = d2
 {amigas.d1.vienen:
@@ -56,7 +57,8 @@ en mi casa a las 9. traed algo. lo que sea #from: mireia #delay: 30 #caduca: D3 
     jo 🥺 #from: mireia #delay: 120
     te guardamos un trozo de tarta #from: carla #delay: 30
 * [(sin responder)]
-- -> d3
+- -> charla("D2 23:55") ->
+-> d3
 
 = d3
 FELIZ CUMPLE MIREIA 🎂🎉 #from: carla #at: D3 00:01
@@ -73,6 +75,7 @@ felicidades mire!! #from: nuria #at: D3 09:10
 }
 fotos de la fiesta ya en gonpi 📸 #from: carla #at: D3 23:40
 faltabas tú, ali 💔 #from: mireia #delay: 30
+-> charla("D4 12:55") ->
 -> d4
 
 = d4
@@ -84,6 +87,7 @@ faltabas tú, ali 💔 #from: mireia #delay: 30
     alguien ha visto la foto de nuri en gonpi? 🥺 #from: carla #at: D4 21:30
     yo he llorado #from: mireia #delay: 60
 }
+-> charla("D5 22:15") ->
 -> d5
 
 = d5
@@ -91,6 +95,7 @@ habéis visto lo que ha subido la cuenta esa del casal? la de la madre de ali #f
 lo del cráter? #from: mireia #delay: 60
 «solo familias completas». qué mal rollo #from: carla #delay: 10
 ali dime que no vas a ir a eso #from: mireia #delay: 30
+-> charla("D6 12:25") ->
 -> d6
 
 = d6
@@ -111,3 +116,41 @@ habéis visto gonpi??? policía en el cráter de santa margarida #from: carla #a
     nadie sabe nada #from: nuria #delay: 300
 }
 -> DONE
+
+// Lo que el jugador puede escribir en el grupo entre escena y escena. Si Núria ha dicho que no eres Ali, nadie suelta nada.
+= charla(limite)
+- (opciones)
+#caduca: {limite}
+* [os echo de menos 🥺]
+    {nuria_denuncia:
+        ya #from: carla #delay: 300
+    - else:
+        VUELVE YA #from: carla #delay: 120
+        te guardamos el sitio en el sofá de mire 💛 #from: mireia #delay: 60
+    }
+    -> opciones
+* {dia >= 2 and not nuria_denuncia} [qué os dijo mi hermana exactamente?]
+    {amigas.d1.vienen:
+        que estabas «en un lugar donde te estás reencontrando» #from: carla #delay: 300
+        y que mejor no te escribiéramos, que te «cargábamos la energía» 🙄 #from: mireia #delay: 30
+        tía tu hermana me da miedo. te lo digo con cariño #from: carla #delay: 10
+    - else:
+        no hemos hablado con ella. ni ganas #from: carla #delay: 300
+    }
+    -> opciones
+* {dia >= 2 and not nuria_denuncia} [alguna sabe algo de dani, el de la moto?]
+    ~ dani_sospechoso = true
+    el de olot? ali tía #from: carla #delay: 300
+    mireia dice que os vio juntos en el bar de la plaza #from: carla #delay: 4
+    yo no dije eso. dije que lo vi a él mirándote toda la noche. que es distinto #from: mireia #delay: 60
+    y que luego se fue detrás de ti con la moto #from: mireia #delay: 5
+    -> opciones
+* {dia >= 3 and not nuria_denuncia} [os acordáis de las historias que os contaba de la casa de mi iaia?]
+    la de la perra que ladraba a los fantasmas?? jajaja #from: carla #delay: 300
+    y la otra, la de los murciélagos, que nos dabas miedo con ella en el campamento #from: mireia #delay: 60
+    {not nuria_sabe:
+        chicas no es momento #from: nuria #delay: 600
+    }
+    -> opciones
++ [(sin responder)]
+- ->->

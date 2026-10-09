@@ -31,7 +31,8 @@ Tu madre nunca te deja ir ni a Girona sola. ¿Seguro que estás bien? #delay: 15
         Ali, si un día necesitas salir de esa casa, la mía está abierta. Día y noche. #delay: 1
 * [(sin responder)]
     Me quedo preocupada. Escríbeme, aunque sea un «ok». #delay: 1
-- -> d2
+- -> charla("D2 11:05") ->
+-> d2
 
 = d2
 Ali, esta mañana he visto a tu madre en la oficina del banco. #at: D2 11:10
@@ -45,12 +46,14 @@ Cariño, ¿te han tocado tus ahorros? #delay: 15 #caduca: D3 10:00
 * [no lo sé tía]
     Pues míralo, cariño. Hoy mismo. #delay: 300
 * [(sin responder)]
-- -> d3
+- -> charla("D3 18:55") ->
+-> d3
 
 = d3
 Ali, he hablado con tu padre. #at: D3 19:00
 Está muy preocupado. Y yo también. #delay: 5
 Mañana voy a ir a ver a tu madre. Aunque no me abra la puerta. #delay: 10
+-> charla("D4 11:55") ->
 -> d4
 
 = d4
@@ -58,11 +61,13 @@ He ido a tu casa. Tu madre no me ha abierto. #at: D4 12:00
 Las persianas bajadas a mediodía, y olía a incienso desde la calle. #delay: 5
 Y había un coche gris aparcado con una rosa dorada pegada en el cristal. #delay: 6
 Cariño, estoy muy asustada. #delay: 4
+-> charla("D5 18:55") ->
 -> d5
 
 = d5
 Tu padre llega mañana. Se queda en casa. #at: D5 19:00
 Ali, si necesitas un sitio, aquí hay una cama y nadie te va a preguntar nada. #delay: 5
+-> charla("D6 22:25") ->
 -> d6
 
 = d6
@@ -77,3 +82,31 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
     Tu padre ha ido a tu casa y no hay nadie. Ali, por favor, di algo. #at: D7 08:30
 }
 -> DONE
+
+// Huecos para escribirle. Marta es de la familia del padre: de la yaya Mercè (la madre de Montse) sabe poco y de oídas.
+= charla(limite)
+- (opciones)
+#caduca: {limite}
+* [tía, te acuerdas de las amigas de la yaya mercè?]
+    ~ sabe_capsec = true
+    ~ sabe_residencia = true
+    Poco, cariño. La madre de tu madre y yo no nos tratábamos mucho. #delay: 300
+    Sé que subía mucho al valle a ver a dos amigas de juventud. Las dos en masías, sin luz. #delay: 6
+    Una era de Capsec, la Pepita de Can Pericot. Esa murió hace unos años. #delay: 5
+    La otra, de por Sant Salvador. El nombre no me sale. Tu madre me dijo que está en una residencia. #delay: 6
+    ¿Por qué lo preguntas? #delay: 4
+    -> opciones
+* {dia >= 2} [tía, si un día me hiciera falta, vendrías a buscarme sin decírselo a mamá?]
+    Dime dónde y voy ahora mismo. Con el coche y con tu padre si hace falta. #delay: 300
+    No hace falta que me expliques nada. #delay: 5
+    -> opciones
+* {dia >= 4} [tía, has vuelto a ver ese coche gris?]
+    Esta mañana, delante del mercado. #delay: 300
+    El de la barba hablaba con la Conxita, tu vecina. Le daba un folleto y ella asentía mucho. #delay: 6
+    Yo de esa no me fiaría. Lo cuenta todo. #delay: 4
+    -> opciones
+* [te quiero tía]
+    Y yo a ti, mi niña. Mucho. #delay: 300
+    -> opciones
++ [(sin responder)]
+- ->->

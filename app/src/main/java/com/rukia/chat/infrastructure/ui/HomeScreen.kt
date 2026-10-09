@@ -21,8 +21,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rukia.chat.domain.model.Character
-import com.rukia.phone.Kit
-import com.rukia.phone.RukiaIcons
+import com.rukia.phone.infrastructure.ui.Kit
+import com.rukia.phone.infrastructure.ui.RukiaIcons
 
 enum class Tab(@StringRes val label: Int) { Chats(R.string.tab_chats), Calls(R.string.tab_calls), Contacts(R.string.tab_contacts), Profile(R.string.tab_profile) }
 

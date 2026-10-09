@@ -3,6 +3,7 @@ package com.rukia.chat.infrastructure.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -10,7 +11,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,9 +25,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rukia.chat.domain.model.Character
-import com.rukia.phone.Kit
-import com.rukia.phone.RukiaIcons
-import com.rukia.phone.rememberMediaImage
+import com.rukia.phone.infrastructure.ui.Kit
+import com.rukia.phone.infrastructure.ui.PhotoPopup
+import com.rukia.phone.infrastructure.ui.RukiaIcons
+import com.rukia.phone.infrastructure.media.rememberMediaImage
 
 /** Colors of the Chats app, from the design canvas's light and dark artboards. */
 data class Palette(
@@ -84,15 +89,22 @@ fun LargeTitle(text: String, modifier: Modifier = Modifier) {
     Text(text, modifier.padding(start = 20.dp, end = 20.dp, top = 8.dp, bottom = 10.dp), fontSize = 34.sp, lineHeight = 40.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.6).sp)
 }
 
-/** A character's photo, or their initial on their color. [online] adds the green dot, ringed in [ring]. */
+/**
+ * A character's photo, or their initial on their color. [online] adds the green dot, ringed in [ring].
+ * [zoomable]: tapping it shows the photo up close, as WhatsApp does.
+ */
 @Composable
-fun Avatar(c: Character?, size: Int, online: Boolean = false, ring: Color = LocalPalette.current.background) {
+fun Avatar(c: Character?, size: Int, online: Boolean = false, ring: Color = LocalPalette.current.background, zoomable: Boolean = false) {
     val photo = rememberMediaImage(c?.photo)
+    var zoomed by remember { mutableStateOf(false) }
+    if (zoomed && c != null) PhotoPopup(c.photo, c.name, c.colorValue()) { zoomed = false }
+    // Only the round photo takes the tap: the online dot sits on its edge.
+    val face = Modifier.size(size.dp).clip(CircleShape).then(if (zoomable && c != null) Modifier.clickable(onClickLabel = c.name) { zoomed = true } else Modifier)
     Box {
         if (photo != null) {
-            Image(photo, c?.name, Modifier.size(size.dp).clip(CircleShape), contentScale = ContentScale.Crop)
+            Image(photo, c?.name, face, contentScale = ContentScale.Crop)
         } else {
-            Box(Modifier.size(size.dp).background(c?.colorValue() ?: Color.Gray, CircleShape), contentAlignment = Alignment.Center) {
+            Box(face.background(c?.colorValue() ?: Color.Gray, CircleShape), contentAlignment = Alignment.Center) {
                 Text(c?.name?.take(1).orEmpty(), color = Color.White, fontWeight = FontWeight.SemiBold, fontSize = (size / 2.4).sp)
             }
         }

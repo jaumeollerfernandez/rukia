@@ -14,8 +14,8 @@ import androidx.core.app.Person
 import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.Message
-import com.rukia.phone.AppLaunch
-import com.rukia.phone.Language
+import com.rukia.phone.infrastructure.AppLaunch
+import com.rukia.phone.infrastructure.Language
 
 /** WhatsApp-style message notification; tapping it opens the chat in the game. */
 object MessageNotifications {

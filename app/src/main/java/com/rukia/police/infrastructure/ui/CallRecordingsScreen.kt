@@ -14,10 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.rukia.phone.Kit
-import com.rukia.phone.LocalCaseId
-import com.rukia.phone.RukiaIcons
-import com.rukia.phone.playMedia
+import com.rukia.phone.infrastructure.ui.Kit
+import com.rukia.phone.infrastructure.LocalCaseId
+import com.rukia.phone.infrastructure.ui.RukiaIcons
+import com.rukia.phone.infrastructure.media.playMedia
 import com.rukia.police.domain.model.RecordedCall
 
 /** Evidence: the calls the player answered. Tapping one replays its voice clip; tapping it again, or another, stops it. */

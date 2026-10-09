@@ -74,6 +74,7 @@ y me ha dicho que te dejaste el móvil en casa. pero ahora te sale en línea #de
 * [(sin responder)]
     ali porfa. aunque sea un emoji #delay: 1
 - (fin_d1) me voy a dormir. si mañana no sé nada de ti llamo yo a los mossos #at: D1 23:45
+-> charla("D2 10:30") ->
 -> d2
 
 = d2
@@ -106,7 +107,8 @@ tú tenías miedo del perro y al final no te separabas de él jajaja #delay: 5 #
     mañana te voy a preguntar cosas. y más te vale saberlas #delay: 6
 * [(sin responder)]
     vale. te leo cuando quieras #delay: 1
-- (d2_fin) -> d3
+- (d2_fin) -> charla("D3 16:55") ->
+-> d3
 
 // D3: la prueba. Tres preguntas que solo Alicia sabría. Respuestas en la galería (IMG_0391, IMG_0393) y en Gonpi (posts de @ali.serra).
 = d3
@@ -189,6 +191,9 @@ vale. no contestar también es una respuesta #delay: 1
 -> fin_d3
 
 = fin_d3
+{not nuria_denuncia:
+    -> charla("D4 20:55") ->
+}
 -> d4
 
 = d4
@@ -208,6 +213,9 @@ vale. no contestar también es una respuesta #delay: 1
 -> fin_d4
 
 = fin_d4
+{not nuria_denuncia:
+    -> charla("D5 10:25") ->
+}
 -> d5
 
 = d5
@@ -225,6 +233,7 @@ vale. no contestar también es una respuesta #delay: 1
 -> fin_d5
 
 = fin_d5
+-> charla("D6 11:25") ->
 -> d6
 
 // Si fue a comisaría el D4, Laia la ha llamado y Núria vuelve a hablar, con recelo.
@@ -269,3 +278,62 @@ solo dime una cosa. ali está bien? #delay: 4 #caduca: D5 23:59
     alguien sabe algo? #at: D7 10:15
 }
 -> DONE
+
+// Entre escena y escena, el jugador puede escribirle. Núria contesta según lo que crea: si sabe que no eres Ali
+// (nuria_sabe) habla de «ella»; si cree que eres Ali, las preguntas raras le hacen desconfiar.
+= charla(limite)
+~ temp habla = not nuria_denuncia or dia >= 5
+- (opciones)
+#caduca: {limite}
+* {habla and not nuria_sabe} [nuri te echo de menos 💛]
+    ~ confianza_nuria += 1
+    y yo a ti tonta #delay: 60
+    vuelve ya porfa #delay: 4
+    -> opciones
+* {habla and not nuria_sabe and dia >= 2} [cuéntame lo de la casa de las estrellas, que me da paz]
+    {confianza_nuria >= 1:
+        jo ali 🥹 #delay: 90
+        tu iaia mercè nos llevó dos veranos seguidos #delay: 5
+        el primero a una casa vacía, de una amiga suya que estaba en el hospital. dormimos con sacos en el suelo y había murciélagos 😭 #delay: 8
+        el segundo a la de la señora de la perra. esa es la de las estrellas #delay: 6
+        las dos con la puerta azul, que tu iaia se empeñaba en pintarlas jajaja #delay: 5
+        no me preguntes dónde, yo iba dormida en el coche #delay: 4
+    - else:
+        ~ confianza_nuria -= 1
+        ali era tu iaia, no la mía #delay: 120
+        tú te acuerdas mejor que yo, no? #delay: 4
+    }
+    -> opciones
+* {habla and not nuria_sabe} [sabes algo de pol?]
+    pol? me ha escrito por gonpi preguntando si sé algo de ti #delay: 120
+    está rayadísimo. qué le hiciste jajaja #delay: 4
+    -> opciones
+* {habla and dia >= 2} [{nuria_sabe:¿Conoces a un tal Dani, de Olot? Le escribe mucho.|y dani, el de la moto, te ha dicho algo?}]
+    ~ dani_sospechoso = true
+    el pesado de la moto? #delay: 120
+    me escribió por gonpi hace un mes preguntando dónde vivía {nuria_sabe:ali|tú}. le bloqueé #delay: 5
+    y la semana pasada {nuria_sabe:ella|tú} me {nuria_sabe:dijo|dijiste} que la seguía una moto por la carretera del hostalnou. no sé si era él #delay: 8
+    -> opciones
+* {habla and not nuria_sabe and dia >= 1} [Núria, ¿cuándo la viste por última vez?]
+    ~ confianza_nuria -= 2
+    «la»? #delay: 60
+    a quién #delay: 3
+    ali por qué hablas como si fueras otra #delay: 5
+    -> opciones
+* {habla and nuria_sabe} [¿Cuándo la viste por última vez?]
+    hace nueve días. vino a girona en bus #delay: 90
+    estaba rarísima. me dijo que su madre había firmado unos papeles y que ella no pensaba firmar #delay: 6
+    y que si un día desaparecía, que no me fiara de lo que dijera su madre #delay: 5
+    pensé que exageraba. como siempre #delay: 4
+    -> opciones
+* {habla and nuria_sabe and dia >= 2} [Si tuviera que esconderse, ¿adónde iría?]
+    {confianza_nuria >= 1:
+        a girona no. sabe que es lo primero que mirarían #delay: 120
+        a casa de su padre tampoco, se llevan fatal #delay: 4
+        a algún sitio sin gente. le gusta el monte. y le dan miedo los coches de noche #delay: 6
+    - else:
+        y te lo voy a decir a ti? #delay: 60
+    }
+    -> opciones
++ [(sin responder)]
+- ->->
