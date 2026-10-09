@@ -11,6 +11,7 @@
 = d0
 Conexión establecida. Canal cifrado. #effect: glitch
 -> presentacion ->
+-> tutorial ->
 -> estrategia ->
 Buenos días. Son las diez. #at: D1 10:00
 Desde ahora el móvil de Alicia está despierto. Su gente va a empezar a escribir. #delay: 4
@@ -21,6 +22,7 @@ Te escribo esta noche para el parte. #delay: 3
 = d1
 Conexión establecida. Canal cifrado. #at: D1 10:00 #effect: glitch
 -> presentacion ->
+-> tutorial ->
 Te escribo esta noche para el parte. #delay: 3
 -> d1_noche
 
@@ -55,6 +57,29 @@ En una desaparición, las primeras horas son las que más valen. Y ya hemos perd
 Hay que encontrarla cuanto antes. El tiempo corre. #delay: 3
 ->->
 
+// Cómo funciona el móvil de Alicia. Se cuenta una sola vez, en el primer contacto (la noche del D0 o la mañana del D1).
+= tutorial
+Antes de empezar, cómo funciona esto. #delay: 4
+Chats: ahí lees y escribes como Alicia. Cuando te toque contestar, eliges entre varias frases. Elige con cuidado: lo que dices ya no se borra. #delay: 6
+Si no contestas a tiempo, la conversación sigue sin ti. #delay: 4
+Gonpi y Multimedia: sus publicaciones y su galería. Mira fechas, lugares y quién sale en cada foto. #delay: 6
+Y la app de Policía: aquí está la clave. #delay: 4
+Dentro hay «Resolver el caso». Marcas en el mapa dónde crees que está Alicia, eliges el tamaño de la zona y mandas un equipo. #delay: 6
+Solo un intento al día, y el equipo tarda unos minutos en volver con el resultado. #delay: 5
+Si Alicia no está en la zona, solo sabremos que has fallado. Si está dentro, te diré con qué precisión. Cuanto más pequeña la zona, más puntos. #delay: 6
+Con una zona de unos 500 metros o menos, damos con ella. #delay: 4
+Hay un buscador para llegar rápido a un pueblo o una comarca. #delay: 4
+Por tanto: no desperdicies los intentos, pero no los dejes pasar. Cada noche, con el parte, te recordaré si hoy no has probado. #delay: 6
+->->
+
+// Recordatorio del parte de la noche [n]: si ese día no ha mandado ninguna búsqueda desde la app de Policía. Repite el #caduca de [limite]: el motor lo pierde al reanudar tras la línea con #at.
+= recordatorio(n, limite)
+{ultimo_intento < n:
+    {&Por cierto, hoy no has mandado ninguna búsqueda. Policía → Resolver el caso.|Hoy no has usado tu intento. Un intento por día, y no se acumula.|Sin búsqueda hoy. Aunque sea a ojo, marca una zona: un fallo también descarta sitios.} #delay: 4
+}
+#caduca: {limite}
+->->
+
 // Solo la noche del D0: por qué esperar a mañana y qué hacer mientras tanto.
 = estrategia
 Una cosa más. Ya es tarde. #delay: 5
@@ -78,6 +103,7 @@ Y cada noche, a las 21:30, me pasas el parte. #delay: 4 #caduca: D1 09:00
 
 = d1_noche
 ¿Algo para el parte de hoy? #at: D1 21:30 #caduca: D2 08:00
+-> recordatorio(1, "D2 08:00") ->
 * [Aún nada claro.]
     Normal. El primer día todo el mundo miente un poco. #delay: 6
 * [La madre y la hermana hablan raro en su grupo.]
@@ -135,6 +161,7 @@ Y la madre o lo sabe o quiere que no lo sepamos. Una de dos. #delay: 4
 
 = d2_noche
 ¿Algo más para el parte? #at: D2 21:30 #caduca: D3 08:00
+-> recordatorio(2, "D3 08:00") ->
 * [Le han vaciado la cuenta. 2.840 € a la «Comunitat Rosa d'Abril».]
     ~ sabe_secta = true
     Con la madre de cotitular. #delay: 8
@@ -172,6 +199,7 @@ Necesito algo sólido pronto. #delay: 3
 
 = d3_noche
 Parte. ¿Qué tienes? #at: D3 21:30 #caduca: D4 08:00
+-> recordatorio(3, "D4 08:00") ->
 * {sabe_estrellas} [Su mejor amiga dice que iría «donde vimos las estrellas»: la casa sin luz de una amiga de su abuela.]
     Una casa sin luz en el valle. #delay: 10
     En la Vall de Bianya hay más de cien masías, y la mitad sin luz. #delay: 4
@@ -214,6 +242,7 @@ Cada día que pasa, más difícil. Mañana pido permiso para mover a gente. No t
 
 = d4_noche
 Parte. #at: D4 21:30 #caduca: D5 08:00
+-> recordatorio(4, "D5 08:00") ->
 * [Me ha llamado una anciana desde un fijo. Preguntaba por «la nena» y por el pan.]
     ~ sabe_rosalia = true
     Dame un minuto. #delay: 10
@@ -255,6 +284,7 @@ Mañana te pediré que me digas dónde mirar. Piensa bien qué me vas a decir. #
 
 = d5_noche
 Parte. ¿Qué tienes? #at: D5 21:45 #caduca: D6 08:00
+-> recordatorio(5, "D6 08:00") ->
 * [La secta ha anunciado la ceremonia: el cráter de Santa Margarida, al amanecer.]
     Ahí estaré yo. Con todo lo que me dejen llevar. #delay: 8
     Pero si antes no sacamos a Alicia de donde esté, de poco servirá. #delay: 5
@@ -378,9 +408,13 @@ Lo siento. #delay: 10
     Una casa vacía, sin luz, y Alicia es monitora. No lo descarto. #delay: 4
 * {dani_sospechoso} [Mira la coartada de un tal Dani, el de la moto. La agobiaba mucho.]
     ~ dani_descartado = true
-    Daniel Rius, 22 años, Olot. Una multa por velocidad. Nada más. #delay: 400
+    Daniel Rius, 22 años, Olot. Una multa por velocidad. #delay: 400
+    Y una denuncia archivada por tenencia de hachís, hace un año. En comisaría lo conocen: menudeo, nada serio. #delay: 5
+    {dani_droga:
+        Me cuentas lo que ya sabía. Un camello de barrio no secuestra a nadie, Kimo. #delay: 5
+    }
     La noche que ella se fue, pagó con tarjeta en un bar de Barcelona a las 23:50 y a las 02:10. #delay: 5
-    Pesado, puede. Pero esa noche no estaba aquí. #delay: 4
+    Pesado y con malas compañías, puede. Pero esa noche no estaba aquí. #delay: 4
 * {sabe_prepago} [Alicia compró un móvil prepago en un estanco de Olot hace un mes.]
     Sin el número no lo puedo rastrear. Y en el estanco no piden nombre. #delay: 300
     Si algún día te escribe un número que no conoces, apúntalo y me lo pasas. Al momento. #delay: 4

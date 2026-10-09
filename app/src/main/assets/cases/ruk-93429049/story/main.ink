@@ -15,6 +15,7 @@
 // Reloj del caso. El motor los actualiza antes de cada avance; en Inky se cambian a mano.
 VAR dia = 1
 VAR hora = 10
+VAR ultimo_intento = 0 // último día del caso en que el jugador mandó una búsqueda desde la app de Policía (lo pone la app)
 
 // Riesgo de que la familia (la secta) note que alguien usa el móvil. 0-5.
 VAR sospecha_familia = 0
@@ -44,6 +45,10 @@ VAR sabe_residencia = false  // ha oído que la Rosalia «está en una residenci
 VAR residencia_falsa = false // Laia ha comprobado que la Rosalia nunca ha estado en ninguna residencia
 VAR dani_sospechoso = false
 VAR dani_descartado = false
+VAR dani_droga = false       // sabe que Dani menudea (lo confiesa él en el D4 o se lo saca el jugador)
+VAR dani_registrado = false  // el jugador mandó una patrulla al mas del tío de Dani y los Mossos le requisaron el costo
+VAR dani_avisado = false     // Dani ya ha contado lo del registro (para no repetirlo)
+VAR llamada_rosalia_contestada = false // lo pone la app cuando el jugador atiende o rechaza una llamada de ese chat
 VAR sabe_prepago = false     // Mireia: Alicia compró un móvil barato en un estanco de Olot
 
 // Laura, del pueblo, la está captando el Casal: lo que le cuentes llega a Berta.

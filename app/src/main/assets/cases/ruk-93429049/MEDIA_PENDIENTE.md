@@ -139,6 +139,8 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 **D2**
 - [ ] `gonpi/berta_d2.jpg` Amanecer con frase («Dar es la forma más pura de recibir.»)
   - Prompt: `Sunrise over Garrotxa hills, pastel sky, elegant thin serif text overlay "Dar es la forma más pura de recibir.", square 1:1`
+- [ ] `gonpi/dani_c.jpg` 🎭 Terraza de bar de noche con una mochila negra sobre la mesa (placeholder: copia de `dani_a.jpg`)
+  - Prompt: `Smartphone photo at night of a bar terrace in a small Catalan town, a black backpack on a table next to a half-empty glass, warm street lights, square 1:1`
 - [ ] `gonpi/montse_d2.jpg` 🔎 Manos abiertas al sol
   - Prompt: `Photo of two thin open hands raised toward the morning sun, light shining through the fingers, green valley blurred behind, spiritual and soft, square 1:1`
 - [ ] `gonpi/casal_d2.jpg` 🔎 Dos manos sujetando una rosa abierta (el «desprendimiento» de la transferencia)
@@ -640,7 +642,7 @@ Ya no se usan: la pregunta final ahora se responde en un mapa (`police/case.json
 
 - [ ] Crear `gonpi/gonpi.json` a partir de [GONPI.md](GONPI.md), con las rutas de la sección 3.
 - [x] El motor ya publica en Gonpi por días: usa `"at": "D3 21:00"` en publicaciones y comentarios.
-- [x] El chat ya muestra fotos (`#image:`). Los vídeos todavía no: el «(vídeo)» de Arnau del D1 sigue siendo texto.
+- [x] El chat ya muestra fotos (`#image:`) y se abren a pantalla completa al tocarlas. Los vídeos todavía no: el «vídeo» de Arnau del D1 es ahora un meme (imagen).
 - [ ] El apagón del D6 (18:00-22:00): de momento solo es el efecto `blackout` y dos mensajes de Laia. Ningún otro chat escribe en esa franja, salvo el grupo familiar, cuyos mensajes se leen al recuperar la conexión.
 
 ## 7. Fotos dentro del chat (`media/chat/`)
@@ -648,6 +650,8 @@ Ya no se usan: la pregunta final ahora se responde en un mapa (`police/case.json
 Las muestra la burbuja del mensaje que lleva `#image:`. Mientras no exista el archivo, solo se ve el texto.
 
 - [ ] `chat/nuria_mas.jpg` 🔎 Núria, D6: foto antigua de Alicia (unos 12 años) y su yaya delante de la **puerta azul** del mas. Se ve que es una foto de álbum, fotografiada con el móvil. El texto de la parte de atrás, «mas de la rosalia. estiu 2012», lo cuenta Núria en el chat.
+- [ ] `chat/arnau_meme.jpg` Arnau, D1: meme sobre Berta en modo zen (luz y amaneceres). Ahora hay un placeholder con texto estilo meme
+  - Prompt: `Funny reaction meme image, square 1:1: a serene woman in white meditating at sunrise with glowing light rays, top caption in white Impact font "BERTA EN MODO ZEN", bottom caption "LUZ Y AMANECERES"`
   - Prompt: `Smartphone photo of an old printed family album photo: a 12-year-old Catalan girl with thick dark brown hair, light olive skin and faint freckles, and her grandmother with short curly white hair, a round kind face and deep laugh lines, in front of an old grey-brown stone masia with a terracotta roof, a bright blue door and a round stone well, green Garrotxa forest behind, slight glare from the album's plastic sleeve, 3:4`
 
 ## 8. Pendiente: publicaciones de Gonpi según el final

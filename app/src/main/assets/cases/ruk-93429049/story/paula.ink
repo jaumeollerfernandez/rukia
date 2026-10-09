@@ -10,7 +10,7 @@
     ALI estás viva!! #delay: 120
     qué pasa contigo tía #delay: 3
     -> opciones
-* {dia >= 3} [paula has visto el comentario de oriol?]
+* {dia >= 3 and dia <= 5} [paula has visto el comentario de oriol?]
     lo de la tía de bracons? #delay: 120
     oriol ve fantasmas. el año pasado juró que había visto un lobo y era un perro de pastor #delay: 5
     -> opciones

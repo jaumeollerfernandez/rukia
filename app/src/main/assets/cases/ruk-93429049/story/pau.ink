@@ -9,7 +9,7 @@
 * [pau perdona por la salida]
     Tranquila. ¿Estás bien? #delay: 600
     -> opciones
-* {sabe_capsec} [pau, quién más tiene llaves del refugi?]
+* {sabe_capsec and not descarta_capsec} [pau, quién más tiene llaves del refugi?]
     Tú, yo y Biel. #delay: 600
     Las de Biel siempre están «perdidas» 🙄 #delay: 4
     -> opciones

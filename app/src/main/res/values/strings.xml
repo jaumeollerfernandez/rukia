@@ -31,6 +31,7 @@
         <item quantity="other">%1$d CASE FILES · %2$d ACTIVE</item>
     </plurals>
     <string name="back">Back</string>
+    <string name="close">Close</string>
     <string name="play">Play</string>
 
     <!-- Phone apps -->
@@ -159,6 +160,8 @@
     <string name="case_solved">CASE SOLVED</string>
     <string name="solved_text">You found the truth.\nThe case is closed.</string>
     <string name="solve_sub">One zone a day: send a squad to search it</string>
+    <string name="search_place">Search a place</string>
+    <string name="place_not_found">Place not found in Catalonia</string>
     <string name="map_hint">Tap the map to place the zone. Pinch to zoom.</string>
     <string name="radius">Radius</string>
     <string name="send_squad">Send squad</string>

@@ -26,6 +26,7 @@ obvio 😇 #at: D-8 18:02
     ~ dani_sospechoso = true
     en olot dicen de todo #delay: 120
     que te has ido a barcelona con el dani ese de la moto #delay: 4
+    el que dicen que pasa costo en el bar de la plaza #delay: 5
     que estás embarazada. que te ha metido tu madre en la secta esa #delay: 5
     yo digo que no, que tú nunca harías nada sin contárnoslo #delay: 6
     ...no? #delay: 10

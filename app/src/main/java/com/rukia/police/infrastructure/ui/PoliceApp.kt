@@ -63,7 +63,7 @@ internal val LocalPolice = staticCompositionLocalOf { LightPolice }
 
 /**
  * Police Department app for the case shown as [caseLabel] ("CASE 0") and [caseTitle]. [listCallRecordings] gives the
- * answered calls, [onResetChats] wipes the chat app's save, [onSolved] tells the story the case was solved and
+ * answered calls, [onResetChats] wipes the chat app's save, [onSolved] tells the story the case was solved, [onSearched] that a squad was sent to search on a case day, and
  * [onReturnToTitle] leaves the phone; [onCaseOver] tells the game the case has its verdict. The phone wires them in.
  */
 @Composable
@@ -74,6 +74,7 @@ fun PoliceApp(
     listCallRecordings: () -> List<RecordedCall>,
     onResetChats: () -> Unit,
     onSolved: () -> Unit,
+    onSearched: (day: Int) -> Unit,
     onReport: (channel: String, knot: String) -> Unit,
     onReturnToTitle: () -> Unit,
     onCaseOver: () -> Unit,
@@ -104,8 +105,9 @@ fun PoliceApp(
                 when {
                     searches.solved -> VerdictScreen(onReturnToTitle)
                     listeningCalls -> CallRecordingsScreen(remember { listCallRecordings() }) { listeningCalls = false }
-                    solving -> SolveCaseScreen(m.getCaseQuestion(), searches, { CaseClock.now(caseId) }, onBack = { solving = false }) { at, radius ->
-                        runCatching { m.searchZone(at, radius) } // the deadline may have passed while the alert was open
+                    solving -> SolveCaseScreen(m.getCaseQuestion(), searches, { CaseClock.now(caseId) }, onBack = { solving = false }, onFind = { m.findPlace(it) }) { at, radius ->
+                        // the deadline may have passed while the alert was open
+                        runCatching { m.searchZone(at, radius) }.onSuccess { onSearched(it.day) }
                         searched++
                     }
                     else -> Box(Modifier.fillMaxSize().background(c.background)) {

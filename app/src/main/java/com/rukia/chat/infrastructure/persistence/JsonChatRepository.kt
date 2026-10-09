@@ -29,15 +29,21 @@ class JsonChatRepository(private val assets: AssetManager, private val contentRo
         if (marker(id).exists()) return null
         val saved = saved(id)
         val text = when {
-            saved.exists() -> saved.readText()
+            // An empty file is a save cut short (the app was killed mid-write): start from the story's copy instead of crashing.
+            saved.exists() && saved.length() > 0 -> saved.readText()
             id in storyIds -> assets.readText("$contentRoot/chats/$id.json")
             else -> return null
         }
         return storyJson.decodeFromString<Chat>(text)
     }
 
-    override fun save(chat: Chat) {
-        saved(chat.id).writeText(storyJson.encodeToString(chat))
+    // Written beside the chat and renamed over it, so a reader on another thread (the effects layer, the chat list, the
+    // background worker) never sees a half-written or empty file: that crashed the app when many chats updated at once.
+    @Synchronized override fun save(chat: Chat) {
+        val file = saved(chat.id)
+        val temp = File(saveDir, "${chat.id}.json.tmp")
+        temp.writeText(storyJson.encodeToString(chat))
+        if (!temp.renameTo(file)) { file.writeText(temp.readText()); temp.delete() }
         marker(chat.id).delete()
     }
 

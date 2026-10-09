@@ -10,6 +10,7 @@
     { "id": "can_pericot", "label": "Can Pericot, el refugio del esplai en Capsec", "knot": "envio_capsec", "type": "inspect" },
     { "id": "residencia", "label": "Residencias de ancianos de Olot", "knot": "envio_residencia", "type": "inspect" },
     { "id": "estacion_olot", "label": "Estación de autobuses de Olot", "knot": "envio_estacion", "type": "inspect" },
+    { "id": "dani_mas", "label": "El mas del tío de Dani, en la Vall d'en Bas", "knot": "envio_dani", "type": "inspect" },
     { "id": "casa_pol", "label": "Casa de Pol, en Olot", "knot": "envio_pol", "type": "inspect" },
     { "id": "girona", "label": "El piso de Núria en Girona", "knot": "envio_girona", "type": "inspect" },
     { "id": "barcelona", "label": "Casa del padre, en Barcelona", "knot": "envio_barcelona", "type": "inspect" },

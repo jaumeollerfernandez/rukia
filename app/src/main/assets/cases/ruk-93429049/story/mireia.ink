@@ -28,7 +28,7 @@ para emergencias. no se lo digas a nadie porfa #from: me #at: D-30 20:40
         y lo de sergi, que ya te contaré cuando vuelvas 🙄 #delay: 5
     }
     -> opciones
-* {not nuria_denuncia and dia >= 3} [feliz cumple mire 🎂]
+* {not nuria_denuncia and dia >= 3 and dia <= 4} [feliz cumple mire 🎂]
     😭😭 graciaaas #delay: 120
     te guardo tarta. ni se te ocurra no volver #delay: 4
     -> opciones

@@ -98,6 +98,7 @@ object RukiaIcons {
     val Search = icon("M4 11a7 7 0 1 0 14 0a7 7 0 1 0 -14 0", "M20 20l-3.5-3.5")
     val ChevronRight = icon("M9 5l7 7-7 7")
     val ChevronLeft = icon("M15 5l-7 7 7 7")
+    val Close = icon("M6 6l12 12", "M18 6L6 18")
     val Exit = icon("M14 4h5v16h-5", "M10 8l-4 4 4 4", "M6 12h10")
     val Warning = icon("M12 3l10 18H2z", "M12 10v4", "M12 17.5v.5")
     val ArrowRight = icon("M5 12h14", "M13 6l6 6-6 6")

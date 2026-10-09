@@ -81,3 +81,12 @@ Las otras dos, igual. #delay: 600
     Una enfermera dice que hace unos días llamó un hombre preguntando lo mismo. Hablaba muy bajito, muy tranquilo. #delay: 8
 }
 -> DONE
+
+=== envio_dani ===
+Unidad en camino al mas del tío de Daniel Rius, en la Vall d'en Bas. Sin cobertura, como dijo. #delay: 5
+En el mas. Cadenas en la puerta. No hay nadie. #delay: 1500
+Abrimos la cuadra con el permiso del propietario, que es el tío. Tras unos sacos: tres bolsas de hachís, una báscula y una caja de pastillas. #delay: 300
+Menudeo. Poca cosa. Dos camas deshechas, ropa de hombre. De la chica, ni rastro. #delay: 60
+Lo requisamos todo y citamos a Rius en comisaría. #delay: 20
+~ dani_registrado = true
+-> DONE

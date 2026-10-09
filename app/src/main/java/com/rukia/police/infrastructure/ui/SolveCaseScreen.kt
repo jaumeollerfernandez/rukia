@@ -26,7 +26,15 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.rukia.R
 import com.rukia.phone.infrastructure.ui.Glow
+import com.rukia.phone.infrastructure.ui.RukiaIcons
 import com.rukia.phone.infrastructure.ui.SystemBars
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.text.input.ImeAction
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import com.rukia.phone.infrastructure.ui.glow
 import com.rukia.police.domain.model.CaseQuestion
 import com.rukia.police.domain.model.Search
@@ -59,11 +67,34 @@ private val Found = Color(0xFF34C759)
 
 /**
  * The map of Catalonia. Each day the player taps where the zone goes, sizes it, and sends a squad: the cars drive from
- * the station and search it for [Search.DURATION], then its accuracy comes in. [now] is the case's clock.
+ * the nearest police station and search it, then its accuracy comes in. [now] is the case's clock.
  */
 @Composable
-fun SolveCaseScreen(question: CaseQuestion, board: SearchBoard, now: () -> Long, onBack: () -> Unit, onSearch: (Spot, Double) -> Unit) {
+fun SolveCaseScreen(
+    question: CaseQuestion, board: SearchBoard, now: () -> Long, onBack: () -> Unit,
+    /** Where a place name is, or null; blocking, so it runs off the main thread. */
+    onFind: (String) -> Spot?,
+    onSearch: (Spot, Double) -> Unit,
+) {
     BackHandler(onBack = onBack)
+    var focus by remember { mutableStateOf<Focus?>(null) }
+    var query by rememberSaveable { mutableStateOf("") }
+    var notFound by remember { mutableStateOf(false) }
+    var looking by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+    val focusManager = LocalFocusManager.current
+    val find = {
+        if (query.isNotBlank() && !looking) {
+            focusManager.clearFocus()
+            looking = true
+            scope.launch {
+                val spot = withContext(Dispatchers.IO) { onFind(query) }
+                notFound = spot == null
+                if (spot != null) focus = Focus(spot)
+                looking = false
+            }
+        }
+    }
     val c = LocalPolice.current
     var draft by remember { mutableStateOf<Spot?>(null) }
     // 0..1 on a log scale, so small zones get as much of the slider as big ones.
@@ -78,13 +109,26 @@ fun SolveCaseScreen(question: CaseQuestion, board: SearchBoard, now: () -> Long,
     Column(Modifier.fillMaxSize().background(c.background)) {
         SubHeader(stringResource(R.string.solve_case), onBack)
         Box(Modifier.weight(1f)) {
-            SearchMap(question, board.searches, draft?.takeIf { board.canSearch }, radius, now, Modifier.fillMaxSize()) { if (board.canSearch) draft = it }
+            SearchMap(question, board.searches, draft?.takeIf { board.canSearch }, radius, now, focus, Modifier.fillMaxSize()) { if (board.canSearch) draft = it }
             Column(
                 Modifier.padding(12.dp).fillMaxWidth().background(c.card.copy(alpha = 0.95f), RoundedCornerShape(16.dp)).padding(horizontal = 14.dp, vertical = 12.dp),
                 verticalArrangement = Arrangement.spacedBy(2.dp),
             ) {
                 Text(question.question, fontSize = 17.sp, fontWeight = FontWeight.Bold)
                 Text(stringResource(R.string.map_hint), color = c.subText, fontSize = 13.sp, lineHeight = 17.sp)
+                OutlinedTextField(
+                    query, { query = it; notFound = false }, Modifier.fillMaxWidth().padding(top = 8.dp),
+                    placeholder = { Text(stringResource(R.string.search_place)) },
+                    singleLine = true, isError = notFound,
+                    supportingText = if (notFound) ({ Text(stringResource(R.string.place_not_found)) }) else null,
+                    trailingIcon = {
+                        if (looking) CircularProgressIndicator(Modifier.size(20.dp), strokeWidth = 2.dp)
+                        else IconButton(find) { Icon(RukiaIcons.Search, stringResource(R.string.search_place)) }
+                    },
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                    keyboardActions = KeyboardActions(onSearch = { find() }),
+                    shape = RoundedCornerShape(12.dp),
+                )
             }
         }
         Column(Modifier.fillMaxWidth().background(c.card).navigationBarsPadding().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -115,6 +159,9 @@ fun SolveCaseScreen(question: CaseQuestion, board: SearchBoard, now: () -> Long,
         draft = null
     }
 }
+
+/** A request to show [spot]; not a data class, so searching the same place again moves the map back to it. */
+private class Focus(val spot: Spot)
 
 private fun countdown(millis: Long) = (millis.coerceAtLeast(0) / 1000).let { "%d:%02d".format(it / 60, it % 60) }
 
@@ -158,7 +205,7 @@ private fun Notice(color: Color, badge: String, title: String, text: String) {
 
 /** OpenStreetMap of Catalonia with the past zones, the [draft] one, the station and the cars of the search under way. */
 @Composable
-private fun SearchMap(question: CaseQuestion, searches: List<Search>, draft: Spot?, radius: Double, now: () -> Long, modifier: Modifier, onTap: (Spot) -> Unit) {
+private fun SearchMap(question: CaseQuestion, searches: List<Search>, draft: Spot?, radius: Double, now: () -> Long, focus: Focus?, modifier: Modifier, onTap: (Spot) -> Unit) {
     val context = LocalContext.current
     val dark = isSystemInDarkTheme()
     val tint = LocalPolice.current.tint
@@ -180,6 +227,8 @@ private fun SearchMap(question: CaseQuestion, searches: List<Search>, draft: Spo
         }
     }
     DisposableEffect(map) { onDispose { map.onDetach() } }
+    // Zooms in on a searched place.
+    LaunchedEffect(focus) { focus?.let { map.controller.animateTo(GeoPoint(it.spot.lat, it.spot.lon), 14.0, 800L) } }
     val pending = searches.lastOrNull()?.takeIf { now() < it.readyAt }
     // Moves the cars: redraws the map while a squad is out.
     LaunchedEffect(pending) { while (pending != null && now() < pending.readyAt) { map.invalidate(); delay(50) } }
@@ -192,7 +241,7 @@ private fun SearchMap(question: CaseQuestion, searches: List<Search>, draft: Spo
             m.overlays += zone(s.center, s.radius, color, m.resources.displayMetrics.density, dashed = s.accuracy == 0 && s != pending)
         }
         draft?.let { m.overlays += zone(it, radius, tint, m.resources.displayMetrics.density) }
-        m.overlays += SquadOverlay(question.station, pending, now, m.resources.displayMetrics.density, tint.toArgb(), stationLabel)
+        m.overlays += SquadOverlay(question.allStations, pending, now, m.resources.displayMetrics.density, tint.toArgb(), stationLabel)
         m.overlays += CopyrightOverlay(m.context)
         // Last, so it gets the taps first.
         m.overlays += MapEventsOverlay(object : MapEventsReceiver {
@@ -212,11 +261,11 @@ private fun zone(center: Spot, radius: Double, color: Color, density: Float, das
 }
 
 /**
- * The station, and the [search]'s cars: each leaves a moment after the last, drives there in the first [DRIVE] of the
- * search, then circles inside the zone until the result comes in.
+ * The stations, and the [search]'s cars: each leaves the nearest one a moment after the last, drives there in the first
+ * [Search.driveShare] of the search, then circles inside the zone until the result comes in.
  */
 private class SquadOverlay(
-    private val station: Spot, private val search: Search?, private val now: () -> Long,
+    private val stations: List<Spot>, private val search: Search?, private val now: () -> Long,
     private val density: Float, private val tint: Int, private val label: String,
 ) : Overlay() {
     private val fill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = tint }
@@ -226,17 +275,23 @@ private class SquadOverlay(
     private val p = Point()
 
     override fun draw(canvas: Canvas, projection: Projection) {
-        projection.toPixels(GeoPoint(station.lat, station.lon), p)
-        canvas.drawCircle(p.x.toFloat(), p.y.toFloat(), 8 * density, fill)
-        canvas.drawCircle(p.x.toFloat(), p.y.toFloat(), 8 * density, ring)
-        text.color = android.graphics.Color.WHITE; text.style = Paint.Style.STROKE; text.strokeWidth = 3 * density
-        canvas.drawText(label, p.x.toFloat(), p.y + 22 * density, text)
-        text.color = tint; text.style = Paint.Style.FILL
-        canvas.drawText(label, p.x.toFloat(), p.y + 22 * density, text)
+        // The names only fit once the map is zoomed in a bit.
+        val named = projection.zoomLevel >= 9
+        for (station in stations) {
+            projection.toPixels(GeoPoint(station.lat, station.lon), p)
+            canvas.drawCircle(p.x.toFloat(), p.y.toFloat(), 7 * density, fill)
+            canvas.drawCircle(p.x.toFloat(), p.y.toFloat(), 7 * density, ring)
+            if (!named) continue
+            text.color = android.graphics.Color.WHITE; text.style = Paint.Style.STROKE; text.strokeWidth = 3 * density
+            canvas.drawText(label, p.x.toFloat(), p.y + 22 * density, text)
+            text.color = tint; text.style = Paint.Style.FILL
+            canvas.drawText(label, p.x.toFloat(), p.y + 22 * density, text)
+        }
         val s = search ?: return
-        val t = (now() - s.at).toDouble() / Search.DURATION
+        val t = (now() - s.at).toDouble() / s.duration
+        val from = s.from ?: stations.first()
         for (i in 0 until CARS) {
-            val at = carAt(station, s, t - i * 0.02, i)
+            val at = carAt(from, s, t - i * 0.02, i)
             projection.toPixels(GeoPoint(at.lat, at.lon), p)
             canvas.drawText("🚔", p.x.toFloat(), p.y + 8 * density, car) // 🚔
         }
@@ -244,7 +299,6 @@ private class SquadOverlay(
 
     companion object {
         const val CARS = 3
-        const val DRIVE = 0.4
     }
 }
 
@@ -255,8 +309,8 @@ private fun carAt(station: Spot, s: Search, t: Double, i: Int): Spot {
         val r = s.radius * 0.6
         Spot(s.center.lat + r * cos(a) / 111_320, s.center.lon + r * sin(a) / (111_320 * cos(Math.toRadians(s.center.lat))))
     }
-    if (t >= SquadOverlay.DRIVE) return orbit(t - SquadOverlay.DRIVE)
-    val k = (t / SquadOverlay.DRIVE).coerceIn(0.0, 1.0).let { it * it * (3 - 2 * it) } // ease in and out
+    if (t >= s.driveShare) return orbit(t - s.driveShare)
+    val k = (t / s.driveShare).coerceIn(0.0, 1.0).let { it * it * (3 - 2 * it) } // ease in and out
     val to = orbit(0.0)
     return Spot(station.lat + (to.lat - station.lat) * k, station.lon + (to.lon - station.lon) * k)
 }

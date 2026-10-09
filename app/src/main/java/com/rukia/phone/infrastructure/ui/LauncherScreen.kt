@@ -95,6 +95,7 @@ fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit,
                 CaseClock.reset(context, caseId) // the week starts again the next time the case is opened
             },
             onSolved = { ChatModule.of(context, caseId).markCaseSolved() },
+            onSearched = { ChatModule.of(context, caseId).markSearchDone(it) },
             onReport = { channel, knot -> ChatModule.of(context, caseId).playStoryEvent(channel, knot) },
             onReturnToTitle = onReturnToTitle,
             onCaseOver = onCaseOver,

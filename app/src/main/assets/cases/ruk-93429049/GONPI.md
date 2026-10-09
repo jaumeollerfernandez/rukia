@@ -74,6 +74,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | 13:00 | @eric.forner | Cesta vacía en el Forn. *«Caso abierto: seis barras de payés desaparecidas 🕵️🥖»*. Comentario de @forncanbatlle: «Èric, a trabajar 😤» | 🔎 Pista del pan, en tono de broma |
 | 18:40 | @arnau.gg | Foto de un «fail» con la bici, hecha **anteanoche a las 22:50 en la rotonda del Hostalnou**. Al fondo, borrosa, una chica con mochila y una **bolsa con barras que asoman**. *«la rotonda maldita 💀»* | 🔎🔎 Es Alicia esperando a Pol con el pan. Encaja con el chat de Arnau del D2 |
 | 22:00 | @pol.rider | Foto nocturna del salpicadero, con el reloj a las **23:41**; por la ventana se ve la estación de autobuses de Olot. *«taxi nocturno 🚕»*. La publicó anteanoche y la vuelve a subir hoy, o aparece archivada | 🎭 Confirma que la dejó en la estación |
+| 23:10 | @dani.moto | Foto nocturna de una terraza de bar con una mochila negra sobre la mesa. *«noche de curro 🌙»*. Comenta @carla.bcn_: «tú y tu curro 🙄» | 🎭 Refuerza que "algo" hace de noche (en realidad menudea) |
 
 ## D3
 

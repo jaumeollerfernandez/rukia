@@ -45,19 +45,30 @@ class SolveCaseTest {
         assertEquals(100, question.accuracy(Spot(42.2160, 2.4260), 500.0), "55 m off still counts")
     }
 
-    @Test fun `one search a day, its result only after 15 minutes, 100 solves`() {
+    @Test fun `one search a day, its result only after the drive and the sweep, 100 solves`() {
         assertEquals(10, search(target, 5_000.0).accuracy)
         assertFalse(board().canSearch, "one a day")
         assertFailsWith<IllegalArgumentException> { search(target, 5_000.0) }
         now = day
         assertTrue(board().canSearch, "the next day")
         search(target, 500.0)
-        now += Search.DURATION - 1
+        now = log.list.last().readyAt - 1
         assertFalse(board().solved, "still searching")
         now += 1
         assertTrue(board().solved)
         now = 2 * day
         assertFalse(board().canSearch, "nothing after it's solved")
+    }
+
+    @Test fun `the closest station goes, and a result takes a reasonable time wherever the zone is`() {
+        val far = CaseQuestion("Where?", target, station = Spot(42.179, 2.493), stations = listOf(Spot(41.6176, 0.62)))
+        val spot = Spot(41.62, 0.63)
+        assertEquals(Spot(41.6176, 0.62), far.nearestStation(spot))
+        assertEquals(Spot(42.179, 2.493), far.nearestStation(target))
+        for ((meters, radius) in listOf(0.0 to 500.0, 60_000.0 to 30_000.0)) {
+            val (_, total) = Search.timing(meters, radius)
+            assertTrue(total in 5 * 60_000..70 * 60_000, "$total ms")
+        }
     }
 
     @Test fun `no squad past the deadline, nor a zone under the tolerance`() {

@@ -311,6 +311,7 @@ solo dime una cosa. ali está bien? #delay: 4 #caduca: D5 23:59
 * {habla and dia >= 2} [{nuria_sabe:¿Conoces a un tal Dani, de Olot? Le escribe mucho.|y dani, el de la moto, te ha dicho algo?}]
     ~ dani_sospechoso = true
     el pesado de la moto? #delay: 120
+    dicen que anda metido en cosas, que vende en el bar de la plaza. no sé si es verdad #delay: 5
     me escribió por gonpi hace un mes preguntando dónde vivía {nuria_sabe:ali|tú}. le bloqueé #delay: 5
     y la semana pasada {nuria_sabe:ella|tú} me {nuria_sabe:dijo|dijiste} que la seguía una moto por la carretera del hostalnou. no sé si era él #delay: 8
     -> opciones

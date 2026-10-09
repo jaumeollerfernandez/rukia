@@ -31,6 +31,9 @@ interface StoryEngine {
     /** Sets a story variable from outside the chats (e.g. the case was solved). Does nothing if the story doesn't declare it. */
     fun setVariable(name: String, value: Boolean) {}
 
+    /** Same for a number variable (e.g. the last case day the player tried to solve it). */
+    fun setVariable(name: String, value: Int) {}
+
     /** Plays [knot] in the chat's place in the story, from the outside (e.g. a police report). No lines if there's no such knot. */
     fun jump(chatId: String, knot: String): StoryStep = StoryStep(emptyList(), emptyList())
 }

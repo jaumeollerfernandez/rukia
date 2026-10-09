@@ -82,7 +82,11 @@ class InkStoryEngine(
         return play(changed = true)
     }
 
-    @Synchronized override fun setVariable(name: String, value: Boolean) {
+    @Synchronized override fun setVariable(name: String, value: Boolean) = setAny(name, value)
+
+    @Synchronized override fun setVariable(name: String, value: Int) = setAny(name, value)
+
+    private fun setAny(name: String, value: Any) {
         if (story.variablesState[name] == null) return
         story.variablesState[name] = value
         stateFile.writeText(story.state.toJson())

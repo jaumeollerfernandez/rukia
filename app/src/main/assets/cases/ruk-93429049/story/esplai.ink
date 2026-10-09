@@ -56,13 +56,13 @@ Ali, la Laieta te ha dejado el dibujo en el local. Es una casita con una puerta 
 = charla(limite)
 - (opciones)
 #caduca: {limite}
-* {sabe_capsec} [las llaves del refugi las tengo yo, tranquis]
+* {sabe_capsec and not descarta_capsec} [las llaves del refugi las tengo yo, tranquis]
     Ah, genial. Pues cuando puedas las devuelves, Ali 🙏 #from: pau #delay: 600
     ali... seguro? #from: biel #delay: 120
     biel qué te pasa #from: clara #delay: 60
     nada nada #from: biel #delay: 30
     -> opciones
-* {sabe_capsec} [quién ha subido al refugi últimamente?]
+* {sabe_capsec and not descarta_capsec} [quién ha subido al refugi últimamente?]
     Nadie desde el campamento, que yo sepa. #from: pau #delay: 600
     yo no #from: biel #delay: 10
     biel has contestado en un segundo. tú nunca contestas en un segundo 👀 #from: clara #delay: 120

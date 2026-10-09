@@ -105,7 +105,7 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 
 ## 4. `audio/rosalia.m4a`: la voz del valle
 
-- **Cuándo:** D4, a las 12:30 y otra vez a las 13:10, desde un fijo (`+34 972 ·· ·· ··`). Es el mismo audio las dos veces: Rosalia no se acuerda de que ya ha llamado.
+- **Cuándo:** D4, a las 12:30, desde un fijo (`+34 972 ·· ·· ··`). Si el jugador no atiende, vuelve a llamar a las 13:10 con el mismo audio: Rosalia no se acuerda de que ya ha llamado.
 - **Quién:** Rosalia Masó, 78 años. Voz de anciana de pueblo, dulce y algo despistada. Mezcla castellano con palabras en catalán. No es demencia grave: es una mujer mayor, sola y preocupada.
 - **Dónde:** cocina de una masía. Teléfono fijo antiguo, con algo de ruido de línea. Se oyen el tictac de un reloj de pared y, al final, a la perra ladrando fuera.
 - **Duración:** unos 45 s.

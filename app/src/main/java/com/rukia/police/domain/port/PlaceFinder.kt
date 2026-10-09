@@ -1,0 +1,9 @@
+package com.rukia.police.domain.port
+
+import com.rukia.police.domain.model.Spot
+
+/** Looks a place name up on the map. Blocking: call it off the main thread. */
+fun interface PlaceFinder {
+    /** Where [query] is, or null if nothing matches or the lookup fails. */
+    fun find(query: String): Spot?
+}

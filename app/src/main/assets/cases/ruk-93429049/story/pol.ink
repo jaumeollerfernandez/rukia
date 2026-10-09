@@ -136,6 +136,7 @@ estás a salvo? #delay: 5 #caduca: D4 01:00
     ~ dani_sospechoso = true
     una moto negra, sí. el otro día dio tres vueltas a tu calle #delay: 120
     creo que era el dani ese de gonpi. el que te escribía tanto #delay: 5
+    y ojo con ese, que se mueve con gente rara. camellos de bar, vamos #delay: 5
     si te molesta, dímelo y hablo yo con él #delay: 4
     -> opciones
 * {dia >= 3} [gracias por no preguntar, pol]

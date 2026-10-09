@@ -34,8 +34,10 @@ import com.rukia.chat.domain.model.CallStatus
 import com.rukia.chat.domain.model.Character
 import com.rukia.chat.domain.model.Chat
 import com.rukia.chat.domain.model.Message
+import com.rukia.chat.domain.model.PLAYER_ID
 import com.rukia.chat.infrastructure.notifications.VisibleChat
 import com.rukia.phone.infrastructure.CaseClock
+import com.rukia.phone.infrastructure.ui.ImageViewer
 import com.rukia.phone.infrastructure.ui.Kit
 import com.rukia.phone.infrastructure.LocalCaseId
 import com.rukia.phone.infrastructure.ui.RukiaIcons
@@ -115,11 +117,11 @@ fun ChatScreen(
             ) {
                 itemsIndexed(visible) { i, msg ->
                     val prev = visible.getOrNull(i - 1)
-                    // A time label whenever the clock moved on, with the day when it changed ("Yesterday 22:33").
+                    // A day label when the day changed; each bubble carries its own time.
                     val newDay = msg.deliverAt > 0 && (prev == null || prev.deliverAt <= 0 || dayOf(prev.deliverAt) != dayOf(msg.deliverAt))
-                    if (msg.time.isNotEmpty() && (newDay || msg.time != prev?.time)) {
+                    if (newDay) {
                         Text(
-                            if (newDay) "${dayLabel(msg.deliverAt, CaseClock.now(caseId), stringResource(R.string.today), stringResource(R.string.yesterday))} ${msg.time}" else msg.time,
+                            dayLabel(msg.deliverAt, CaseClock.now(caseId), stringResource(R.string.today), stringResource(R.string.yesterday)),
                             Modifier.fillMaxWidth().padding(top = if (i == 0) 0.dp else 12.dp, bottom = 2.dp),
                             color = p.subText, fontSize = 12.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.Center,
                         )
@@ -162,6 +164,29 @@ fun ChatScreen(
 private fun Header(chat: Chat, characters: Map<String, Character>, subtitle: String, otherUnread: Int, onBack: () -> Unit) {
     val p = LocalPalette.current
     val backLabel = stringResource(R.string.back_to_chats)
+    var showMembers by remember { mutableStateOf(false) }
+    if (showMembers) {
+        AlertDialog(
+            onDismissRequest = { showMembers = false },
+            confirmButton = { TextButton({ showMembers = false }) { Text(stringResource(android.R.string.ok)) } },
+            title = { Text(chat.displayTitle(characters)) },
+            text = {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    chat.participants.forEach { id ->
+                        val c = characters[id]
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                            Avatar(c, 40)
+                            Text(c?.name ?: id, fontWeight = FontWeight.Medium)
+                        }
+                    }
+                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                        Avatar(characters[PLAYER_ID], 40)
+                        Text(stringResource(R.string.you), fontWeight = FontWeight.Medium)
+                    }
+                }
+            },
+        )
+    }
     Column(Modifier.background(p.bar)) {
         Row(Modifier.statusBarsPadding().padding(start = 12.dp, end = 12.dp, top = 4.dp, bottom = 8.dp), verticalAlignment = Alignment.CenterVertically) {
             Row(
@@ -171,7 +196,10 @@ private fun Header(chat: Chat, characters: Map<String, Character>, subtitle: Str
                 Icon(RukiaIcons.ChevronLeft, null, Modifier.size(26.dp), tint = p.tint)
                 if (otherUnread > 0) CountBadge(otherUnread)
             }
-            Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            Column(
+                Modifier.weight(1f).then(if (chat.isGroup) Modifier.clickable { showMembers = true } else Modifier),
+                horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(3.dp),
+            ) {
                 ChatAvatar(chat, characters, 40, showOnline = false)
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(chat.displayTitle(characters), fontSize = 13.sp, lineHeight = 16.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, overflow = TextOverflow.Ellipsis)
@@ -231,18 +259,23 @@ private fun Bubble(msg: Message, sender: Character?, showName: Boolean, first: B
             Text(sender.name, Modifier.padding(start = 12.dp, bottom = 2.dp), color = sender.colorValue(), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
         }
         // A sent picture, above its text. Until the file is added to the case, only the text shows.
+        var viewing by remember { mutableStateOf(false) }
         rememberMediaImage(msg.image)?.let {
             Image(
-                it, null, Modifier.padding(bottom = 2.dp).widthIn(max = 270.dp).clip(bubbleShape(mine, first)),
+                it, null,
+                Modifier.padding(bottom = 2.dp).widthIn(max = 270.dp).clip(bubbleShape(mine, first)).clickable(role = Role.Image) { viewing = true },
                 contentScale = ContentScale.FillWidth,
             )
         }
-        Text(
-            msg.text,
+        if (viewing && msg.image != null) ImageViewer(msg.image) { viewing = false }
+        val fg = if (mine) Color.White else LocalPalette.current.text
+        Column(
             Modifier.widthIn(max = 270.dp).background(if (mine) Kit.Tint else LocalPalette.current.inBubble, bubbleShape(mine, first))
-                .padding(horizontal = 14.dp, vertical = 9.dp),
-            color = if (mine) Color.White else LocalPalette.current.text, fontSize = 16.sp, lineHeight = 21.sp,
-        )
+                .padding(start = 14.dp, end = 12.dp, top = 9.dp, bottom = 6.dp),
+        ) {
+            Text(msg.text, color = fg, fontSize = 16.sp, lineHeight = 21.sp)
+            if (msg.time.isNotEmpty()) Text(msg.time, Modifier.align(Alignment.End), color = fg.copy(alpha = 0.65f), fontSize = 11.sp, lineHeight = 14.sp)
+        }
     }
 }
 

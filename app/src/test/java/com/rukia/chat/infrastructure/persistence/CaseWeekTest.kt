@@ -34,7 +34,7 @@ class CaseWeekTest {
         override fun instant(): Instant = Instant.ofEpochMilli(millis)
     }
 
-    private fun playWeek(answer: Boolean): Map<String, Chat> {
+    private fun playWeek(answer: Boolean, random: kotlin.random.Random? = null): Map<String, Chat> {
         val clock = FakeClock(start + 9 * 3_600_000L) // opened on D1 at 09:00
         val chats = object : ChatRepository {
             val all = case.resolve("chats").listFiles()!!.map { storyJson.decodeFromString<Chat>(it.readText()) }.associateBy { it.id }.toMutableMap()
@@ -56,14 +56,23 @@ class CaseWeekTest {
         val reply = ChooseReply(chats, story, characters, notifier, clock)
         val report = com.rukia.chat.application.PlayStoryEvent(chats, story, notifier, clock)
         // What the Police app would send: the farm in the morning, the crater watch at night.
-        val dispatches = if (answer) mapOf(start + 5 * 86_400_000L + 9 * 3_600_000L to "envio_mas", start + 5 * 86_400_000L + 22 * 3_600_000L + 30 * 60_000L to "envio_vigilancia") else emptyMap()
+        val knots = listOf("envio_mas", "envio_masias", "envio_capsec", "envio_residencia", "envio_estacion", "envio_pol", "envio_girona", "envio_barcelona", "envio_dani", "envio_crater")
+        val dispatches = when {
+            random != null -> mapOf(
+                start + 5 * 86_400_000L + 9 * 3_600_000L to knots.random(random),
+                start + 5 * 86_400_000L + 22 * 3_600_000L + 30 * 60_000L to (knots + "envio_vigilancia").random(random),
+            )
+            answer -> mapOf(start + 5 * 86_400_000L + 9 * 3_600_000L to "envio_mas", start + 5 * 86_400_000L + 22 * 3_600_000L + 30 * 60_000L to "envio_vigilancia")
+            else -> emptyMap()
+        }
 
         val end = start + 6 * 86_400_000L + 12 * 3_600_000L // D7 12:00
         while (clock.millis < end) {
             dispatches[clock.millis]?.let { report("central", it) }
             for (id in chats.all.keys.toList()) {
                 val chat = advance(id)
-                val first = chat.visibleChoices().firstOrNull()
+                val choices = chat.visibleChoices()
+                val first = if (random != null) choices.randomOrNull(random)?.takeIf { random.nextInt(4) > 0 } else choices.firstOrNull()
                 if (answer && first != null && chat.messages.all { it.arrivedBy(clock.millis) }) reply(id, first.index)
             }
             clock.millis += 10 * 60_000L
@@ -83,6 +92,15 @@ class CaseWeekTest {
     @Test fun `answering every first choice reaches the ending`() = assertEnded(playWeek(answer = true), "answering", ending = "Y Alicia está en el coche patrulla")
 
     @Test fun `never answering still reaches the ending`() = assertEnded(playWeek(answer = false), "silent", ending = "Hemos llegado tarde.")
+
+    /** Whatever the player picks and wherever they send the squads, no story step throws and the week reaches D7. */
+    @Test fun `random playthroughs never crash and reach D7`() {
+        for (seed in 1..25) {
+            val chats = playWeek(answer = true, random = kotlin.random.Random(seed))
+            val dawn = start + 6 * 86_400_000L + 6 * 3_600_000L
+            assertTrue(chats.getValue("laia").messages.any { it.deliverAt >= dawn }, "seed $seed: Laia never got to D7")
+        }
+    }
 
     @Test fun `a contact's questions expire at midnight and the next day brings new ones`() {
         val clock = FakeClock(start + 10 * 3_600_000L) // D1 10:00

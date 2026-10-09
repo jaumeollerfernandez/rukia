@@ -47,10 +47,10 @@ Mañana hay corte de luz de 18 a 22, lo ha dicho el Ayuntamiento. Cargad los mó
 = charla(limite)
 - (opciones)
 #caduca: {limite}
-* [hola enric, ojalá aparezca el rocky 🐕]
+* {dia < 3} [hola enric, ojalá aparezca el rocky 🐕]
     -> pillada ->
     -> opciones
-* {dia >= 2} [gracias por preguntar, conxita 💛]
+* {dia == 2} [gracias por preguntar, conxita 💛]
     -> pillada ->
     -> opciones
 * {dia >= 4} [enric, yo también he visto ese coche gris]

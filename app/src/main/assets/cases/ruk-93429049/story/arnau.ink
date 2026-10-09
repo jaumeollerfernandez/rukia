@@ -13,7 +13,8 @@ ni de broma #from: me #at: D-4 19:40
 
 = d1
 prima #at: D1 17:45
-mira este vídeo 💀 (vídeo) #delay: 2
+mira este meme 💀 #delay: 2
+#delay: 2 #image: chat/arnau_meme.jpg
 es literalmente tu hermana cuando se pone en modo zen jajajaja #delay: 4
 ah no que ahora va de luz y amaneceres y nosequé #delay: 10
 berta ya no viene ni a las comidas de la iaia #delay: 6 #caduca: D2 15:00

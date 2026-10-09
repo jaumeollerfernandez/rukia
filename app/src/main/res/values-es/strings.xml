@@ -30,6 +30,7 @@
         <item quantity="other">%1$d EXPEDIENTES · %2$d ACTIVOS</item>
     </plurals>
     <string name="back">Atrás</string>
+    <string name="close">Cerrar</string>
     <string name="play">Jugar</string>
 
     <!-- Apps del móvil -->
@@ -157,6 +158,8 @@
     <string name="case_solved">CASO RESUELTO</string>
     <string name="solved_text">Has descubierto la verdad.\nEl caso está cerrado.</string>
     <string name="solve_sub">Una zona al día: envía una patrulla a buscar</string>
+    <string name="search_place">Buscar un lugar</string>
+    <string name="place_not_found">Lugar no encontrado en Cataluña</string>
     <string name="map_hint">Toca el mapa para marcar la zona. Pellizca para hacer zoom.</string>
     <string name="radius">Radio</string>
     <string name="send_squad">Enviar patrulla</string>

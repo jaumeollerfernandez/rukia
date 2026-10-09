@@ -11,7 +11,7 @@
     qué #delay: 600
     por qué me miras así por whatsapp #delay: 3
     -> opciones
-* {sabe_capsec} [biel, las llaves del refugi las tienes tú, no?]
+* {sabe_capsec and not descarta_capsec} [biel, las llaves del refugi las tienes tú, no?]
     ~ descarta_capsec = true
     ... #delay: 600
     vale sí #delay: 30

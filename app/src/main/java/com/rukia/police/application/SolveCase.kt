@@ -28,7 +28,7 @@ class GetSearches(
     }
 }
 
-/** Sends today's squad to search the circle at [center] of [radius] meters. Its result is told [Search.DURATION] later. */
+/** Sends today's squad to search the circle at [center] of [radius] meters. The closest station sends it; its result is told after the drive and the sweep (see [Search.timing]). */
 class SearchZone(
     private val caseFile: CaseFileRepository,
     private val log: SearchLog,
@@ -40,6 +40,9 @@ class SearchZone(
         require(board().canSearch) { "No squad can go out now" }
         require(radius >= caseFile.question().tolerance) { "Zone smaller than the tolerance" }
         val now = clock.millis()
-        return Search(dayOf(now), center, radius, now, caseFile.question().accuracy(center, radius)).also(log::add)
+        val question = caseFile.question()
+        val from = question.nearestStation(center)
+        val (travel, duration) = Search.timing(from.metersTo(center), radius)
+        return Search(dayOf(now), center, radius, now, question.accuracy(center, radius), from, travel, duration).also(log::add)
     }
 }
