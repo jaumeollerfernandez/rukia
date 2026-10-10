@@ -20,7 +20,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | `eric` | @eric.forner | Èric | «pan, masa madre y malas decisiones 🥖» | 344 |
 | `berta` | @berta.luz | Berta | «Cada amanecer es una puerta ☀️ · @rosadabril.casal» | 1.017 |
 | `mama` | @montse.vidal | Montse | «Gratitud. Familia. Luz.» | 156 |
-| `guia` | @ignasi.coll.acompanya | Ignasi Coll, el líder. Se presenta como coach | «Acompaño procesos de transformación personal · Meditación · Constelaciones familiares · Encuentros en el Casal 🌹» | 3.420 |
+| `guia` | @acompanya.casal («El que acompaña 🌹») | Ignasi Coll, el líder, sin su nombre: se presenta como coach | «Acompaño procesos de transformación personal · Meditación · Constelaciones familiares · Encuentros en el Casal 🌹» | 3.420 |
 | `casal` | @rosadabril.casal | La asociación (la secta, aunque nunca lo dice) | «Associació Comunitat Rosa d'Abril (CRA) · Grupos de duelo, mindfulness y acompañamiento 🌿 · Sant Joan les Fonts». «CRA» es el beneficiario del banco | 1.890 |
 | `iris` | @iris.ambllum | Iris | «buscando mi luz» | 233 |
 | `oriol` | @oriol.pedals | Oriol, de clase | «🚴 subo puertos de noche porque de día hace calor» | 640 |
@@ -46,7 +46,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 - **D-45**: 🎭 **Can Pericot**, en Capsec: otra masía con la **puerta azul** (descolorida), vacía, sin pozo ni perro. *«Capsec. Can Pericot, vacío desde hace años, con su porta blava ya descolorida. Ahora es el refugio del esplai: si pasáis, ¡dejadlo limpio! 🙏»*. Comentan .esplai («Las llaves, en el local del esplai 😉») y **.serra** («el mejor refugi del mundo 💙»). El señuelo de la segunda puerta azul: la yaya Mercè pintó las dos (ver `PISTAS.md`).
 - **D-30**, **D-15**: rutas por la Alta Garrotxa, el Santuari del Mont, una cascada. ⚪
 
-**@ignasi.coll.acompanya**: parece la cuenta de un facilitador de mindfulness. Hace tres días cuenta que «una joven» le preguntó en el círculo por qué cuesta soltar: es Alicia, la noche que el chat Familia llama «lo que has compartido» 🔎. Frases sobre soltar lo material («Lo que posees acaba poseyéndote») 🔎 y sobre alejarse de la familia («Hay vínculos que sanan y vínculos que pesan… aunque lleven tu apellido»), que Montse agradece: «Gracias por devolverme a mi familia» 🔎.
+**@acompanya.casal**: parece la cuenta de un facilitador de mindfulness. Hace tres días cuenta que «una joven» le preguntó en el círculo por qué cuesta soltar: es Alicia, la noche que el chat Familia llama «lo que has compartido» 🔎. Frases sobre soltar lo material («Lo que posees acaba poseyéndote») 🔎 y sobre alejarse de la familia («Hay vínculos que sanan y vínculos que pesan… aunque lleven tu apellido»), que Montse agradece: «Gracias por devolverme a mi familia» 🔎.
 
 **@rosadabril.casal**: la tapadera es una asociación de mindfulness y retiros espirituales «para sanar el alma»: todo transmite calma (jardines, velas, cojines, testimonios como «Llegué rota. Hoy tengo una familia.», de «M., 52 años», que es Montse 🔎). El retiro «Sanar el alma» lo comenta Iris: «este retiro me cambió la vida». Fotos de meditaciones en grupo, siempre de espaldas y sin caras. En una se ve a Montse y a Berta, y debajo comenta @joan.pericot: su hermana Carme lleva dos años sin hablar con la familia; la cuenta le contesta «Te enviamos luz… Carme está en su proceso» 🔎 (aislamiento). Un retiro de silencio «sin móviles, sin relojes» 🔎 (control) y encuentros con «aportación voluntaria» 🔎 (dinero). Nadie usa la palabra secta: el jugador la deduce.
 
@@ -58,7 +58,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 07:10 | @berta.luz | Amanecer en el valle. Empieza su serie diaria *«☀️ Frase del alba: «Suelta lo que pesa. Lo que es tuyo, siempre vuelve.»» Cada mañana, una frase para acompañaros en el día 🌹*. Le da «me gusta» @ignasi.coll.acompanya | 🔎 Autoayuda inofensiva a primera vista; leídas en orden, las frases hablan de Alicia y de lo que preparan |
+| 07:10 | @berta.luz | Amanecer en el valle. Empieza su serie diaria *«☀️ Frase del alba: «Suelta lo que pesa. Lo que es tuyo, siempre vuelve.»» Cada mañana, una frase para acompañaros en el día 🌹*. Le da «me gusta» @acompanya.casal | 🔎 Autoayuda inofensiva a primera vista; leídas en orden, las frases hablan de Alicia y de lo que preparan |
 | 07:10 | @berta.luz | Comenta el último post de Alicia: «🌅» | 🔎 |
 | 12:00 | @hostalnou.debianya | «Se busca perro perdido, mestizo negro, responde a Rocky» | ⚪ |
 | 19:30 | @marc.hostalnou | Foto del tractor en la fiesta del pueblo. Comentario de @lauravila_: «tú y ese tractor 🙄» | ⚪ |
@@ -85,7 +85,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | 14:20 | @oriol.pedals | Captura de la ruta en bici: *«Subida nocturna a Bracons 🌙 · 1:12 h»*, hecha anteanoche entre la 01:00 y las 02:30. Comentario de @oriol.pedals: «por cierto a mitad de subida vi a una chica sola andando por el arcén con una mochila. a esas horas! casi me paro» | 🔎🔎 Alicia subiendo andando hacia Bracons. Se cruza con `IMG_0409` (ruta a pie «…de Bianya») |
 | 18:30 | @lauravila_ | Cojines y velas en un jardín. *«primera sesión de mindfulness 🌿 qué paz»*. Comenta @berta.luz: «Bienvenida a casa, hermana 🌹» | 🔎 Laura entra en el Casal: lo que le cuentes llega a Berta (chat `laura`) |
 | 20:00 | @mire.ia | Fiesta de cumpleaños (la que planeaban en el grupo). *«los 18 con mis personas (falta una 💔)»* | ⚪ |
-| 23:10 | @ignasi.coll.acompanya | Comenta el último post de Alicia: **«Pensamos mucho en ti, Alicia. Tu madre y tu hermana te esperan 🌹»**. A la misma hora le escribe por privado | 🔎 Un hombre de 61 años que comenta a una chica de 18: raro, no alarmante |
+| 23:10 | @acompanya.casal | Comenta el último post de Alicia: **«Pensamos mucho en ti, Alicia. Tu madre y tu hermana te esperan 🌹»**. A la misma hora le escribe por privado | 🔎 Un hombre de 61 años que comenta a una chica de 18: raro, no alarmante |
 
 ## D4
 
@@ -119,7 +119,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
-| 05:00 | @ignasi.coll.acompanya | Negro total. *«Hoy amanece para todos.»* | 🔎 |
+| 05:00 | @acompanya.casal | Negro total. *«Hoy amanece para todos.»* | 🔎 |
 | 06:30 | Final bueno: @hostalnou.debianya | «Gracias a los Mossos por su trabajo esta madrugada en el valle 💙» | |
 | 06:30 | Final malo: @berta.luz | Amanecer. *«Ya estamos todas.»* | |
 

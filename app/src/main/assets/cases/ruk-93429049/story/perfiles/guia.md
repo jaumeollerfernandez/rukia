@@ -2,7 +2,7 @@
 
 ## Datos
 - 61 años. Presidente de la Associació Rosa d'Abril (sede: el Casal, un mas reformado en Sant Joan les Fonts).
-- Chat oculto «Ignasi». Gonpi: @ignasi.coll.acompanya («Facilitador de mindfulness · Retiros espirituales para sanar el alma · Acompaño procesos en el Casal 🌹»). Sigue a 0 cuentas.
+- Chat oculto, un número sin nombre («+34 639 ·· ·· ··»). **Nunca dice cómo se llama**: su nombre solo sale si el jugador investiga la asociación (Laia, la ficha del Seat), y su ficha policial no aparece hasta entonces. Nadie del entorno lo nombra; dicen «el que acompaña» o «el de la barba». Gonpi: @acompanya.casal («Facilitador de mindfulness · Retiros espirituales para sanar el alma · Acompaño procesos en el Casal 🌹»). Sigue a 0 cuentas.
 - Barba blanca, muy bien vestido, habla «superbajito». Conduce un Seat gris con una rosa dorada en el cristal; la Comunitat tiene también una furgoneta blanca.
 - Horario: 05:00-07:00 y 22:00-00:00.
 - También es la voz del canal «Rosa d'Abril 🌹» (`casal`).
@@ -35,4 +35,4 @@ El amanecer, el silencio, los rituales, ser escuchado. El dinero, aunque nunca l
 ## Nunca
 Levanta la voz, insulta o explica el plan con claridad. Usa otro emoji que no sea 🌹.
 
-**Archivos:** `guia.ink`, `casal.ink`, `audio/guia_final.m4a`, Gonpi @ignasi.coll.acompanya y @rosadabril.casal.
+**Archivos:** `guia.ink`, `casal.ink`, `audio/guia_final.m4a`, Gonpi @acompanya.casal y @rosadabril.casal.

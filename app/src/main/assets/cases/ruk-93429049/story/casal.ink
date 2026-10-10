@@ -9,7 +9,7 @@
 === casal ===
 🌹 Bienvenida al canal de Rosa d'Abril, Alicia. Aquí compartimos horarios, lecturas y momentos de calma. #at: D-20 09:00
 Respira. Ya estás en casa. #at: D-20 09:00
-Mindfulness al amanecer: cada día a las 5:30 en el jardín del Casal. Grupo de duelo: jueves a las 20:00. Retiros: pregunta fechas a Ignasi. #at: D-20 09:01
+Mindfulness al amanecer: cada día a las 5:30 en el jardín del Casal. Grupo de duelo: jueves a las 20:00. Retiros: pregunta fechas en el Casal. #at: D-20 09:01
 Lectura del día: «El alma no se rompe. Se olvida de sí misma. Y volver a ella es un camino que no se hace sola.» #at: D-14 08:00
 Para el retiro de silencio de este fin de semana: los móviles y los relojes se quedan en la cesta de la entrada. Tres días sin ruido. Es por vuestro bien 🌿 #at: D-12 19:00
 Gracias a todas las familias que habéis colaborado este mes 🙏 El ayuno solidario ha llenado treinta cestas para familias del valle. #at: D-10 10:00
@@ -31,7 +31,7 @@ Gracias a la generosidad de nuestras familias, la sala nueva de la Casa ya tiene
 
 = d3
 Pedimos luz para una de nuestras familias, que está pasando por un momento muy difícil. #at: D3 21:00
-Quien pueda ayudar, que hable con Ignasi. Con amor 🌹 #delay: 10
+Quien pueda ayudar, que se acerque al Casal. Con amor 🌹 #delay: 10
 -> d4
 
 = d4

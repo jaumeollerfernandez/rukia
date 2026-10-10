@@ -47,6 +47,7 @@ lo sabemos tú y yo y ya #delay: 4
 * {not nuria_denuncia and dia >= 2 and not mireia_cerrada} [mire, lo de girona...]
     QUÉ #delay: 60
     por aquí no ali. por favor #delay: 4
+    #caduca: D{dia + 1} 00:00
     ** [no se lo he contado a nadie. ni a nuri. tranquila 💛]
         ~ girona_descartado = true
         ... #delay: 120
@@ -61,6 +62,7 @@ lo sabemos tú y yo y ya #delay: 4
         no puedes pedirme eso #delay: 120
         si se entera mi padre me mata #delay: 5
         pensaba que eras mi amiga #delay: 6
+    ** [(sin responder)]
     - - -> opciones
 * {not nuria_denuncia and dia >= 3 and dia <= 4} [feliz cumple mire 🎂]
     😭😭 graciaaas #delay: 120

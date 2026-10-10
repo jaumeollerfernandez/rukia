@@ -33,5 +33,18 @@ lo veremos #at: D-5 21:00
 * [marc cuando vuelva me llevas en el tractor?]
     desfile privado por la plaza 🚜 #delay: 300
     -> opciones
+* {dia >= 2} [marc qué tal la granja?]
+    ha parido la vaca más fea del valle. le he puesto quim 🐄 #delay: 300
+    no se lo digas a quim #delay: 3
+    -> opciones
+* {dia >= 3 and sabe_puerta_azul} [marc, conoces alguna casa con la puerta azul?]
+    dos #delay: 300
+    can pericot, en capsec. y otra más arriba, subiendo a bracons. esa con un pozo delante #delay: 5
+    en esa no paro nunca. hay una perra enorme que se tira al tractor como si fuera un ciervo #delay: 5
+    -> opciones
+* {dia >= 4} [marc, la gente de blanco del prado, sigue?]
+    cada mañana. más que antes #delay: 300
+    ayer eran como veinte. y en vez de yoga cantaban. con los ojos cerrados. daba un poco de mal rollo 🥶 #delay: 5
+    -> opciones
 + [(sin responder)]
     -> charla

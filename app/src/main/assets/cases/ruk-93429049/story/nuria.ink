@@ -35,6 +35,7 @@ y me ha dicho que te dejaste el móvil en casa. pero ahora te sale en línea #de
     ** [no te lo puedo decir aún]
         ~ confianza_nuria += 1
         es por lo que me ibas a contar? lo de tu madre y esa gente? #delay: 40
+        #caduca: D2 00:00
         *** [sí. ya te contaré, te lo juro]
             vale. júramelo por la iaia #delay: 10
         *** [no es nada, de verdad]

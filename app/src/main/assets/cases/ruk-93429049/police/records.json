@@ -60,7 +60,7 @@
             },
             {
               "label": "DENUNCIA",
-              "value": "D1 · Montse Vidal (madre). Acude acompañada de Ignasi Coll Ferrer. Pide máxima discreción.",
+              "value": "D1 · Montse Vidal (madre). Acude acompañada de su hija mayor, Berta. Pide máxima discreción.",
               "wide": true
             },
             {
@@ -163,13 +163,6 @@
               "badge": "ANTECEDENTES",
               "tone": "police",
               "record": "dani"
-            },
-            {
-              "name": "Ignasi Coll Ferrer",
-              "role": "Acompaña a la madre a denunciar",
-              "badge": "ANTECEDENTES",
-              "tone": "police",
-              "record": "ignasi"
             }
           ]
         },
@@ -422,7 +415,7 @@
           "links": [
             {
               "name": "Montse Vidal",
-              "role": "Socia de la asociación · la acompaña a denunciar",
+              "role": "Socia de la asociación",
               "badge": "DENUNCIANTE",
               "tone": "complainant",
               "record": "montse"
@@ -452,6 +445,10 @@
           "text": "El grupo de entonces se disolvió tras los hechos. Un año después fundó la asociación actual, con sede en Sant Joan les Fonts. Sin requisitorias ni búsquedas activas.",
           "signature": "ARCHIVO · COMISARÍA OLOT"
         }
+      ],
+      "unlockedBy": [
+        "sabe_ignasi",
+        "ficha:seat"
       ]
     },
     {
@@ -493,7 +490,7 @@
         },
         {
           "title": "DENUNCIA",
-          "text": "D1, Comisaría de Olot. Denuncia la desaparición de su hija menor, Alicia. Acude acompañada de Ignasi Coll Ferrer, «amigo de la familia». Pide máxima discreción y que no se difunda la foto. Declara que la hija «está pasando una etapa de ansiedad»."
+          "text": "D1, Comisaría de Olot. Denuncia la desaparición de su hija menor, Alicia. Acude acompañada de su hija mayor, Berta. Pide máxima discreción y que no se difunda la foto. Declara que la hija «está pasando una etapa de ansiedad»."
         },
         {
           "title": "PATRIMONIO",
@@ -523,13 +520,6 @@
               "role": "Hija · convive en el domicilio",
               "badge": "FAMILIA",
               "record": "berta"
-            },
-            {
-              "name": "Ignasi Coll Ferrer",
-              "role": "La acompaña a denunciar",
-              "badge": "ANTECEDENTES",
-              "tone": "police",
-              "record": "ignasi"
             }
           ]
         }
@@ -587,13 +577,6 @@
               "badge": "DESAPARECIDA",
               "tone": "missing",
               "record": "alicia"
-            },
-            {
-              "name": "Ignasi Coll Ferrer",
-              "role": "Presidente de la asociación",
-              "badge": "ANTECEDENTES",
-              "tone": "police",
-              "record": "ignasi"
             }
           ]
         }

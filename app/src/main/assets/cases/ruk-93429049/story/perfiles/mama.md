@@ -13,7 +13,7 @@ Desde entonces lo ha ido dando todo: el piso de su madre (120.000 €), sus ahor
 
 ## Perfil psicológico
 - **Creyente sincera, no cínica.** No es mala: está capturada. Lo que hace le parece amor.
-- **Dependiente de Ignasi**, pero en el chat familiar casi no lo nombra: es «el grupo», «me acompañó Ignasi, es un sol». Para ella es su terapeuta del duelo.
+- **Dependiente de Ignasi**, pero en el chat familiar casi no lo nombra: es «el grupo», y a él no lo nombra nunca. No la acompañó a los Mossos: fue con Berta. Para ella es su terapeuta del duelo.
 - **Controladora con dulzura:** «Hazlo por mí», «confia en mamá», «No seas exagerada».
 - **Culpa y nostalgia.** Echa de menos a su hija pequeña («Me ha dado un poco de pena. Eran sus ahorros»), pero lo tapa con la doctrina.
 - Privada de sueño y comida («Llevo tres noches sin dormir»): cada vez más frágil y más obediente.

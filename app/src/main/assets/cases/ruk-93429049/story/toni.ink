@@ -16,6 +16,7 @@
 * {dia >= 2 and fia_toni > -1} [toni, a qué masías subíamos los lotes?]
     me lo preguntas en serio? te has dado un golpe? jajaja #delay: 300
     a ver. cómo se llama la perra de la señora de arriba, que siempre le llevabas chuches? #delay: 6
+    #caduca: D{dia + 1} 00:00
     ** [trufa]
         ~ fia_toni = 1
         esa es mi ali 😂 #delay: 120
@@ -24,6 +25,7 @@
         -> recela ->
     ** [luna]
         -> recela ->
+    ** [(sin responder)]
     - - -> opciones
 * {fia_toni == -1} [toni soy yo. estoy fatal, no duermo y me lío con todo]
     {delatado >= 2:
@@ -53,11 +55,13 @@
     cuatro cajas. mantas, una cafetera, un reloj de pared, fotos enmarcadas #delay: 300
     y tu ropa de vóley. lo sabías? #delay: 5
     las fotos no las podemos dar. te las guardo? #delay: 4
+    #caduca: D{dia + 1} 00:00
     ** [sí porfa, guárdamelas]
         hecho. hay una tuya de pequeña muy bonita #delay: 300
         con una señora mayor y una perra, delante de una puerta azul. y un pozo #delay: 5
     ** [no hace falta]
         como quieras #delay: 300
+    ** [(sin responder)]
     -- -> opciones
 // Solo si confía: la Rosalia le dijo que «la nena» iba a quedarse con ella.
 * {fia_toni >= 1 and dia >= 3} [toni, la señora de la perra te ha dicho algo de mí?]

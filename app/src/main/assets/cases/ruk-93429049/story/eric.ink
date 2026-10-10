@@ -99,6 +99,7 @@ y yo también te espero. para la birra digo 🙃 #delay: 4
 * {dia >= 3 and fia_eric > -1} [qué te dijo pilar exactamente de la señora de arriba?]
     si estabas delante jajaja #delay: 120
     oye estás rarísima. a ver, qué me debes por lo de la masa madre? #delay: 5
+    #caduca: D{dia + 1} 00:00
     ** [un café]
         ~ fia_eric = 1
         y con leche de avena, que te conozco ☕ #delay: 120
@@ -109,6 +110,8 @@ y yo también te espero. para la birra digo 🙃 #delay: 4
         ~ fia_eric = -1
         la birra es por el turno. lo de la masa madre era un café #delay: 120
         ali? eres tú? #delay: 5
+    ** [(sin responder)]
+        -> opciones
     - - {fia_eric == -1: -> opciones}
     ~ sabe_pan = true
     que alguna vez te vio salir con barras de más y le dijiste que eran para «la señora de arriba» #delay: 120

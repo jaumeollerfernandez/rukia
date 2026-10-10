@@ -108,12 +108,13 @@ Y cada noche, a las 21:30, me pasas el parte. #delay: 4 #caduca: D1 09:00
     Normal. El primer día todo el mundo miente un poco. #delay: 6
 * [La madre y la hermana hablan raro en su grupo.]
     Raro cómo. #delay: 4
-    ** [Van a un grupo de duelo. Un tal Ignasi acompañó a la madre a comisaría.]
-        Sí. Barba blanca, muy educado. Habló él más que la madre. #delay: 8
-        Pero un grupo de duelo no es delito, y acompañar a alguien a comisaría tampoco. #delay: 5
-        Si encuentras algo más que un nombre de pila, me lo pasas. #delay: 3
+    #caduca: D2 08:00
+    ** [Van a un grupo de duelo. Hablan mucho de un señor mayor que «las acompaña».]
+        Un grupo de duelo no es delito, y tener un amigo mayor tampoco. #delay: 8
+        Si encuentras algo más que «un señor», me lo pasas. Un nombre, un sitio, dinero. #delay: 5
     ** [No sé. Parece una secta.]
         Las sectas no se denuncian solas. Necesito nombres. #delay: 5
+    ** [(sin responder)]
 * [Su padre cree que está en casa de una amiga.]
     Eso le dijo la madre, ¿no? #delay: 4
     A nosotros nos dijo que no tenía ni idea de dónde estaba. #delay: 4
@@ -192,8 +193,9 @@ Buenos días. #at: D3 08:45
 {d2_noche.cra:
     Lo del banco. CRA Serveis es el nombre comercial de la Associació Comunitat Rosa d'Abril. Sant Joan les Fonts. Sede: un mas reformado. Lo llaman el Casal. #at: D3 12:10
     Grupos de duelo, mindfulness, retiros. Cuotas, no. Aportaciones voluntarias. Muchas. Hacienda no aparece por ningún lado. #delay: 6
+    ~ sabe_ignasi = true
     Presidente: Ignasi Coll Ferrer, 61 años. Una denuncia por estafa hace un año, archivada. #delay: 5
-    Ese es el Ignasi del que hablan. Se anuncia como «acompañante». #delay: 3
+    Se anuncia como «acompañante». Barba blanca, por la foto. ¿Te suena? #delay: 3
 }
 Otra cosa. Barcelona ha desarticulado esta semana parte de una red que captaba chicas de pueblo por redes sociales. #at: D3 13:40
 Ofertas de trabajo de noche, piso pagado, «no se lo digas a tu familia». Las recogían en la estación de Nord. #delay: 5
@@ -452,12 +454,14 @@ Lo siento. #delay: 10 #effect: case_closed
     Si algún día te escribe un número que no conoces, apúntalo y me lo pasas. Al momento. #delay: 4
 * {sabe_secta and not sabe_cra} [¿Qué es «Rosa d'Abril», el grupo de duelo de la madre?]
     ~ sabe_cra = true
+    ~ sabe_ignasi = true
     Associació Comunitat Rosa d'Abril. Sant Joan les Fonts. Nombre comercial: CRA Serveis. #delay: 400
     Grupos de duelo, mindfulness, retiros. Aportaciones voluntarias. #delay: 5
     Presidente: Ignasi Coll Ferrer, 61 años. Una denuncia por estafa hace un año, archivada. #delay: 5
     Por ahora, nada que pueda llevar a un juez. #delay: 3
 * {dia >= 4 and sabe_cra} [La madre ha firmado «las voluntades anticipadas» en «el despacho de siempre». ¿Qué firmó?]
     ~ sabe_secta = true
+    ~ sabe_ignasi = true
     El registro de voluntades anticipadas es de Salud. Me deben un favor. #delay: 400
     Montse Vidal. Documento registrado hoy. Testigos: Ignasi Coll Ferrer y Berta Serra. #delay: 5
     Pide que no la reanimen. Pase lo que pase. #delay: 5
@@ -469,6 +473,7 @@ Lo siento. #delay: 10 #effect: case_closed
     ~ sabe_secta = true
     ~ sabe_cra = true
     ~ sabe_seat = true
+    ~ sabe_ignasi = true
     Seat gris a nombre de CRA Serveis. Es la Associació Comunitat Rosa d'Abril, de Sant Joan les Fonts. #delay: 300
     Tres multas de aparcamiento en Olot. Lo conduce Ignasi Coll. #delay: 5
     Y anteanoche lo pararon en un control de Sant Joan les Fonts a las tres de la madrugada. Volvía del valle. #delay: 5

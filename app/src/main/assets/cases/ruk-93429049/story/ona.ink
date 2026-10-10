@@ -23,19 +23,23 @@ sí!! paso a las 7 #at: D-4 13:05
     {fia_ona == -1: -> opciones}
     tu bolsa de deporte!! la tengo en el maletero desde el último entreno #delay: 120
     la abro? #delay: 4
+    #caduca: D{dia + 1} 00:00
     ** [sí, mira qué hay]
         ~ sabe_pienso = true
         rodilleras, una toalla que huele fatal y una lista en un papel #delay: 300
         «pan, velas, pilas, cerillas, pienso perro grande, tiritas, pastillas tos» #delay: 8
         vas de acampada o qué 😂 #delay: 4
         y desde cuándo tienes perro? #delay: 5
+        #caduca: D{dia + 1} 00:00
         *** [no es para mí. es para la perra de una señora mayor que vive sola]
             ~ fia_ona = 1
             ay qué mona eres 🥺 #delay: 120
         *** [me voy de acampada con unos amigos]
             con perro y todo jajaja vale #delay: 120
+        *** [(sin responder)]
     ** [no, déjala. ya la recogeré]
         vale. te la guardo #delay: 120
+    ** [(sin responder)]
     - - -> opciones
 * {fia_ona == -1} [ona tía soy yo. qué te pasa?]
     {delatado >= 2:

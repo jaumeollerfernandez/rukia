@@ -10,7 +10,7 @@
     { "id": "eric", "username": "eric.forner", "name": "Èric", "photo": "photos/eric.jpg", "bio": "pan, masa madre y malas decisiones 🥖", "color": "#FF7043", "followers": 344, "following": 290 },
     { "id": "berta", "username": "berta.luz", "name": "Berta", "photo": "photos/berta.jpg", "bio": "Cada amanecer es una puerta ☀️ · @rosadabril.casal", "color": "#EF6C00", "followers": 1017, "following": 12 },
     { "id": "mama", "username": "montse.vidal", "name": "Montse", "photo": "photos/mama.jpg", "bio": "Gratitud. Familia. Luz.", "color": "#F9A825", "followers": 156, "following": 9 },
-    { "id": "guia", "username": "ignasi.coll.acompanya", "name": "Ignasi Coll", "photo": "photos/guia.jpg", "bio": "Facilitador de mindfulness · Retiros espirituales para sanar el alma · Acompaño procesos en el Casal 🌹", "color": "#FFD54F", "followers": 3420, "following": 0 },
+    { "id": "guia", "username": "acompanya.casal", "name": "El que acompaña 🌹", "photo": "photos/guia.jpg", "bio": "Facilitador de mindfulness · Retiros espirituales para sanar el alma · Acompaño procesos en el Casal 🌹", "color": "#FFD54F", "followers": 3420, "following": 0 },
     { "id": "casal", "username": "rosadabril.casal", "name": "Rosa d'Abril", "photo": "photos/casal.jpg", "bio": "Associació Comunitat Rosa d'Abril (CRA) · Grupos de duelo, mindfulness y acompañamiento 🌿 · Sant Joan les Fonts", "color": "#C9A227", "followers": 1890, "following": 1 },
     { "id": "iris", "username": "iris.ambllum", "name": "Iris", "photo": "photos/iris.jpg", "bio": "buscando mi luz", "color": "#B39DDB", "followers": 233, "following": 140 },
     { "id": "oriol", "username": "oriol.pedals", "name": "Oriol", "photo": "photos/oriol.jpg", "bio": "🚴 subo puertos de noche porque de día hace calor", "color": "#6D4C41", "followers": 640, "following": 320 },
@@ -333,7 +333,7 @@
       { "author": "nuria", "text": "nuestro sitio 🥹" },
       { "author": "excursions", "text": "¡Esta vista es desde la subida a Bracons! ¿En qué mas estabais? 😍" }
     ] },
-    { "author": "casal", "image": "gonpi/casal_c.jpg", "caption": "Retiro de silencio de tres días. Sin móviles, sin relojes, sin prisa. Volver a lo esencial. 🌹", "at": "D-13 08:30", "likes": 72, "comments": [ { "author": "mama", "text": "He vuelto nueva ☀️ Gracias, Ignasi." } ] },
+    { "author": "casal", "image": "gonpi/casal_c.jpg", "caption": "Retiro de silencio de tres días. Sin móviles, sin relojes, sin prisa. Volver a lo esencial. 🌹", "at": "D-13 08:30", "likes": 72, "comments": [ { "author": "mama", "text": "He vuelto nueva ☀️ Gracias por acompañarnos." } ] },
     { "author": "teatre", "image": "gonpi/teatre_a.jpg", "caption": "Empezamos los ensayos de «La casa de Bernarda Alba» para la Festa Major 🎭", "at": "D-13 13:05", "likes": 76, "comments": [{"author": "queralt", "text": "Bernarda al poder"}] },
     { "author": "excursions", "image": "gonpi/excursions_dm15.jpg", "caption": "Cascada escondida en la Alta Garrotxa. Agua fría y cero cobertura 💧", "at": "D-14 20:10", "likes": 156 },
     { "author": "guia", "image": "gonpi/guia_b.jpg", "caption": "Hay vínculos que sanan y vínculos que pesan. Aprende a distinguirlos, aunque lleven tu apellido.", "at": "D-17 18:22", "likes": 166, "comments": [ { "author": "mama", "text": "Gracias por devolverme a mi familia 🙏" }, { "author": "berta", "text": "🌹" } ] },

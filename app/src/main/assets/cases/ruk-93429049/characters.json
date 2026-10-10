@@ -57,7 +57,7 @@
 
   { "id": "iris", "name": "Iris", "status": "", "color": "#B39DDB", "hidden": true, "hours": "00:00-02:00", "photo": "photos/iris.jpg" },
   { "id": "iker", "name": "+34 655 ·· ·· ··", "status": "", "color": "#FF7043", "hidden": true, "hours": "14:00-06:00" },
-  { "id": "guia", "name": "Ignasi", "status": "", "color": "#FFD54F", "hidden": true, "hours": "05:00-07:00,22:00-00:00", "photo": "photos/guia.jpg" },
+  { "id": "guia", "name": "+34 639 ·· ·· ··", "status": "", "color": "#FFD54F", "hidden": true, "hours": "05:00-07:00,22:00-00:00", "photo": "photos/guia.jpg" },
   { "id": "rosalia", "name": "+34 972 ·· ·· ··", "status": "", "color": "#795548", "hidden": true },
   { "id": "desconocido", "name": "+34 6·· ··· ···", "status": "", "color": "#607D8B", "hidden": true, "hours": "23:00-01:00" },
   { "id": "banco", "name": "BancRural", "status": "", "color": "#004D40", "hidden": true },

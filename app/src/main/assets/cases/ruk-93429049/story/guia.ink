@@ -1,8 +1,9 @@
-// Ignasi Coll, «el que acompaña» en Rosa d'Abril (la familia lo llama solo Ignasi). Escribe tres veces al móvil de Alicia, siempre de noche.
+// Ignasi Coll, «el que acompaña» en Rosa d'Abril. Escribe tres veces al móvil de Alicia, siempre de noche, desde un número sin nombre.
+// Nunca dice cómo se llama: su nombre solo sale si el jugador investiga la asociación (ver PISTAS.md).
 // Nunca amenaza ni predica: escribe como el terapeuta del grupo de duelo de la madre. La amenaza está en lo que da por hecho.
 
 === guia ===
-Alicia. Soy Ignasi, del grupo de tu madre. Ella me ha dado tu número. #at: D3 23:10
+Alicia. Soy quien acompaña a tu madre en el grupo. Ella me ha dado tu número. #at: D3 23:10
 No te escribo para reñirte. Aquí nadie está enfadado contigo. #delay: 8
 Tu madre no duerme. Tu hermana tampoco. Pero no te lo digo para que te sientas culpable. #delay: 12
 Dentro de cuatro días hará tres años de tu abuela. Le haría mucha ilusión que estuvieras. #delay: 10

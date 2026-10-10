@@ -31,7 +31,7 @@ de momento #delay: 30 #caduca: D2 01:00
     tranqui. no diré nada #delay: 20
     pero me debes una explicación #delay: 4
 * [qué tío?]
-    ni idea. tu madre le llamaba ignasi. le hablaba como si fuera un cura o algo #delay: 25
+    ni idea. tu madre no le llamaba por el nombre. le hablaba como si fuera un cura o algo #delay: 25
     es lo de la gente esa de meditación de la que me hablaste una vez? #delay: 6 #caduca: D2 01:00
     ** [sí. no les digas nada de mí porfa]
         ~ pol_calla = true

@@ -29,6 +29,7 @@ Descuida. #at: D-3 20:31
 * {dia >= 2 and fia_teresa > -1} [teresa qué libros saqué la última vez?]
     ¿No te acuerdas? Qué cosas. #delay: 300
     A ver, dime tú cuál me debes todavía, que hay lista de espera. #delay: 6
+    #caduca: D{dia + 1} 00:00
     ** [«nada». ya te lo devuelvo, perdona]
         ~ fia_teresa = 1
         Ese. Que hay tres señoras esperándolo. #delay: 120
@@ -37,6 +38,7 @@ Descuida. #at: D-3 20:31
         -> recela ->
     ** [«el jardín olvidado»]
         -> recela ->
+    ** [(sin responder)]
     - - -> opciones
 * {fia_teresa == -1} [teresa soy yo, de verdad. tengo la cabeza en otra parte]
     {delatado >= 2:

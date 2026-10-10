@@ -36,11 +36,11 @@ Al empezar, la familia tiene que parecer una familia en duelo y con problemas de
 
 | Lo que se ve | La excusa | El detalle que no cuadra | Dónde se confirma |
 |---|---|---|---|
-| «La asociación», «el grupo» | El grupo de duelo al que van desde que murió la yaya Mercè (hace tres años el D7) | Ignasi acompañó a Montse a los Mossos (familia D1, Laia); «barba blanca» en el banco (Marta D2) y en casa de Pol | 💬 Pol, Gemma, Jordi, Marta |
+| «La asociación», «el grupo» | El grupo de duelo al que van desde que murió la yaya Mercè (hace tres años el D7) | Un señor mayor «que las acompaña», sin nombre: «barba blanca» en el banco (Marta D2), en casa de Pol, delante de casa (Enric); Gemma y Laura hablan de «el que acompaña». **Su nombre (Ignasi Coll) solo sale investigando la asociación**: Laia (CRA en el parte D2, «¿Qué es Rosa d'Abril?», las voluntades o el coche gris; `sabe_ignasi`) o la ficha del Seat. Hasta entonces su ficha policial no aparece | 💬 Pol, Gemma, Jordi, Marta |
 | Los ayunos | Ayuno solidario: lo ahorrado va a familias con escasez (familia D-6, canal D-10) | Alicia se marea en los entrenos | |
 | 2.840 € de la cuenta de Alicia (D2) | «Lo de Hacienda» por la venta del piso de la yaya; se lo devolverán con el seguro | 🔎 El banco dice **CRA SERVEIS**, no Hacienda. El canal del Casal (D-10) pide las aportaciones a «CRA Serveis». La sala nueva «ya tiene tejado» media hora después (canal y Gonpi D2). 💬 Jordi: la plusvalía ya se pagó hace dos años. 💬 Marta: «Hacienda no te espera en la oficina con un señor de barba» | Laia: parte D2 («el beneficiario es CRA Serveis») → D3 le dice quién es CRA. O consulta «¿Qué es Rosa d'Abril?» si se sabe el nombre (`sabe_cra`) |
 | «Las voluntades» (D4) | Voluntades anticipadas, un papel médico «después de lo de la yaya en la UCI» | 🔎 Firmadas «en el despacho de siempre»; ese día el canal del Casal anuncia que su despacho las tramita. 💬 Iris: el mismo día te hacen firmar otro papel | Consulta a Laia (D4+, con `sabe_cra`): testigos Ignasi y Berta, «que no la reanimen» y un testamento a favor de la asociación |
-| Ropa blanca, sin móvil, al alba en el cráter (D5-D7) | El aniversario de la yaya: de blanco como su coral, y sin móviles porque «es un momento para ella» | 🔎 El canal: en ayunas, «con el agua de la Casa» (las botellas de Iris). Ignasi (D5): «las familias, completas» | Alicia (prepago) solo da pistas: «pregunta en qué despacho los firmaron» |
+| Ropa blanca, sin móvil, al alba en el cráter (D5-D7) | El aniversario de la yaya: de blanco como su coral, y sin móviles porque «es un momento para ella» | 🔎 El canal: en ayunas, «con el agua de la Casa» (las botellas de Iris). El número sin nombre que escribe de noche (D5): «las familias, completas» | Alicia (prepago) solo da pistas: «pregunta en qué despacho los firmaron» |
 
 Laia ya no reconoce el nombre «Rosa d'Abril» el D1: un grupo de duelo no es delito. Hasta que el jugador le da algo concreto (CRA, el coche gris o las voluntades) no lo trata como un caso.
 
@@ -116,3 +116,32 @@ Contenido en `police/records.json`: una ficha por cada contacto de la agenda, m�
 | 🎭 **Iker**, **Audi andorrano** | Iker no está imputado y ninguna chica de la Garrotxa sale en la investigación de Barcelona; el Audi va por las deudas de Dani | Descartan la trata |
 
 La tapadera se mantiene: ninguna ficha dice «secta». Rosa d'Abril sale como una asociación y lo grave está en el pasado de Ignasi; el jugador tiene que cruzarlo.
+
+## Charlas de contactos: pistas menores y despistes
+
+Todas las charlas de la agenda tienen varias preguntas por día (ruido, trasfondo y alguna respuesta a elegir). Lo que aportan al caso:
+
+| Contacto | Qué suelta | Cuándo |
+|---|---|---|
+| 🔎 Pep (cartero 40 años) | La Rosalia vive «arriba del todo», sin luz; le dejaba el correo en el **pozo** porque la perra no le dejaba llegar al buzón; «siempre pedía pan» | Con `sabe_rosalia` |
+| 🔎 Xavier | La Rosalia fundó la coral con la yaya; en el entierro se fue andando valle arriba con una perra enorme | D2-D3+ |
+| 🔎 Lluïsa | El lote de «la masía de arriba» solo lo quiere si lo sube Alicia («la nena»). Montse ha donado las cosas de Alicia | D3+ |
+| 🔎 Roser | La Rosalia siempre tuvo perras «con nombre de dulce» (Trufa) | D3+ |
+| 🔎 Marc | Hay dos puertas azules: Can Pericot y otra **con pozo** subiendo a Bracons, con una perra que ataca al tractor | D3+ con `sabe_puerta_azul` |
+| 🔎 Quim | En la subida a Bracons hay una masía que se dio de baja de la luz cuando murió el marido. Una asociación preguntó por «un acto al alba» en la ermita de Santa Margarida | D3+ / D4+ |
+| 🔎 Rafa | Alicia le preguntó si el puerto de Bracons se cierra de noche; «no pensaba subir en coche» | D2+ |
+| 🔎 Anna | Martina: Alicia le prometió presentarle a «una perra gigante que se llama Trufa» | D3+ |
+| 🔎 Hugo | Alicia le pidió una batería externa porque iba a estar «sin enchufe unos días» | D2+ |
+| 🔎 Imma | El folleto: «Trobada de l'Alba · per a famílies», un volcán con una ermita y «la séptima alba» | D3+ |
+| 🔎 Fàtima | Montse llegó a urgencias hace un mes mareada, sin comer: «haciendo un proceso» | D2+ |
+| 🔎 Sílvia | El piso de la yaya (120.000 €) lo cobró «una asociación de unas siglas», no Montse; un señor de barba preguntó cuánto vale la casa | D3+ / D4+ |
+| 🔎 Clàudia | La que repartía folletos del Casal: chica joven, pálida, rubia, de blanco (Iris) | D3+ |
+| 🔎 Sonia | Alicia se mareaba en los entrenos tres semanas seguidas (los ayunos) | D2+ |
+| ⚠️ Gemma | Berta y **Laura** pidieron juntas la plaza para «una meditación al alba»: Laura es de la Casa | D3+ |
+| ⚠️ Enric | «A la Conxita, ni la hora»: todo llega a tu madre | D2+ |
+| 🔎 Ramon | Su nuera trabaja en la residencia Sant Jaume: allí no hay ninguna Rosalia | D3+ con `sabe_residencia` (y Ramon se lo cuenta a Montse) |
+| 🎭 Pau | Falta el juego de llaves de la taquilla de Alicia: empuja a Can Pericot (`sabe_capsec`). Un señor mayor preguntó por «un refugio en el valle» | D3+ / D4+ |
+| 🎭 Biel | Tras confesar: una furgoneta blanca parada en el cruce de Capsec a las tres | Con `descarta_capsec` |
+| 🎭 Judit, Paula | El rumor de Barcelona con Dani, el de Girona y «una furgo blanca» | D2+ |
+| 🎭 Jan | También le habló del piso a Mireia: dos tazas en el fregadero (Girona era de Mireia) | D2+ |
+| Aina | Ella sí cree a Oriol (la vio en la carretera de Bracons) | D3+ |

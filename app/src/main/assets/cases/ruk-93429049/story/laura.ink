@@ -68,7 +68,7 @@ tu hermana estaba allí. súper maja. hemos hablado un montón de ti 🥰 #delay
 - laura_sabe:
     ali una cosa #at: D4 20:30
     le he dicho a berta lo de bracons. sin querer, de verdad 🙈 #delay: 5
-    me ha dado las gracias llorando. ha dicho que ignasi se iba a poner muy contento #delay: 6
+    me ha dado las gracias llorando. ha dicho que «el que acompaña» se iba a poner muy contento #delay: 6
     eso es bueno, no? 🥹 #delay: 8
 - else:
     dentro de dos días hay retiro de silencio en el casal. me apunto!! 🌿 #at: D4 20:30

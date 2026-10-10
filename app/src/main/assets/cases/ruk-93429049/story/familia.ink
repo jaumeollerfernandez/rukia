@@ -5,7 +5,7 @@
 // Nadie dice «secta» aquí, y a primera vista no lo parece: cada cosa rara tiene una excusa creíble.
 // El jugador solo ve la trama si cruza detalles con otros chats (ver PISTAS.md, «La tapadera»).
 // - «La asociación» / «el grupo» es, para ellas, el grupo de duelo al que van desde que murió la yaya Mercè.
-//   Ignasi casi no se nombra: solo como alguien que ayuda.
+//   El que los guía no se nombra nunca: su nombre solo sale si el jugador investiga la asociación (Laia, fichas).
 // - El ayuno es solidario (lo que se ahorra va a familias con escasez). La meditación del alba, una costumbre.
 // - El pago del D2 es «lo de Hacienda» por la venta del piso de la yaya. El banco dice otro beneficiario: CRA SERVEIS.
 // - Las «voluntades» son las voluntades anticipadas (un papel médico, tras lo de la yaya en la UCI).
@@ -53,7 +53,7 @@ Que es normal estar preocupadas, pero que esa energía también puede estar alej
 Quizás esta pasando un mal momento, o necesitaba despejarse. Sea lo que sea, tiene que volver. Debe volver, la echo de menos. #from: berta #delay: 8
 Hemos pasado por mucho, pero la familia debe estar completa. #from: berta #delay: 5
 Lo sé. Seguro que está bien. La encontraremos #from: mama #delay: 60
-Ayer fui a los Mossos. Me acompañó Ignasi, es un sol. Mejor que conste, por si acaso. Es raro este comportamiento, estoy muy preocupada por mi pequeña. #from: mama #delay: 10
+Ayer fui a los Mossos con tu hermana. Mejor que conste, por si acaso. Es raro este comportamiento, estoy muy preocupada por mi pequeña. #from: mama #delay: 10
 Mejor seguir guardandolo para nosotras y nuestros cercanos. Seguro que ha sido una chiquillada. #from: berta #delay: 30
 ¿Has comido algo? #from: berta #delay: 20
 No me entra nada. Hoy ayuno, por ella. Me ayuda a tener la mente despejada. #from: mama #delay: 40

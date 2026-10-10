@@ -29,5 +29,22 @@ Perfecto. #at: D-4 21:31
 * {dia >= 3} [gracias por cubrirme, sergi]
     Me debes una. Grande. #delay: 120
     -> opciones
+* {dia >= 3} [sergi, te dije quién era R.?]
+    No. Solo que la conocías «de los lotes del banco» y que no querías poner su nombre porque «no le gustaría». #delay: 300
+    Muy profesional. Elena te pondrá un 10 en ética. #delay: 5
+    -> opciones
+* [sergi, cuándo es la exposición?]
+    En una semana. Y tengo mi parte, la tuya a medias y a Paula comiéndose los resúmenes. #delay: 120
+    -> opciones
+* {dia >= 4} [sergi, estás bien?]
+    No mucho. #delay: 300
+    Lo de Mireia me tiene fatal. Pero gracias por preguntar. Eres la única. #delay: 6
+    #caduca: D{dia + 1} 00:00
+    ** [si necesitas hablar, aquí estoy]
+        Lo sé. Algún día te lo cuento entero. Hoy no. #delay: 300
+    ** [mireia también lo está pasando mal]
+        Ya. Por eso no digo nada. A nadie. #delay: 300
+    ** [(sin responder)]
+    - - -> opciones
 + [(sin responder)]
     -> charla

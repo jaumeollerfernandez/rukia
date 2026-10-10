@@ -174,7 +174,7 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 >
 > Es mañana. Bueno, pasado… al amanecer. A las seis y media. En el cráter de Santa Margarida, dentro, en la ermita.
 >
-> Ignasi lo llama «el tránsito». Dice que cruzaremos juntos a la luz. *(Traga saliva.)* Ha subido unas cajas con botellas a la furgoneta. «Agua de luz.» Nadie sabe qué lleva.
+> Él lo llama «el tránsito». El que nos acompaña. Dice que cruzaremos juntos a la luz. *(Traga saliva.)* Ha subido unas cajas con botellas a la furgoneta. «Agua de luz.» Nadie sabe qué lleva.
 >
 > *(Pasos en el pasillo. Silencio total. Los pasos se alejan.)*
 >
@@ -219,7 +219,7 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 
 ## 8. `audio/guia_final.m4a`: Ignasi
 
-- **Cuándo:** D7, 06:30, en el chat de Ignasi («Ya ha amanecido.»). Solo en el final malo: la secta ha encontrado a Alicia y nadie ha parado la ceremonia.
+- **Cuándo:** D7, 06:30, en el chat del número sin nombre de Ignasi («Ya ha amanecido.»). No dice su nombre. Solo en el final malo: la secta ha encontrado a Alicia y nadie ha parado la ceremonia.
 - **Quién:** Ignasi Coll, 61 años, «el que acompaña» en Rosa d'Abril. Voz grave, cálida y muy pausada, de locutor de radio nocturna. Nunca amenaza: consuela. Y eso es lo terrible.
 - **Dónde:** al aire libre, en el cráter. Viento suave, pájaros que empiezan a cantar. Nada más: ni voces ni mantras.
 - **Duración:** unos 20 s.

@@ -18,6 +18,22 @@
     ¿O era al revés? Ay, la cabeza. #delay: 10
     Una de las dos ya nos dejó. La otra, dicen, está en una residencia. #delay: 6
     -> opciones
+* [ramon, qué libro leéis en el club?]
+    {aviso == 0: -> aviso ->}
+    «La plaça del Diamant». Yo ya lo he leído cuatro veces. La Gemma, ninguna. #delay: 600
+    Teresa dice que esta vez lo empieza. Yo apuesto un vermut a que no 😊 #delay: 5
+    -> opciones
+* {dia >= 3 and sabe_residencia} [ramon, en qué residencia está la amiga de la yaya?]
+    {aviso == 0: -> aviso ->}
+    Eso dice tu madre. Pero mi nuera trabaja en la residencia Sant Jaume de Olot. #delay: 600
+    Y le pregunté, que la curiosidad me puede. Allí no hay ninguna Rosalia. Ni ninguna Pepita, claro, que esa ya está con Dios. #delay: 7
+    Igual está en otra. O igual tu madre se confunde, como yo con los nombres 😊 #delay: 5
+    -> opciones
+* {dia >= 2} [ramon, cómo bailaba la yaya?]
+    {aviso == 0: -> aviso ->}
+    ¡Como una pluma! En la fiesta mayor, cada año, la primera en el corro. #delay: 600
+    La última vez que la vi bailar fue con la Rosalia, en la plaza. Se reían como dos niñas. #delay: 6
+    -> opciones
 + [(sin responder)]
     -> charla
 

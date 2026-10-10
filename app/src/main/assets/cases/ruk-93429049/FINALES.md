@@ -44,7 +44,7 @@ Cada final se monta con estas piezas. Las horas son de la partida.
 ### Parar la ceremonia: `familia_salvada()` (basta una)
 - **D. Vigilar el cráter:** en D6, manda la salida de la **noche** a «Vigilar el cráter de Santa Margarida al amanecer» → `vigilancia_crater`.
 - **E. Iris declara:** en `iris`, en la llamada de D6 00:45, elige «Iris, ve a los Mossos de Olot…» antes de las D6 02:00 → `iris_ayuda`.
-- **D'. Laia vigila el cráter (fichas policiales):** pide y lee la ficha de **Ignasi Coll** en Policía › Fichas policiales (`ficha_ignasi`). A partir del D4, en la consulta nocturna de Laia, elige «Mira el atestado de Ignasi Coll de hace once años…» → `vigilancia_crater` **sin gastar ninguna salida**: las dos quedan libres (por ejemplo, para el mas y las masías).
+- **D'. Laia vigila el cráter (fichas policiales):** pide y lee la ficha de **Ignasi Coll** en Policía › Fichas policiales (`ficha_ignasi`). Su ficha no aparece hasta saber su nombre (`sabe_ignasi`): Laia lo da al investigar la asociación (CRA en el parte del D2, «¿Qué es Rosa d'Abril?», las voluntades o el coche gris), o lo da la ficha del Seat. A partir del D4, en la consulta nocturna de Laia, elige «Mira el atestado de Ignasi Coll de hace once años…» → `vigilancia_crater` **sin gastar ninguna salida**: las dos quedan libres (por ejemplo, para el mas y las masías).
 
 ### Que la secta encuentre a Alicia: `secta_sabe_rosalia` (basta una)
 - **S1. Error en el grupo familiar:** en `familia`, D3 22:00, elige «la rosalia no está en ninguna residencia» (antes de D4 08:00).
@@ -104,7 +104,7 @@ Salen en el informe de cierre (al llegar el final de Laia, D7). Se calculan con 
 | **La porta blava** | `sabe_puerta_azul` | Cualquiera: Núria lo recuerda el D5 10:30 si aprobaste su prueba; Teresa, si confía (D3+, «teresa, fotocopié algo de ese libro?»); Alicia por el prepago (D5 23:30, con `confianza_alicia` 3); Núria el D6 con `confianza_nuria` ≥ 2 |
 | **Un fijo en Sant Salvador** | `sabe_rosalia` | Cualquiera: contarle a Laia lo del pan para la Rosalia (parte D3) o la llamada de la anciana (parte D4); Èric o Toni si confían (D3+); Núria el D6 con `confianza_nuria` ≥ 2 |
 | **Confianza** | `confianza_alicia` ≥ 3 | Pieza F: en `desconocido` (D4 23:40) elige «Trabajo con una sargento…», «Porque si fuera de ellos…» y «Cuídate, Alicia…» |
-| **El precedente** | `ficha_ignasi` | Pide y lee la ficha policial de Ignasi Coll (Policía › Fichas policiales) |
+| **El precedente** | `ficha_ignasi` | Primero hay que saber su nombre (ver pieza D'). Luego pide y lee su ficha policial |
 
 ### Pistas falsas descartadas
 
@@ -126,7 +126,7 @@ Salen en el informe de cierre (al llegar el final de Laia, D7). Se calculan con 
 
 ### Recetas de logros
 
-- **Los 15 en una partida** son posibles según las reglas (no lo cubre ningún test): en el parte del D2, el correo del billete y luego CRA; Arnau archiva el vídeo (D2); Mireia con cuidado (D2+); aprueba a Núria (D3); pide la ficha de Ignasi el D1 (llega en 12 h); pregúntale a Marc por la luz (D4) y luego a Biel por las llaves; F con Alicia (D4); en la consulta del D4, D' (el cráter, sin gastar salida); Iris el D6 00:45; en el D6, la salida de la mañana al mas de la Rosalia y la de la noche al tío de Dani. Durante toda la semana, nada de escribir a la familia, al grupo de vecinos ni a Ramon, Roser o Conxita.
+- **Los 15 en una partida** son posibles según las reglas (no lo cubre ningún test): en el parte del D2, el correo del billete y luego CRA; Arnau archiva el vídeo (D2); Mireia con cuidado (D2+); aprueba a Núria (D3); con CRA en el parte del D2 sale su nombre: pide su ficha el D3 (llega en 8 h); pregúntale a Marc por la luz (D4) y luego a Biel por las llaves; F con Alicia (D4); en la consulta del D4, D' (el cráter, sin gastar salida); Iris el D6 00:45; en el D6, la salida de la mañana al mas de la Rosalia y la de la noche al tío de Dani. Durante toda la semana, nada de escribir a la familia, al grupo de vecinos ni a Ramon, Roser o Conxita.
 - **El conflicto de siempre:** sin D', «El mas del tío de Dani» y «Vigilancia al alba» compiten por las dos salidas con el mas de la Rosalia. Se puede repartir entre partidas: los logros se conservan.
 
 ## Variaciones que no cambian el final
