@@ -15,12 +15,13 @@ Qué elegir para ver cada final y cómo conseguir cada logro (sección [Logros](
 
 ## Qué decide el final
 
-Todo se decide a las **D7 06:30** con tres funciones de `main.ink`:
+El final se decide a las **D7 06:30** con estas funciones de `main.ink`. Antes, a la hora de la **entrega** (pieza H), Laia comprueba si Dani y la red se llevan a Alicia (`alicia_entregada`); si se la llevan, ya no hay rescate posible.
 
 | Función | Es verdad si… |
 |---|---|
-| `rescatada()` | `patrulla_en_mas` **o** `alicia_a_salvo` **o** `caso_resuelto` |
-| `capturada()` | `secta_sabe_rosalia` **y no** `rescatada()` |
+| `rescatada()` | (`patrulla_en_mas` **o** `alicia_a_salvo` **o** `caso_resuelto`) **y no** `alicia_entregada` |
+| `capturada()` | `secta_sabe_rosalia` **y no** `rescatada()` **y no** `alicia_entregada` |
+| `a_merced_de_dani()` | ni `rescatada()` ni `secta_sabe_rosalia` (la secta gana a Dani) ni `alicia_entregada` |
 | `familia_salvada()` | `vigilancia_crater` **o** `iris_ayuda` |
 
 | Final (chat de Laia) | Condición | Primera línea |
@@ -29,8 +30,10 @@ Todo se decide a las **D7 06:30** con tres funciones de `main.ink`:
 | 2. Bueno: rescate en el cráter | `familia_salvada()` y `capturada()` | «06:31. Entramos.» … «entre ellos estaba Alicia» |
 | 3. Alicia sola | `rescatada()` sin `familia_salvada()` | «Alicia está a salvo. Está conmigo.» |
 | 4. Malo | `capturada()` sin `familia_salvada()` | «Hemos llegado tarde.» (efecto `hacked`, llamada del Guía) |
-| 5. Escondida, familia a salvo | ni `rescatada()` ni `capturada()`, con `familia_salvada()` | «06:31. Entramos. Ignasi Coll, detenido.» |
-| 6. Escondida y sola | ninguna de las tres | «Hay ambulancias en el cráter.» |
+| 5. Entregada, familia a salvo | `alicia_entregada` con `familia_salvada()` | «06:31. Entramos. Ignasi Coll, detenido.» … «De Alicia, nada.» |
+| 6. Entregada y sola | `alicia_entregada` sin `familia_salvada()` | «Hay ambulancias en el cráter.» … «De Alicia, nada.» |
+
+Ya no existe «nadie la encuentra»: si a la hora de la entrega Alicia no está rescatada y la familia no sabe dónde está, Dani y la red se la llevan.
 
 En el informe de cierre, cada final trae la **declaración de Laia a la prensa** (en `game/infrastructure/Cases.kt`, `rukEndings`). Solo cuenta lo que el final de `laia.ink` da por hecho y lo de las fichas. En público usa iniciales (A. S. V., I. C. F.) y nunca menciona el móvil. Si cambias un final en `laia.ink`, revisa su declaración.
 
@@ -39,8 +42,8 @@ En el informe de cierre, cada final trae la **declaración de Laia a la prensa**
 Cada final se monta con estas piezas. Las horas son de la partida.
 
 ### Salvar a Alicia: `rescatada()` (basta una)
-- **A. Patrulla al mas:** en D6, manda la salida de la mañana o la de la noche a «Mas de la Rosalia, Sant Salvador de Bianya» → `patrulla_en_mas`.
-- **B. Resolver el caso:** marca el Mas de la Rosalia en el mapa antes de D7 06:30 → `caso_resuelto`.
+- **A. Patrulla al mas:** en D6, manda la salida de la mañana o la de la noche a «Mas de la Rosalia, Sant Salvador de Bianya» → `patrulla_en_mas`. La de la noche solo llega a tiempo si frenaste a Dani (pieza H); si no, encuentra el mas vacío.
+- **B. Resolver el caso:** marca el Mas de la Rosalia en el mapa antes de la entrega (D6 18:00, o D7 04:00 con Dani frenado) → `caso_resuelto`.
 - **C. Alicia baja con la patrulla:** solo añade texto, porque ya hace falta A. En `desconocido`, D6 23:50, elige «Sí. Baja con ellos» → `alicia_a_salvo`. Antes tienes que haberte ganado su confianza (pieza F).
 
 ### Parar la ceremonia: `familia_salvada()` (basta una)
@@ -56,8 +59,14 @@ Cada final se monta con estas piezas. Las horas son de la partida.
 - **S3. Laura:** en `laura`, D2 19:40, elige «ahora mismo me iría bien una manta» y luego «subiendo hacia bracons…». Esa opción solo sale si ya tienes `sabe_rosalia`, `sabe_estrellas` o `sabe_puerta_azul`, así que en la práctica la tienes con la prueba de Núria aprobada en D3 de 17:00 a 18:00, que es cuando caduca.
 - **S4. Mamá por privado:** en el contacto Mamá, «mamá, dónde está la rosalia?». Solo sale con `sabe_rosalia`: hablarle de la Rosalia a Laia en el parte de D3 o D4, o la foto de Núria de D6.
 
-### Evitar que la encuentren (para los finales 5 y 6)
-- Haz que Pol **o** Arnau prometan callar (ver S2) y **no** caigas en S1, S3 ni S4.
+### H. La deuda de Dani: la entrega (finales 5 y 6)
+Dani debe 6.000 € a la red de Barcelona (los del Audi andorrano) y paga con Alicia. Desde el D4 pregunta por ella por todo el valle. La entrega solo pasa si `a_merced_de_dani()`: ni rescatada ni la familia sabe dónde está (la secta gana a Dani).
+- **Sin frenar a Dani:** D6 19:20, durante el apagón. Laia lo cuenta a las 22:05 (`laia.entrega_tarde`). Solo la salvan la salida de la **mañana** al mas o el mapa resuelto antes de las 18:00.
+- **Con Dani frenado** (`dani_frenado`): D7 04:20 (`laia.entrega_madrugada`). La salida de la **noche** al mas aún llega a tiempo. Se frena con una de estas:
+  - **H1. Laia lo detiene:** en la consulta (D4+), «Dani vende para los del Audi negro de Andorra…». Sale con `dani_droga` (Dani lo confiesa el D4 21:00, antes del parte de Laia) y `sabe_audi` (la matrícula, D3 23:40). **No gasta salida.**
+  - **H2. La operación del D6:** «Detener a Dani Rius e interrogarlo» (gasta la salida; si no le crees, también la de la noche).
+  - **H3. Avisar a Alicia:** en `desconocido`, D5 23:30, «Dani te está buscando…». Necesita `sabe_dani_busca` (Toni en `aliments` D5 16:10, Iker D5 01:10, Dani D5 23:15 o D6 13:00, Pilar D6 07:40, Èric D6 09:45) y `confianza_alicia` ≥ 1. Ocupa la pregunta de la puerta azul.
+- **Para ver el 5 o el 6:** haz que Pol **o** Arnau prometan callar (S2), no caigas en S1, S3 ni S4 y no la rescates.
 
 ### F. Confianza de Alicia (opcional, cambia textos)
 En `desconocido`, D4 23:40:
@@ -65,7 +74,14 @@ En `desconocido`, D4 23:40:
 2. «Porque si fuera de ellos, ya sabrían dónde estás.»
 3. «Cuídate, Alicia…»
 
-Con eso `confianza_alicia` llega a 3. En D5 23:30, «Dime dónde estás…» da la puerta azul.
+Con eso `confianza_alicia` llega a 3. En D5 23:30, «Dime dónde estás…» da la puerta azul y la llamada de la pieza I.
+
+### I. La llamada de Alicia (con confianza 3)
+En `desconocido`, D5 23:30, con `confianza_alicia` 3 (pieza F), elige «Dime dónde estás. Mandaremos una patrulla…». Alicia no lo escribe: **te llama** (`audio/alicia_ubicacion.m4a`). Si coges la llamada (`alicia_llamo`):
+- A las D6 01:30, Laia escucha la grabación y manda el coche de guardia al mas, **sin gastar salida**. Alicia, en comisaría (`patrulla_en_mas`, `alicia_a_salvo`): a salvo de la secta y de Dani.
+- Alicia se lo cuenta todo: Rosa d'Abril, los ayunos, el agua, los papeles, Ignasi Coll (`sabe_secta`, `sabe_ignasi`) y la Trobada de l'Alba. Con su declaración, Laia pone gente en el cráter (`vigilancia_crater`).
+- Te lleva directo al **final 1**. Las dos salidas del D6 quedan libres (para logros: el mas del tío de Dani, la detención…).
+- Si no la coges, solo te queda «busca la puerta azul». Esta opción ocupa el hueco del aviso de Dani (H3) esa noche.
 
 ### G. Fichas policiales (opcional, dan pistas)
 En Policía › Fichas policiales se pide una ficha y llega horas después (12 h el D1, 10 el D2, 8 el D3, 6 el D4, 4 el D5, 2 el D6, 1 el D7). Solo se tramita una a la vez. Leerla pone `ficha_<id>`:
@@ -79,14 +95,16 @@ En Policía › Fichas policiales se pide una ficha y llega horas después (12 h
 | Final | Haz esto | Y no hagas esto |
 |---|---|---|
 | **1. Bueno: Alicia a salvo** | A (salida de la mañana al mas) + D (salida de la noche al cráter). Opcional: C, E | — |
-| **1b. Igual, sin Policía en el mas** | B (resolver en el mapa) + E (Iris) | — |
+| **1b. Igual, sin Policía en el mas** | B (el mapa, resuelto antes del apagón del D6 a las 18:00) + E (Iris) | — |
+| **1d. Igual, la vía de Alicia** | F (confianza 3) + I (coge su llamada el D5 por la noche). Nada más | — |
+| **1c. Igual, con la salida de la noche al mas** | H1 (Laia detiene a Dani) + D' (Laia vigila el cráter) + A con la salida de la noche | — |
 | **2. Bueno: rescate en el cráter** | S1 (lo más rápido) + D o E | A, B |
-| **3. Alicia sola** | A o B | D, E (deja caducar la llamada de Iris) |
+| **3. Alicia sola** | A por la mañana, o H + A por la noche, o B | D, E (deja caducar la llamada de Iris) |
 | **4. Malo** | No contestes nada en toda la semana ni mandes a nadie. S2 activa la secta sola | A, B, D, E |
-| **5. Escondida, familia a salvo** | `arnau_calla` (D2) + D o E. Opcional: F, y en D7 07:30 en `desconocido` «Es verdad… Ya puedes bajar.» | S1, S3, S4, A, B |
-| **6. Escondida y sola** | `arnau_calla` (D2) | S1, S3, S4, A, B, D, E |
+| **5. Entregada, familia a salvo** | `arnau_calla` (D2) + D o E | S1, S3, S4, A, B |
+| **6. Entregada y sola** | `arnau_calla` (D2) | S1, S3, S4, A, B, D, E |
 
-Los tests automáticos cubren el 1 (contestando siempre la primera opción) y el 4 (sin contestar nada): `CaseWeekTest`.
+`CaseWeekTest` cubre el 1 (contestando siempre la primera opción), el 4 (sin contestar nada) y la trama de Dani: el 6 (nadie lo frena), el 3 (frenado y salida de la noche al mas) y el 5 (frenado, sin rescate y con vigilancia del cráter). Y la llamada de Alicia (pieza I): final 1.
 
 ## Logros
 
@@ -141,4 +159,5 @@ Salen en el informe de cierre (al llegar el final de Laia, D7). Se calculan con 
 | Laura delata | S3 o «por capsec…» | Laura D3-D7; Marc D5+ (la furgoneta en Capsec) |
 | Barcelona | En Laia, D2, «Puede que esté en Barcelona» o no contestar | Laia D3, Papá D3, `familia` D3 |
 | Pistas falsas descartadas | Biel (Can Pericot), consultas a Laia (residencia, Dani) | Laia, Biel |
-| Mensajes finales de Alicia | Pieza F | `desconocido` D7 |
+| Mensajes finales de Alicia | Pieza F | `desconocido` D6 23:50 y D7 (calla si se la han llevado) |
+| Dani desaparece o sigue en el calabozo | Finales 5 y 6: detenido sin creerle (H1 o H2) o no | Laia D7, Dani D7 01:30 («perdóname») |

@@ -1,14 +1,13 @@
-// Dani, 22 años, la conoció por Gonpi. Insistente, posesivo y raro: parece sospechoso, pero es inocente.
-// Pista falsa principal (la trata): le ofreció un «curro» en Barcelona con su amigo Iker (piso pagado, «no lo digas en casa»),
-// justo cuando Barcelona desarticula una red que capta chicas así. Y la noche que ella se fue, él estaba en Barcelona.
-// La verdad: se iba a mudar y la quería allí, para él. Si el jugador lo manda detener (envio_detencion_dani), lo confiesa
-// y el jugador decide si le cree. Si le cree, cuenta lo que vio siguiéndola (stitch liberado): una pista verdadera.
-// Menudea en Olot (costo, hierba, alguna pastilla los findes) y por eso se oculta; lo que parece «secreto» es eso.
-// Su coartada (un concierto en Barcelona) no llega hasta el D3, en Gonpi. Hasta entonces, todo en él da mal rollo:
-// sabe que se ha ido, ronda su calle con la moto y tiene un mas «sin cobertura» en la Vall d'en Bas (donde esconde el costo).
+// Dani, 22 años, la conoció por Gonpi. Insistente, posesivo y raro. Parece sospechoso de que se fuera, y de eso es inocente.
+// Primera capa (la trata, pista falsa hasta el D3): le ofreció un «curro» en Barcelona con su amigo Iker (piso pagado, «no lo
+// digas en casa»), justo cuando Barcelona desarticula parte de una red que capta chicas así. La noche que ella se fue, él
+// estaba en Barcelona. La verdad de entonces: se iba a mudar y la quería allí, para él.
+// Segunda capa (la deuda, verdad desde el D3): menudea para un proveedor del Audi negro andorrano, que trabaja para la parte
+// de la red que no cayó. Les debe dinero. El D4 le dan una salida que él mismo ha propuesto: entregarles a Alicia.
+// Coaccionado y roto, se pasa el D4-D6 preguntando por ella por todo el valle (Toni, Pilar, Èric lo cuentan) y escribiéndole,
+// cada vez más desesperado. Si nadie lo frena ni la rescata, la entrega el D6 por la tarde (laia.entrega_tarde) y desaparece.
+// Frenarlo (Laia lo detiene, la operación del D6 o avisar a Alicia) solo retrasa la entrega a la madrugada del D7.
 // Tonteo con Alicia: un beso en la fiesta de Mireia, que ella llamó «un error». Él lo vivió como el principio de algo.
-// Subtrama de confusión: unos del bar le reclaman dinero (D3), él lo confiesa solo (D4) y, si el jugador manda una
-// patrulla a su mas (police/actions.json, knot envio_dani en central.ink), los Mossos le requisan el costo (dani_registrado).
 
 === dani ===
 -> historial
@@ -114,37 +113,53 @@ matrícula de andorra. acaba en 7731, me la sé de memoria #delay: 3 #caduca: D4
     tranqui, lo arreglo el finde #delay: 5
 * [dani, en qué lío estás metido?]
     en ninguno. un malentendido #delay: 90
-    ...vale, uno pequeñito. mañana te cuento #delay: 6
+    ...vale. no es pequeño. mañana te cuento #delay: 6
 * [no me escribas más de esto]
     vale. era por si acaso #delay: 90
 * [(sin responder)]
     joder, hasta tú #delay: 1
-- -> charla("D4 22:00") ->
+- -> charla("D4 20:55") ->
 -> d4
 
 // Se lo cuenta él antes de que se entere por otro lado.
 = d4
-oye #at: D4 22:05
+oye #at: D4 21:00
 lo de los del bar. mejor te lo cuento yo antes de que lo oigas por ahí #delay: 5
 vendo un poco, ali. costo, hierba, alguna pastilla los findes en el bar #delay: 8
 ~ dani_droga = true
 nada gordo. 200 pavos a la semana y gracias #delay: 5
-el del audi es el que me pasa el costo. me pidió todo de golpe y ya se lo he dado #delay: 6
+el del audi es el que me pasa el costo. me fió un kilo y los mossos me lo pillaron en un control #delay: 6
+le debo seis mil. y no es del bar, ali. es de barna. conoce a iker #delay: 6
+me han dado dos días #delay: 5
 tú nunca quisiste saber nada de eso. por eso te lo cuento a ti, no sé #delay: 6
 y supongo que por eso me puse tan pesado. sabía que no ibas a decir nunca que sí #delay: 8
 -> charla("D5 23:10") ->
 -> d5
 
+// Ya ha hecho el trato: busca a Alicia para la red. Le escribe como si quisiera ayudarla.
 = d5
+{dani_detenido: -> d6}
 ey #at: D5 23:15
 he visto lo que ha subido esa cuenta del cráter #delay: 4
 es lo de tu familia, no? #delay: 3
 {dani_droga:
-    lo del bar ya está arreglado. me han dejado el ojo morado pero está arreglado 🙃 #delay: 6
-    he dejado lo de vender. no por ti. por mí #delay: 6
+    lo de la pasta ya está. me han dejado el ojo morado y me han dado una salida 🙃 #delay: 6
 }
-cuídate de verdad. y perdona si fui pesado #delay: 10
--> d6
+ali dime dónde estás #delay: 30
+de verdad. te ayudo a salir de aquí. a barna, lejos de tu familia #delay: 5
+tengo la moto. en una hora estoy donde digas #delay: 4 #caduca: D6 03:00
+* [qué salida te han dado, dani?]
+    ~ sabe_dani_busca = true
+    no puedo decírtelo #delay: 300
+    si te lo digo me matan, ali. no es broma #delay: 6
+    tú dime dónde estás y ya está. te lo pido por favor #delay: 5
+* [no te voy a decir dónde estoy]
+    vale. vale #delay: 200
+    ya lo encontraré yo #delay: 30
+    quiero decir. que te encontraré para ayudarte. ya sabes lo que quiero decir #delay: 6
+* [(sin responder)]
+    contesta aunque sea con un emoji #delay: 1
+- -> d6
 
 // D6: si el jugador mandó una patrulla a su mas, los Mossos le han requisado el costo.
 // Si lo detuvieron y el jugador le creyó, cuenta lo que vio (liberado); si no le creyó, ya no escribe.
@@ -158,15 +173,25 @@ cuídate de verdad. y perdona si fui pesado #delay: 10
     se han llevado lo que había y me han citado en comisaría #delay: 5
     no sé qué os han dicho de mí. yo de ti no sé nada, te lo juro #delay: 6
     ~ dani_avisado = true
-- else:
-    si estás ahí, ali #delay: 3
-    lo que sea que te pase, mi casa está para lo que quieras. sin rollos #delay: 6
-    contesta cuando puedas, aunque sea con un emoji #delay: 8
 }
+// Desesperado: ya sabe la zona (la siguió un sábado), le falta la casa.
+~ sabe_dani_busca = true
+ali porfa #delay: 3
+sé que estás por sant salvador. te seguí una vez, ya lo sabes #delay: 6
+me falta saber cuál. he preguntado a medio valle #delay: 5
+dímelo tú. es mejor que te encuentre yo que otros #delay: 8
+no me hagas esto ali #delay: 60
 -> d7
 
 = d7
 #at: D7 01:30
+// Ya la ha entregado (laia.entrega_tarde). Último mensaje y desaparece.
+{alicia_entregada and not (dani_detenido and not dani_creido):
+    perdóname #delay: 1
+    no tenía otra. me iban a matar #delay: 8
+    este móvil lo tiro ahora #delay: 6
+    -> DONE
+}
 {dani_creido and not liberado: -> liberado ->}
 {dani_registrado and not dani_avisado and not dani_detenido:
     ali #delay: 1
@@ -220,6 +245,11 @@ no te volveré a escribir #delay: 20
     - else:
         vale. repartos de los otros. no preguntes más, porfa #delay: 6
     }
+    -> opciones
+* {dani_droga} [dani, quiénes son los del audi?]
+    los que me pasan el costo. y no solo costo #delay: 120
+    trabajan para gente de barna. la del club de iker, la que salió en las noticias #delay: 6
+    no preguntes más ali. de verdad #delay: 5
     -> opciones
 * {dani_droga} [y la droga dónde la guardas?]
     ...en el mas de mi tío. en la cuadra, tras unos sacos #delay: 120

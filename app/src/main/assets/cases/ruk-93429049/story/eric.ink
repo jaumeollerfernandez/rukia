@@ -69,8 +69,13 @@ y yo también te espero. para la birra digo 🙃 #delay: 4
 }
 -> d6
 
+// D6: Dani pregunta por ella en el Forn (la deuda de Dani, PISTAS.md).
 = d6
-// D6: nada.
+ali #at: D6 09:45
+ha venido el dani ese de la moto. a preguntarme si sabía en qué mas estabas #delay: 4
+~ sabe_dani_busca = true
+le he dicho que ni idea. que es verdad #delay: 5
+pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
 -> d7
 
 = d7

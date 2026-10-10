@@ -34,7 +34,8 @@ class CaseWeekTest {
         override fun instant(): Instant = Instant.ofEpochMilli(millis)
     }
 
-    private fun playWeek(answer: Boolean, random: kotlin.random.Random? = null): Map<String, Chat> {
+    /** [preset]: story variables set at the start, as if the player had got them. [sent]: police dispatches by case time, instead of the defaults. */
+    private fun playWeek(answer: Boolean, random: kotlin.random.Random? = null, preset: Map<String, Boolean> = emptyMap(), sent: Map<Long, String>? = null): Map<String, Chat> {
         val clock = FakeClock(start + 9 * 3_600_000L) // opened on D1 at 09:00
         val chats = object : ChatRepository {
             val all = case.resolve("chats").listFiles()!!.map { storyJson.decodeFromString<Chat>(it.readText()) }.associateBy { it.id }.toMutableMap()
@@ -53,12 +54,13 @@ class CaseWeekTest {
         val notifier = object : MessageNotifier { override fun notifyWhenDelivered(chatId: String, message: com.rukia.chat.domain.model.Message) {} }
         val story = InkStoryEngine({ case.resolve(it).readText() }, File(createTempDirectory().toFile(), "state.json"), { start }, clock)
         lastStory = story
+        preset.forEach { (name, value) -> story.setVariable(name, value) }
         val advance = AdvanceChat(chats, story, notifier, clock)
         val reply = ChooseReply(chats, story, characters, notifier, clock)
         val report = com.rukia.chat.application.PlayStoryEvent(chats, story, notifier, clock)
         // What the Police app would send: the farm in the morning, the crater watch at night.
         val knots = listOf("envio_mas", "envio_masias", "envio_capsec", "envio_residencia", "envio_estacion", "envio_pol", "envio_girona", "envio_barcelona", "envio_dani", "envio_crater")
-        val dispatches = when {
+        val dispatches = sent ?: when {
             random != null -> mapOf(
                 start + 5 * 86_400_000L + 9 * 3_600_000L to knots.random(random),
                 start + 5 * 86_400_000L + 22 * 3_600_000L + 30 * 60_000L to (knots + "envio_vigilancia").random(random),
@@ -110,6 +112,35 @@ class CaseWeekTest {
         assertEnded(it, "silent", ending = "Hemos llegado tarde.")
         assertClosed(it, "silent", ending = 4)
     }
+
+    private val night = start + 5 * 86_400_000L + 22 * 3_600_000L + 30 * 60_000L // D6 22:30
+
+    // Dani's debt (PISTAS.md): with the family off her trail and nobody rescuing her, Dani and the network take her.
+    @Test fun `nobody stops Dani so they take her during the blackout`() = playWeek(answer = false, preset = mapOf("pol_calla" to true)).let {
+        assertEnded(it, "taken", ending = "Y Dani Rius tampoco.")
+        assertTrue(it.getValue("laia").messages.any { m -> "La moto es de Dani Rius" in m.text }, "Laia tells of the handover at 22:05")
+        assertClosed(it, "taken", ending = 6)
+    }
+
+    @Test fun `stopping Dani buys the night squad time to save her`() =
+        playWeek(answer = false, preset = mapOf("pol_calla" to true, "dani_frenado" to true), sent = mapOf(night to "envio_mas")).let {
+            assertEnded(it, "stopped", ending = "Alicia está a salvo. Está conmigo.")
+            assertClosed(it, "stopped", ending = 3)
+        }
+
+    @Test fun `stopping Dani without saving her only delays it to dawn`() =
+        playWeek(answer = false, preset = mapOf("pol_calla" to true, "dani_frenado" to true), sent = mapOf(night to "envio_vigilancia")).let {
+            assertEnded(it, "delayed", ending = "Montse no deja de preguntar por Alicia.")
+            assertTrue(it.getValue("laia").messages.any { m -> "04:20" in m.text }, "the handover comes at dawn")
+            assertClosed(it, "delayed", ending = 5)
+        }
+
+    // With full trust Alicia phones the exact place (D5 night): Laia gets her out at once, and her statement covers the crater.
+    @Test fun `Alicia's call saves her from the family and Dani and stops the ceremony`() =
+        playWeek(answer = false, preset = mapOf("alicia_llamo" to true)).let {
+            assertEnded(it, "called", ending = "Y Alicia lo ha visto amanecer desde la ventana")
+            assertClosed(it, "called", ending = 1)
+        }
 
     /** Whatever the player picks and wherever they send the squads, no story step throws and the week reaches D7. */
     @Test fun `random playthroughs never crash and reach D7`() {

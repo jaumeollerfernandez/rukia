@@ -27,7 +27,7 @@ private val rukEndings = listOf(
 
         Hemos seguido el dinero. Transferencias de los socios a una sociedad, CRA Serveis, que las familias creían pagos a Hacienda. La venta de un piso de 120.000 euros. Voluntades anticipadas firmadas ante miembros de la propia asociación, con testamentos a su favor. El juzgado de Olot decidirá los cargos. Hablamos, como mínimo, de estafa y de un posible delito contra la vida de las personas.
 
-        La joven está bien. Se fue por voluntad propia para no ir a esa ceremonia, y se refugió en una masía de Sant Salvador de Bianya, en casa de una vecina de 78 años, amiga de su abuela, que la ha cuidado estos días. Esa señora no ha cometido ningún delito y les pido que respeten su intimidad. Una patrulla la ha bajado esta mañana. Su madre y su hermana estaban en el cráter. Están ilesas y prestarán declaración.
+        La joven está bien. Se fue por voluntad propia para no ir a esa ceremonia, y se refugió en una masía de Sant Salvador de Bianya, en casa de una vecina de 78 años, amiga de su abuela, que la ha cuidado estos días. Esa señora no ha cometido ningún delito y les pido que respeten su intimidad. Una patrulla la ha puesto a salvo. Su madre y su hermana estaban en el cráter. Están ilesas y prestarán declaración.
 
         Este caso se ha resuelto gracias a una línea de investigación que no puedo detallar. Doy las gracias a quien la ha hecho posible.
 
@@ -98,41 +98,45 @@ private val rukEndings = listOf(
 
         Esta comisaría tuvo una semana para evitarlo y no lo evitó. La responsabilidad es mía. Lo siento.
     """.trimIndent(), "D7 06:45"),
-    CaseEnding(5, "Escondida, familia a salvo", EndingTier.Partial, "CERRADO\nPARCIAL", """
-        Comisaría de Olot. Comparecencia ante los medios, 12:00.
-
-        Buenos días. Soy la sargento Laia Puig, de los Mossos d'Esquadra de Olot.
-
-        Esta mañana, a las 6:31, agentes de esta comisaría han entrado en la ermita del cráter de Santa Margarida, en Santa Pau. Había allí unas doce personas vestidas de blanco, reunidas al amanecer para lo que llamaban la «Trobada de l'Alba», una ceremonia de la Associació Comunitat Rosa d'Abril, que se presentaba como un grupo de apoyo al duelo. Varias llevaban días en ayunas. Hemos requisado las botellas de agua que iban a repartir. Están en el laboratorio.
-
-        Ha sido detenido el presidente de la asociación, I. C. F., de 61 años, vecino de Sant Joan les Fonts. Hace once años ya fue detenido tras la muerte de una mujer de 34 años en un retiro idéntico, en la misma ermita. Aquella causa se archivó. Esta vez el juzgado de Olot tendrá también las cuentas de la sociedad CRA Serveis, por la que pasaba el dinero de los socios, y las voluntades anticipadas que les hacía firmar.
-
-        Entre los presentes estaban una mujer de 52 años y su hija de 24. Están bien. Pero falta alguien: la hija menor, A. S. V., de 18 años, desaparecida de su casa de L'Hostalnou de Bianya hace ocho días. Hasta hoy no lo habíamos hecho público, a petición de la familia.
-
-        Creemos que se fue por voluntad propia, para no ir a esa ceremonia, y que sigue escondida en algún lugar de la Vall de Bianya. No tenemos indicios de que nadie le haya hecho daño. Mide 1,66, es delgada, tiene el pelo castaño oscuro y largo y lleva una pulsera roja de hilo en la muñeca izquierda.
-
-        A los vecinos del valle: si tienen un pajar, una borda o una masía vacía, échenle un vistazo. Si la ven, no la asusten. Llamen al 112.
-
-        Y a ella, si me escucha: Alicia, ya ha terminado. Ya puedes volver.
-
-        Gracias.
-    """.trimIndent(), "D7 06:31"),
-    CaseEnding(6, "Escondida y sola", EndingTier.Bad, "CERRADO\nSIN ÉXITO", """
+    CaseEnding(5, "Entregada, familia a salvo", EndingTier.Partial, "CERRADO\nPARCIAL", """
         Comisaría de Olot. Comparecencia ante los medios, 12:00.
 
         Buenos días. Soy la sargento Laia Puig, de los Mossos d'Esquadra de Olot. Leeré una declaración. No responderé preguntas.
 
-        Esta madrugada, una asociación llamada Comunitat Rosa d'Abril, que se presentaba como un grupo de apoyo al duelo, ha celebrado una ceremonia al amanecer en la ermita del cráter de Santa Margarida, en Santa Pau. Lo llamaban la «Trobada de l'Alba». Los participantes llevaban días en ayunas y bebieron un agua que repartía el grupo. Estamos analizando qué contenía.
+        Esta mañana, a las 6:31, agentes de esta comisaría han entrado en la ermita del cráter de Santa Margarida, en Santa Pau. Había allí unas doce personas vestidas de blanco, reunidas al amanecer para lo que llamaban la «Trobada de l'Alba», una ceremonia de la Associació Comunitat Rosa d'Abril, que se presentaba como un grupo de apoyo al duelo. Varias llevaban días en ayunas. Hemos requisado las botellas de agua que iban a repartir.
 
-        A las 6:45 los servicios de emergencia han subido al cráter. Once personas han sido trasladadas al Hospital d'Olot con síntomas de intoxicación. Entre ellas, una mujer de 52 años y su hija de 24, vecinas de L'Hostalnou de Bianya. Están vivas. Su pronóstico es reservado.
+        Ha sido detenido el presidente de la asociación, I. C. F., de 61 años, vecino de Sant Joan les Fonts. Hace once años ya fue detenido tras la muerte de una mujer de 34 años en un retiro idéntico, en la misma ermita. Entre los presentes estaban una mujer de 52 años y su hija de 24. Están bien.
 
-        El responsable del grupo, I. C. F., de 61 años, vecino de Sant Joan les Fonts, no ha sido localizado. Hemos pedido su busca y captura. Hace once años ya fue detenido tras la muerte de una mujer de 34 años en un retiro idéntico, en la misma ermita. Aquella causa se archivó. Mide 1,74, es delgado, tiene el pelo y la barba blancos y conduce un Seat gris. Si lo ven, no se acerquen. Llamen al 112.
+        Falta la hija menor. A. S. V., de 18 años, se fue de su casa de L'Hostalnou de Bianya hace ocho días para no ir a esa ceremonia, y estaba escondida en una masía de Sant Salvador de Bianya. Allí la han encontrado otros antes que nosotros.
 
-        Hay una tercera persona de esa familia a la que buscamos desde hace ocho días: la hija menor, A. S. V., de 18 años. Salió de casa una noche y no volvió. Creemos que se fue para no ir a esa ceremonia y que sigue escondida en algún sitio de la Vall de Bianya. Sola. Mide 1,66, es delgada, tiene el pelo castaño oscuro y largo y lleva una pulsera roja de hilo en la muñeca izquierda.
+        Dos hombres en una furgoneta blanca y un joven en moto se la llevaron por la fuerza. La vecina que la acogía, de 78 años, está herida leve. La furgoneta pasó por la N-260 en dirección a Figueres. Después, nada.
 
-        A los vecinos del valle: revisen pajares, bordas y masías vacías. Si la ven, no la asusten. Llamen al 112.
+        Creemos que se la ha llevado una red de trata de personas. Es la parte que quedó en pie de la organización que los compañeros de Barcelona desarticularon hace unos días: captaban chicas de pueblo con ofertas de trabajo de noche, piso pagado y «no se lo digas a tu familia». Un joven de 22 años, vecino de Olot, habría ayudado a localizarla a cambio de saldar una deuda con ellos. No daré más detalles sobre él.
 
-        No llegamos a tiempo al cráter, y todavía no hemos llegado hasta ella. Seguiremos buscando.
+        Hemos alertado a la frontera, a la policía francesa y a Europol. Ella mide 1,66, es delgada, tiene el pelo castaño oscuro y largo, y lleva una pulsera roja de hilo en la muñeca izquierda. Si han visto una furgoneta blanca con una chica así, llamen al 112. A cualquier hora.
+
+        Y a las chicas que nos escuchan: si alguien os ofrece trabajo en Barcelona, con piso pagado, y os pide que no lo contéis en casa, contadlo. Contádnoslo a nosotros.
+
+        Paramos lo del cráter. A ella no llegamos a tiempo. Es responsabilidad mía.
+    """.trimIndent(), "D7 06:31"),
+    CaseEnding(6, "Entregada y sola", EndingTier.Bad, "CERRADO\nSIN ÉXITO", """
+        Comisaría de Olot. Comparecencia ante los medios, 12:00.
+
+        Buenos días. Soy la sargento Laia Puig, de los Mossos d'Esquadra de Olot. Leeré una declaración. No responderé preguntas.
+
+        Hace ocho días, A. S. V., una joven de 18 años vecina de L'Hostalnou de Bianya, se fue de su casa para huir de un grupo al que pertenece su familia, la Associació Comunitat Rosa d'Abril, que se presentaba como un grupo de apoyo al duelo. Se escondió en una masía de Sant Salvador de Bianya, en casa de una vecina de 78 años.
+
+        Allí la han encontrado otros antes que nosotros. Dos hombres en una furgoneta blanca y un joven en moto se la llevaron por la fuerza. La vecina está herida leve. La furgoneta pasó por la N-260 en dirección a Figueres. Después, nada.
+
+        Creemos que se la ha llevado una red de trata de personas: la parte que quedó en pie de la organización que los compañeros de Barcelona desarticularon hace unos días. Un joven de 22 años, vecino de Olot, habría ayudado a localizarla a cambio de saldar una deuda con ellos. No daré más detalles sobre él. Hemos alertado a la frontera, a la policía francesa y a Europol.
+
+        Esta madrugada, además, ese grupo ha celebrado una ceremonia al amanecer en la ermita del cráter de Santa Margarida, en Santa Pau. Los participantes llevaban días en ayunas y bebieron un agua que repartía el grupo. A las 6:45 los servicios de emergencia han subido al cráter. Once personas han sido trasladadas al Hospital d'Olot con síntomas de intoxicación. Entre ellas, la madre de la joven, de 52 años, y su hermana, de 24. Están vivas. Su pronóstico es reservado.
+
+        El responsable del grupo, I. C. F., de 61 años, vecino de Sant Joan les Fonts, no ha sido localizado. Hace once años ya fue detenido por la muerte de una mujer de 34 años en un retiro idéntico, en la misma ermita. Mide 1,74, es delgado, tiene el pelo y la barba blancos y conduce un Seat gris.
+
+        La joven mide 1,66, es delgada, tiene el pelo castaño oscuro y largo, y lleva una pulsera roja de hilo en la muñeca izquierda. Si han visto a cualquiera de ellos, o una furgoneta blanca con una chica así, llamen al 112. A cualquier hora.
+
+        Esta comisaría tuvo una semana. No llegamos ni al cráter ni a ella. La responsabilidad es mía. Lo siento.
     """.trimIndent(), "D7 06:45"),
 )
 

@@ -37,7 +37,8 @@ Debajo de cada imagen hay un **prompt de una línea**, en inglés (casi todas la
 - [ ] `audio/rosalia.m4a`: D4, Rosalia (~45 s). 🔎 Que se oigan «la nena», el pan, la perra Trufa y «la puerta azul»
 - [ ] `audio/berta.m4a`: D5, Berta (~25 s). Eco, mantra de fondo y una vela; que la consigna de la rosa se entienda
 - [ ] `audio/iris.m4a`: D6, Iris (~50 s). Susurro, grifo, pasos. Que se oigan claros «seis y media», «cráter de Santa Margarida» y «agua de luz»
-- [ ] `audio/alicia_final.m4a`: D7, Alicia (~30 s). Coche patrulla, radio policial, la perra. Sirve para el final bueno y para el agridulce
+- [ ] `audio/alicia_ubicacion.m4a`: D5 noche, Alicia por el prepago (~25 s). Susurro, viento, la perra. Que se oigan claros «Mas de la Rosalia», «desvío de Sant Salvador», «puerta azul» y «pozo»
+- [ ] `audio/alicia_final.m4a`: D7, Alicia (~30 s). Sitio cerrado, radio policial bajita, la perra; sin motor ni viento, para que valga en el coche patrulla, en comisaría o junto al cráter. Sirve para los finales 1, 2 y 3
 - [ ] `audio/guia_final.m4a`: D7, Ignasi (~20 s). Viento y pájaros; solo en el final malo
 
 ## 2. Galería de Alicia (`multimedia/`)

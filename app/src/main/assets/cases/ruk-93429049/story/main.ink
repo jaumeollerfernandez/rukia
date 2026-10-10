@@ -52,6 +52,11 @@ VAR dani_avisado = false     // Dani ya ha contado lo del registro (para no repe
 VAR dani_detenido = false    // el jugador mandó detener e interrogar a Dani (envio_detencion_dani)
 VAR dani_creido = false      // tras la confesión, el jugador le cree: lo sueltan y cuenta lo que vio
 VAR dani_no_creido = false   // no le cree: Barcelona se lo lleva y el coche de la noche hace el traslado
+// La deuda de Dani: la red de Barcelona le perdona la deuda si les entrega a Alicia. Desde el D4 pregunta por ella en todo el valle.
+VAR sabe_dani_busca = false  // alguien le ha dicho a Alicia que Dani va preguntando por ella
+VAR dani_frenado = false     // detenido (Laia o la operación del D6) o Alicia avisada: la entrega pasa de D6 19:00 a D7 04:00
+VAR alicia_avisada = false   // el jugador le ha dicho a Alicia, por el prepago, que Dani la busca
+VAR alicia_entregada = false // Dani y la red se la han llevado: finales 5 y 6, pase lo que pase después
 VAR llamada_rosalia_contestada = false // lo pone la app cuando el jugador atiende o rechaza una llamada de ese chat
 VAR sabe_prepago = false     // Mireia: Alicia compró un móvil barato en un estanco de Olot
 
@@ -80,6 +85,8 @@ VAR secta_a_capsec = false   // le has mandado a Laura (y a la secta) a Capsec
 VAR patrulla_en_mas = false   // Laia ha mandado agentes al mas de la puerta azul
 VAR vigilancia_crater = false // habrá agentes en el cráter de Santa Margarida al amanecer
 VAR alicia_a_salvo = false    // Alicia ha bajado con la patrulla
+VAR llamada_desconocido_contestada = false // lo pone la app cuando el jugador atiende o rechaza la llamada del prepago
+VAR alicia_llamo = false      // con confianza 3, Alicia dio la ubicación exacta por teléfono (D5 noche): Laia la saca esa noche
 VAR iris_ayuda = false        // Iris va a declarar a los Mossos
 VAR caso_resuelto = false     // lo activa la app de Policía si el jugador acierta la pregunta antes del límite
 // Fichas policiales (app Policía): las pone la app cuando el jugador lee la ficha que pidió (ver police/records.json).
@@ -179,13 +186,19 @@ INCLUDE silvia.ink
 -> DONE
 
 // Finales (D7, a las 06:30). Se evalúan entonces, así que cuentan las decisiones hasta el último momento.
-// Alicia está a salvo: bajó con la patrulla, hay agentes en el mas o el jugador resolvió el caso.
+// Alicia está a salvo: bajó con la patrulla, hay agentes en el mas o el jugador resolvió el caso. Nada de eso cuenta si
+// la red ya se la había llevado.
 === function rescatada() ===
-~ return alicia_a_salvo or patrulla_en_mas or caso_resuelto
+~ return (alicia_a_salvo or patrulla_en_mas or caso_resuelto) and not alicia_entregada
 
-// La secta la ha encontrado antes que la policía.
+// La secta la ha encontrado antes que la policía (y antes que Dani: si la familia sabe dónde está, Dani llega tarde).
 === function capturada() ===
-~ return secta_sabe_rosalia and not rescatada()
+~ return secta_sabe_rosalia and not rescatada() and not alicia_entregada
+
+// Dani y la red pueden llevársela: nadie la ha rescatado y la familia no sabe dónde está. Lo comprueba Laia a la hora
+// de la entrega: D6 19:00 (durante el apagón), o D7 04:00 si se frenó a Dani.
+=== function a_merced_de_dani() ===
+~ return not rescatada() and not secta_sabe_rosalia and not alicia_entregada
 
 // La ceremonia se para: hay agentes en el cráter o Iris ha declarado.
 // Alguien ha descubierto que no eres Alicia y deja de hablarte.

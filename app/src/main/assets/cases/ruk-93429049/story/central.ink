@@ -56,6 +56,7 @@ Sin saber cuál es, así no llegamos. Volvemos. #delay: 20
 
 === envio_mas ===
 {dani_no_creido: -> sin_coche}
+{alicia_entregada: -> mas_vacio}
 ~ patrulla_en_mas = true
 Unidad en camino al Mas de la Rosalia, en la subida a Bracons. #delay: 5
 Ya estamos allí. #delay: 2400
@@ -73,6 +74,16 @@ Recibido. Con lo de los papeles y el «tránsito», fiscalía nos da gente. #del
 A las cinco estaremos en el cráter de Santa Margarida. Sin uniforme. La sargento Puig viene con nosotros. #delay: 10
 -> DONE
 
+// La red ya se la ha llevado (laia.entrega_tarde): llegan a un mas sin Alicia.
+=== mas_vacio ===
+Unidad en camino al Mas de la Rosalia, en la subida a Bracons. #delay: 5
+Ya estamos allí. #delay: 2400
+Puerta azul. Un pozo delante. La puerta, abierta. #delay: 5
+Rosalia Masó, sentada en la cocina con una brecha en la frente. La perra, tumbada a sus pies, cojeando. #delay: 8
+En el camino, marcas de una furgoneta y de una moto. Y una pulsera roja de hilo, rota, en el barro. #delay: 8
+Llegamos tarde. La bajamos al hospital. #delay: 5
+-> DONE
+
 // Si el jugador no creyó a Dani, el coche de la noche está trasladándolo a Barcelona.
 === sin_coche ===
 Negativo. El coche de la noche está en la AP-7, trasladando a Daniel Rius a Barcelona por orden de fiscalía. #delay: 30
@@ -83,17 +94,20 @@ No podemos ir. #delay: 5
 // Creerle: lo sueltan y le cuenta a Alicia lo que vio siguiéndola (dani.liberado). No creerle: Barcelona se lo lleva
 // y el coche de la noche hace el traslado (sin_coche).
 === envio_detencion_dani ===
+{dani_detenido: -> ya_detenido}
 ~ dani_detenido = true
+// Detenerlo no impide la entrega, la retrasa a la madrugada del D7 (laia.entrega_madrugada).
+~ dani_frenado = true
 Unidad en camino a casa de Daniel Rius, en Olot. Al lado de la gasolinera. #delay: 5
 Lo tenemos. Ha intentado salir por la ventana del baño. En la moto, una báscula y 300 € sueltos. #delay: 1500
 En comisaría. La sargento Puig lo interroga. #delay: 600
 Transcripción de la sargento: #delay: 1200
-«Lo de Barcelona era verdad. El curro de Iker es una mierda de curro, pero legal. Puerta y reservados en un club.» #delay: 5
-«Yo me iba a mudar allí. Quería que se viniera. Lejos de su madre, de Pol, de todo el mundo. Conmigo.» #delay: 6
+«Yo me iba a mudar a Barcelona. Quería que se viniera. Lejos de su madre, de Pol, de todo el mundo. Conmigo.» #delay: 5
 «Le dije que no se lo contara a nadie porque su madre no la habría dejado. No para hacerle nada.» #delay: 6
-«No sé dónde está. Si lo supiera, ya habría ido yo.» #delay: 5
-En su móvil, un chat con Iker: «si la convences, la habitación es para ella. tú te encargas». #delay: 8
-Y una carpeta con fotos de Alicia. Hechas de lejos, en la calle. Ella no sabía que se las hacía. #delay: 6
+«No sé dónde está. Os lo juro. No sé dónde está.» #delay: 5
+Lo repite tres veces. Le tiemblan las manos. #delay: 5
+En su móvil, un chat con Iker: «si la encuentras, la deuda queda saldada. tú te encargas». #delay: 8
+Y una carpeta con fotos de Alicia. Hechas de lejos, en la calle. Se las mandó a Iker hace dos días. #delay: 6
 Barcelona confirma que el club sale en la investigación de la red. Iker no está imputado. De momento. #delay: 6
 La sargento pregunta: ¿le creemos? #delay: 10 #caduca: D7 04:00
 * [Le creo. Es un posesivo, no un tratante. Soltadlo.]
@@ -106,6 +120,11 @@ La sargento pregunta: ¿le creemos? #delay: 10 #caduca: D7 04:00
 * [(sin responder)]
     Sin orden. Lo retenemos hasta mañana y que decida el juez. #delay: 1
 - -> DONE
+
+// Laia ya lo detuvo desde la consulta (dani_frenado). La salida se gasta igual: la app no sabe que ya está detenido.
+=== ya_detenido ===
+Negativo. Daniel Rius ya está en los calabozos de esta comisaría, a disposición judicial. #delay: 30
+-> DONE
 
 // Pista falsa: el refugio del esplai. Alguien ha dormido allí, pero no Alicia (Biel y su novia).
 === envio_capsec ===

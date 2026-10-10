@@ -48,8 +48,12 @@ Tú sabrás lo que haces. Pero ten cuidado #delay: 5
 }
 -> d6
 
+// D6: Dani también ha pasado por el Forn (la deuda de Dani, PISTAS.md).
 = d6
-// D6: nada.
+Nena, ha venido ese chico de la moto. El Dani #at: D6 07:40
+~ sabe_dani_busca = true
+Quería saber a quién le subías el pan. Le he dicho que a nadie #delay: 5
+Tenía un ojo morado y no paraba de mirar el móvil. Ten cuidado #delay: 5
 -> d7
 
 = d7

@@ -322,7 +322,13 @@ Mañana es el día. Duerme algo. #delay: 3
 // D6: el jugador decide dónde van los agentes desde la app de Policía (police/actions.json).
 // Los informes llegan al chat «Central» (central.ink) y activan patrulla_en_mas / vigilancia_crater.
 = d6
+// Si Alicia dio la ubicación por teléfono (desconocido.tras_llamada, D5 noche), Laia la saca de madrugada.
+#at: D6 01:30
+{alicia_llamo: -> rescate_llamada ->}
 Hoy es el día. #at: D6 08:00
+{alicia_llamo:
+    Alicia duerme en el sofá de mi despacho. Y el cráter, cubierto. #delay: 4
+}
 Tengo dos agentes y un coche hasta mediodía. Y otra salida esta noche, la última. #delay: 4
 Ya tienes acceso a la app de la Policía. Desde ahí decides adónde van. #delay: 5
 Los informes te llegarán por el canal de la Central. Una salida, un sitio. Elige bien. #delay: 4
@@ -332,8 +338,10 @@ Los informes te llegarán por el canal de la Central. Una salida, un sitio. Elig
 ⚠️ Conexión perdida con el terminal. #at: D6 18:00 #effect: blackout
 ✅ Conexión restablecida. #at: D6 22:00
 Cuatro horas a oscuras. ¿Sigues ahí? #at: D6 22:05
+// La entrega: si nadie ha frenado a Dani y Alicia sigue sola en el mas, se la llevaron durante el apagón.
+{not dani_frenado and a_merced_de_dani(): -> entrega_tarde ->}
 Queda la última salida. Al amanecer solo podemos estar en un sitio. #delay: 5
-{patrulla_en_mas:
+{patrulla_en_mas and not alicia_llamo:
     El agente sigue en el mas, vigilando el camino. A ese no lo muevo. #delay: 4
 }
 Tú decides, desde la app. Yo iré con ellos. #delay: 4
@@ -343,6 +351,15 @@ Mañana amanece. #delay: 3
 // D7: el amanecer. Todo se resuelve a las 06:30 (ver las funciones del final de main.ink).
 // Cada final pone `final_caso` y su última línea lleva `#effect: case_closed`: cuando llega, el juego cierra el caso y abre el informe.
 = d7
+// Con Dani frenado, la red no llega hasta la madrugada: la salida de la noche aún podía salvarla.
+{dani_frenado and not alicia_entregada:
+    Las cuatro. Le he pedido a Tráfico que me avise de cualquier coche que baje del valle. #at: D7 04:00
+    {a_merced_de_dani():
+        -> entrega_madrugada ->
+    - else:
+        De momento, nada. #delay: 3
+    }
+}
 {vigilancia_crater:
     En posición en el cráter. Niebla. No se ve ni la ermita. #at: D7 05:10
     Suben linternas por el sendero. Diez, doce personas. Todas de blanco. #at: D7 06:05
@@ -357,7 +374,7 @@ Mañana amanece. #delay: 3
 - familia_salvada() and (rescatada() or capturada()): -> final_bueno
 - rescatada(): -> final_alicia_sola
 - capturada(): -> final_malo
-- else: -> final_escondida
+- else: -> final_entregada
 }
 
 // Alicia a salvo y la ceremonia parada. Si la secta la había encontrado, la rescatan en el mismo cráter.
@@ -366,10 +383,13 @@ Mañana amanece. #delay: 3
 06:31. Entramos. #at: D7 06:31
 Ignasi Coll, detenido. Las botellas, requisadas. Ya veremos qué llevaban. #delay: 30
 Montse y Berta están bien. Asustadas. Berta grita que les hemos robado la luz. #delay: 8
-{capturada():
+{
+- capturada():
     ~ final_caso = 2
     Y entre ellos estaba Alicia. La traían de la mano su madre y su hermana, con la ropa blanca encima del jersey. #delay: 10
     Está bien. Temblando, pero bien. #delay: 4
+- alicia_llamo:
+    Y Alicia lo ha visto amanecer desde la ventana de mi despacho, con una manta y una perra que no se separa de ella. #delay: 10
 - else:
     Y Alicia está en el coche patrulla de Bianya, con una manta y una perra que no se separa de ella. #delay: 10
 }
@@ -399,20 +419,75 @@ No sabemos dónde están. Ni Montse, ni Berta, ni Alicia. #delay: 6
 Lo siento. #delay: 10 #effect: case_closed
 -> fin
 
-// Nadie la encontró: ni la policía ni la secta. Sigue escondida en el bosque.
-= final_escondida
+// Dani dio con ella y la red se la llevó (entrega_tarde o entrega_madrugada). Si se paró la ceremonia, la familia al menos está a salvo.
+= final_entregada
 {familia_salvada():
     ~ final_caso = 5
     06:31. Entramos. Ignasi Coll, detenido. Montse y Berta, a salvo. #at: D7 06:31
-    De Alicia, nada. Sigue escondida en algún sitio del valle. #delay: 8
-    Si te escribe, dile que ya puede volver. #delay: 5 #effect: case_closed
+    Montse no deja de preguntar por Alicia. No sé qué decirle. #delay: 8
 - else:
     ~ final_caso = 6
     Hay ambulancias en el cráter. Muchas. #at: D7 06:45
     Su madre y su hermana están entre los que se han llevado al hospital. Vivas. De momento. #delay: 10
-    Y Alicia sigue en algún sitio del valle. Sola. #delay: 6 #effect: case_closed
 }
+De Alicia, nada. La furgoneta no ha vuelto a aparecer. La policía francesa la busca también. #delay: 8
+{dani_detenido and not dani_creido:
+    Dani Rius sigue en el calabozo. Ahora habla, y no para. Demasiado tarde. #delay: 8
+- else:
+    Y Dani Rius tampoco. Su moto está en la gasolinera de Olot, con las llaves puestas. #delay: 8
+    Les pagó con ella. Y esa gente no deja cabos sueltos. #delay: 6
+}
+Lo siento. #delay: 10 #effect: case_closed
 -> fin
+
+// Alicia dio la ubicación exacta por teléfono. Laia escucha la grabación, la saca esa misma madrugada sin gastar salida
+// y Alicia se lo cuenta todo: la secta, sus planes y la ceremonia. Con su declaración, fiscalía da gente para el cráter.
+= rescate_llamada
+~ patrulla_en_mas = true
+~ alicia_a_salvo = true
+He escuchado la llamada del prepago. La graba la Central. #delay: 4
+El Mas de la Rosalia. Pasado el desvío de Sant Salvador, puerta azul y un pozo. #delay: 5
+Mando el coche de guardia. Ahora. Sin sirenas, como ha pedido. #delay: 5
+La tenemos. Estaba en el pozo de detrás de la casa, con la perra. Helada, pero bien. #delay: 2400
+La traigo a comisaría. #delay: 5
+Me lo ha contado todo. #delay: 3600
+~ sabe_secta = true
+No huía de un chico ni de las drogas. Huía de su madre y de su hermana. Y de Rosa d'Abril. #delay: 5
+No es un grupo de duelo. Ayunos «solidarios». Un agua que les da la Casa y que nadie sabe qué lleva. #delay: 6
+Papeles para que no las reanimen. Testamentos a favor de la asociación. Su madre y su hermana ya los han firmado. #delay: 6
+~ sabe_ignasi = true
+Al frente, Ignasi Coll. El de la barba blanca. El que acompaña a su madre a todas partes. #delay: 5
+Mañana, al alba, la «Trobada de l'Alba» en el cráter de Santa Margarida. La séptima alba desde que murió la yaya. #delay: 6
+«Solo familias completas». Por eso la buscaban. Iban a subir con ella o sin ella. #delay: 5
+~ vigilancia_crater = true
+Con su declaración, fiscalía me da gente. Al amanecer estaremos en el cráter. #delay: 6
+Las dos salidas de mañana siguen siendo tuyas. Gracias, Kimo. #delay: 4
+->->
+
+// La red se lleva a Alicia durante el apagón (D6 19:20). Laia lo cuenta al volver la conexión.
+= entrega_tarde
+~ alicia_entregada = true
+Mientras estabas a oscuras, el 112 ha recibido una llamada desde un fijo de Sant Salvador. A las 19:20. #delay: 4
+Una anciana. Rosalia Masó. Que se han llevado a «la nena». #delay: 5
+Un chico en moto y dos hombres en una furgoneta blanca. A ella la han tirado al suelo. A la perra, una patada. #delay: 6
+La moto es de Dani Rius. #delay: 5
+La furgoneta pasó por la N-260 hacia Figueres a las 20:05. Después, nada. He avisado a la frontera y a todas las policías. #delay: 6
+A Alicia ya no la podemos ayudar desde aquí. A su madre y a su hermana, todavía sí. #delay: 5
+->->
+
+// Con Dani frenado, la red tarda más: se la lleva de madrugada, si para entonces nadie la ha sacado de allí.
+= entrega_madrugada
+~ alicia_entregada = true
+04:20. Una furgoneta blanca sin luces ha bajado por la pista de Sant Salvador. Detrás, una moto. #delay: 1200
+Cuando Tráfico ha llegado al cruce, ya no estaban. #delay: 5
+Rosalia Masó ha llamado al 112. Se han llevado a «la nena» mientras dormía. #delay: 5
+{dani_detenido and not dani_creido:
+    Dani está en el calabozo. Lo que había averiguado ya se lo había contado a Iker. #delay: 5
+- else:
+    La moto era de Dani Rius. #delay: 5
+}
+He avisado a la frontera. #delay: 4
+->->
 
 // Tras cada parte: una comprobación para el día siguiente. Solo una por noche, y cada pregunta se puede hacer una vez.
 // Las opciones salen según lo que el jugador haya averiguado en otros chats. [limite]: hasta cuándo espera Laia.
@@ -445,6 +520,19 @@ Lo siento. #delay: 10 #effect: case_closed
     }
     La noche que ella se fue, pagó con tarjeta en Barcelona a las 23:50 y a las 02:10. La segunda, en un club del Port Olímpic. #delay: 5
     Aquí no estaba, no. Pero en Barcelona sí. La misma noche que el billete de ella. #delay: 4
+// La deuda de Dani (solo si sabe que vende y tiene la matrícula del Audi): Laia lo detiene sin gastar salida. No impide la
+// entrega, la retrasa a la madrugada del D7 (dani_frenado).
+* {dani_droga and sabe_audi and dia >= 4 and not dani_detenido} [Dani vende para los del Audi negro de Andorra, el que acaba en 7731. Le reclaman dinero. Detenlo.]
+    ~ dani_detenido = true
+    ~ dani_frenado = true
+    Audi negro, matrícula andorrana acabada en 7731. A nombre de una sociedad de Andorra la Vella. #delay: 300
+    Sale en la investigación de Barcelona. En la parte de la red que no cayó. #delay: 5
+    Por tráfico de drogas lo puedo tener setenta y dos horas. Voy a por él. #delay: 5
+    Detenido. Dice que no sabe nada de Alicia. Miente fatal. #delay: 1200
+    En su móvil, fotos de ella hechas de lejos. Se las mandó a Iker hace dos días. #delay: 5
+    Y una búsqueda en el mapa: «masies sant salvador de bianya». #delay: 5
+    No habla. Le dan más miedo los del Audi que yo. #delay: 5
+    Sin él, a quien sea que esté buscándola le costará más. No mucho más. #delay: 6
 * {sabe_girona and not girona_descartado} [Mira si Alicia fue a una clínica de Girona hace unos días.]
     Datos clínicos, ni con orden tan rápido. Pero la cámara de la entrada del centro de salud sexual de Girona, sí. #delay: 400
     Hace nueve días, 10:12. Alicia entra con otra chica, con capucha. Salen juntas a las 12:40. #delay: 5

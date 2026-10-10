@@ -38,6 +38,11 @@ Alicia, ¿cuento contigo el sábado? #from: lluisa #at: D3 19:00 #caduca: D4 19:
 
 = d5
 Hoy 71 lotes. ¡Récord! Gracias, equipazo 🥫 #from: lluisa #at: D5 15:30
+// La deuda de Dani: va preguntando por Alicia (PISTAS.md). Toni es el primero que lo cuenta.
+Oye, Alicia, por si lees esto. Esta mañana un chaval en moto me ha parado en el almacén #from: toni #at: D5 16:10
+Preguntaba a qué masías subías tú los lotes. Que era tu novio, que estaba preocupado #from: toni #delay: 6
+~ sabe_dani_busca = true
+No le he dicho nada. No me ha gustado cómo miraba la furgoneta #from: toni #delay: 5
 -> d6
 
 = d6

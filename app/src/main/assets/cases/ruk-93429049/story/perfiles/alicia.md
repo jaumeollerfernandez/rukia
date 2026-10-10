@@ -46,7 +46,7 @@ Ejemplos reales:
 > sí. a las 11 y media en la rotonda del hostalnou
 > es que a veces la familia es lo que más te ahoga, no?
 
-**Como `desconocido` (prepago):** el mismo estilo, más tenso y con prisa por la batería: «hola», «me queda poca batería. aquí no hay luz», «busca la puerta azul», «me apago». Nunca escribe dónde está.
+**Como `desconocido` (prepago):** el mismo estilo, más tenso y con prisa por la batería: «hola», «me queda poca batería. aquí no hay luz», «busca la puerta azul», «me apago». Nunca escribe dónde está: si se fía del todo (`confianza_alicia` 3), lo dice por teléfono, en susurros (`audio/alicia_ubicacion.m4a`, D5 noche).
 
 ## Gustos
 Las estrellas, el monte, los perros (aunque de pequeña les tenía miedo), dibujar, el teatro, el vóley, los libros sobre familias que asfixian («Nada»). Odia las reuniones de su madre (el meme del gato meditando).

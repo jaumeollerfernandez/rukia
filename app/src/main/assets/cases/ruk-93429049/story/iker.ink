@@ -1,7 +1,8 @@
 // Iker, 27, relaciones públicas de un club del Port Olímpic (Barcelona). Amigo de Dani. Número oculto: aparece el D2.
-// Pista falsa: todo en él suena a la red de trata que investiga Barcelona (piso pagado, «trae el DNI», te recojo en Nord,
-// «mejor no lo comentes en casa»). Pero el trabajo es real y legal, aunque cutre. El que tenía un plan para Alicia era Dani:
-// le pasó su número (D-15) para llevársela a Barcelona, con él. Iker solo quería llenar la puerta del club.
+// Hasta el D3 todo en él suena a la red de trata que investiga Barcelona (piso pagado, «trae el DNI», te recojo en Nord,
+// «mejor no lo comentes en casa»), y parece una pista falsa: el plan para Alicia era de Dani. Pero es verdad a medias:
+// Iker es el contacto de Dani con la parte de la red que no cayó. Cuando Dani no puede pagar su deuda, Iker le presenta
+// a los del Audi, les pasa las fotos de Alicia y le escribe a ella para «ayudar a encontrarla» (D5-D6).
 
 === iker ===
 -> historial
@@ -35,23 +36,44 @@ hoy ha venido la policía al club. nada que ver contigo eh, cosas de licencias #
 si alguien te pregunta por mí, no me conoces 🙈 #delay: 6
 -> d4
 
+// Ya sabe lo de la deuda. Ahora la busca para la red, con buenas palabras.
 = d4
 alicia, una cosa #at: D5 01:10
-dani está rarísimo. dice que si no vienes es por culpa de un tal pol #delay: 5
-yo paso de líos. si no vienes dímelo y le doy la habitación a otra #delay: 6 #caduca: D5 14:00
+dani está rarísimo. está muy preocupado por ti 🙈 #delay: 5
+si estás en algún sitio y necesitas salir, yo te mando a alguien. sin preguntas #delay: 6
+solo dime por qué zona estás 😊 #delay: 4 #caduca: D5 14:00
+* [por qué te importa dónde estoy?]
+    ~ sabe_dani_busca = true
+    porque dani me lo ha pedido. está desesperado, guapa #delay: 600
+    te busca por todo el valle. pregunta a todo el mundo #delay: 5
+    yo solo quiero ayudar 😘 #delay: 4
 * [no voy a ir]
     vale guapa. suerte 😘 #delay: 600
 * [(sin responder)]
-- -> d7
+- -> d6
 
+// La víspera de la entrega: aprieta.
+= d6
+#at: D6 10:30
+{dani_detenido and not dani_creido: -> d7}
+guapa
+la habitación ya está lista. y dani también 😉 #delay: 5
+esta tarde paso por la zona. si me dices dónde estás, te recojo yo mismo #delay: 6
+nadie de tu familia se va a enterar #delay: 4
+-> d7
+
+// Si ya se la han llevado, el número deja de existir: no vuelve a escribir.
 = d7
+#at: D7 09:00
 {
+- alicia_entregada:
+    -> DONE
 - dani_no_creido:
-    se han llevado a dani a barcelona. dicen que por lo de la red del puerto #at: D7 09:00
-    yo solo le iba a dar curro a una chica. te lo juro #delay: 6
-    el club está limpio. que miren lo que quieran #delay: 5
+    se han llevado a dani a barcelona. dicen que por lo de la red del puerto
+    yo no sé nada de esa gente. te lo juro #delay: 6
+    si alguien te pregunta por mí, no me conoces #delay: 5
 - dani_detenido:
-    me han llamado los mossos por dani #at: D7 09:00
-    le he dicho la verdad. que él quería que vinieras. yo solo tenía una habitación #delay: 6
+    me han llamado los mossos por dani
+    les he dicho que yo solo tenía una habitación. que miren lo que quieran #delay: 6
 }
 -> DONE

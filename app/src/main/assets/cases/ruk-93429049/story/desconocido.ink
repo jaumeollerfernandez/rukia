@@ -64,6 +64,18 @@ mañana a esta hora. si puedo #delay: 4 #caduca: D5 01:00
 * [(sin responder)]
 - -> d5
 
+// Si cogió la llamada, Laia tiene la ubicación. Si no, solo la puerta azul.
+= tras_llamada
+{llamada_desconocido_contestada:
+    ~ alicia_llamo = true
+    ya está. ya lo sabes #delay: 10
+    que vengan sin sirenas. y que no se lo digan a mi madre #delay: 5
+- else:
+    vale. no puedes hablar #delay: 10
+    busca la puerta azul. es lo único que te puedo decir #delay: 5
+}
+->->
+
 = se_va
 vale #delay: 20
 entonces eres de ellos #delay: 4
@@ -84,11 +96,22 @@ si vienen, me escondo en el bosque. me lo conozco #delay: 6 #caduca: D6 01:00
     {confianza_alicia >= 3:
         ~ sabe_puerta_azul = true
         no lo puedo escribir. si mi madre lee mi móvil, lo lee también #delay: 60
-        busca la puerta azul #delay: 5
+        te llamo. cógelo #delay: 5
+        // Con confianza máxima, da la ubicación exacta por teléfono (audio). Laia la escucha y la saca esa noche (laia.rescate_llamada).
+        📞 #delay: 20 #call: audio/alicia_ubicacion.m4a
+        -> tras_llamada ->
     - else:
         no. lo siento #delay: 60
         aún no me fío de nadie #delay: 4
     }
+// Avisarla de Dani: se esconde cuando suba la moto y la entrega se retrasa a la madrugada (dani_frenado).
+* {sabe_dani_busca} [Dani te está buscando. Pregunta por ti en todo el valle. Si oyes una moto, escóndete.]
+    ~ alicia_avisada = true
+    ~ dani_frenado = true
+    dani? #delay: 40
+    debe dinero a gente de barna. se lo oí una noche, hablando por teléfono #delay: 6
+    vale. hay un pozo seco detrás de la casa. la rosalia lo tapa con leña #delay: 6
+    si oigo una moto, me meto ahí #delay: 4
 * [¿Tu madre y tu hermana irán a la ceremonia?]
     sí. vestidas de blanco #delay: 40
     por eso no basta con encontrarme. hay que pararlo #delay: 5
@@ -100,23 +123,32 @@ si vienen, me escondo en el bosque. me lo conozco #delay: 6 #caduca: D6 01:00
 = fin_d5
 -> d6
 
+// Todo se decide a las 23:50: si la red ya se la ha llevado (laia.entrega_tarde), el prepago calla.
 = d6
 {confianza_alicia < 1: -> fin_d6}
+#at: D6 23:50
+// Ya está en comisaría desde la madrugada (laia.rescate_llamada): no hace falta que escriba.
+{alicia_entregada or alicia_llamo: -> fin_d6}
 {patrulla_en_mas:
-    han venido dos mossos #at: D6 23:50
+    han venido dos mossos
     les he visto desde el bosque. no he bajado #delay: 5
     los has mandado tú? #delay: 4 #caduca: D7 02:00
     -> pregunta_mossos
 }
 {secta_sabe_rosalia:
-    están aquí #at: D6 23:50
+    están aquí
     la furgoneta. abajo, en el camino. berta está dentro #delay: 5
     estoy en el bosque. hace mucho frío #delay: 6
     me queda un 1 % #delay: 4
     si no escribo más... #delay: 10
     -> fin_d6
 }
-mañana amanece #at: D6 23:50
+{alicia_avisada:
+    esta tarde ha subido una moto. era dani #delay: 1
+    me he metido en el pozo. le he oído preguntarle a la rosalia por «la nena» #delay: 8
+    ella le ha dicho que vive sola. se ha ido. pero ha dicho que volvería #delay: 6
+}
+mañana amanece #delay: 5
 ojalá no #delay: 5
 -> fin_d6
 
@@ -133,39 +165,13 @@ ojalá no #delay: 5
 = fin_d6
 -> d7
 
+// Si la rescataron, escribe desde comisaría. Si se la llevó la familia o la red, el prepago no vuelve a encenderse.
 = d7
-{
-- alicia_a_salvo or patrulla_en_mas:
+#at: D7 06:20
+{rescatada():
     estoy en comisaría. me han dejado cargar el móvil 😅 #at: D7 09:30
     mamá y berta están... {familia_salvada(): bien. en otra sala. no me dejan verlas aún | en el hospital} #delay: 8
     gracias. de verdad #delay: 10
     algún día me dirás cómo te llamas? #delay: 5
-    -> DONE
-- capturada():
-    // El prepago murió en el bosque.
-    -> DONE
-- confianza_alicia >= 1:
-    está amaneciendo #at: D7 06:20
-    desde aquí se ve todo el valle #delay: 6
-    -> escondida_final
-- else:
-    -> DONE
 }
-
-= escondida_final
-{familia_salvada(): -> se_ha_acabado}
-hay ambulancias en el cráter. lo veo desde aquí #at: D7 07:30
-mamá #delay: 20
 -> DONE
-
-= se_ha_acabado
-he visto en gonpi coches de policía en el cráter #at: D7 07:30
-es verdad? se ha acabado? #delay: 5 #caduca: D7 23:59
-* [Es verdad. Tu madre y tu hermana están a salvo. Ya puedes bajar.]
-    ~ caso_resuelto = true
-    ... #delay: 60
-    voy a bajar #delay: 5
-    gracias #delay: 4
-* [(sin responder)]
-    me quedo un poco más. por si acaso #delay: 1
-- -> DONE

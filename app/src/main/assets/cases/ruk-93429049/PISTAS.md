@@ -62,6 +62,7 @@ Laia ya no reconoce el nombre «Rosa d'Abril» el D1: un grupo de duelo no es de
 | 🔎 Llamada de Rosalia, fijo de Sant Salvador | Rosalia, Laia | D4 |
 | 🔎 Alicia desde el prepago: antena de Bracons, puerta azul | Desconocido, Laia | D4-D5 |
 | 🔎 Puerta azul y pozo; la foto «mas de la rosalia» | Núria | D5-D6 |
+| 🔎 Con confianza 3, Alicia llama y da la ubicación exacta. Laia la saca esa madrugada y ella le cuenta la secta y la ceremonia (`alicia_llamo`, FINALES.md pieza I) | Alicia (prepago), Laia | D5 noche |
 
 También en Gonpi (perfiles de los contactos, ver `GONPI.md`): el lomo de «Masies de la Vall de Bianya» (@teresa.llibres), la foto de la coral de 1979 con la yaya Mercè, la Rosalia y la Pepita (@roser.canta) y el dibujo de la Laieta con la perra (@clara.moni, D4). Pista falsa: la «noche épica» de @biel.gg en Can Pericot (D2), que también la descarta si se lee el comentario de Pau.
 
@@ -72,10 +73,27 @@ También en Gonpi (perfiles de los contactos, ver `GONPI.md`): el lomo de «Masi
 | 🎭 **Can Pericot, en Capsec.** El otro mas de una amiga de la yaya (la Pepita, ya muerta), también con la **puerta azul** (la yaya Mercè pintó las dos). Ahora es el refugio del esplai; Alicia tenía llaves, dejó allí una mochila hace un mes (Èric la subió en moto), faltan unas llaves (D3) y Marc ve luz de noche (D4). Teresa y Pol: Alicia miraba autobuses a Camprodon | Gonpi (D-45), esplai, Èric, Marc, Marta, Ramon, Roser, Pol, Teresa, Núria («dos casas») | No tiene **pozo ni perro**. Biel confiesa que la luz eran él y Noa (`descarta_capsec`). Laia: es municipal. La patrulla encuentra «B + N» y la mochila con polvo |
 | 🎭 **La residencia.** Montse dice que la Rosalia está en una residencia de Olot; Ramon, Roser y Marta lo repiten. Alicia buscó la residencia en la biblioteca | Familia (D3), Marta, Ramon, Roser, Teresa | Consulta a Laia o patrulla: nunca ha estado. Sergi: «de aquí me sacarán con los pies por delante» |
 | 🎭 **Ramon cambia los nombres**: la Rosalia en Capsec y la Pepita en Bracons | Ramon | Marta y Laia (Can Pericot era de Josepa Pericot) |
-| 🎭 **Dani.** Chico malote de poca monta: sabe que se ha ido, ronda su calle en moto, tiene un mas «sin cobertura» en la Vall d'en Bas y los rumores dicen que se fue con él a Barcelona. Menudea (costo, hierba, pastillas en el bar), tuvo un tonteo con Alicia (un beso que ella llamó «un error») y la controlaba. D3 noche: unos del bar le reclaman dinero (el «audi negro de Andorra»). D4: confiesa que vende (`dani_droga`) | Dani, Núria, Pol, Carla, Judit, amigas | Su post del concierto (D3) o la consulta a Laia (`dani_descartado`: multa + denuncia archivada por hachís, sin conexión con la desaparición). **Operación `dani_mas`** (D6): el mas del tío de Dani; solo hay hachís y una báscula, y gasta una de las dos salidas (`dani_registrado`: Dani lo comenta) |
-| 🎭 **La red de trata de Barcelona.** Dani le ofreció «curro» en un club del Port Olímpic con su amigo Iker: 1.500 €, piso pagado, «no lo digas en casa», le pagaba el bus (Dani D-15, D-9). Iker le escribe (historial D-14, D2: «trae el dni», «te recojo en nord»; D3: la policía en el club). Laia (D3): Barcelona desarticula una red que capta chicas así y las recoge en Nord. La coartada de Dani lo pone en ese club la noche del billete | Dani, Iker, Laia, Carla («que te has ido a barcelona con el dani») | La cámara de la estación (no subió al bus). **Operación `dani_detencion`** (D6): Dani confiesa que la quería para él, no para la red. El jugador elige: creerle (lo sueltan y da una pista verdadera: la siguió hasta un mas con perra en Sant Salvador) o no (Barcelona se lo lleva y **el coche de la noche hace el traslado**: si queda la última salida, se pierde) |
+| 🎭 **Dani.** Chico malote de poca monta: sabe que se ha ido, ronda su calle en moto, tiene un mas «sin cobertura» en la Vall d'en Bas y los rumores dicen que se fue con él a Barcelona. Menudea (costo, hierba, pastillas en el bar), tuvo un tonteo con Alicia (un beso que ella llamó «un error») y la controlaba. D3 noche: unos del bar le reclaman dinero (el «audi negro de Andorra»). D4: confiesa que vende (`dani_droga`). Que se fuera no tiene que ver con él; lo que hace después, sí (ver «La deuda de Dani») | Dani, Núria, Pol, Carla, Judit, amigas | Su post del concierto (D3) o la consulta a Laia (`dani_descartado`: multa + denuncia archivada por hachís, sin conexión con la desaparición). **Operación `dani_mas`** (D6): el mas del tío de Dani; solo hay hachís y una báscula, y gasta una de las dos salidas (`dani_registrado`: Dani lo comenta) |
+| 🎭 **La red de trata de Barcelona.** Dani le ofreció «curro» en un club del Port Olímpic con su amigo Iker: 1.500 €, piso pagado, «no lo digas en casa», le pagaba el bus (Dani D-15, D-9). Iker le escribe (historial D-14, D2: «trae el dni», «te recojo en nord»; D3: la policía en el club). Laia (D3): Barcelona desarticula una red que capta chicas así y las recoge en Nord. La coartada de Dani lo pone en ese club la noche del billete | Dani, Iker, Laia, Carla («que te has ido a barcelona con el dani») | La cámara de la estación (no subió al bus). Hasta el D3 es despiste: Alicia no se fue con ellos. Desde el D4 se vuelve real (ver «La deuda de Dani») |
 | 🎭 **Girona y la clínica (embarazo).** Carla: la prima de Judit, en una farmacia de Girona, la vio comprar una prueba de embarazo con una chica con capucha. El banco: farmacia de Girona (D-9). Mireia: «si alguien pregunta por girona, no fuimos» (D1). Sergi: «lo de Girona no era asunto tuyo». Núria: fue a Girona hace nueve días. Laia (consulta): la cámara del centro de salud sexual. Jan: el piso vacío de su tío, llaves bajo el felpudo | Carla, Mireia, Sergi, Núria, Jan, banco, Laia | La embarazada era **Mireia** (de Sergi): Alicia la acompañó y le pagó la prueba. El detalle: el **Bizum de 13 € de Mireia** al día siguiente (banco D-8) y que Mireia sea «la de la capucha». **Mireia lo confiesa** solo si el jugador la trata con cuidado (`girona_descartado`); si la presiona, se cierra (`mireia_cerrada`). **Operación `piso_jan`**: una manta, dos tazas y el ticket de la farmacia, de hace nueve días. Nadie ha dormido allí desde entonces. Núria: «a girona no, es lo primero que mirarían» |
 | 🎭 Barcelona, la estación, Pol | Lo que ya había | Laia (cámaras), Pol |
+
+## La deuda de Dani: la trata de verdad (D4-D7)
+
+Hasta el D3, la trata es una pista falsa: Alicia no se fue con Dani ni con Iker. Desde el D4 es la amenaza real de los finales 5 y 6.
+
+| Qué | Dónde | Cuándo |
+|---|---|---|
+| Dani debe 6.000 € a los del Audi andorrano (le pillaron un kilo fiado); son de la parte de la red de Barcelona que no cayó. «me han dado dos días» | Dani | D3 23:40, D4 21:00 |
+| Acorralado, ofrece a Alicia para saldar la deuda. Iker le presenta a la red y les pasa sus fotos | Laia (detención), operación `dani_detencion`: el chat con Iker | D4+ |
+| Pregunta por ella por todo el valle (`sabe_dani_busca`) | Toni en `aliments` (D5 16:10), Pilar (D6 07:40), Èric (D6 09:45) | D5-D6 |
+| Le escribe desesperado: «dime dónde estás», «es mejor que te encuentre yo que otros», «sé que estás por sant salvador» | Dani | D5 23:15, D6 13:00 |
+| Iker, con buenas palabras: «yo te mando a alguien», «esta tarde paso por la zona» | Iker | D5 01:10, D6 10:30 |
+| **La entrega**: Dani y dos hombres en una furgoneta blanca se la llevan del mas (`alicia_entregada`). Rosalia herida, la pulsera roja en el barro | Laia, Central (`mas_vacio`), Dani («perdóname») | D6 19:20, o D7 04:20 con Dani frenado |
+
+- **La secta gana a Dani:** si la familia sabe dónde está (`secta_sabe_rosalia`), no hay entrega.
+- **Frenar a Dani solo retrasa** (`dani_frenado`): Laia lo detiene (consulta D4+, con `dani_droga` y `sabe_audi`, sin gastar salida), la operación del D6, o avisar a Alicia por el prepago (D5 23:30; se esconde en el pozo cuando sube la moto). La entrega pasa a D7 04:20 y la salida de la noche al mas aún la salva.
+- **Dani, en los finales 5 y 6:** desaparece («esa gente no deja cabos sueltos»), salvo si está en el calabozo.
 
 ## Trampas
 
@@ -94,7 +112,7 @@ Señales de que Laura es del Casal: su comentario «cuánto cuesta» en el post 
 
 Dos operaciones nuevas en `police/actions.json`: **Can Pericot** (`envio_capsec`) y **las residencias de Olot** (`envio_residencia`). Las dos son pistas falsas: gastan una de las dos salidas.
 Una tercera operación, **el mas del tío de Dani** (`envio_dani`), también es pista falsa: aparece costo y una báscula, ni rastro de Alicia.
-La cuarta, **detener a Dani** (`envio_detencion_dani`), gasta una salida pero puede devolver una pista verdadera si el jugador le cree. Si no le cree, la operación de la noche (mas, masías o cráter) se queda sin coche.
+La cuarta, **detener a Dani** (`envio_detencion_dani`), gasta una salida pero frena su búsqueda (`dani_frenado`) y puede devolver una pista verdadera si el jugador le cree. Si no le cree, la operación de la noche (mas, masías o cráter) se queda sin coche. Si Laia ya lo detuvo desde la consulta, la salida se gasta para nada.
 
 ## Fichas policiales (app Policía)
 
@@ -113,7 +131,7 @@ Contenido en `police/records.json`: una ficha por cada contacto de la agenda, m�
 | 🔎 **Toni** | Reparte los lotes del Banc d'Aliments los sábados por las masías del valle | Nada |
 | 🔎 **Conxita** | Ha denunciado «una furgoneta que llega de madrugada» a la calle del Pont | Nada |
 | 🎭 **Biel**, **Marc** | Biel tiene llaves de Can Pericot; Marc fue detenido en una tractorada (con reseña en Multimedia) | Ruido: parecen sospechosos |
-| 🎭 **Iker**, **Audi andorrano** | Iker no está imputado y ninguna chica de la Garrotxa sale en la investigación de Barcelona; el Audi va por las deudas de Dani | Descartan la trata |
+| 🔎 **Iker**, **Audi andorrano** | Iker no está imputado, pero llama a menudo a un número de Andorra; la sociedad del Audi sale en las diligencias de Barcelona | Unen la deuda de Dani con la red |
 
 La tapadera se mantiene: ninguna ficha dice «secta». Rosa d'Abril sale como una asociación y lo grave está en el pasado de Ignasi; el jugador tiene que cruzarlo.
 

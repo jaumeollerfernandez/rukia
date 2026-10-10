@@ -184,9 +184,9 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 
 ## 7. `audio/alicia_final.m4a`: Alicia
 
-- **Cuándo:** D7, sobre las 06:32, en el chat de la sargento Puig («Alguien quiere hablar contigo.»). Suena en dos finales: en el bueno, con su madre y su hermana a salvo, y en el agridulce, con ellas en el hospital. **El guion tiene que servir para los dos**: Alicia aún no sabe qué ha pasado con ellas.
+- **Cuándo:** D7, sobre las 06:32, en el chat de la sargento Puig («Alguien quiere hablar contigo.»). Suena en los finales 1, 2 y 3: con su madre y su hermana a salvo o con ellas en el hospital. **El guion tiene que servir para todos**: Alicia aún no sabe qué ha pasado con ellas. Tampoco dice dónde está, porque cambia según el final: en el coche patrulla que la ha bajado del mas, en el despacho de la sargento en comisaría (si dio su ubicación por teléfono, pieza I) o en una furgoneta de los Mossos al pie del cráter (final 2).
 - **Quién:** Alicia, 18 años. Agotada después de una semana escondida, con la voz ronca de frío. No llora, pero le falta poco. Es la primera vez que el jugador la oye.
-- **Dónde:** dentro de un coche patrulla con el motor en marcha. Se oye la radio policial, bajita. En un momento, la perra Trufa gime y Alicia le habla.
+- **Dónde:** un sitio cerrado y a resguardo, con el móvil de la sargento. Se oye de fondo una radio policial, bajita, y una puerta que se cierra lejos. Nada de motor ni de viento: tiene que valer para un coche parado, un despacho o una furgoneta. En un momento, la perra Trufa gime y Alicia le habla.
 - **Duración:** unos 30 s.
 
 > ¿Hola?
@@ -235,3 +235,27 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 ---
 
 Todos los audios del caso tienen ya su guion.
+
+---
+
+## 9. `audio/alicia_ubicacion.m4a`: dónde estoy
+
+- **Cuándo:** D5, entre las 23:30 y la 01:00, en el chat del prepago, solo con `confianza_alicia` 3 y si el jugador le pide «Dime dónde estás». No lo escribe porque su madre puede leer su móvil, así que llama. Si el jugador lo coge, Laia escucha la grabación y la saca esa misma madrugada.
+- **Quién:** Alicia, 18 años. Primera vez que el jugador la oye. Susurra, con el móvil al 4 % de batería.
+- **Dónde:** fuera de la masía, de noche. Viento entre los árboles, la perra Trufa olisqueando cerca. Muy al final, un perro ladra a lo lejos.
+- **Duración:** unos 25 s.
+
+> *(Respiración. Susurra.)* Soy yo. No tengo batería, así que escucha.
+>
+> El Mas de la Rosalia. Pasado el desvío de Sant Salvador, el camino de tierra que sube a la izquierda.
+>
+> Puerta azul. Un pozo delante. Si no la ves, la perra os encontrará antes.
+>
+> *(Pausa.)* Que vengan sin sirenas. Y que no se lo digan a mi madre.
+>
+> *(A lo lejos, un perro ladra. Bajito, asustada.)* Me tengo que ir.
+>
+> *(Cuelga.)*
+
+**Notas de interpretación:** prisa y miedo contenido, cada frase justa. Las indicaciones, claras y despacio: es lo que el jugador tiene que entender.
+
