@@ -22,8 +22,6 @@ import com.rukia.game.infrastructure.persistence.PrefsCurrentCaseStore
 import com.rukia.phone.infrastructure.CaseClock
 import com.rukia.phone.infrastructure.CaseFolders
 import com.rukia.phone.infrastructure.Language
-import com.rukia.police.domain.port.Radio
-import com.rukia.police.domain.port.SaveFile
 import com.rukia.police.infrastructure.PoliceModule
 import java.io.File
 
@@ -37,7 +35,7 @@ class GameModule(context: Context) {
     private val outcome = object : CaseOutcome {
         override fun storyVariables(caseId: String) = StoryVariables { ChatModule.of(context, caseId).getStoryVariable(it) }
         override fun squads(caseId: String): Pair<Int, Int> = runCatching {
-            val police = PoliceModule(context, caseId, save = SaveFile {}, radio = Radio { _, _ -> })
+            val police = PoliceModule(context, caseId)
             police.getOperations().dispatched.size to police.squadCount
         }.getOrDefault(0 to 0) // a case without a Police question
     }

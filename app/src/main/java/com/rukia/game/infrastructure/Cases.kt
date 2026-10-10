@@ -28,6 +28,7 @@ private val rukAchievements = listOf(
     Achievement("porta_blava", KeyClues, "La porta blava", "Diste con la puerta azul del Mas de la Rosalia.") { it.isTrue("sabe_puerta_azul") },
     Achievement("rosalia", KeyClues, "Un fijo en Sant Salvador", "Supiste que Alicia estaba con la Rosalia.") { it.isTrue("sabe_rosalia") },
     Achievement("confianza", KeyClues, "Confianza", "Alicia confió en ti desde el prepago.") { it.number("confianza_alicia") >= 3 },
+    Achievement("precedente", KeyClues, "El precedente", "Encontraste en las fichas lo que pasó hace once años en Santa Margarida.") { it.isTrue("ficha_ignasi") },
     Achievement("barcelona", FalseLeads, "Barcelona", "La cámara de la estación lo dejó claro.") { it.isTrue("descarta_bus") },
     Achievement("girona", FalseLeads, "Girona", "Mireia te contó la verdad.") { it.isTrue("girona_descartado") },
     Achievement("can_pericot", FalseLeads, "Can Pericot", "Ni pozo ni perro.") { it.isTrue("descarta_capsec") },

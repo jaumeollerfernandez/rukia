@@ -18,14 +18,32 @@ import com.rukia.phone.infrastructure.CaseClock
 import com.rukia.phone.infrastructure.CaseFolders
 import com.rukia.phone.domain.model.caseDay
 import com.rukia.phone.domain.model.caseTime
+import com.rukia.phone.domain.model.caseTimeLabel
+import com.rukia.police.application.GetRecords
+import com.rukia.police.application.ListMugshots
+import com.rukia.police.application.ReadRecord
+import com.rukia.police.application.RequestRecord
+import com.rukia.police.domain.port.StoryFlags
+import com.rukia.police.domain.port.StoryFacts
+import com.rukia.police.infrastructure.persistence.JsonRecordLog
+import com.rukia.police.infrastructure.persistence.JsonRecordsRepository
 import java.io.File
 import java.time.ZoneId
 
 /**
  * Composition root of the Police Department app for one case. [save] wipes the rest of the game (chats, clock),
- * and [radio] plays the officers' reports in the story; the phone wires them in.
+ * [radio] plays the officers' reports in the story, [flags] tells the story which records the player read and [facts]
+ * reads it (what unlocks a vehicle's record); the phone wires them in. Without them (the gallery, the game's report)
+ * the module only reads.
  */
-class PoliceModule(context: Context, caseId: String, save: SaveFile, radio: Radio) {
+class PoliceModule(
+    context: Context,
+    caseId: String,
+    save: SaveFile = SaveFile {},
+    radio: Radio = Radio { _, _ -> },
+    flags: StoryFlags = StoryFlags {},
+    facts: StoryFacts = StoryFacts { false },
+) {
     private val content = CaseFolders.content(caseId)
     private val assets = context.assets
     private fun read(path: String) = runCatching { assets.open("$content/$path").bufferedReader().use { it.readText() } }.getOrNull()
@@ -35,11 +53,15 @@ class PoliceModule(context: Context, caseId: String, save: SaveFile, radio: Radi
     private val searches = JsonSearchLog(File(CaseFolders.saves(context, caseId, "police"), "searches.json"))
     private val timeOf = { spec: String -> caseTime(spec, CaseClock.start(context, caseId), ZoneId.systemDefault()) }
     private val dayOf = { millis: Long -> caseDay(millis, CaseClock.start(context, caseId), ZoneId.systemDefault()) }
+    private val labelOf = { millis: Long -> caseTimeLabel(millis, CaseClock.start(context, caseId), ZoneId.systemDefault()) }
+    private val records = JsonRecordsRepository(::read)
+    private val recordLog = JsonRecordLog(File(CaseFolders.saves(context, caseId, "police"), "records.json"))
 
-    /** Wipes the whole save, the squads sent included. */
+    /** Wipes the whole save, the squads sent and the records asked for included. */
     val resetSave = SaveFile {
         dispatches.clear()
         searches.clear()
+        recordLog.clear()
         save.reset()
     }
 
@@ -56,4 +78,13 @@ class PoliceModule(context: Context, caseId: String, save: SaveFile, radio: Radi
     val hasOperations = operations.operations().squads.isNotEmpty()
     val squadCount = operations.operations().squads.size
     val operationLabels = operations.operations().operations.associate { it.id to it.label }
+
+    val getRecords = GetRecords(records, recordLog, dayOf, CaseClock.clock(caseId), facts)
+    val requestRecord = RequestRecord(records, recordLog, getRecords, CaseClock.clock(caseId))
+    val readRecord = ReadRecord(records, recordLog, flags, timeOf, labelOf, CaseClock.clock(caseId))
+    val listMugshots = ListMugshots(records, recordLog)
+    /** Whether the case has police records (police/records.json). */
+    val hasRecords get() = records.records().records.isNotEmpty()
+    /** A case time as "D3 18:40". */
+    fun caseTimeOf(millis: Long) = labelOf(millis)
 }

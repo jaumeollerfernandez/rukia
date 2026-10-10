@@ -108,6 +108,7 @@ object RukiaIcons {
     val Check = icon("M5 12.5l4.5 4.5L19 7.5")
     val Replay = icon("M4 12a8 8 0 1 0 2.4-5.7", "M4 4v5h5")
     val Lock = icon("M5 11h14v10H5z", "M8 11V8a4 4 0 0 1 8 0v3")
+    val IdCard = icon("M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z", "M6.5 11a2.5 2.5 0 1 0 5 0a2.5 2.5 0 1 0 -5 0", "M5.5 16.5c.8-1.6 2-2.4 3.5-2.4s2.7.8 3.5 2.4", "M15 10h3.5M15 14h3.5")
     val Send = icon("M12 19V5", "M5 12l7-7 7 7")
     val Camera = icon("M4 8h3l2-3h6l2 3h3v11H4z", "M8.5 13a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0")
     val Speaker = icon("M4 9h4l5-4v14l-5-4H4z", "M16 9a4 4 0 0 1 0 6", "M18.5 6.5a7.5 7.5 0 0 1 0 11")

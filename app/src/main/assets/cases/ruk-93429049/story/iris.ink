@@ -17,6 +17,12 @@ lo de los papeles #delay: 4 #caduca: D5 02:00
 * [¿Quién eres?]
     alguien que también firmó #delay: 60
     y que ahora no puede dormir #delay: 5
+// Solo con la ficha de Ignasi (app Policía): Iris adelanta cuándo y dónde, un día antes de su llamada.
+* {ficha_ignasi} [¿Sabes lo que pasó hace once años en la ermita de Santa Margarida?]
+    cómo sabes eso #delay: 90
+    ignasi dice que aquella mujer «no estaba preparada». que nosotros sí #delay: 8
+    la trobada es pasado mañana, al alba. en la misma ermita #delay: 6
+    vamos todos. de blanco. en ayunas #delay: 5
 * [(sin responder)]
 - no puedo escribir más. aquí revisan los móviles #delay: 20
 borro esto #delay: 3

@@ -95,3 +95,24 @@ Señales de que Laura es del Casal: su comentario «cuánto cuesta» en el post 
 Dos operaciones nuevas en `police/actions.json`: **Can Pericot** (`envio_capsec`) y **las residencias de Olot** (`envio_residencia`). Las dos son pistas falsas: gastan una de las dos salidas.
 Una tercera operación, **el mas del tío de Dani** (`envio_dani`), también es pista falsa: aparece costo y una báscula, ni rastro de Alicia.
 La cuarta, **detener a Dani** (`envio_detencion_dani`), gasta una salida pero puede devolver una pista verdadera si el jugador le cree. Si no le cree, la operación de la noche (mas, masías o cráter) se queda sin coche.
+
+## Fichas policiales (app Policía)
+
+Contenido en `police/records.json`: una ficha por cada contacto de la agenda, más Alicia, Ignasi, Iker y tres vehículos. Los vehículos no salen hasta que se sabe de ellos: el Audi con la ficha de Dani o su mensaje del D3 noche (`sabe_audi`, «acaba en 7731»); la furgoneta con la ficha de Ignasi o Conxita (`sabe_furgoneta`, «HFT»); el Seat con la ficha de Ignasi, Enric (`sabe_seat`, «KDP») o la consulta a Laia sobre el coche gris. En la lista no se ve el papel de nadie (antecedentes, denunciante...) hasta leer su ficha; las leídas llevan el sello «CONFIDENCIAL» y se pueden abrir siempre. Se piden en Policía › Fichas policiales y llegan horas después por la burocracia (12 h el D1, 1 h el D7); una cada vez. Al leer una, la app pone `ficha_<id>` en la historia.
+
+| Ficha | Lo que solo está aquí | Qué abre |
+|---|---|---|
+| 🔎 **Ignasi Coll** | Detenido hace once años: murió una mujer de 34 años en un «retiro del alba» de su primer grupo, en la ermita del cráter de Santa Margarida, tras nueve días de ayuno y un «agua preparada». Sobreseído. Un año después fundó Rosa d'Abril | Consulta a Laia (D4+): pone agentes en el cráter (`vigilancia_crater`) sin gastar salida. Pregunta a Iris (D5 00:30): «pasado mañana, al alba». Logro «El precedente» |
+| 🔎 **Dani** | Multa de radar de su moto en la carretera de Sant Salvador, un sábado de hace un mes, bajando | Pregunta en su charla: confiesa que la siguió hasta un mas con una perra enorme (`sabe_ruta_lotes`) |
+| 🔎 **Seat gris** | Lector de matrículas: en el aparcamiento del cráter de Santa Margarida a las seis de la mañana, D-3, D-2 y D-1 (los ensayos) | Nada: el jugador lo cruza con el folleto (IMG_0402) |
+| 🔎 **Furgoneta blanca** | Control en Olot (D-5): la conduce Iris Ferrer con garrafas de agua sin etiquetar | Nada: da el apellido de Iris antes de que escriba |
+| 🔎 **Montse** | Vendió el piso de la yaya por 120.000 €, que no están en sus cuentas | Nada: se cruza con la libreta (IMG_0401) |
+| 🔎 **Berta** | Tesorera de la asociación, firma las cuentas de CRA Serveis | Nada |
+| **Alicia** | La pulsera roja, regalo de Núria (respuesta de la prueba del D3); llamadas de un fijo de Sant Salvador, siempre en sábado | Nada |
+| ⚠️🔎 **Laura** | Firmó con Berta un permiso municipal para una «jornada de meditación al alba» de Rosa d'Abril | Nada: avisa de la trampa de Laura antes de caer |
+| 🔎 **Toni** | Reparte los lotes del Banc d'Aliments los sábados por las masías del valle | Nada |
+| 🔎 **Conxita** | Ha denunciado «una furgoneta que llega de madrugada» a la calle del Pont | Nada |
+| 🎭 **Biel**, **Marc** | Biel tiene llaves de Can Pericot; Marc fue detenido en una tractorada (con reseña en Multimedia) | Ruido: parecen sospechosos |
+| 🎭 **Iker**, **Audi andorrano** | Iker no está imputado y ninguna chica de la Garrotxa sale en la investigación de Barcelona; el Audi va por las deudas de Dani | Descartan la trata |
+
+La tapadera se mantiene: ninguna ficha dice «secta». Rosa d'Abril sale como una asociación y lo grave está en el pasado de Ignasi; el jugador tiene que cruzarlo.

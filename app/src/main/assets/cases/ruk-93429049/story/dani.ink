@@ -106,7 +106,8 @@ estás? #delay: 30
 una movida. unos tíos del bar de la plaza han ido a mi casa #delay: 5
 a reclamarme pasta. nada que ver contigo eh #delay: 4
 pero si ves un audi negro por tu calle, dímelo #delay: 6
-matrícula de andorra #delay: 3 #caduca: D4 03:00
+~ sabe_audi = true
+matrícula de andorra. acaba en 7731, me la sé de memoria #delay: 3 #caduca: D4 03:00
 * [qué pasta les debes?]
     ~ dani_sospechoso = true
     cosas mías. del curro #delay: 120
@@ -249,6 +250,15 @@ no te volveré a escribir #delay: 20
         me iba a mudar. pensé que si te venías serías mía de una vez #delay: 8
         ya sé cómo suena. lo siento #delay: 6
     }
+    -> opciones
+// Solo con su ficha (app Policía): la multa del radar lo delata. Cuenta lo mismo que si lo sueltan, sin gastar una salida.
+* {ficha_dani and not liberado} [dani, tu moto salta un radar en la carretera de sant salvador. un sábado, hace un mes. qué hacías ahí?]
+    ...cómo sabes tú eso #delay: 150
+    vale. te seguí. ya está, lo he dicho #delay: 10
+    no fuiste ni a capsec ni a barna. subiste en la furgo del banc d'aliments hacia sant salvador #delay: 6
+    ~ sabe_ruta_lotes = true
+    te bajaste en un mas con una perra enorme que me ladró desde lejos. me di la vuelta y al bajar me cazó el radar #delay: 8
+    no se lo digas a nadie, porfa. bastante tengo #delay: 5
     -> opciones
 * {dia >= 3} [perdona si he sido borde]
     tranqui. yo también he sido un pesado #delay: 120

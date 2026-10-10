@@ -657,3 +657,17 @@ Las muestra la burbuja del mensaje que lleva `#image:`. Mientras no exista el ar
 ## 8. Pendiente: publicaciones de Gonpi según el final
 
 `gonpi/hostalnou_d7.jpg` (final bueno) y `gonpi/berta_d7.jpg` (final malo) ya tienen imagen provisional, pero **no están en `gonpi.json`**: Gonpi todavía no sabe qué final ha ocurrido, y saldrían las dos. Hace falta que una publicación pueda depender de una variable de la historia (por ejemplo `"if": "caso_resuelto"`).
+
+## 9. Fotos policiales (`police/resenas/`)
+
+Salen en Multimedia y en la ficha de Policía cuando el jugador lee la ficha. Hasta que existan, la app dibuja una silueta. La placa con el id la pinta la app encima: **no la pongas en la imagen**.
+
+- [ ] `dani_frontal.jpg` · `dani_perfil.jpg` (placa OLOT · 004417)
+  - Prompt (frente): `Police booking photo, front view, a 20-year-old muscular Catalan man with a dark buzz cut, thick eyebrows and a small earring, neutral tired expression, plain grey t-shirt, in front of a height chart wall with horizontal lines, flat harsh fluorescent light, no text, 4:5`
+  - Prompt (perfil): `Police booking photo, right profile view, a 20-year-old muscular Catalan man with a dark buzz cut, thick eyebrows and a small earring, plain grey t-shirt, in front of a height chart wall with horizontal lines, flat harsh fluorescent light, no text, 4:5`
+- [ ] `marc_frontal.jpg` · `marc_perfil.jpg` (placa OLOT · 002961). Hace un año, tras la tractorada
+  - Prompt (frente): `Police booking photo, front view, an 18-year-old Catalan farm boy with short messy brown hair, sunburnt cheeks and a stubborn frown, worn checked flannel shirt, in front of a height chart wall with horizontal lines, flat harsh fluorescent light, no text, 4:5`
+  - Prompt (perfil): `Police booking photo, right profile view, an 18-year-old Catalan farm boy with short messy brown hair and sunburnt cheeks, worn checked flannel shirt, in front of a height chart wall with horizontal lines, flat harsh fluorescent light, no text, 4:5`
+- [ ] `ignasi_frontal.jpg` · `ignasi_perfil.jpg` (placa OLOT · 000311). Hace once años: barba ya canosa, no del todo blanca
+  - Prompt (frente): `Police booking photo, front view, a 50-year-old Catalan man with a neat greying beard, short greying hair combed back, tanned skin, pale grey-blue eyes with a calm unblinking gaze, white linen shirt, in front of a height chart wall with horizontal lines, flat harsh fluorescent light, no text, 4:5`
+  - Prompt (perfil): `Police booking photo, right profile view, a 50-year-old Catalan man with a neat greying beard and short greying hair combed back, tanned skin, white linen shirt, in front of a height chart wall with horizontal lines, flat harsh fluorescent light, no text, 4:5`

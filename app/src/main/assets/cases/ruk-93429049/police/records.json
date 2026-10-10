@@ -1,0 +1,3073 @@
+{
+  "hours": [
+    12,
+    10,
+    8,
+    6,
+    4,
+    2,
+    1
+  ],
+  "records": [
+    {
+      "id": "alicia",
+      "name": "Alicia Serra Vidal",
+      "subtitle": "18 años · L'Hostalnou de Bianya",
+      "badge": "DESAPARECIDA · RIESGO ALTO",
+      "tone": "missing",
+      "keywords": "alicia serra vidal ali ••••••47-r",
+      "reference": "RUK-93429049",
+      "banner": "PERSONA DESAPARECIDA · RIESGO ALTO",
+      "bannerNote": "ALTA EN BASE PDyRH · CNDES NOTIFICADO · D1 10:20",
+      "photoCaption": "FOTO APORTADA POR LA FAMILIA",
+      "facts": [
+        "18 años · Mujer",
+        "Antecedentes: no constan"
+      ],
+      "missingSince": "D-1 23:00",
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••47-R",
+              "mono": true
+            },
+            {
+              "label": "NACIMIENTO",
+              "value": "Hace 18 años y 40 días"
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "C/ del Pont, L'Hostalnou de Bianya (Girona)",
+              "wide": true
+            },
+            {
+              "label": "ESTUDIOS / TRABAJO",
+              "value": "CFGS Integración Social (Olot) · Forn Can Batlle, fines de semana",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "CIRCUNSTANCIAS",
+          "fields": [
+            {
+              "label": "VISTA POR ÚLTIMA VEZ",
+              "value": "D-1, hacia las 23:00, al salir del domicilio. Dijo que cenaba con una amiga.",
+              "wide": true
+            },
+            {
+              "label": "DENUNCIA",
+              "value": "D1 · Montse Vidal (madre). Acude acompañada de Ignasi Coll Ferrer. Pide máxima discreción.",
+              "wide": true
+            },
+            {
+              "label": "TERMINAL MÓVIL",
+              "value": "Dejado en el domicilio. Volcado en curso.",
+              "wide": true
+            },
+            {
+              "label": "INDICIOS DE VIOLENCIA",
+              "value": "No constan"
+            },
+            {
+              "label": "SALIDA VOLUNTARIA",
+              "value": "No descartada"
+            }
+          ]
+        },
+        {
+          "title": "DESCRIPCIÓN",
+          "fields": [
+            {
+              "label": "ESTATURA",
+              "value": "1,66 m"
+            },
+            {
+              "label": "COMPLEXIÓN",
+              "value": "Delgada"
+            },
+            {
+              "label": "PELO",
+              "value": "Castaño oscuro, largo",
+              "wide": true
+            }
+          ],
+          "highlight": "SEÑA PARTICULAR · Pulsera roja de hilo en la muñeca izquierda. Según la familia, un regalo de cumpleaños de su amiga Núria."
+        },
+        {
+          "title": "CRONOLOGÍA DE ACTUACIONES",
+          "timeline": [
+            {
+              "time": "D-1 21:14",
+              "text": "Billete de autobús Olot–Barcelona comprado y cancelado.",
+              "source": "Galería del terminal · pendiente de confirmar"
+            },
+            {
+              "time": "D-1 23:30",
+              "text": "Un amigo la deja en la estación de autobuses de Olot.",
+              "source": "Declaración testifical"
+            },
+            {
+              "time": "D1",
+              "text": "Cámaras de la estación: pendiente de visionado.",
+              "source": "Solicitado",
+              "done": false
+            },
+            {
+              "time": "—",
+              "text": "Llamadas entrantes desde un fijo de Sant Salvador de Bianya en las últimas semanas, siempre en sábado.",
+              "source": "Operadora · titular pendiente de identificar",
+              "done": false
+            },
+            {
+              "time": "—",
+              "text": "Posicionamiento de un terminal prepago.",
+              "source": "Pendiente de autorización judicial",
+              "done": false
+            }
+          ]
+        },
+        {
+          "title": "HUELLAS",
+          "text": "Sin reseña policial. Huella del índice derecho disponible en el archivo del DNI: solicitada."
+        },
+        {
+          "title": "ENTORNO",
+          "links": [
+            {
+              "name": "Montse Vidal",
+              "role": "Madre · presenta la denuncia",
+              "badge": "DENUNCIANTE",
+              "tone": "complainant",
+              "record": "montse"
+            },
+            {
+              "name": "Berta Serra Vidal",
+              "role": "Hermana · convive en el domicilio",
+              "badge": "FAMILIA",
+              "record": "berta"
+            },
+            {
+              "name": "Núria Gil",
+              "role": "Amiga íntima · Girona",
+              "badge": "TESTIGO",
+              "tone": "witness",
+              "record": "nuria"
+            },
+            {
+              "name": "Daniel Rius",
+              "role": "Contacto insistente en los últimos meses",
+              "badge": "ANTECEDENTES",
+              "tone": "police",
+              "record": "dani"
+            },
+            {
+              "name": "Ignasi Coll Ferrer",
+              "role": "Acompaña a la madre a denunciar",
+              "badge": "ANTECEDENTES",
+              "tone": "police",
+              "record": "ignasi"
+            }
+          ]
+        },
+        {
+          "title": "DIFUSIÓN",
+          "text": "Alerta interna enviada a los cuerpos policiales de Cataluña y del resto de España. Difusión pública: no autorizada (la familia pide discreción)."
+        }
+      ]
+    },
+    {
+      "id": "dani",
+      "name": "Daniel Rius",
+      "subtitle": "22 años · Olot · alias «Dani»",
+      "badge": "ANTECEDENTES POLICIALES",
+      "tone": "police",
+      "keywords": "daniel rius dani ••••••13-h 4417 klm moto",
+      "reference": "GA-004417",
+      "mugshot": "OLOT · 004417",
+      "facts": [
+        "Alias «Dani»",
+        "22 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••13-H",
+              "mono": true
+            },
+            {
+              "label": "NACIMIENTO",
+              "value": "Olot (Girona)"
+            },
+            {
+              "label": "NACIONALIDAD",
+              "value": "Española"
+            },
+            {
+              "label": "ESTADO CIVIL",
+              "value": "Soltero"
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot, junto a la gasolinera (dirección reservada)",
+              "wide": true
+            },
+            {
+              "label": "OCUPACIÓN DECLARADA",
+              "value": "Monitor de gimnasio · repartos en moto",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "SEÑAS Y VEHÍCULOS",
+          "fields": [
+            {
+              "label": "ESTATURA",
+              "value": "1,79 m"
+            },
+            {
+              "label": "COMPLEXIÓN",
+              "value": "Atlética"
+            },
+            {
+              "label": "PELO",
+              "value": "Moreno, rapado"
+            },
+            {
+              "label": "SEÑAS",
+              "value": "Pendiente en la oreja izquierda"
+            },
+            {
+              "label": "VEHÍCULO",
+              "value": "Motocicleta negra · titular · 4417 KLM",
+              "wide": true,
+              "mono": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Penales: sin condenas firmes (Registro Central de Penados, consultado). Policiales: 3 anotaciones.",
+          "entries": [
+            {
+              "code": "ATESTADO 004417",
+              "date": "Hace 2 años",
+              "title": "Lesiones · detenido",
+              "detail": "Pelea en una discoteca de Olot: rompe la nariz a un cliente. Detenido y reseñado en comisaría. Sobreseimiento provisional.",
+              "state": "ARCHIVADA"
+            },
+            {
+              "code": "DENUNCIA 000412",
+              "date": "Hace 1 año",
+              "title": "Tenencia de hachís en la vía pública",
+              "detail": "Infracción grave (LO 4/2015, art. 36.16). Propuesta de sanción; el procedimiento se archivó.",
+              "state": "ARCHIVADA"
+            },
+            {
+              "code": "TRÁFICO 077310",
+              "date": "Hace un mes · sábado 13:40",
+              "title": "Exceso de velocidad · 84 km/h en tramo de 50",
+              "detail": "Motocicleta 4417 KLM. Radar de la carretera de Sant Salvador de Bianya, sentido bajada. Sanción abonada.",
+              "state": "SANCIÓN ABONADA",
+              "tone": "neutral"
+            }
+          ]
+        },
+        {
+          "title": "RESEÑA DACTILAR",
+          "fingerprints": {
+            "right": "V224E",
+            "left": "E3342",
+            "formula": "V 2243 / E 3342",
+            "note": "Cotejo automático SAID: sin coincidencias con huellas latentes del caso.",
+            "taken": "COMISARÍA OLOT · HACE 2 AÑOS"
+          }
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Contacto · mensajes nocturnos insistentes",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            },
+            {
+              "name": "Iker (apellidos no constan)",
+              "role": "Amigo · relaciones públicas, club del Port Olímpic",
+              "badge": "MENCIONADO",
+              "tone": "mentioned",
+              "record": "iker"
+            },
+            {
+              "name": "Audi negro, matrícula andorrana",
+              "role": "Visto frente a su domicilio · titular no identificado",
+              "badge": "DE INTERÉS",
+              "tone": "missing",
+              "record": "audi"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "Según su entorno, insistía en quedar con la desaparecida y rondaba su calle en moto. Tiene acceso a un mas de un familiar en la Vall d'en Bas. No consta relación con la red investigada en Barcelona.",
+          "signature": "UNIDAD DE INVESTIGACIÓN · OLOT"
+        }
+      ]
+    },
+    {
+      "id": "ignasi",
+      "name": "Ignasi Coll Ferrer",
+      "subtitle": "61 años · Sant Joan les Fonts",
+      "badge": "ANTECEDENTES POLICIALES",
+      "tone": "police",
+      "keywords": "ignasi coll ferrer guia rosa d'abril cra serveis",
+      "reference": "GA-000311",
+      "mugshot": "OLOT · 000311",
+      "facts": [
+        "61 años · Varón",
+        "Presidente de una asociación"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••02-K",
+              "mono": true
+            },
+            {
+              "label": "NACIMIENTO",
+              "value": "Barcelona"
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "El Casal, Sant Joan les Fonts (Girona)",
+              "wide": true
+            },
+            {
+              "label": "OCUPACIÓN DECLARADA",
+              "value": "Presidente de la Associació Comunitat Rosa d'Abril (nombre comercial: CRA Serveis). Antes, comercial de seguros y «coach» de empresa.",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "SEÑAS Y VEHÍCULOS",
+          "fields": [
+            {
+              "label": "ESTATURA",
+              "value": "1,74 m"
+            },
+            {
+              "label": "COMPLEXIÓN",
+              "value": "Delgada"
+            },
+            {
+              "label": "PELO",
+              "value": "Blanco · barba blanca cuidada"
+            },
+            {
+              "label": "SEÑAS",
+              "value": "Pulsera de cuentas de madera"
+            },
+            {
+              "label": "VEHÍCULO HABITUAL",
+              "value": "Seat gris a nombre de CRA Serveis",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Penales: sin condenas firmes. Policiales: 2 anotaciones.",
+          "entries": [
+            {
+              "code": "ATESTADO 000311",
+              "date": "Hace 11 años",
+              "title": "Homicidio imprudente · detenido",
+              "detail": "Muere una participante, Elisenda C., 34 años, en un «retiro del alba» de su grupo, al amanecer, en la ermita del cráter de Santa Margarida. Llevaba nueve días en ayunas y había bebido un «agua preparada» que repartía el organizador. Detenido 48 horas y reseñado. Sobreseído: «participación voluntaria de una adulta».",
+              "state": "SOBRESEÍDA"
+            },
+            {
+              "code": "DENUNCIA 001988",
+              "date": "Hace 1 año",
+              "title": "Estafa",
+              "detail": "Denuncia de la hija de una socia: su madre entregó a la asociación la venta de su casa. Archivada: la madre declaró que fue una donación voluntaria.",
+              "state": "ARCHIVADA"
+            }
+          ]
+        },
+        {
+          "title": "RESEÑA DACTILAR",
+          "fingerprints": {
+            "right": "A2V12",
+            "left": "3A3V1",
+            "formula": "A 2412 / 3 1341",
+            "note": "Cotejo automático SAID: sin coincidencias con huellas latentes del caso.",
+            "taken": "COMISARÍA OLOT · HACE 11 AÑOS"
+          }
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Montse Vidal",
+              "role": "Socia de la asociación · la acompaña a denunciar",
+              "badge": "DENUNCIANTE",
+              "tone": "complainant",
+              "record": "montse"
+            },
+            {
+              "name": "Berta Serra Vidal",
+              "role": "Socia · tesorera de la asociación",
+              "badge": "SIN ANTECEDENTES",
+              "record": "berta"
+            },
+            {
+              "name": "Seat gris",
+              "role": "Conductor habitual",
+              "badge": "VEHÍCULO",
+              "record": "seat"
+            },
+            {
+              "name": "Furgoneta blanca",
+              "role": "De la asociación",
+              "badge": "VEHÍCULO",
+              "record": "furgoneta"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "El grupo de entonces se disolvió tras los hechos. Un año después fundó la asociación actual, con sede en Sant Joan les Fonts. Sin requisitorias ni búsquedas activas.",
+          "signature": "ARCHIVO · COMISARÍA OLOT"
+        }
+      ]
+    },
+    {
+      "id": "montse",
+      "name": "Montse Vidal",
+      "subtitle": "52 años · L'Hostalnou de Bianya",
+      "badge": "DENUNCIANTE",
+      "tone": "complainant",
+      "keywords": "montse vidal madre mama",
+      "reference": "RUK-93429049 / D",
+      "facts": [
+        "52 años · Mujer",
+        "Antecedentes: no constan"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••88-B",
+              "mono": true
+            },
+            {
+              "label": "ESTADO CIVIL",
+              "value": "Separada"
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "C/ del Pont, L'Hostalnou de Bianya (Girona)",
+              "wide": true
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Administrativa (de baja desde hace un año)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "DENUNCIA",
+          "text": "D1, Comisaría de Olot. Denuncia la desaparición de su hija menor, Alicia. Acude acompañada de Ignasi Coll Ferrer, «amigo de la familia». Pide máxima discreción y que no se difunda la foto. Declara que la hija «está pasando una etapa de ansiedad»."
+        },
+        {
+          "title": "PATRIMONIO",
+          "entries": [
+            {
+              "code": "REGISTRO DE LA PROPIEDAD",
+              "date": "Hace 2 años",
+              "title": "Venta de un piso en Olot · 120.000 €",
+              "detail": "Herencia de su madre, Mercè Vidal (fallecida hace casi tres años). El importe no consta en sus cuentas personales.",
+              "state": "INFORMATIVO",
+              "tone": "neutral"
+            }
+          ]
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Hija",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            },
+            {
+              "name": "Berta Serra Vidal",
+              "role": "Hija · convive en el domicilio",
+              "badge": "FAMILIA",
+              "record": "berta"
+            },
+            {
+              "name": "Ignasi Coll Ferrer",
+              "role": "La acompaña a denunciar",
+              "badge": "ANTECEDENTES",
+              "tone": "police",
+              "record": "ignasi"
+            }
+          ]
+        }
+      ],
+      "photo": "photos/mama.jpg",
+      "photoCaption": "FOTO DEL DNI"
+    },
+    {
+      "id": "berta",
+      "name": "Berta Serra Vidal",
+      "subtitle": "24 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "berta serra vidal hermana",
+      "reference": "RUK-93429049 / F",
+      "facts": [
+        "24 años · Mujer",
+        "Antecedentes: no constan"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••51-T",
+              "mono": true
+            },
+            {
+              "label": "ESTADO CIVIL",
+              "value": "Soltera"
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "C/ del Pont, L'Hostalnou de Bianya (Girona)",
+              "wide": true
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Sin empleo desde hace un año (antes, gestoría en Olot)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "REGISTRO DE ASOCIACIONES",
+          "text": "Tesorera de la Associació Comunitat Rosa d'Abril desde hace un año. Firma, junto al presidente, las cuentas de CRA Serveis."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Hermana",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            },
+            {
+              "name": "Ignasi Coll Ferrer",
+              "role": "Presidente de la asociación",
+              "badge": "ANTECEDENTES",
+              "tone": "police",
+              "record": "ignasi"
+            }
+          ]
+        }
+      ],
+      "photo": "photos/berta.jpg",
+      "photoCaption": "FOTO DEL DNI"
+    },
+    {
+      "id": "iker",
+      "name": "Iker (apellidos no constan)",
+      "subtitle": "27 años · Barcelona",
+      "badge": "MENCIONADO EN ATESTADO",
+      "tone": "mentioned",
+      "keywords": "iker club port olimpic barcelona",
+      "reference": "BCN-TEH-0219",
+      "facts": [
+        "27 años · Varón",
+        "Antecedentes: no constan"
+      ],
+      "sections": [
+        {
+          "title": "MENCIÓN",
+          "entries": [
+            {
+              "code": "DILIGENCIAS TEH-0219",
+              "date": "Abiertas",
+              "title": "Investigación sobre la captación de chicas jóvenes (Barcelona)",
+              "detail": "Relaciones públicas de un club del Port Olímpic que sale en la investigación. Sin imputación.",
+              "state": "EN CURSO"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "Entre las chicas identificadas en la investigación no hay ninguna de la Garrotxa ni con el nombre de la desaparecida.",
+          "signature": "UNIDAD DE TRATA · BARCELONA"
+        }
+      ]
+    },
+    {
+      "id": "audi",
+      "vehicle": true,
+      "name": "Audi negro · matrícula andorrana",
+      "subtitle": "Negro · visto en Olot",
+      "badge": "VEHÍCULO DE INTERÉS",
+      "tone": "missing",
+      "keywords": "audi negro andorra andorrana 7731",
+      "reference": "AND-••7731",
+      "facts": [
+        "Turismo · negro",
+        "Matrícula de Andorra"
+      ],
+      "sections": [
+        {
+          "title": "TITULARIDAD",
+          "fields": [
+            {
+              "label": "TITULAR",
+              "value": "Una sociedad de Andorra la Vella. Pendiente de comisión rogatoria.",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "AVISTAMIENTOS",
+          "timeline": [
+            {
+              "time": "D-4 22:40",
+              "text": "Lector de matrículas: Olot, calle de la gasolinera, frente al domicilio de Daniel Rius.",
+              "source": "Policía Local de Olot"
+            },
+            {
+              "time": "D-4 23:15",
+              "text": "Sale de Olot por la C-152 hacia Ripoll.",
+              "source": "Lector de matrículas"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "Relacionado con deudas de un bar de Olot. Nada lo sitúa cerca de L'Hostalnou de Bianya.",
+          "signature": "POLICÍA LOCAL DE OLOT"
+        }
+      ],
+      "unlockedBy": [
+        "ficha:dani",
+        "sabe_audi"
+      ]
+    },
+    {
+      "id": "furgoneta",
+      "vehicle": true,
+      "name": "Furgoneta blanca",
+      "subtitle": "Blanca · rosa dorada en la puerta",
+      "badge": "SIN INCIDENCIAS",
+      "tone": "clean",
+      "keywords": "furgoneta blanca furgo rosa d'abril casal hft",
+      "reference": "•••• HFT",
+      "facts": [
+        "Furgoneta · blanca",
+        "Rosa dorada en la puerta"
+      ],
+      "sections": [
+        {
+          "title": "TITULARIDAD",
+          "fields": [
+            {
+              "label": "TITULAR",
+              "value": "Associació Comunitat Rosa d'Abril (Sant Joan les Fonts)",
+              "wide": true
+            },
+            {
+              "label": "SEGURO / ITV",
+              "value": "En vigor"
+            }
+          ]
+        },
+        {
+          "title": "CONTROLES Y AVISTAMIENTOS",
+          "timeline": [
+            {
+              "time": "D-5",
+              "text": "Control rutinario en Olot. Conductora: Iris Ferrer, 20 años. Carga: garrafas de agua sin etiquetar, «de una fuente de la asociación». Sin infracción.",
+              "source": "Atestado de tráfico"
+            },
+            {
+              "time": "D1 03:05",
+              "text": "Lector de matrículas: L'Hostalnou de Bianya, C/ del Pont.",
+              "source": "Lector de matrículas"
+            }
+          ]
+        }
+      ],
+      "unlockedBy": [
+        "ficha:ignasi",
+        "sabe_furgoneta"
+      ]
+    },
+    {
+      "id": "seat",
+      "vehicle": true,
+      "name": "Seat gris",
+      "subtitle": "Gris · rosa dorada en el cristal",
+      "badge": "SIN INCIDENCIAS",
+      "tone": "clean",
+      "keywords": "seat gris cra serveis ignasi coche gris kdp",
+      "reference": "•••• KDP",
+      "facts": [
+        "Turismo · gris",
+        "Rosa dorada en el cristal"
+      ],
+      "sections": [
+        {
+          "title": "TITULARIDAD",
+          "fields": [
+            {
+              "label": "TITULAR",
+              "value": "CRA Serveis (Associació Comunitat Rosa d'Abril)",
+              "wide": true
+            },
+            {
+              "label": "CONDUCTOR HABITUAL",
+              "value": "Ignasi Coll Ferrer",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "SANCIONES",
+          "entries": [
+            {
+              "code": "MULTAS 3",
+              "date": "Último año",
+              "title": "Estacionamiento indebido en Olot",
+              "detail": "Tres multas, todas abonadas.",
+              "state": "ABONADAS",
+              "tone": "neutral"
+            }
+          ]
+        },
+        {
+          "title": "LECTOR DE MATRÍCULAS",
+          "timeline": [
+            {
+              "time": "D-3 06:12",
+              "text": "Pista de acceso al cráter de Santa Margarida (Parc Natural de la Zona Volcànica).",
+              "source": "Cámara del aparcamiento del parque"
+            },
+            {
+              "time": "D-2 06:09",
+              "text": "Pista de acceso al cráter de Santa Margarida.",
+              "source": "Cámara del aparcamiento del parque"
+            },
+            {
+              "time": "D-1 06:15",
+              "text": "Pista de acceso al cráter de Santa Margarida. Sale a las 07:02.",
+              "source": "Cámara del aparcamiento del parque"
+            }
+          ]
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Ignasi Coll Ferrer",
+              "role": "Conductor habitual",
+              "badge": "ANTECEDENTES",
+              "tone": "police",
+              "record": "ignasi"
+            }
+          ]
+        }
+      ],
+      "unlockedBy": [
+        "ficha:ignasi",
+        "sabe_seat"
+      ]
+    },
+    {
+      "id": "jordi",
+      "name": "Jordi Serra",
+      "subtitle": "55 años · Barcelona",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "jordi serra jordi ••••••16-m",
+      "reference": "DNI ••••••16-M",
+      "photo": "photos/jordi.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "55 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••16-M",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Barcelona"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Comercial",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Padre · separado de la madre",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            },
+            {
+              "name": "Montse Vidal",
+              "role": "Expareja",
+              "badge": "DENUNCIANTE",
+              "tone": "complainant",
+              "record": "montse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marta",
+      "name": "Marta Serra",
+      "subtitle": "58 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "marta serra marta ••••••37-v",
+      "reference": "DNI ••••••37-V",
+      "photo": "photos/marta.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "58 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••37-V",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Frutería (Fruites Can Serra)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Tía paterna",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arnau",
+      "name": "Arnau Serra",
+      "subtitle": "16 años · Olot",
+      "badge": "MENOR DE EDAD",
+      "tone": "clean",
+      "keywords": "arnau serra arnau ••••••42-s",
+      "reference": "DNI ••••••42-S",
+      "photo": "photos/arnau.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "16 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••42-S",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            }
+          ],
+          "highlight": "Menor de edad: datos protegidos (LO 1/1996). Sin anotaciones."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Primo",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nuria",
+      "name": "Núria Gil",
+      "subtitle": "18 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "núria gil nuria ••••••44-c",
+      "reference": "DNI ••••••44-C",
+      "photo": "photos/nuria.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "18 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••44-C",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "1.º de Enfermería (Girona)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Amiga íntima desde la infancia",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "Reside en Girona entre semana, en un piso compartido. Vuelve al valle algunos fines de semana."
+        }
+      ]
+    },
+    {
+      "id": "carla",
+      "name": "Carla Font",
+      "subtitle": "18 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "carla font carla ••••••56-t",
+      "reference": "DNI ••••••56-T",
+      "photo": "photos/carla.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "18 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••56-T",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Estudiante de Estética",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Amiga",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mireia",
+      "name": "Mireia Soler",
+      "subtitle": "17 años · L'Hostalnou de Bianya",
+      "badge": "MENOR DE EDAD",
+      "tone": "clean",
+      "keywords": "mireia soler mireia ••••••50-f",
+      "reference": "DNI ••••••50-F",
+      "photo": "photos/mireia.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "17 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••50-F",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            }
+          ],
+          "highlight": "Menor de edad: datos protegidos (LO 1/1996). Sin anotaciones. Cumple 18 años esta semana."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Amiga",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pol",
+      "name": "Pol Casals",
+      "subtitle": "19 años · Olot",
+      "badge": "SANCIONES DE TRÁFICO",
+      "tone": "clean",
+      "keywords": "pol casals pol ••••••32-s",
+      "reference": "DNI ••••••32-S",
+      "photo": "photos/pol.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "19 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••32-S",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Mecánico en un taller",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Penales: sin condenas firmes.",
+          "entries": [
+            {
+              "code": "TRÁFICO 061204",
+              "date": "Hace 6 meses",
+              "title": "Exceso de velocidad",
+              "detail": "Volkswagen Golf gris (titular: su padre). Carretera de Olot a Les Preses.",
+              "state": "SANCIÓN ABONADA",
+              "tone": "neutral"
+            }
+          ]
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Expareja",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sergi",
+      "name": "Sergi Planas",
+      "subtitle": "19 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "sergi planas sergi ••••••79-m",
+      "reference": "DNI ••••••79-M",
+      "photo": "photos/sergi.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "19 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••79-M",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "1.º de CFGS Integración Social",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Compañero de clase",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aina",
+      "name": "Aina Riera",
+      "subtitle": "18 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "aina riera aina ••••••29-p",
+      "reference": "DNI ••••••29-P",
+      "photo": "photos/aina.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "18 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••29-P",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "1.º de CFGS Integración Social",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Compañera de clase",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oriol",
+      "name": "Oriol Costa",
+      "subtitle": "20 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "oriol costa oriol ••••••51-l",
+      "reference": "DNI ••••••51-L",
+      "photo": "photos/oriol.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "20 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••51-L",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "1.º de CFGS Integración Social",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Compañero de clase",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paula",
+      "name": "Paula Roig",
+      "subtitle": "18 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "paula roig paula ••••••58-t",
+      "reference": "DNI ••••••58-T",
+      "photo": "photos/paula.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "18 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••58-T",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "1.º de CFGS Integración Social",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Compañera de clase",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elena",
+      "name": "Elena Roca",
+      "subtitle": "44 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "elena roca elena ••••••70-z",
+      "reference": "DNI ••••••70-Z",
+      "photo": "photos/elena.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "44 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••70-Z",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Profesora · tutora del CFGS de Integración Social",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Tutora",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pilar",
+      "name": "Pilar Batlle",
+      "subtitle": "63 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "pilar batlle pilar ••••••58-f",
+      "reference": "DNI ••••••58-F",
+      "photo": "photos/pilar.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "63 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••58-F",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Dueña del Forn Can Batlle",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Jefa (fines de semana)",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eric",
+      "name": "Èric Sala",
+      "subtitle": "19 años · Olot",
+      "badge": "SANCIONES ADMINISTRATIVAS",
+      "tone": "clean",
+      "keywords": "èric sala eric ••••••57-h",
+      "reference": "DNI ••••••57-H",
+      "photo": "photos/eric.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "19 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••57-H",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Panadero en el Forn Can Batlle",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Penales: sin condenas firmes.",
+          "entries": [
+            {
+              "code": "TRÁFICO 044871",
+              "date": "Hace 2 años",
+              "title": "Ciclomotor sin seguro obligatorio",
+              "detail": "Inmovilizado y sancionado en un control de Olot.",
+              "state": "SANCIÓN ABONADA",
+              "tone": "neutral"
+            }
+          ]
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Compañero de trabajo",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sonia",
+      "name": "Sonia Mir",
+      "subtitle": "38 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "sonia mir sonia ••••••79-b",
+      "reference": "DNI ••••••79-B",
+      "photo": "photos/sonia.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "38 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••79-B",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Profesora de Educación Física · entrenadora de Vòlei Olot",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Entrenadora",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "judit",
+      "name": "Judit Prat",
+      "subtitle": "17 años · Olot",
+      "badge": "MENOR DE EDAD",
+      "tone": "clean",
+      "keywords": "judit prat judit ••••••16-l",
+      "reference": "DNI ••••••16-L",
+      "photo": "photos/judit.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "17 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••16-L",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            }
+          ],
+          "highlight": "Menor de edad: datos protegidos (LO 1/1996). Sin anotaciones."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Compañera de equipo (vóley)",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ona",
+      "name": "Ona Comas",
+      "subtitle": "18 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "ona comas ona ••••••25-j",
+      "reference": "DNI ••••••25-J",
+      "photo": "photos/ona.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "18 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••25-J",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Estudiante",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Compañera de equipo (vóley)",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "teresa",
+      "name": "Teresa Bosch",
+      "subtitle": "56 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "teresa bosch teresa ••••••10-l",
+      "reference": "DNI ••••••10-L",
+      "photo": "photos/teresa.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "56 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••10-L",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Bibliotecaria municipal",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Club de lectura",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ramon",
+      "name": "Ramon Pagès",
+      "subtitle": "79 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "ramon pagès ramon ••••••72-s",
+      "reference": "DNI ••••••72-S",
+      "photo": "photos/ramon.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "79 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••72-S",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Jubilado (carpintero)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Penales: sin condenas firmes.",
+          "entries": [
+            {
+              "code": "DENUNCIA 000977",
+              "date": "Hace 4 años",
+              "title": "Disputa de lindes con un vecino",
+              "detail": "Denunciado por mover una cerca de un huerto. Se arregló entre ellos.",
+              "state": "ARCHIVADA",
+              "tone": "neutral"
+            }
+          ]
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Vecino · club de lectura",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gemma",
+      "name": "Gemma Ferrer",
+      "subtitle": "34 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "gemma ferrer gemma ••••••84-c",
+      "reference": "DNI ••••••84-C",
+      "photo": "photos/gemma.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "34 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••84-C",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Administrativa del Ayuntamiento",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Club de lectura · ioga",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xavier",
+      "name": "Xavier Bru",
+      "subtitle": "50 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "xavier bru xavier ••••••38-d",
+      "reference": "DNI ••••••38-D",
+      "photo": "photos/xavier.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "50 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••38-D",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Profesor de música · director de la Coral l'Hostalnou",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Director de la coral",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roser",
+      "name": "Roser Vilà",
+      "subtitle": "74 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "roser vilà roser ••••••72-r",
+      "reference": "DNI ••••••72-R",
+      "photo": "photos/roser.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "74 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••72-R",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Jubilada",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Coral",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pep",
+      "name": "Pep Riba",
+      "subtitle": "68 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "pep riba pep ••••••32-p",
+      "reference": "DNI ••••••32-P",
+      "photo": "photos/pep.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "68 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••32-P",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Jubilado (Correos)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Coral",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lluisa",
+      "name": "Lluïsa Pujol",
+      "subtitle": "61 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "lluïsa pujol lluisa ••••••43-p",
+      "reference": "DNI ••••••43-P",
+      "photo": "photos/lluisa.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "61 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••43-P",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Maestra jubilada · coordinadora del Banc d'Aliments",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Coordinadora del voluntariado",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toni",
+      "name": "Toni Garcia",
+      "subtitle": "26 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "toni garcia toni ••••••73-e",
+      "reference": "DNI ••••••73-E",
+      "photo": "photos/toni.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "26 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••73-E",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Repartidor en una cooperativa agrícola",
+              "wide": true
+            },
+            {
+              "label": "VEHÍCULO",
+              "value": "Furgoneta de la cooperativa (uso laboral)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Voluntario del Banc d'Aliments",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "Los sábados reparte los lotes del Banc d'Aliments por las masías del valle."
+        }
+      ]
+    },
+    {
+      "id": "fatima",
+      "name": "Fàtima El Amrani",
+      "subtitle": "29 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "fàtima el amrani fatima ••••••90-b",
+      "reference": "DNI ••••••90-B",
+      "photo": "photos/fatima.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "29 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••90-B",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Auxiliar de enfermería (hospital de Olot)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Voluntaria del Banc d'Aliments",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "claudia",
+      "name": "Clàudia Ros",
+      "subtitle": "40 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "clàudia ros claudia ••••••82-x",
+      "reference": "DNI ••••••82-X",
+      "photo": "photos/claudia.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "40 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••82-X",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Fisioterapeuta · profesora de ioga",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Profesora de ioga",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "imma",
+      "name": "Imma Torrent",
+      "subtitle": "47 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "imma torrent imma ••••••85-h",
+      "reference": "DNI ••••••85-H",
+      "photo": "photos/imma.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "47 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••85-H",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Administrativa",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Ioga",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pau",
+      "name": "Pau Codina",
+      "subtitle": "21 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "pau codina pau ••••••32-a",
+      "reference": "DNI ••••••32-A",
+      "photo": "photos/pau.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "21 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••32-A",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Estudiante de Magisterio (Girona)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Coordinador del esplai",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clara",
+      "name": "Clara Serrat",
+      "subtitle": "19 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "clara serrat clara ••••••56-n",
+      "reference": "DNI ••••••56-N",
+      "photo": "photos/clara.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "19 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••56-N",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Estudiante de Educación Infantil",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Monitora del esplai",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "biel",
+      "name": "Biel Martí",
+      "subtitle": "19 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "biel martí biel ••••••36-d",
+      "reference": "DNI ••••••36-D",
+      "photo": "photos/biel.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "19 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••36-D",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Reponedor en el supermercado",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Monitor del esplai",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "Como monitor, tiene llaves del refugio municipal del esplai (Can Pericot, Capsec)."
+        }
+      ]
+    },
+    {
+      "id": "quim",
+      "name": "Quim Fontanella",
+      "subtitle": "45 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "quim fontanella quim ••••••52-r",
+      "reference": "DNI ••••••52-R",
+      "photo": "photos/quim.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "45 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••52-R",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Técnico de cultura del Ayuntamiento",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Comisión de la fiesta mayor",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marc",
+      "name": "Marc Masó",
+      "subtitle": "19 años · L'Hostalnou de Bianya",
+      "badge": "ANTECEDENTES POLICIALES",
+      "tone": "police",
+      "keywords": "marc masó marc ••••••24-r",
+      "reference": "GA-002961",
+      "facts": [
+        "19 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••24-R",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Granja familiar",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Penales: sin condenas firmes.",
+          "entries": [
+            {
+              "code": "ATESTADO 002961",
+              "date": "Hace 1 año",
+              "title": "Desórdenes públicos · detenido",
+              "detail": "Corte de la autovía con tractores durante una protesta agraria. Detenido junto a otros once agricultores y reseñado. Absuelto.",
+              "state": "ABSUELTO",
+              "tone": "warn"
+            }
+          ]
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Vecino del pueblo",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ],
+      "mugshot": "OLOT · 002961"
+    },
+    {
+      "id": "laura",
+      "name": "Laura Vila",
+      "subtitle": "18 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "laura vila laura ••••••30-t",
+      "reference": "DNI ••••••30-T",
+      "photo": "photos/laura.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "18 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••30-T",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Estudiante",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Excompañera de instituto",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            },
+            {
+              "name": "Berta Serra Vidal",
+              "role": "Co-responsable del permiso",
+              "badge": "SIN ANTECEDENTES",
+              "tone": "clean",
+              "record": "berta"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "Figura, junto a Berta Serra Vidal, como responsable de un permiso municipal para una «jornada de meditación al alba» de la Associació Comunitat Rosa d'Abril en la plaza del pueblo, hace un mes."
+        }
+      ]
+    },
+    {
+      "id": "conxita",
+      "name": "Conxita Plana",
+      "subtitle": "71 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "conxita plana conxita ••••••82-k",
+      "reference": "DNI ••••••82-K",
+      "photo": "photos/conxita.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "71 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••82-K",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Jubilada",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Vecina de enfrente (C/ del Pont)",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        },
+        {
+          "title": "OBSERVACIONES",
+          "text": "Seis denuncias en dos años como denunciante, todas por la calle del Pont: ruidos, coches mal aparcados y «una furgoneta que llega de madrugada»."
+        }
+      ]
+    },
+    {
+      "id": "enric",
+      "name": "Enric Batet",
+      "subtitle": "64 años · L'Hostalnou de Bianya",
+      "badge": "SANCIONES ADMINISTRATIVAS",
+      "tone": "clean",
+      "keywords": "enric batet enric ••••••70-j",
+      "reference": "DNI ••••••70-J",
+      "photo": "photos/enric.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "64 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••70-J",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Electricista jubilado",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Penales: sin condenas firmes.",
+          "entries": [
+            {
+              "code": "SANCIÓN 000318",
+              "date": "Hace 1 año",
+              "title": "Perro suelto en la vía pública",
+              "detail": "Un mestizo negro con collar rojo («Rocky»). Ordenanza municipal.",
+              "state": "SANCIÓN ABONADA",
+              "tone": "neutral"
+            }
+          ]
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Vecino (C/ del Pont)",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rafa",
+      "name": "Rafa Moreno",
+      "subtitle": "52 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "rafa moreno rafa ••••••59-b",
+      "reference": "DNI ••••••59-B",
+      "photo": "photos/rafa.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "52 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••59-B",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Profesor de autoescuela",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Profesor de teórica",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hugo",
+      "name": "Hugo Camps",
+      "subtitle": "18 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "hugo camps hugo ••••••78-c",
+      "reference": "DNI ••••••78-C",
+      "photo": "photos/hugo.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "18 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••78-C",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Estudiante",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Compañero de autoescuela",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dolors",
+      "name": "Dolors Camprubí",
+      "subtitle": "60 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "dolors camprubí dolors ••••••76-x",
+      "reference": "DNI ••••••76-X",
+      "photo": "photos/dolors.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "60 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••76-X",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Profesora de lengua jubilada · teatro amateur",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Directora del grupo de teatro",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "queralt",
+      "name": "Queralt Busquets",
+      "subtitle": "23 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "queralt busquets queralt ••••••91-w",
+      "reference": "DNI ••••••91-W",
+      "photo": "photos/queralt.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "23 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••91-W",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Estudiante de Arte Dramático (Barcelona)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Grupo de teatro",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jan",
+      "name": "Jan Vilalta",
+      "subtitle": "20 años · L'Hostalnou de Bianya",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "jan vilalta jan ••••••79-w",
+      "reference": "DNI ••••••79-W",
+      "photo": "photos/jan.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "20 años · Varón"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••79-W",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "L'Hostalnou de Bianya"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Estudiante (Girona)",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Grupo de teatro",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anna",
+      "name": "Anna Ferran",
+      "subtitle": "41 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "anna ferran anna ••••••29-j",
+      "reference": "DNI ••••••29-J",
+      "photo": "photos/anna.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "41 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••29-J",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Enfermera de atención primaria",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Madre de una alumna de repaso",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silvia",
+      "name": "Sílvia Juncà",
+      "subtitle": "39 años · Olot",
+      "badge": "SIN ANTECEDENTES",
+      "tone": "clean",
+      "keywords": "sílvia juncà silvia ••••••92-y",
+      "reference": "DNI ••••••92-Y",
+      "photo": "photos/silvia.jpg",
+      "photoCaption": "FOTO DEL DNI",
+      "facts": [
+        "39 años · Mujer"
+      ],
+      "sections": [
+        {
+          "title": "FILIACIÓN",
+          "fields": [
+            {
+              "label": "DNI",
+              "value": "••••••92-Y",
+              "mono": true
+            },
+            {
+              "label": "DOMICILIO",
+              "value": "Olot"
+            },
+            {
+              "label": "OCUPACIÓN",
+              "value": "Agente inmobiliaria",
+              "wide": true
+            }
+          ]
+        },
+        {
+          "title": "ANTECEDENTES",
+          "highlight": "Sin antecedentes policiales ni penales."
+        },
+        {
+          "title": "VÍNCULOS",
+          "links": [
+            {
+              "name": "Alicia Serra Vidal",
+              "role": "Madre de un alumno de repaso",
+              "badge": "DESAPARECIDA",
+              "tone": "missing",
+              "record": "alicia"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

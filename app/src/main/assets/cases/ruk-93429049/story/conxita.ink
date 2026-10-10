@@ -14,6 +14,8 @@
     {aviso == 0: -> aviso ->}
     A las once y pico te vi salir por la puerta de atrás. Con una bolsa enorme. #delay: 600
     Y a las tres de la madrugada aparcó delante de tu casa la furgoneta blanca de los amigos de tu madre. Bajaron tres, con linternas. #delay: 8
+    Apunté la matrícula, por si acaso. Acababa en HFT. #delay: 6
+    ~ sabe_furgoneta = true
     Pensé que se iban de excursión. A esas horas. #delay: 6
     -> opciones
 + [(sin responder)]

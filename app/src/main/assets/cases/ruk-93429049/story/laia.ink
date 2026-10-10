@@ -468,9 +468,19 @@ Lo siento. #delay: 10 #effect: case_closed
 * {dia >= 4} [¿De quién es el coche gris con una rosa dorada que ronda su casa?]
     ~ sabe_secta = true
     ~ sabe_cra = true
+    ~ sabe_seat = true
     Seat gris a nombre de CRA Serveis. Es la Associació Comunitat Rosa d'Abril, de Sant Joan les Fonts. #delay: 300
     Tres multas de aparcamiento en Olot. Lo conduce Ignasi Coll. #delay: 5
     Y anteanoche lo pararon en un control de Sant Joan les Fonts a las tres de la madrugada. Volvía del valle. #delay: 5
+// Solo con la ficha de Ignasi (app Policía): el precedente. Laia vigila el cráter sin gastar una salida de la Policía.
+* {ficha_ignasi and dia >= 4 and not vigilancia_crater} [Mira el atestado de Ignasi Coll de hace once años: una mujer muerta en un retiro al alba en el cráter de Santa Margarida.]
+    ~ sabe_secta = true
+    Lo tengo delante. Elisenda Clos, 34 años. Nueve días en ayunas y un agua que repartía él. Murió al amanecer, en la ermita. #delay: 400
+    Sobreseído. «Participación voluntaria». Y un año después, Rosa d'Abril. #delay: 5
+    Un grupo de duelo que se viste de blanco, ayuna y sube al alba. La madre que no quiere que la reanimen. #delay: 6
+    Si se repite, será en el mismo sitio y a la misma hora. #delay: 5
+    ~ vigilancia_crater = true
+    Pongo a dos agentes de paisano en el cráter cada amanecer hasta que esto acabe. Es cosa mía: no te cuesta ninguna salida. #delay: 6
 + [Nada por ahora.]
     Vale. #delay: 3
 + [(sin responder)]

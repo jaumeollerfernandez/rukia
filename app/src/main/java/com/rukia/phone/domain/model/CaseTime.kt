@@ -21,3 +21,9 @@ fun caseTime(spec: String, start: Long, zone: ZoneId): Long? {
 /** Which day of the case [millis] falls on: 1 on D1, 2 on D2... */
 fun caseDay(millis: Long, start: Long, zone: ZoneId): Int =
     ChronoUnit.DAYS.between(Instant.ofEpochMilli(start).atZone(zone).toLocalDate(), Instant.ofEpochMilli(millis).atZone(zone).toLocalDate()).toInt() + 1
+
+/** [millis] as a case time, "D3 18:40": the opposite of [caseTime]. */
+fun caseTimeLabel(millis: Long, start: Long, zone: ZoneId): String {
+    val time = Instant.ofEpochMilli(millis).atZone(zone)
+    return "D${caseDay(millis, start, zone)} %02d:%02d".format(time.hour, time.minute)
+}

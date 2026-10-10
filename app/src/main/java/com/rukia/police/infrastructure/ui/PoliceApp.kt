@@ -29,8 +29,11 @@ import com.rukia.phone.infrastructure.ui.Kit
 import com.rukia.phone.infrastructure.ui.RukiaIcons
 import com.rukia.phone.infrastructure.ui.SystemBars
 import com.rukia.police.domain.model.Operation
+import com.rukia.police.domain.model.RecordStatus
 import com.rukia.police.domain.model.RecordedCall
 import com.rukia.police.domain.port.Radio
+import com.rukia.police.domain.port.StoryFlags
+import com.rukia.police.domain.port.StoryFacts
 import com.rukia.police.infrastructure.PoliceModule
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -64,7 +67,8 @@ internal val LocalPolice = staticCompositionLocalOf { LightPolice }
 /**
  * Police Department app for the case shown as [caseLabel] ("CASE 0") and [caseTitle]. [listCallRecordings] gives the
  * answered calls, [onResetChats] wipes the chat app's save, [onSolved] tells the story the case was solved, [onSearched] that a squad was sent to search on a case day, and
- * [onReturnToTitle] leaves the phone. The phone wires them in.
+ * [onRecordRead] that the player read a police record (its story flag), [isStoryTrue] reads a story variable (what unlocks
+ * a vehicle's record), and [onReturnToTitle] leaves the phone. The phone wires them in.
  */
 @Composable
 fun PoliceApp(
@@ -76,16 +80,23 @@ fun PoliceApp(
     onSolved: () -> Unit,
     onSearched: (day: Int) -> Unit,
     onReport: (channel: String, knot: String) -> Unit,
+    onRecordRead: (flag: String) -> Unit,
+    isStoryTrue: (variable: String) -> Boolean,
     onReturnToTitle: () -> Unit,
 ) {
     val dark = isSystemInDarkTheme()
     val c = if (dark) DarkPolice else LightPolice
     SystemBars(lightBottomIcons = dark, lightTopIcons = dark)
     val context = LocalContext.current.applicationContext
-    val m = remember(caseId) { PoliceModule(context, caseId, save = { onResetChats() }, radio = Radio(onReport)) }
+    val m = remember(caseId) { PoliceModule(context, caseId, save = { onResetChats() }, radio = Radio(onReport), flags = StoryFlags(onRecordRead), facts = StoryFacts(isStoryTrue)) }
     var confirming by remember { mutableStateOf(false) }
     var solving by rememberSaveable { mutableStateOf(false) }
     var listeningCalls by rememberSaveable { mutableStateOf(false) }
+    var browsingRecords by rememberSaveable { mutableStateOf(false) }
+    var openRecord by rememberSaveable { mutableStateOf<String?>(null) }
+    var requested by remember { mutableIntStateOf(0) } // bumped after asking for a record, to show it at once
+    // Records come in with the case's clock: look again every few seconds.
+    val records by produceState(m.getRecords(), m, requested) { while (true) { value = m.getRecords(); delay(5_000) } }
     var picked by remember { mutableStateOf<Operation?>(null) }
     // Squads come and go with the case's clock: look again every few seconds.
     var sent by remember { mutableIntStateOf(0) } // bumped after sending a squad, to show it at once
@@ -105,6 +116,26 @@ fun PoliceApp(
                 when {
                     searches.solved -> VerdictScreen(onReturnToTitle)
                     listeningCalls -> CallRecordingsScreen(remember { listCallRecordings() }) { listeningCalls = false }
+                    openRecord != null -> {
+                        val opened = remember(openRecord) { runCatching { m.readRecord(openRecord!!) }.getOrNull() }
+                        if (opened == null) LaunchedEffect(Unit) { openRecord = null }
+                        else RecordScreen(
+                            caseTitle, opened,
+                            canOpen = { id -> records.rows.any { it.record.id == id && it.request?.let { r -> CaseClock.now(caseId) >= r.readyAt } == true } },
+                            isRead = { id -> records.rows.any { it.record.id == id && it.status == RecordStatus.Read } },
+                            onBack = { openRecord = null; requested++ },
+                            onOpen = { openRecord = it },
+                        )
+                    }
+                    browsingRecords -> RecordsScreen(
+                        caseTitle, records, m::caseTimeOf, onBack = { browsingRecords = false },
+                        onRequest = { id ->
+                            // another one may have been asked for meanwhile
+                            runCatching { m.requestRecord(id) }
+                            requested++
+                        },
+                        onOpen = { openRecord = it },
+                    )
                     solving -> SolveCaseScreen(m.getCaseQuestion(), searches, { CaseClock.now(caseId) }, onBack = { solving = false }, onFind = { m.findPlace(it) }) { at, radius ->
                         // the deadline may have passed while the alert was open
                         runCatching { m.searchZone(at, radius) }.onSuccess { onSearched(it.day) }
@@ -130,6 +161,9 @@ fun PoliceApp(
                                 ActionRow(RukiaIcons.Exit, PoliceBlue, stringResource(R.string.return_title), stringResource(R.string.return_title_sub), onClick = onReturnToTitle)
                             }
                             if (m.hasOperations) OperationsSection(board, m.operationLabels) { picked = it }
+                            if (m.hasRecords) Section(stringResource(R.string.section_investigation)) {
+                                ActionRow(RukiaIcons.IdCard, Color(0xFF455A64), stringResource(R.string.police_records), stringResource(R.string.police_records_sub)) { browsingRecords = true }
+                            }
                             Section(stringResource(R.string.section_evidence)) {
                                 ActionRow(RukiaIcons.Phone, Kit.Accept, stringResource(R.string.call_recordings), stringResource(R.string.call_recordings_sub)) { listeningCalls = true }
                             }

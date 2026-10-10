@@ -215,4 +215,46 @@
     <string name="zone_hit_title">Inside this zone · %1$d%%</string>
     <string name="zone_hit_text">Too wide to find the exact place. Draw a smaller zone tomorrow.</string>
     <string name="station">Station</string>
+
+    <!-- Police records -->
+    <string name="section_investigation">Investigation</string>
+    <string name="police_records">Police records</string>
+    <string name="police_records_sub">Records, fingerprints and reports</string>
+    <string name="records_kicker">LOOKUP · FILE %1$s</string>
+    <string name="records_search">Name, ID or plate</string>
+    <string name="records_people">People</string>
+    <string name="records_vehicles">Vehicles</string>
+    <string name="records_none">No results for “%1$s”</string>
+    <string name="records_legal">Every lookup is logged with the officer\'s number and the reason (LO 7/2021, data protection in criminal investigations).</string>
+    <string name="record_request">Request the record · about %1$d h</string>
+    <string name="record_pending">Paperwork under way · arrives %1$s</string>
+    <string name="record_ready">Arrived · not read yet</string>
+    <string name="record_request_q">Request this record?</string>
+    <string name="record_request_text">The paperwork for %1$s takes about %2$d h today. The further into the case, the faster it goes. Only one record goes through at a time.</string>
+    <string name="record_request_confirm">Request</string>
+    <string name="record_busy_title">Paperwork under way</string>
+    <string name="record_busy">%1$s\'s record is still on its way. It arrives %2$s.</string>
+    <string name="ok">OK</string>
+    <string name="records_back">Records</string>
+    <string name="record_confidential">CONFIDENTIAL</string>
+    <string name="record_restricted">POLICE RECORD · RESTRICTED USE</string>
+    <string name="record_person">INDIVIDUAL RECORD</string>
+    <string name="record_vehicle">VEHICLE RECORD</string>
+    <string name="mugshot_front">FRONT</string>
+    <string name="mugshot_profile">RIGHT PROFILE</string>
+    <string name="missing_for">TIME MISSING</string>
+    <string name="days_hours">%1$d d %2$d h</string>
+    <string name="record_logged">LOOKUP LOGGED · OFFICER K-05 · %1$s</string>
+    <string name="record_reason">REASON: FILE %1$s · LO 7/2021</string>
+    <string name="record_hint">What you learned from this record may open new conversations.</string>
+    <string name="right_hand">RIGHT HAND</string>
+    <string name="left_hand">LEFT HAND</string>
+    <string name="fingerprint_formula">FINGERPRINT FORMULA (OLÓRIZ)</string>
+    <string-array name="finger_names">
+        <item>THUMB</item>
+        <item>INDEX</item>
+        <item>MIDDLE</item>
+        <item>RING</item>
+        <item>LITTLE</item>
+    </string-array>
 </resources>

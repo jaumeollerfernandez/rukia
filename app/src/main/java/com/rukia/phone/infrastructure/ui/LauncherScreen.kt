@@ -49,6 +49,9 @@ import com.rukia.chat.domain.model.CallStatus
 import com.rukia.chat.domain.model.PLAYER_ID
 import com.rukia.chat.infrastructure.ChatModule
 import com.rukia.police.domain.model.RecordedCall
+import com.rukia.police.domain.model.RecordStatus
+import com.rukia.police.infrastructure.PoliceModule
+import com.rukia.multimedia.domain.model.Photo
 import com.rukia.chat.infrastructure.ui.ChatApp
 import com.rukia.game.infrastructure.cases
 import com.rukia.gonpi.infrastructure.ui.GonpiApp
@@ -79,7 +82,14 @@ fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit)
         "chat", R.string.app_chats, RukiaIcons.Chat, Color(0xFF25D366),
         badge = { ChatModule.of(context, caseId).listChats().count { it.unreadCount(CaseClock.now(caseId)) > 0 } },
     ) { ChatApp(caseId) },
-    PhoneApp("police", R.string.app_police, RukiaIcons.Shield, PoliceBlue) {
+    PhoneApp(
+        "police", R.string.app_police, RukiaIcons.Shield, PoliceBlue,
+        // ponytail: reads the records files on each badge refresh (every 3 s); cache it if it shows up in a profile.
+        badge = {
+            PoliceModule(context, caseId, facts = { ChatModule.of(context, caseId).getStoryVariable(it) == true })
+                .getRecords().rows.count { it.status == RecordStatus.Ready }
+        },
+    ) {
         val case = cases.first { it.id == caseId }
         PoliceApp(
             caseId, caseLabel = stringResource(R.string.case_number, case.number), caseTitle = case.title,
@@ -96,10 +106,15 @@ fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit)
             onSolved = { ChatModule.of(context, caseId).markCaseSolved() },
             onSearched = { ChatModule.of(context, caseId).markSearchDone(it) },
             onReport = { channel, knot -> ChatModule.of(context, caseId).playStoryEvent(channel, knot) },
+            onRecordRead = { ChatModule.of(context, caseId).setStoryFlag(it) },
+            isStoryTrue = { ChatModule.of(context, caseId).getStoryVariable(it) == true },
             onReturnToTitle = onReturnToTitle,
         )
     },
-    PhoneApp("multimedia", R.string.app_multimedia, Icons.Filled.Face, MultimediaOrange) { MultimediaApp(caseId) },
+    PhoneApp("multimedia", R.string.app_multimedia, Icons.Filled.Face, MultimediaOrange) {
+        // The police photos of the arrested people whose records the player read.
+        MultimediaApp(caseId) { PoliceModule(context, caseId).listMugshots().map { Photo(it.path, it.plate, it.profile) } }
+    },
     PhoneApp("gonpi", R.string.app_gonpi, Icons.Filled.Favorite, GonpiPink) {
         // Gonpi's search finds the people in the chat app's Contacts tab.
         GonpiApp(caseId) { ChatModule.of(context, caseId).characters.values.filter { !it.hidden && it.id != PLAYER_ID }.map { it.id }.toSet() }

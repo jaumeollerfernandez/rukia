@@ -1,6 +1,8 @@
 package com.rukia.multimedia.domain.port
 
-/** The photos on the phone's camera roll, as paths inside the case's content folder ("multimedia/IMG_0391.jpg"). */
+import com.rukia.multimedia.domain.model.Photo
+
+/** Photos on the phone's camera roll, by their paths inside the case's content folder ("multimedia/IMG_0391.jpg"). */
 fun interface Gallery {
-    fun photos(): List<String>
+    fun photos(): List<Photo>
 }

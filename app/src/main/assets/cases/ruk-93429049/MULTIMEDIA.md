@@ -26,6 +26,10 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | `IMG_0412.jpg` | En la panadería, a la hora de cerrar: una bolsa de tela llena de barras de payés encima del mostrador. En la pared, un reloj marca las 20:58 | 🔎 | Las seis barras que faltan (Èric, Pilar) y el pan que pide Rosalia (D4) |
 | `IMG_0413.jpg` | Mochila abierta encima de la cama: linterna, un jersey, un cargador de pared **sin móvil**, una vela y un paquete de cerillas | 🔎 | Preparó la huida: se iba a algún sitio sin luz eléctrica |
 
+## Fotos policiales
+
+Al leer en Policía la ficha de alguien que ha estado detenido (Dani, Ignasi), su reseña aparece al final de la galería: foto de frente y de perfil con la placa («OLOT · 004417»). Mientras no exista la imagen, la app la dibuja (silueta sobre el tallímetro). Las imágenes van en `police/resenas/` (ver MEDIA_PENDIENTE.md).
+
 ## Notas
 
 - Las fotos no tienen pie ni fecha visibles: lo que cuenta es lo que **se ve**. Hay que dibujarlas o fotografiarlas con esos detalles legibles: el dintel 1782, «TRUFA», la notificación que tapa el destino, el reloj de la panadería.

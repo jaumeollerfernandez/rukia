@@ -44,6 +44,7 @@ Cada final se monta con estas piezas. Las horas son de la partida.
 ### Parar la ceremonia: `familia_salvada()` (basta una)
 - **D. Vigilar el cráter:** en D6, manda la salida de la **noche** a «Vigilar el cráter de Santa Margarida al amanecer» → `vigilancia_crater`.
 - **E. Iris declara:** en `iris`, en la llamada de D6 00:45, elige «Iris, ve a los Mossos de Olot…» antes de las D6 02:00 → `iris_ayuda`.
+- **D'. Laia vigila el cráter (fichas policiales):** pide y lee la ficha de **Ignasi Coll** en Policía › Fichas policiales (`ficha_ignasi`). A partir del D4, en la consulta nocturna de Laia, elige «Mira el atestado de Ignasi Coll de hace once años…» → `vigilancia_crater` **sin gastar ninguna salida**: las dos quedan libres (por ejemplo, para el mas y las masías).
 
 ### Que la secta encuentre a Alicia: `secta_sabe_rosalia` (basta una)
 - **S1. Error en el grupo familiar:** en `familia`, D3 22:00, elige «la rosalia no está en ninguna residencia» (antes de D4 08:00).
@@ -63,6 +64,13 @@ En `desconocido`, D4 23:40:
 3. «Cuídate, Alicia…»
 
 Con eso `confianza_alicia` llega a 3. En D5 23:30, «Dime dónde estás…» da la puerta azul.
+
+### G. Fichas policiales (opcional, dan pistas)
+En Policía › Fichas policiales se pide una ficha y llega horas después (12 h el D1, 10 el D2, 8 el D3, 6 el D4, 4 el D5, 2 el D6, 1 el D7). Solo se tramita una a la vez. Leerla pone `ficha_<id>`:
+- **Dani** (`ficha_dani`): la multa del radar de Sant Salvador abre en su charla «tu moto salta un radar…» → `sabe_ruta_lotes`, lo mismo que si lo detienes y le crees, sin gastar una salida.
+- **Ignasi** (`ficha_ignasi`): la pieza D' y, en `iris` (D5 00:30), «¿Sabes lo que pasó hace once años…?», donde Iris adelanta el cuándo y el dónde. Da el logro «El precedente».
+- Las demás solo informan. El Seat gris sube al cráter al amanecer los tres días antes del caso; la furgoneta, con Iris al volante y garrafas de agua; Montse vendió el piso de la yaya por 120.000 € (como en la libreta, IMG_0401).
+- Quien tiene reseña (Dani, Ignasi, Marc) deja en Multimedia sus fotos policiales de frente y de perfil.
 
 ## Recetas
 

@@ -213,4 +213,46 @@
     <string name="zone_hit_title">Dentro de esta zona · %1$d%%</string>
     <string name="zone_hit_text">Demasiado amplia para dar con el sitio exacto. Marca una zona más pequeña mañana.</string>
     <string name="station">Comisaría</string>
+
+    <!-- Fichas policiales -->
+    <string name="section_investigation">Investigación</string>
+    <string name="police_records">Fichas policiales</string>
+    <string name="police_records_sub">Fichas, huellas y atestados</string>
+    <string name="records_kicker">CONSULTA · EXP. %1$s</string>
+    <string name="records_search">Nombre, DNI o matrícula</string>
+    <string name="records_people">Personas</string>
+    <string name="records_vehicles">Vehículos</string>
+    <string name="records_none">Sin resultados para «%1$s»</string>
+    <string name="records_legal">Cada consulta queda registrada con el número de agente y el motivo (LO 7/2021, de protección de datos en investigación penal).</string>
+    <string name="record_request">Pedir la ficha · unas %1$d h</string>
+    <string name="record_pending">En trámite · llega %1$s</string>
+    <string name="record_ready">Ha llegado · sin leer</string>
+    <string name="record_request_q">¿Pedir esta ficha?</string>
+    <string name="record_request_text">La burocracia para la ficha de %1$s tarda hoy unas %2$d h. Cuanto más avanza el caso, más rápido va. Solo se tramita una ficha a la vez.</string>
+    <string name="record_request_confirm">Pedir</string>
+    <string name="record_busy_title">Ficha en trámite</string>
+    <string name="record_busy">La ficha de %1$s todavía está en trámite. Llega %2$s.</string>
+    <string name="ok">Vale</string>
+    <string name="records_back">Fichas</string>
+    <string name="record_confidential">CONFIDENCIAL</string>
+    <string name="record_restricted">REGISTRO POLICIAL · USO RESTRINGIDO</string>
+    <string name="record_person">FICHA DE INDIVIDUO</string>
+    <string name="record_vehicle">FICHA DE VEHÍCULO</string>
+    <string name="mugshot_front">FRONTAL</string>
+    <string name="mugshot_profile">PERFIL DCHO.</string>
+    <string name="missing_for">TIEMPO DESAPARECIDA</string>
+    <string name="days_hours">%1$d d %2$d h</string>
+    <string name="record_logged">CONSULTA REGISTRADA · AGENTE K-05 · %1$s</string>
+    <string name="record_reason">MOTIVO: EXP. %1$s · LO 7/2021</string>
+    <string name="record_hint">Lo que sabes por esta ficha puede abrirte conversaciones nuevas.</string>
+    <string name="right_hand">MANO DERECHA</string>
+    <string name="left_hand">MANO IZQUIERDA</string>
+    <string name="fingerprint_formula">FÓRMULA DACTILOSCÓPICA (OLÓRIZ)</string>
+    <string-array name="finger_names">
+        <item>PULGAR</item>
+        <item>ÍNDICE</item>
+        <item>MEDIO</item>
+        <item>ANULAR</item>
+        <item>MEÑIQUE</item>
+    </string-array>
 </resources>

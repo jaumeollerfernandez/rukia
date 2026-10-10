@@ -13,6 +13,8 @@
     Un hombre mayor, con barba blanca. Toda la noche ahí. #delay: 600
     Miraba la ventana de tu cuarto. Con la luz del móvil encendida. #delay: 5
     A las seis se fue hacia Sant Joan les Fonts. #delay: 5
+    Le apunté la matrícula. Acaba en KDP. Por si te sirve. #delay: 5
+    ~ sabe_seat = true
     -> opciones
 + [(sin responder)]
     -> charla
