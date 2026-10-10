@@ -82,6 +82,7 @@ VAR vigilancia_crater = false // habrá agentes en el cráter de Santa Margarida
 VAR alicia_a_salvo = false    // Alicia ha bajado con la patrulla
 VAR iris_ayuda = false        // Iris va a declarar a los Mossos
 VAR caso_resuelto = false     // lo activa la app de Policía si el jugador acierta la pregunta antes del límite
+VAR final_caso = 0            // el final al que se ha llegado (1–6, ver FINALES.md); lo lee el juego para el informe de cierre
 
 // El sargento que contrata al jugador.
 INCLUDE laia.ink

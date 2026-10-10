@@ -22,7 +22,8 @@ import com.rukia.phone.infrastructure.AppLaunch
 import com.rukia.phone.infrastructure.CaseClock
 import com.rukia.phone.infrastructure.Language
 
-private const val CHANNEL = "gonpi"
+// A new id: Android keeps a channel's importance from when it was created, and the old one was not heads-up.
+private const val CHANNEL = "gonpi_posts"
 private const val CASE = "case"
 private const val AUTHOR = "author"
 private const val AT = "at"
@@ -67,7 +68,7 @@ private fun notify(context: Context, caseId: String, author: Account, at: Long) 
     ) return
     val res = Language.wrap(context).resources
     val manager = NotificationManagerCompat.from(context)
-    manager.createNotificationChannel(NotificationChannelCompat.Builder(CHANNEL, NotificationManagerCompat.IMPORTANCE_DEFAULT).setName("Gonpi").build())
+    manager.createNotificationChannel(NotificationChannelCompat.Builder(CHANNEL, NotificationManagerCompat.IMPORTANCE_HIGH).setName("Gonpi").build())
     val id = "gonpi-$caseId-${author.id}-$at".hashCode()
     val open = PendingIntent.getActivity(
         context, id, AppLaunch.intent(context, caseId, "gonpi", null),
@@ -79,6 +80,8 @@ private fun notify(context: Context, caseId: String, author: Account, at: Long) 
         .setContentTitle("Gonpi")
         .setContentText(res.getString(R.string.gonpi_notif_posted, author.username))
         .setWhen(at)
+        .setCategory(NotificationCompat.CATEGORY_SOCIAL)
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
         .setContentIntent(open)
         .setAutoCancel(true)
         .build()

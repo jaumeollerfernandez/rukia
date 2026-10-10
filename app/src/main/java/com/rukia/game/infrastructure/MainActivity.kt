@@ -2,6 +2,7 @@ package com.rukia.game.infrastructure
 
 import com.rukia.game.infrastructure.ui.MainMenu
 import com.rukia.game.infrastructure.ui.OptionsScreen
+import com.rukia.game.infrastructure.ui.ReportScreen
 import com.rukia.game.infrastructure.ui.TitleScreen
 import android.Manifest
 import android.app.AlarmManager
@@ -31,6 +32,9 @@ import com.rukia.phone.infrastructure.ui.PhoneScreen
 /** Screens before a case is open. */
 private enum class Menu { Main, Cases, Options }
 
+/** The closing report of a case. */
+private data class Report(val caseId: String)
+
 private const val ASKED_EXACT_ALARMS = "asked_exact_alarms"
 
 /** The game: the main menu (Start, Options, Exit), the case list, or the phone of the case being played. */
@@ -58,22 +62,41 @@ class MainActivity : ComponentActivity() {
             // The case being played opens straight away on launch, until it gets its verdict.
             var caseId by rememberSaveable { mutableStateOf(game.getCurrentCase()?.id) }
             var menu by rememberSaveable { mutableStateOf(Menu.Main) }
+            // The case whose closing report is on screen, right after its ending or picked from the case list.
+            var report by rememberSaveable { mutableStateOf<String?>(null) }
             // A tapped notification goes straight into its case's phone.
             LaunchedEffect(AppLaunch.request) {
                 AppLaunch.request?.caseId?.takeIf { requested -> game.listCases().any { it.id == requested } }?.let { caseId = it }
             }
-            AnimatedContent(caseId ?: menu, transitionSpec = { fadeIn() togetherWith fadeOut() }, label = "screen") { screen ->
+            AnimatedContent(caseId ?: report?.let(::Report) ?: menu, transitionSpec = { fadeIn() togetherWith fadeOut() }, label = "screen") { screen ->
                 when (screen) {
                     Menu.Main -> MainMenu(onStart = { menu = Menu.Cases }, onOptions = { menu = Menu.Options })
-                    Menu.Cases -> TitleScreen(game.listCases(), game.countActiveCases(), onBack = { menu = Menu.Main }, onPlay = {
-                        caseId = it.id
-                        game.playCase(it)
-                    })
+                    Menu.Cases -> TitleScreen(
+                        game.listCases(), game.countActiveCases(), reportOf = { game.getCaseReport(it) },
+                        onBack = { menu = Menu.Main },
+                        onPlay = {
+                            game.playCase(it) // a closed one starts over first
+                            caseId = it.id
+                        },
+                        onReport = { report = it.id },
+                        onReplay = { game.reopenCase(it.id) },
+                    )
                     Menu.Options -> OptionsScreen(game, onBack = { menu = Menu.Main })
+                    is Report -> {
+                        val closed = remember(screen) { game.getCaseReport(screen.caseId) }
+                        val toCases = { report = null; menu = Menu.Cases }
+                        if (closed == null) LaunchedEffect(Unit) { toCases() }
+                        else ReportScreen(closed, onBack = toCases, onReplay = { game.reopenCase(screen.caseId); toCases() })
+                    }
                     else -> PhoneScreen(
                         screen as String,
                         onReturnToTitle = { caseId = null; menu = Menu.Main },
-                        onCaseOver = { game.closeCase() },
+                        // The story reached its ending: the report takes over from the phone.
+                        onCaseOver = {
+                            val id = screen
+                            if (game.closeCase(id) != null) report = id else menu = Menu.Cases
+                            caseId = null
+                        },
                     )
                 }
             }

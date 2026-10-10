@@ -7,6 +7,7 @@ enum class CaseKind { Case, Training, Debug }
  * A playable case. Its content lives in assets/cases/<id>/ (characters.json, chats/, story/, police/case.json, media/)
  * and its progress in files/cases/<id>/, so cases never share chats or saves. The cases themselves are listed in [cases].
  * [headline], [stamp] and [facts] fill the case file card; like the rest of a case's content, they aren't translated.
+ * [endings] and [achievements] fill the report once the story reaches an ending, which quotes [endingVoice]; [days] is how long the case lasts.
  */
 class GameCase(
     val id: String,
@@ -17,5 +18,9 @@ class GameCase(
     val headline: String = title,
     val stamp: String? = null,
     val facts: List<Pair<String, String>> = emptyList(),
+    val days: Int = 0,
+    val endingVoice: String = "",
+    val endings: List<CaseEnding> = emptyList(),
+    val achievements: List<Achievement> = emptyList(),
 )
 

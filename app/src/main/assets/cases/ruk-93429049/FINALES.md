@@ -11,6 +11,7 @@ Qué elegir para ver cada final. No va en el juego. Las pistas y las pistas fals
   - **Mañana:** de D6 08:00 a 12:00.
   - **Noche:** de D6 22:05 a D7 02:00.
 - **Resolver el caso** en la app Policía (marcar el Mas de la Rosalia en el mapa antes de D7 06:30) pone `caso_resuelto`. ⚠️ Si fallas, es game over y se borra la partida.
+- **El caso se cierra** cuando llega la última línea del final de Laia (`#effect: case_closed`): sale el sello «EXPEDIENTE CERRADO» y el informe de cierre con el final (`final_caso`), los logros y los finales descubiertos. Resolverlo en el mapa no lo cierra antes. «Repetir» borra la partida pero conserva logros y finales.
 
 ## Qué decide el final
 

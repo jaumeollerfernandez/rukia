@@ -64,7 +64,7 @@ internal val LocalPolice = staticCompositionLocalOf { LightPolice }
 /**
  * Police Department app for the case shown as [caseLabel] ("CASE 0") and [caseTitle]. [listCallRecordings] gives the
  * answered calls, [onResetChats] wipes the chat app's save, [onSolved] tells the story the case was solved, [onSearched] that a squad was sent to search on a case day, and
- * [onReturnToTitle] leaves the phone; [onCaseOver] tells the game the case has its verdict. The phone wires them in.
+ * [onReturnToTitle] leaves the phone. The phone wires them in.
  */
 @Composable
 fun PoliceApp(
@@ -77,7 +77,6 @@ fun PoliceApp(
     onSearched: (day: Int) -> Unit,
     onReport: (channel: String, knot: String) -> Unit,
     onReturnToTitle: () -> Unit,
-    onCaseOver: () -> Unit,
 ) {
     val dark = isSystemInDarkTheme()
     val c = if (dark) DarkPolice else LightPolice
@@ -93,8 +92,9 @@ fun PoliceApp(
     val board by produceState(m.getOperations(), m, sent) { while (true) { value = m.getOperations(); delay(5_000) } }
     var searched by remember { mutableIntStateOf(0) } // bumped after a search, to show it at once
     val searches by produceState(m.getSearches(), m, searched) { while (true) { value = m.getSearches(); delay(1_000) } }
-    // The result that solves it may come in while the app is closed: tell the story and the game when it's first seen.
-    LaunchedEffect(searches.solved) { if (searches.solved) { onSolved(); onCaseOver() } }
+    // The result that solves it may come in while the app is closed: tell the story when it's first seen. The case itself
+    // closes with the story's ending.
+    LaunchedEffect(searches.solved) { if (searches.solved) onSolved() }
     val snackbar = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 

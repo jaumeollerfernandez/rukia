@@ -338,6 +338,7 @@ Mañana amanece. #delay: 3
 -> d7
 
 // D7: el amanecer. Todo se resuelve a las 06:30 (ver las funciones del final de main.ink).
+// Cada final pone `final_caso` y su última línea lleva `#effect: case_closed`: cuando llega, el juego cierra el caso y abre el informe.
 = d7
 {vigilancia_crater:
     En posición en el cráter. Niebla. No se ve ni la ermita. #at: D7 05:10
@@ -358,10 +359,12 @@ Mañana amanece. #delay: 3
 
 // Alicia a salvo y la ceremonia parada. Si la secta la había encontrado, la rescatan en el mismo cráter.
 = final_bueno
+~ final_caso = 1
 06:31. Entramos. #at: D7 06:31
 Ignasi Coll, detenido. Las botellas, requisadas. Ya veremos qué llevaban. #delay: 30
 Montse y Berta están bien. Asustadas. Berta grita que les hemos robado la luz. #delay: 8
 {capturada():
+    ~ final_caso = 2
     Y entre ellos estaba Alicia. La traían de la mano su madre y su hermana, con la ropa blanca encima del jersey. #delay: 10
     Está bien. Temblando, pero bien. #delay: 4
 - else:
@@ -369,38 +372,42 @@ Montse y Berta están bien. Asustadas. Berta grita que les hemos robado la luz. 
 }
 Alguien quiere hablar contigo. #delay: 20 #call: audio/alicia_final.m4a
 Buen trabajo. De verdad. #delay: 60
-Esta conversación nunca ha existido. Borra lo que tengas que borrar. #delay: 5
+Esta conversación nunca ha existido. Borra lo que tengas que borrar. #delay: 5 #effect: case_closed
 -> fin
 
 // Alicia a salvo, pero nadie ha parado la ceremonia.
 = final_alicia_sola
+~ final_caso = 3
 Alicia está a salvo. Está conmigo. #at: D7 06:31
 Pero en el cráter no había nadie nuestro. Cuando han llegado los primeros, ya había amanecido. #delay: 10
 Hay ambulancias. Muchas. #delay: 6
 Su madre y su hermana están entre los que se han llevado al hospital. Vivas. De momento. #delay: 10
 Ignasi Coll no estaba. Ya lo encontraremos. #delay: 6
 Alguien quiere hablar contigo. #delay: 30 #call: audio/alicia_final.m4a
-Hiciste lo que pudiste. Yo también. No basta, pero es lo que hay. #delay: 60
+Hiciste lo que pudiste. Yo también. No basta, pero es lo que hay. #delay: 60 #effect: case_closed
 -> fin
 
 // La secta encontró a Alicia y nadie ha parado la ceremonia.
 = final_malo
+~ final_caso = 4
 Hemos llegado tarde. #at: D7 06:45 #effect: hacked
 En el cráter solo quedaba la niebla. Y la ropa blanca doblada en la ermita. #delay: 10
 No sabemos dónde están. Ni Montse, ni Berta, ni Alicia. #delay: 6
-Lo siento. #delay: 10
+Lo siento. #delay: 10 #effect: case_closed
 -> fin
 
 // Nadie la encontró: ni la policía ni la secta. Sigue escondida en el bosque.
 = final_escondida
 {familia_salvada():
+    ~ final_caso = 5
     06:31. Entramos. Ignasi Coll, detenido. Montse y Berta, a salvo. #at: D7 06:31
     De Alicia, nada. Sigue escondida en algún sitio del valle. #delay: 8
-    Si te escribe, dile que ya puede volver. #delay: 5
+    Si te escribe, dile que ya puede volver. #delay: 5 #effect: case_closed
 - else:
+    ~ final_caso = 6
     Hay ambulancias en el cráter. Muchas. #at: D7 06:45
     Su madre y su hermana están entre los que se han llevado al hospital. Vivas. De momento. #delay: 10
-    Y Alicia sigue en algún sitio del valle. Sola. #delay: 6
+    Y Alicia sigue en algún sitio del valle. Sola. #delay: 6 #effect: case_closed
 }
 -> fin
 

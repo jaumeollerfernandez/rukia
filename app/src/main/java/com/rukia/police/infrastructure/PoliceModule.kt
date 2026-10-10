@@ -54,5 +54,6 @@ class PoliceModule(context: Context, caseId: String, save: SaveFile, radio: Radi
     val dispatchSquad = DispatchSquad(operations, dispatches, radio, timeOf, CaseClock.clock(caseId))
     /** Whether the case has field operations at all (police/actions.json). */
     val hasOperations = operations.operations().squads.isNotEmpty()
+    val squadCount = operations.operations().squads.size
     val operationLabels = operations.operations().operations.associate { it.id to it.label }
 }

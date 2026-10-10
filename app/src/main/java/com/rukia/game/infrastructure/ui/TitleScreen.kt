@@ -1,7 +1,14 @@
 package com.rukia.game.infrastructure.ui
 
 import com.rukia.game.domain.model.CaseKind
+import com.rukia.game.domain.model.CaseReport
 import com.rukia.game.domain.model.GameCase
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -29,11 +36,25 @@ import com.rukia.R
 import com.rukia.phone.infrastructure.ui.RukiaIcons
 import com.rukia.phone.infrastructure.ui.SystemBars
 
-/** Start: the case files there are so far. Back returns to the main menu. */
+/**
+ * Start: the case files there are so far. Back returns to the main menu. A closed case shows how it ended, with its
+ * report ([reportOf] gives it, null while the case is open) and a replay, which [onReplay] does once the player confirms.
+ */
 @Composable
-fun TitleScreen(cases: List<GameCase>, active: Int, onBack: () -> Unit, onPlay: (GameCase) -> Unit) {
+fun TitleScreen(
+    cases: List<GameCase>,
+    active: Int,
+    reportOf: (caseId: String) -> CaseReport?,
+    onBack: () -> Unit,
+    onPlay: (GameCase) -> Unit,
+    onReport: (GameCase) -> Unit,
+    onReplay: (GameCase) -> Unit,
+) {
     SystemBars(lightBottomIcons = true)
     BackHandler(onBack = onBack)
+    var replaying by rememberSaveable { mutableStateOf<String?>(null) }
+    var replayed by remember { mutableIntStateOf(0) } // bumped after a replay, to show the case open again
+    val reports = remember(cases, replayed) { cases.associate { it.id to reportOf(it.id) } }
     Column(
         Modifier.fillMaxSize().terminalBackdrop().safeDrawingPadding().padding(start = 18.dp, end = 18.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -43,7 +64,8 @@ fun TitleScreen(cases: List<GameCase>, active: Int, onBack: () -> Unit, onPlay: 
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             cases.forEach { case ->
                 when (case.kind) {
-                    CaseKind.Case -> CaseFileCard(case) { onPlay(case) }
+                    CaseKind.Case -> reports[case.id]?.let { ClosedCaseCard(it, { onReport(case) }, { replaying = case.id }) }
+                        ?: CaseFileCard(case) { onPlay(case) }
                     CaseKind.Training -> TrainingCard(case) { onPlay(case) }
                     CaseKind.Debug -> DebugCard(case) { onPlay(case) }
                 }
@@ -52,6 +74,13 @@ fun TitleScreen(cases: List<GameCase>, active: Int, onBack: () -> Unit, onPlay: 
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(pluralStringResource(R.plurals.cases_footer, active, cases.size, active), style = mono(10, Term.Dim, spacing = 0.8f))
             Text(stringResource(R.string.agent_short), style = mono(10, Term.Dim, spacing = 0.8f))
+        }
+    }
+    cases.find { it.id == replaying }?.let { case ->
+        ReplayDialog(case.title, onCancel = { replaying = null }) {
+            replaying = null
+            onReplay(case)
+            replayed++
         }
     }
 }

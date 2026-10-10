@@ -42,6 +42,7 @@ class ChatModule private constructor(context: Context, caseId: String) {
     val resetProgress = ResetProgress(chatRepo, story)
     val markCaseSolved = MarkCaseSolved(story)
     val markSearchDone = MarkSearchDone(story)
+    val getStoryVariable = GetStoryVariable(story)
     val playStoryEvent = PlayStoryEvent(chatRepo, story, notifier, clock)
     val listCalls = ListCalls(chatRepo)
     val listArrivedEffects = ListArrivedEffects(chatRepo, clock)

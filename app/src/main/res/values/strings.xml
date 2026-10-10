@@ -31,6 +31,46 @@
         <item quantity="other">%1$d CASE FILES · %2$d ACTIVE</item>
     </plurals>
     <string name="back">Back</string>
+
+    <!-- Closed case and closing report -->
+    <string name="case_closed_stamp">CASE\nCLOSED</string>
+    <string name="status_good">SOLVED</string>
+    <string name="status_partial">PARTIAL</string>
+    <string name="status_bad">UNSUCCESSFUL</string>
+    <string name="tier_good">GOOD ENDING</string>
+    <string name="tier_partial">PARTIAL ENDING</string>
+    <string name="tier_bad">BAD ENDING</string>
+    <string name="ending_closed_at">ENDING %1$d OF %2$d · CLOSED %3$s</string>
+    <string name="ending_of">ENDING %1$d OF %2$d</string>
+    <string name="ending_short">ENDING %1$d</string>
+    <string name="completed">COMPLETED</string>
+    <string name="progress_summary">Achievements %1$d/%2$d · Endings %3$d/%4$d</string>
+    <string name="view_report">VIEW REPORT</string>
+    <string name="replay">REPLAY</string>
+    <string name="replay_case">REPLAY CASE</string>
+    <string name="replay_kicker">REOPEN CASE FILE</string>
+    <string name="replay_title">Replay %1$s?</string>
+    <string name="replay_text">The week starts over: chats, decisions and clues. Your achievements and the endings you found are kept.</string>
+    <string name="report_kicker">CLOSING REPORT · CNI</string>
+    <string name="report_closed">Closed %1$s · Agent Kimo</string>
+    <string name="report_ending">ENDING REACHED</string>
+    <string name="transcript">TRANSCRIPT · %1$s</string>
+    <string name="achievements">Achievements</string>
+    <string name="endings">Endings</string>
+    <string name="stat_days">DAYS</string>
+    <string name="stat_squads">POLICE SQUADS</string>
+    <string name="stat_false_leads">FALSE LEADS</string>
+    <string name="report_achievements">INVESTIGATION ACHIEVEMENTS</string>
+    <string name="group_key_clues">KEY CLUES</string>
+    <string name="group_false_leads">FALSE LEADS RULED OUT</string>
+    <string name="group_decisions">DECISIONS</string>
+    <string name="achievement_hidden">Hidden achievement</string>
+    <string name="achievement_hidden_text">Keep investigating in another run.</string>
+    <string name="endings_found">ENDINGS FOUND · %1$d/%2$d</string>
+    <string name="this_run">THIS RUN</string>
+    <string name="undiscovered">Undiscovered</string>
+    <string name="still_missing">%1$d endings and %2$d achievements still to find.</string>
+    <string name="back_to_cases">BACK TO CASE FILES</string>
     <string name="close">Close</string>
     <string name="play">Play</string>
 
@@ -157,8 +197,8 @@
     <string name="tap_to_listen">Tap a call to listen to it again.</string>
     <string name="playing">Playing…</string>
     <string name="call_at">Call at %1$s</string>
-    <string name="case_solved">CASE SOLVED</string>
-    <string name="solved_text">You found the truth.\nThe case is closed.</string>
+    <string name="case_solved">ZONE CONFIRMED</string>
+    <string name="solved_text">The Mossos have the location.\nThe case closes when it reaches its end.</string>
     <string name="solve_sub">One zone a day: send a squad to search it</string>
     <string name="search_place">Search a place</string>
     <string name="place_not_found">Place not found in Catalonia</string>

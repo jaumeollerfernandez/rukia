@@ -315,10 +315,9 @@ private fun carAt(station: Spot, s: Search, t: Double, i: Int): Spot {
     return Spot(station.lat + (to.lat - station.lat) * k, station.lon + (to.lon - station.lon) * k)
 }
 
-/** Final screen once a squad confirms the place. The only way out is back to the title. */
+/** Once a squad confirms the place. The case goes on until the story's ending, which closes it: back returns to the phone. */
 @Composable
 fun VerdictScreen(onReturnToTitle: () -> Unit) {
-    BackHandler {}
     SystemBars(lightBottomIcons = true)
     val accent = Color(0xFFE0B354)
     Column(

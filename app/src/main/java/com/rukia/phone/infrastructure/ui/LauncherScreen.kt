@@ -72,10 +72,9 @@ class PhoneApp(
 )
 
 /**
- * Apps on the phone of case [caseId]. Add new ones here. [onReturnToTitle] leaves the phone for the game's title screen;
- * [onCaseOver] says the case got its verdict.
+ * Apps on the phone of case [caseId]. Add new ones here. [onReturnToTitle] leaves the phone for the game's title screen.
  */
-fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit, onCaseOver: () -> Unit) = listOf(
+fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit) = listOf(
     PhoneApp(
         "chat", R.string.app_chats, RukiaIcons.Chat, Color(0xFF25D366),
         badge = { ChatModule.of(context, caseId).listChats().count { it.unreadCount(CaseClock.now(caseId)) > 0 } },
@@ -98,7 +97,6 @@ fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit,
             onSearched = { ChatModule.of(context, caseId).markSearchDone(it) },
             onReport = { channel, knot -> ChatModule.of(context, caseId).playStoryEvent(channel, knot) },
             onReturnToTitle = onReturnToTitle,
-            onCaseOver = onCaseOver,
         )
     },
     PhoneApp("multimedia", R.string.app_multimedia, Icons.Filled.Face, MultimediaOrange) { MultimediaApp(caseId) },

@@ -34,11 +34,11 @@ import kotlinx.coroutines.withContext
 /** How often the open case moves its story on. */
 private const val STORY_TICK_MILLIS = 10_000L
 
-/** The simulated phone of case [caseId]: shows the home screen, or the app the player opened. [onCaseOver]: the case got its verdict. */
+/** The simulated phone of case [caseId]: shows the home screen, or the app the player opened. [onCaseOver]: its story reached an ending. */
 @Composable
 fun PhoneScreen(caseId: String, onReturnToTitle: () -> Unit, onCaseOver: () -> Unit) {
     val context = LocalContext.current.applicationContext
-    val apps = remember(caseId, onReturnToTitle, onCaseOver) { installedApps(context, caseId, onReturnToTitle, onCaseOver) }
+    val apps = remember(caseId, onReturnToTitle) { installedApps(context, caseId, onReturnToTitle) }
     // The story runs while the case is open, on any screen: timed lines arrive, choices expire, new chats appear.
     LaunchedEffect(caseId) {
         val chat = ChatModule.of(context, caseId)
@@ -75,7 +75,8 @@ fun PhoneScreen(caseId: String, onReturnToTitle: () -> Unit, onCaseOver: () -> U
                     val app = apps.find { it.id == id }
                     if (app == null) LauncherScreen(apps) { openId = it.id } else app.content()
                 }
-                EffectsLayer(caseId)
+                // The ending's last line closes the case: the game takes over with the closing report.
+                EffectsLayer(caseId) { if (it == CASE_CLOSED) onCaseOver() }
             }
         } }
     }

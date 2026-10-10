@@ -128,7 +128,7 @@ private fun BlinkingCursor() {
 }
 
 /** Button with its top-right and bottom-left corners cut off, like the design's primary one. */
-private val CutCorners = GenericShape { size, _ ->
+internal val CutCorners = GenericShape { size, _ ->
     val cut = 14f * (size.height / 58f)
     moveTo(0f, 0f); lineTo(size.width - cut, 0f); lineTo(size.width, cut); lineTo(size.width, size.height)
     lineTo(cut, size.height); lineTo(0f, size.height - cut); close()

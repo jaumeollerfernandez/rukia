@@ -86,6 +86,8 @@ class InkStoryEngine(
 
     @Synchronized override fun setVariable(name: String, value: Int) = setAny(name, value)
 
+    @Synchronized override fun variable(name: String): Any? = story.variablesState[name]
+
     private fun setAny(name: String, value: Any) {
         if (story.variablesState[name] == null) return
         story.variablesState[name] = value

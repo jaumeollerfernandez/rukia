@@ -11,6 +11,7 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -24,6 +25,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rukia.chat.domain.model.EffectCue
@@ -42,14 +44,20 @@ val effects: Map<String, @Composable (onDone: () -> Unit) -> Unit> = mapOf(
     "hacked" to { HackedEffect(it) },
     "glitch" to { GlitchEffect(it) },
     "blackout" to { BlackoutEffect(it) },
+    CASE_CLOSED to { CaseClosedEffect(it) },
 )
+
+/** On the last line of a case's ending: once it has played, the phone tells the game the case is over. */
+const val CASE_CLOSED = "case_closed"
 
 /**
  * Plays each story effect once, when its line arrives, over whatever the phone shows (home screen or any app),
  * one after another. Effects whose line arrived while the game was closed play when the case is opened.
+ * [onPlayed] gets each effect's name when it ends. [CASE_CLOSED] is never marked as played, so if the game is
+ * closed before it ends, it plays again the next time the case is opened.
  */
 @Composable
-fun EffectsLayer(caseId: String) {
+fun EffectsLayer(caseId: String, onPlayed: (effect: String) -> Unit = {}) {
     val context = LocalContext.current.applicationContext
     val queue = remember(caseId) { mutableStateListOf<EffectCue>() }
     LaunchedEffect(caseId) {
@@ -60,7 +68,7 @@ fun EffectsLayer(caseId: String) {
         while (true) {
             queue += withContext(Dispatchers.IO) {
                 chat.listArrivedEffects().filter { played.add(it.id) }
-                    .also { new -> if (new.isNotEmpty()) playedFile.appendText(new.joinToString("") { it.id + "\n" }) }
+                    .also { new -> new.filter { it.effect != CASE_CLOSED }.takeIf { it.isNotEmpty() }?.let { playedFile.appendText(it.joinToString("") { c -> c.id + "\n" }) } }
             }.filter { it.effect in effects } // unknown names are caught by EffectsTest
             delay(1_000)
         }
@@ -69,7 +77,7 @@ fun EffectsLayer(caseId: String) {
     val play = effects.getValue(cue.effect)
     key(cue.id) {
         BackHandler {} // the effect owns the screen until it ends
-        Box(Modifier.fillMaxSize().blockTouches()) { play { queue.remove(cue) } }
+        Box(Modifier.fillMaxSize().blockTouches()) { play { queue.remove(cue); onPlayed(cue.effect) } }
     }
 }
 
@@ -142,4 +150,29 @@ private fun BlackoutEffect(onDone: () -> Unit) {
         onDone()
     }
     Box(Modifier.fillMaxSize().graphicsLayer { this.alpha = alpha.value }.background(Color.Black))
+}
+
+/** The screen dims and a CASE CLOSED stamp lands on it, ~3.5 s. Then the game shows the closing report. */
+@Composable
+private fun CaseClosedEffect(onDone: () -> Unit) {
+    val context = LocalContext.current
+    val dim = remember { Animatable(0f) }
+    val stamp = remember { Animatable(2.2f) }
+    LaunchedEffect(Unit) {
+        dim.animateTo(1f, tween(600))
+        stamp.animateTo(1f, tween(220))
+        vibrate(context, 0, 90)
+        delay(2_600)
+        onDone()
+    }
+    val amber = Color(0xFFF2B33D)
+    Box(Modifier.fillMaxSize().graphicsLayer { alpha = dim.value }.background(Color(0xE6070B12)), contentAlignment = Alignment.Center) {
+        if (dim.value == 1f) Text(
+            stringResource(R.string.case_closed_stamp),
+            Modifier.graphicsLayer { scaleX = stamp.value; scaleY = stamp.value; rotationZ = -9f }
+                .border(3.dp, amber).padding(3.dp).border(1.dp, amber).padding(horizontal = 16.dp, vertical = 8.dp),
+            color = amber, fontSize = 26.sp, lineHeight = 30.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace,
+            letterSpacing = 3.sp, textAlign = TextAlign.Center,
+        )
+    }
 }

@@ -52,6 +52,7 @@ class CaseWeekTest {
         characters.all.values.filter { !it.hidden && it.id !in chats.all }.forEach { chats.all[it.id] = Chat(it.id, listOf(it.id)) }
         val notifier = object : MessageNotifier { override fun notifyWhenDelivered(chatId: String, message: com.rukia.chat.domain.model.Message) {} }
         val story = InkStoryEngine({ case.resolve(it).readText() }, File(createTempDirectory().toFile(), "state.json"), { start }, clock)
+        lastStory = story
         val advance = AdvanceChat(chats, story, notifier, clock)
         val reply = ChooseReply(chats, story, characters, notifier, clock)
         val report = com.rukia.chat.application.PlayStoryEvent(chats, story, notifier, clock)
@@ -80,6 +81,17 @@ class CaseWeekTest {
         return chats.all
     }
 
+    /** The story of the last [playWeek], to read how it ended. */
+    private lateinit var lastStory: InkStoryEngine
+
+    /** Every ending's last line closes the case (the game then opens the report), with `final_caso` set. */
+    private fun assertClosed(chats: Map<String, Chat>, how: String, ending: Int? = null) {
+        assertEquals("case_closed", chats.getValue("laia").messages.lastOrNull()?.effect, "$how: Laia's last line doesn't close the case")
+        val final = lastStory.variable("final_caso") as Int
+        assertTrue(final in 1..6, "$how: final_caso is $final")
+        ending?.let { assertEquals(it, final, "$how: wrong ending") }
+    }
+
     private fun assertEnded(chats: Map<String, Chat>, how: String, ending: String) {
         val dawn = start + 6 * 86_400_000L + 6 * 3_600_000L // D7 06:00
         val laia = chats.getValue("laia")
@@ -89,9 +101,15 @@ class CaseWeekTest {
         assertTrue(laia.messages.any { ending in it.text }, "$how: expected the ending «$ending», got: ${laia.messages.takeLast(3).map { it.text }}")
     }
 
-    @Test fun `answering every first choice reaches the ending`() = assertEnded(playWeek(answer = true), "answering", ending = "Y Alicia está en el coche patrulla")
+    @Test fun `answering every first choice reaches the ending`() = playWeek(answer = true).let {
+        assertEnded(it, "answering", ending = "Y Alicia está en el coche patrulla")
+        assertClosed(it, "answering", ending = 1)
+    }
 
-    @Test fun `never answering still reaches the ending`() = assertEnded(playWeek(answer = false), "silent", ending = "Hemos llegado tarde.")
+    @Test fun `never answering still reaches the ending`() = playWeek(answer = false).let {
+        assertEnded(it, "silent", ending = "Hemos llegado tarde.")
+        assertClosed(it, "silent", ending = 4)
+    }
 
     /** Whatever the player picks and wherever they send the squads, no story step throws and the week reaches D7. */
     @Test fun `random playthroughs never crash and reach D7`() {
@@ -99,6 +117,7 @@ class CaseWeekTest {
             val chats = playWeek(answer = true, random = kotlin.random.Random(seed))
             val dawn = start + 6 * 86_400_000L + 6 * 3_600_000L
             assertTrue(chats.getValue("laia").messages.any { it.deliverAt >= dawn }, "seed $seed: Laia never got to D7")
+            assertClosed(chats, "seed $seed")
         }
     }
 

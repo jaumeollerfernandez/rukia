@@ -30,6 +30,46 @@
         <item quantity="other">%1$d EXPEDIENTES · %2$d ACTIVOS</item>
     </plurals>
     <string name="back">Atrás</string>
+
+    <!-- Caso cerrado e informe de cierre -->
+    <string name="case_closed_stamp">EXPEDIENTE\nCERRADO</string>
+    <string name="status_good">RESUELTO</string>
+    <string name="status_partial">PARCIAL</string>
+    <string name="status_bad">SIN ÉXITO</string>
+    <string name="tier_good">FINAL BUENO</string>
+    <string name="tier_partial">FINAL PARCIAL</string>
+    <string name="tier_bad">FINAL MALO</string>
+    <string name="ending_closed_at">FINAL %1$d DE %2$d · CERRADO %3$s</string>
+    <string name="ending_of">FINAL %1$d DE %2$d</string>
+    <string name="ending_short">FINAL %1$d</string>
+    <string name="completed">COMPLETADO</string>
+    <string name="progress_summary">Logros %1$d/%2$d · Finales %3$d/%4$d</string>
+    <string name="view_report">VER INFORME</string>
+    <string name="replay">REPETIR</string>
+    <string name="replay_case">REPETIR CASO</string>
+    <string name="replay_kicker">REABRIR EXPEDIENTE</string>
+    <string name="replay_title">¿Repetir %1$s?</string>
+    <string name="replay_text">La semana empieza de cero: chats, decisiones y pistas. Tus logros y los finales descubiertos se conservan.</string>
+    <string name="report_kicker">INFORME DE CIERRE · CNI</string>
+    <string name="report_closed">Cerrado %1$s · Agente Kimo</string>
+    <string name="report_ending">FINAL OBTENIDO</string>
+    <string name="transcript">TRANSCRIPCIÓN · %1$s</string>
+    <string name="achievements">Logros</string>
+    <string name="endings">Finales</string>
+    <string name="stat_days">DÍAS</string>
+    <string name="stat_squads">SALIDAS POLICIALES</string>
+    <string name="stat_false_leads">PISTAS FALSAS</string>
+    <string name="report_achievements">LOGROS DE LA INVESTIGACIÓN</string>
+    <string name="group_key_clues">PISTAS CLAVE</string>
+    <string name="group_false_leads">PISTAS FALSAS DESCARTADAS</string>
+    <string name="group_decisions">DECISIONES</string>
+    <string name="achievement_hidden">Logro oculto</string>
+    <string name="achievement_hidden_text">Sigue investigando en otra partida.</string>
+    <string name="endings_found">FINALES DESCUBIERTOS · %1$d/%2$d</string>
+    <string name="this_run">ESTA PARTIDA</string>
+    <string name="undiscovered">Sin descubrir</string>
+    <string name="still_missing">Faltan %1$d finales y %2$d logros por descubrir.</string>
+    <string name="back_to_cases">VOLVER A EXPEDIENTES</string>
     <string name="close">Cerrar</string>
     <string name="play">Jugar</string>
 
@@ -155,8 +195,8 @@
     <string name="tap_to_listen">Toca una llamada para volver a escucharla.</string>
     <string name="playing">Reproduciendo…</string>
     <string name="call_at">Llamada de las %1$s</string>
-    <string name="case_solved">CASO RESUELTO</string>
-    <string name="solved_text">Has descubierto la verdad.\nEl caso está cerrado.</string>
+    <string name="case_solved">ZONA CONFIRMADA</string>
+    <string name="solved_text">Los Mossos tienen la ubicación.\nEl caso se cierra cuando llegue el desenlace.</string>
     <string name="solve_sub">Una zona al día: envía una patrulla a buscar</string>
     <string name="search_place">Buscar un lugar</string>
     <string name="place_not_found">Lugar no encontrado en Cataluña</string>
