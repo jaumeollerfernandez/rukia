@@ -643,7 +643,7 @@ Ya no se usan: la pregunta final ahora se responde en un mapa (`police/case.json
 - [ ] Crear `gonpi/gonpi.json` a partir de [GONPI.md](GONPI.md), con las rutas de la sección 3.
 - [x] El motor ya publica en Gonpi por días: usa `"at": "D3 21:00"` en publicaciones y comentarios.
 - [x] El chat ya muestra fotos (`#image:`) y se abren a pantalla completa al tocarlas. Los vídeos todavía no: el «vídeo» de Arnau del D1 es ahora un meme (imagen).
-- [ ] El apagón del D6 (18:00-22:00): de momento solo es el efecto `blackout` y dos mensajes de Laia. Ningún otro chat escribe en esa franja, salvo el grupo familiar, cuyos mensajes se leen al recuperar la conexión.
+- [ ] El apagón del D6 (18:00-22:00): de momento solo es el efecto `blackout` y los mensajes de Laia de `d6_apagon` (laia.ink). Ningún otro chat escribe en esa franja, salvo el grupo familiar, cuyos mensajes se leen al recuperar la conexión.
 
 ## 7. Fotos dentro del chat (`media/chat/`)
 

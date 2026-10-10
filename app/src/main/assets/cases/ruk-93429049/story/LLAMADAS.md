@@ -8,34 +8,30 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 
 ## 1. `audio/laia_encargo.m4a`: el encargo
 
-- **Cuándo:** en el chat de la sargento Puig, justo después de «Te llamo. Contesta.». Si el caso empieza por la mañana, el D1 a las 10:00; si empieza por la tarde o la noche, esa misma noche (D0), un día antes. **El guion tiene que servir para los dos**: nada de «ayer», «anoche» ni «hoy».
+- **Cuándo:** en el chat de la sargento Puig, justo después de «Te llamo para darte las instrucciones correctamente.» (el encargo de Laia; el D0 si el caso empieza de tarde o de noche). Si el caso empieza por la mañana, el D1 a las 10:00; si empieza por la tarde o la noche, esa misma noche (D0), un día antes. **El guion tiene que servir para los dos**: nada de «ayer», «anoche» ni «hoy».
 - **Quién:** sargento Laia Puig, Mossos d'Esquadra. Unos 45 años. Voz grave y seca, de alguien que tiene prisa y no se fía de nadie. Habla con Kimo, la persona del CNI que ha pedido para el caso (sin género: nunca dice «él» ni «ella»). Le tiene respeto, pero no le pone las cosas fáciles.
 - **Dónde:** dentro de un coche aparcado. Ruido suave de motor al ralentí; un intermitente se apaga al principio.
 - **Duración:** unos 60 s.
 
 > *(Clic. Se apaga el intermitente. Respira.)*
 >
-> No hace falta que digas nada. Mejor así.
+> Soy la sargento Laia Puig Oller. Mossos d'Esquadra, comisaría de Olot. *(Pausa.)*
 >
-> Soy Puig. Ya sabes de qué va esto, o te lo imaginas. En Madrid me han dicho que no has dejado ningún caso sin cerrar. *(Pausa.)* Espero que este no sea el primero.
+> Me ha costado mucho que el CNI le prestara a alguien para esto. Dicen que nunca has dejado un caso sin cerrar. Espero que estés a la altura de tu fama.
 >
-> *(Pausa breve.)*
+> Alicia Serra Vidal. Dieciocho años. Vive en L'Hostalnou de Bianya con su madre, Montse, y su hermana mayor, Berta. Se ha ido de casa y no ha vuelto. Se dejó el móvil cargando, en su habitación. Ese móvil.
 >
-> Una chica de dieciocho años, Alicia, ha desaparecido. Su madre ha venido a comisaría a denunciarlo… pero pidiéndome por favor que no hiciéramos ruido. Nada de carteles. Nada de prensa. *(Pausa.)* En veinte años no había visto a una madre pedir eso.
+> La madre ha venido a denunciarlo, sola, sin hacer ruido. Nos ha pedido que no salga en ningún sitio. *(Pausa.)* En veinte años no había visto a una madre pedir eso.
 >
-> El móvil de la chica está en su casa. Ya tienes acceso. Lo que veas ahí es lo único que tenemos.
+> No podemos localizar el teléfono, pero ya hemos entrado en él de forma remota. Lo que veas ahí es lo único que tenemos.
 >
-> Escúchame bien. Para todo el mundo, tú eres Alicia. Para su madre, ese móvil está muerto en un cajón. Y para mí… tú no existes.
+> Escúchame bien. Eres Alicia. Escribes como ella. Si alguien sospecha, se acabó. *(El motor se para. Silencio.)* Y ojo con el grupo de la familia: se lee, no se escribe. Esto es un delito de privacidad, y lo sabemos. La situación lo requiere.
 >
-> *(El motor se para. Silencio.)*
+> Oficialmente esto no existe. Y tú tampoco. *(Pausa.)* Me lo cuentas todo a mí, y a nadie más.
 >
-> En una desaparición, las primeras horas son oro. Y ya hemos perdido unas cuantas.
+> En una desaparición, las primeras horas son las que más valen. Y ya hemos perdido unas cuantas. El tiempo corre.
 >
-> *(Pausa larga.)*
->
-> El tiempo corre. Hay que encontrarla cuanto antes.
->
-> Te escribo por aquí. No me llames tú.
+> Te lo dejo por escrito también. No me llames tú.
 >
 > *(Cuelga.)*
 
@@ -56,7 +52,7 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 >
 > Solo quería oírte. Bueno, que me oyeras tú a mí. *(Risa nerviosa.)*
 >
-> Tu madre me ha llamado esta mañana. Me ha dicho que estás con una amiga, que estás bien. Y me ha pedido una cosa rara: que si te veo o me llamas, la llame a ella *antes que a nadie*. Así, con esas palabras.
+> Tu madre me ha llamado esta mañana. Me ha dicho que estás con una amiga, que estás bien. Y me ha pedido una cosa rara: que si te veo o me llamas, la llame a ella *antes que a nadie*. Así, con esas palabras. Está asustada, quiere que vuelvas a casa.
 >
 > *(Pausa. Baja la voz.)*
 >
@@ -136,7 +132,7 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 
 ## 5. `audio/berta.m4a`: la hermana
 
-- **Cuándo:** D5, unos 10 s después de las 22:50, en el chat privado de Berta («Te llamo.»).
+- **Cuándo:** D5, unos 10 s después de las 22:50, en el chat privado de Berta («Tengo que llamarte, tengo que intentarlo»).
 - **Quién:** Berta, 24 años. Voz joven, muy serena, demasiado: habla como en una meditación guiada. Nunca levanta la voz, y eso es lo que da miedo.
 - **Dónde:** una habitación grande y vacía del Casal, con algo de eco. De fondo, muy bajo, un grupo canturreando un mantra. Una vela chisporrotea cerca del micrófono.
 - **Duración:** unos 25 s.
@@ -145,15 +141,11 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 >
 > Hola.
 >
-> Sé que alguien escucha. *(Pausa.)* Puedes quedarte callado. No pasa nada.
+> Sé que alguien escucha. Mi corazón dice que hay alguien ahí detrás del teléfono. *(Pausa.)* Puedes quedarte callado. No pasa nada.
 >
-> Ali, si eres tú… mañana es la última noche. Te he guardado la ropa blanca. Está planchada, encima de tu cama.
+> Ali, si eres tú… mañana es la última noche. Quiero que nos juntemos, quiero estar a tu lado en un momento tan importante. Tienes la ropa puesta en tu cama, la he vigilado todo este tiempo.
 >
-> Y si no eres tú… *(Pausa larga.)* La rosa se abre en abril, pero se corta antes de que se marchite.
->
-> *(Se oye el mantra un poco más alto, como si alguien abriera una puerta.)*
->
-> Ya vienen. Buenas noches.
+> Y si no eres tú… *(Pausa larga.)* es imposible evitar un tsunami. La corriente de la vida sigue su curso, y jamás podrás impedirlo.
 >
 > *(Cuelga.)*
 

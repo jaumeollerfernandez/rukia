@@ -10,7 +10,7 @@ Qué elegir para ver cada final y cómo conseguir cada logro (sección [Logros](
 - Las salidas de la Policía (D6) se mandan desde la app **Policía**:
   - **Mañana:** de D6 08:00 a 12:00.
   - **Noche:** de D6 22:05 a D7 02:00.
-- **Resolver el caso** en la app Policía (marcar el Mas de la Rosalia en el mapa antes de D7 06:30) pone `caso_resuelto`. ⚠️ Si fallas, es game over y se borra la partida.
+- **Resolver el caso** en la app Policía (marcar el Mas de la Rosalia en el mapa antes de D7 06:30) pone `caso_resuelto`. Un intento al día: si fallas, no pasa nada; esa zona queda descartada y puedes volver a intentarlo al día siguiente. Una zona de 500 m o menos da el 100%.
 - **El caso se cierra** cuando llega la última línea del final de Laia (`#effect: case_closed`): sale el sello «EXPEDIENTE CERRADO» y el informe de cierre con el final (`final_caso`), los logros y los finales descubiertos. Resolverlo en el mapa no lo cierra antes. «Repetir» borra la partida pero conserva logros y finales.
 
 ## Qué decide el final
@@ -133,7 +133,7 @@ Salen en el informe de cierre (al llegar el final de Laia, D7). Se calculan con 
 
 | Qué | Cómo | Dónde se nota |
 |---|---|---|
-| Berta sabe que alguien usa el móvil | `sospecha_familia` ≥ 3: escribe en `familia` o `veins`, a mamá, o a Ramon, Roser o Conxita (+1 cada uno la primera vez) | Berta (D3-D6, efecto `glitch`), «Seas quien seas» en `familia` |
+| Berta sabe que alguien usa el móvil | `sospecha_familia` ≥ 3: escribe en `familia` o `veins`, a mamá, o a Ramon, Roser o Conxita (+1 cada uno la primera vez) | Berta (D3-D6: pasa de «Tienes 24 horas para devolverme a mi hermana» a suplicar «dime dónde está»), «Seas quien seas» en `familia` |
 | Núria va a los Mossos | Falla una pregunta de la prueba de D3 | Laia D4, `amigas` D3-D4, Núria D5 |
 | La foto del Mas de la Rosalia | `confianza_nuria` ≥ 2 en D6 11:30: aprueba la prueba o escríbele «nuri te echo de menos 💛» | Núria D6 |
 | Laura delata | S3 o «por capsec…» | Laura D3-D7; Marc D5+ (la furgoneta en Capsec) |

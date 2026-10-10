@@ -28,19 +28,22 @@ Te escribo esta noche para el parte. #delay: 3
 
 // El encargo: quién es Alicia, las normas y la prisa (el tiempo corre). Sirve para la noche del D0 y para la mañana del D1.
 = presentacion
-Soy la sargento Laia Puig. Mossos d'Esquadra, comisaría de Olot. #delay: 4
-Me ha costado mucho que el CNI te prestara, Kimo. Dicen que nunca has dejado un caso sin cerrar. #delay: 5
-Te llamo. Contesta. #delay: 3 #call: audio/laia_encargo.m4a
-Te lo dejo también por escrito. #delay: 6
+Soy la sargento Laia Puig Oller. Mossos d'Esquadra, comisaría de Olot. #delay: 4
+La conexión ha sido un éxito, y el teléfono actualmente está cifrado. Solo nosotros podemos leer y investigar este teléfono de manera privada. #delay: 10
+Me ha costado mucho que el CNI te prestara, agente Kimo. Dicen que nunca has dejado un caso sin cerrar. #delay: 5
+Espero que estés a la altura de tu reputación. #delay: 5
+Te llamo para darte las instrucciones correctamente. #delay: 3 #call: audio/laia_encargo.m4a
+Te lo dejo también por escrito para que lo tengas a mano. #delay: 6
 Alicia Serra Vidal. 18 años. Vive en L'Hostalnou de Bianya con su madre, Montse, y su hermana mayor, Berta. #delay: 4
 {dia < 1:Desapareció anoche.|Desapareció anteanoche.} Se dejó el móvil en casa, cargando. Este móvil. #delay: 4
 {dia < 1:La madre ha venido esta tarde a denunciarlo.|La madre vino ayer a denunciarlo.} Sola, sin hacer ruido. Pidió que no saliera en ningún sitio. #delay: 5
-No quiso dejarnos el teléfono. Dice que no saben el PIN. #delay: 4
-Puede ser. Pero no me gustó cómo me miraba. #delay: 4
+No hemos podido detectar el teléfono, pero si hemos podido introducirnos remotamente. #delay: 4
+ Pero es raro que una chica se haya dejado un teléfono hoy en día. Y #delay: 4
 Oficialmente esto no existe. Y tú tampoco. #delay: 4
 Normas. #delay: 3
 Una: eres Alicia. Escribes como ella. Si alguien sospecha, se acabó. #delay: 3
-Dos: el móvil sigue en su casa. Si la madre ve la pantalla encenderse, se acabó. Cuidado con el grupo familiar. #delay: 5
+Dos: No sabemos dónde está el teléfono. Cuidado con el grupo familiar, ya que esta acción constituye un delito de privacidad. Solo nos darían acceso a las llamadas, pero esto es meterse en toda la privacidad que pueda tener esta persona. #delay: 8
+La situación igualmente lo requiere, sobretodo sin saber dónde está. #delay: 5
 Tres: me lo cuentas todo a mí. A nadie más. #delay: 4 #caduca: D1 23:59
 * [Entendido. ¿Por dónde empiezo?]
     Por su gente. Amigas, el ex, el trabajo. Lee antes de escribir. #delay: 5
@@ -51,7 +54,7 @@ Tres: me lo cuentas todo a mí. A nadie más. #delay: 4 #caduca: D1 23:59
 * [¿Cuánto cobro?]
     Lo hablamos cuando aparezca. Viva. #delay: 5
 * [(sin responder)]
-    Doy por hecho que lo has leído. #delay: 2
+    Doy por hecho que lo has leído. Espero que te comuniques más frecuentemente en el futuro. #delay: 2
 - Otra cosa. #delay: 4
 En una desaparición, las primeras horas son las que más valen. Y ya hemos perdido unas cuantas. #delay: 5
 Hay que encontrarla cuanto antes. El tiempo corre. #delay: 3
