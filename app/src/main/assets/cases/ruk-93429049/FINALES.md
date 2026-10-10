@@ -1,6 +1,6 @@
-# Guía de pruebas: cómo llegar a cada final (caso RUK-93429049)
+# Guía de pruebas: finales y logros (caso RUK-93429049)
 
-Qué elegir para ver cada final. No va en el juego. Las pistas y las pistas falsas están en [PISTAS.md](PISTAS.md).
+Qué elegir para ver cada final y cómo conseguir cada logro (sección [Logros](#logros)). No va en el juego. Las pistas y las pistas falsas están en [PISTAS.md](PISTAS.md).
 
 ## Cómo probar
 
@@ -85,6 +85,49 @@ En Policía › Fichas policiales se pide una ficha y llega horas después (12 h
 | **6. Escondida y sola** | `arnau_calla` (D2) | S1, S3, S4, A, B, D, E |
 
 Los tests automáticos cubren el 1 (contestando siempre la primera opción) y el 4 (sin contestar nada): `CaseWeekTest`.
+
+## Logros
+
+Salen en el informe de cierre (al llegar el final de Laia, D7). Se calculan con las variables de la historia en ese momento: da igual cuándo se consiguieran, cuentan si siguen siendo verdad al final. Están definidos en `game/infrastructure/Cases.kt`.
+
+- **Se conservan entre partidas.** «Repetir» borra la semana, pero los logros y los finales descubiertos se quedan.
+- **% completado** = (logros conseguidos + finales descubiertos) / (15 + 6).
+- Las «pistas falsas» del informe (x/4) cuentan solo las de **esta** partida.
+
+### Pistas clave
+
+| Logro | Variable | Cómo conseguirlo |
+|---|---|---|
+| **El billete señuelo** | `descarta_bus` | En el parte de Laia del D2 (08:30, antes de las 14:00) elige «En su galería hay un correo: canceló el billete…» o «Pol, su ex, la llevó…»: las dos piden las cámaras, que el D2 16:10 confirman que no subió al bus. Si eliges «Barcelona» o no contestas, se pierde |
+| **CRA Serveis** | `sabe_cra` | En el parte del D2 (21:30) elige «…en el banco el beneficiario es «CRA Serveis»». También con las consultas a Laia «¿Qué es «Rosa d'Abril»…?» o, desde el D4, «¿De quién es el coche gris…?» |
+| **Donde vimos las estrellas** | `sabe_estrellas` | Aprueba la prueba de Núria del D3 (17:00-18:00): «el port de la selva» y «una pulsera roja» (IMG_0393, IMG_0395 o la ficha policial de Alicia) |
+| **La porta blava** | `sabe_puerta_azul` | Cualquiera: Núria lo recuerda el D5 10:30 si aprobaste su prueba; Teresa, si confía (D3+, «teresa, fotocopié algo de ese libro?»); Alicia por el prepago (D5 23:30, con `confianza_alicia` 3); Núria el D6 con `confianza_nuria` ≥ 2 |
+| **Un fijo en Sant Salvador** | `sabe_rosalia` | Cualquiera: contarle a Laia lo del pan para la Rosalia (parte D3) o la llamada de la anciana (parte D4); Èric o Toni si confían (D3+); Núria el D6 con `confianza_nuria` ≥ 2 |
+| **Confianza** | `confianza_alicia` ≥ 3 | Pieza F: en `desconocido` (D4 23:40) elige «Trabajo con una sargento…», «Porque si fuera de ellos…» y «Cuídate, Alicia…» |
+| **El precedente** | `ficha_ignasi` | Pide y lee la ficha policial de Ignasi Coll (Policía › Fichas policiales) |
+
+### Pistas falsas descartadas
+
+| Logro | Variable | Cómo conseguirlo |
+|---|---|---|
+| **Barcelona** | `descarta_bus` | Igual que «El billete señuelo» (salen juntos) |
+| **Girona** | `girona_descartado` | En `mireia` (D2+), «mire, lo de girona…» y luego «no se lo he contado a nadie. ni a nuri. tranquila 💛». No la presiones (`mireia_cerrada`) ni dejes que Núria vaya a los Mossos |
+| **Can Pericot** | `descarta_capsec` | Primero oye hablar de Can Pericot (`sabe_capsec`: Marc D4 «has visto luz por algún mas…?», el esplai…). Luego, en `biel`, «biel, las llaves del refugi las tienes tú, no?» |
+| **El mas del tío de Dani** | `dani_registrado` | En D6, manda una salida de Policía a «El mas del tío de Dani, en la Vall d'en Bas». Gasta la salida |
+
+### Decisiones
+
+| Logro | Variable | Cómo conseguirlo |
+|---|---|---|
+| **Labios sellados** | `pol_calla` o `arnau_calla` | Pol: «no les digas nada de la estación porfa» (D1), «sí. no les digas nada de mí porfa» (D1) o «no se lo digas a nadie pol» (D2). Arnau: «arnau, archiva el vídeo porfa…» (D2 18:45) |
+| **Fantasma** | `sospecha_familia` = 0 | No escribas en `familia` ni en `veins`, ni a Mamá por privado, ni a Ramon, Roser o Conxita. Y que no se corra el rumor: dos contactos que te bloquean también suben la sospecha. Ver PISTAS.md, «Trampas» y «El rumor». Ojo: Conxita da la matrícula de la furgoneta, pero escribirle rompe este logro |
+| **Iris declara** | `iris_ayuda` | Pieza E: en `iris`, llamada del D6 00:45, «Iris, ve a los Mossos de Olot…» antes de las 02:00 |
+| **Vigilancia al alba** | `vigilancia_crater` | Pieza D (salida de la noche del D6 al cráter) o D' (consulta a Laia del D4+ con la ficha de Ignasi) |
+
+### Recetas de logros
+
+- **Los 15 en una partida** son posibles según las reglas (no lo cubre ningún test): en el parte del D2, el correo del billete y luego CRA; Arnau archiva el vídeo (D2); Mireia con cuidado (D2+); aprueba a Núria (D3); pide la ficha de Ignasi el D1 (llega en 12 h); pregúntale a Marc por la luz (D4) y luego a Biel por las llaves; F con Alicia (D4); en la consulta del D4, D' (el cráter, sin gastar salida); Iris el D6 00:45; en el D6, la salida de la mañana al mas de la Rosalia y la de la noche al tío de Dani. Durante toda la semana, nada de escribir a la familia, al grupo de vecinos ni a Ramon, Roser o Conxita.
+- **El conflicto de siempre:** sin D', «El mas del tío de Dani» y «Vigilancia al alba» compiten por las dos salidas con el mas de la Rosalia. Se puede repartir entre partidas: los logros se conservan.
 
 ## Variaciones que no cambian el final
 
