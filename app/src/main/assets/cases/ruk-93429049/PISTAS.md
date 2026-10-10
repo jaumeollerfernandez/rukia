@@ -11,6 +11,39 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚠️ trampa (empeora el caso) · �
 - **Consultas a Laia.** Después de cada parte nocturno, Laia ofrece **una** comprobación para el día siguiente. Las opciones dependen de lo averiguado: residencias, Can Pericot, la coartada de Dani, el prepago, el coche gris. Hay que elegir.
 - **Riesgo.** Escribir a los adultos cotillas (Ramon, Roser, Conxita) sube `sospecha_familia`; a mamá por privado o en el grupo de vecinos (Montse está en él), más. Contarle a Laura dónde está Alicia se lo cuenta a Berta.
 
+## Confianza: si te pillan, cambia la partida
+
+Los contactos con pistas verdaderas tienen confianza propia (`fia_<id>` en `main.ink`): **1** confía (cuenta una pista extra), **0** normal, **-1** recela (no cuenta nada hasta que lo convences), **-2** bloqueado (no vuelve a hablar).
+
+| Contacto | El desliz o la prueba | Respuesta buena (dónde está) | Si recela: mentir | Si recela: la verdad («Trabajo con los Mossos») | Premio si confía |
+|---|---|---|---|---|---|
+| Toni | Preguntarle la ruta de los lotes (Alicia la sabe): «cómo se llama la perra?» | «trufa» (IMG_0391). Trampa: «rocky» (el perro perdido de Gonpi) | Cuela sin rumores y da la ruta | Colabora (adulto sensato) | La Rosalia le dijo que «la nena» iba a quedarse con ella (`sabe_rosalia`) |
+| Teresa | Preguntarle qué libros sacó: «cuál me debes?» | «Nada» (grupo de lectura). Trampa: «Bernarda Alba» (teatro) | Cuela sin rumores y da los libros | Colabora y es discreta | La fotocopia del mas de 1782 con pozo y puerta azul (`sabe_puerta_azul`) |
+| Èric | Preguntarle qué dijo Pilar (Alicia estaba delante): «qué me debes por la masa madre?» | «un café» o «se murió sola» (historial D-3). Trampa: «una birra» (es por el turno) | Cuela sin rumores y da lo del pan | Colabora, pero es un bocazas: lo cuenta en el Forn (`delata`) | «Para la Rosalia, que si no le sube nadie, no baja» (`sabe_rosalia`) |
+| Ona | Solo si ya hay rumores: «qué dorsal llevas?» | «el 7» (IMG_0394) | Cuela sin más rumores y da la lista | Se asusta, bloquea y lo cuenta en el vóley (`delata`) | Si le dices que el pienso es para una señora mayor: detrás de la lista, «sábado: lote + pienso → R.» |
+| Oriol | Solo si ya hay rumores: «qué te pedí hace unas semanas?» | «los apuntes de dinámicas» (su historial) | Cuela sin más rumores y da lo que vio | Colabora asustado | La masía tras una curva con un banco de piedra, con pozo |
+| Núria | Su sistema de siempre (`confianza_nuria`) | | Nueva: «nuri perdona, estoy fatal» la recupera una vez si no hay rumores; si los hay, empeora | | |
+
+**El rumor (`delatado`).** Cada contacto que te bloquea (o que lo cuenta, como Èric y Ona con la verdad) suma uno.
+- **1**: Laia avisa en la consulta de la noche, y Ona y Oriol empiezan a ponerte a prueba.
+- **2**: las mentiras ya no cuelan y el rumor llega a Montse (`sospecha_familia` +1).
+
+**El suelo: lo que no se pierde nunca.** La galería, Gonpi (el post de Oriol, el comentario de @excursions.bianya con la puerta azul y el pozo, el dibujo de la Laieta), Laia (cámaras, padrón), la llamada de Rosalia (D4) y el pan de Pilar no dependen de la confianza. Con eso se puede llegar a la subida a Bracons y a la puerta azul, pero sin nombres ni detalles. Con confianza, en cambio, se consiguen el nombre de la Rosalia, la puerta azul (Teresa) y la ruta exacta mucho antes, y el D6 es más fácil acertar.
+
+## La tapadera: que Rosa d'Abril no parezca una secta
+
+Al empezar, la familia tiene que parecer una familia en duelo y con problemas de dinero, no una secta. Cada cosa rara tiene una excusa creíble, y la verdad solo sale **cruzando detalles o preguntando**. Nadie la cuenta de golpe antes del D4.
+
+| Lo que se ve | La excusa | El detalle que no cuadra | Dónde se confirma |
+|---|---|---|---|
+| «La asociación», «el grupo» | El grupo de duelo al que van desde que murió la yaya Mercè (hace tres años el D7) | Ignasi acompañó a Montse a los Mossos (familia D1, Laia); «barba blanca» en el banco (Marta D2) y en casa de Pol | 💬 Pol, Gemma, Jordi, Marta |
+| Los ayunos | Ayuno solidario: lo ahorrado va a familias con escasez (familia D-6, canal D-10) | Alicia se marea en los entrenos | |
+| 2.840 € de la cuenta de Alicia (D2) | «Lo de Hacienda» por la venta del piso de la yaya; se lo devolverán con el seguro | 🔎 El banco dice **CRA SERVEIS**, no Hacienda. El canal del Casal (D-10) pide las aportaciones a «CRA Serveis». La sala nueva «ya tiene tejado» media hora después (canal y Gonpi D2). 💬 Jordi: la plusvalía ya se pagó hace dos años. 💬 Marta: «Hacienda no te espera en la oficina con un señor de barba» | Laia: parte D2 («el beneficiario es CRA Serveis») → D3 le dice quién es CRA. O consulta «¿Qué es Rosa d'Abril?» si se sabe el nombre (`sabe_cra`) |
+| «Las voluntades» (D4) | Voluntades anticipadas, un papel médico «después de lo de la yaya en la UCI» | 🔎 Firmadas «en el despacho de siempre»; ese día el canal del Casal anuncia que su despacho las tramita. 💬 Iris: el mismo día te hacen firmar otro papel | Consulta a Laia (D4+, con `sabe_cra`): testigos Ignasi y Berta, «que no la reanimen» y un testamento a favor de la asociación |
+| Ropa blanca, sin móvil, al alba en el cráter (D5-D7) | El aniversario de la yaya: de blanco como su coral, y sin móviles porque «es un momento para ella» | 🔎 El canal: en ayunas, «con el agua de la Casa» (las botellas de Iris). Ignasi (D5): «las familias, completas» | Alicia (prepago) solo da pistas: «pregunta en qué despacho los firmaron» |
+
+Laia ya no reconoce el nombre «Rosa d'Abril» el D1: un grupo de duelo no es delito. Hasta que el jugador le da algo concreto (CRA, el coche gris o las voluntades) no lo trata como un caso.
+
 ## La verdad: el Mas de la Rosalia
 
 | Pista | Dónde | Cuándo |
@@ -40,7 +73,8 @@ También en Gonpi (perfiles de los contactos, ver `GONPI.md`): el lomo de «Masi
 | 🎭 **La residencia.** Montse dice que la Rosalia está en una residencia de Olot; Ramon, Roser y Marta lo repiten. Alicia buscó la residencia en la biblioteca | Familia (D3), Marta, Ramon, Roser, Teresa | Consulta a Laia o patrulla: nunca ha estado. Sergi: «de aquí me sacarán con los pies por delante» |
 | 🎭 **Ramon cambia los nombres**: la Rosalia en Capsec y la Pepita en Bracons | Ramon | Marta y Laia (Can Pericot era de Josepa Pericot) |
 | 🎭 **Dani.** Chico malote de poca monta: sabe que se ha ido, ronda su calle en moto, tiene un mas «sin cobertura» en la Vall d'en Bas y los rumores dicen que se fue con él a Barcelona. Menudea (costo, hierba, pastillas en el bar), tuvo un tonteo con Alicia (un beso que ella llamó «un error») y la controlaba. D3 noche: unos del bar le reclaman dinero (el «audi negro de Andorra»). D4: confiesa que vende (`dani_droga`) | Dani, Núria, Pol, Carla, Judit, amigas | Su post del concierto (D3) o la consulta a Laia (`dani_descartado`: multa + denuncia archivada por hachís, sin conexión con la desaparición). **Operación `dani_mas`** (D6): el mas del tío de Dani; solo hay hachís y una báscula, y gasta una de las dos salidas (`dani_registrado`: Dani lo comenta) |
-| 🎭 **Girona.** El piso vacío del tío de Jan, con la llave bajo el felpudo | Jan | Núria: «a girona no, es lo primero que mirarían» |
+| 🎭 **La red de trata de Barcelona.** Dani le ofreció «curro» en un club del Port Olímpic con su amigo Iker: 1.500 €, piso pagado, «no lo digas en casa», le pagaba el bus (Dani D-15, D-9). Iker le escribe (historial D-14, D2: «trae el dni», «te recojo en nord»; D3: la policía en el club). Laia (D3): Barcelona desarticula una red que capta chicas así y las recoge en Nord. La coartada de Dani lo pone en ese club la noche del billete | Dani, Iker, Laia, Carla («que te has ido a barcelona con el dani») | La cámara de la estación (no subió al bus). **Operación `dani_detencion`** (D6): Dani confiesa que la quería para él, no para la red. El jugador elige: creerle (lo sueltan y da una pista verdadera: la siguió hasta un mas con perra en Sant Salvador) o no (Barcelona se lo lleva y **el coche de la noche hace el traslado**: si queda la última salida, se pierde) |
+| 🎭 **Girona y la clínica (embarazo).** Carla: la prima de Judit, en una farmacia de Girona, la vio comprar una prueba de embarazo con una chica con capucha. El banco: farmacia de Girona (D-9). Mireia: «si alguien pregunta por girona, no fuimos» (D1). Sergi: «lo de Girona no era asunto tuyo». Núria: fue a Girona hace nueve días. Laia (consulta): la cámara del centro de salud sexual. Jan: el piso vacío de su tío, llaves bajo el felpudo | Carla, Mireia, Sergi, Núria, Jan, banco, Laia | La embarazada era **Mireia** (de Sergi): Alicia la acompañó y le pagó la prueba. El detalle: el **Bizum de 13 € de Mireia** al día siguiente (banco D-8) y que Mireia sea «la de la capucha». **Mireia lo confiesa** solo si el jugador la trata con cuidado (`girona_descartado`); si la presiona, se cierra (`mireia_cerrada`). **Operación `piso_jan`**: una manta, dos tazas y el ticket de la farmacia, de hace nueve días. Nadie ha dormido allí desde entonces. Núria: «a girona no, es lo primero que mirarían» |
 | 🎭 Barcelona, la estación, Pol | Lo que ya había | Laia (cámaras), Pol |
 
 ## Trampas
@@ -60,3 +94,4 @@ Señales de que Laura es del Casal: su comentario «cuánto cuesta» en el post 
 
 Dos operaciones nuevas en `police/actions.json`: **Can Pericot** (`envio_capsec`) y **las residencias de Olot** (`envio_residencia`). Las dos son pistas falsas: gastan una de las dos salidas.
 Una tercera operación, **el mas del tío de Dani** (`envio_dani`), también es pista falsa: aparece costo y una báscula, ni rastro de Alicia.
+La cuarta, **detener a Dani** (`envio_detencion_dani`), gasta una salida pero puede devolver una pista verdadera si el jugador le cree. Si no le cree, la operación de la noche (mas, masías o cráter) se queda sin coche.

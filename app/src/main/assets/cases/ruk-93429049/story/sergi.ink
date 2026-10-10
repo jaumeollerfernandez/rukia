@@ -21,6 +21,11 @@ Perfecto. #at: D-4 21:31
     «Baja al pueblo una vez al mes. No quiere ni oír hablar de residencias: "de aquí me sacarán con los pies por delante".» #delay: 10
     Está muy bien. Si lo terminas, sacamos un 10. #delay: 6
     -> opciones
+* {dia >= 2} [sergi, qué ha pasado con mireia?]
+    ~ sabe_girona = true
+    Eso es entre Mireia y yo. #delay: 300
+    Y tú tampoco tendrías que haberte metido. Lo de Girona no era asunto tuyo. #delay: 8
+    -> opciones
 * {dia >= 3} [gracias por cubrirme, sergi]
     Me debes una. Grande. #delay: 120
     -> opciones

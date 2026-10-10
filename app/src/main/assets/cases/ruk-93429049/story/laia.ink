@@ -108,11 +108,10 @@ Y cada noche, a las 21:30, me pasas el parte. #delay: 4 #caduca: D1 09:00
     Normal. El primer día todo el mundo miente un poco. #delay: 6
 * [La madre y la hermana hablan raro en su grupo.]
     Raro cómo. #delay: 4
-    ** [Hablan de un tal Ignasi y de una asociación, «Rosa d'Abril».]
-        ~ sabe_secta = true
-        «Rosa d'Abril». Me suena. #delay: 8
-        Hace un año hubo una denuncia contra un grupo con ese nombre. Estafa. Se archivó. #delay: 5
-        Lo miro mañana. Buen trabajo. #delay: 3
+    ** [Van a un grupo de duelo. Un tal Ignasi acompañó a la madre a comisaría.]
+        Sí. Barba blanca, muy educado. Habló él más que la madre. #delay: 8
+        Pero un grupo de duelo no es delito, y acompañar a alguien a comisaría tampoco. #delay: 5
+        Si encuentras algo más que un nombre de pila, me lo pasas. #delay: 3
     ** [No sé. Parece una secta.]
         Las sectas no se denuncian solas. Necesito nombres. #delay: 5
 * [Su padre cree que está en casa de una amiga.]
@@ -162,11 +161,15 @@ Y la madre o lo sabe o quiere que no lo sepamos. Una de dos. #delay: 4
 = d2_noche
 ¿Algo más para el parte? #at: D2 21:30 #caduca: D3 08:00
 -> recordatorio(2, "D3 08:00") ->
-* [Le han vaciado la cuenta. 2.840 € a la «Comunitat Rosa d'Abril».]
-    ~ sabe_secta = true
-    Con la madre de cotitular. #delay: 8
-    Legal. Asqueroso, pero legal. #delay: 4
-    Pero ahora tengo un nombre en un papel del banco. Eso sí lo puedo mover. #delay: 5
+* [La madre ha vaciado la cuenta de Alicia. Dice que para pagar a Hacienda.]
+    Con la madre de cotitular. Legal. #delay: 8
+    Y una deuda con Hacienda después de vender un piso heredado es de lo más normal. #delay: 4
+    Feo, pero no me sirve. #delay: 3
+* (cra) [Dicen que es para Hacienda. Pero en el banco el beneficiario es «CRA Serveis».]
+    ~ sabe_cra = true
+    Hacienda no se llama CRA. Ni cobra por transferencia a la cuenta de nadie. #delay: 8
+    Alguien le ha contado a la familia una cosa y el banco dice otra. #delay: 4
+    Mañana te digo quién es CRA. #delay: 3
 * [La madre le cuenta a cada uno una versión distinta.]
     Al padre, una amiga. A nosotros, que no sabe nada. #delay: 6
     Esa mujer no busca a su hija. Controla lo que se sabe de ella. #delay: 4
@@ -186,12 +189,15 @@ Buenos días. #at: D3 08:45
     Barcelona: nada. El padre no sabe dónde está su hija. Ahora está asustado y llamando a la madre a gritos. #delay: 5
     Hemos perdido un día. #delay: 3
 }
-{sabe_secta:
-    Lo del banco. La «Comunitat Rosa d'Abril» es una asociación registrada en Sant Joan les Fonts. Sede: un mas reformado. Lo llaman el Casal. #at: D3 12:10
-    Sobre el papel, mindfulness y retiros espirituales. «Para sanar el alma». Cuotas, no. Aportaciones voluntarias. Muchas. #delay: 6
+{d2_noche.cra:
+    Lo del banco. CRA Serveis es el nombre comercial de la Associació Comunitat Rosa d'Abril. Sant Joan les Fonts. Sede: un mas reformado. Lo llaman el Casal. #at: D3 12:10
+    Grupos de duelo, mindfulness, retiros. Cuotas, no. Aportaciones voluntarias. Muchas. Hacienda no aparece por ningún lado. #delay: 6
     Presidente: Ignasi Coll Ferrer, 61 años. Una denuncia por estafa hace un año, archivada. #delay: 5
     Ese es el Ignasi del que hablan. Se anuncia como «acompañante». #delay: 3
 }
+Otra cosa. Barcelona ha desarticulado esta semana parte de una red que captaba chicas de pueblo por redes sociales. #at: D3 13:40
+Ofertas de trabajo de noche, piso pagado, «no se lo digas a tu familia». Las recogían en la estación de Nord. #delay: 5
+No digo que sea esto. Pero si alguien le ofreció trabajo en Barcelona, quiero saberlo. #delay: 4
 Mi comisario me pregunta por qué pierdo el tiempo con una mayor de edad que se ha ido de casa. #at: D3 15:30
 Le he dicho que es intuición. No le ha hecho gracia. #delay: 4
 Necesito algo sólido pronto. #delay: 3
@@ -216,6 +222,10 @@ Parte. ¿Qué tienes? #at: D3 21:30 #caduca: D4 08:00
     Bracons. #delay: 8
     Esa carretera sube hasta la collada. Pocas casas, mucho bosque. #delay: 4
     Si iba andando con peso, no pudo ir muy lejos. #delay: 4
+* (iker_parte) {iker.d2} [Un tal Iker, amigo de Dani, le ofrece trabajo en Barcelona: piso pagado y «trae el DNI».]
+    ~ dani_sospechoso = true
+    Piso pagado, recogida en Nord, el DNI. Es el mismo patrón. #delay: 8
+    Paso el número a Barcelona. Y a ese Dani no lo pierdas de vista. #delay: 4
 * [Nada nuevo.]
     Otro día perdido. El tiempo corre. #delay: 5
 * [(sin responder)]
@@ -231,6 +241,11 @@ Mañana más. #delay: 3
     La he atendido yo. Le he dicho que lo estamos investigando. #delay: 4
     Me ha mirado como si la sospechosa fuera yo. #delay: 4
     Con ella te has quemado. No le escribas más. #delay: 4
+}
+{d3_noche.iker_parte:
+    Barcelona me ha contestado. El número de Iker es de un relaciones públicas de un club del Port Olímpic. #at: D4 11:30
+    El club sale en la investigación de la red. Él, de momento, no está imputado. #delay: 5
+    Y adivina quién le pasó el número de Alicia. #delay: 4
 }
 {sabe_rosalia:
     Padrón. Rosalia Masó Puig, 78 años, empadronada en Sant Salvador de Bianya. #at: D4 10:15
@@ -285,7 +300,7 @@ Mañana te pediré que me digas dónde mirar. Piensa bien qué me vas a decir. #
 = d5_noche
 Parte. ¿Qué tienes? #at: D5 21:45 #caduca: D6 08:00
 -> recordatorio(5, "D6 08:00") ->
-* [La secta ha anunciado la ceremonia: el cráter de Santa Margarida, al amanecer.]
+* [El grupo de la madre sube al cráter de Santa Margarida al alba. De blanco y sin móviles.]
     Ahí estaré yo. Con todo lo que me dejen llevar. #delay: 8
     Pero si antes no sacamos a Alicia de donde esté, de poco servirá. #delay: 5
 * [Una furgoneta blanca del Casal va parando en cada mas camino de Bracons.]
@@ -392,6 +407,11 @@ Lo siento. #delay: 10
 // Tras cada parte: una comprobación para el día siguiente. Solo una por noche, y cada pregunta se puede hacer una vez.
 // Las opciones salen según lo que el jugador haya averiguado en otros chats. [limite]: hasta cuándo espera Laia.
 = consulta(limite)
+{delatado >= 1 and not aviso_delatado:
+    ~ aviso_delatado = true
+    Antes de nada. Me llega que en Olot se comenta que alguien escribe desde el móvil de Alicia. #delay: 4
+    Quien te ha pillado ya no te va a contar nada. Y lo hablarán. Ve con cuidado: si llega a la madre, se acabó. #delay: 5
+}
 {
 - dia <= 1: Antes de cerrar. Mañana tengo una hora de un agente para comprobar algo. Una cosa. ¿Qué miro? #delay: 4
 - else: {~¿Quieres que compruebe algo? Una cosa, no más.|Una consulta para mañana. Elige bien.|Tengo un hueco para una comprobación. ¿Qué miro?} #delay: 4
@@ -413,14 +433,35 @@ Lo siento. #delay: 10
     {dani_droga:
         Me cuentas lo que ya sabía. Un camello de barrio no secuestra a nadie, Kimo. #delay: 5
     }
-    La noche que ella se fue, pagó con tarjeta en un bar de Barcelona a las 23:50 y a las 02:10. #delay: 5
-    Pesado y con malas compañías, puede. Pero esa noche no estaba aquí. #delay: 4
+    La noche que ella se fue, pagó con tarjeta en Barcelona a las 23:50 y a las 02:10. La segunda, en un club del Port Olímpic. #delay: 5
+    Aquí no estaba, no. Pero en Barcelona sí. La misma noche que el billete de ella. #delay: 4
+* {sabe_girona and not girona_descartado} [Mira si Alicia fue a una clínica de Girona hace unos días.]
+    Datos clínicos, ni con orden tan rápido. Pero la cámara de la entrada del centro de salud sexual de Girona, sí. #delay: 400
+    Hace nueve días, 10:12. Alicia entra con otra chica, con capucha. Salen juntas a las 12:40. #delay: 5
+    Quién era la paciente, no me lo van a decir. #delay: 4
+    Si está embarazada, cambia el caso. Una chica así no se esconde en el monte. Busca médicos cerca. #delay: 5
 * {sabe_prepago} [Alicia compró un móvil prepago en un estanco de Olot hace un mes.]
     Sin el número no lo puedo rastrear. Y en el estanco no piden nombre. #delay: 300
     Si algún día te escribe un número que no conoces, apúntalo y me lo pasas. Al momento. #delay: 4
+* {sabe_secta and not sabe_cra} [¿Qué es «Rosa d'Abril», el grupo de duelo de la madre?]
+    ~ sabe_cra = true
+    Associació Comunitat Rosa d'Abril. Sant Joan les Fonts. Nombre comercial: CRA Serveis. #delay: 400
+    Grupos de duelo, mindfulness, retiros. Aportaciones voluntarias. #delay: 5
+    Presidente: Ignasi Coll Ferrer, 61 años. Una denuncia por estafa hace un año, archivada. #delay: 5
+    Por ahora, nada que pueda llevar a un juez. #delay: 3
+* {dia >= 4 and sabe_cra} [La madre ha firmado «las voluntades anticipadas» en «el despacho de siempre». ¿Qué firmó?]
+    ~ sabe_secta = true
+    El registro de voluntades anticipadas es de Salud. Me deben un favor. #delay: 400
+    Montse Vidal. Documento registrado hoy. Testigos: Ignasi Coll Ferrer y Berta Serra. #delay: 5
+    Pide que no la reanimen. Pase lo que pase. #delay: 5
+    Y hoy mismo, en una notaría de Olot, un testamento. Heredera universal: la Associació Comunitat Rosa d'Abril. #delay: 6
+    La hermana, lo mismo. En primavera. #delay: 4
+    Una mujer sana de 52 años que no quiere que la reanimen y lo deja todo a su grupo de duelo. La misma semana. #delay: 6
+    Eso ya no es una estafa, Kimo. #delay: 4
 * {dia >= 4} [¿De quién es el coche gris con una rosa dorada que ronda su casa?]
     ~ sabe_secta = true
-    Seat gris a nombre de la Comunitat Rosa d'Abril. #delay: 300
+    ~ sabe_cra = true
+    Seat gris a nombre de CRA Serveis. Es la Associació Comunitat Rosa d'Abril, de Sant Joan les Fonts. #delay: 300
     Tres multas de aparcamiento en Olot. Lo conduce Ignasi Coll. #delay: 5
     Y anteanoche lo pararon en un control de Sant Joan les Fonts a las tres de la madrugada. Volvía del valle. #delay: 5
 + [Nada por ahora.]

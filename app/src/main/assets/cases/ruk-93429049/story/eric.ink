@@ -78,6 +78,9 @@ y yo también te espero. para la birra digo 🙃 #delay: 4
 -> DONE
 
 // Huecos para escribirle. Èric lo cuenta todo sin darse cuenta: la pista del pienso (cierta) y la de Capsec (falsa).
+// Confianza (fia_eric): preguntarle qué dijo Pilar es un desliz (Alicia estaba delante), y la pone a prueba con la masa madre
+// (le debe un café, historial D-3). Si confía, cuenta para quién decía Alicia que era el pan (la Rosalia). Si recela,
+// la mentira solo cuela sin rumores; la verdad la cree, pero es un bocazas y lo cuenta en el Forn (delata).
 = charla(limite)
 - (opciones)
 #caduca: {limite}
@@ -85,7 +88,7 @@ y yo también te espero. para la birra digo 🙃 #delay: 4
     ali ya lo sabe medio olot por mi post 😅 #delay: 120
     perdón. lo archivo #delay: 4
     -> opciones
-* {dia >= 2} [eric te pido un favor. si alguien pregunta por mí, tú no sabes nada]
+* {dia >= 2 and fia_eric > -1} [eric te pido un favor. si alguien pregunta por mí, tú no sabes nada]
     ~ sabe_capsec = true
     yo nunca sé nada, es mi superpoder #delay: 120
     oye y ahora que lo dices #delay: 30
@@ -93,13 +96,51 @@ y yo también te espero. para la birra digo 🙃 #delay: 4
     que ibas a dejar unas cosas para una acampada. una mochila enorme #delay: 5
     tiene que ver con esto? #delay: 4
     -> opciones
-* {dia >= 3} [qué te dijo pilar exactamente de la señora de arriba?]
+* {dia >= 3 and fia_eric > -1} [qué te dijo pilar exactamente de la señora de arriba?]
+    si estabas delante jajaja #delay: 120
+    oye estás rarísima. a ver, qué me debes por lo de la masa madre? #delay: 5
+    ** [un café]
+        ~ fia_eric = 1
+        y con leche de avena, que te conozco ☕ #delay: 120
+    ** [nada. se murió sola!!]
+        ~ fia_eric = 1
+        asesina 😂 vale, eres tú #delay: 120
+    ** [una birra]
+        ~ fia_eric = -1
+        la birra es por el turno. lo de la masa madre era un café #delay: 120
+        ali? eres tú? #delay: 5
+    - - {fia_eric == -1: -> opciones}
     ~ sabe_pan = true
     que alguna vez te vio salir con barras de más y le dijiste que eran para «la señora de arriba» #delay: 120
     y que un día le pediste un saco de pienso de la tienda de al lado. para perro grande #delay: 5
     pilar dice que será una abuela de alguna masía. arriba de dónde, ni idea #delay: 5
     -> opciones
-* {dia >= 2} [estoy bien eric. de verdad]
+* {fia_eric == -1} [eric soy yo. me equivoco con todo, no duermo]
+    {delatado >= 2:
+        ~ fia_eric = -2
+        ~ delata()
+        en el forn ya dicen que alguien tiene tu móvil #delay: 120
+        lo siento. no te voy a contar nada más #delay: 4
+    - else:
+        ~ fia_eric = 0
+        vale. perdona. me he rayado #delay: 120
+        ~ sabe_pan = true
+        lo de pilar: que te vio salir con barras de más para «la señora de arriba». y un saco de pienso para perro grande #delay: 6
+    }
+    -> opciones
+* {fia_eric == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
+    ~ fia_eric = 1
+    ~ delata()
+    la policía??? #delay: 60
+    vale vale. lo que sea. pero esto se lo tengo que contar a pilar #delay: 5
+    -> opciones
+// Solo si confía.
+* {fia_eric >= 1 and dia >= 3} [eric, alguna vez te dije para quién era el pan?]
+    ~ sabe_rosalia = true
+    una vez. «para la rosalia, que si no le sube nadie, no baja» #delay: 120
+    pensé que era una abuela de tu familia #delay: 5
+    -> opciones
+* {dia >= 2 and fia_eric > -1} [estoy bien eric. de verdad]
     vale. te creo #delay: 120
     más o menos #delay: 3
     -> opciones

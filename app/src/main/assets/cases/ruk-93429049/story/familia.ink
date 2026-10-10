@@ -2,14 +2,15 @@
 // La madre tiene el móvil de Alicia en un cajón: si el jugador escribe aquí, lo sabrán.
 // Alicia escribe en minúscula, sin punto final y con pocos emojis.
 //
-// Nadie dice «secta» aquí: el jugador lo deduce de los comportamientos típicos de un grupo coercitivo.
-// - Líder al que se cita para todo por su nombre de pila: «Ignasi dice...». La madre no decide nada sin preguntarle.
-// - Lenguaje propio con apariencia de bienestar: «la Casa», «el círculo», «compartir», «soltar», «resistencia», «la luz».
-// - El Amanecer (la ceremonia) no se nombra nunca aquí: el jugador lo averigua por Laia, el canal de Rosa d'Abril, Ignasi, Gonpi, Iris y Alicia.
-// - Privación: ayunos, meditación del alba a las 5:30, noches sin dormir que se llaman «limpieza».
-// - Confesión en grupo («lo que has compartido hoy»), captación («traer a alguien de fuera»).
-// - Aislamiento: la amiga «te carga», a la tía no se le abre, «la gente de fuera»; control de información.
-// - Dinero como crecimiento personal («ordenar lo material», «soltar»), las «voluntades» firmadas.
+// Nadie dice «secta» aquí, y a primera vista no lo parece: cada cosa rara tiene una excusa creíble.
+// El jugador solo ve la trama si cruza detalles con otros chats (ver PISTAS.md, «La tapadera»).
+// - «La asociación» / «el grupo» es, para ellas, el grupo de duelo al que van desde que murió la yaya Mercè.
+//   Ignasi casi no se nombra: solo como alguien que ayuda.
+// - El ayuno es solidario (lo que se ahorra va a familias con escasez). La meditación del alba, una costumbre.
+// - El pago del D2 es «lo de Hacienda» por la venta del piso de la yaya. El banco dice otro beneficiario: CRA SERVEIS.
+// - Las «voluntades» son las voluntades anticipadas (un papel médico, tras lo de la yaya en la UCI).
+//   Que se firmen «en el despacho de siempre» (el de la Casa, ver casal.ink D4) es el detalle.
+// - El D7 hace tres años que murió la yaya: subir al cráter al alba, de blanco y todas juntas, parece un homenaje.
 // - Ante la desaparición, calma: nadie llora a Alicia, se la «espera».
 
 === familia ===
@@ -19,7 +20,7 @@
 Buenos días bonitas, hoy ya veréis como el ayuno es mas llevadero. Hay que ser consciente de lo que sufren algunas familias con la escasez :) #from: mama #at: D-6 07:45
 Tú también, cariño. Te irá bien para lo de la ansiedad, confia en mamá #from: mama #at: D-6 07:46
 mama no puedo hacer eso, que tengo entreno, sabes que acabo desmayada. no puedo ir sin comer nada de nada #from: me #at: D-6 08:30
-Ya lo hablamos, Alicia. Hay tradiciones que son necesarias cumplirlas. Además ya lo has hecho otras veces y no ha pasado nada. No seas exagerada #from: mama #at: D-6 08:31
+Ya lo hablamos, Alicia. Es un día al mes y es por una buena causa. Además ya lo has hecho otras veces y no ha pasado nada. No seas exagerada #from: mama #at: D-6 08:31
 Ali, recuerda lo que hablamos. No puedes ser siempre la oveja negra #from: berta #at: D-6 08:40
 Nena, esta noche hay evento en la asociación. Vienes? Lo pasaremos bien, ya verás. #from: mama #at: D-4 19:40
 mamá mañana tengo examen #from: me #at: D-4 19:52
@@ -47,15 +48,15 @@ Descansa 💛 Mañana a las 6:30 meditación como siempre al alba? #from: mama #
 = d1
 Berta, sigues por alli? #from: mama #at: D1 21:02
 Sí. Hemos hecho círculo por Ali, mama quiero que vuelva, la echo mucho de menos. Ojalá esté bien #from: berta #delay: 90
-¿Y qué ha dicho Ignasi? Sabe algo? #from: mama #delay: 20
+¿Y qué han dicho en el grupo? Alguien sabe algo? #from: mama #delay: 20
 Que es normal estar preocupadas, pero que esa energía también puede estar alejandola. Tenemos que pensar que volverá sana y salva, que son cosas de adolescentes. Seguro que está bien. #from: berta #delay: 40
 Quizás esta pasando un mal momento, o necesitaba despejarse. Sea lo que sea, tiene que volver. Debe volver, la echo de menos. #from: berta #delay: 8
 Hemos pasado por mucho, pero la familia debe estar completa. #from: berta #delay: 5
 Lo sé. Seguro que está bien. La encontraremos #from: mama #delay: 60
-Ayer fui a los Mossos. Ignasi dice que mejor que conste, por si alguien pregunta. Es raro este comportamiento, estoy muy preocupada por mi pequeña. #from: mama #delay: 10
+Ayer fui a los Mossos. Me acompañó Ignasi, es un sol. Mejor que conste, por si acaso. Es raro este comportamiento, estoy muy preocupada por mi pequeña. #from: mama #delay: 10
 Mejor seguir guardandolo para nosotras y nuestros cercanos. Seguro que ha sido una chiquillada. #from: berta #delay: 30
 ¿Has comido algo? #from: berta #delay: 20
-Hoy ayuno. Por ella. Me ayuda a tener la mente despejada, además por ella para ayudarla le intentaré transmitir toda mi energía positiva. #from: mama #delay: 40
+No me entra nada. Hoy ayuno, por ella. Me ayuda a tener la mente despejada. #from: mama #delay: 40
 Alicia, si algún día lees esto, vuelve a casa. Estés donde estés, te echamos de menos. Por favor, si ha habido algun malentendido o cualquier cosa, lo sentimos mucho. Solo dinos si estás bien. #from: mama #delay: 120 #caduca: D2 08:00
 * [mamá estoy bien]
     -> escribe_en_familia ->
@@ -63,11 +64,11 @@ Alicia, si algún día lees esto, vuelve a casa. Estés donde estés, te echamos
 - -> d2
 
 = d2
-Berta, he hecho el pago. Por suerte había dinero en la cuenta. #from: mama #at: D2 10:31
-Gracias, mamá. Es lo mejor que podíamos hacer. Me quedo tranquila de que es lo correcto. #from: berta #delay: 600
-Al final lo material no lo es todo. Y aunque pueda dolerle, sé que lo entenderá. #from: berta #delay: 6
+Berta, he hecho el pago de lo de Hacienda. Por suerte en la cuenta de Ali había bastante. #from: mama #at: D2 10:31
+Gracias, mamá. Si llegamos a esperar más, encima el recargo. Me quedo tranquila. #from: berta #delay: 600
+Ya se lo devolveremos cuando cobremos lo del seguro de la yaya. Al final era el piso de su abuela, también es cosa suya. #from: berta #delay: 6
 Me ha dado un poco de pena. Eran sus ahorros del trabajo. #from: mama #delay: 60
-Lo entiendo, sé que entenderá porqué lo hacemos. Al final lo entenderá. #from: berta #delay: 8
+Lo entenderá. Son cosas de casa, mamá. Ahora hay que pensar en encontrarla. #from: berta #delay: 8
 {sospecha_familia >= 2:
     ¿Y el móvil? #from: berta #delay: 30
     En la caja de metal de la cocina. Ya no lo dejo en el cajón. #from: mama #delay: 120
@@ -81,7 +82,7 @@ Lo entiendo, sé que entenderá porqué lo hacemos. Al final lo entenderá. #fro
 }
 La tía Marta va diciendo cosas en el mercado. #from: mama #at: D2 20:15
 Joder Marta tia, el chisme es su droga. Hay quien no cambia. Estoy harta de esa tóxica. #from: berta #delay: 300
-Recuerda las palabras de Ignasi. Con personas que te roban la energía, no vale la pena discutir ni dedicar tu tiempo. #from: berta #delay: 10
+Desde lo de papá no ha parado. No le des el gusto, mamá, no vale la pena discutir. #from: berta #delay: 10
 Paso de cogerle el telefono. De verdad, que dias estamos pasando. #from: mama #delay: 60
 Espero que estes bien hija, te echamos de menos🌹 #from: mama #delay: 30 #caduca: D3 08:00
 * [berta deja a mamá en paz]
@@ -109,7 +110,7 @@ Espero que estes bien hija, te echamos de menos🌹 #from: mama #delay: 30 #cadu
 = d3
 Buenos días! Gratitud por un día más. #from: berta #at: D3 07:00
 Llevo tres noches sin dormir. #from: mama #at: D3 07:20
-Es la limpieza, mamá. El cuerpo suelta así. Luego viene la calma, confía en el proceso #from: berta #delay: 30
+Normal mamá, con todo esto. Haz la respiración del alba, a mí me funciona. Y tómate la valeriana #from: berta #delay: 30
 Quizás deberíamos actuar por nuestra cuenta.Hablemos con todo el que la conoce. Amigas, el chico ese, el trabajo. #from: berta #at: D3 12:30
 Ya he llamado a todos. #from: mama #delay: 600
 ¿Y la gente de la yaya? Las del valle. #from: berta #delay: 60
@@ -125,7 +126,7 @@ Pues mejor. Ya sabemos como es la iaia #from: berta #delay: 20
     ~ secta_sabe_rosalia = true
     ¿Cómo que no? #from: mama #delay: 60
     Mamá. Eso no lo ha escrito ningún policía. Eso lo sabe alguien que conoce a Ali. #from: berta #delay: 10
-    Se lo cuento a Ignasi ahora mismo. Es el unico sensato que nos está ayudando #from: berta #delay: 5
+    Se lo cuento al grupo ahora mismo. Son los únicos que nos están ayudando #from: berta #delay: 5
 * [(sin responder)]
 - -> d4
 
@@ -133,11 +134,11 @@ Pues mejor. Ya sabemos como es la iaia #from: berta #delay: 20
 Buenos días ☀️ Hoy, ayuno de palabras: solo lo necesario. #from: berta #at: D4 07:00
 La Marta ha venido a casa. No le he abierto. #from: mama #at: D4 11:40
 Bien hecho. #from: berta #delay: 600
-Es el cuarto dia sin noticias de Ali. No puedo más. Hoy he firmado las voluntades en el despacho donde siempre. Nunca se sabe. #from: mama #at: D4 16:10
-Yo las firmé en primavera, es un momento y listos. #from: berta #delay: 300
-Ali debería haberlas firmado tambien, las firmará cuando vuelva. #from: mama #delay: 60
+Es el cuarto dia sin noticias de Ali. No puedo más. Hoy he firmado las voluntades anticipadas en el despacho de siempre. Después de lo de la yaya en la UCI, no quiero que nadie tenga que decidir por mí. Nunca se sabe. #from: mama #at: D4 16:10
+Yo las firmé en primavera, es un momento y listos. Así nadie pasa por lo que pasamos con la yaya. #from: berta #delay: 300
+Ali debería hacerlas tambien, ahora que es mayor de edad. Las hará cuando vuelva. #from: mama #delay: 60
 {secta_sabe_rosalia:
-    Ignasi ha llamado a la residencia de Olot. Allí no hay ninguna Rosalia. #from: berta #at: D4 19:20
+    He llamado a la residencia de Olot. Allí no hay ninguna Rosalia. #from: berta #at: D4 19:20
     Entonces... #from: mama #delay: 60
     Entonces mañana subimos al valle. #from: berta #delay: 10
 }
@@ -161,20 +162,20 @@ Buenos días ☀️ Que hoy pese un poco menos. #from: berta #at: D5 07:00
         ~ secta_sabe_rosalia = true
         Andando hacia Bianya. Con pan para una señora de arriba. #from: berta #delay: 60
         Es la Rosalia, mamá. #from: berta #delay: 5
-        Se lo digo a Ignasi. #from: berta #delay: 3
+        Se lo digo al grupo. #from: berta #delay: 3
     }
 }
-¿Qué me pongo pasado mañana? #from: mama #at: D5 16:20
-El blanco mamá, ya lo hablamos. Además nos queda genial a todas. #from: berta #delay: 300
+¿Qué me pongo pasado mañana? Para lo de la yaya. #from: mama #at: D5 16:20
+El blanco mamá, ya lo hablamos. Como en la coral de la yaya. Además nos queda genial a todas. #from: berta #delay: 300
 Y la de Ali también. Ya la tengo planchada. #from: berta #delay: 10
-Ignasi dice que no llevemos nada más. Ni bolso ni móvil. Que allí no nos hará falta nada. Fuera pantallas que estamos enganchadas todo el dia #from: berta #delay: 30
+Y no llevemos nada más. Ni bolso ni móvil. Se sube a oscuras y es un momento para ella, no para hacer fotos. Fuera pantallas que estamos enganchadas todo el dia #from: berta #delay: 30
 ¿Ni las llaves de casa? #from: mama #delay: 120
 Llevate las llaves si quieres mamá. #from: berta #delay: 10
 {secta_sabe_rosalia:
     Mañana subimos a Sant Salvador con la furgoneta. #from: berta #at: D5 21:00
-    Ignasi dice que la traeremos a casa a tiempo para la cena. #from: berta #delay: 10
+    La traeremos a casa a tiempo para la cena. #from: berta #delay: 10
 }
-Nena, mañana es la última noche. Si lees esto, ven a cenar a casa. #from: mama #at: D5 22:10 #caduca: D6 08:00
+Nena, pasado mañana hace tres años de la yaya. Si lees esto, ven a cenar a casa. #from: mama #at: D5 22:10 #caduca: D6 08:00
 * [voy mamá]
     -> escribe_en_familia ->
     ¿Cuándo? #from: mama #delay: 30
@@ -190,7 +191,7 @@ Mesa puesta. Tres platos. #from: mama #at: D6 13:00
     {patrulla_en_mas:
         Hay un coche de los Mossos delante de la casa. #from: berta #at: D6 18:30
         Damos la vuelta. #from: berta #delay: 5
-        Da igual. Ignasi dice que la luz la traerá sola. #from: berta #delay: 60
+        Da igual. Sabe qué día es. Vendrá sola. #from: berta #delay: 60
     - else:
         Puerta azul. Es aquí. #from: berta #at: D6 18:30
         La vieja dice que no sabe nada. #from: berta #delay: 600
@@ -198,7 +199,7 @@ Mesa puesta. Tres platos. #from: mama #at: D6 13:00
         La esperamos aquí. Tiene que volver a por la mochila. #from: berta #delay: 30
     }
 - else:
-    Ignasi dice que no hace falta buscarla más. Que la luz la traerá sola. #from: berta #at: D6 21:00
+    No hace falta buscarla más, mamá. Sabe qué día es. Vendrá sola. #from: berta #at: D6 21:00
 }
 Nena. Te esperamos. #from: mama #at: D6 23:00
 -> d7

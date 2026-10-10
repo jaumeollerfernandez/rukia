@@ -22,7 +22,7 @@ Hermana mayor protectora y opresiva. Conoce sus escondites de niña («te escond
 ## Cómo escribe
 - **Mayúsculas y puntos**, frases bien hechas, más correcta que su madre. A veces suelta un «joder» o un «tía».
 - Emojis: 🌹 (su firma), 🌅, ☀️, «<3», 🙄 (con Alicia).
-- Vocabulario del grupo: «círculo», «compartir», «limpieza», «proceso», «la luz», «Ignasi dice».
+- Vocabulario del grupo, pero disimulado delante del jugador: «el grupo», «la respiración del alba», «lo de la yaya». Es quien pone las excusas prácticas (Hacienda, el recargo, «se sube a oscuras y es un momento para ella»).
 - Amenazas veladas, cortas y con punto: «Sé que vas a volver.», «Te veo al amanecer, quien seas.»
 
 Ejemplos reales:

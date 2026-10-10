@@ -6,7 +6,7 @@
 - Gonpi: @jordi.serra.bcn (sus publicaciones, en `gonpi/gonpi.json`).
 
 ## Biografía
-Técnico de mantenimiento en una empresa de ascensores de Barcelona. Nació en Olot. Se casó joven con Montse y vivieron en el valle hasta que ella entró en Rosa d'Abril. Intentó hablar con ella con Marta hace un año, no sirvió, y cuando Montse le pidió diez mil euros «para un curso» y él dijo que no, ella dejó de cogerle el teléfono. Se fue a Barcelona con la sensación de haber abandonado a sus hijas. Desde entonces es un padre a distancia: mensajes torpes, una habitación «siempre lista» que nadie usa, llamadas que no sabe cómo empezar.
+Técnico de mantenimiento en una empresa de ascensores de Barcelona. Nació en Olot. Se casó joven con Montse y vivieron en el valle hasta la separación. Para él, Rosa d'Abril es «un grupo de duelo» que no le gustaba, no la causa de la ruptura («fueron muchas cosas»). Sabe que la plusvalía del piso de la yaya se pagó hace dos años: eso desmonta «lo de Hacienda». Intentó hablar con ella con Marta hace un año, no sirvió, y cuando Montse le pidió diez mil euros «para un curso» y él dijo que no, ella dejó de cogerle el teléfono. Se fue a Barcelona con la sensación de haber abandonado a sus hijas. Desde entonces es un padre a distancia: mensajes torpes, una habitación «siempre lista» que nadie usa, llamadas que no sabe cómo empezar.
 
 ## Perfil psicológico
 - **Bueno, torpe y culpable.** Quiere estar y no sabe cómo. Evita los conflictos hasta que le estallan.

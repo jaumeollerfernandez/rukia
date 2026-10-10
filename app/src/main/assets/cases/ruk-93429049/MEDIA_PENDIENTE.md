@@ -58,10 +58,10 @@ Las ve la app Multimedia, ordenadas por nombre.
   - Prompt: `Photo taken secretly from far away with digital zoom: a 24-year-old woman with long straight glossy chestnut hair, dressed all in white, sitting cross-legged on a dewy meadow with her back to the camera, watching the sunrise over the misty green Vall de Bianya with stone farmhouses and forested hills, grainy, 4:3`
 - [ ] `IMG_0400.jpg` 🔎 Fachada del Casal Rosa d'Abril con la rosa dorada y una matrícula legible
   - Prompt: `Smartphone photo of a large restored Catalan masia of grey volcanic stone near Sant Joan les Fonts, converted into a spiritual retreat centre, a big golden rose painted above the arched wooden entrance, a neat garden with white benches and lavender, several cars parked on the gravel, the Spanish rear number plate of a grey Seat clearly readable, overcast Garrotxa sky, 4:3`
-- [ ] `IMG_0401.jpg` 🔎 Libreta de la madre: «Aportaciones Rosa d'Abril… 7.º amanecer: tránsito. Todas juntas.»
-  - Prompt: `Hurried, slightly blurry smartphone photo of an open spiral notebook on a kitchen table, adult cursive handwriting in blue ink in Spanish: "Aportaciones Rosa d'Abril", "Piso yaya: 120.000 ✔", "Ahorros Montse ✔", "Berta ✔", "Cuenta Alicia: pendiente (cotitular)", and at the bottom, underlined twice, "7.º amanecer: tránsito. Todas juntas.", a candle and a rose beside it, dim light, 3:4`
-- [ ] `IMG_0402.jpg` 🔎 Folleto «Rosa d'Abril · Ceremonia del Séptimo Amanecer · solo familias», con el cráter y la ermita
-  - Prompt: `Smartphone photo of a small cream-coloured flyer half covered by a young woman's hand with a thin red string bracelet, elegant gold serif text "Rosa d'Abril · Ceremonia del Séptimo Amanecer · solo familias", a fine line drawing of the round volcanic crater of Santa Margarida with its small hermitage in the middle, a gold rose logo, 3:4`
+- [ ] `IMG_0401.jpg` 🔎 Libreta de la madre, en clave (**rehacer**: el texto ha cambiado): «Piso yaya: 120.000 → C.R.A. ✔ … 3 anys mare · 7a alba · totes juntes»
+  - Prompt: `Hurried, slightly blurry smartphone photo of an open spiral notebook on a kitchen table, adult cursive handwriting in blue ink, looks like household accounts: "Piso yaya: 120.000 → C.R.A. ✔", "M. ✔", "B. ✔", "A.: pendiente (cot.)", "DVA + T. — despacho Casa", and at the bottom, circled, "3 anys mare · 7a alba · totes juntes" with a small drawn rose, a candle beside it, dim light, 3:4`
+- [ ] `IMG_0402.jpg` 🔎 Folleto «Trobada de l'Alba · per a famílies», con el cráter y la ermita (**rehacer**: el texto ha cambiado)
+  - Prompt: `Smartphone photo of a small cream-coloured flyer half covered by a young woman's hand with a thin red string bracelet, elegant gold serif text "Trobada de l'Alba · per a famílies", a fine line drawing of the round volcanic crater of Santa Margarida with its small hermitage in the middle, a gold rose logo, 3:4`
 - [ ] `IMG_0403.jpg` Masa madre derramada
   - Prompt: `Smartphone photo of a sourdough starter jar knocked over on a steel counter in a traditional bakery in Olot, sticky dough spilled everywhere, flour dust, early morning light, square 1:1`
 - [ ] `IMG_0405.jpg` 🔎 Cielo estrellado desde una ventana con postigos; la montaña con la antena
@@ -141,10 +141,10 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
   - Prompt: `Sunrise over Garrotxa hills, pastel sky, elegant thin serif text overlay "Dar es la forma más pura de recibir.", square 1:1`
 - [ ] `gonpi/dani_c.jpg` 🎭 Terraza de bar de noche con una mochila negra sobre la mesa (placeholder: copia de `dani_a.jpg`)
   - Prompt: `Smartphone photo at night of a bar terrace in a small Catalan town, a black backpack on a table next to a half-empty glass, warm street lights, square 1:1`
-- [ ] `gonpi/montse_d2.jpg` 🔎 Manos abiertas al sol
+- [ ] `gonpi/montse_d2.jpg` 🔎 Manos abiertas al sol («Cerrar etapas también es cuidar de los tuyos»)
   - Prompt: `Photo of two thin open hands raised toward the morning sun, light shining through the fingers, green valley blurred behind, spiritual and soft, square 1:1`
-- [ ] `gonpi/casal_d2.jpg` 🔎 Dos manos sujetando una rosa abierta (el «desprendimiento» de la transferencia)
-  - Prompt: `Photo of two hands gently holding an open red rose against a cream background, soft light, gold rose logo in a corner, square 1:1`
+- [ ] `gonpi/casal_d2.jpg` 🔎 El tejado nuevo de la sala del Casal (media hora después de la transferencia; **rehacer**)
+  - Prompt: `Smartphone photo of a brand-new terracotta tile roof on a stone extension of a restored Catalan masia, scaffolding still up, a small gold rose painted above the new door, sunny morning, square 1:1`
 - [ ] `gonpi/eric_d2.jpg` 🔎 Cesta de pan vacía en el Forn
   - Prompt: `Smartphone photo of an empty wicker bread basket on the wooden counter of a traditional bakery in Olot, a few crumbs, a handwritten note "6?" next to it, playful, square 1:1`
 - [ ] `gonpi/arnau_d2.jpg` 🔎 Arnau en la rotonda del Hostalnou; al fondo, una chica con mochila y **barras que asoman**, con la chaqueta verde
@@ -181,8 +181,8 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
   - Prompt: `Sunrise, pastel sky, elegant serif text overlay "Viste el alma de blanco y el mundo se vuelve ligero.", square 1:1`
 - [ ] `gonpi/voley_d5.jpg` El equipo tras perder el partido
   - Prompt: `Photo of a disappointed girls' junior volleyball team sitting on a bench in a municipal sports hall in Olot after losing, blue and orange jerseys, square 1:1`
-- [ ] `gonpi/casal_d5.jpg` 🔎 Cráter de Santa Margarida con la ermita (anuncio de la ceremonia)
-  - Prompt: `Dramatic photo of the Santa Margarida volcanic crater in the Garrotxa: a perfectly round crater covered by green beech and oak forest with a small stone hermitage in the middle of its flat grassy floor, morning mist, elegant serif text "El séptimo amanecer nos reunirá", square 1:1`
+- [ ] `gonpi/casal_d5.jpg` 🔎 Cráter de Santa Margarida con la ermita (anuncio de la Trobada de l'Alba; **rehacer** sin el texto)
+  - Prompt: `Dramatic photo of the Santa Margarida volcanic crater in the Garrotxa: a perfectly round crater covered by green beech and oak forest with a small stone hermitage in the middle of its flat grassy floor, morning mist, elegant serif text "Trobada de l'Alba", square 1:1`
 - [ ] `gonpi/laura_d5.jpg` Atardecer en el Hostalnou
   - Prompt: `Smartphone photo of an orange sunset over the terracotta roofs and church tower of L'Hostalnou de Bianya, square 1:1`
 

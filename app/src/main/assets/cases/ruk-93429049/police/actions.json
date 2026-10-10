@@ -11,8 +11,10 @@
     { "id": "residencia", "label": "Residencias de ancianos de Olot", "knot": "envio_residencia", "type": "inspect" },
     { "id": "estacion_olot", "label": "Estación de autobuses de Olot", "knot": "envio_estacion", "type": "inspect" },
     { "id": "dani_mas", "label": "El mas del tío de Dani, en la Vall d'en Bas", "knot": "envio_dani", "type": "inspect" },
+    { "id": "dani_detencion", "label": "Detener a Dani Rius e interrogarlo", "knot": "envio_detencion_dani", "type": "inspect" },
     { "id": "casa_pol", "label": "Casa de Pol, en Olot", "knot": "envio_pol", "type": "inspect" },
     { "id": "girona", "label": "El piso de Núria en Girona", "knot": "envio_girona", "type": "inspect" },
+    { "id": "piso_jan", "label": "El piso vacío del tío de Jan, en el barri vell de Girona", "knot": "envio_piso_jan", "type": "inspect" },
     { "id": "barcelona", "label": "Casa del padre, en Barcelona", "knot": "envio_barcelona", "type": "inspect" },
     { "id": "crater", "label": "Cráter de Santa Margarida", "knot": "envio_crater", "type": "inspect", "squads": ["manana"] },
     { "id": "vigilar_crater", "label": "Vigilar el cráter de Santa Margarida al amanecer", "knot": "envio_vigilancia", "type": "patrol", "squads": ["noche"] }

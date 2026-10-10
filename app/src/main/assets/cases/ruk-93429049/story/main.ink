@@ -29,7 +29,8 @@ VAR nuria_denuncia = false // Núria suspendió la prueba y va a ir a los Mossos
 VAR secta_sabe_rosalia = false // la familia ha descubierto que Alicia está con Rosalia
 
 // Pistas conseguidas.
-VAR sabe_secta = false     // sabe qué es «Rosa d'Abril»
+VAR sabe_secta = false     // conoce el nombre «Rosa d'Abril» (el grupo de duelo de la madre)
+VAR sabe_cra = false       // Laia sabe que «CRA Serveis», el beneficiario del pago «a Hacienda», es Rosa d'Abril
 VAR sabe_pan = false       // faltan barras en la panadería
 VAR descarta_bus = false
 VAR sabe_estrellas = false
@@ -48,8 +49,28 @@ VAR dani_descartado = false
 VAR dani_droga = false       // sabe que Dani menudea (lo confiesa él en el D4 o se lo saca el jugador)
 VAR dani_registrado = false  // el jugador mandó una patrulla al mas del tío de Dani y los Mossos le requisaron el costo
 VAR dani_avisado = false     // Dani ya ha contado lo del registro (para no repetirlo)
+VAR dani_detenido = false    // el jugador mandó detener e interrogar a Dani (envio_detencion_dani)
+VAR dani_creido = false      // tras la confesión, el jugador le cree: lo sueltan y cuenta lo que vio
+VAR dani_no_creido = false   // no le cree: Barcelona se lo lleva y el coche de la noche hace el traslado
 VAR llamada_rosalia_contestada = false // lo pone la app cuando el jugador atiende o rechaza una llamada de ese chat
 VAR sabe_prepago = false     // Mireia: Alicia compró un móvil barato en un estanco de Olot
+
+// Confianza de los contactos con pistas verdaderas: 1 confía (cuenta más), 0 normal, -1 recela (no cuenta nada hasta que
+// se le convence: mentira o verdad, según el personaje), -2 bloqueado (no vuelve a hablar). Ver PISTAS.md, «Confianza».
+VAR fia_toni = 0
+VAR fia_teresa = 0
+VAR fia_eric = 0
+VAR fia_ona = 0
+VAR fia_oriol = 0
+// Cuántos contactos han descubierto que no eres Alicia. Con 1, corre el rumor y otros ponen a prueba; con 2, las mentiras
+// ya no cuelan y llega a oídos de Montse (sospecha_familia).
+VAR delatado = 0
+VAR aviso_delatado = false
+
+// Pista falsa: Girona y la clínica. Parece que Alicia está embarazada y se esconde en Girona; la embarazada era Mireia.
+VAR sabe_girona = false        // ha oído lo de Girona (la prueba de embarazo, la clínica, «no fuimos»)
+VAR girona_descartado = false  // Mireia ha confesado que la prueba y la clínica eran suyas
+VAR mireia_cerrada = false     // el jugador la presionó y Mireia ya no cuenta nada
 
 // Laura, del pueblo, la está captando el Casal: lo que le cuentes llega a Berta.
 VAR laura_sabe = false       // le has dicho a Laura por dónde está Alicia
@@ -86,6 +107,7 @@ INCLUDE nuria.ink
 INCLUDE amigas.ink
 INCLUDE pol.ink
 INCLUDE dani.ink
+INCLUDE iker.ink
 
 // Estudios y trabajo.
 INCLUDE clase.ink
@@ -157,5 +179,12 @@ INCLUDE silvia.ink
 ~ return secta_sabe_rosalia and not rescatada()
 
 // La ceremonia se para: hay agentes en el cráter o Iris ha declarado.
+// Alguien ha descubierto que no eres Alicia y deja de hablarte.
+=== function delata() ===
+~ delatado += 1
+{delatado == 2:
+    ~ sospecha_familia += 1
+}
+
 === function familia_salvada() ===
 ~ return vigilancia_crater or iris_ayuda

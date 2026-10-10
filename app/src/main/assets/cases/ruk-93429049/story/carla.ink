@@ -31,6 +31,14 @@ obvio 😇 #at: D-8 18:02
     yo digo que no, que tú nunca harías nada sin contárnoslo #delay: 6
     ...no? #delay: 10
     -> opciones
+* {not nuria_denuncia and dia >= 2} [quién dice que estoy embarazada?]
+    ~ sabe_girona = true
+    la prima de judit. trabaja en una farmacia de girona #delay: 120
+    dice que te vio comprar una prueba de embarazo. hace como dos semanas #delay: 5
+    con otra chica que no se quitaba la capucha #delay: 4
+    yo no se lo he dicho a nadie eh #delay: 30
+    bueno. a mireia. y se ha puesto blanca #delay: 6
+    -> opciones
 * {not nuria_denuncia and amigas.d1.vienen and dia >= 2} [qué viste en mi casa?]
     velas por todo el pasillo. olor a incienso #delay: 120
     y en la entrada tres vestidos blancos colgados, como de comunión #delay: 5

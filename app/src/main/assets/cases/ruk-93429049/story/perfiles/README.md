@@ -28,7 +28,7 @@ Cada ficha tiene: datos, biografía, perfil psicológico, relación con Alicia, 
 - [rosalia.md](rosalia.md): Rosalia Masó, la del mas de la puerta azul
 
 **Amigos**
-- [nuria.md](nuria.md), [carla.md](carla.md), [mireia.md](mireia.md), [pol.md](pol.md), [dani.md](dani.md)
+- [nuria.md](nuria.md), [carla.md](carla.md), [mireia.md](mireia.md), [pol.md](pol.md), [dani.md](dani.md), [iker.md](iker.md) (el amigo de Dani en Barcelona)
 
 **Clase y estudios**
 - [sergi.md](sergi.md), [aina.md](aina.md), [oriol.md](oriol.md), [paula.md](paula.md), [elena.md](elena.md)
@@ -57,7 +57,7 @@ Los canales sin persona detrás (`banco`, `central`, `casal`) no tienen ficha: `
 
 | Nombre | Quién es |
 |---|---|
-| Mercè | La yaya materna de Alicia, madre de Montse. Murió hace unos años. Fundó la coral con Rosalia y Pepita. Pintó de azul la puerta de las dos amigas. Su piso se vendió y el dinero (120.000 €) fue a Rosa d'Abril |
+| Mercè | La yaya materna de Alicia, madre de Montse. Murió hace tres años el D7, tras meses en la UCI (por eso la familia «entiende» las voluntades anticipadas). El aniversario es la tapadera de la Trobada de l'Alba. Fundó la coral con Rosalia y Pepita. Pintó de azul la puerta de las dos amigas. Su piso se vendió y el dinero (120.000 €) fue a Rosa d'Abril |
 | Quique y Elisa | Tío paterno (hermano pequeño de Jordi y Marta) y su mujer. Padres de Arnau. No escriben |
 | La iaia (paterna) | Madre de Jordi, Marta y Quique. Viva. Organiza comidas familiares (canelones, el muslo para Arnau). Odia a «esa gente» |
 | Josepa «Pepita» Pericot | Amiga de la yaya Mercè. Vivía en Can Pericot (Capsec). Murió hace seis años. El mas es ahora del Ayuntamiento |

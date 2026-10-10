@@ -15,12 +15,12 @@ Siempre igual 🙄 #at: D-5 08:41
     Sé que no eres Ali. #at: D2 23:10
     El móvil de Ali está en casa. Y tú estás dentro. #delay: 8
     No sé quién eres. Pero sé que nos lees. #delay: 6
-    Ignasi dice que todo lo que se esconde acaba saliendo a la luz. #delay: 10
+    Todo lo que se esconde acaba saliendo a la luz. #delay: 10
 - else:
     Sé que vas a volver. #at: D2 23:10
     Siempre vuelves. #delay: 5
     De pequeña te escondías en el desván y bajabas en cuanto olías la cena. #delay: 20
-    Esta vez la cena es especial, Ali. #delay: 8
+    Esta vez es especial, Ali. Ya sabes qué día es. #delay: 8
     Tu móvil está en casa, por cierto. Si alguien lo está leyendo... ya veremos. #delay: 30
 }
 Buenas noches 🌹 #delay: 15 #caduca: D3 08:00

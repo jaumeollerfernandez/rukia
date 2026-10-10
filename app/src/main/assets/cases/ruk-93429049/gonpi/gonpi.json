@@ -11,7 +11,7 @@
     { "id": "berta", "username": "berta.luz", "name": "Berta", "photo": "photos/berta.jpg", "bio": "Cada amanecer es una puerta ☀️ · @rosadabril.casal", "color": "#EF6C00", "followers": 1017, "following": 12 },
     { "id": "mama", "username": "montse.vidal", "name": "Montse", "photo": "photos/mama.jpg", "bio": "Gratitud. Familia. Luz.", "color": "#F9A825", "followers": 156, "following": 9 },
     { "id": "guia", "username": "ignasi.coll.acompanya", "name": "Ignasi Coll", "photo": "photos/guia.jpg", "bio": "Facilitador de mindfulness · Retiros espirituales para sanar el alma · Acompaño procesos en el Casal 🌹", "color": "#FFD54F", "followers": 3420, "following": 0 },
-    { "id": "casal", "username": "rosadabril.casal", "name": "Rosa d'Abril", "photo": "photos/casal.jpg", "bio": "Associació Rosa d'Abril · Mindfulness y retiros espirituales para sanar el alma 🌿 · Sant Joan les Fonts", "color": "#C9A227", "followers": 1890, "following": 1 },
+    { "id": "casal", "username": "rosadabril.casal", "name": "Rosa d'Abril", "photo": "photos/casal.jpg", "bio": "Associació Comunitat Rosa d'Abril (CRA) · Grupos de duelo, mindfulness y acompañamiento 🌿 · Sant Joan les Fonts", "color": "#C9A227", "followers": 1890, "following": 1 },
     { "id": "iris", "username": "iris.ambllum", "name": "Iris", "photo": "photos/iris.jpg", "bio": "buscando mi luz", "color": "#B39DDB", "followers": 233, "following": 140 },
     { "id": "oriol", "username": "oriol.pedals", "name": "Oriol", "photo": "photos/oriol.jpg", "bio": "🚴 subo puertos de noche porque de día hace calor", "color": "#6D4C41", "followers": 640, "following": 320 },
     { "id": "voley", "username": "voleiolot", "name": "Vòlei Olot", "photo": "photos/voley.jpg", "bio": "Vòlei Olot · Juvenil y Sénior", "color": "#0277BD", "followers": 1530, "following": 210 },
@@ -272,7 +272,7 @@
     { "author": "laura", "image": "gonpi/laura_d5.jpg", "caption": "atardeceres del Hostalnou 🧡", "at": "D5 22:30", "likes": 96, "comments": [
       { "author": "marc", "text": "oye esta tarde ha pasado una furgo blanca del Casal subiendo hacia Bracons, iban parando en cada mas 🤨", "at": "D5 22:45" }
     ] },
-    { "author": "casal", "image": "gonpi/casal_d5.jpg", "caption": "El séptimo amanecer nos reunirá donde la tierra se abrió. Solo familias completas. 🌹", "at": "D5 22:00", "likes": 140 },
+    { "author": "casal", "image": "gonpi/casal_d5.jpg", "caption": "Trobada de l'Alba. Subimos de madrugada al cráter de Santa Margarida a ver salir el sol y desayunamos juntas arriba. Venid en familia 🌹", "at": "D5 22:00", "likes": 140 },
     { "author": "toni", "image": "gonpi/toni_d5.jpg", "caption": "71 lotes. récord 🥫💪", "at": "D5 16:00", "likes": 57 },
     { "author": "voley", "image": "gonpi/voley_d5.jpg", "caption": "Derrota 1-3 sin nuestra colocadora titular. ¡Te esperamos, Ali! 🏐", "at": "D5 12:00", "likes": 118 },
     { "author": "berta", "image": "gonpi/berta_d5.jpg", "caption": "☀️ Frase del alba: «Viste el alma de blanco y el mundo se vuelve ligero.»", "at": "D5 07:00", "likes": 55 },
@@ -302,8 +302,8 @@
     { "author": "arnau", "image": "gonpi/arnau_d2.jpg", "caption": "la rotonda maldita 💀", "at": "D2 18:40", "likes": 2034, "comments": [ { "author": "marc", "text": "JAJAJAJA" }, { "author": "berta", "text": "¿A qué hora grabaste esto, primo?", "at": "D3 10:00" } ] },
     { "author": "eric", "image": "gonpi/eric_d2.jpg", "caption": "Caso abierto: seis barras de payés desaparecidas 🕵️🥖", "at": "D2 13:00", "likes": 66, "comments": [ { "author": "forn", "text": "Èric, a trabajar 😤", "at": "D2 13:30" } ] },
     { "author": "aliments", "image": "gonpi/aliments_d2.jpg", "caption": "Gracias a la familia del pueblo que hoy nos ha donado cuatro cajas de ropa, mantas y menaje 💚 Así da gusto.", "at": "D2 12:00", "likes": 83 },
-    { "author": "casal", "image": "gonpi/casal_d2.jpg", "caption": "Hoy una de nuestras familias ha dado un paso más en su camino de desprendimiento. Gracias 🌹", "at": "D2 11:00", "likes": 58, "comments": [ { "author": "mama", "text": "🙏", "at": "D2 11:10" } ] },
-    { "author": "mama", "image": "gonpi/montse_d2.jpg", "caption": "Dar es liberarse. Hoy he soltado lo último que me ataba.", "at": "D2 10:30", "likes": 11 },
+    { "author": "casal", "image": "gonpi/casal_d2.jpg", "caption": "Gracias a la generosidad de nuestras familias, la sala nueva ya tiene tejado 🌹", "at": "D2 11:00", "likes": 58, "comments": [ { "author": "mama", "text": "🙏", "at": "D2 11:10" } ] },
+    { "author": "mama", "image": "gonpi/montse_d2.jpg", "caption": "Cerrar etapas también es cuidar de los tuyos 🌸", "at": "D2 10:30", "likes": 11 },
     { "author": "berta", "image": "gonpi/berta_d2.jpg", "caption": "☀️ Frase del alba: «Dar es la forma más pura de recibir.»", "at": "D2 07:05", "likes": 49 },
 
     { "author": "carla", "image": "gonpi/carla_d1.jpg", "caption": "falta alguien 💔", "at": "D1 21:15", "likes": 154 },
@@ -314,7 +314,7 @@
     { "author": "alicia", "image": "gonpi/alicia_dm1.jpg", "caption": "a veces hay que irse para salvarse", "at": "D-1 20:47", "likes": 96, "comments": [
       { "author": "nuria", "text": "??? 🥺" },
       { "author": "berta", "text": "🌅", "at": "D1 07:10" },
-      { "author": "guia", "text": "Te echamos de menos en la Casa, Alicia. Aquí nadie te juzga. Vuelve cuando estés preparada 🌹", "at": "D3 23:10" }
+      { "author": "guia", "text": "Pensamos mucho en ti, Alicia. Tu madre y tu hermana te esperan 🌹", "at": "D3 23:10" }
     ] },
     { "author": "guia", "image": "gonpi/guia_d.jpg", "caption": "Hoy en el círculo una joven me ha preguntado por qué cuesta tanto soltar. Le he dicho: porque te enseñaron que lo que tienes es lo que eres.", "at": "D-2 21:15", "likes": 171, "comments": [ { "author": "berta", "text": "🌹" } ] },
     { "author": "gemma", "image": "gonpi/gemma_a.jpg", "caption": "domingo de ioga y vermut, el equilibrio perfecto 🧘‍♀️🍸", "at": "D-4 08:30", "likes": 61 },

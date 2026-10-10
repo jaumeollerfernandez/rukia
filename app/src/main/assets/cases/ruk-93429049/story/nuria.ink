@@ -125,14 +125,14 @@ tú tenías miedo del perro y al final no te separabas de él jajaja #delay: 5 #
     }
 }
 primera. dónde fuimos en el viaje de fin de curso #delay: 8 #caduca: D4 17:00
-* [al port de la selva 🌊]
+* [al port de la selva]
     ~ aciertos_nuria += 1
 * [a salou]
 * [a l'estartit]
 * [(sin responder)]
     -> no_contesta
 - segunda. qué te regalé por tu cumple #delay: 30 #caduca: D4 17:00
-* [la pulsera roja ❤️]
+* [la pulsera roja]
     ~ aciertos_nuria += 1
 * [unos pendientes]
 * [una funda del móvil]
@@ -304,6 +304,18 @@ solo dime una cosa. ali está bien? #delay: 4 #caduca: D5 23:59
         tú te acuerdas mejor que yo, no? #delay: 4
     }
     -> opciones
+// Recuperar a Núria si recela (confianza negativa) sin haberle confesado nada: una sola vez, y no cuela si ya corre el rumor.
+* {habla and not nuria_sabe and confianza_nuria < 0} [nuri perdona. estoy fatal y escribo sin pensar 💛]
+    {delatado >= 1:
+        ~ confianza_nuria -= 1
+        carla dice que alguien está usando tu móvil #delay: 120
+        y empiezo a creérmelo #delay: 5
+    - else:
+        ~ confianza_nuria = 0
+        ... #delay: 120
+        vale tía. pero me tienes muy rayada #delay: 5
+    }
+    -> opciones
 * {habla and not nuria_sabe} [sabes algo de pol?]
     pol? me ha escrito por gonpi preguntando si sé algo de ti #delay: 120
     está rayadísimo. qué le hiciste jajaja #delay: 4
@@ -322,7 +334,7 @@ solo dime una cosa. ali está bien? #delay: 4 #caduca: D5 23:59
     ali por qué hablas como si fueras otra #delay: 5
     -> opciones
 * {habla and nuria_sabe} [¿Cuándo la viste por última vez?]
-    hace nueve días. vino a girona en bus #delay: 90
+    hace nueve días. vino a girona en bus, con mireia. comimos las tres y mireia no dijo ni mu #delay: 90
     estaba rarísima. me dijo que su madre había firmado unos papeles y que ella no pensaba firmar #delay: 6
     y que si un día desaparecía, que no me fiara de lo que dijera su madre #delay: 5
     pensé que exageraba. como siempre #delay: 4

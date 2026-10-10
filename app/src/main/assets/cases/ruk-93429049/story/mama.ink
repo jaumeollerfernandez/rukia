@@ -1,5 +1,5 @@
 // Montse, por privado. Trampa: tiene el móvil de Alicia guardado. Cualquier mensaje le dice que alguien lo usa.
-// A cambio, se le escapa algo: lo que planean para «el amanecer».
+// A cambio, se le escapa algo: lo que planean para el aniversario de la yaya.
 
 === mama ===
 -> historial
@@ -7,7 +7,7 @@
 = historial
 Nena, ¿has comido? Hoy toca ayuno pero tú come algo, que tienes entreno 🌸 #at: D-6 12:10
 sí mamá #from: me #at: D-6 13:40
-Esta noche Ignasi quiere hablar contigo. Solo un ratito. Para ti es importante. #at: D-3 18:00
+Esta noche hay sesión para familias en el grupo. Solo un ratito. Para mí es importante. #at: D-3 18:00
 no me apetece mamá #from: me #at: D-3 19:02
 Hazlo por mí. #at: D-3 19:02
 -> charla
@@ -20,7 +20,7 @@ Hazlo por mí. #at: D-3 19:02
     ¿Alicia? #delay: 60
     ... #delay: 120
     Tu móvil está aquí, nena. En la cocina. Lo acabo de ver encenderse. #delay: 10 #effect: glitch
-    Si eres tú, vuelve. Ignasi dice que si vuelves antes del amanecer, todo está perdonado. #delay: 8
+    Si eres tú, vuelve. Antes de lo de la yaya. Todo está perdonado. #delay: 8
     Si no eres tú, que Dios te perdone. #delay: 20
     -> opciones
 * {sabe_rosalia} [mamá, dónde está la rosalia?]

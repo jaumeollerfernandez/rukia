@@ -9,11 +9,11 @@
 ## Biografía
 Creció en el valle, hija única de Mercè. Cantó de soprano en la coral que fundó su madre hasta hace un año. Se casó con Jordi, tuvo dos hijas y fue una madre normal, controladora y cariñosa. Tras la muerte de su madre entró en una depresión que nadie trató. Una amiga la llevó a un «taller de duelo» de Rosa d'Abril hace dos años, y allí encontró a Ignasi: «Llegué rota. Hoy tengo una familia». Arrastró a Berta. Jordi se fue, en parte por eso. Le pidió diez mil euros «para un curso» y él no se los dio.
 
-Desde entonces lo ha ido dando todo: el piso de su madre (120.000 €), sus ahorros, la ropa, los muebles («desprenderse de lo material»). Ha firmado las voluntades (D4). Cree de verdad que el «tránsito» del séptimo amanecer es un paso a la luz y que la familia tiene que estar completa. Denunció la desaparición porque se lo dijo Ignasi («mejor que conste»), y le cuenta a cada uno una versión distinta: a Jordi, que Alicia está con una amiga; a Marta, que de viaje; a los Mossos, que no sabe nada; a Elena, que «de retiro espiritual»; a Rafa, que ha «cambiado de prioridades». Ha esparcido que la Rosalia está en una residencia.
+Desde entonces lo ha ido dando todo: el piso de su madre (120.000 €), sus ahorros, la ropa, los muebles («desprenderse de lo material»). Ha firmado las voluntades (D4): a los de fuera les dice «las anticipadas, después de lo de la yaya en la UCI»; con ellas firmó un testamento a favor de la Comunitat. Ante los demás, el dinero que da es «lo de Hacienda», «la sala nueva», «el ayuno solidario». Cree de verdad que el «tránsito» del séptimo amanecer es un paso a la luz y que la familia tiene que estar completa. Denunció la desaparición porque se lo dijo Ignasi («mejor que conste»), y le cuenta a cada uno una versión distinta: a Jordi, que Alicia está con una amiga; a Marta, que de viaje; a los Mossos, que no sabe nada; a Elena, que «de retiro espiritual»; a Rafa, que ha «cambiado de prioridades». Ha esparcido que la Rosalia está en una residencia.
 
 ## Perfil psicológico
 - **Creyente sincera, no cínica.** No es mala: está capturada. Lo que hace le parece amor.
-- **Dependiente de Ignasi.** No decide nada sin él: «¿Y qué ha dicho Ignasi?».
+- **Dependiente de Ignasi**, pero en el chat familiar casi no lo nombra: es «el grupo», «me acompañó Ignasi, es un sol». Para ella es su terapeuta del duelo.
 - **Controladora con dulzura:** «Hazlo por mí», «confia en mamá», «No seas exagerada».
 - **Culpa y nostalgia.** Echa de menos a su hija pequeña («Me ha dado un poco de pena. Eran sus ahorros»), pero lo tapa con la doctrina.
 - Privada de sueño y comida («Llevo tres noches sin dormir»): cada vez más frágil y más obediente.

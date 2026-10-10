@@ -10,8 +10,9 @@ tu hermana dice que no tienes el móvil #delay: 10
 pero si alguien lee esto: ali tenía razón #delay: 6
 lo de los papeles #delay: 4 #caduca: D5 02:00
 * [¿Qué papeles?]
-    ignasi nos ha hecho firmar las voluntades. que lo donamos todo a la comunidad «en caso de tránsito» #delay: 60
-    casa, cuentas, todo #delay: 4
+    las voluntades. las anticipadas, las de los médicos. eso es lo que te dicen #delay: 60
+    pero el mismo día, en el despacho de la casa, firmas otro papel. no te dejan leerlo con calma #delay: 5
+    lo donas todo a la comunidad «en caso de tránsito». casa, cuentas, todo #delay: 4
     y nos ha dado una fecha #delay: 5
 * [¿Quién eres?]
     alguien que también firmó #delay: 60

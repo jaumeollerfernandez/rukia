@@ -1,4 +1,8 @@
 // Dani, 22 años, la conoció por Gonpi. Insistente, posesivo y raro: parece sospechoso, pero es inocente.
+// Pista falsa principal (la trata): le ofreció un «curro» en Barcelona con su amigo Iker (piso pagado, «no lo digas en casa»),
+// justo cuando Barcelona desarticula una red que capta chicas así. Y la noche que ella se fue, él estaba en Barcelona.
+// La verdad: se iba a mudar y la quería allí, para él. Si el jugador lo manda detener (envio_detencion_dani), lo confiesa
+// y el jugador decide si le cree. Si le cree, cuenta lo que vio siguiéndola (stitch liberado): una pista verdadera.
 // Menudea en Olot (costo, hierba, alguna pastilla los findes) y por eso se oculta; lo que parece «secreto» es eso.
 // Su coartada (un concierto en Barcelona) no llega hasta el D3, en Gonpi. Hasta entonces, todo en él da mal rollo:
 // sabe que se ha ido, ronda su calle con la moto y tiene un mas «sin cobertura» en la Vall d'en Bas (donde esconde el costo).
@@ -22,12 +26,23 @@ pol el de la furgo? no me gusta ese tío #at: D-20 21:31
 deja de seguirle en gonpi, hazme caso #at: D-20 21:31
 no eres quién para decirme eso #from: me #at: D-20 21:50
 perdona. me preocupo por ti #at: D-20 21:51
+oye una cosa seria #at: D-15 01:20
+un colega mío de barna, el iker, lleva las relaciones públicas de un club en el port olímpic #at: D-15 01:20
+busca chicas para la puerta y los reservados. 1.500 al mes y piso pagado #at: D-15 01:21
+tú vales para eso. y te quitas de encima a tu familia 😏 #at: D-15 01:21
+le he pasado tu número #at: D-15 01:22
+por qué le pasas mi número sin preguntarme #from: me #at: D-15 09:30
+para ayudarte joder #at: D-15 09:31
 estás despierta? #at: D-12 02:10
 tengo algo que te va a gustar 🌿 #at: D-12 02:11
 ni de coña dani. ya te dije que no quiero saber nada de eso #from: me #at: D-12 09:00
 es solo un poco de hierba, no te hagas la santa #at: D-12 09:05
 es que no. y deja de escribirme de madrugada #from: me #at: D-12 09:06
 vale vale. no te enfades #at: D-12 09:07
+iker dice que si vas, mejor sin decir nada en casa. ya sabes cómo son #at: D-9 00:40
+te pago yo el bus. y en un mes me mudo yo también. estaríamos juntos 😏 #at: D-9 00:41
+no estaríamos juntos dani. y no he dicho que sí #from: me #at: D-9 08:20
+vale. pero piénsatelo. allí nadie te controla #at: D-9 08:21
 q haces #at: D-5 23:40
 nada, estudiando #from: me #at: D-5 23:58
 pásate por olot esta semana #at: D-5 23:58
@@ -42,6 +57,7 @@ ya no contestas? #delay: 600
 vale guay #delay: 900
 me dejas en visto desde hace tres días #delay: 5
 y luego te vas de casa sin decir nada a nadie #delay: 300
+te has ido a barna, no? 😏 iker dice que aún no le has escrito #delay: 8
 ~ dani_sospechoso = true
 sí, me he enterado. olot es pequeño 😏 #delay: 4 #caduca: D2 03:00
 * [quién te lo ha dicho?]
@@ -73,7 +89,8 @@ qué pasa contigo? #delay: 5 #caduca: D3 03:00
     no pensaba. ni la conozco #delay: 120
     me ha dado mal rollo #delay: 4
 * [(sin responder)]
-- -> charla("D3 21:25") ->
+- si estás con el pol ese, dímelo. tengo derecho a saberlo #delay: 60
+-> charla("D3 21:25") ->
 -> d3
 
 = d3
@@ -129,8 +146,11 @@ cuídate de verdad. y perdona si fui pesado #delay: 10
 -> d6
 
 // D6: si el jugador mandó una patrulla a su mas, los Mossos le han requisado el costo.
+// Si lo detuvieron y el jugador le creyó, cuenta lo que vio (liberado); si no le creyó, ya no escribe.
 = d6
 #at: D6 13:00
+{dani_no_creido or (dani_detenido and not dani_creido): -> d7}
+{dani_creido: -> liberado -> d7}
 {dani_registrado:
     ali #delay: 1
     los mossos han estado en el mas de mi tío con perros #delay: 5
@@ -146,13 +166,26 @@ cuídate de verdad. y perdona si fui pesado #delay: 10
 
 = d7
 #at: D7 01:30
-{dani_registrado and not dani_avisado:
+{dani_creido and not liberado: -> liberado ->}
+{dani_registrado and not dani_avisado and not dani_detenido:
     ali #delay: 1
     los mossos han estado en el mas de mi tío con perros #delay: 5
     se han llevado lo que había. no sé qué buscaban #delay: 6
     yo de ti no sé nada, te lo juro #delay: 6
 }
 -> DONE
+
+// Lo suelta la policía (el jugador le ha creído). Se le escapa una pista verdadera: la siguió un sábado.
+= liberado
+ali #delay: 1
+me han soltado. con una orden de alejamiento. supongo que me lo merezco #delay: 6
+lo que les dije es verdad. quería que te vinieras conmigo. que fueras mía. ya sé cómo suena #delay: 8
+te seguí una vez con la moto. hace un mes, un sábado #delay: 10
+no fuiste ni a capsec ni a barna. subiste en la furgo del banc d'aliments hacia sant salvador #delay: 6
+~ sabe_ruta_lotes = true
+te bajaste en un mas con una perra enorme que me ladró desde lejos. me di la vuelta #delay: 6
+no te volveré a escribir #delay: 20
+->->
 
 // Lo que el jugador le puede preguntar entre escena y escena. Hasta el D3 se escabulle; después, se explica.
 = charla(limite)
@@ -201,6 +234,21 @@ cuídate de verdad. y perdona si fui pesado #delay: 10
     ...vale. un poco. mi ex me puso los cuernos con un colega y me quedé tocado #delay: 6
     me asusta que la gente se vaya sin avisar #delay: 6
     tú sabes que no te haría nada, ali #delay: 4
+    -> opciones
+* {dia >= 2} [dani, qué le dijiste a iker de mí?]
+    que vales para eso. y que te ibas a venir conmigo #delay: 120
+    por? te ha escrito? si se pone pesado me lo dices #delay: 5
+    -> opciones
+* {dia >= 3} [tú querías que me fuera a barcelona contigo?]
+    {dia < 5:
+        quería que salieras de esa casa. ya está #delay: 120
+        allí estaríamos bien. tú y yo #delay: 5
+        no me lo pongas tan raro jaja #delay: 6
+    - else:
+        sí. vale. sí #delay: 120
+        me iba a mudar. pensé que si te venías serías mía de una vez #delay: 8
+        ya sé cómo suena. lo siento #delay: 6
+    }
     -> opciones
 * {dia >= 3} [perdona si he sido borde]
     tranqui. yo también he sido un pesado #delay: 120

@@ -23,9 +23,9 @@ Llámame cuando puedas. Hace mucho que no hablamos. #delay: 50 #caduca: D2 09:00
         Vale. Ya sabes que puedes contarme lo que sea. Papá #delay: 120
     ** [qué sabes tú del grupo de mamá?]
         ~ sabe_secta = true
-        Poco. Se llaman «Rosa d'Abril». Tu madre empezó a ir con Berta hace dos años. #delay: 180
-        Por eso nos separamos, en parte. Ya lo sabes. #delay: 30
-        No me gusta hablar de esto por aquí. Te llamo pronto. Papá #delay: 20
+        Poco. Un grupo de duelo, de meditación. «Rosa d'Abril». Tu madre empezó a ir con Berta después de lo de la yaya. #delay: 180
+        A mí no me gustaba que fuera tanto, pero no nos separamos por eso, cariño. Fueron muchas cosas. #delay: 30
+        Si a ella le hace bien... Te llamo pronto. Papá #delay: 20
     ** [(sin responder)]
         Bueno, ya me dirás. Papá #delay: 1
 * [(sin responder)]
@@ -56,10 +56,10 @@ Escríbeme cuando puedas. Papá #delay: 5 #caduca: D3 09:00
 * [papa estoy bien. de verdad. no vengas]
     Vale. Te creo. Bueno, quiero creerte. Papá #delay: 300
 * [papa, mamá me ha quitado el dinero de la cuenta]
-    ~ sabe_secta = true
     ¿Cómo? #delay: 60
-    Esa mujer... #delay: 10
-    Mañana mismo hablo con un abogado. Y con los Mossos, si hace falta. Papá #delay: 8
+    ¿Todo? #delay: 10
+    Si es por la plusvalía del piso de la yaya, eso lo pagó tu madre hace dos años. Me acuerdo porque discutimos. #delay: 30
+    Mañana mismo hablo con un abogado. Papá #delay: 8
 * [(sin responder)]
 - -> charla("D4 19:55") ->
 -> d4

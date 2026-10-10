@@ -19,6 +19,15 @@ Pol estaba en casa. Ha colaborado. Nervioso, pero limpio. #delay: 1500
 La llevó a la estación aquella noche y no volvió a verla. Ella no está aquí. #delay: 20
 -> DONE
 
+// Pista falsa: el piso del tío de Jan. Alicia y Mireia durmieron allí la noche de la clínica, hace nueve días.
+=== envio_piso_jan ===
+Pedimos a Girona que pasen por el piso vacío del tío de Jan, en el barri vell. #delay: 5
+Compañeros de Girona: las llaves estaban bajo el felpudo. #delay: 2400
+Dentro, dos tazas, una manta en el sofá y un paquete de compresas abierto. #delay: 10
+En la papelera, un ticket de la farmacia de la plaça del Vi. De hace nueve días. #delay: 8
+La cama huele a cerrado. Aquí no ha dormido nadie desde entonces. De la chica, nada. #delay: 10
+-> DONE
+
 === envio_girona ===
 Pedimos a Girona que pasen por el piso de Núria Gil. #delay: 5
 Compañeros de Girona: el piso está vacío, Núria está en clase. Las compañeras de piso no han visto a Alicia. #delay: 2400
@@ -38,6 +47,7 @@ Alguien está preparando algo aquí. #delay: 10
 -> DONE
 
 === envio_masias ===
+{dani_no_creido: -> sin_coche}
 Unidad en camino a Sant Salvador de Bianya. Batida por las masías de la subida a Bracons. #delay: 5
 Hemos llamado a cuatro puertas de once. Caminos de tierra, perros, nadie sabe nada. #delay: 3600
 En una, una señora mayor no ha querido ni abrir. Tenía una perra que no paraba de ladrar. #delay: 60
@@ -45,6 +55,7 @@ Sin saber cuál es, así no llegamos. Volvemos. #delay: 20
 -> DONE
 
 === envio_mas ===
+{dani_no_creido: -> sin_coche}
 ~ patrulla_en_mas = true
 Unidad en camino al Mas de la Rosalia, en la subida a Bracons. #delay: 5
 Ya estamos allí. #delay: 2400
@@ -56,10 +67,45 @@ Dejamos a un agente vigilando el camino. Si alguien sube, lo sabremos. #delay: 5
 -> DONE
 
 === envio_vigilancia ===
+{dani_no_creido: -> sin_coche}
 ~ vigilancia_crater = true
 Recibido. Con lo de los papeles y el «tránsito», fiscalía nos da gente. #delay: 60
 A las cinco estaremos en el cráter de Santa Margarida. Sin uniforme. La sargento Puig viene con nosotros. #delay: 10
 -> DONE
+
+// Si el jugador no creyó a Dani, el coche de la noche está trasladándolo a Barcelona.
+=== sin_coche ===
+Negativo. El coche de la noche está en la AP-7, trasladando a Daniel Rius a Barcelona por orden de fiscalía. #delay: 30
+No podemos ir. #delay: 5
+-> DONE
+
+// Pista falsa: la red de trata de Barcelona. Dani confiesa la verdad (la quería para él) y el jugador decide si le cree.
+// Creerle: lo sueltan y le cuenta a Alicia lo que vio siguiéndola (dani.liberado). No creerle: Barcelona se lo lleva
+// y el coche de la noche hace el traslado (sin_coche).
+=== envio_detencion_dani ===
+~ dani_detenido = true
+Unidad en camino a casa de Daniel Rius, en Olot. Al lado de la gasolinera. #delay: 5
+Lo tenemos. Ha intentado salir por la ventana del baño. En la moto, una báscula y 300 € sueltos. #delay: 1500
+En comisaría. La sargento Puig lo interroga. #delay: 600
+Transcripción de la sargento: #delay: 1200
+«Lo de Barcelona era verdad. El curro de Iker es una mierda de curro, pero legal. Puerta y reservados en un club.» #delay: 5
+«Yo me iba a mudar allí. Quería que se viniera. Lejos de su madre, de Pol, de todo el mundo. Conmigo.» #delay: 6
+«Le dije que no se lo contara a nadie porque su madre no la habría dejado. No para hacerle nada.» #delay: 6
+«No sé dónde está. Si lo supiera, ya habría ido yo.» #delay: 5
+En su móvil, un chat con Iker: «si la convences, la habitación es para ella. tú te encargas». #delay: 8
+Y una carpeta con fotos de Alicia. Hechas de lejos, en la calle. Ella no sabía que se las hacía. #delay: 6
+Barcelona confirma que el club sale en la investigación de la red. Iker no está imputado. De momento. #delay: 6
+La sargento pregunta: ¿le creemos? #delay: 10 #caduca: D7 04:00
+* [Le creo. Es un posesivo, no un tratante. Soltadlo.]
+    ~ dani_creido = true
+    Recibido. Sale con una citación por la báscula y una orden de alejamiento de Alicia. #delay: 60
+* [No le creo. Que Barcelona tire del hilo y se lo lleve.]
+    ~ dani_no_creido = true
+    Recibido. Fiscalía de Barcelona lo reclama. Traslado esta noche por la AP-7. #delay: 60
+    Para el traslado se llevan el coche de la noche. #delay: 5
+* [(sin responder)]
+    Sin orden. Lo retenemos hasta mañana y que decida el juez. #delay: 1
+- -> DONE
 
 // Pista falsa: el refugio del esplai. Alguien ha dormido allí, pero no Alicia (Biel y su novia).
 === envio_capsec ===

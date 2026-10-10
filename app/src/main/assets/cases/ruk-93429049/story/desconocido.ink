@@ -44,11 +44,16 @@ cómo sé que no eres de ellos #delay: 6 #caduca: D5 01:00
     -> se_va
 - escucha. no me preguntes dónde estoy. no te lo voy a decir #delay: 10
 si los mossos lo saben, mi madre lo sabrá #delay: 4
-lo que sí te digo: en el séptimo amanecer lo van a hacer #delay: 8
-ignasi lo llama «el tránsito». les ha hecho firmar las voluntades a todos. a mamá. a berta #delay: 6
-yo no firmé. por eso me fui #delay: 5
-y por eso me buscan. «solo familias completas» #delay: 6
-me queda poca batería. aquí no hay luz #delay: 10
+no me fui por un chico. ni por drogas. ni porque esté loca, diga lo que diga mamá #delay: 8
+me fui por unos papeles que firmaron ellas. y que yo no firmé #delay: 6 #caduca: D5 01:00
+* [¿Qué papeles?]
+    pregunta en qué despacho los firmaron. y qué más firmaron ese día #delay: 40
+    yo lo vi en la libreta de mamá. nadie me creyó. «es la ansiedad, nena» #delay: 6
+* [¿Y por qué te buscan?]
+    porque el día de la yaya tenemos que estar todas #delay: 40
+    «solo familias completas» #delay: 5
+* [(sin responder)]
+- me queda poca batería. aquí no hay luz #delay: 10
 mañana a esta hora. si puedo #delay: 4 #caduca: D5 01:00
 * [Cuídate, Alicia. Vamos a sacaros de esta, a ti y a ellas.]
     ~ confianza_alicia += 1

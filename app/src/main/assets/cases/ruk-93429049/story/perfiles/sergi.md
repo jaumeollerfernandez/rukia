@@ -8,6 +8,8 @@
 ## Biografía
 Repitió un curso de bachillerato y desde entonces se toma los estudios muy en serio: resúmenes, drive compartido, recordatorios en el grupo. Es el que avisa de que Elena pasa lista dos veces. Hubo «algo» con Mireia que acabó mal. Con Alicia se entiende porque los dos trabajan en serio. Guarda en el drive el borrador de la parte de ella: la soledad de la gente mayor en el campo, con la entrevista a «R., 78 años».
 
+**Mireia.** Es el padre del embarazo de Mireia (pista falsa de Girona). No le habla desde la clínica y le reprocha a Alicia que la acompañara: «Lo de Girona no era asunto tuyo».
+
 ## Perfil psicológico
 - **Responsable, rígido y buena gente.** Lo llaman «profe», «mártir», «google pero borde».
 - No sabe de bromas, pero las aguanta: «Muy graciosos.».

@@ -11,8 +11,8 @@
     -> opciones
 * {dia >= 2} [clàudia, conoces rosa d'abril?]
     ~ sabe_secta = true
-    Uno de ellos vino a una clase a repartir folletos. Le pedí que se fuera. #delay: 600
-    Prometen mucho y cobran más. #delay: 5
+    Uno de ellos vino a una clase a repartir folletos. Gente muy amable. Le pedí que lo hiciera fuera. #delay: 600
+    No los conozco, la verdad. A mí eso de «sanar el alma» me queda grande. #delay: 5
     Ali, si alguna vez necesitas hablar con alguien de fuera, aquí estoy. #delay: 6
     -> opciones
 + [(sin responder)]

@@ -1,5 +1,5 @@
 // Marta, hermana del padre, vive en Olot. No soporta a Montse desde que entró en «Rosa d'Abril».
-// Es la única adulta de la familia que habla claro de la secta.
+// Habla claro, pero es la cuñada resentida desde la separación: Montse y Berta la pintan como cotilla, y el jugador duda.
 
 === marta ===
 -> historial
@@ -18,12 +18,10 @@ Tu madre nunca te deja ir ni a Girona sola. ¿Seguro que estás bien? #delay: 15
     Cualquier cosa, ya sabes dónde estoy. #delay: 5
 * [tía, tú qué sabes de la gente con la que va mamá?]
     ~ sabe_secta = true
-    Lo de «Rosa d'Abril». #delay: 400
-    Tu madre dice que es mindfulness. Retiros para «sanar el alma». #delay: 20
-    Yo solo veo que cada año tiene menos dinero y menos familia. #delay: 8
-    Tu padre y yo intentamos hablar con ella hace un año. No hubo manera. #delay: 20
-    Le dio a ese hombre el dinero del piso de la abuela, ¿lo sabías? Todo. #delay: 15
-    Ese Ignasi se hace llamar «acompañante». Acompañante de qué, digo yo. Es un sinvergüenza con muy buena labia. #delay: 10
+    ¿Lo del grupo de duelo? «Rosa d'Abril», o algo así. #delay: 400
+    Cariño, ya sabes que tu madre y yo no nos tragamos desde lo de tu padre. No soy la más indicada. #delay: 20
+    Dice que le ha ido muy bien, y no seré yo quien le quite eso. Lo de la yaya la dejó hecha polvo. #delay: 8
+    Solo digo que el piso de la abuela se vendió muy rápido. Y que yo no he visto ni un mueble nuevo en esa casa. #delay: 15
     ¿Por qué me lo preguntas ahora? ¿Te han hecho algo? #delay: 8 #caduca: D2 10:00
     ** [no, solo quería saberlo]
         Ali, si un día necesitas salir de esa casa, la mía está abierta. Día y noche. #delay: 300
@@ -36,15 +34,15 @@ Tu madre nunca te deja ir ni a Girona sola. ¿Seguro que estás bien? #delay: 15
 
 = d2
 Ali, esta mañana he visto a tu madre en la oficina del banco. #at: D2 11:10
-Con un señor mayor, barba blanca, muy bien vestido. Ella firmaba y él miraba. #delay: 6
+Con un señor mayor, barba blanca, muy bien vestido. Un gestor, por el traje. Ella firmaba y él miraba. #delay: 6
 Ni me ha saludado. Me ha mirado como si no me conociera. #delay: 10
-Cariño, ¿te han tocado tus ahorros? #delay: 15 #caduca: D3 10:00
-* [sí tía. me lo han quitado todo]
-    ~ sabe_secta = true
-    Me lo temía. #delay: 300
-    Esta noche hablo con tu padre. Esto no puede seguir así. #delay: 10
+¿Tu madre tiene problemas de dinero, cariño? No quiero meterme, pero me preocupa. #delay: 15 #caduca: D3 10:00
+* [dice que era para pagar a hacienda lo del piso de la yaya]
+    ¿A Hacienda? #delay: 300
+    Hacienda no te espera en la oficina con un señor de barba, cariño. Se paga por internet. #delay: 8
+    Pero bueno. Yo qué sé. Esta noche hablo con tu padre. #delay: 10
 * [no lo sé tía]
-    Pues míralo, cariño. Hoy mismo. #delay: 300
+    Pues pregúntale. Hoy mismo. #delay: 300
 * [(sin responder)]
 - -> charla("D3 18:55") ->
 -> d3

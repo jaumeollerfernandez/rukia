@@ -21,7 +21,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | `berta` | @berta.luz | Berta | «Cada amanecer es una puerta ☀️ · @rosadabril.casal» | 1.017 |
 | `mama` | @montse.vidal | Montse | «Gratitud. Familia. Luz.» | 156 |
 | `guia` | @ignasi.coll.acompanya | Ignasi Coll, el líder. Se presenta como coach | «Acompaño procesos de transformación personal · Meditación · Constelaciones familiares · Encuentros en el Casal 🌹» | 3.420 |
-| `casal` | @rosadabril.casal | La asociación (la secta, aunque nunca lo dice) | «Associació Rosa d'Abril · Meditación, crecimiento personal y vida en comunidad · Sant Joan les Fonts» | 1.890 |
+| `casal` | @rosadabril.casal | La asociación (la secta, aunque nunca lo dice) | «Associació Comunitat Rosa d'Abril (CRA) · Grupos de duelo, mindfulness y acompañamiento 🌿 · Sant Joan les Fonts». «CRA» es el beneficiario del banco | 1.890 |
 | `iris` | @iris.ambllum | Iris | «buscando mi luz» | 233 |
 | `oriol` | @oriol.pedals | Oriol, de clase | «🚴 subo puertos de noche porque de día hace calor» | 640 |
 | `voley` | @voleiolot | Club de vóley | «Vòlei Olot · Juvenil y Sénior» | 1.530 |
@@ -69,8 +69,8 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
 | 07:05 | @berta.luz | *«Frase del alba: Dar es la forma más pura de recibir.»* | 🔎 El día de la transferencia |
-| 10:30 | @montse.vidal | Unas manos abiertas al sol. *«Dar es liberarse. Hoy he soltado lo último que me ataba.»* Coincide con la transferencia de 2.840 € del banco | 🔎 |
-| 11:00 | @rosadabril.casal | Dos manos con una rosa. *«Hoy una de nuestras familias ha dado un paso más en su camino de desprendimiento. Gracias 🌹»*. Montse comenta «🙏» | 🔎 Media hora después de la transferencia: el «desprendimiento» es el dinero de Alicia |
+| 10:30 | @montse.vidal | Unas manos abiertas al sol. *«Cerrar etapas también es cuidar de los tuyos 🌸»*. Coincide con la transferencia de 2.840 € («lo de Hacienda») | 🔎 Ambiguo |
+| 11:00 | @rosadabril.casal | El tejado nuevo de la sala. *«Gracias a la generosidad de nuestras familias, la sala nueva ya tiene tejado 🌹»*. Montse comenta «🙏» | 🔎 Media hora después de la transferencia a «CRA Serveis» (la bio dice «Comunitat Rosa d'Abril (CRA)») |
 | 13:00 | @eric.forner | Cesta vacía en el Forn. *«Caso abierto: seis barras de payés desaparecidas 🕵️🥖»*. Comentario de @forncanbatlle: «Èric, a trabajar 😤» | 🔎 Pista del pan, en tono de broma |
 | 18:40 | @arnau.gg | Foto de un «fail» con la bici, hecha **anteanoche a las 22:50 en la rotonda del Hostalnou**. Al fondo, borrosa, una chica con mochila y una **bolsa con barras que asoman**. *«la rotonda maldita 💀»* | 🔎🔎 Es Alicia esperando a Pol con el pan. Encaja con el chat de Arnau del D2 |
 | 22:00 | @pol.rider | Foto nocturna del salpicadero, con el reloj a las **23:41**; por la ventana se ve la estación de autobuses de Olot. *«taxi nocturno 🚕»*. La publicó anteanoche y la vuelve a subir hoy, o aparece archivada | 🎭 Confirma que la dejó en la estación |
@@ -85,7 +85,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | 14:20 | @oriol.pedals | Captura de la ruta en bici: *«Subida nocturna a Bracons 🌙 · 1:12 h»*, hecha anteanoche entre la 01:00 y las 02:30. Comentario de @oriol.pedals: «por cierto a mitad de subida vi a una chica sola andando por el arcén con una mochila. a esas horas! casi me paro» | 🔎🔎 Alicia subiendo andando hacia Bracons. Se cruza con `IMG_0409` (ruta a pie «…de Bianya») |
 | 18:30 | @lauravila_ | Cojines y velas en un jardín. *«primera sesión de mindfulness 🌿 qué paz»*. Comenta @berta.luz: «Bienvenida a casa, hermana 🌹» | 🔎 Laura entra en el Casal: lo que le cuentes llega a Berta (chat `laura`) |
 | 20:00 | @mire.ia | Fiesta de cumpleaños (la que planeaban en el grupo). *«los 18 con mis personas (falta una 💔)»* | ⚪ |
-| 23:10 | @ignasi.coll.acompanya | Comenta el último post de Alicia: **«Te echamos de menos en la Casa, Alicia. Aquí nadie te juzga. Vuelve cuando estés preparada 🌹»**. A la misma hora le escribe por privado | 🔎 Cariño que presiona |
+| 23:10 | @ignasi.coll.acompanya | Comenta el último post de Alicia: **«Pensamos mucho en ti, Alicia. Tu madre y tu hermana te esperan 🌹»**. A la misma hora le escribe por privado | 🔎 Un hombre de 61 años que comenta a una chica de 18: raro, no alarmante |
 
 ## D4
 
@@ -103,7 +103,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 |---|---|---|---|
 | 07:00 | @berta.luz | *«Frase del alba: Viste el alma de blanco y el mundo se vuelve ligero.»* | 🔎 La ropa blanca |
 | 12:00 | @voleiolot | *«Derrota 1-3 sin nuestra colocadora titular. ¡Te esperamos, Ali! 🏐»* | ⚪ |
-| 22:00 | @rosadabril.casal | **Anuncio:** foto del **cráter de Santa Margarida** con su ermita. *«El séptimo amanecer nos reunirá donde la tierra se abrió. Solo familias completas.»* | 🔎🔎 El lugar de la ceremonia. «Familias completas»: por eso necesitan a Alicia |
+| 22:00 | @rosadabril.casal | **Anuncio:** foto del **cráter de Santa Margarida** con su ermita. *«Trobada de l'Alba. Subimos de madrugada al cráter de Santa Margarida a ver salir el sol y desayunamos juntas arriba. Venid en familia 🌹»* | 🔎🔎 El lugar. Parece una excursión; «familias completas» solo lo dice Ignasi por privado |
 | 22:30 | @lauravila_ | Atardecer en el Hostalnou. Comentario de @marc.hostalnou: «oye esta tarde ha pasado una furgo blanca del Casal subiendo hacia Bracons, iban parando en cada mas 🤨» | 🔎 La secta busca por la zona correcta: presión |
 
 ## D6
@@ -125,7 +125,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 
 ## Canal «Rosa d'Abril 🌹» (chat de solo lectura, `story/casal.ink`)
 
-La lista de difusión de la asociación en el móvil de Alicia. Tono de calma (horarios de mindfulness, lecturas), pero cada pocos mensajes se cuela una norma: móviles en la cesta durante los retiros, «lo que se comparte en el círculo pertenece al círculo», aportaciones por transferencia, «si alguien os hace dudar, traedlo al taller», «cada alma trae a una persona de fuera». Durante el caso: el ciclo de preparación del Amanecer con ayunos (D1), el «desprendimiento» de una familia (D2, tras la transferencia), una «alma joven que se ha alejado» y que hay que avisar si se la ve (D3), firmar las voluntades y no responder a los de fuera (D4), ropa blanca sin bolsos, móviles ni llaves (D5) y ayuno completo (D6).
+La lista de difusión de la asociación en el móvil de Alicia. Leída de corrido parece una asociación más del valle: grupo de duelo, mindfulness, ayuno solidario, una obra en la sala. Lo que importa son detalles que solo cuadran cruzados: las aportaciones van a «CRA Serveis» (D-10, el beneficiario del banco), la sala «ya tiene tejado» media hora después del pago (D2), el despacho de la Casa tramita las voluntades anticipadas (D4, «el despacho de siempre» de Montse), la Trobada de l'Alba sin bolsos, móviles ni llaves (D5) y en ayunas, «con el agua de la Casa» (D6).
 
 ## Grupos del pueblo (camuflaje)
 

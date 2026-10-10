@@ -1,12 +1,12 @@
 // Ignasi Coll, «el que acompaña» en Rosa d'Abril (la familia lo llama solo Ignasi). Escribe tres veces al móvil de Alicia, siempre de noche.
-// Nunca amenaza ni predica: cariño, paciencia y culpa. La amenaza está en lo que da por hecho.
+// Nunca amenaza ni predica: escribe como el terapeuta del grupo de duelo de la madre. La amenaza está en lo que da por hecho.
 
 === guia ===
-Alicia. Soy Ignasi. Tu madre me ha dado tu número. #at: D3 23:10
+Alicia. Soy Ignasi, del grupo de tu madre. Ella me ha dado tu número. #at: D3 23:10
 No te escribo para reñirte. Aquí nadie está enfadado contigo. #delay: 8
-Sé que tienes miedo. El miedo es lo último que se suelta, y siempre duele. #delay: 10
 Tu madre no duerme. Tu hermana tampoco. Pero no te lo digo para que te sientas culpable. #delay: 12
-Cuando estés preparada, la puerta de la Casa está abierta. Siempre vuelve a casa quien sabe dónde está su casa. 🌹 #delay: 10
+Dentro de cuatro días hará tres años de tu abuela. Le haría mucha ilusión que estuvieras. #delay: 10
+Siempre vuelve a casa quien sabe dónde está su casa. 🌹 #delay: 10
 -> d5
 
 = d5
