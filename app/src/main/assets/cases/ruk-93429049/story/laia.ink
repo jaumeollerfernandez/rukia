@@ -30,8 +30,6 @@ Te escribo esta noche para el parte. #delay: 3
 = presentacion
 Soy la sargento Laia Puig Oller. Mossos d'Esquadra, comisaría de Olot. #delay: 4
 La conexión ha sido un éxito, y el teléfono actualmente está cifrado. Solo nosotros podemos leer y investigar este teléfono de manera privada. #delay: 10
-Me ha costado mucho que el CNI te prestara, agente Kimo. Dicen que nunca has dejado un caso sin cerrar. #delay: 5
-Espero que estés a la altura de tu reputación. #delay: 5
 Te llamo para darte las instrucciones correctamente. #delay: 3 #call: audio/laia_encargo.m4a
 Te lo dejo también por escrito para que lo tengas a mano. #delay: 6
 Alicia Serra Vidal. 18 años. Vive en L'Hostalnou de Bianya con su madre, Montse, y su hermana mayor, Berta. #delay: 4
