@@ -4,6 +4,7 @@ import android.content.Context
 import com.rukia.police.application.DispatchSquad
 import com.rukia.police.application.FindPlace
 import com.rukia.police.application.GetCaseQuestion
+import com.rukia.police.application.GetKnownPlaces
 import com.rukia.police.infrastructure.geocoding.NominatimPlaceFinder
 import com.rukia.police.application.GetOperations
 import com.rukia.police.application.GetSearches
@@ -69,7 +70,8 @@ class PoliceModule(
     val deadline: Long? = caseFile.question().deadline?.let(timeOf)
 
     val getCaseQuestion = GetCaseQuestion(caseFile)
-    val findPlace = FindPlace(NominatimPlaceFinder(context.packageName))
+    val getKnownPlaces = GetKnownPlaces(caseFile, facts)
+    val findPlace = FindPlace(NominatimPlaceFinder(context.packageName), caseFile)
     val getSearches = GetSearches(searches, dayOf, deadline, CaseClock.clock(caseId))
     val searchZone = SearchZone(caseFile, searches, getSearches, dayOf, CaseClock.clock(caseId))
     val getOperations = GetOperations(operations, dispatches, timeOf, CaseClock.clock(caseId))

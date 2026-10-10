@@ -10,7 +10,7 @@ Qué elegir para ver cada final y cómo conseguir cada logro (sección [Logros](
 - Las salidas de la Policía (D6) se mandan desde la app **Policía**:
   - **Mañana:** de D6 08:00 a 12:00.
   - **Noche:** de D6 22:05 a D7 02:00.
-- **Resolver el caso** en la app Policía (marcar el Mas de la Rosalia en el mapa antes de D7 06:30) pone `caso_resuelto`. Un intento al día: si fallas, no pasa nada; esa zona queda descartada y puedes volver a intentarlo al día siguiente. Una zona de 500 m o menos da el 100%.
+- **Resolver el caso** en la app Policía (marcar el Mas de la Rosalia en el mapa antes de D7 06:30) pone `caso_resuelto`. Un intento al día: si fallas, no pasa nada; esa zona queda descartada y puedes volver a intentarlo al día siguiente. Una zona de 500 m o menos da el 100%. El mapa marca los lugares del caso que ya conoces (`police/case.json`, `places`): la casa y la estación desde el principio; Sant Salvador de Bianya con `sabe_ruta_lotes`, `sabe_rosalia`, `sabe_puerta_azul` o `ficha_dani`; Can Pericot con `sabe_capsec`; el cráter con `ficha_ignasi` o `vigilancia_crater`; el mas del tío de Dani con `dani_sospechoso` o `dani_droga`; Girona con `sabe_girona`. El Mas de la Rosalia no sale nunca: Sant Salvador queda a unos 4 km y desde ahí se afina con el porcentaje.
 - **El caso se cierra** cuando llega la última línea del final de Laia (`#effect: case_closed`): sale el sello «EXPEDIENTE CERRADO» y el informe de cierre con el final (`final_caso`), los logros y los finales descubiertos. Resolverlo en el mapa no lo cierra antes. «Repetir» borra la partida pero conserva logros y finales.
 
 ## Qué decide el final
@@ -31,6 +31,8 @@ Todo se decide a las **D7 06:30** con tres funciones de `main.ink`:
 | 4. Malo | `capturada()` sin `familia_salvada()` | «Hemos llegado tarde.» (efecto `hacked`, llamada del Guía) |
 | 5. Escondida, familia a salvo | ni `rescatada()` ni `capturada()`, con `familia_salvada()` | «06:31. Entramos. Ignasi Coll, detenido.» |
 | 6. Escondida y sola | ninguna de las tres | «Hay ambulancias en el cráter.» |
+
+En el informe de cierre, cada final trae la **declaración de Laia a la prensa** (en `game/infrastructure/Cases.kt`, `rukEndings`). Solo cuenta lo que el final de `laia.ink` da por hecho y lo de las fichas. En público usa iniciales (A. S. V., I. C. F.) y nunca menciona el móvil. Si cambias un final en `laia.ink`, revisa su declaración.
 
 ## Las piezas
 

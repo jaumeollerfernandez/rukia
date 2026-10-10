@@ -31,6 +31,8 @@ data class CaseQuestion(
     val question: String, val target: Spot, val station: Spot, val tolerance: Double = 500.0, val deadline: String? = null,
     /** More police stations around the map, besides the main [station]. */
     val stations: List<Spot> = emptyList(),
+    /** Places the story points to, marked on the map and suggested by the search box once the player knows of them. */
+    val places: List<Place> = emptyList(),
 ) {
     init { require(tolerance > 0) { "Tolerance must be positive" } }
 
@@ -43,6 +45,15 @@ data class CaseQuestion(
     /** 0 if [target] is outside the circle; otherwise the tighter the circle the higher, 100 at [tolerance] or less. */
     fun accuracy(center: Spot, radius: Double): Int =
         if (center.metersTo(target) > radius) 0 else min(100, (100 * tolerance / radius).roundToInt())
+}
+
+/**
+ * A place of the case, in the case's language. [note] says why it matters. [unlockedBy]: it only shows up once one of
+ * these story variables is true; empty, it's there from the start.
+ */
+@Serializable
+data class Place(val name: String, val spot: Spot, val note: String = "", val unlockedBy: List<String> = emptyList()) {
+    fun matches(query: String) = query.isBlank() || query.trim().lowercase().let { q -> q in name.lowercase() || q in note.lowercase() }
 }
 
 /** A squad sent on case day [day] at [at] (epoch millis) to search a circle. Its [accuracy] is told at [readyAt]. */

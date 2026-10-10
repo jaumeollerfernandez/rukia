@@ -1,7 +1,7 @@
 {
   "question": "¿Dónde está Alicia ahora mismo?",
-  "target": { "lat": 42.2155, "lon": 2.4260 },
-  "station": { "lat": 42.1790, "lon": 2.4930 },
+  "target": { "lat": 42.2155, "lon": 2.426 },
+  "station": { "lat": 42.179, "lon": 2.493 },
   "stations": [
     { "lat": 41.9794, "lon": 2.8214 },
     { "lat": 42.2662, "lon": 2.9617 },
@@ -10,12 +10,69 @@
     { "lat": 42.3582, "lon": 1.4608 },
     { "lat": 42.7026, "lon": 0.7966 },
     { "lat": 42.1667, "lon": 0.8953 },
-    { "lat": 41.6176, "lon": 0.6200 },
-    { "lat": 41.7230, "lon": 1.8268 },
+    { "lat": 41.6176, "lon": 0.62 },
+    { "lat": 41.723, "lon": 1.8268 },
     { "lat": 41.3874, "lon": 2.1686 },
     { "lat": 41.1189, "lon": 1.2445 },
     { "lat": 40.8126, "lon": 0.5211 }
   ],
   "tolerance": 500,
-  "deadline": "D7 06:30"
+  "deadline": "D7 06:30",
+  "places": [
+    {
+      "name": "Casa de Alicia",
+      "spot": { "lat": 42.2113, "lon": 2.4536 },
+      "note": "L'Hostalnou de Bianya. Donde vive con su madre y su hermana"
+    },
+    {
+      "name": "Estación de autobuses de Olot",
+      "spot": { "lat": 42.1807, "lon": 2.4915 },
+      "note": "El billete de bus de la noche que se fue"
+    },
+    {
+      "name": "Sant Salvador de Bianya",
+      "spot": { "lat": 42.2429, "lon": 2.4114 },
+      "note": "Las masías del valle, subiendo hacia Bracons",
+      "unlockedBy": [
+        "sabe_ruta_lotes",
+        "sabe_rosalia",
+        "sabe_puerta_azul",
+        "ficha_dani"
+      ]
+    },
+    {
+      "name": "Can Pericot, Capsec",
+      "spot": { "lat": 42.2329, "lon": 2.4716 },
+      "note": "El refugio del esplai, con la puerta azul",
+      "unlockedBy": [
+        "sabe_capsec"
+      ]
+    },
+    {
+      "name": "Cráter de Santa Margarida",
+      "spot": { "lat": 42.1414, "lon": 2.5439 },
+      "note": "La ermita del volcán",
+      "unlockedBy": [
+        "ficha_ignasi",
+        "vigilancia_crater"
+      ]
+    },
+    {
+      "name": "Mas del tío de Dani",
+      "spot": { "lat": 42.1215, "lon": 2.4236 },
+      "note": "Vall d'en Bas, sin cobertura",
+      "unlockedBy": [
+        "dani_sospechoso",
+        "dani_droga"
+      ]
+    },
+    {
+      "name": "Girona",
+      "spot": { "lat": 41.9794, "lon": 2.8214 },
+      "note": "Donde estudia Núria",
+      "unlockedBy": [
+        "sabe_girona"
+      ]
+    }
+  ]
 }

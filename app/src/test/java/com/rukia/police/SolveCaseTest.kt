@@ -1,8 +1,11 @@
 package com.rukia.police
 
+import com.rukia.police.application.FindPlace
+import com.rukia.police.application.GetKnownPlaces
 import com.rukia.police.application.GetSearches
 import com.rukia.police.application.SearchZone
 import com.rukia.police.domain.model.CaseQuestion
+import com.rukia.police.domain.model.Place
 import com.rukia.police.domain.model.Search
 import com.rukia.police.domain.model.Spot
 import com.rukia.police.domain.port.CaseFileRepository
@@ -75,6 +78,23 @@ class SolveCaseTest {
         assertFailsWith<IllegalArgumentException> { search(target, 100.0) }
         now = 3 * day
         assertFalse(board().canSearch)
+    }
+
+    @Test fun `a name found in many places means the one nearest the case`() {
+        val polinya = Spot(41.55, 2.15) // Sant Salvador de Polinyà, by Sabadell
+        val bianya = Spot(42.2429, 2.4114)
+        assertEquals(bianya, FindPlace({ listOf(polinya, bianya) }, caseFile)("Sant Salvador"))
+        assertEquals(null, FindPlace({ emptyList() }, caseFile)("Nowhere"))
+    }
+
+    @Test fun `the map only shows the places the player knows of`() {
+        val places = listOf(Place("Home", target), Place("Hideout", target, unlockedBy = listOf("sabe_x")))
+        val file = object : CaseFileRepository { override fun question() = question.copy(places = places) }
+        val known = mutableSetOf<String>()
+        val get = GetKnownPlaces(file) { it in known }
+        assertEquals(listOf("Home"), get().map { it.name })
+        known += "sabe_x"
+        assertEquals(listOf("Home", "Hideout"), get().map { it.name })
     }
 
     @Test fun `every case's question file loads`() {

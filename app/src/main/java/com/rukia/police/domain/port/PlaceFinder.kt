@@ -4,6 +4,6 @@ import com.rukia.police.domain.model.Spot
 
 /** Looks a place name up on the map. Blocking: call it off the main thread. */
 fun interface PlaceFinder {
-    /** Where [query] is, or null if nothing matches or the lookup fails. */
-    fun find(query: String): Spot?
+    /** The places [query] may mean, best match first; none if nothing matches or the lookup fails. */
+    fun find(query: String): List<Spot>
 }

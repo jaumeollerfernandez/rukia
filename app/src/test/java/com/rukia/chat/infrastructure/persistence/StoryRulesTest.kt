@@ -67,6 +67,14 @@ class StoryRulesTest {
         }
     }
 
+    @Test fun `map places only unlock with variables that exist`() {
+        val vars = index.variables.map { it.name }.toSet()
+        val case = kotlinx.serialization.json.Json.parseToJsonElement(File(index.case, "police/case.json").readText()).jsonObject
+        for (p in (case["places"] as? JsonArray).orEmpty().map { it.jsonObject }) for (v in (p["unlockedBy"] as? JsonArray).orEmpty().map { it.jsonPrimitive.content }) {
+            assertTrue(v in vars, "El lugar «${p["name"]!!.jsonPrimitive.content}» del mapa se desbloquea con «$v», que no existe")
+        }
+    }
+
     /**
      * A choice the player can leave unanswered must expire, or the chat waits for ever (and the story behind it).
      * Top-level choices already get one (`#caduca`); nested ones (`**`) need their own and a hidden `(sin responder)`.

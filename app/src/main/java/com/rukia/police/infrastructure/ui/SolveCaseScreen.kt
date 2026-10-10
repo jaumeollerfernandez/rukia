@@ -6,6 +6,9 @@ import android.graphics.Paint
 import android.graphics.Point
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.border
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
@@ -15,6 +18,8 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
@@ -37,6 +42,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.rukia.phone.infrastructure.ui.glow
 import com.rukia.police.domain.model.CaseQuestion
+import com.rukia.police.domain.model.Place
 import com.rukia.police.domain.model.Search
 import com.rukia.police.domain.model.SearchBoard
 import com.rukia.police.domain.model.Spot
@@ -56,6 +62,7 @@ import org.osmdroid.views.overlay.Polygon
 import org.osmdroid.views.overlay.TilesOverlay
 import kotlin.math.PI
 import kotlin.math.cos
+import kotlin.math.hypot
 import kotlin.math.pow
 import kotlin.math.sin
 
@@ -64,6 +71,10 @@ private const val MAX_RADIUS = 30_000.0
 private val Miss = Color(0xFF8E8E93)
 private val Hit = Color(0xFFFF9500)
 private val Found = Color(0xFF34C759)
+private val PlaceColor = Color(0xFFAF52DE)
+
+/** A tap this close to a place's pin (in dp) puts the zone right on it. */
+private const val SNAP_DP = 28
 
 /**
  * The map of Catalonia. Each day the player taps where the zone goes, sizes it, and sends a squad: the cars drive from
@@ -71,7 +82,10 @@ private val Found = Color(0xFF34C759)
  */
 @Composable
 fun SolveCaseScreen(
-    question: CaseQuestion, board: SearchBoard, now: () -> Long, onBack: () -> Unit,
+    question: CaseQuestion,
+    /** The case's places the player knows of: marked on the map and suggested by the search box. */
+    places: List<Place>,
+    board: SearchBoard, now: () -> Long, onBack: () -> Unit,
     /** Where a place name is, or null; blocking, so it runs off the main thread. */
     onFind: (String) -> Spot?,
     onSearch: (Spot, Double) -> Unit,
@@ -81,22 +95,28 @@ fun SolveCaseScreen(
     var query by rememberSaveable { mutableStateOf("") }
     var notFound by remember { mutableStateOf(false) }
     var looking by remember { mutableStateOf(false) }
+    var typing by remember { mutableStateOf(false) }
+    var draft by remember { mutableStateOf<Spot?>(null) }
     val scope = rememberCoroutineScope()
     val focusManager = LocalFocusManager.current
+    // Shows [spot] and puts the zone there, ready to size and send.
+    val goTo = { spot: Spot -> focus = Focus(spot); draft = spot }
+    val pick = { place: Place -> query = place.name; notFound = false; focusManager.clearFocus(); goTo(place.spot) }
     val find = {
-        if (query.isNotBlank() && !looking) {
+        val known = places.firstOrNull { query.isNotBlank() && it.matches(query) }
+        if (known != null) pick(known)
+        else if (query.isNotBlank() && !looking) {
             focusManager.clearFocus()
             looking = true
             scope.launch {
                 val spot = withContext(Dispatchers.IO) { onFind(query) }
                 notFound = spot == null
-                if (spot != null) focus = Focus(spot)
+                if (spot != null) goTo(spot)
                 looking = false
             }
         }
     }
     val c = LocalPolice.current
-    var draft by remember { mutableStateOf<Spot?>(null) }
     // 0..1 on a log scale, so small zones get as much of the slider as big ones.
     var size by rememberSaveable { mutableFloatStateOf(0.5f) }
     val radius = question.tolerance * (MAX_RADIUS / question.tolerance).pow(size.toDouble())
@@ -108,8 +128,8 @@ fun SolveCaseScreen(
 
     Column(Modifier.fillMaxSize().background(c.background)) {
         SubHeader(stringResource(R.string.solve_case), onBack)
-        Box(Modifier.weight(1f)) {
-            SearchMap(question, board.searches, draft?.takeIf { board.canSearch }, radius, now, focus, Modifier.fillMaxSize()) { if (board.canSearch) draft = it }
+        Box(Modifier.weight(1f).clipToBounds()) {
+            SearchMap(question, places, board.searches, draft?.takeIf { board.canSearch }, radius, now, focus, Modifier.fillMaxSize()) { if (board.canSearch) draft = it }
             Column(
                 Modifier.padding(12.dp).fillMaxWidth().background(c.card.copy(alpha = 0.95f), RoundedCornerShape(16.dp)).padding(horizontal = 14.dp, vertical = 12.dp),
                 verticalArrangement = Arrangement.spacedBy(2.dp),
@@ -117,7 +137,7 @@ fun SolveCaseScreen(
                 Text(question.question, fontSize = 17.sp, fontWeight = FontWeight.Bold)
                 Text(stringResource(R.string.map_hint), color = c.subText, fontSize = 13.sp, lineHeight = 17.sp)
                 OutlinedTextField(
-                    query, { query = it; notFound = false }, Modifier.fillMaxWidth().padding(top = 8.dp),
+                    query, { query = it; notFound = false }, Modifier.fillMaxWidth().padding(top = 8.dp).onFocusChanged { typing = it.isFocused },
                     placeholder = { Text(stringResource(R.string.search_place)) },
                     singleLine = true, isError = notFound,
                     supportingText = if (notFound) ({ Text(stringResource(R.string.place_not_found)) }) else null,
@@ -129,6 +149,23 @@ fun SolveCaseScreen(
                     keyboardActions = KeyboardActions(onSearch = { find() }),
                     shape = RoundedCornerShape(12.dp),
                 )
+                // The places the case points to, while typing: one tap and the zone is there.
+                val suggested = places.filter { it.matches(query) }
+                if (typing && suggested.isNotEmpty()) {
+                    Text(stringResource(R.string.case_places), Modifier.padding(top = 6.dp), color = c.subText, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                    Column(Modifier.heightIn(max = 220.dp).verticalScroll(rememberScrollState())) {
+                        for (place in suggested) Row(
+                            Modifier.fillMaxWidth().clickable { pick(place) }.padding(vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp),
+                        ) {
+                            Box(Modifier.size(12.dp).background(PlaceColor, RoundedCornerShape(6.dp)))
+                            Column {
+                                Text(place.name, fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
+                                if (place.note.isNotEmpty()) Text(place.note, color = c.subText, fontSize = 13.sp, lineHeight = 16.sp)
+                            }
+                        }
+                    }
+                }
             }
         }
         Column(Modifier.fillMaxWidth().background(c.card).navigationBarsPadding().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -205,7 +242,7 @@ private fun Notice(color: Color, badge: String, title: String, text: String) {
 
 /** OpenStreetMap of Catalonia with the past zones, the [draft] one, the station and the cars of the search under way. */
 @Composable
-private fun SearchMap(question: CaseQuestion, searches: List<Search>, draft: Spot?, radius: Double, now: () -> Long, focus: Focus?, modifier: Modifier, onTap: (Spot) -> Unit) {
+private fun SearchMap(question: CaseQuestion, places: List<Place>, searches: List<Search>, draft: Spot?, radius: Double, now: () -> Long, focus: Focus?, modifier: Modifier, onTap: (Spot) -> Unit) {
     val context = LocalContext.current
     val dark = isSystemInDarkTheme()
     val tint = LocalPolice.current.tint
@@ -217,6 +254,8 @@ private fun SearchMap(question: CaseQuestion, searches: List<Search>, draft: Spo
         }
         MapView(context).apply {
             setTileSource(TileSourceFactory.MAPNIK)
+            // Tiles at the screen's density: the map's own names are readable on a phone.
+            isTilesScaledToDpi = true
             setMultiTouchControls(true)
             zoomController.setVisibility(CustomZoomButtonsController.Visibility.NEVER)
             setScrollableAreaLimitDouble(CATALONIA)
@@ -224,11 +263,22 @@ private fun SearchMap(question: CaseQuestion, searches: List<Search>, draft: Spo
             maxZoomLevel = 18.0
             controller.setZoom(8.0)
             controller.setCenter(GeoPoint(41.75, 1.75))
+            // Opens on the case: the station and the places known so far, with room on top for the question's card.
+            val spots = (places.map { it.spot } + question.station).map { GeoPoint(it.lat, it.lon) }
+            addOnFirstLayoutListener { _, _, _, _, _ ->
+                zoomToBoundingBox(roomForCard(BoundingBox.fromGeoPoints(spots).increaseByScale(1.3f)), false, (32 * resources.displayMetrics.density).toInt(), 13.0, null)
+            }
         }
     }
     DisposableEffect(map) { onDispose { map.onDetach() } }
-    // Zooms in on a searched place.
-    LaunchedEffect(focus) { focus?.let { map.controller.animateTo(GeoPoint(it.spot.lat, it.spot.lon), 14.0, 800L) } }
+    // Zooms in on a searched place, with the whole zone around it in view.
+    LaunchedEffect(focus) {
+        focus?.let {
+            val dLat = radius / 111_320
+            val dLon = radius / (111_320 * cos(Math.toRadians(it.spot.lat)))
+            map.zoomToBoundingBox(roomForCard(BoundingBox(it.spot.lat + dLat, it.spot.lon + dLon, it.spot.lat - dLat, it.spot.lon - dLon)), true, (32 * map.resources.displayMetrics.density).toInt(), 15.0, 800L)
+        }
+    }
     val pending = searches.lastOrNull()?.takeIf { now() < it.readyAt }
     // Moves the cars: redraws the map while a squad is out.
     LaunchedEffect(pending) { while (pending != null && now() < pending.readyAt) { map.invalidate(); delay(50) } }
@@ -241,16 +291,27 @@ private fun SearchMap(question: CaseQuestion, searches: List<Search>, draft: Spo
             m.overlays += zone(s.center, s.radius, color, m.resources.displayMetrics.density, dashed = s.accuracy == 0 && s != pending)
         }
         draft?.let { m.overlays += zone(it, radius, tint, m.resources.displayMetrics.density) }
-        m.overlays += SquadOverlay(question.allStations, pending, now, m.resources.displayMetrics.density, tint.toArgb(), stationLabel)
+        val density = m.resources.displayMetrics.density
+        m.overlays += PlacesOverlay(places, density)
+        m.overlays += SquadOverlay(question.allStations, pending, now, density, tint.toArgb(), stationLabel)
         m.overlays += CopyrightOverlay(m.context)
-        // Last, so it gets the taps first.
+        // Last, so it gets the taps first. A tap on a place's pin puts the zone right on the place.
         m.overlays += MapEventsOverlay(object : MapEventsReceiver {
-            override fun singleTapConfirmedHelper(p: GeoPoint): Boolean { onTap(Spot(p.latitude, p.longitude)); return true }
+            override fun singleTapConfirmedHelper(p: GeoPoint): Boolean {
+                val tap = m.projection.toPixels(p, null)
+                val pixels = { s: Spot -> m.projection.toPixels(GeoPoint(s.lat, s.lon), null).let { hypot((it.x - tap.x).toDouble(), (it.y - tap.y).toDouble()) } }
+                val near = places.map { it.spot }.minByOrNull(pixels)?.takeIf { pixels(it) <= SNAP_DP * density }
+                onTap(near ?: Spot(p.latitude, p.longitude))
+                return true
+            }
             override fun longPressHelper(p: GeoPoint) = false
         })
         m.invalidate()
     }
 }
+
+/** [box] grown northwards, so what's in it isn't hidden under the question's card at the top of the map. */
+private fun roomForCard(box: BoundingBox) = BoundingBox(box.latNorth + box.latitudeSpan * 0.6, box.lonEast, box.latSouth, box.lonWest)
 
 private fun zone(center: Spot, radius: Double, color: Color, density: Float, dashed: Boolean = false) = Polygon().apply {
     points = Polygon.pointsAsCircle(GeoPoint(center.lat, center.lon), radius)
@@ -258,6 +319,28 @@ private fun zone(center: Spot, radius: Double, color: Color, density: Float, das
     outlinePaint.strokeWidth = 2 * density
     if (dashed) outlinePaint.pathEffect = DashPathEffect(floatArrayOf(6 * density, 4 * density), 0f)
     fillPaint.color = color.copy(alpha = 0.2f).toArgb()
+}
+
+/** The case's places: a big pin each, with its name on a pill so it reads over the map at any zoom. */
+private class PlacesOverlay(private val places: List<Place>, private val density: Float) : Overlay() {
+    private val pin = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = PlaceColor.toArgb() }
+    private val ring = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = android.graphics.Color.WHITE; style = Paint.Style.STROKE; strokeWidth = 3 * density }
+    private val pill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = PlaceColor.toArgb() }
+    private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = android.graphics.Color.WHITE; textSize = 13 * density; isFakeBoldText = true }
+    private val p = Point()
+
+    override fun draw(canvas: Canvas, projection: Projection) {
+        for (place in places) {
+            projection.toPixels(GeoPoint(place.spot.lat, place.spot.lon), p)
+            val x = p.x.toFloat(); val y = p.y.toFloat()
+            canvas.drawCircle(x, y, 10 * density, pin)
+            canvas.drawCircle(x, y, 10 * density, ring)
+            val w = text.measureText(place.name)
+            val left = x - w / 2 - 8 * density; val top = y - 40 * density
+            canvas.drawRoundRect(left, top, left + w + 16 * density, top + 22 * density, 11 * density, 11 * density, pill)
+            canvas.drawText(place.name, x - w / 2, top + 16 * density, text)
+        }
+    }
 }
 
 /**

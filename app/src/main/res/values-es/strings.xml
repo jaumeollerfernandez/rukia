@@ -53,7 +53,7 @@
     <string name="report_kicker">INFORME DE CIERRE · CNI</string>
     <string name="report_closed">Cerrado %1$s · Agente Kimo</string>
     <string name="report_ending">FINAL OBTENIDO</string>
-    <string name="transcript">TRANSCRIPCIÓN · %1$s</string>
+    <string name="transcript">DECLARACIÓN A LA PRENSA · %1$s</string>
     <string name="achievements">Logros</string>
     <string name="endings">Finales</string>
     <string name="stat_days">DÍAS</string>
@@ -199,8 +199,9 @@
     <string name="solved_text">Los Mossos tienen la ubicación.\nEl caso se cierra cuando llegue el desenlace.</string>
     <string name="solve_sub">Una zona al día: envía una patrulla a buscar</string>
     <string name="search_place">Buscar un lugar</string>
+    <string name="case_places">Lugares del caso</string>
     <string name="place_not_found">Lugar no encontrado en Cataluña</string>
-    <string name="map_hint">Toca el mapa para marcar la zona. Pellizca para hacer zoom.</string>
+    <string name="map_hint">Toca el mapa o un lugar del caso para marcar la zona. Pellizca para hacer zoom.</string>
     <string name="radius">Radio</string>
     <string name="send_squad">Enviar patrulla</string>
     <string name="place_zone_first">Toca el mapa para marcar una zona</string>

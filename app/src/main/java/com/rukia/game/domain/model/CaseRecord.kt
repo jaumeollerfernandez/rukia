@@ -7,7 +7,7 @@ enum class EndingTier { Good, Partial, Bad }
 
 /**
  * One way a case can end, numbered as the story's `final_caso` variable sets it. [stamp] is stamped on the closed
- * case file, [quote] is the story line the report quotes and [closedAt] the case time it closes at ("D7 06:31").
+ * case file, [quote] is what [GameCase.endingVoice] tells the press about it and [closedAt] the case time it closes at ("D7 06:31").
  */
 class CaseEnding(val number: Int, val name: String, val tier: EndingTier, val stamp: String, val quote: String, val closedAt: String)
 

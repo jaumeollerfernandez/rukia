@@ -136,7 +136,7 @@ fun PoliceApp(
                         },
                         onOpen = { openRecord = it },
                     )
-                    solving -> SolveCaseScreen(m.getCaseQuestion(), searches, { CaseClock.now(caseId) }, onBack = { solving = false }, onFind = { m.findPlace(it) }) { at, radius ->
+                    solving -> SolveCaseScreen(m.getCaseQuestion(), remember { m.getKnownPlaces() }, searches, { CaseClock.now(caseId) }, onBack = { solving = false }, onFind = { m.findPlace(it) }) { at, radius ->
                         // the deadline may have passed while the alert was open
                         runCatching { m.searchZone(at, radius) }.onSuccess { onSearched(it.day) }
                         searched++

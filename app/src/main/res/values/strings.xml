@@ -54,7 +54,7 @@
     <string name="report_kicker">CLOSING REPORT · CNI</string>
     <string name="report_closed">Closed %1$s · Agent Kimo</string>
     <string name="report_ending">ENDING REACHED</string>
-    <string name="transcript">TRANSCRIPT · %1$s</string>
+    <string name="transcript">PRESS STATEMENT · %1$s</string>
     <string name="achievements">Achievements</string>
     <string name="endings">Endings</string>
     <string name="stat_days">DAYS</string>
@@ -201,8 +201,9 @@
     <string name="solved_text">The Mossos have the location.\nThe case closes when it reaches its end.</string>
     <string name="solve_sub">One zone a day: send a squad to search it</string>
     <string name="search_place">Search a place</string>
+    <string name="case_places">Case places</string>
     <string name="place_not_found">Place not found in Catalonia</string>
-    <string name="map_hint">Tap the map to place the zone. Pinch to zoom.</string>
+    <string name="map_hint">Tap the map or a case place to mark the zone. Pinch to zoom.</string>
     <string name="radius">Radius</string>
     <string name="send_squad">Send squad</string>
     <string name="place_zone_first">Tap the map to place a zone</string>

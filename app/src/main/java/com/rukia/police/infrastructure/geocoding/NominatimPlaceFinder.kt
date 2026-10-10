@@ -9,18 +9,20 @@ import java.net.URLEncoder
 
 /** OpenStreetMap's Nominatim, limited to the map's area (Catalonia). Its policy asks for an identifying user agent. */
 class NominatimPlaceFinder(private val userAgent: String) : PlaceFinder {
-    override fun find(query: String): Spot? = runCatching {
+    override fun find(query: String): List<Spot> = runCatching {
         // viewbox = left,top,right,bottom
-        val url = URL("https://nominatim.openstreetmap.org/search?format=json&limit=1&bounded=1&viewbox=0.1,42.9,3.4,40.45&q=" + URLEncoder.encode(query, "UTF-8"))
+        val url = URL("https://nominatim.openstreetmap.org/search?format=json&limit=10&bounded=1&viewbox=0.1,42.9,3.4,40.45&q=" + URLEncoder.encode(query, "UTF-8"))
         val conn = url.openConnection() as HttpURLConnection
         try {
             conn.setRequestProperty("User-Agent", userAgent)
             conn.connectTimeout = 8_000
             conn.readTimeout = 8_000
-            val hit = JSONArray(conn.inputStream.bufferedReader().use { it.readText() }).optJSONObject(0)
-            hit?.let { Spot(it.getString("lat").toDouble(), it.getString("lon").toDouble()) }
+            val hits = JSONArray(conn.inputStream.bufferedReader().use { it.readText() })
+            val all = (0 until hits.length()).map(hits::getJSONObject)
+            // A street named after a town («carrer de Girona») isn't the town: streets only if nothing else matches.
+            all.filter { it.optString("class") != "highway" }.ifEmpty { all }.map { Spot(it.getString("lat").toDouble(), it.getString("lon").toDouble()) }
         } finally {
             conn.disconnect()
         }
-    }.getOrNull()
+    }.getOrDefault(emptyList())
 }
