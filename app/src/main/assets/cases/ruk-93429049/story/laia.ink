@@ -36,7 +36,7 @@ Alicia Serra Vidal. 18 años. Vive en L'Hostalnou de Bianya con su madre, Montse
 {dia < 1:Desapareció anoche.|Desapareció anteanoche.} Se dejó el móvil en casa, cargando. Este móvil. #delay: 4
 {dia < 1:La madre ha venido esta tarde a denunciarlo.|La madre vino ayer a denunciarlo.} Sola, sin hacer ruido. Pidió que no saliera en ningún sitio. #delay: 5
 No hemos podido detectar el teléfono, pero si hemos podido introducirnos remotamente. #delay: 4
- Pero es raro que una chica se haya dejado un teléfono hoy en día. Y #delay: 4
+ Pero es raro que una chica se haya dejado un teléfono hoy en día. #delay: 4
 Oficialmente esto no existe. Y tú tampoco. #delay: 4
 Normas. #delay: 3
 Una: eres Alicia. Escribes como ella. Si alguien sospecha, se acabó. #delay: 3
