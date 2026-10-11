@@ -387,12 +387,12 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 
 ### D1
 
+- 00:00 · **laia** · Conexión establecida. Canal cifrado. · `laia.ink:10`
 - 06:00 · **casal** · Buenos días, almas 🌅 Esta semana preparamos la Trobada de l'Alba. Siete días de recogimiento. · `casal.ink:24`
 - 07:05 · **pilar** · Alicia ayer no viniste y no avisaste · `pilar.ink:15`
 - 08:05 · **sergi** · buenos días gente · `clase.ink:17`
 - 09:30 · **elena** · Hola, Alicia. Soy Elena, tu tutora. · `elena.ink:8`
 - 09:40 · **enric** · Se ha escapado el Rocky. Mestizo negro, collar rojo. Si lo veis, llamadme, por favor 🐕 · `veins.ink:12`
-- 10:00 · **laia** · Conexión establecida. Canal cifrado. · `laia.ink:10`
 - 10:20 · **teresa** · Buenos días. Ya tenéis los ejemplares en el mostrador. Alicia, el tuyo te lo guardo. · `lectura.ink:18`
 - 11:00 · **quim** · Os recuerdo que el cartel tiene que estar en la imprenta en cinco días. · `festa.ink:17`
 - 11:20 · **nuria** · Alicia. Me ha llamado tu madre. · `nuria.ink:25`

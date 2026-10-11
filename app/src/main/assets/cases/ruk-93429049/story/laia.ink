@@ -7,7 +7,7 @@
 -> d1
 
 = d1
-Conexión establecida. Canal cifrado. #at: D1 10:00 #effect: glitch
+Conexión establecida. Canal cifrado. #at: D1 00:00 #effect: glitch
 -> presentacion ->
 -> tutorial ->
 Te escribo esta noche para el parte. #delay: 3

@@ -20,7 +20,7 @@ Veinte años de servicio, casi todos en la Garrotxa. Conoce el valle y sabe que 
 Le habla de tú y **nunca le asigna género**: ni «listo» ni «lista», sino «Bien» o «Buen trabajo». Respeta su fama («nunca has dejado un caso sin cerrar»). Le marca las normas: eres Alicia, cuidado con el grupo familiar, me lo cuentas todo a mí.
 
 ## Papel en la trama
-Hace el encargo (audio) y explica el móvil y la app de Policía en el tutorial: un intento al día, y una zona de 500 m o menos da con la víctima. Siempre lo presenta el D1 a las 10:00 (el caso no empieza por la tarde: se queda «conectando» hasta medianoche). Recibe el parte cada noche y hace una comprobación por noche. Identifica a Rosalia por el padrón y el fijo, rastrea el prepago (antena de Bracons, once masías), consigue los agentes del D6 y narra los finales.
+Hace el encargo (audio) y explica el móvil y la app de Policía en el tutorial: un intento al día, y una zona de 500 m o menos da con la víctima. Siempre lo presenta el D1 a las 00:00 (el caso no empieza por la tarde: se queda «conectando» hasta medianoche). Recibe el parte cada noche y hace una comprobación por noche. Identifica a Rosalia por el padrón y el fijo, rastrea el prepago (antena de Bracons, once masías), consigue los agentes del D6 y narra los finales.
 
 ## Vida propia esta semana
 - Un comisario que no cree en el caso (D3), un permiso para dos agentes que no llega hasta el D5, noches sin dormir.

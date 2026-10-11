@@ -251,10 +251,14 @@ private fun bubbleShape(mine: Boolean, first: Boolean) = if (mine) {
 @Composable
 private fun Bubble(msg: Message, sender: Character?, showName: Boolean, first: Boolean) {
     val mine = msg.fromPlayer
-    Column(
+    // As in WhatsApp: the sender's picture sits beside the first bubble of a run; the rest line up under it without one.
+    Row(
         Modifier.fillMaxWidth().padding(top = if (first) 10.dp else 2.dp),
-        horizontalAlignment = if (mine) Alignment.End else Alignment.Start,
+        horizontalArrangement = if (mine) Arrangement.End else Arrangement.spacedBy(6.dp),
+        verticalAlignment = Alignment.Bottom,
     ) {
+    if (!mine) { if (first) Avatar(sender, 28) else Spacer(Modifier.size(28.dp)) }
+    Column(horizontalAlignment = if (mine) Alignment.End else Alignment.Start) {
         if (showName && sender != null) {
             Text(sender.name, Modifier.padding(start = 12.dp, bottom = 2.dp), color = sender.colorValue(), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
         }
@@ -276,6 +280,7 @@ private fun Bubble(msg: Message, sender: Character?, showName: Boolean, first: B
             Text(msg.text, color = fg, fontSize = 16.sp, lineHeight = 21.sp)
             if (msg.time.isNotEmpty()) Text(msg.time, Modifier.align(Alignment.End), color = fg.copy(alpha = 0.65f), fontSize = 11.sp, lineHeight = 14.sp)
         }
+    }
     }
 }
 
@@ -302,7 +307,7 @@ private fun CallPill(msg: Message) {
 private fun TypingBubble(sender: Character?, first: Boolean) {
     val transition = rememberInfiniteTransition(label = "typing")
     Row(Modifier.padding(top = if (first) 10.dp else 2.dp), verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-        Avatar(sender, 28)
+        if (first) Avatar(sender, 28) else Spacer(Modifier.size(28.dp))
         Row(
             Modifier.background(LocalPalette.current.inBubble, bubbleShape(mine = false, first = first))
                 .padding(horizontal = 14.dp, vertical = 14.dp),
