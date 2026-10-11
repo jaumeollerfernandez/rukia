@@ -12,6 +12,30 @@ Hijo de payeses del valle. Quiere que el tractor desfile en la fiesta mayor. Rec
 - **Ojos del valle:** ve todo lo que se mueve por los caminos y lo cuenta tal cual.
 - Bromea con lo que le inquieta: «okupas o algo. o fantasmas jajaja».
 
+## Vida propia esta semana
+- La granja: ha parido «la vaca más fea del valle» y le ha puesto Quim.
+- Quiere el tractor en el cartel (el D2 insiste). Le gusta Laura, que ahora va con Berta y «habla de amaneceres».
+- Ve luz en Can Pericot (D3 por la noche) y la furgoneta del Casal por los caminos.
+
+## Con Alicia
+- Del pueblo de toda la vida. Bromas del tractor.
+
+## Objetivo y secreto
+- **Secreto:** Laura le gusta. Lo admite a medias («bueno. un poco»).
+- Si Alicia le promete un tractor pequeñito en el cartel, se lo reprocha en el grupo cuando sale el de Laura.
+
+## Temas
+- **A gusto:** el tractor, la granja, lo que ve en los caminos.
+
+## Ritmo
+- Unos 5 minutos. Minúscula, frases cortas.
+
+## Escribe por su cuenta
+- **D2 12:10:** «última oportunidad. el cartel lleva tractor sí o no 🚜».
+
+## Recuerda
+- `marc.tractor.prometo`: la promesa del tractor (sale en el grupo de la fiesta el D4).
+
 ## Cómo escribe
 - **Minúscula, sin punto**, frases cortas, de campo. Emojis: 🚜, 🤨, 😳, 🥶.
 

@@ -18,6 +18,22 @@ Técnico de mantenimiento en una empresa de ascensores de Barcelona. Nació en O
 ## Relación con Alicia
 La adora y la conoce poco. Ella le contesta con monosílabos («no sé papa, ya veré»). Es su hija pequeña y se nota.
 
+## Vida propia esta semana
+- Ascensores en Barcelona, la bici hasta Montserrat, el abogado (D4), subir a Olot (D6) a casa de Marta.
+
+## Objetivo y secreto
+- Quiere ver a su hija y no volver a llegar tarde. **Culpa:** se fue y las dejó con Montse.
+- Si Alicia le pide que no suba, «lo pensaré» y no promete nada; el «papa no subas» del hueco ya no sale.
+
+## Escribe por su cuenta
+- D1 20:10, D2 20:30 (llamada), D3 08:20, D4 20:00, D5 20:30, D6 17:00, D7 08:10. Desde el D4, cada mensaje admite respuesta.
+
+## Recuerda
+- `jordi.d4.no_subas`.
+
+## Lo que sabe por la galería
+- El piso de la yaya se vendió por 120.000 € (se lo dijo la gestoría, que aún le escribe por error); Montse le dijo que no le había quedado nada. «C.R.A.» no le suena (IMG_0401).
+
 ## Cómo escribe
 - **Frases completas, mayúscula, punto, signos de apertura.** Escribe como un padre que escribe cartas.
 - **Firma «Papá»** al final de los mensajes, como un SMS de 2005.

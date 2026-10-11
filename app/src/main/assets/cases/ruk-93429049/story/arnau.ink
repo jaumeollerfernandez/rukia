@@ -68,7 +68,16 @@ y yo ya me he pedido el muslo 🍗 #delay: 3
 -> d5
 
 = d5
-prima la iaia dice que vayas a la comida aunque sea al postre #at: D5 17:10
+{
+- charla.ire:
+    prima la iaia está haciendo canelones como para un regimiento #at: D5 17:10
+    dice que si vienes de verdad te hace crema catalana también #delay: 4
+- charla.no_ire:
+    prima la iaia dice que vayas aunque sea al postre #at: D5 17:10
+    que «no puedo» no es una respuesta. palabras textuales #delay: 4
+- else:
+    prima la iaia dice que vayas a la comida aunque sea al postre #at: D5 17:10
+}
 ah y he subido a diamante 💎 #delay: 3
 nadie me felicita en esta familia #delay: 60
 -> d6
@@ -82,6 +91,9 @@ si no vienes me como tu parte #delay: 3
 prima la comida de la iaia se ha cancelado #at: D7 09:00
 todos están rarísimos. mi madre está llorando #delay: 5
 qué ha pasado?? #delay: 10
+{charla.ire:
+    y tú ibas a venir #delay: 30
+}
 -> DONE
 
 // Huecos para escribirle. Arnau contesta en ráfaga y no se entera de nada, pero lo ve todo.
@@ -101,6 +113,24 @@ qué ha pasado?? #delay: 10
 * {dia >= 3} [arnau gracias por todo. eres el mejor primo]
     ya lo sé 😎 #delay: 60
     me debes una skin igualmente #delay: 3
+    -> opciones
+// Ir o no a la comida de la iaia: una cosa u otra.
+* (ire) {dia >= 4 and dia < 7 and not no_ire} [dile a la iaia que iré a la comida]
+    EN SERIO?? #delay: 60
+    se lo digo ya. va a hacer el doble de canelones #delay: 3
+    el muslo sigue siendo mío eh 🍗 #delay: 4
+    -> opciones
+* (no_ire) {dia >= 4 and dia < 7 and not ire} [dile a la iaia que no puedo ir a la comida]
+    se va a enfadar #delay: 60
+    bueno se enfada igual. con todo #delay: 3
+    me como tu parte de canelones. es la ley 🍗 #delay: 4
+    -> opciones
+* {dia >= 5} [felicidades por diamante!!]
+    POR FIN alguien 😭💎 #delay: 30
+    eres la única persona de esta familia que me entiende #delay: 3
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

@@ -11,6 +11,35 @@ Monitor desde los 16. Organiza gincanas, salidas y campamentos. El refugio del e
 - **Responsable y paciente,** pero práctico: necesita respuestas («Ali, ¿estás? Necesito saberlo»).
 - Algo ingenuo con Biel. Supone que el dibujo de la Laieta es Can Pericot, sin fijarse en el perro.
 
+## Vida propia esta semana
+- Estudia Magisterio en Girona; exámenes de didáctica y un tren de vuelta que llega cada vez más tarde.
+- Organiza la salida al Parc Nou (D4) y cuadra monitores sin Alicia.
+- D3: falta un juego de llaves de Can Pericot; si no aparece, cambia la cerradura.
+
+## Con Alicia
+- Coordinador y amigo. Confía en ella; le preocupa que no conteste.
+
+## Objetivo y secreto
+- Quiere que la salida salga bien y que no se pierdan llaves del Ayuntamiento («Quim me mata»).
+- No tiene secretos. El D2 vino al local un señor mayor de barba blanca preguntando por «algún refugio en el valle»: no le dio importancia.
+
+## Temas
+- **A gusto:** los peques, la salida, el campamento y la historia de la casa de la puerta azul.
+- **Malinterpreta:** cree que la casa de la historia es Can Pericot y que Biel no tiene las llaves.
+
+## Cómo reacciona
+- **Si Alicia ya dijo en el grupo si tiene las llaves:** no se lo vuelve a preguntar.
+- **Si Alicia no puede ir a la salida:** pasa los peques a Biel sin reproches.
+
+## Ritmo
+- Unos 10 minutos. Mensajes de organizador, con mayúscula y punto.
+
+## Escribe por su cuenta
+- No escribe sola: solo en el grupo del esplai.
+
+## Recuerda
+- `pau.charla.perdon`: que Alicia no va a la salida. `pau.charla.tengo`: que dijo que tiene las llaves (el grupo ya no lo pregunta).
+
 ## Cómo escribe
 - **Mayúsculas y puntos**, mensajes de organizador. Emojis: ⛺, 🙏, 😉, 🙄.
 - Saluda al grupo con «Monis,».

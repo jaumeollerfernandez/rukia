@@ -12,6 +12,24 @@ Da clases desde hace doce años. Precio claro (45 € el trimestre), sin permane
 - Escéptica con las promesas: «desconfiad de quien os prometa que os va a cambiar la vida en un fin de semana».
 - Cálida y respetuosa: «Si un mes no podéis venir, no pasa nada».
 
+## Vida propia esta semana
+- Consulta de fisio por la mañana; clases de ioga con «cuatro gatos y una manta».
+
+## Con Alicia
+- Profe de ioga y fisio. La ve cansada y se lo dice.
+
+## Objetivo y secreto
+- Quiere que sus alumnas estén bien sin depender de ella. No opina de Montse: «no la conozco lo suficiente».
+
+## Temas
+- **A gusto:** la espalda, el ayuno («Acompañar no es pasar hambre juntas»), los folletos (la chica pálida, Iris).
+
+## Ritmo
+- Unos 10 minutos. Cercana, con humor.
+
+## Escribe por su cuenta
+- No escribe sola: solo en el grupo de ioga.
+
 ## Cómo escribe
 - Mayúsculas y puntos, tono cercano y con humor. Emojis: 🧘‍♀️, 😌, 😅.
 

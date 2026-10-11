@@ -21,6 +21,13 @@ perdón 🙊 #from: judit #delay: 10 #caduca: D2 17:00
 * [perdona sonia, estoy mala. el partido no sé si llego]
     Cuídate. Te guardo el puesto, pero dime algo antes del partido. #from: sonia #delay: 600
     ponte buena reina 💛 #from: ona #delay: 30
+* [no voy a poder jugar el partido. ona, te toca]
+    Gracias por decírmelo con tiempo, Ali. Eso también es ser equipo. #from: sonia #delay: 600
+    yo??? 😭 #from: ona #delay: 30
+    ona colocadora. que dios nos pille confesadas #from: judit #delay: 20
+* [judit qué graciosa 🙄]
+    perdóoon 🙊 #from: judit #delay: 60
+    Ali, ¿y tú cómo estás? ¿Vienes al partido? #from: sonia #delay: 300
 * [(sin responder)]
     Ali, necesito saberlo antes del partido. #from: sonia #delay: 1
 - -> d2

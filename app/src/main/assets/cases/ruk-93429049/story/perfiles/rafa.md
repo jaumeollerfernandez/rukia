@@ -13,6 +13,25 @@ Treinta años dando clase. Lleva a sus alumnos en autobús al examen de Girona. 
 - Se fija en el tono de la gente: «Muy amable y muy fría.»
 - Práctico: «La plaza no se pierde. La tasa, sí.»
 
+## Vida propia esta semana
+- El examen teórico del D4 en Girona: Hugo aprueba con un 28. Café de gasolinera.
+
+## Con Alicia
+- Profesor exigente que la aprecia (iba por 29). Le extrañó la pregunta de Bracons de noche.
+
+## Objetivo y secreto
+- Quiere que sus alumnos aprueben. Le ofende que le cuelguen. No tiene secretos.
+
+## Temas
+- **A gusto:** tasas, convocatorias, carreteras de montaña.
+- **Malinterpreta:** nada; anota la frialdad de Montse («Muy amable y muy fría»).
+
+## Ritmo
+- Unos 10 minutos. Sarcasmo con cariño.
+
+## Escribe por su cuenta
+- **D4 08:20:** el bus ha salido; «No es por el examen. ¿Estás bien?».
+
 ## Cómo escribe
 - **Mayúsculas y puntos**, avisos con hora y requisitos. Emojis: 😈, 🎉, 🚗.
 

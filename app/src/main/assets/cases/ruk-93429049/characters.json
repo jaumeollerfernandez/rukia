@@ -48,7 +48,7 @@
   { "id": "conxita", "name": "Conxita (veïna)", "status": "", "color": "#795548", "hours": "07:00-21:00", "photo": "photos/conxita.jpg" },
   { "id": "enric", "name": "Enric (veí)", "status": "", "color": "#455A64", "hours": "07:00-22:00", "photo": "photos/enric.jpg" },
   { "id": "rafa", "name": "Rafa (autoescola)", "status": "Autoescola Garrotxa 🚗", "color": "#1E88E5", "hours": "09:00-20:00", "photo": "photos/rafa.jpg" },
-  { "id": "hugo", "name": "Hugo", "status": "", "color": "#546E7A", "hours": "12:00-02:00", "photo": "photos/hugo.jpg" },
+  { "id": "hugo", "name": "Hugo", "status": "", "color": "#546E7A", "hours": "07:00-02:00", "photo": "photos/hugo.jpg" },
   { "id": "dolors", "name": "Dolors (teatre)", "status": "🎭", "color": "#6A1B9A", "hours": "10:00-23:00", "photo": "photos/dolors.jpg" },
   { "id": "queralt", "name": "Queralt", "status": "", "color": "#C62828", "hours": "10:00-00:00", "photo": "photos/queralt.jpg" },
   { "id": "jan", "name": "Jan", "status": "", "color": "#2E7D32", "hours": "12:00-02:00", "photo": "photos/jan.jpg" },

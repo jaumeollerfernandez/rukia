@@ -16,16 +16,43 @@ class ListCases(private val catalog: CaseCatalog) {
     operator fun invoke(): List<GameCase> = catalog.cases()
 }
 
-/** The case being played, if there is one and the game still has it. */
-class GetCurrentCase(private val catalog: CaseCatalog, private val store: CurrentCaseStore) {
-    operator fun invoke(): GameCase? = store.get()?.let { id -> catalog.cases().find { it.id == id } }
+/**
+ * A real case always starts on the morning of its D1. Opened from noon on, its D1 is tomorrow, and until midnight the
+ * case is "connecting" to the phone: it can't be played yet. Training and debug cases open at any time.
+ */
+class IsConnecting(private val progress: CaseProgress) {
+    operator fun invoke(case: GameCase) =
+        case.kind == CaseKind.Case && progress.isStarted(case.id) && progress.now(case.id) < progress.start(case.id)
 }
 
-/** Starts playing [case]: from now on the game opens it on launch. A closed case starts over. */
-class PlayCase(private val store: CurrentCaseStore, private val records: CaseRecords, private val reopen: ReopenCase) {
-    operator fun invoke(case: GameCase) {
+/** The case being played, if there is one, the game still has it and it can be played now. */
+class GetCurrentCase(
+    private val catalog: CaseCatalog,
+    private val store: CurrentCaseStore,
+    private val progress: CaseProgress,
+    private val connecting: IsConnecting,
+) {
+    operator fun invoke(): GameCase? = store.get()?.let { id -> catalog.cases().find { it.id == id } }
+        ?.takeIf { progress.isStarted(it.id) && !connecting(it) }
+}
+
+/**
+ * Starts playing [case]: its clock starts, and from now on the game opens it on launch. A closed case starts over.
+ * False while the case is [IsConnecting]: the phone isn't there yet.
+ */
+class PlayCase(
+    private val store: CurrentCaseStore,
+    private val records: CaseRecords,
+    private val reopen: ReopenCase,
+    private val progress: CaseProgress,
+    private val connecting: IsConnecting,
+) {
+    operator fun invoke(case: GameCase): Boolean {
         if (records.get(case.id)?.closed == true) reopen(case.id)
+        progress.start(case.id)
+        if (connecting(case)) return false
         store.set(case.id)
+        return true
     }
 }
 

@@ -30,6 +30,14 @@ class GonpiFilesTest {
         assertEquals(2, gonpi.publishedBy(now = 300) { times[it] }.posts.size)
     }
 
+    @Test fun `a post the story had archived is gone`() {
+        val gonpi = JsonGonpiRepository.parse("""{ "accounts": [{ "id": "a", "username": "a" }], "posts": [
+            { "author": "a", "image": "video.jpg", "hiddenBy": "arnau_calla" }, { "author": "a", "image": "other.jpg" }
+        ] }""")
+        assertEquals(2, gonpi.publishedBy(now = 0) { null }.posts.size)
+        assertEquals(listOf("other.jpg"), gonpi.publishedBy(now = 0, isTrue = { it == "arnau_calla" }) { null }.posts.map { it.image })
+    }
+
     @Test fun `search finds contacts by username or name, without accents, and nobody else`() {
         val gonpi = JsonGonpiRepository.parse("""{ "accounts": [
             { "id": "eric", "username": "eric.forner", "name": "Èric" },

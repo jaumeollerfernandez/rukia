@@ -16,6 +16,12 @@ Sábado: salida al Parc Nou. Salimos a las 10 de la plaza. Ali, ¿te encargas de
 * [no puedo este sábado, lo siento mucho]
     Vaya. Biel, ¿te los quedas tú? #from: pau #delay: 900
     Sí, pero si lloran os los paso 😂 #from: biel #delay: 300
+* [biel te cambio el sábado por el siguiente?]
+    ¿Y eso? ¿Estás bien, Ali? #from: pau #delay: 900
+    hecho. pero el siguiente me debes los globos de agua #from: biel #delay: 300
+* [no lo sé aún. os digo algo]
+    Vale, pero dímelo antes del viernes, que tengo que cuadrar monitores. #from: pau #delay: 900
+    Ali, ¿estás? Necesito saberlo. #from: pau #at: D2 19:00
 * [(sin responder)]
     Ali, ¿estás? Necesito saberlo. #from: pau #delay: 1
 - -> charla("D2 20:55") ->
@@ -56,13 +62,21 @@ Ali, la Laieta te ha dejado el dibujo en el local. Es una casita con una puerta 
 = charla(limite)
 - (opciones)
 #caduca: {limite}
-* {sabe_capsec and not descarta_capsec} [las llaves del refugi las tengo yo, tranquis]
+// Las llaves: solo tras la pregunta de Pau en el grupo (D3), mientras se habla de ello (hasta la salida del D4).
+// Que las tiene ella o que no: una cosa u otra, también según lo que ya le dijo a Pau en privado.
+* (tengo_llaves) {esplai.d3 and dia <= 4 and not descarta_capsec and not no_llaves and not pau.charla.tengo and not pau.charla.no_se} [las llaves del refugi las tengo yo, tranquis]
     Ah, genial. Pues cuando puedas las devuelves, Ali 🙏 #from: pau #delay: 600
     ali... seguro? #from: biel #delay: 120
     biel qué te pasa #from: clara #delay: 60
     nada nada #from: biel #delay: 30
     -> opciones
-* {sabe_capsec and not descarta_capsec} [quién ha subido al refugi últimamente?]
+* (no_llaves) {esplai.d3 and dia <= 4 and not descarta_capsec and not tengo_llaves and not pau.charla.tengo} [yo no las tengo. estaban en mi taquilla del local]
+    Pues entonces alguien las ha cogido. Mañana cambio la cerradura. #from: pau #delay: 600
+    😶 #from: biel #delay: 30
+    biel. #from: clara #delay: 20
+    qué #from: biel #delay: 10
+    -> opciones
+* {esplai.d3 and not descarta_capsec} [quién ha subido al refugi últimamente?]
     Nadie desde el campamento, que yo sepa. #from: pau #delay: 600
     yo no #from: biel #delay: 10
     biel has contestado en un segundo. tú nunca contestas en un segundo 👀 #from: clara #delay: 120
@@ -76,6 +90,9 @@ Ali, la Laieta te ha dejado el dibujo en el local. Es una casita con una puerta 
 * [os echo de menos, monis]
     Y nosotros a ti. Los peques preguntan cada sábado. #from: pau #delay: 600
     💛 #from: clara #delay: 60
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

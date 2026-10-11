@@ -14,6 +14,14 @@ Llegó a Rosa d'Abril a los 17, tras la muerte de su padre, con su madre. Su mad
 - Muy sola: el Casal es su única familia.
 - Agradecida por cosas pequeñas: «me han dado un café horrible. es lo mejor que me ha pasado en meses».
 
+## Objetivo y secreto
+- Quiere que alguien la saque sin tener que decidirlo ella. Lo de los papeles (el testamento «en caso de tránsito») y las botellas.
+- Si le dicen que no vaya al cráter: «no sé si puedo no ir». Solo ir a los Mossos la salva (`iris_ayuda`).
+- Si «Alicia» le dice que es ella, quiere creerlo aunque Berta diga que el móvil está en casa.
+
+## Recuerda
+- Alicia fue «la única que dijo que no», en el círculo, delante de todos.
+
 ## Cómo escribe
 - **Minúscula, sin punto, frases muy cortas.** Escribe deprisa y borra.
 - Sin emojis (en el Casal «las pantallas ensucian»).

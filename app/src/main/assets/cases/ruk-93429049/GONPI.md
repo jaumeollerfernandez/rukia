@@ -71,8 +71,8 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | 07:05 | @berta.luz | *«Frase del alba: Dar es la forma más pura de recibir.»* | 🔎 El día de la transferencia |
 | 10:30 | @montse.vidal | Unas manos abiertas al sol. *«Cerrar etapas también es cuidar de los tuyos 🌸»*. Coincide con la transferencia de 2.840 € («lo de Hacienda») | 🔎 Ambiguo |
 | 11:00 | @rosadabril.casal | El tejado nuevo de la sala. *«Gracias a la generosidad de nuestras familias, la sala nueva ya tiene tejado 🌹»*. Montse comenta «🙏» | 🔎 Media hora después de la transferencia a «CRA Serveis» (la bio dice «Comunitat Rosa d'Abril (CRA)») |
-| 13:00 | @eric.forner | Cesta vacía en el Forn. *«Caso abierto: seis barras de payés desaparecidas 🕵️🥖»*. Comentario de @forncanbatlle: «Èric, a trabajar 😤» | 🔎 Pista del pan, en tono de broma |
-| 18:40 | @arnau.gg | Foto de un «fail» con la bici, hecha **anteanoche a las 22:50 en la rotonda del Hostalnou**. Al fondo, borrosa, una chica con mochila y una **bolsa con barras que asoman**. *«la rotonda maldita 💀»* | 🔎🔎 Es Alicia esperando a Pol con el pan. Encaja con el chat de Arnau del D2 |
+| 13:00 | @eric.forner | Cesta vacía en el Forn. *«Caso abierto: seis barras de payés desaparecidas 🕵️🥖»*. Comentario de @forncanbatlle: «Èric, a trabajar 😤» | 🔎 Pista del pan, en tono de broma. Desaparece si Alicia le pide a Èric que no lo cuente (`hiddenBy: eric_archiva`) |
+| 18:40 | @arnau.gg | Foto de un «fail» con la bici, hecha **anteanoche a las 22:50 en la rotonda del Hostalnou**. Al fondo, borrosa, una chica con mochila y una **bolsa con barras que asoman**. *«la rotonda maldita 💀»* | 🔎🔎 Es Alicia esperando a Pol con el pan. Encaja con el chat de Arnau del D2. Desaparece si Alicia le pide que lo archive (`hiddenBy: arnau_calla`) |
 | 22:00 | @pol.rider | Foto nocturna del salpicadero, con el reloj a las **23:41**; por la ventana se ve la estación de autobuses de Olot. *«taxi nocturno 🚕»*. La publicó anteanoche y la vuelve a subir hoy, o aparece archivada | 🎭 Confirma que la dejó en la estación |
 | 23:10 | @dani.moto | Foto nocturna de una terraza de bar con una mochila negra sobre la mesa. *«noche de curro 🌙»*. Comenta @carla.bcn_: «tú y tu curro 🙄» | 🎭 Refuerza que "algo" hace de noche (en realidad menudea) |
 
@@ -164,6 +164,8 @@ Cada cuenta tiene entre dos y cinco publicaciones escritas con la voz de su fich
 | @pilar.batlle, D7 05:40: «Encendiendo el horno.» | ⚪ | La mañana del final |
 
 **Fechas.** Las publicaciones ya no llevan `"time": "hace 12 días"`: todas tienen `"at"`, también las del pasado (`"at": "D-12 19:30"`). El feed las ordena por fecha, la más nueva primero, y escribe «hace 2 horas», «hace 3 semanas»… según la hora del caso. Así se pueden añadir publicaciones en cualquier lugar del archivo.
+
+**Archivadas.** Una publicación con `"hiddenBy": "<variable>"` desaparece de Gonpi (feed y perfil) en cuanto esa variable de la historia es cierta: el autor la archiva porque Alicia se lo pidió en el chat.
 
 ## Cuentas que sigue Alicia
 

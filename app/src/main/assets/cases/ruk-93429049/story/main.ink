@@ -23,7 +23,17 @@ VAR confianza_nuria = 0
 VAR nuria_sabe = false     // el jugador le ha confesado a Núria que no es Alicia
 VAR confianza_alicia = 0
 VAR pol_calla = false      // Pol ha prometido no contar lo de la estación
-VAR arnau_calla = false    // Arnau ha archivado el vídeo de la rotonda y no se lo dirá a nadie
+VAR arnau_calla = false    // Arnau ha archivado el vídeo de la rotonda y no se lo dirá a nadie (desaparece de Gonpi)
+VAR eric_archiva = false   // Èric ha archivado su post de las barras (desaparece de Gonpi)
+
+// Fotos de la galería que el jugador ha abierto (las pone la app Multimedia): abren preguntas en los chats (MULTIMEDIA.md).
+VAR foto_img_0391 = false  // la yaya, la puerta azul, el pozo y la Trufa → Roser
+VAR foto_img_0397 = false  // el meme del gato meditando → Carla
+VAR foto_img_0401 = false  // la libreta de mamá: «Piso yaya: 120.000 → C.R.A.» → Papá
+VAR foto_img_0402 = false  // el folleto de la Trobada de l'Alba → Marta
+VAR foto_img_0409 = false  // la ruta a pie desde la estación hasta «…de Bianya» → Pol
+VAR foto_img_0411 = false  // el reembolso del billete de bus → Laia (D2)
+VAR foto_img_0413 = false  // la mochila con velas, cerillas y un cargador sin móvil → Toni
 VAR aciertos_nuria = 0
 VAR nuria_denuncia = false // Núria suspendió la prueba y va a ir a los Mossos
 VAR secta_sabe_rosalia = false // la familia ha descubierto que Alicia está con Rosalia
@@ -58,6 +68,7 @@ VAR dani_frenado = false     // detenido (Laia o la operación del D6) o Alicia 
 VAR alicia_avisada = false   // el jugador le ha dicho a Alicia, por el prepago, que Dani la busca
 VAR alicia_entregada = false // Dani y la red se la han llevado: finales 5 y 6, pase lo que pase después
 VAR llamada_rosalia_contestada = false // lo pone la app cuando el jugador atiende o rechaza una llamada de ese chat
+VAR llamada_pilar_contestada = false   // ídem, la llamada de Pilar del D3
 VAR sabe_prepago = false     // Mireia: Alicia compró un móvil barato en un estanco de Olot
 
 // Confianza de los contactos con pistas verdaderas: 1 confía (cuenta más), 0 normal, -1 recela (no cuenta nada hasta que
@@ -210,3 +221,11 @@ INCLUDE silvia.ink
 
 === function familia_salvada() ===
 ~ return vigilancia_crater or iris_ayuda
+
+// Caducidad de una charla de contacto: a medianoche, o a la hora `h` de hoy si el contacto va a escribir por su cuenta
+// (0: hoy no escribe). Así la charla sigue abierta hasta entonces y, al caducar, salta a su mensaje (un stitch con `#at`).
+=== function caduca(h) ===
+{h > 0:
+    ~ return "D{dia} {h < 10:0}{h}:00"
+}
+~ return "D{dia + 1} 00:00"

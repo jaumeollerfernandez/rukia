@@ -198,7 +198,6 @@ fun PoliceApp(
                 }
 
                 if (confirming) {
-                    val resetDone = stringResource(R.string.chats_reset)
                     IosAlert(
                         title = stringResource(R.string.reset_q),
                         text = stringResource(R.string.reset_text, CaseClock.LATE_START_HOUR),
@@ -207,7 +206,8 @@ fun PoliceApp(
                     ) {
                         confirming = false
                         m.resetSave.reset()
-                        scope.launch { snackbar.showSnackbar(resetDone) }
+                        // Back to the case list: the week starts when the case is opened again (at midnight, from noon on).
+                        onReturnToTitle()
                     }
                 }
             }

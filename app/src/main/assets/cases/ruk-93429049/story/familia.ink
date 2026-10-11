@@ -60,6 +60,9 @@ No me entra nada. Hoy ayuno, por ella. Me ayuda a tener la mente despejada. #fro
 Alicia, si algún día lees esto, vuelve a casa. Estés donde estés, te echamos de menos. Por favor, si ha habido algun malentendido o cualquier cosa, lo sentimos mucho. Solo dinos si estás bien. #from: mama #delay: 120 #caduca: D2 08:00
 * [mamá estoy bien]
     -> escribe_en_familia ->
+* [no me busquéis]
+    -> escribe_en_familia ->
+    «No me busquéis». Ali diría «dejadme en paz». #from: berta #delay: 10
 * [(sin responder)]
 - -> d2
 
@@ -87,6 +90,9 @@ Paso de cogerle el telefono. De verdad, que dias estamos pasando. #from: mama #d
 Espero que estes bien hija, te echamos de menos🌹 #from: mama #delay: 30 #caduca: D3 08:00
 * [berta deja a mamá en paz]
     -> escribe_en_familia ->
+* [ese dinero era mío]
+    -> escribe_en_familia ->
+    Ese dinero era de la familia. #from: berta #delay: 10
 * [(sin responder)]
 - -> d3
 
@@ -179,6 +185,10 @@ Nena, pasado mañana hace tres años de la yaya. Si lees esto, ven a cenar a cas
 * [voy mamá]
     -> escribe_en_familia ->
     ¿Cuándo? #from: mama #delay: 30
+    Mamá. No es ella. #from: berta #delay: 5
+* [no voy a ir, mamá]
+    -> escribe_en_familia ->
+    Ya lo veremos, nena. #from: mama #delay: 30
     Mamá. No es ella. #from: berta #delay: 5
 * [(sin responder)]
 - -> d6

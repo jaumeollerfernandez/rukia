@@ -14,6 +14,28 @@ Educadora social de formación; trabajó diez años en servicios sociales antes 
 - Ofrece ayuda sin presionar: «Mi puerta está abierta».
 - Sincera dentro de la formalidad: «Te soy sincera: me extrañó.»
 
+## Vida propia esta semana
+- Tutora con treinta alumnos y un protocolo de absentismo que sabe que llega tarde.
+
+## Con Alicia
+- Profesional, con preocupación real. Le extraña lo del «retiro espiritual».
+
+## Objetivo y secreto
+- Quiere asegurarse de que Alicia está a salvo. No comparte nada con la familia: Alicia es mayor de edad.
+
+## Temas
+- **Malinterpreta:** nada; anota las contradicciones (enferma / de retiro) sin acusar.
+
+## Cómo reacciona
+- **Si Alicia dice que hay problemas en casa:** le pregunta si está en un lugar seguro y lo tiene en cuenta el D5.
+- **Si Alicia le pide que no llamen a su casa:** se lo garantiza.
+
+## Ritmo
+- Lenta (20-30 minutos) y solo en horario laboral.
+
+## Recuerda
+- `elena.d1.enferma` (lo nota el D2), `elena.d1.casa` y `elena.d2.no_exacto` (lo tiene en cuenta el D5).
+
 ## Cómo escribe
 - **Formal, impecable**: mayúsculas, puntos, tildes, signos de apertura. Ni un emoji.
 - Saluda y se presenta: «Hola, Alicia. Soy Elena, tu tutora.»

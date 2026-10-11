@@ -15,6 +15,30 @@ Amiga del grupo desde primaria. Algo pasó con Sergi, de la clase de Alicia («n
 - Matiza a Carla, puntillosa: «yo no dije eso. dije que lo vi a él mirándote».
 - Le gusta el drama ajeno y dice que no quiere el propio.
 
+## Vida propia esta semana
+- Cumple 18 el D3 (Carla rompe una lámpara bailando en el sofá).
+- Lo de Sergi y el embarazo: no duerme.
+
+## Con Alicia
+- Amiga desde primaria. Le debe Girona («te debo la vida»).
+
+## Objetivo y secreto
+- **Secreto:** la prueba de embarazo y la clínica de Girona eran suyas. Lo confiesa si Alicia la trata con cuidado; presionada, se cierra.
+- Sabe lo del móvil del estanco y no lo dice si no se lo preguntan.
+
+## Temas
+- **A gusto:** la fiesta, Carla, las series.
+- **Le incomoda:** Sergi, Girona.
+
+## Cómo reacciona
+- **Si Alicia le dice que no es por su culpa:** alivio. Si no le contesta: «ali?».
+
+## Ritmo
+- 2 minutos. Mensajes cortos, algo más pausados que los de Carla.
+
+## Escribe por su cuenta
+- **D4 23:20:** si el rumor de Girona sigue y no se lo ha contado: «no duermo... lo siento mucho».
+
 ## Cómo escribe
 - **Minúscula, sin punto**, mensajes cortos y algo más pausados que los de Carla.
 - Emojis: 💛, 😭, 🥺, 🎂, 💔, 🙄, 🤐.

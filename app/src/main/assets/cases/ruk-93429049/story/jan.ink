@@ -1,5 +1,6 @@
 // Jan, del teatro. Bromista sin filtro, buen fondo. Pista falsa: Alicia le preguntó por el piso vacío de su tío en
 // Girona (sabe_girona). Ruido: fiestas de Girona, Pepe el Romano «que no sale».
+// Vida propia: estudia en Girona, sale todas las noches. Después del chiste del D3, va de perdón en perdón.
 
 === jan ===
 -> charla
@@ -7,21 +8,35 @@
 = charla
 - (opciones)
 #caduca: D{dia + 1} 00:00
-* [jan no tiene gracia lo de escaparse 🙄]
+* {dia >= 4 or (dia == 3 and hora >= 23)} [jan no tiene gracia lo de escaparse 🙄]
     perdóoon. ya me riñó queralt #delay: 300
-    -> opciones
-* {dia >= 2} [jan, tu tío aún tiene el piso de girona?]
+    #caduca: D{dia + 1} 00:00
+    ** [vale. perdonado]
+        te debo una. o dos. queralt dice que tres #delay: 120
+    ** [es que no la tiene, jan]
+        ya. lo sé #delay: 120
+        a veces abro la boca y sale un jan que no controlo 🙃 #delay: 5
+    ** [(sin responder)]
+    - - -> opciones
+* (piso) {dia >= 2} [jan, tu tío aún tiene el piso de girona?]
     ~ sabe_girona = true
     el del barri vell? sí, vacío #delay: 300
     me lo preguntaste hace un mes, te acuerdas? te dije que sin problema #delay: 5
     las llaves están debajo del felpudo jajaja como siempre #delay: 4
     estás allí??? #delay: 30
-    -> opciones
+    #caduca: D{dia + 1} 00:00
+    ** [no. era por saber]
+        ah vale. pues ahí sigue. con sus dos tazas en el fregadero #delay: 120
+    ** [no se lo digas a nadie]
+        a nadie #delay: 120
+        bueno. a nadie más #delay: 3
+    ** [(sin responder)]
+    - - -> opciones
 * [jan qué tal de pepe el romano?]
     el mejor papel del mundo. no salgo, no hablo, y todas se pelean por mí 😎 #delay: 300
     dolors dice que es el personaje más importante de la obra. yo creo que lo dice para que no me vaya #delay: 5
     -> opciones
-* {dia >= 2} [jan, alguien más sabe lo del piso?]
+* {piso} [jan, alguien más sabe lo del piso?]
     ehhh #delay: 300
     se lo dije a la mireia una vez. que buscaba sitio para estar tranquila con sergi. hace semanas #delay: 5
     y a ti. y a medio grupo de girona. soy una tumba jajaja #delay: 4
@@ -39,6 +54,9 @@
 * {dia >= 4} [jan gracias por no preguntar]
     yo nunca pregunto, por eso me cuentan todo jajaja #delay: 300
     vale. eso no ha quedado bien. pero lo digo con cariño 💛 #delay: 5
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
     -> charla

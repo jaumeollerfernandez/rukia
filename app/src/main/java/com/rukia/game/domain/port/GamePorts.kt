@@ -15,9 +15,15 @@ interface CurrentCaseStore {
     fun set(caseId: String?)
 }
 
-/** Whether a case's week has started (it was opened, and not reset since). */
-fun interface CaseProgress {
+/** A case's week: whether it has started (it was opened, and not reset since), and its clock. */
+interface CaseProgress {
     fun isStarted(caseId: String): Boolean
+
+    /** Midnight of D1, fixed the first time it's asked for: opened from noon on, that's tomorrow. */
+    fun start(caseId: String): Long
+
+    /** The case's current time. */
+    fun now(caseId: String): Long
 }
 
 /** How a case's week went, read from its save. The game backs it with the chat app's story and the Police app's log. */

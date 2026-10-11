@@ -93,7 +93,14 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
     Una era de Capsec, la Pepita de Can Pericot. Esa murió hace unos años. #delay: 5
     La otra, de por Sant Salvador. El nombre no me sale. Tu madre me dijo que está en una residencia. #delay: 6
     ¿Por qué lo preguntas? #delay: 4
-    -> opciones
+    #caduca: {limite}
+    ** [por nada, tía. me acordé de ella]
+        Pues pregúntale a tu madre. Aunque ahora mismo, mejor no le preguntes nada. #delay: 300
+    ** [creo que no está en ninguna residencia]
+        ¿No? #delay: 300
+        Pues tu madre me lo dijo muy segura. Claro que tu madre también dice que está «de duelo» desde hace tres años. #delay: 8
+    ** [(sin responder)]
+    - - -> opciones
 * {dia >= 2} [tía, si un día me hiciera falta, vendrías a buscarme sin decírselo a mamá?]
     Dime dónde y voy ahora mismo. Con el coche y con tu padre si hace falta. #delay: 300
     No hace falta que me expliques nada. #delay: 5
@@ -103,8 +110,28 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
     El de la barba hablaba con la Conxita, tu vecina. Le daba un folleto y ella asentía mucho. #delay: 6
     Yo de esa no me fiaría. Lo cuenta todo. #delay: 4
     -> opciones
+// Con el folleto de la Trobada de l'Alba (IMG_0402): Marta también lo recibió.
+* {foto_img_0402 and dia >= 2} [tía, te ha llegado un folleto de una «trobada de l'alba»?]
+    ¿El de la rosa? Me lo dejaron en la parada, entre las fresas. #delay: 300
+    «Para familias», al amanecer, en un cráter con una ermita dibujada. Con desayuno. #delay: 6
+    Subir a un volcán de noche no es una excursión, cariño. Es una penitencia. #delay: 5
+    #caduca: {limite}
+    ** [quién te lo dejó?]
+        No lo vi. Cuando volví del almacén estaba ahí. #delay: 300
+        La de la parada de al lado dice que un señor mayor con barba blanca. Muy educado. #delay: 6
+    ** [no vayas, tía]
+        Ni loca. Yo al alba estoy montando la parada. #delay: 300
+    ** [(sin responder)]
+    - - -> opciones
 * [te quiero tía]
     Y yo a ti, mi niña. Mucho. #delay: 300
+    -> opciones
+* {dia >= 2} [tía qué tal la parada?]
+    Las fresas a precio de oro y las clientas preguntando por ti. #delay: 300
+    Medio mercado sabe que tu madre dice que estás de viaje. El otro medio no se lo cree. #delay: 6
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

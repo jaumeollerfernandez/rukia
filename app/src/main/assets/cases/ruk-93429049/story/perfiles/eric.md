@@ -13,6 +13,22 @@ Dejó el bachillerato y entró en el Forn; quiere ser panadero de verdad y tener
 - Inseguro con lo que siente: «te echo de menos yo / no he dicho eso».
 - Culpa inmediata cuando mete la pata: «ali la he liado… perdóname».
 
+## Vida propia esta semana
+- La masa madre nueva («pilarín»), las cocas del D5, cubrir los turnos de Alicia.
+
+## Objetivo y secreto
+- **Secreto mal guardado:** le gusta Alicia. Si ella le dice «yo también te echo de menos», el D4 ya no disimula («y no para la birra 🙃»).
+- Si Alicia le confiesa que cogió las barras, no la nombra en su post.
+
+## Escribe por su cuenta
+- D1 14:10, D2 13:20, D3 16:00, D4 14:30, D5 (la ha liado con Berta, o las cocas), D6 09:45 (Dani).
+
+## Recuerda
+- `eric.d1.cogi`, `eric.d2.tambien`.
+
+## Gonpi
+- Si Alicia le pide que no cuente lo de las barras cuando su post ya está publicado (D2 desde las 13:00), lo archiva (`eric_archiva`) y desaparece de Gonpi.
+
 ## Cómo escribe
 - **Minúscula, sin punto**, frases cortas con broma.
 - Emojis: 🍺, 🤐, 🍞, 🕵️🥖, 🙃, 😅, 🤷.

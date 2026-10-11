@@ -20,6 +20,9 @@ La hija «buena»: responsable, ordenada, un poco celosa de la pequeña. Hizo un
 ## Relación con Alicia
 Hermana mayor protectora y opresiva. Conoce sus escondites de niña («te escondías en el desván»). Le ha planchado la ropa blanca.
 
+## Cómo reacciona
+- D2: cualquier respuesta le confirma que alguien lee el móvil. Si le preguntan «qué día es», sabe que no es Ali («Ali lo sabe»); si le dicen «déjame en paz», duda («Eso suena a ti»).
+
 ## Cómo escribe
 - **Mayúsculas y puntos**, frases bien hechas, más correcta que su madre. A veces suelta un «joder» o un «tía». Cuando está desesperada (D2-D6) se le escapan faltas y se come las tildes: «Devuelvela», «almenos», «estes», «tí».
 - Emojis: 🌹 (su firma), 🌅, ☀️, «<3», 🙄 (con Alicia).

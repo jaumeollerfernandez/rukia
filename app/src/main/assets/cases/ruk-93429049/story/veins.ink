@@ -56,6 +56,9 @@ Mañana hay corte de luz de 18 a 22, lo ha dicho el Ayuntamiento. Cargad los mó
 * {dia >= 4} [enric, yo también he visto ese coche gris]
     -> pillada ->
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
 - ->->
 

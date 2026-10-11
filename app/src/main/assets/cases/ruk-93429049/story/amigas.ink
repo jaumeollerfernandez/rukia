@@ -56,6 +56,12 @@ en mi casa a las 9. traed algo. lo que sea #from: mireia #delay: 30 #caduca: D3 
 * [feliz cumple adelantado mire 🎂💛 este año no puedo]
     jo 🥺 #from: mireia #delay: 120
     te guardamos un trozo de tarta #from: carla #delay: 30
+* (vendre) [allí estaré 💛]
+    😭😭 sí?? #from: mireia #delay: 60
+    ALI VIENE #from: carla #delay: 10
+    ... #from: nuria #delay: 600
+* [no sé si podré. pero lo intento]
+    con eso me vale 🥺 #from: mireia #delay: 120
 * [(sin responder)]
 - -> charla("D2 23:55") ->
 -> d3
@@ -74,7 +80,11 @@ felicidades mire!! #from: nuria #at: D3 09:10
     me da miedo tía #from: carla #delay: 60
 }
 fotos de la fiesta ya en gonpi 📸 #from: carla #at: D3 23:40
-faltabas tú, ali 💔 #from: mireia #delay: 30
+{d2.vendre:
+    dijiste que vendrías 💔 #from: mireia #delay: 30
+- else:
+    faltabas tú, ali 💔 #from: mireia #delay: 30
+}
 -> charla("D4 12:55") ->
 -> d4
 
@@ -151,6 +161,9 @@ habéis visto gonpi??? policía en el cráter de santa margarida #from: carla #a
     {not nuria_sabe:
         chicas no es momento #from: nuria #delay: 600
     }
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

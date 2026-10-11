@@ -19,6 +19,27 @@ Conocidas cercanas del pueblo, no íntimas. Se escriben por cosas de la fiesta. 
 ## Papel en la trama
 ⚠️ Trampa: lo que el jugador le cuente sobre dónde está Alicia llega a Berta (`laura_sabe`, `secta_sabe_rosalia` o `secta_a_capsec`). Señales: su comentario «cuánto cuesta» en el post del Casal, su post de mindfulness y que Carla la vio subir al coche de Berta.
 
+## Vida propia esta semana
+- En el paro, en casa de sus padres. Hace el cartel de la fiesta (D4) con una rosa y mucho dorado.
+- D3: primera sesión de mindfulness en el jardín del Casal; la recibe Berta. D4: se apunta al retiro de silencio.
+
+## Objetivo y secreto
+- Quiere sentirse útil y parte de algo. **No sabe guardar un secreto ante «la familia»:** si promete callar que Alicia le escribió, se lo cuenta a Berta en cuanto la ve llorar, y pide perdón.
+- Si Alicia le dice que no vaya al retiro, se lo piensa; el D7 lo recuerda («tú me dijiste que no fuera»).
+
+## Temas
+- **A gusto:** el Casal («allí te escuchan»), Berta, el cartel.
+- **Malinterpreta:** cree que contarle cosas a Berta ayuda a Alicia.
+
+## Ritmo
+- Rápido (1-2 minutos). Exclamaciones dobles, 🌻.
+
+## Escribe por su cuenta
+- **D2 19:40, D3 18:00, D4 20:30, D6 12:00 (si sabe dónde está), D7 10:00:** su chat va por escenas.
+
+## Recuerda
+- `laura.d2.promete` (rompe la promesa el D3), `laura.d4.no_vayas` (lo recuerda el D7).
+
 ## Cómo escribe
 - **Minúscula, sin punto**, con exclamaciones dobles («ali!!», «capsec!!»).
 - Emojis de buen rollo: 🌻 (su firma), 💛, 🥰, 🥹, 🌿, 🙈, 🤞, 😬.

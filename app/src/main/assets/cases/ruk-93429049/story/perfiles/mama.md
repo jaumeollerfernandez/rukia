@@ -23,6 +23,10 @@ Desde entonces lo ha ido dando todo: el piso de su madre (120.000 €), sus ahor
 ## Relación con Alicia
 La quiere y la necesita «completa» para el amanecer. Sabe que Alicia no firmó. Guarda su móvil: primero en un cajón, luego en la caja de metal de la cocina.
 
+## Cómo reacciona
+- Al primer mensaje, se sorprende; después ya habla a quien tenga el móvil («Si eres tú, ven a decírmelo a la cara. Y si no eres tú, no uses su voz.»).
+- Cualquier mensaje sube `sospecha_familia`.
+
 ## Cómo escribe
 - **Mayúscula inicial**, frases completas, a veces sin tilde ni punto («mas», «confia», «Piensatelo»). Escribe como una mujer de cincuenta con el móvil: algún espacio raro, signos dobles («Vamos todas verdad, como siempre?.»).
 - Emojis suaves y de su mundo: 🌹, ☀️, 🌸, 💛, «:)».

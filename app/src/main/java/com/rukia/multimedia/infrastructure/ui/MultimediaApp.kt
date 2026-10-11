@@ -22,6 +22,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.rukia.multimedia.domain.model.Photo
 import com.rukia.multimedia.domain.port.Gallery
+import com.rukia.multimedia.domain.port.StoryFlags
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import com.rukia.multimedia.infrastructure.MultimediaModule
 import com.rukia.phone.infrastructure.ui.MugshotPicture
 import com.rukia.phone.infrastructure.ui.SystemBars
@@ -31,16 +34,18 @@ val MultimediaOrange = Color(0xFFF57C00)
 
 /**
  * Multimedia app: a gallery of the photos in assets/cases/<caseId>/multimedia/, then the police photos ([mugshots])
- * of the records the player read. Tap one to see it full screen.
+ * of the records the player read. Tap one to see it full screen; the story learns it through [flags].
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MultimediaApp(caseId: String, mugshots: Gallery = Gallery { emptyList() }) {
+fun MultimediaApp(caseId: String, flags: StoryFlags = StoryFlags {}, mugshots: Gallery = Gallery { emptyList() }) {
     val context = LocalContext.current
-    val photos = remember(caseId) { MultimediaModule(context.applicationContext, caseId, mugshots).listPhotos() }
+    val module = remember(caseId) { MultimediaModule(context.applicationContext, caseId, mugshots, flags) }
+    val photos = remember(module) { module.listPhotos() }
     var open by rememberSaveable { mutableStateOf<String?>(null) }
 
     photos.find { it.path == open }?.let { photo ->
+        LaunchedEffect(photo.path) { withContext(Dispatchers.IO) { module.viewPhoto(photo) } }
         BackHandler { open = null }
         SystemBars(lightBottomIcons = true)
         Box(Modifier.fillMaxSize().background(Color.Black).clickable { open = null }, contentAlignment = Alignment.Center) {

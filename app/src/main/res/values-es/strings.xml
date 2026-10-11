@@ -23,6 +23,8 @@
     <string name="cases_kicker">EXPEDIENTES · NIVEL 5</string>
     <string name="case_file">EXP. %1$s</string>
     <string name="case_status_open">ABIERTO</string>
+    <string name="case_status_connecting">CONECTANDO CON EL TERMINAL</string>
+    <string name="case_connecting_note">El enlace con el teléfono estará activo a medianoche. Vuelve entonces.</string>
     <string name="open_case_file">ABRIR EXPEDIENTE</string>
     <string name="training">ENTRENAMIENTO</string>
     <plurals name="cases_footer">
@@ -179,9 +181,8 @@
     <string name="officers_on_way">Agentes en camino</string>
     <string name="no_squad_anymore">Ya no queda ninguna patrulla disponible</string>
     <string name="reset_q">¿Reiniciar todos los chats?</string>
-    <string name="reset_text">Se borrarán todos los datos de esta partida: cada conversación, llamada y decisión de la historia. La historia volverá a empezar desde el principio: al momento si es por la mañana, o mañana por la mañana a partir de las %1$d:00. No se puede deshacer.</string>
+    <string name="reset_text">Se borrarán todos los datos de esta partida: cada conversación, llamada y decisión de la historia. La historia volverá a empezar desde el principio: al momento si es antes de las %1$d:00; si no, a medianoche (hasta entonces el caso estará conectando). No se puede deshacer.</string>
     <string name="delete_everything">Borrar todo</string>
-    <string name="chats_reset">Se han reiniciado los chats</string>
     <string name="operations">Operaciones</string>
     <string name="ops_none_free">Ahora mismo no hay agentes libres. Las patrullas quedan disponibles a horas concretas durante el caso.</string>
     <string name="ops_squad_until">%1$s, disponible hasta las %2$s. Una patrulla, un sitio: elige con cuidado.</string>

@@ -17,6 +17,9 @@ Fue comercial de seguros en Barcelona, luego «coach» de empresa, luego facilit
 - Paciente y calculador: visita a Pol, llama a la residencia, manda la furgoneta a peinar masías.
 - Si pierde, desaparece (en algunos finales «no estaba»).
 
+## Cómo contesta
+- Si Alicia le responde (D3 y D5), no da su nombre ni discute: escucha y devuelve la culpa («Las puertas de casa no se cierran con llave. Solo se dejan abiertas»; «¿Cuánto hacía que no la veías sonreír?»). Contestarle no cambia nada.
+
 ## Cómo escribe
 - **Frases cortas, perfectas, con punto.** Mayúsculas. Tono de homilía tranquila.
 - Un solo emoji, siempre el mismo: 🌹.

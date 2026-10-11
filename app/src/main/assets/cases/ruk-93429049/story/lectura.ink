@@ -28,6 +28,11 @@ Ramon, por favor 🙄 #from: gemma #delay: 600
 Alicia, tengo aún «Nada» a tu nombre. Cuando puedas, me lo devuelves, que hay lista de espera. #from: teresa #at: D3 11:00 #caduca: D4 11:00
 * [lo siento teresa, la semana que viene te lo traigo]
     Sin prisa, mujer. #from: teresa #delay: 900
+* [te lo llevará mi madre]
+    Perfecto. Dile que no hay prisa. #from: teresa #delay: 900
+* [ramon, tú lo has leído cuatro veces. dile a teresa que me lo cuente 😂]
+    ¡Ja! Te lo cuento yo y te ahorras tres señoras de espera 😊 #from: ramon #delay: 1200
+    Alicia, el libro. #from: teresa #delay: 600
 * [(sin responder)]
 - -> d4
 

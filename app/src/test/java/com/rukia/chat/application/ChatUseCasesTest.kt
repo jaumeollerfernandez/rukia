@@ -104,6 +104,28 @@ class ChatUseCasesTest {
         assertFailsWith<IllegalArgumentException> { EndCall(repo)("rukia", answered = true) }
     }
 
+    @Test fun `a ringing call holds the story until it ends, and left ringing it's missed`() {
+        var advances = 0
+        val story = object : StoryEngine {
+            val answered = mutableListOf<Boolean>()
+            override fun advance(chatId: String) = when (advances++) {
+                0 -> StoryStep(listOf(StoryLine(null, "Calling you", call = true)), emptyList())
+                else -> StoryStep(listOf(StoryLine(null, "after the call")), emptyList())
+            }
+            override fun choose(chatId: String, index: Int) = error("unused")
+            override fun reset() {}
+            override fun setVariable(name: String, value: Boolean) { answered += value }
+        }
+        repo.save(Chat("rukia", listOf("rukia")))
+        AdvanceChat(repo, story, notifier, clockAt(10, 30))("rukia")
+        AdvanceChat(repo, story, notifier, clockAt(10, 32))("rukia")
+        assertEquals(1, advances, "still ringing: the story waits")
+        val missed = AdvanceChat(repo, story, notifier, clockAt(10, 36))("rukia")
+        assertEquals(listOf(false), story.answered)
+        assertEquals(CallStatus.DECLINED, missed.messages[1].call)
+        assertEquals("after the call", missed.messages.last().text)
+    }
+
     @Test fun `delayed lines arrive later and are handed to the notifier`() {
         val story = object : StoryEngine {
             override fun advance(chatId: String) = StoryStep(

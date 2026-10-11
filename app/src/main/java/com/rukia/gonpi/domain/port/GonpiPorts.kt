@@ -22,3 +22,8 @@ fun interface ContactDirectory {
 fun interface PostAlarm {
     fun set(author: String, at: Long)
 }
+
+/** Whether a story variable is true: a post's author archives it once its [com.rukia.gonpi.domain.model.Post.hiddenBy] is. */
+fun interface StoryFacts {
+    fun isTrue(name: String): Boolean
+}

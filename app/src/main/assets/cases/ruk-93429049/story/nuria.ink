@@ -172,6 +172,12 @@ primera. dónde fuimos en el viaje de fin de curso #delay: 8 #caduca: D4 17:00
 * [no te lo puedo decir nuri. pero estoy bien]
     vale. con eso me vale #delay: 30
     no se lo digo a nadie. ni a carla ni a mire #delay: 4
+* [sí. pero no se lo digas a nadie]
+    lo sabía 😭 #delay: 30
+    a nadie. ni a mi madre. te lo juro por la iaia #delay: 5
+* [no, nuri. no estoy allí]
+    vale... #delay: 30
+    pues donde estés, cuídate. y escríbeme aunque sea un emoji #delay: 5
 * [(sin responder)]
     vale. tu silencio también es un sí #delay: 1
 - -> fin_d3
@@ -203,15 +209,21 @@ vale. no contestar también es una respuesta #delay: 1
     ahora lo saben #delay: 4
     -> fin_d4
 }
-{sabe_estrellas:
-    he subido una foto nuestra a gonpi #at: D4 21:05
-    para que sepas que pienso en ti #delay: 5
-    si estás donde creo, mira las estrellas esta noche. yo también las miraré ✨ #delay: 8
-- else:
-    sigo preocupada. mucho #at: D4 21:05
-    aunque sea un emoji, ali #delay: 10
-}
+{sabe_estrellas: -> d4_estrellas}
+sigo preocupada. mucho #at: D4 21:05
+aunque sea un emoji, ali #delay: 10
 -> fin_d4
+
+= d4_estrellas
+he subido una foto nuestra a gonpi #at: D4 21:05
+para que sepas que pienso en ti #delay: 5
+si estás donde creo, mira las estrellas esta noche. yo también las miraré ✨ #delay: 8 #caduca: D5 10:00
+* [las miraré ✨]
+    ✨ #delay: 60
+* {not nuria_sabe} [la foto es preciosa nuri]
+    es la del refugi de cuarto. tú con flequillo. no me odies #delay: 60
+* [(sin responder)]
+- -> fin_d4
 
 = fin_d4
 {not nuria_denuncia:
@@ -221,17 +233,29 @@ vale. no contestar también es una respuesta #delay: 1
 
 = d5
 {nuria_denuncia: -> d5_denuncia}
-{sabe_estrellas:
-    ~ sabe_puerta_azul = true
-    he soñado otra vez con la casa de las estrellas #at: D5 10:30
-    y me he acordado de una cosa #delay: 4
-    la puerta era azul. azul fuerte. y había un pozo delante #delay: 5
-    no sé si te sirve #delay: 3
-- else:
-    hoy ha jugado el vóley sin ti. han perdido #at: D5 13:30
-    todo es una mierda sin ti, ali #delay: 10
-}
+{sabe_estrellas: -> d5_puerta}
+hoy ha jugado el vóley sin ti. han perdido #at: D5 13:30
+todo es una mierda sin ti, ali #delay: 10
 -> fin_d5
+
+= d5_puerta
+~ sabe_puerta_azul = true
+he soñado otra vez con la casa de las estrellas #at: D5 10:30
+y me he acordado de una cosa #delay: 4
+la puerta era azul. azul fuerte. y había un pozo delante #delay: 5
+no sé si te sirve #delay: 3 #caduca: D6 10:00
+* [me sirve. gracias nuri]
+    {nuria_sabe:
+        pues encuéntrala #delay: 60
+        antes que ellos #delay: 4
+    - else:
+        pues ya está. ya sé dónde te imagino cuando me duermo 💛 #delay: 60
+    }
+* {not nuria_sabe} [te acuerdas del pozo? tiraste una moneda]
+    TIRÉ MI COLETERO jajaja #delay: 60
+    y tu iaia lo sacó con un cubo. qué vergüenza #delay: 5
+* [(sin responder)]
+- -> fin_d5
 
 = fin_d5
 -> charla("D6 11:25") ->
@@ -253,22 +277,33 @@ solo dime una cosa. ali está bien? #delay: 4 #caduca: D5 23:59
 - -> fin_d5
 
 = d6
-{confianza_nuria >= 2:
-    ~ sabe_rosalia = true
-    ~ sabe_puerta_azul = true
-    mira lo que he encontrado en el álbum de mi madre #at: D6 11:30
-    (foto) #delay: 3 #image: chat/nuria_mas.jpg
-    sois tú y tu iaia. delante de la casa de las estrellas #delay: 5
-    detrás pone a boli: «mas de la rosalia. estiu 2012» #delay: 6
-    la puerta azul ✨ #delay: 4
+{confianza_nuria >= 2: -> d6_foto}
+{nuria_sabe:
+    suerte. de verdad #at: D6 21:00
 - else:
-    {nuria_sabe:
-        suerte. de verdad #at: D6 21:00
-    - else:
-        ali... #at: D6 21:00
-    }
+    ali... #at: D6 21:00
 }
 -> d7
+
+= d6_foto
+~ sabe_rosalia = true
+~ sabe_puerta_azul = true
+mira lo que he encontrado en el álbum de mi madre #at: D6 11:30
+(foto) #delay: 3 #image: chat/nuria_mas.jpg
+sois tú y tu iaia. delante de la casa de las estrellas #delay: 5
+detrás pone a boli: «mas de la rosalia. estiu 2012» #delay: 6
+la puerta azul ✨ #delay: 4 #caduca: D7 06:00
+* [gracias nuri. de verdad]
+    {nuria_sabe:
+        no me des las gracias. tráela #delay: 60
+    - else:
+        no me las des. vuelve #delay: 60
+        o no. pero cuídate. y la rosalia que te dé de comer 💛 #delay: 6
+    }
+* [no se lo enseñes a nadie]
+    a nadie. está en mi cajón. con tus cartas de cuando teníamos diez años #delay: 60
+* [(sin responder)]
+- -> d7
 
 = d7
 {rescatada():
@@ -317,6 +352,11 @@ solo dime una cosa. ali está bien? #delay: 4 #caduca: D5 23:59
         vale tía. pero me tienes muy rayada #delay: 5
     }
     -> opciones
+* {habla and not nuria_sabe and dia >= 2} [qué tal por girona?]
+    exámenes de enfermería. anatomía #delay: 120
+    me sé todos los huesos del pie y no me sé concentrar por tu culpa 🙄 #delay: 5
+    mi compañera de piso dice que hablo dormida. de ti #delay: 6
+    -> opciones
 * {habla and not nuria_sabe} [sabes algo de pol?]
     pol? me ha escrito por gonpi preguntando si sé algo de ti #delay: 120
     está rayadísimo. qué le hiciste jajaja #delay: 4
@@ -348,6 +388,9 @@ solo dime una cosa. ali está bien? #delay: 4 #caduca: D5 23:59
     - else:
         y te lo voy a decir a ti? #delay: 60
     }
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

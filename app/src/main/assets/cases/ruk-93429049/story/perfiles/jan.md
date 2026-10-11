@@ -14,6 +14,24 @@ Está en el grupo por los amigos. Su tío tiene un piso vacío en el barri vell 
 ## Papel en la trama
 🎭 El piso de Girona: una segunda pista hacia Girona que no lleva a ninguna parte.
 
+## Vida propia esta semana
+- Estudia en Girona y sale «TODAS LAS NOCHES». El D3 hace el chiste de la desaparición y Queralt le riñe.
+
+## Con Alicia
+- Compañero de teatro. Le dijo que sí al piso de su tío sin preguntar.
+
+## Objetivo y secreto
+- **Secreto que no sabe guardar:** el piso vacío del barri vell (llave bajo el felpudo). Se lo contó a Mireia y a «medio grupo de girona».
+
+## Temas
+- **A gusto:** fiestas, Pepe el Romano, pedir perdón («perdóoon x2»).
+
+## Ritmo
+- Unos 5 minutos. Minúscula, vocales alargadas.
+
+## Escribe por su cuenta
+- No escribe solo: solo en el grupo de teatro.
+
 ## Cómo escribe
 - **Minúscula, sin punto**, «jajaja», vocales alargadas. Emojis: 🙃.
 

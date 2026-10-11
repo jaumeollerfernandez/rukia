@@ -24,14 +24,27 @@ Os recuerdo que el cartel tiene que estar en la imprenta en cinco días. #from: 
 Ali, ¿cómo va el cartel? 🎨 #from: laura #at: D3 18:20 #caduca: D4 18:20
 * [no voy a poder hacerlo, lo siento. hacedlo sin mí]
     ostras, vale. no pasa nada, lo apaño yo #from: laura #delay: 1200
+* (medias) [lo tengo a medias. os lo paso en dos días]
+    genial!! 🌻 #from: laura #delay: 1200
+    Dos días es justo lo que hay, Alicia. Ni uno más. #from: quim #delay: 600
+* [laura hazlo tú, que también dibujas bien]
+    jajaja mentirosa #from: laura #delay: 1200
+    vale. lo intento 🌻 #from: laura #delay: 10
 * [(sin responder)]
     bueno, lo apaño yo #from: laura #delay: 1
 - -> d4
 
 = d4
-cartel hecho. no es lo mismo que si lo hubiera hecho ali pero bueno 🙃 #from: laura #at: D4 22:00
+{d3.medias:
+    ali no me has pasado nada, así que lo he hecho yo 🙃 #from: laura #at: D4 22:00
+- else:
+    cartel hecho. no es lo mismo que si lo hubiera hecho ali pero bueno 🙃 #from: laura #at: D4 22:00
+}
 sale un tractor? #from: marc #delay: 60
 no #from: laura #delay: 5
+{marc.tractor.prometo:
+    ali me prometiste uno pequeñito 😢 #from: marc #delay: 30
+}
 -> d5
 
 = d5

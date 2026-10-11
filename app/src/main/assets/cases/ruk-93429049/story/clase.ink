@@ -27,6 +27,13 @@ mañana examen de psico, me quiero morir #from: aina #at: D1 21:40 #caduca: D2 1
 * [estoy mala, perdonad. sergi luego te escribo]
     Vale. Mejórate. #from: sergi #delay: 180
     ponte buena ali 💛 #from: paula #delay: 60
+* [sergi, empieza tú la exposición si quieres]
+    No. Es de los dos. #from: sergi #delay: 180
+    Pero empiezo yo, sí. #from: sergi #delay: 20
+    sergi el mártir #from: oriol #delay: 120
+* [aina tú puedes con psico 💪]
+    no puedo pero te quiero 😭 #from: aina #delay: 120
+    Alicia, la exposición. #from: sergi #delay: 60
 * [(sin responder)]
     Vale, pues lo empiezo yo. #from: sergi #delay: 1
 - -> d2
@@ -45,6 +52,12 @@ la gente normal es aburrida #from: oriol #delay: 10
 Alicia, te he subido mi mitad de la presentación al drive. #from: sergi #at: D2 21:00 #caduca: D3 12:00
 * [gracias sergi, eres un sol]
     De nada. Pero haz tu parte. #from: sergi #delay: 300
+* [sergi, no creo que pueda hacer mi parte]
+    Pues dímelo con tiempo. #from: sergi #delay: 300
+    Ya está dicho. Vale. #from: sergi #delay: 10
+* [oriol, quién subió bracons contigo?]
+    nadie. yo solo. con mi frontal y mi soledad 🚴🌙 #from: oriol #delay: 120
+    bueno y una tía rara. mañana os cuento #from: oriol #delay: 5
 * [(sin responder)]
 - -> d3
 

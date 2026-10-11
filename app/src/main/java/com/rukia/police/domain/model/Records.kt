@@ -48,6 +48,9 @@ data class PoliceRecord(
 
     /** The story variable set when the player reads it. */
     val flag get() = "ficha_$id"
+
+    /** A person's surnames, everything after the first name ("Serra Vidal"). Null for a vehicle or when they aren't known. */
+    val surname: String? get() = if (vehicle) null else name.substringBefore(" (").substringAfter(' ', "").ifEmpty { null }
 }
 
 /** One numbered part of a record. Every part is optional: most sections use one or two. */

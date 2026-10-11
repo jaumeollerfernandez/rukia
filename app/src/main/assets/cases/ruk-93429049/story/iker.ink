@@ -33,8 +33,15 @@ trae el dni, que para el contrato hace falta 😘 #delay: 4 #caduca: D3 03:00
 = d3
 oye #at: D3 23:50
 hoy ha venido la policía al club. nada que ver contigo eh, cosas de licencias #delay: 5
-si alguien te pregunta por mí, no me conoces 🙈 #delay: 6
--> d4
+si alguien te pregunta por mí, no me conoces 🙈 #delay: 6 #caduca: D4 14:00
+* [por qué no te iba a conocer?]
+    porque no hace falta complicarse, guapa 😘 #delay: 600
+    tú y yo solo hemos hablado de trabajo. y ni eso #delay: 5
+* [qué policía?]
+    la de siempre. papeles, licencias, horarios #delay: 600
+    nada que ver contigo. ni conmigo 😉 #delay: 4
+* [(sin responder)]
+- -> d4
 
 // Ya sabe lo de la deuda. Ahora la busca para la red, con buenas palabras.
 = d4
@@ -59,8 +66,15 @@ solo dime por qué zona estás 😊 #delay: 4 #caduca: D5 14:00
 guapa
 la habitación ya está lista. y dani también 😉 #delay: 5
 esta tarde paso por la zona. si me dices dónde estás, te recojo yo mismo #delay: 6
-nadie de tu familia se va a enterar #delay: 4
--> d7
+nadie de tu familia se va a enterar #delay: 4 #caduca: D6 18:00
+* [no me busques]
+    nadie te busca, guapa #delay: 600
+    solo queremos ayudar 😘 #delay: 3
+* [dile a dani que no]
+    díselo tú #delay: 600
+    a mí no me metas en vuestras cosas 🙈 #delay: 4
+* [(sin responder)]
+- -> d7
 
 // Si ya se la han llevado, el número deja de existir: no vuelve a escribir.
 = d7

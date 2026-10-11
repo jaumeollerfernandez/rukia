@@ -11,7 +11,9 @@ import com.rukia.police.domain.port.RecordLog
 import com.rukia.police.domain.port.RecordsRepository
 import com.rukia.police.domain.port.StoryFlags
 import com.rukia.police.domain.port.StoryFacts
+import java.text.Collator
 import java.time.Clock
+import java.util.Locale
 
 private const val HOUR = 3_600_000L
 
@@ -39,7 +41,10 @@ class GetRecords(
                 if (condition.startsWith(READ)) condition.removePrefix(READ) in read else facts.isTrue(condition)
             }
         }
-        val rows = repo.records().records.filter(known).map { record ->
+        // People by surname, accents aside ("Vilà" next to "Vila"); those without a known one last. Vehicles by name.
+        val collator = Collator.getInstance(Locale("es")).apply { strength = Collator.PRIMARY }
+        val order = compareBy<PoliceRecord>({ it.vehicle }, { it.surname == null }).thenBy(collator) { r -> r.surname?.let { "$it ${r.name}" } ?: r.name }
+        val rows = repo.records().records.filter(known).sortedWith(order).map { record ->
             val request = requests[record.id]
             val status = when {
                 request == null -> RecordStatus.Available

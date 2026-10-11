@@ -17,6 +17,19 @@
 ## Relación con Alicia
 Ella es «prima», su prima mayor favorita, aunque no le preste el Netflix. Le escribe memes en ráfaga.
 
+## Vida propia esta semana
+- Ranked (sube a diamante el D5), la bici, la comida de la iaia del D7 (canelones, el muslo).
+
+## Objetivo y secreto
+- Quiere atención y el muslo. Guarda el vídeo de la rotonda si se lo piden.
+- Ir o no a la comida: si Alicia promete ir, la iaia hace canelones «para un regimiento» y el D7 Arnau se lo recuerda («y tú ibas a venir»).
+
+## Recuerda
+- `arnau.charla.ire`, `arnau.charla.no_ire`.
+
+## Gonpi
+- Si Alicia le pide que archive el vídeo de la rotonda, lo archiva (`arnau_calla`) y desaparece de Gonpi, con el comentario de Berta.
+
 ## Cómo escribe
 - **Ráfagas** de mensajes cortísimos, uno detrás de otro: «prima» / «PRIMA» / «me pasas tu cuenta de netflix».
 - Minúsculas, mayúsculas para gritar («TÚ», «VERDAD QUE SÍ»), sin puntos.

@@ -28,6 +28,14 @@ Alicia, ¿cuento contigo el sábado? #from: lluisa #at: D3 19:00 #caduca: D4 19:
 * [esta semana no puedo, lo siento mucho]
     No pasa nada. Fàtima, ¿puedes doblar? #from: lluisa #delay: 600
     Sí, sin problema 💪 #from: fatima #delay: 300
+// Prometer que va, si no le ha dicho ya a Lluïsa que no puede. Luego no aparece.
+* (voy) {not lluisa.charla.no_voy} [sí, cuenta conmigo]
+    ¡Genial! Toni, Alicia y tú de 10 a 13 🥫 #from: lluisa #delay: 600
+    ALI 🙏 trae galletas #from: toni #delay: 120
+* [toni, te cambio el turno por el siguiente?]
+    por galletas, lo que quieras #from: toni #delay: 300
+    Hecho. Fàtima, ¿te quedas tú con Toni? #from: lluisa #delay: 600
+    Sí, sin problema 💪 #from: fatima #delay: 300
 * [(sin responder)]
     Fàtima, ¿puedes doblar turno? Alicia no contesta. #from: lluisa #delay: 1
     Sí, sin problema 💪 #from: fatima #delay: 300
@@ -37,6 +45,11 @@ Alicia, ¿cuento contigo el sábado? #from: lluisa #at: D3 19:00 #caduca: D4 19:
 -> d5
 
 = d5
+{d3.voy:
+    Alicia, ¿vienes? Son las diez y cuarto #from: lluisa #at: D5 10:15
+    Fàtima, ¿puedes venir antes? #from: lluisa #delay: 1800
+    voy 💪 #from: fatima #delay: 300
+}
 Hoy 71 lotes. ¡Récord! Gracias, equipazo 🥫 #from: lluisa #at: D5 15:30
 // La deuda de Dani: va preguntando por Alicia (PISTAS.md). Toni es el primero que lo cuenta.
 Oye, Alicia, por si lees esto. Esta mañana un chaval en moto me ha parado en el almacén #from: toni #at: D5 16:10

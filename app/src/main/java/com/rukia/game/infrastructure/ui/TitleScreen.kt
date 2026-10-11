@@ -3,6 +3,7 @@ package com.rukia.game.infrastructure.ui
 import com.rukia.game.domain.model.CaseKind
 import com.rukia.game.domain.model.CaseReport
 import com.rukia.game.domain.model.GameCase
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -35,6 +36,7 @@ import androidx.compose.ui.unit.sp
 import com.rukia.R
 import com.rukia.phone.infrastructure.ui.RukiaIcons
 import com.rukia.phone.infrastructure.ui.SystemBars
+import kotlinx.coroutines.delay
 
 /**
  * Start: the case files there are so far. Back returns to the main menu. A closed case shows how it ended, with its
@@ -45,6 +47,7 @@ fun TitleScreen(
     cases: List<GameCase>,
     active: Int,
     reportOf: (caseId: String) -> CaseReport?,
+    isConnecting: (GameCase) -> Boolean,
     onBack: () -> Unit,
     onPlay: (GameCase) -> Unit,
     onReport: (GameCase) -> Unit,
@@ -55,6 +58,10 @@ fun TitleScreen(
     var replaying by rememberSaveable { mutableStateOf<String?>(null) }
     var replayed by remember { mutableIntStateOf(0) } // bumped after a replay, to show the case open again
     val reports = remember(cases, replayed) { cases.associate { it.id to reportOf(it.id) } }
+    // Bumped after a tap and every half minute: a case opened in the afternoon connects at midnight.
+    var tick by remember { mutableIntStateOf(0) }
+    LaunchedEffect(Unit) { while (true) { delay(30_000); tick++ } }
+    val connecting = remember(cases, tick, replayed) { cases.filter(isConnecting).map { it.id }.toSet() }
     Column(
         Modifier.fillMaxSize().terminalBackdrop().safeDrawingPadding().padding(start = 18.dp, end = 18.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -65,7 +72,7 @@ fun TitleScreen(
             cases.forEach { case ->
                 when (case.kind) {
                     CaseKind.Case -> reports[case.id]?.let { ClosedCaseCard(it, { onReport(case) }, { replaying = case.id }) }
-                        ?: CaseFileCard(case) { onPlay(case) }
+                        ?: CaseFileCard(case, case.id in connecting) { onPlay(case); tick++ }
                     CaseKind.Training -> TrainingCard(case) { onPlay(case) }
                     CaseKind.Debug -> DebugCard(case) { onPlay(case) }
                 }
@@ -85,13 +92,16 @@ fun TitleScreen(
     }
 }
 
-/** A real case: file number, a PRIORITY stamp, the headline, its key facts and a short summary. */
+/**
+ * A real case: file number, a PRIORITY stamp, the headline, its key facts and a short summary. While [connecting]
+ * (opened in the afternoon, it starts at midnight) it shows that instead of the open button, and can't be opened.
+ */
 @Composable
-private fun CaseFileCard(case: GameCase, onClick: () -> Unit) {
+private fun CaseFileCard(case: GameCase, connecting: Boolean, onClick: () -> Unit) {
     Box(
         Modifier.fillMaxWidth().background(Term.Card).border(1.dp, Term.Amber.copy(alpha = 0.6f))
             .drawBehind { drawRect(Term.Amber, size = size.copy(width = 4.dp.toPx())) }
-            .clickable(role = Role.Button, onClick = onClick),
+            .clickable(enabled = !connecting, role = Role.Button, onClick = onClick),
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
@@ -119,7 +129,15 @@ private fun CaseFileCard(case: GameCase, onClick: () -> Unit) {
                 }
             }
             Text(case.summary, fontFamily = Barlow, fontSize = 14.sp, lineHeight = 20.sp, color = Term.Body, maxLines = 3, overflow = TextOverflow.Ellipsis)
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+            if (connecting) Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    var dots by remember { mutableIntStateOf(0) }
+                    LaunchedEffect(Unit) { while (true) { delay(500); dots = (dots + 1) % 4 } }
+                    Box(Modifier.size(7.dp).background(Term.Amber, CircleShape))
+                    Text(stringResource(R.string.case_status_connecting) + ".".repeat(dots), style = mono(11, Term.Amber, spacing = 0f))
+                }
+                Text(stringResource(R.string.case_connecting_note), fontFamily = Barlow, fontSize = 13.sp, lineHeight = 18.sp, color = Term.Muted)
+            } else Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                     Box(Modifier.size(7.dp).background(Term.Green, CircleShape))
                     Text(stringResource(R.string.case_status_open), style = mono(11, Term.Green, spacing = 0f))

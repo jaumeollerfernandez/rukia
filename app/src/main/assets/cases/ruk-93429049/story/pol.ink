@@ -93,23 +93,57 @@ estás a salvo? #delay: 5 #caduca: D4 01:00
     y que te fuiste andando hacia bianya #delay: 4
     el tío me miraba de una forma... lo siento de verdad #delay: 10
 }
--> d5
+#caduca: D5 19:00
+* {pol_calla} [gracias pol. de verdad]
+    no me las des #delay: 60
+    pero ese tío ali. no me gusta nada #delay: 4
+* {not pol_calla} [no pasa nada, pol. no lo sabías]
+    sí pasa #delay: 60
+    me lo pediste sin pedírmelo y no me di cuenta #delay: 6
+* {not pol_calla} [por qué se lo dijiste?]
+    porque tu madre lloraba #delay: 60
+    y el tío decía que era por tu bien. y yo qué sé. me lié #delay: 6
+* [qué más te dijo el de la barba?]
+    que «hay vínculos que pesan aunque lleven tu apellido» #delay: 60
+    que tu familia te estaba esperando. que yo era «un buen chico» #delay: 5
+    me dio la mano al irse. la tenía helada #delay: 6
+* [(sin responder)]
+- -> d5
 
 = d5
-{not pol_calla:
-    no paro de pensar que la he cagado #at: D5 20:00
-    si te pasa algo por mi culpa... #delay: 10
-}
--> d6
+{pol_calla: -> d6}
+no paro de pensar que la he cagado #at: D5 20:00
+si te pasa algo por mi culpa... #delay: 10
+#caduca: D6 09:00
+* [no es tu culpa, pol]
+    ya #delay: 120
+    mañana voy a hacer algo. no sé el qué. pero algo #delay: 6
+* [(sin responder)]
+- -> d6
 
 = d6
-{not pol_calla:
-    he ido a los mossos. les he contado todo. lo de tu madre también #at: D6 10:00
-    no sé si sirve de algo. pero ya está #delay: 5
-- else:
-    pase lo que pase mañana, aquí estoy #at: D6 21:30
-}
--> d7
+{pol_calla: -> d6_aqui}
+he ido a los mossos. les he contado todo. lo de tu madre también #at: D6 10:00
+no sé si sirve de algo. pero ya está #delay: 5 #caduca: D7 05:00
+* [has hecho bien, pol]
+    eso espero #delay: 120
+    me han tratado como si fuera yo el raro #delay: 5
+* [no tenías que hacerlo]
+    ya lo sé #delay: 120
+    pero tenía que hacer algo #delay: 4
+* [(sin responder)]
+- -> d7
+
+= d6_aqui
+pase lo que pase mañana, aquí estoy #at: D6 21:30 #caduca: D7 05:00
+* [lo sé, pol]
+    vale #delay: 120
+    pues eso #delay: 4
+* [qué pasa mañana?]
+    no sé. cuando vinieron a casa, tu madre le dijo al de la barba «el séptimo amanecer» #delay: 120
+    no sé qué es. pero no me gusta #delay: 5
+* [(sin responder)]
+- -> d7
 
 = d7
 {rescatada():
@@ -128,6 +162,18 @@ estás a salvo? #delay: 5 #caduca: D4 01:00
     y que si alguien preguntaba, dijera que te había dejado en la estación. tal cual. lo repetiste dos veces #delay: 6
     como si te lo hubieras aprendido #delay: 5
     -> opciones
+// Con la captura de la ruta a pie (IMG_0409): Pol la vio irse andando, no hacia los autobuses.
+* {foto_img_0409} [pol, cuando me dejaste en la estación, me viste entrar?]
+    no. bueno #delay: 120
+    por el retrovisor te vi cruzar. hacia la rotonda, no hacia las dársenas #delay: 5
+    pensé que ibas al cajero. con la bolsa del pan y todo #delay: 5
+    #caduca: {limite}
+    ** [no se lo digas a nadie]
+        a quién se lo voy a decir. si nadie me pregunta por ti #delay: 120
+    ** [iba a coger otro bus]
+        a esas horas? ya no salía ninguno, ali #delay: 120
+    ** [(sin responder)]
+    - - -> opciones
 * [el coche gris era el tuyo, no?]
     el golf de mi padre. el de siempre #delay: 90
     ali estás bien? #delay: 3
@@ -142,6 +188,13 @@ estás a salvo? #delay: 5 #caduca: D4 01:00
 * {dia >= 3} [gracias por no preguntar, pol]
     a mandar #delay: 60
     pero un día me lo cuentas todo. con una birra #delay: 4
+    -> opciones
+* {dia >= 2} [qué tal en el taller?]
+    hoy un tractor con el embrague muerto. el de marc el del hostalnou #delay: 120
+    dice que tiene que desfilar en la fiesta. le he dicho que lo arrastre él #delay: 5
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

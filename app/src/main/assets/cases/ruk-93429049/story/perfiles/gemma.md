@@ -12,6 +12,26 @@ Se apunta a todo y no termina nada: el libro del club nunca lo empieza. En ioga 
 - Pregunta lo que todos piensan: «La madre de Ali va, ¿no?».
 - Cariñosa: «Qué pena, era la que más hablaba 😢».
 
+## Vida propia esta semana
+- Administrativa del Ayuntamiento: sabe lo que pide cada uno (el cartel de Quim, las prácticas de servicios sociales, el permiso de Berta y Laura).
+- Vermut, libros que no empieza, la relajación de ioga.
+
+## Con Alicia
+- Compañera de club y de esterilla. Bromas sobre el libro.
+
+## Objetivo y secreto
+- Quiere que Alicia vuelva al club («quién me va a contar de qué va el libro»). Ningún secreto.
+
+## Temas
+- **A gusto:** el Ayuntamiento («aquí se sabe todo y no se sabe nada»), Ramon, Quim.
+- **Malinterpreta:** lo del alba de Berta y Laura le parece una manía de madrugadoras.
+
+## Ritmo
+- Unos 5 minutos. Frases cortas con chispa y 🙈.
+
+## Escribe por su cuenta
+- **D5 13:30:** cuando Teresa dice que Alicia deja el club: «es verdad que dejas el club?? 😢».
+
 ## Cómo escribe
 - Mayúscula y tono suelto, a veces sin punto. Emojis: 🙈, 🙄, 😂, 😢, 😍, 🍸.
 - Frases cortas y con chispa.

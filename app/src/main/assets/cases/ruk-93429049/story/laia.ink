@@ -3,38 +3,25 @@
 // Le habla de tú y nunca le asigna género.
 
 === laia ===
-// Abierto por la tarde o la noche, el caso empieza al día siguiente y hoy es el D0 (dia = 0):
-// Laia presenta el caso esta misma noche y traza la estrategia; el D1 a las 10:00 solo da la salida.
-{dia < 1: -> d0}
+// El caso siempre empieza por la mañana del D1: abierto a partir de las 12:00, se queda «conectando» hasta medianoche.
 -> d1
 
-= d0
-Conexión establecida. Canal cifrado. #effect: glitch
--> presentacion ->
--> tutorial ->
--> estrategia ->
-Buenos días. Son las diez. #at: D1 10:00
-Desde ahora el móvil de Alicia está despierto. Su gente va a empezar a escribir. #delay: 4
-Lee antes de escribir. Y escribe como ella. #delay: 4
-Te escribo esta noche para el parte. #delay: 3
--> d1_noche
-
 = d1
-Conexión establecida. Canal cifrado. #at: D1 10:00 #effect: glitch
+Conexión establecida. Canal cifrado. #at: D1 00:00 #effect: glitch
 -> presentacion ->
 -> tutorial ->
 Te escribo esta noche para el parte. #delay: 3
 -> d1_noche
 
-// El encargo: quién es Alicia, las normas y la prisa (el tiempo corre). Sirve para la noche del D0 y para la mañana del D1.
+// El encargo: quién es Alicia, las normas y la prisa (el tiempo corre).
 = presentacion
 Soy la sargento Laia Puig Oller. Mossos d'Esquadra, comisaría de Olot. #delay: 4
 La conexión ha sido un éxito, y el teléfono actualmente está cifrado. Solo nosotros podemos leer y investigar este teléfono de manera privada. #delay: 10
 Te llamo para darte las instrucciones correctamente. #delay: 3 #call: audio/laia_encargo.m4a
 Te lo dejo también por escrito para que lo tengas a mano. #delay: 6
 Alicia Serra Vidal. 18 años. Vive en L'Hostalnou de Bianya con su madre, Montse, y su hermana mayor, Berta. #delay: 4
-{dia < 1:Desapareció anoche.|Desapareció anteanoche.} Se dejó el móvil en casa, cargando. Este móvil. #delay: 4
-{dia < 1:La madre ha venido esta tarde a denunciarlo.|La madre vino ayer a denunciarlo.} Sola, sin hacer ruido. Pidió que no saliera en ningún sitio. #delay: 5
+Desapareció anteanoche. Se dejó el móvil en casa, cargando. Este móvil. #delay: 4
+La madre vino ayer a denunciarlo. Sola, sin hacer ruido. Pidió que no saliera en ningún sitio. #delay: 5
 No hemos podido detectar el teléfono, pero si hemos podido introducirnos remotamente. #delay: 4
  Pero es raro que una chica se haya dejado un teléfono hoy en día. #delay: 4
 Oficialmente esto no existe. Y tú tampoco. #delay: 4
@@ -58,7 +45,7 @@ En una desaparición, las primeras horas son las que más valen. Y ya hemos perd
 Hay que encontrarla cuanto antes. El tiempo corre. #delay: 3
 ->->
 
-// Cómo funciona el móvil de Alicia. Se cuenta una sola vez, en el primer contacto (la noche del D0 o la mañana del D1).
+// Cómo funciona el móvil de Alicia. Se cuenta una sola vez, en el primer contacto (la mañana del D1).
 = tutorial
 Antes de empezar, cómo funciona esto. #delay: 4
 Chats: ahí lees y escribes como Alicia. Cuando te toque contestar, eliges entre varias frases. Elige con cuidado: lo que dices ya no se borra. #delay: 6
@@ -79,27 +66,6 @@ Por tanto: no desperdicies los intentos, pero no los dejes pasar. Cada noche, co
     {&Por cierto, hoy no has mandado ninguna búsqueda. Policía → Resolver el caso.|Hoy no has usado tu intento. Un intento por día, y no se acumula.|Sin búsqueda hoy. Aunque sea a ojo, marca una zona: un fallo también descarta sitios.} #delay: 4
 }
 #caduca: {limite}
-->->
-
-// Solo la noche del D0: por qué esperar a mañana y qué hacer mientras tanto.
-= estrategia
-Una cosa más. Ya es tarde. #delay: 5
-A estas horas Alicia no le escribe a nadie. Si su móvil se pone a hablar de noche, la madre lo notará. #delay: 5
-Así que esta noche no escribes. Lees. #delay: 3
-El plan. #delay: 3
-Uno: repasa todos sus chats, de arriba abajo. Cómo escribe, con quién habla, qué dejó pendiente. #delay: 5
-Dos: Gonpi y su galería de fotos. La gente cuenta mucho más de lo que cree. #delay: 5
-Tres: mañana a las diez el móvil «se despierta». Empieza por su gente: amigas, el ex, el trabajo. #delay: 5
-Cuatro: el grupo familiar, ni tocarlo. Se lee, no se escribe. #delay: 4
-Y cada noche, a las 21:30, me pasas el parte. #delay: 4 #caduca: D1 09:00
-* [¿Y si alguien le escribe esta noche?]
-    Alicia está dormida. Ni lo abras. #delay: 6
-    Mañana contestas, como haría ella. #delay: 3
-* [Entendido. Mañana a las diez.]
-    Bien. #delay: 3
-* [(sin responder)]
-    Lo tomo como un sí. #delay: 2
-- Duerme algo. Mañana empezamos. #delay: 4
 ->->
 
 = d1_noche
@@ -135,7 +101,7 @@ Muy oportuno. #delay: 3
 * [Pol, su ex, la llevó anteanoche a la estación de Olot.]
     Eso encaja con el billete. Pero no me fío de lo que encaja tan bien. #delay: 8
     -> camaras
-* [En su galería hay un correo: canceló el billete esa misma noche.]
+* {foto_img_0411} [En su galería hay un correo: canceló el billete esa misma noche.]
     ~ descarta_bus = true
     Lo compró y lo canceló antes de ir a la estación. #delay: 20
     No pensaba coger ese bus. Quería que lo creyéramos. #delay: 4
@@ -203,8 +169,15 @@ Ofertas de trabajo de noche, piso pagado, «no se lo digas a tu familia». Las r
 No digo que sea esto. Pero si alguien le ofreció trabajo en Barcelona, quiero saberlo. #delay: 4
 Mi comisario me pregunta por qué pierdo el tiempo con una mayor de edad que se ha ido de casa. #at: D3 15:30
 Le he dicho que es intuición. No le ha hecho gracia. #delay: 4
-Necesito algo sólido pronto. #delay: 3
--> d3_noche
+Necesito algo sólido pronto. #delay: 3 #caduca: D3 21:25
+* [Lo tendrás.]
+    Eso dicen todos. #delay: 30
+    Tú demuéstralo. #delay: 3
+* [¿Y si tu comisario tiene razón?]
+    En que es mayor de edad, sí. #delay: 30
+    En que se ha ido porque ha querido, también. En que está bien, no lo sé. Y eso es lo que me quita el sueño. #delay: 6
+* [(sin responder)]
+- -> d3_noche
 
 = d3_noche
 Parte. ¿Qué tienes? #at: D3 21:30 #caduca: D4 08:00
@@ -255,8 +228,14 @@ Mañana más. #delay: 3
     Dirección: «Disseminat». Ni calle ni número. #delay: 4
     En ese diseminado hay unas cuarenta masías. Desde aquí no sé cuál es la suya. #delay: 5
 }
-Cada día que pasa, más difícil. Mañana pido permiso para mover a gente. No te prometo nada. #at: D4 15:00
--> d4_noche
+Cada día que pasa, más difícil. Mañana pido permiso para mover a gente. No te prometo nada. #at: D4 15:00 #caduca: D4 21:25
+* [¿Y si no te lo dan?]
+    Entonces iré yo. Fuera de servicio. #delay: 30
+    No sería la primera vez. Ni la última, espero. #delay: 4
+* [Gracias, Laia.]
+    No me las des todavía. #delay: 30
+* [(sin responder)]
+- -> d4_noche
 
 = d4_noche
 Parte. #at: D4 21:30 #caduca: D5 08:00

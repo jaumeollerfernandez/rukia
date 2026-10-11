@@ -19,6 +19,14 @@ Ensayo general en dos días, a las 20:30. Texto aprendido, por favor. #from: dol
 -> d3
 
 = d3
+// Si Alicia ya le dijo a Dolors que no podía, Dolors no pregunta: lo cuenta.
+{dolors.charla.obra:
+    Ensayo general sin Adela. Alicia ya me avisó: no puede. #from: dolors #at: D3 22:30
+    igual se ha metido tanto en el papel que se ha escapado de casa 🙃 #from: jan #delay: 600
+    Jan, no tiene gracia. #from: queralt #delay: 120
+    perdón #from: jan #delay: 60
+    -> d4
+}
 Alicia no ha venido al ensayo. ¿Alguien sabe algo? #from: dolors #at: D3 22:30
 igual se ha metido tanto en el papel que se ha escapado de casa 🙃 #from: jan #delay: 600
 Jan, no tiene gracia. #from: queralt #delay: 120
@@ -26,6 +34,13 @@ perdón #from: jan #delay: 60
 Ali, ¿estás bien? Si no puedes, buscamos otra Adela, pero dime algo. #from: dolors #delay: 300 #caduca: D4 22:30
 * [no voy a poder, buscad otra adela. lo siento mucho]
     Cuídate mucho, Alicia. Aquí tienes tu sitio cuando quieras. #from: dolors #delay: 1200
+* [jan, no tiene gracia]
+    lo sé. perdón ali 🙃 #from: jan #delay: 300
+    ¿Y la obra, Alicia? #from: dolors #delay: 600
+    Buscaremos otra Adela. #from: dolors #at: D4 22:00
+* [estoy bien. dadme unos días]
+    Unos días tengo. Pero el estreno no espera. #from: dolors #delay: 1200
+    Si dentro de una semana no estás, aplazamos. Sin dramas. Bueno, con Lorca. 🎭 #from: dolors #delay: 10
 * [(sin responder)]
     Buscaremos otra Adela. #from: dolors #delay: 1
 - -> d4

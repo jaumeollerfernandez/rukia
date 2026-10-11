@@ -131,7 +131,7 @@ fun ChatScreen(
                     else Bubble(msg, characters[msg.from], showName = chat.isGroup && first && !msg.fromPlayer, first = first)
                 }
                 typingId?.let { id ->
-                    item(key = "typing") { TypingBubble(first = visible.lastOrNull()?.from != id) }
+                    item(key = "typing") { TypingBubble(characters[id], first = visible.lastOrNull()?.from != id) }
                 }
             }
             val choices = chat.visibleChoices()
@@ -251,10 +251,14 @@ private fun bubbleShape(mine: Boolean, first: Boolean) = if (mine) {
 @Composable
 private fun Bubble(msg: Message, sender: Character?, showName: Boolean, first: Boolean) {
     val mine = msg.fromPlayer
-    Column(
+    // As in WhatsApp: the sender's picture sits beside the first bubble of a run; the rest line up under it without one.
+    Row(
         Modifier.fillMaxWidth().padding(top = if (first) 10.dp else 2.dp),
-        horizontalAlignment = if (mine) Alignment.End else Alignment.Start,
+        horizontalArrangement = if (mine) Arrangement.End else Arrangement.spacedBy(6.dp),
+        verticalAlignment = Alignment.Bottom,
     ) {
+    if (!mine) { if (first) Avatar(sender, 28) else Spacer(Modifier.size(28.dp)) }
+    Column(horizontalAlignment = if (mine) Alignment.End else Alignment.Start) {
         if (showName && sender != null) {
             Text(sender.name, Modifier.padding(start = 12.dp, bottom = 2.dp), color = sender.colorValue(), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
         }
@@ -277,6 +281,7 @@ private fun Bubble(msg: Message, sender: Character?, showName: Boolean, first: B
             if (msg.time.isNotEmpty()) Text(msg.time, Modifier.align(Alignment.End), color = fg.copy(alpha = 0.65f), fontSize = 11.sp, lineHeight = 14.sp)
         }
     }
+    }
 }
 
 /** A call in the conversation: a centered pill, green for a call that happened, red for a missed one. */
@@ -297,23 +302,26 @@ private fun CallPill(msg: Message) {
     }
 }
 
-/** "…" bubble shown where the next message will appear, while its sender types it. */
+/** "…" bubble shown where the next message will appear, while its sender types it, with their picture on its left. */
 @Composable
-private fun TypingBubble(first: Boolean) {
+private fun TypingBubble(sender: Character?, first: Boolean) {
     val transition = rememberInfiniteTransition(label = "typing")
-    Row(
-        Modifier.padding(top = if (first) 10.dp else 2.dp).background(LocalPalette.current.inBubble, bubbleShape(mine = false, first = first))
-            .padding(horizontal = 14.dp, vertical = 14.dp),
-        horizontalArrangement = Arrangement.spacedBy(5.dp),
-    ) {
-        repeat(3) { i ->
-            // Each dot pulses a little after the previous one, so the three ripple.
-            val alpha by transition.animateFloat(
-                0.25f, 1f,
-                infiniteRepeatable(tween(450), RepeatMode.Reverse, initialStartOffset = StartOffset(i * 150)),
-                label = "dot$i",
-            )
-            Box(Modifier.size(8.dp).alpha(alpha).background(LocalPalette.current.subText, CircleShape))
+    Row(Modifier.padding(top = if (first) 10.dp else 2.dp), verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        if (first) Avatar(sender, 28) else Spacer(Modifier.size(28.dp))
+        Row(
+            Modifier.background(LocalPalette.current.inBubble, bubbleShape(mine = false, first = first))
+                .padding(horizontal = 14.dp, vertical = 14.dp),
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
+            repeat(3) { i ->
+                // Each dot pulses a little after the previous one, so the three ripple.
+                val alpha by transition.animateFloat(
+                    0.25f, 1f,
+                    infiniteRepeatable(tween(450), RepeatMode.Reverse, initialStartOffset = StartOffset(i * 150)),
+                    label = "dot$i",
+                )
+                Box(Modifier.size(8.dp).alpha(alpha).background(LocalPalette.current.subText, CircleShape))
+            }
         }
     }
 }

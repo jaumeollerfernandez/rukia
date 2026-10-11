@@ -299,8 +299,8 @@
     { "author": "berta", "image": "gonpi/berta_d3.jpg", "caption": "☀️ Frase del alba: «Quien de verdad te quiere, te espera sin hacer preguntas.»", "at": "D3 07:00", "likes": 50 },
 
     { "author": "pol", "image": "gonpi/pol_d2.jpg", "caption": "taxi nocturno 🚕", "at": "D2 22:00", "likes": 41 },
-    { "author": "arnau", "image": "gonpi/arnau_d2.jpg", "caption": "la rotonda maldita 💀", "at": "D2 18:40", "likes": 2034, "comments": [ { "author": "marc", "text": "JAJAJAJA" }, { "author": "berta", "text": "¿A qué hora grabaste esto, primo?", "at": "D3 10:00" } ] },
-    { "author": "eric", "image": "gonpi/eric_d2.jpg", "caption": "Caso abierto: seis barras de payés desaparecidas 🕵️🥖", "at": "D2 13:00", "likes": 66, "comments": [ { "author": "forn", "text": "Èric, a trabajar 😤", "at": "D2 13:30" } ] },
+    { "author": "arnau", "image": "gonpi/arnau_d2.jpg", "caption": "la rotonda maldita 💀", "at": "D2 18:40", "hiddenBy": "arnau_calla", "likes": 2034, "comments": [ { "author": "marc", "text": "JAJAJAJA" }, { "author": "berta", "text": "¿A qué hora grabaste esto, primo?", "at": "D3 10:00" } ] },
+    { "author": "eric", "image": "gonpi/eric_d2.jpg", "caption": "Caso abierto: seis barras de payés desaparecidas 🕵️🥖", "at": "D2 13:00", "hiddenBy": "eric_archiva", "likes": 66, "comments": [ { "author": "forn", "text": "Èric, a trabajar 😤", "at": "D2 13:30" } ] },
     { "author": "aliments", "image": "gonpi/aliments_d2.jpg", "caption": "Gracias a la familia del pueblo que hoy nos ha donado cuatro cajas de ropa, mantas y menaje 💚 Así da gusto.", "at": "D2 12:00", "likes": 83 },
     { "author": "casal", "image": "gonpi/casal_d2.jpg", "caption": "Gracias a la generosidad de nuestras familias, la sala nueva ya tiene tejado 🌹", "at": "D2 11:00", "likes": 58, "comments": [ { "author": "mama", "text": "🙏", "at": "D2 11:10" } ] },
     { "author": "mama", "image": "gonpi/montse_d2.jpg", "caption": "Cerrar etapas también es cuidar de los tuyos 🌸", "at": "D2 10:30", "likes": 11 },

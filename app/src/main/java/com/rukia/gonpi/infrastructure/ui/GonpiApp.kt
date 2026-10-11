@@ -1,6 +1,7 @@
 package com.rukia.gonpi.infrastructure.ui
 
 import com.rukia.gonpi.domain.port.ContactDirectory
+import com.rukia.gonpi.domain.port.StoryFacts
 import com.rukia.gonpi.infrastructure.GonpiModule
 import com.rukia.gonpi.domain.model.Account
 import com.rukia.gonpi.domain.model.Gonpi
@@ -79,10 +80,10 @@ private enum class Tab { Feed, Search, Me }
  * contacts (only them: strangers are reached through comments and likes), each account's profile, and Alicia's own.
  */
 @Composable
-fun GonpiApp(caseId: String, contacts: ContactDirectory) {
+fun GonpiApp(caseId: String, facts: StoryFacts, contacts: ContactDirectory) {
     SystemBars(lightBottomIcons = true)
     val context = LocalContext.current
-    val module = remember(caseId) { GonpiModule(context.applicationContext, caseId, contacts) }
+    val module = remember(caseId) { GonpiModule(context.applicationContext, caseId, contacts, facts) }
     // Only what's been published by now in the case's week shows; reopening the app picks up newer posts.
     val gonpi = remember(module) { module.getGonpi() }
 

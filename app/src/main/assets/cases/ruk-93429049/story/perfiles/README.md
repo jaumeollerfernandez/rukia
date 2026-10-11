@@ -6,6 +6,19 @@ Cada ficha tiene: datos, biografía, perfil psicológico, relación con Alicia, 
 
 **Regla:** si un `.ink` contradice una ficha, manda el `.ink`; corrige la ficha. Si se inventa algo nuevo de un personaje, se apunta aquí.
 
+### Para que la conversación esté viva
+
+Además, cada ficha de un contacto con charla tiene estas secciones (ejemplos completos: [pep.md](pep.md), [teresa.md](teresa.md), [ona.md](ona.md)):
+
+- **Vida propia esta semana:** qué le preocupa u ocupa, día a día, aparte de Alicia. De ahí salen sus temas y sus mensajes.
+- **Con Alicia:** confianza de partida, última vez que hablaron, asuntos pendientes y qué espera de ella.
+- **Objetivo y secreto:** qué quiere esta semana, qué calla (aunque sea pequeño: una vergüenza, una omisión) y qué haría que lo contara.
+- **Temas:** de qué habla a gusto, qué le incomoda y qué malinterpreta.
+- **Cómo reacciona:** a una pregunta personal, a que insista, a que Alicia esté rara o seca, a una broma.
+- **Ritmo:** cuánto tarda, si encadena mensajes o contesta en uno, cómo cierra una conversación.
+- **Escribe por su cuenta:** qué días, a qué hora y con qué condición (función `<id>_escribe()` del `.ink`).
+- **Recuerda:** lo que el jugador le dice y sale después (las etiquetas de las opciones).
+
 ## Índice
 
 **Alicia y la policía**

@@ -16,6 +16,34 @@ Repitió un curso de bachillerato y desde entonces se toma los estudios muy en s
 - Cuida a los demás a su manera: pasa resúmenes, cubre la exposición él solo.
 - Le cuesta expresar afecto: «Me debes una. Grande.».
 
+## Vida propia esta semana
+- La exposición de dinámicas: el D4 Elena le deja hacerla solo. Prefiere no hacerlo.
+- Lo de Mireia (es el padre): no habla de ello con nadie.
+
+## Con Alicia
+- Pareja de exposición. Se respetan porque los dos trabajan en serio. Le cuesta expresar afecto.
+
+## Objetivo y secreto
+- Quiere sacar un 10 y que Alicia termine su parte.
+- **Secreto:** Mireia y Girona. Le reprocha a Alicia que se metiera, «solo un poco».
+
+## Temas
+- **A gusto:** la exposición, el drive, los horarios.
+- **Le incomoda:** Mireia. Corta: «Eso es entre Mireia y yo.»
+
+## Cómo reacciona
+- **Si Alicia promete su parte:** lo apunta y se lo recuerda.
+- **Si le preguntan cómo está:** «No mucho.» Es la única vez que lo admite.
+
+## Ritmo
+- Rápido (2-5 minutos). Frases cortas, mayúscula y punto, sin emojis.
+
+## Escribe por su cuenta
+- **D4 11:20:** tras hablar con Elena: si hace la exposición solo.
+
+## Recuerda
+- `sergi.charla.prometo`: que Alicia prometió su parte.
+
 ## Cómo escribe
 - **El único de clase con mayúscula y punto.** Frases cortas, prácticas. Sin emojis.
 - Va al grano: «Alicia, la exposición. Necesito saber si cuento contigo.»
