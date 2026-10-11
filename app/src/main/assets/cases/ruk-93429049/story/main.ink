@@ -210,3 +210,11 @@ INCLUDE silvia.ink
 
 === function familia_salvada() ===
 ~ return vigilancia_crater or iris_ayuda
+
+// Caducidad de una charla de contacto: a medianoche, o a la hora `h` de hoy si el contacto va a escribir por su cuenta
+// (0: hoy no escribe). Así la charla sigue abierta hasta entonces y, al caducar, salta a su mensaje (un stitch con `#at`).
+=== function caduca(h) ===
+{h > 0:
+    ~ return "D{dia} {h < 10:0}{h}:00"
+}
+~ return "D{dia + 1} 00:00"

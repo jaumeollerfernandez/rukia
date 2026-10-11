@@ -15,6 +15,27 @@ Entró en la coral de jovencita, cuando la fundaron la Mercè, la Rosalia y la P
 ## Papel en la trama
 ⚠️ Escribirle sube `sospecha_familia` (se lo cuenta a Montse). 🔎/🎭 Explica por qué hay dos puertas azules y repite lo de la residencia.
 
+## Vida propia esta semana
+- El mercado, la panadería, las sopranos sin Montse. Ha colgado en Gonpi la foto de 1979.
+- D2 se cruza con Montse en el mercado: bolsa de velas y tela blanca («para una celebración»).
+
+## Con Alicia
+- Cariñosa, la llama «nena». Lo que le cuenta llega a Montse por teléfono.
+
+## Objetivo y secreto
+- No guarda secretos. Se ha creído lo de la residencia («no reconoce a nadie, pobrecita», le dijo Montse).
+- Si Alicia le pide que no le diga nada a su madre, ya es tarde; promete callar «por la Virgen del Mont».
+
+## Temas
+- **A gusto:** las tres sopranos, las perras con nombre de dulce, el mercado.
+- **Malinterpreta:** no recuerda qué amiga vivía en Capsec y cuál en Sant Salvador.
+
+## Ritmo
+- Unos 10 minutos. Mensajes largos, con «¡Ay, nena!».
+
+## Escribe por su cuenta
+- No escribe sola: solo en el grupo de la coral.
+
 ## Cómo escribe
 - Mayúsculas, exclamaciones de abuela: «¡Ay, nena!», «¡Si la fundó ella!».
 - Emojis: 😅, 🙂.

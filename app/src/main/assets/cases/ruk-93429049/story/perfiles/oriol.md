@@ -16,6 +16,36 @@ Hijo de un mecánico de bicis de Olot. Sube puertos de noche con luces y frontal
 ## Papel en la trama
 🔎 Testigo clave: sitúa a Alicia en la subida a Bracons pasado Sant Salvador y oye a la perra (Trufa).
 
+## Vida propia esta semana
+- Ayuda en el taller de bicis de su padre en Olot. Prepara la siguiente ruta nocturna: Bracons por la cara de Joanetes.
+- D3 cuelga en Gonpi la ruta de Bracons con el comentario de la chica. Nadie le cree (el lobo del año pasado).
+
+## Con Alicia
+- Compañero de clase. Ella le pasa apuntes («eres un sol»). Confianza de clase.
+
+## Objetivo y secreto
+- Quiere que alguien le crea. Sospecha que la chica de Bracons era Alicia, pero no se atreve a decirlo hasta el D4.
+- Si Alicia le confiesa que era ella, lo calla («te lo juro por mi bici»).
+- Si corre el rumor de que otra persona usa el móvil, la pone a prueba con los apuntes de dinámicas.
+
+## Temas
+- **A gusto:** rutas, jabalíes, el taller, Strava.
+- **Le incomoda:** que no le crean. Lo dice: «ya sé que nadie me cree».
+- **Malinterpreta:** si Alicia le pregunta por «la chica» como si fuera otra, cree que solo es curiosidad.
+
+## Cómo reacciona
+- **Si Alicia le pide que calle:** calla, pero pide «una explicación. y un café».
+- **Si no le contestan la prueba:** «vale. ya veo», y desconfía.
+
+## Ritmo
+- Unos 2 minutos. Mensajes cortos encadenados, con 🚴 y 🌙.
+
+## Escribe por su cuenta
+- **D4 22:10:** si nadie le ha preguntado por la chica: «no serías tú no?».
+
+## Recuerda
+- `oriol.charla.era_yo` / `oriol.duda.yo`: que era Alicia (ya no le pregunta por «la chica»).
+
 ## Cómo escribe
 - **Minúscula, sin punto**, con emojis de deporte y noche: 🚴, 🌙, 👀, 😳.
 - Expresiones: «flipad», «aún flipo», «mal rollo».

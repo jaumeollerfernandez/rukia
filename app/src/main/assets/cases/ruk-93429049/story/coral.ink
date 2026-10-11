@@ -15,7 +15,14 @@ Pues dicho queda 🙂 #from: roser #at: D-10 23:41
 = d1
 Este domingo cantamos en la misa de las 12. Camisa blanca y pantalón negro, como siempre. #from: xavier #at: D1 19:00
 ¿Alicia viene? Que me quedo sola en las contraltos #from: roser #delay: 1800
--> d2
+#caduca: D2 13:00
+* [este domingo no puedo, roser. perdona]
+    ¡Ay, nena! Pues canto por las dos 😅 #from: roser #delay: 900
+    Que Dios nos pille confesados x2 #from: pep #delay: 600
+* [a lo mejor]
+    «A lo mejor» no existe en una coral, Alicia. Pero vale 🎶 #from: xavier #delay: 900
+* [(sin responder)]
+- -> d2
 
 = d2
 Me he cruzado con la Montse en el mercado. La he saludado y casi ni me ha mirado. #from: roser #at: D2 13:20
@@ -34,7 +41,14 @@ Ensayo cancelado este jueves, estoy afónico. Un director afónico, qué ironía
 = d5
 Domingo, misa de las 12. Sin falta. #from: xavier #at: D5 20:00
 Alicia, si puedes, ven aunque sea a escuchar. #from: roser #delay: 900
--> d6
+#caduca: D6 20:00
+* [lo intentaré]
+    Con eso me conformo 🙂 #from: roser #delay: 900
+* [esta vez tampoco. cantad bonito]
+    Cantaremos por ti, nena. Y el Pep más fuerte que nadie. #from: roser #delay: 900
+    eso está hecho 😂 #from: pep #delay: 300
+* [(sin responder)]
+- -> d6
 
 = d6
 -> d7

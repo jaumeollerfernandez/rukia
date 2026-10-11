@@ -14,6 +14,20 @@ Enciende el horno cada día a las cinco desde los dieciséis años. Viuda, dos h
 - **Discreta y leal:** no suelta nada a la familia.
 - Prisa permanente: escribe entre hornada y hornada.
 
+## Vida propia esta semana
+- El horno a las cinco, las cuentas del cierre, el Forn sin la chica de los fines de semana. No busca sustituta todavía.
+
+## Objetivo y secreto
+- Quiere que Alicia le diga la verdad y vuelva. **Secreto:** sospecha que el pan era para la Rosalia y no se lo dice a Berta ni a Dani.
+- Si Alicia le miente con las barras («no las cogí yo»), se lo recuerda tras la llamada: «Que no me enfado por el pan».
+- Si Alicia le dice que eran para alguien que lo necesita: «avísame y te las aparto».
+
+## Escribe por su cuenta
+- D1 07:05, D2 06:50, D3 07:15 (llamada), D5 (Berta en el Forn, o el horno), D6 07:40 (Dani), D7 05:30. Cada uno con respuesta.
+
+## Recuerda
+- `pilar.d2.mentira`.
+
 ## Cómo escribe
 - Mayúscula al principio, a menudo **sin punto final**, frases cortas: escribe con las manos llenas de harina.
 - Sin emojis. Llama a Alicia «Alicia» cuando riñe y «nena» o «guapa» cuando se ablanda.

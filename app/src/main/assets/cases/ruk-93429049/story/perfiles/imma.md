@@ -11,6 +11,26 @@ En el mercado le dieron un folleto de Rosa d'Abril y preguntó en el grupo de io
 - **Curiosa, vulnerable y con buen instinto.** Pregunta antes de lanzarse.
 - Se salva por desconfiar de la amabilidad excesiva.
 
+## Vida propia esta semana
+- Recién divorciada: duerme en el centro de la cama, ioga, podcasts.
+- La llaman del Casal (D4, una chica de voz dulce: «aún había sitio para mí»).
+
+## Con Alicia
+- Compañera de ioga. Confía en ella: si Alicia le dice que no vaya, no va.
+
+## Objetivo y secreto
+- Quiere compañía sin trampas. Su secreto pequeño: a veces piensa que el Casal le habría hecho compañía.
+
+## Temas
+- **A gusto:** el folleto de la nevera, la «séptima alba», el ioga.
+- **Malinterpreta:** si Alicia le dice que es un grupo de duelo, se lo cree.
+
+## Ritmo
+- Unos 10 minutos. Frases completas y educadas.
+
+## Escribe por su cuenta
+- **D4 18:30:** la han vuelto a llamar del Casal; pregunta qué es eso.
+
 ## Cómo escribe
 - Mayúsculas y puntos, frases completas, educada. Emojis: 🧘‍♀️.
 

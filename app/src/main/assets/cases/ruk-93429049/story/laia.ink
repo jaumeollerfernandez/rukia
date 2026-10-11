@@ -203,8 +203,15 @@ Ofertas de trabajo de noche, piso pagado, «no se lo digas a tu familia». Las r
 No digo que sea esto. Pero si alguien le ofreció trabajo en Barcelona, quiero saberlo. #delay: 4
 Mi comisario me pregunta por qué pierdo el tiempo con una mayor de edad que se ha ido de casa. #at: D3 15:30
 Le he dicho que es intuición. No le ha hecho gracia. #delay: 4
-Necesito algo sólido pronto. #delay: 3
--> d3_noche
+Necesito algo sólido pronto. #delay: 3 #caduca: D3 21:25
+* [Lo tendrás.]
+    Eso dicen todos. #delay: 30
+    Tú demuéstralo. #delay: 3
+* [¿Y si tu comisario tiene razón?]
+    En que es mayor de edad, sí. #delay: 30
+    En que se ha ido porque ha querido, también. En que está bien, no lo sé. Y eso es lo que me quita el sueño. #delay: 6
+* [(sin responder)]
+- -> d3_noche
 
 = d3_noche
 Parte. ¿Qué tienes? #at: D3 21:30 #caduca: D4 08:00
@@ -255,8 +262,14 @@ Mañana más. #delay: 3
     Dirección: «Disseminat». Ni calle ni número. #delay: 4
     En ese diseminado hay unas cuarenta masías. Desde aquí no sé cuál es la suya. #delay: 5
 }
-Cada día que pasa, más difícil. Mañana pido permiso para mover a gente. No te prometo nada. #at: D4 15:00
--> d4_noche
+Cada día que pasa, más difícil. Mañana pido permiso para mover a gente. No te prometo nada. #at: D4 15:00 #caduca: D4 21:25
+* [¿Y si no te lo dan?]
+    Entonces iré yo. Fuera de servicio. #delay: 30
+    No sería la primera vez. Ni la última, espero. #delay: 4
+* [Gracias, Laia.]
+    No me las des todavía. #delay: 30
+* [(sin responder)]
+- -> d4_noche
 
 = d4_noche
 Parte. #at: D4 21:30 #caduca: D5 08:00

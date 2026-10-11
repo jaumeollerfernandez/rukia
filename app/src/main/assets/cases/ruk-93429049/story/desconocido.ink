@@ -61,6 +61,9 @@ mañana a esta hora. si puedo #delay: 4 #caduca: D5 01:00
     gracias #delay: 5
 * [Dime solo si estás a salvo.]
     de momento sí #delay: 30
+* [¿Necesitas algo?]
+    pilas. pan. y que nadie suba #delay: 30
+    lo último es lo más importante #delay: 4
 * [(sin responder)]
 - -> d5
 
@@ -116,6 +119,10 @@ si vienen, me escondo en el bosque. me lo conozco #delay: 6 #caduca: D6 01:00
     sí. vestidas de blanco #delay: 40
     por eso no basta con encontrarme. hay que pararlo #delay: 5
     ellas no saben lo que hacen. o no quieren saberlo #delay: 6
+* [¿Cómo estás?]
+    con frío #delay: 40
+    y con una perra que no me deja ni ir al baño sola #delay: 5
+    la señora me hace sopa de pan. está buena. no le digas que lo he dicho, que se viene arriba #delay: 6
 * [(sin responder)]
 - me apago #delay: 20
 -> fin_d5
@@ -168,10 +175,16 @@ ojalá no #delay: 5
 // Si la rescataron, escribe desde comisaría. Si se la llevó la familia o la red, el prepago no vuelve a encenderse.
 = d7
 #at: D7 06:20
-{rescatada():
-    estoy en comisaría. me han dejado cargar el móvil 😅 #at: D7 09:30
-    mamá y berta están... {familia_salvada(): bien. en otra sala. no me dejan verlas aún | en el hospital} #delay: 8
-    gracias. de verdad #delay: 10
-    algún día me dirás cómo te llamas? #delay: 5
-}
--> DONE
+{not rescatada(): -> DONE}
+estoy en comisaría. me han dejado cargar el móvil 😅 #at: D7 09:30
+mamá y berta están... {familia_salvada(): bien. en otra sala. no me dejan verlas aún | en el hospital} #delay: 8
+gracias. de verdad #delay: 10
+algún día me dirás cómo te llamas? #delay: 5 #caduca: D8 00:00
+* [Kimo.]
+    kimo #delay: 30
+    vale. gracias, kimo 💛 #delay: 5
+* [Algún día.]
+    vale. me lo apunto #delay: 30
+    en la libreta negra. al lado de las estrellas #delay: 5
+* [(sin responder)]
+- -> DONE

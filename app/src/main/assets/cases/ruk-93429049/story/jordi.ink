@@ -67,18 +67,37 @@ Escríbeme cuando puedas. Papá #delay: 5 #caduca: D3 09:00
 = d4
 He hablado con un abogado, cariño. #at: D4 20:00
 Dice que lo de tu cuenta se puede denunciar, pero que tardará. #delay: 5
-Pasado mañana subo a Olot. Quiero verte. Papá #delay: 8
--> d5
+Pasado mañana subo a Olot. Quiero verte. Papá #delay: 8 #caduca: D5 20:00
+* [vale papa. gracias]
+    No me las des. Tendría que haberlo hecho hace un año. Papá #delay: 300
+* (no_subas) [no subas aún, papa]
+    Lo pensaré, cariño. #delay: 300
+    Pero no te prometo nada. Llevo un año pensándolo todo y así nos va. Papá #delay: 8
+* [(sin responder)]
+- -> d5
 
 = d5
 Mañana por la tarde subo, cariño. Me quedo en casa de la tía Marta. #at: D5 20:30
-Si quieres verme, allí estaré. Papá #delay: 5
--> d6
+Si quieres verme, allí estaré. Papá #delay: 5 #caduca: D6 16:00
+* [no sé si podré, papa]
+    Con saber que lo has leído me basta. Papá #delay: 300
+* [te quiero, papa]
+    ... #delay: 300
+    Y yo a ti, cariño. Más de lo que te he sabido decir. Papá #delay: 20
+* [(sin responder)]
+- -> d6
 
 = d6
 Ya estoy en Olot, en casa de la tía. #at: D6 17:00
-Mañana a primera hora voy a tu casa. Me abra o no me abra tu madre. Papá #delay: 6
--> d7
+Mañana a primera hora voy a tu casa. Me abra o no me abra tu madre. Papá #delay: 6 #caduca: D7 07:00
+* [no vayas a casa, papa]
+    ¿Por qué? #delay: 300
+    Si me dices por qué, no voy. Si no, voy. Papá #delay: 6
+* [ten cuidado]
+    ¿Cuidado de qué, cariño? ¿De tu madre? #delay: 300
+    Ya no entiendo nada. Pero lo tendré. Papá #delay: 6
+* [(sin responder)]
+- -> d7
 
 = d7
 {rescatada():
@@ -105,8 +124,12 @@ Mañana a primera hora voy a tu casa. Me abra o no me abra tu madre. Papá #dela
     El año pasado. Diez mil euros «para un curso». No se los di. #delay: 300
     Desde entonces no me coge el teléfono. Hasta esta semana. Papá #delay: 6
     -> opciones
-* {dia >= 3} [papa no subas. de verdad]
+* {dia >= 3 and not d4.no_subas} [papa no subas. de verdad]
     Lo siento, cariño. Esta vez no te voy a hacer caso. Papá #delay: 300
+    -> opciones
+* {dia >= 2} [papa qué tal por barcelona?]
+    Bien. Solo. Arreglando ascensores que nadie da las gracias por que funcionen. #delay: 300
+    El otro día salí en bici hasta Montserrat. Pensé en ti, que de pequeña me decías que la montaña tenía dedos. Papá #delay: 8
     -> opciones
 + [(sin responder)]
 - ->->

@@ -93,7 +93,14 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
     Una era de Capsec, la Pepita de Can Pericot. Esa murió hace unos años. #delay: 5
     La otra, de por Sant Salvador. El nombre no me sale. Tu madre me dijo que está en una residencia. #delay: 6
     ¿Por qué lo preguntas? #delay: 4
-    -> opciones
+    #caduca: {limite}
+    ** [por nada, tía. me acordé de ella]
+        Pues pregúntale a tu madre. Aunque ahora mismo, mejor no le preguntes nada. #delay: 300
+    ** [creo que no está en ninguna residencia]
+        ¿No? #delay: 300
+        Pues tu madre me lo dijo muy segura. Claro que tu madre también dice que está «de duelo» desde hace tres años. #delay: 8
+    ** [(sin responder)]
+    - - -> opciones
 * {dia >= 2} [tía, si un día me hiciera falta, vendrías a buscarme sin decírselo a mamá?]
     Dime dónde y voy ahora mismo. Con el coche y con tu padre si hace falta. #delay: 300
     No hace falta que me expliques nada. #delay: 5
@@ -105,6 +112,10 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
     -> opciones
 * [te quiero tía]
     Y yo a ti, mi niña. Mucho. #delay: 300
+    -> opciones
+* {dia >= 2} [tía qué tal la parada?]
+    Las fresas a precio de oro y las clientas preguntando por ti. #delay: 300
+    Medio mercado sabe que tu madre dice que estás de viaje. El otro medio no se lo cree. #delay: 6
     -> opciones
 + [(sin responder)]
 - ->->

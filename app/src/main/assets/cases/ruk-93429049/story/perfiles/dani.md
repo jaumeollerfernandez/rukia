@@ -29,6 +29,13 @@ Primero 🎭 pista falsa; desde el D4, 🔎 amenaza real. Capas:
    - **Frenarlo** (`dani_frenado`) solo retrasa la entrega a D7 04:20: detenerlo desde la consulta de Laia (con `dani_droga` y `sabe_audi`, sin gastar salida), la operación `dani_detencion` del D6, o avisar a Alicia por el prepago (se esconde en el pozo cuando sube su moto). Con ese margen, la salida de la noche al mas aún la salva.
    - **Detenido** (operación del D6): miente («no sé dónde está»), pero en su móvil está el chat con Iker («si la encuentras, la deuda queda saldada»). El jugador elige si le cree: si le cree, lo sueltan y cuenta que la siguió hasta Sant Salvador (`sabe_ruta_lotes`); si no, Barcelona se lo lleva y el coche de la noche hace el traslado.
 
+## Vida propia esta semana
+- El gimnasio, la moto, la deuda de seis mil con los del Audi. El D5 tiene un ojo morado y «una salida».
+
+## Cómo reacciona
+- D4, tras confesar: si Alicia le dice que vaya a los Mossos, «y que me maten al salir?». Si le pregunta qué va a hacer, «tengo dos días y una idea de mierda».
+- D6: si Alicia se niega a decirle dónde está, se le escapa la amenaza («tú lo has querido») y se corrige.
+
 ## Cómo escribe
 - **Minúscula, sin punto, abreviaturas**: «q haces», «barna».
 - Emojis de chulito: 😏, 😂, 🙃.

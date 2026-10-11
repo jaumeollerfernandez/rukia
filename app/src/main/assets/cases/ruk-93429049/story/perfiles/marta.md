@@ -18,6 +18,13 @@ Tiene una parada de fruta y verdura en el mercado de Olot desde hace treinta añ
 ## Relación con Alicia
 Tía cómplice. Le felicita los cumpleaños con muchos signos de exclamación. Alicia confía en ella, pero no le contó nada para no meterla en líos.
 
+## Vida propia esta semana
+- La parada de fruta del mercado (las fresas a precio de oro). Va a casa de Montse el D4 y no le abren. Acoge a Jordi el D6.
+
+## Objetivo y secreto
+- Quiere sacar a Alicia de esa casa. Sabe que no es imparcial con Montse y lo dice.
+- Si Alicia le dice que la Rosalia no está en ninguna residencia, desconfía de Montse («también dice que está "de duelo" desde hace tres años»).
+
 ## Cómo escribe
 - **Mayúsculas, puntos, frases completas**, con naturalidad (no tan rígida como Jordi).
 - Emojis solo en ocasiones especiales (🎂🎉 en el cumpleaños). Exclamaciones múltiples cuando está contenta («Feliz cumple, mi niña!!!»).

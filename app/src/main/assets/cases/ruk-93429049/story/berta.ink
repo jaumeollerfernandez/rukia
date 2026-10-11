@@ -28,6 +28,17 @@ Buenas noches 🌹 #delay: 15 #caduca: D3 08:00
     ~ sospecha_familia += 1
     Quien eres. #delay: 20
     Así que sí lo lee alguien. Donde tienes a mi hermana, dimelo y no habrán cargos contra tí. #delay: 5
+// Cualquier respuesta le confirma que alguien lee el móvil; cambia cómo lo interpreta.
+* [qué día es, berta?]
+    ~ sospecha_familia += 1
+    Ali no me preguntaría eso. #delay: 20
+    Ali lo sabe. Lo sabemos todas. #delay: 5
+    Quién eres. #delay: 10
+* [déjame en paz, berta]
+    ~ sospecha_familia += 1
+    Eso suena a ti. #delay: 20
+    O a alguien que te ha leído mucho. #delay: 8
+    Vuelve a casa, Ali. Aquí nadie está enfadado contigo. 🌹 #delay: 10
 * [(sin responder)]
 - -> d3
 

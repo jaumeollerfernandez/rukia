@@ -14,6 +14,16 @@ Salieron casi un año. Lo dejaron porque Alicia «estaba en otra cosa» y él no
 - **Ingenuo ante los adultos:** a Ignasi le da «mal rollo», pero no sabe defenderse de él.
 - Sigue queriéndola, sin esperar nada.
 
+## Vida propia esta semana
+- El taller mecánico (el tractor de Marc con el embrague muerto). El Golf gris de su padre.
+
+## Objetivo y secreto
+- **Secreto:** la estación y el pan. Lo calla si se lo piden; si no, lo cuenta a Montse y al de la barba y luego va a los Mossos (D6).
+- Oyó a Montse decirle al de la barba «el séptimo amanecer» (lo cuenta el D6 si se lo preguntan).
+
+## Escribe por su cuenta
+- D1 22:15, D2 18:30, D3 22:00, D4 19:30, D5 20:00 (si habló), D6 (los Mossos o «aquí estoy»), D7 11:00. Todos con respuesta.
+
 ## Cómo escribe
 - **Minúscula, sin punto**, frases cortas y concretas. Pocos emojis (🚕 en Gonpi).
 - Abre con «oye» o «ali». Directo: «estás a salvo?».

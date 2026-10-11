@@ -11,6 +11,24 @@ La actriz seria del grupo. Ensaya con Alicia las escenas de madre e hija y se ac
 - **Intensa, exigente y empática.** Toma el teatro como algo serio y no tolera las bromas sobre la desaparición («Jan, no tiene gracia.»).
 - Entiende lo que no se dice: «Me dio un escalofrío, la verdad».
 
+## Vida propia esta semana
+- Arte Dramático en Barcelona (Chéjov en clase, ella llora con Lorca). Vuelve los fines de semana.
+
+## Con Alicia
+- Su madre en escena (Bernarda). Entiende lo que Alicia no dice.
+
+## Objetivo y secreto
+- No quiere saber dónde está Alicia para no tener que mentir. Calla lo que intuye.
+
+## Temas
+- **A gusto:** Adela («En irse, sí. En cómo, no»), Barcelona, Jan.
+
+## Ritmo
+- Unos 5 minutos. Teatral, con 🎭.
+
+## Escribe por su cuenta
+- **D3 23:15:** tras el chiste de Jan: «si de verdad te has ido, que sea a un sitio adonde ir».
+
 ## Cómo escribe
 - Mayúsculas, puntos, exclamaciones teatrales: «¡Adela!». Cita textos de Lorca.
 - Emojis: 🎭, 😢.

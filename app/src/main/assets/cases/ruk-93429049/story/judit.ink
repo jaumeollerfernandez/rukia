@@ -1,18 +1,24 @@
 // Judit, del vóley. Cotilla: repite el rumor de Barcelona (pista falsa). Bocazas sin maldad.
 // Más despiste: también ha oído lo de Girona y lo de un «novio secreto». Ruido: rodilleras, el partido.
+// Vida propia: sus rodilleras nuevas (45 pavos) y el partido del D5.
+// Escribe ella sola el D2 para preguntar por el rumor, si Alicia no le ha escrito antes.
 
 === judit ===
 -> charla
 
 = charla
+{judit_escribe() > 0 and hora >= judit_escribe():
+    -> rumor ->
+}
 - (opciones)
-#caduca: D{dia + 1} 00:00
-* [judit 🙊]
+#caduca: {caduca(judit_escribe())}
+* (hola) {not rumor} [judit 🙊]
     mira quién aparece #delay: 120
     ali te lo tengo que preguntar. es verdad que te has ido a barcelona con un tío de 22? #delay: 5
     lo dice todo el vestuario #delay: 3
+    -> contesta ->
     -> opciones
-* {dia >= 2} [quién dice eso?]
+* {dia >= 2 and (hola or rumor)} [quién dice eso?]
     ~ dani_sospechoso = true
     la prima de la ex del dani ese. el de la moto #delay: 120
     dice que él se fue a barcelona esa misma noche. justo esa #delay: 5
@@ -21,7 +27,14 @@
 * [judit has visto mis rodilleras?]
     las viejas? las tiré, daban asco #delay: 120
     me he comprado unas nuevas. negras. preciosas. 45 pavos 😍 #delay: 4
-    -> opciones
+    #caduca: D{dia + 1} 00:00
+    ** [las tiraste??]
+        daban ASCO ali. olían a vestuario de 2019 #delay: 120
+        te dejo las mías un día. uno #delay: 4
+    ** [45 pavos por unas rodilleras??]
+        son una inversión 😎 #delay: 120
+    ** [(sin responder)]
+    - - -> opciones
 * {dia >= 2} [qué más se dice de mí?]
     uff #delay: 120
     que si girona, que si una clínica, que si un novio secreto mayor... #delay: 4
@@ -46,3 +59,34 @@
     -> opciones
 + [(sin responder)]
     -> charla
+
+// Lo que contesta Alicia al rumor de Barcelona.
+= contesta
+#caduca: D{dia + 1} 00:00
+* [no. y no me he ido con nadie]
+    vale vale 🙊 #delay: 120
+    pues alguien se lo inventa muy bien #delay: 4
+* [jajaja ojalá]
+    JAJAJA ali #delay: 120
+    eso es un sí o un no #delay: 3
+* [y a ti qué más te da]
+    uy. vale. perdón 🙊 #delay: 120
+    solo preguntaba #delay: 3
+* [(sin responder)]
+- ->->
+
+// D2: Judit no aguanta más sin preguntar.
+= rumor
+ali #at: D2 21:30
+te lo tengo que preguntar #delay: 3
+es verdad que te has ido a barcelona con un tío de 22?? 👀 #delay: 4
+lo dice todo el vestuario #delay: 3
+-> contesta ->
+->->
+
+// La hora de hoy a la que Judit escribe por su cuenta (0: hoy no escribe).
+=== function judit_escribe() ===
+{dia == 2 and not judit.charla.hola and not judit.rumor:
+    ~ return 21
+}
+~ return 0

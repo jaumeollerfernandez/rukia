@@ -16,11 +16,21 @@ Martina ha sacado un 7,5 🎉 ¡Gracias, Ali! Te hago el Bizum. #from: anna #at:
 Ali, ¿mañana a la misma hora? #from: silvia #at: D1 13:00 #caduca: D2 13:00
 * [esta semana no puedo, perdonad. ya os diré]
     Vale, no te preocupes. #from: silvia #delay: 600
+* (manana) [sí, a la misma hora]
+    ¡Genial! Leo ya tiene la libreta preparada 😊 #from: silvia #delay: 600
+* [puedo dar la clase por videollamada?]
+    Uy, Leo con una pantalla delante no atiende ni a su madre 😅 #from: silvia #delay: 600
+    Mejor lo dejamos para cuando puedas venir. #from: silvia #delay: 10
 * [(sin responder)]
 - -> d2
 
 = d2
-He ido a dejar a Leo en tu casa y no había nadie. Las persianas bajadas. #from: silvia #at: D2 18:10
+{d1.manana:
+    He ido a dejar a Leo en tu casa y no había nadie. Las persianas bajadas. #from: silvia #at: D2 18:10
+    Habíamos quedado, Ali. #from: silvia #delay: 5
+- else:
+    He pasado con Leo por delante de tu casa. Las persianas bajadas a las seis de la tarde. #from: silvia #at: D2 18:10
+}
 Qué raro. ¿Le habrá pasado algo? #from: anna #delay: 1200
 -> d3
 

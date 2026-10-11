@@ -1,5 +1,6 @@
 // Montse, por privado. Trampa: tiene el móvil de Alicia guardado. Cualquier mensaje le dice que alguien lo usa.
 // A cambio, se le escapa algo: lo que planean para el aniversario de la yaya.
+// Recuerda el primer mensaje: después ya no se sorprende, habla a quien sea que tenga el móvil.
 
 === mama ===
 -> historial
@@ -15,7 +16,7 @@ Hazlo por mí. #at: D-3 19:02
 = charla
 - (opciones)
 #caduca: D{dia + 1} 00:00
-* [mamá]
+* (hola) [mamá]
     ~ sospecha_familia += 2
     ¿Alicia? #delay: 60
     ... #delay: 120
@@ -31,11 +32,27 @@ Hazlo por mí. #at: D-3 19:02
     ... #delay: 300
     Gracias, nena. Ya sé dónde tengo que buscarte. 🌹 #delay: 10 #effect: glitch
     -> opciones
-* [te quiero mamá]
+* (quiero) [te quiero mamá]
     ~ sospecha_familia += 2
-    Nena. #delay: 60
-    Yo también. Más que a nada. #delay: 5
-    Te tengo la ropa blanca planchada encima de la cama. Vuelve a casa. #delay: 10
+    {hola or no_busqueis:
+        Si eres tú, ven a decírmelo a la cara. #delay: 60
+        Y si no eres tú, no uses su voz. #delay: 8
+    - else:
+        Nena. #delay: 60
+        Yo también. Más que a nada. #delay: 5
+        Te tengo la ropa blanca planchada encima de la cama. Vuelve a casa. #delay: 10
+    }
+    -> opciones
+* (no_busqueis) [mamá, estoy bien. no me busquéis]
+    ~ sospecha_familia += 2
+    {hola or quiero:
+        Otra vez tú. #delay: 60
+        Quien seas: nadie la busca. La esperamos. Que no es lo mismo. #delay: 8
+    - else:
+        Nena... #delay: 60
+        Nadie te busca. Te esperamos. Que no es lo mismo. 🌸 #delay: 8
+        La yaya cumple tres años. Tú sabes dónde tienes que estar. #delay: 10 #effect: glitch
+    }
     -> opciones
 + [(sin responder)]
     -> charla

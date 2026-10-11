@@ -22,6 +22,13 @@ Le habla de tú y **nunca le asigna género**: ni «listo» ni «lista», sino �
 ## Papel en la trama
 Hace el encargo (audio) y explica el móvil y la app de Policía en el tutorial: un intento al día, y una zona de 500 m o menos da con la víctima. Si el caso empieza de tarde o de noche, lo presenta esa misma noche (D0) y da la estrategia: leer sin escribir hasta la mañana. Recibe el parte cada noche y hace una comprobación por noche. Identifica a Rosalia por el padrón y el fijo, rastrea el prepago (antena de Bracons, once masías), consigue los agentes del D6 y narra los finales.
 
+## Vida propia esta semana
+- Un comisario que no cree en el caso (D3), un permiso para dos agentes que no llega hasta el D5, noches sin dormir.
+
+## Cómo reacciona
+- Si Kimo le pregunta si su comisario tiene razón: «En que está bien, no lo sé. Y eso es lo que me quita el sueño.»
+- Si no le dan el permiso, irá ella, fuera de servicio.
+
 ## Cómo escribe
 - **Frases cortas, con punto.** Mayúsculas correctas. Ni un emoji.
 - Telegrafía de policía: «Cámaras de la estación de Olot, anteanoche.», «23:41. Un coche gris la deja delante.»

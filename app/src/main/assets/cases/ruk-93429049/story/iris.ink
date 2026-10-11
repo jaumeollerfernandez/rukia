@@ -10,10 +10,11 @@ tu hermana dice que no tienes el móvil #delay: 10
 pero si alguien lee esto: ali tenía razón #delay: 6
 lo de los papeles #delay: 4 #caduca: D5 02:00
 * [¿Qué papeles?]
-    las voluntades. las anticipadas, las de los médicos. eso es lo que te dicen #delay: 60
-    pero el mismo día, en el despacho de la casa, firmas otro papel. no te dejan leerlo con calma #delay: 5
-    lo donas todo a la comunidad «en caso de tránsito». casa, cuentas, todo #delay: 4
-    y nos ha dado una fecha #delay: 5
+    -> papeles ->
+* [iris soy yo. qué papeles?]
+    ali? #delay: 60
+    tu hermana dice que no tienes el móvil. pero quiero creer que eres tú #delay: 5
+    -> papeles ->
 * [¿Quién eres?]
     alguien que también firmó #delay: 60
     y que ahora no puede dormir #delay: 5
@@ -27,6 +28,13 @@ lo de los papeles #delay: 4 #caduca: D5 02:00
 - no puedo escribir más. aquí revisan los móviles #delay: 20
 borro esto #delay: 3
 -> d5
+
+= papeles
+las voluntades. las anticipadas, las de los médicos. eso es lo que te dicen #delay: 60
+pero el mismo día, en el despacho de la casa, firmas otro papel. no te dejan leerlo con calma #delay: 5
+lo donas todo a la comunidad «en caso de tránsito». casa, cuentas, todo #delay: 4
+y nos ha dado una fecha #delay: 5
+->->
 
 = d5
 // La llamada de Iris llega en la madrugada del D6 (ver D6).
@@ -42,6 +50,13 @@ no voy a ir. creo #delay: 10 #caduca: D6 02:00
     y qué les digo #delay: 60
     todo. lo de los papeles, las botellas, el dinero #delay: 5
     vale. mañana. si me dejan salir #delay: 20
+* [iris, no vayas al cráter]
+    no sé si puedo no ir #delay: 60
+    aquí todo el mundo te mira. si no voy, vienen a buscarme #delay: 6
+    y mi madre ya no está para venir a buscarme ella #delay: 10
+* [por qué me lo cuentas?]
+    porque ali fue la única que dijo que no #delay: 60
+    en el círculo. delante de todos. y yo no supe #delay: 6
 * [(sin responder)]
 - -> d7
 

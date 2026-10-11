@@ -8,6 +8,9 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚠️ trampa (empeora el caso) · �
 
 - **Charlas entre escenas.** Núria, Pol, Dani, Èric, Marta, Papá, Arnau y los grupos `amigas`, `esplai` y `veins` tienen huecos en los que el jugador escribe primero. Las preguntas cambian según el día y lo que ya sabe; caducan justo antes de la escena siguiente.
 - **Contactos.** Los 36 contactos que antes abrían un chat vacío tienen ahora su propia charla (`story/<id>.ink`). Cada día, a medianoche, salen preguntas nuevas. Contestan cuando están en línea.
+  - Cada tema admite réplicas (seguir preguntando, reaccionar, cortar), y lo que ya no tiene sentido decir desaparece (saludos, una mentira y su verdad).
+  - Muchos escriben por su cuenta según su vida (Aina, Oriol, Teresa, Enric, Imma...). Así, una pista puede llegar aunque el jugador no pregunte: Oriol el D4, si nadie le ha preguntado por la chica de Bracons; Enric el D4, por el coche gris.
+  - Recuerdan lo que se les dice: una promesa incumplida (el turno del Banc, el cumple de Mireia, la clase de Leo) sale después.
 - **Consultas a Laia.** Después de cada parte nocturno, Laia ofrece **una** comprobación para el día siguiente. Las opciones dependen de lo averiguado: residencias, Can Pericot, la coartada de Dani, el prepago, el coche gris. Hay que elegir.
 - **Riesgo.** Escribir a los adultos cotillas (Ramon, Roser, Conxita) sube `sospecha_familia`; a mamá por privado o en el grupo de vecinos (Montse está en él), más. Contarle a Laura dónde está Alicia se lo cuenta a Berta.
 
@@ -142,7 +145,7 @@ Todas las charlas de la agenda tienen varias preguntas por día (ruido, trasfond
 | Contacto | Qué suelta | Cuándo |
 |---|---|---|
 | 🔎 Pep (cartero 40 años) | La Rosalia vive «arriba del todo», sin luz; le dejaba el correo en el **pozo** porque la perra no le dejaba llegar al buzón; «siempre pedía pan» | Con `sabe_rosalia` |
-| 🔎 Xavier | La Rosalia fundó la coral con la yaya; en el entierro se fue andando valle arriba con una perra enorme | D2-D3+ |
+| 🔎 Xavier | La Rosalia fundó la coral con la yaya; en el entierro se fue andando valle arriba, «hacia Sant Salvador, por la carretera», con una perra enorme | D2-D3+ |
 | 🔎 Lluïsa | El lote de «la masía de arriba» solo lo quiere si lo sube Alicia («la nena»). Montse ha donado las cosas de Alicia | D3+ |
 | 🔎 Roser | La Rosalia siempre tuvo perras «con nombre de dulce» (Trufa) | D3+ |
 | 🔎 Marc | Hay dos puertas azules: Can Pericot y otra **con pozo** subiendo a Bracons, con una perra que ataca al tractor | D3+ con `sabe_puerta_azul` |
@@ -154,7 +157,9 @@ Todas las charlas de la agenda tienen varias preguntas por día (ruido, trasfond
 | 🔎 Fàtima | Montse llegó a urgencias hace un mes mareada, sin comer: «haciendo un proceso» | D2+ |
 | 🔎 Sílvia | El piso de la yaya (120.000 €) lo cobró «una asociación de unas siglas», no Montse; un señor de barba preguntó cuánto vale la casa | D3+ / D4+ |
 | 🔎 Clàudia | La que repartía folletos del Casal: chica joven, pálida, rubia, de blanco (Iris) | D3+ |
-| 🔎 Sonia | Alicia se mareaba en los entrenos tres semanas seguidas (los ayunos) | D2+ |
+| 🔎 Sonia | Alicia se mareaba en los entrenos tres semanas seguidas (los ayunos). Montse fue a darla de baja: ahora irá más «a lo de su asociación. Rosa d'Abril, o algo así» (`sabe_secta`) | D2+ |
+| 🔎 Oriol | Si nadie le ha preguntado por la chica de Bracons, escribe él el D4 a las 22:10: «no serías tú no?» | D4 |
+| 🔎 Enric | El D4 a las 11:15 escribe él: no se queda tranquilo con el coche gris; si Alicia pregunta, da la matrícula (`sabe_seat`) | D4 |
 | ⚠️ Gemma | Berta y **Laura** pidieron juntas la plaza para «una meditación al alba»: Laura es de la Casa | D3+ |
 | ⚠️ Enric | «A la Conxita, ni la hora»: todo llega a tu madre | D2+ |
 | 🔎 Ramon | Su nuera trabaja en la residencia Sant Jaume: allí no hay ninguna Rosalia | D3+ con `sabe_residencia` (y Ramon se lo cuenta a Montse) |

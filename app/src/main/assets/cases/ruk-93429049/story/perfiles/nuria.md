@@ -18,6 +18,14 @@ Crecieron puerta con puerta. Dos veranos la yaya Mercè se la llevó con Alicia 
 ## Relación con Alicia
 Hermana elegida. La llama «ali»; Alicia la llama «nuri». Comparten un idioma propio (el sitio de las estrellas, Trufa, la pulsera).
 
+## Vida propia esta semana
+- 1.º de Enfermería en Girona: examen de anatomía, la compañera de piso que la oye hablar dormida.
+
+## Cómo reacciona
+- Si Alicia le confirma que está «donde vimos las estrellas», lo jura por la iaia y no se lo dice a nadie.
+- D5: recuerda la puerta azul y el pozo (tiró su coletero y la yaya lo sacó con un cubo).
+- D6: guarda la foto del mas «en mi cajón. con tus cartas de cuando teníamos diez años».
+
 ## Cómo escribe
 - **Minúscula, sin punto**, ráfagas de mensajes cortos.
 - Interrogaciones y exclamaciones múltiples cuando se asusta: «???», «QUÉ», «ali??».

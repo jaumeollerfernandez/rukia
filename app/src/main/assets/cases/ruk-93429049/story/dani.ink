@@ -132,8 +132,19 @@ el del audi es el que me pasa el costo. me fió un kilo y los mossos me lo pilla
 le debo seis mil. y no es del bar, ali. es de barna. conoce a iker #delay: 6
 me han dado dos días #delay: 5
 tú nunca quisiste saber nada de eso. por eso te lo cuento a ti, no sé #delay: 6
-y supongo que por eso me puse tan pesado. sabía que no ibas a decir nunca que sí #delay: 8
--> charla("D5 23:10") ->
+y supongo que por eso me puse tan pesado. sabía que no ibas a decir nunca que sí #delay: 8 #caduca: D5 20:00
+* [qué vas a hacer?]
+    no sé. pensar #delay: 120
+    tengo dos días y una idea de mierda. no me preguntes cuál #delay: 8
+* [vete a los mossos, dani]
+    y que me maten al salir? #delay: 120
+    no ali. tú no sabes cómo es esta gente #delay: 5
+* [lo siento, dani]
+    ya #delay: 120
+    yo también #delay: 10
+* [(sin responder)]
+    vale. ni tú #delay: 1
+- -> charla("D5 23:10") ->
 -> d5
 
 // Ya ha hecho el trato: busca a Alicia para la red. Le escribe como si quisiera ayudarla.
@@ -180,8 +191,16 @@ ali porfa #delay: 3
 sé que estás por sant salvador. te seguí una vez, ya lo sabes #delay: 6
 me falta saber cuál. he preguntado a medio valle #delay: 5
 dímelo tú. es mejor que te encuentre yo que otros #delay: 8
-no me hagas esto ali #delay: 60
--> d7
+no me hagas esto ali #delay: 60 #caduca: D6 17:00
+* [no te lo voy a decir]
+    vale #delay: 120
+    tú lo has querido #delay: 20
+    no. no quería decir eso. perdona #delay: 10
+* [quiénes son «otros», dani?]
+    gente que no pregunta #delay: 120
+    olvídalo. no te he dicho nada #delay: 5
+* [(sin responder)]
+- -> d7
 
 = d7
 #at: D7 01:30
@@ -217,7 +236,7 @@ no te volveré a escribir #delay: 20
 = charla(limite)
 - (opciones)
 #caduca: {limite}
-* [dani dónde estabas anteanoche?]
+* [dani dónde estabas la noche que me fui?]
     {dia < 3:
         por ahí #delay: 120
         por? me echabas de menos? 😏 #delay: 4

@@ -12,6 +12,26 @@ Funcionario de toda la vida, organiza orquestas, castillos hinchables y avisos d
 - **Burócrata amable.** Todo con plazos («el cartel tiene que estar en la imprenta en cinco días») y sin prisas para lo que no es suyo.
 - Serio ante las bromas de Marc: «Marc, el tractor no es una carroza.».
 
+## Vida propia esta semana
+- La fiesta mayor: orquesta cerrada, castillo hinchable pendiente, cartel en la imprenta en cinco días, escenario el D7.
+- El D4 le llaman del Parc Natural: una asociación quiere hacer «un acto al alba» en Santa Margarida.
+
+## Con Alicia
+- Comisión de fiestas. La aprecia porque dibuja y cumple (hasta ahora).
+
+## Objetivo y secreto
+- Quiere el cartel a tiempo y que Marc no meta el tractor. Protege los datos de los vecinos («Eso es protección de datos»).
+
+## Temas
+- **A gusto:** plazos, el tractor de Marc, el cartel «espiritual» de Laura («un anuncio de colonia»), las «crepes conscientes».
+- **Malinterpreta:** no ve nada raro en lo de Laura ni en el acto al alba.
+
+## Ritmo
+- Unos 10 minutos. Avisos con fecha y hora.
+
+## Escribe por su cuenta
+- No escribe solo: solo en el grupo de la fiesta.
+
 ## Cómo escribe
 - **Mayúsculas y puntos**, avisos con fecha y hora. Emojis: 🎉.
 

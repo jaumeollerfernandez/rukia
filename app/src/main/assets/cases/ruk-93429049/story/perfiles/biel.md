@@ -15,6 +15,33 @@ Monitor desde hace dos años, más por los amigos que por vocación. Tiene un ju
 ## Papel en la trama
 🎭 Es la explicación de la pista falsa de Capsec (`descarta_capsec`).
 
+## Vida propia esta semana
+- Repone yogures en el súper («mi vida es un lineal de lácteos»). Juega al lol.
+- Con Noa buscan un sitio donde estar tranquilos: ya lo encontraron (Can Pericot).
+- D4: lleva a los peques de Alicia a la salida del Parc Nou.
+
+## Con Alicia
+- Compañero de monitores, de bromas («la mejor y la peor a la vez»). Confianza de colegas.
+
+## Objetivo y secreto
+- **Secreto:** las llaves de Can Pericot y la noche allí con Noa (velas, latas, «B + N»). Le da miedo que Pau se entere.
+- Lo confiesa si le preguntan de frente por las llaves. Antes, se delata solo: contesta en un segundo, «nada nada».
+- Al bajar vio una furgo blanca con las luces apagadas en el cruce de Capsec, a las tres. No miró la matrícula.
+
+## Temas
+- **A gusto:** Noa, el súper, los bífidus que caducan a la vez.
+- **Le incomoda:** el refugi, las llaves, Pau.
+
+## Cómo reacciona
+- **Si Alicia le guarda el secreto:** «te quiero. te debo una. bueno, dos».
+- **Si le dice que se lo cuente él a Pau:** acepta a regañadientes.
+
+## Ritmo
+- Rápido cuando miente (5 segundos); 5-10 minutos normalmente. Réplicas de dos palabras.
+
+## Escribe por su cuenta
+- **D3 20:10:** tras el mensaje de Pau por las llaves: «tú no habrás dicho nada a pau de nada no?» (si aún no ha confesado).
+
 ## Cómo escribe
 - **Minúscula, sin punto**, réplicas de dos palabras. Emojis: 😅, 😑, 👀.
 

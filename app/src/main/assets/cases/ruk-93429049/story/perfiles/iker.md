@@ -11,6 +11,10 @@ Llena la puerta y los reservados del club con chicas jóvenes: 1.500 € al mes 
 Hasta el D3 parece 🎭 pista falsa: «trae el dni, que para el contrato hace falta», «cuando llegues a nord te recojo», «mejor no lo comentes en casa», «si alguien te pregunta por mí, no me conoces». Todo encaja con el patrón que describe Laia (D3), y la detención de Dani parece aclararlo (el plan para Alicia era de Dani).
 🔎 Pero es el contacto de Dani con la red. D5 01:10: «si estás en algún sitio y necesitas salir, yo te mando a alguien. solo dime por qué zona estás» (preguntarle por qué le importa da `sabe_dani_busca`). D6 10:30: «esta tarde paso por la zona». Si se llevan a Alicia, su número deja de existir.
 
+## Cómo contesta
+- D3: si le preguntan por la policía o por qué no le conocen, «nada que ver contigo. ni conmigo 😉».
+- D6: si le dicen que no la busque, «nadie te busca, guapa. solo queremos ayudar 😘».
+
 ## Cómo escribe
 Minúscula, simpático y comercial: «guapa», 😊, 😘, 🙈, 😉. Nunca explica nada por escrito: «te lo explico en persona, por aquí mejor no».
 

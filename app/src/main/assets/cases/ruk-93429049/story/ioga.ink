@@ -30,6 +30,9 @@ La madre de Ali va, ¿no? #from: gemma #delay: 900
 Hoy éramos cuatro gatos. Ali, te echamos de menos en la esterilla de la esquina. #from: claudia #at: D4 20:15 #caduca: D5 20:15
 * [la semana que viene vuelvo, prometido]
     Aquí estaremos. Sin prisas 🧘‍♀️ #from: claudia #delay: 900
+* [gemma, guárdame la esterilla de la esquina]
+    la defiendo con mi vida 🙈 #from: gemma #delay: 600
+    y te despierto en la relajación, que te conozco #from: gemma #delay: 10
 * [(sin responder)]
 - -> d5
 

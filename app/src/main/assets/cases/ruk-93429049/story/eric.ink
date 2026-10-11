@@ -1,4 +1,6 @@
 // Èric, compañero de la panadería, 19 años. Le gusta Alicia y lo disimula fatal. Primera pista del pan.
+// Vida propia: quiere ser panadero de verdad (la masa madre, las cocas del D5), cubre los turnos de Alicia.
+// Recuerda si Alicia le dijo que también le echaba de menos.
 
 === eric ===
 -> historial
@@ -24,6 +26,10 @@ yo no he dicho nada eh 🤐 #delay: 3 #caduca: D2 13:00
     pilar las cuenta siempre, ya sabes cómo es #delay: 5
     yo le he dicho que se habrían quemado, pero no se lo ha tragado #delay: 6
     tranqui que no pasa nada. pero si eran para alguien, avísame y le digo algo #delay: 10
+* (cogi) [las barras las cogí yo. no digas nada]
+    ~ sabe_pan = true
+    ya me lo imaginaba 😅 #delay: 90
+    tranqui. yo nunca digo nada. es mi superpoder #delay: 5
 * [(sin responder)]
     vale, ya me contarás 🍞 #delay: 1
 - -> charla("D2 13:15") ->
@@ -32,12 +38,19 @@ yo no he dicho nada eh 🤐 #delay: 3 #caduca: D2 13:00
 = d2
 has visto mi post 🕵️🥖 jajaja #at: D2 13:20
 pilar me ha echado una bronca... pero ya lo ha visto medio olot #delay: 4
+{d1.cogi:
+    tranqui que no pongo que fuiste tú 🤐 #delay: 4
+}
 oye ahora en serio #delay: 600
 estás bien? se te echa de menos por aquí. bueno, te echo de menos yo #delay: 8
 no he dicho eso #delay: 2 #caduca: D3 13:00
 * [jajaja sí lo has dicho]
     borrado. no existe #delay: 60
     cuídate anda #delay: 4
+* (tambien) [yo también te echo de menos]
+    ... #delay: 120
+    vale. esto lo guardo #delay: 10
+    cuídate eh #delay: 4
 * [estoy bien eric. gracias por cubrirme]
     a mandar #delay: 60
 * [(sin responder)]
@@ -54,19 +67,34 @@ ni idea de qué habla 🤷 #delay: 4
 
 = d4
 pilar dice que si vuelves, el puesto es tuyo #at: D4 14:30
-y yo también te espero. para la birra digo 🙃 #delay: 4
+{d2.tambien:
+    y yo te espero. y no para la birra 🙃 #delay: 4
+- else:
+    y yo también te espero. para la birra digo 🙃 #delay: 4
+}
 -> charla("D5 10:55") ->
 -> d5
 
 = d5
-{not arnau_calla:
-    ali la he liado #at: D5 11:00
-    ha venido tu hermana y le he dicho lo de «la señora de arriba» sin pensar #delay: 4
-    me ha sonreído de una manera rarísima #delay: 5
-    perdóname #delay: 3
-- else:
-    hoy hemos hecho cocas de chicharrones. te guardo una 🍞 #at: D5 13:00
-}
+{arnau_calla: -> d5_cocas}
+ali la he liado #at: D5 11:00
+ha venido tu hermana y le he dicho lo de «la señora de arriba» sin pensar #delay: 4
+me ha sonreído de una manera rarísima #delay: 5
+perdóname #delay: 3
+#caduca: D6 09:00
+* [eric!!]
+    lo sé. lo sé. soy idiota #delay: 120
+    me tendría que coser la boca con hilo de bramante #delay: 5
+* [no pasa nada, eric]
+    sí pasa #delay: 120
+    se me ha puesto la piel de gallina con esa sonrisa #delay: 5
+* [qué más le dijiste?]
+    nada más. te lo juro por la masa madre. la nueva #delay: 120
+* [(sin responder)]
+- -> d6
+
+= d5_cocas
+hoy hemos hecho cocas de chicharrones. te guardo una 🍞 #at: D5 13:00
 -> d6
 
 // D6: Dani pregunta por ella en el Forn (la deuda de Dani, PISTAS.md).
@@ -76,7 +104,14 @@ ha venido el dani ese de la moto. a preguntarme si sabía en qué mas estabas #d
 ~ sabe_dani_busca = true
 le he dicho que ni idea. que es verdad #delay: 5
 pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
--> d7
+#caduca: D7 06:00
+* [gracias por no decirle nada]
+    no sé nada, es mi superpoder #delay: 120
+    pero ese tío me ha dado mal rollo. ten cuidado ali #delay: 5
+* [si vuelve, avísame]
+    hecho. y le tiro la masa madre a la cara #delay: 120
+* [(sin responder)]
+- -> d7
 
 = d7
 // D7: nada.
@@ -90,8 +125,12 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
 - (opciones)
 #caduca: {limite}
 * [eric porfa lo de las barras no se lo cuentes a nadie más]
-    ali ya lo sabe medio olot por mi post 😅 #delay: 120
-    perdón. lo archivo #delay: 4
+    {dia >= 3 or (dia == 2 and hora >= 13):
+        ali ya lo sabe medio olot por mi post 😅 #delay: 120
+        perdón. lo archivo #delay: 4
+    - else:
+        a nadie. bueno, a pilar no hace falta, que ya lo sabe 😅 #delay: 120
+    }
     -> opciones
 * {dia >= 2 and fia_eric > -1} [eric te pido un favor. si alguien pregunta por mí, tú no sabes nada]
     ~ sabe_capsec = true
@@ -100,7 +139,14 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
     el mes pasado me pediste que te subiera en moto al refugio del esplai, en capsec. el mas de la puerta azul #delay: 6
     que ibas a dejar unas cosas para una acampada. una mochila enorme #delay: 5
     tiene que ver con esto? #delay: 4
-    -> opciones
+    #caduca: D{dia + 1} 00:00
+    ** [sí. y no se lo digas a nadie]
+        ni a pilar. palabra de panadero #delay: 120
+    ** [no. era una acampada de verdad]
+        vale vale #delay: 120
+        una acampada sola, con mochila de mudanza, en un mas vacío. normalísimo 🙃 #delay: 5
+    ** [(sin responder)]
+    - - -> opciones
 * {dia >= 3 and fia_eric > -1} [qué te dijo pilar exactamente de la señora de arriba?]
     si estabas delante jajaja #delay: 120
     oye estás rarísima. a ver, qué me debes por lo de la masa madre? #delay: 5
@@ -151,6 +197,10 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
 * {dia >= 2 and fia_eric > -1} [estoy bien eric. de verdad]
     vale. te creo #delay: 120
     más o menos #delay: 3
+    -> opciones
+* {dia >= 2 and fia_eric > -1} [qué tal la masa madre nueva?]
+    viva. de momento #delay: 120
+    le he puesto nombre para que le cueste más morirse. se llama pilarín. no se lo digas a pilar #delay: 5
     -> opciones
 + [(sin responder)]
 - ->->
