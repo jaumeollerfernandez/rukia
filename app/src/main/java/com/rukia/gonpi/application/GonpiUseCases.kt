@@ -7,11 +7,20 @@ import com.rukia.gonpi.domain.port.ContactDirectory
 import com.rukia.gonpi.domain.port.GonpiRepository
 import com.rukia.gonpi.domain.port.LikeRepository
 import com.rukia.gonpi.domain.port.PostAlarm
+import com.rukia.gonpi.domain.port.StoryFacts
 import java.time.Clock
 
-/** Gonpi as it is now in the case's week. [timeOf] turns a case time ("D3 21:00") into epoch millis. */
-class GetGonpi(private val repo: GonpiRepository, private val timeOf: (String) -> Long?, private val clock: Clock) {
-    operator fun invoke(): Gonpi = repo.gonpi().publishedBy(clock.millis(), timeOf)
+/**
+ * Gonpi as it is now in the case's week, without the posts the story had archived ([facts]). [timeOf] turns a case
+ * time ("D3 21:00") into epoch millis.
+ */
+class GetGonpi(
+    private val repo: GonpiRepository,
+    private val timeOf: (String) -> Long?,
+    private val clock: Clock,
+    private val facts: StoryFacts = StoryFacts { false },
+) {
+    operator fun invoke(): Gonpi = repo.gonpi().publishedBy(clock.millis(), facts::isTrue, timeOf)
 }
 
 /** Search only finds the phone's contacts, by username or name. */

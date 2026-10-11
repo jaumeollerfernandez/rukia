@@ -36,6 +36,9 @@ Primero 🎭 pista falsa; desde el D4, 🔎 amenaza real. Capas:
 - D4, tras confesar: si Alicia le dice que vaya a los Mossos, «y que me maten al salir?». Si le pregunta qué va a hacer, «tengo dos días y una idea de mierda».
 - D6: si Alicia se niega a decirle dónde está, se le escapa la amenaza («tú lo has querido») y se corrige.
 
+## El D1 y el D2
+- El D1 pregunta si se ha ido a Barcelona: Alicia puede negarlo (él pregunta dónde está entonces), decir que no piensa escribir a Iker o preguntar quién se lo ha dicho. El D2 se le puede contestar a «qué pasa contigo?» y a «si estás con el pol ese».
+
 ## Cómo escribe
 - **Minúscula, sin punto, abreviaturas**: «q haces», «barna».
 - Emojis de chulito: 😏, 😂, 🙃.

@@ -81,6 +81,9 @@
     Doble turno. Hoy veinte vacunas y un señor que se ha desmayado antes de ver la aguja. #delay: 600
     Martina cena con su padre y yo con un yogur. La vida de enfermera 😊 #delay: 6
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

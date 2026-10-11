@@ -7,6 +7,12 @@ const val PLAYER_ID = "me"
 /** A choice the player never sees: the story takes it on its own when the choices expire, and nothing is sent. */
 const val SILENT_CHOICE = "(sin responder)"
 
+/**
+ * Another hidden choice, in a chat's hub of questions: the app takes it when something outside the chats (a photo
+ * opened, a record read) may open new questions, so the hub offers them at once. Nothing is sent and nothing is said.
+ */
+const val REFRESH_CHOICE = "(actualizar)"
+
 enum class CallStatus { RINGING, ANSWERED, DECLINED }
 
 /**
@@ -52,7 +58,7 @@ data class Chat(
     val isGroup get() = participants.size > 1
 
     /** The choices shown to the player, with their index in [choices]. */
-    fun visibleChoices() = choices.withIndex().filter { it.value != SILENT_CHOICE }
+    fun visibleChoices() = choices.withIndex().filter { it.value != SILENT_CHOICE && it.value != REFRESH_CHOICE }
 
     fun displayTitle(characters: Map<String, Character>) =
         title ?: participants.joinToString { characters[it]?.name ?: it }

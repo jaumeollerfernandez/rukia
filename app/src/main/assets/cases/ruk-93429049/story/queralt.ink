@@ -44,6 +44,9 @@
     Sí. Dolors quiere ensayar igual, aunque se aplace. Dice que el texto no se olvida si se repite. #delay: 300
     Te guardo el abanico de Adela. 🎭 #delay: 4
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

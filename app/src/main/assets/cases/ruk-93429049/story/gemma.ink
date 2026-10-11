@@ -61,6 +61,9 @@
     de media garrotxa 😂 #delay: 300
     ferrer es como garcía por aquí. ni idea de quién me hablas, pero seguro que es primo de alguien #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

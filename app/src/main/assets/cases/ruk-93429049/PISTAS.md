@@ -11,6 +11,13 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚠️ trampa (empeora el caso) · �
   - Cada tema admite réplicas (seguir preguntando, reaccionar, cortar), y lo que ya no tiene sentido decir desaparece (saludos, una mentira y su verdad).
   - Muchos escriben por su cuenta según su vida (Aina, Oriol, Teresa, Enric, Imma...). Así, una pista puede llegar aunque el jugador no pregunte: Oriol el D4, si nadie le ha preguntado por la chica de Bracons; Enric el D4, por el coche gris.
   - Recuerdan lo que se les dice: una promesa incumplida (el turno del Banc, el cumple de Mireia, la clase de Leo) sale después.
+- **La galería abre preguntas.** Abrir una foto de pista pone `foto_img_<número>` y la charla de quien sabe de eso ofrece al momento una pregunta nueva (Roser, Carla, Papá, Marta, Pol, Toni; tabla en MULTIMEDIA.md). Contarle a Laia lo del reembolso (D2) exige haber abierto `IMG_0411.jpg` antes.
+  - 🔎💬 Roser (IMG_0391): la Trufa es de la Rosalia, y su casa tiene pozo; la de la Pepita (Capsec), no.
+  - 🔎💬 Pol (IMG_0409): por el retrovisor la vio cruzar hacia la rotonda, no hacia los autobuses.
+  - 🔎💬 Toni (IMG_0413): las masías de arriba de Sant Salvador no tienen luz; si confía, la de la señora de la perra va con velas.
+  - 🔎💬 Papá (IMG_0401): el piso de la yaya se vendió por 120.000 € y Montse le dijo que no le quedó nada. Marta (IMG_0402): el folleto se lo dejó el de la barba blanca. Carla (IMG_0397): Alicia fue a una reunión «del alba» y no quiso volver.
+- **Gonpi archiva.** Si Alicia se lo pide, Arnau archiva el vídeo de la rotonda (`arnau_calla`) y Èric su post de las barras (`eric_archiva`): desaparecen del feed.
+- **Llamadas.** La historia espera a saber si el jugador cogió la llamada. Pilar (D3): si la coge, solo oye ruido y pregunta; si no, le escribe. Alicia elige la excusa (afónica, gente delante, sin cobertura, la ducha).
 - **Consultas a Laia.** Después de cada parte nocturno, Laia ofrece **una** comprobación para el día siguiente. Las opciones dependen de lo averiguado: residencias, Can Pericot, la coartada de Dani, el prepago, el coche gris. Hay que elegir.
 - **Riesgo.** Escribir a los adultos cotillas (Ramon, Roser, Conxita) sube `sospecha_familia`; a mamá por privado o en el grupo de vecinos (Montse está en él), más. Contarle a Laura dónde está Alicia se lo cuenta a Berta.
 

@@ -113,11 +113,14 @@ fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit)
     },
     PhoneApp("multimedia", R.string.app_multimedia, Icons.Filled.Face, MultimediaOrange) {
         // The police photos of the arrested people whose records the player read.
-        MultimediaApp(caseId) { PoliceModule(context, caseId).listMugshots().map { Photo(it.path, it.plate, it.profile) } }
+        // Opening a photo tells the story, which can open new questions in the chats.
+        MultimediaApp(caseId, flags = { ChatModule.of(context, caseId).setStoryFlag(it) }) {
+            PoliceModule(context, caseId).listMugshots().map { Photo(it.path, it.plate, it.profile) }
+        }
     },
     PhoneApp("gonpi", R.string.app_gonpi, Icons.Filled.Favorite, GonpiPink) {
-        // Gonpi's search finds the people in the chat app's Contacts tab.
-        GonpiApp(caseId) { ChatModule.of(context, caseId).characters.values.filter { !it.hidden && it.id != PLAYER_ID }.map { it.id }.toSet() }
+        // Gonpi's search finds the people in the chat app's Contacts tab; posts the story archived are gone.
+        GonpiApp(caseId, facts = { ChatModule.of(context, caseId).getStoryVariable(it) == true }) { ChatModule.of(context, caseId).characters.values.filter { !it.hidden && it.id != PLAYER_ID }.map { it.id }.toSet() }
     },
 )
 

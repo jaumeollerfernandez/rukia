@@ -56,13 +56,32 @@ ya no contestas? #delay: 600
 vale guay #delay: 900
 me dejas en visto desde hace tres días #delay: 5
 y luego te vas de casa sin decir nada a nadie #delay: 300
-te has ido a barna, no? 😏 iker dice que aún no le has escrito #delay: 8
+sí, me he enterado. olot es pequeño 😏 #delay: 4
 ~ dani_sospechoso = true
-sí, me he enterado. olot es pequeño 😏 #delay: 4 #caduca: D2 03:00
-* [quién te lo ha dicho?]
+te has ido a barna, no? iker dice que aún no le has escrito #delay: 8 #caduca: D2 03:00
+* [no estoy en barna]
+    ya. y dónde entonces? #delay: 120
+    #caduca: D2 03:00
+    ** [no te lo voy a decir]
+        vale guay. como siempre #delay: 120
+    ** [en casa de una amiga]
+        de cuál? de la nuri? 😏 #delay: 120
+        bueno. mientras no sea con el pol ese #delay: 6
+    ** [(sin responder)]
+        vale. no me lo digas #delay: 1
+* [no le he escrito a iker ni le voy a escribir]
+    uf vale, tranqui #delay: 120
+    pues allí estarías mejor que en esa casa. te lo digo yo #delay: 6
+* [quién te ha dicho que me he ido?]
     tengo mis fuentes jajaja #delay: 120
     tranqui que no se lo digo a nadie #delay: 4
     si me dices dónde estás te llevo algo. lo que sea. tengo la moto #delay: 6
+    #caduca: D2 03:00
+    ** [no necesito nada, gracias]
+        como quieras. si cambias de idea, la moto está #delay: 120
+    ** [no te voy a decir dónde estoy]
+        vale vale. era por ayudar 🙃 #delay: 120
+    ** [(sin responder)]
 * [perdona, estoy liada]
     ya, liada #delay: 120
     bueno avísame cuando tengas tiempo para mí #delay: 10
@@ -81,6 +100,9 @@ me ha escrito tu hermana por gonpi #delay: 4
 preguntando si sé dónde estás #delay: 3
 tu familia es rara de cojones #delay: 60
 qué pasa contigo? #delay: 5 #caduca: D3 03:00
+* [nada. necesitaba irme unos días]
+    unos días. vale #delay: 120
+    pues avisa, que la gente se preocupa. yo me preocupo #delay: 6
 * [qué le has dicho?]
     que no sé nada. porque no sé nada #delay: 120
     y tu hermana me ha dado mal rollo. me ha dicho que «la luz siempre encuentra el camino». qué coño significa eso #delay: 8
@@ -88,8 +110,15 @@ qué pasa contigo? #delay: 5 #caduca: D3 03:00
     no pensaba. ni la conozco #delay: 120
     me ha dado mal rollo #delay: 4
 * [(sin responder)]
-- si estás con el pol ese, dímelo. tengo derecho a saberlo #delay: 60
--> charla("D3 21:25") ->
+- si estás con el pol ese, dímelo. tengo derecho a saberlo #delay: 60 #caduca: D3 03:00
+* [no estoy con pol]
+    vale. te creo #delay: 120
+    ...más o menos 🙃 #delay: 6
+* [no tienes ningún derecho, dani]
+    ya. vale. perdona #delay: 120
+    es que me rayo #delay: 5
+* [(sin responder)]
+- -> charla("D3 21:25") ->
 -> d3
 
 = d3
@@ -311,6 +340,9 @@ no te volveré a escribir #delay: 20
     -> opciones
 * {dia >= 3} [perdona si he sido borde]
     tranqui. yo también he sido un pesado #delay: 120
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

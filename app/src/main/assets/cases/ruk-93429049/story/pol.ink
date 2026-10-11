@@ -162,6 +162,18 @@ pase lo que pase mañana, aquí estoy #at: D6 21:30 #caduca: D7 05:00
     y que si alguien preguntaba, dijera que te había dejado en la estación. tal cual. lo repetiste dos veces #delay: 6
     como si te lo hubieras aprendido #delay: 5
     -> opciones
+// Con la captura de la ruta a pie (IMG_0409): Pol la vio irse andando, no hacia los autobuses.
+* {foto_img_0409} [pol, cuando me dejaste en la estación, me viste entrar?]
+    no. bueno #delay: 120
+    por el retrovisor te vi cruzar. hacia la rotonda, no hacia las dársenas #delay: 5
+    pensé que ibas al cajero. con la bolsa del pan y todo #delay: 5
+    #caduca: {limite}
+    ** [no se lo digas a nadie]
+        a quién se lo voy a decir. si nadie me pregunta por ti #delay: 120
+    ** [iba a coger otro bus]
+        a esas horas? ya no salía ninguno, ali #delay: 120
+    ** [(sin responder)]
+    - - -> opciones
 * [el coche gris era el tuyo, no?]
     el golf de mi padre. el de siempre #delay: 90
     ali estás bien? #delay: 3
@@ -180,6 +192,9 @@ pase lo que pase mañana, aquí estoy #at: D6 21:30 #caduca: D7 05:00
 * {dia >= 2} [qué tal en el taller?]
     hoy un tractor con el embrague muerto. el de marc el del hostalnou #delay: 120
     dice que tiene que desfilar en la fiesta. le he dicho que lo arrastre él #delay: 5
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

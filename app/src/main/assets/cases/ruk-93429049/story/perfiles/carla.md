@@ -40,6 +40,9 @@ Amiga del grupo desde el instituto. Organiza los planes («CHICAS el cumple de m
 ## Escribe por su cuenta
 - No escribe sola: lo dice todo en el grupo.
 
+## Lo que sabe por la galería
+- El meme del gato meditando (IMG_0397): Alicia se lo mandó un domingo a las siete; la habían llevado a una reunión «del alba» y no quería volver. Le contó lo del señor mayor que hablaba bajito y Berta llorando de felicidad.
+
 ## Cómo escribe
 - **Minúscula, sin punto**, con MAYÚSCULAS para gritar («ALI», «CHICAS», «QUÉ»).
 - Emojis: 😶, 🙄, 💔, 🥳, 😭, 👀, 🥺.

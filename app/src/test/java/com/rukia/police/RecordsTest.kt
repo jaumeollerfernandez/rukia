@@ -79,6 +79,20 @@ class RecordsTest {
         for (id in agenda) assertTrue((if (id == "mama") "montse" else id) in ids, "contact $id has no police record")
     }
 
+    @Test fun `people are listed by surname, accents aside, and those without one last`() {
+        val people = object : RecordsRepository {
+            override fun records() = PoliceRecords(records = listOf(
+                PoliceRecord("iker", "Iker (apellidos no constan)", "", ""),
+                PoliceRecord("roser", "Roser Vilà", "", ""),
+                PoliceRecord("alicia", "Alicia Serra Vidal", "", ""),
+                PoliceRecord("eric", "Èric Sala", "", ""),
+                PoliceRecord("berta", "Berta Serra Vidal", "", ""),
+                PoliceRecord("laura", "Laura Vila", "", ""),
+            ))
+        }
+        assertEquals(listOf("eric", "alicia", "berta", "laura", "roser", "iker"), GetRecords(people, log, dayOf, clock)().rows.map { it.record.id })
+    }
+
     @Test fun `a vehicle only shows up once a record or the story gives it away`() {
         val withCar = object : RecordsRepository {
             override fun records() = PoliceRecords(records = listOf(

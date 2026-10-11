@@ -129,5 +129,8 @@ qué ha pasado?? #delay: 10
     POR FIN alguien 😭💎 #delay: 30
     eres la única persona de esta familia que me entiende #delay: 3
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
 - ->->

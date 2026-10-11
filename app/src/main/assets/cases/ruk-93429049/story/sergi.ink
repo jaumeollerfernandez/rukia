@@ -68,6 +68,9 @@ Perfecto. #at: D-4 21:31
         Ya. Por eso no digo nada. A nadie. #delay: 300
     ** [(sin responder)]
     - - -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

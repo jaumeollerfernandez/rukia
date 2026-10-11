@@ -53,5 +53,8 @@
     Pero sí, me llamaron de allí: una asociación quiere hacer «un acto al alba» en la ermita y preguntaban si molestaba a alguien del pueblo. #delay: 6
     Les dije que a esas horas solo molesta a los jabalíes. #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla

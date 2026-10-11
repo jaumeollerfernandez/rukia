@@ -24,6 +24,9 @@ Salieron casi un año. Lo dejaron porque Alicia «estaba en otra cosa» y él no
 ## Escribe por su cuenta
 - D1 22:15, D2 18:30, D3 22:00, D4 19:30, D5 20:00 (si habló), D6 (los Mossos o «aquí estoy»), D7 11:00. Todos con respuesta.
 
+## Lo que sabe por la galería
+- La noche que la dejó en la estación la vio por el retrovisor cruzar hacia la rotonda, no hacia las dársenas (lo cuenta si Alicia ha visto IMG_0409).
+
 ## Cómo escribe
 - **Minúscula, sin punto**, frases cortas y concretas. Pocos emojis (🚕 en Gonpi).
 - Abre con «oye» o «ali». Directo: «estás a salvo?».

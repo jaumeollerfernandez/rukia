@@ -31,6 +31,9 @@ La adora y la conoce poco. Ella le contesta con monosílabos («no sé papa, ya 
 ## Recuerda
 - `jordi.d4.no_subas`.
 
+## Lo que sabe por la galería
+- El piso de la yaya se vendió por 120.000 € (se lo dijo la gestoría, que aún le escribe por error); Montse le dijo que no le había quedado nada. «C.R.A.» no le suena (IMG_0401).
+
 ## Cómo escribe
 - **Frases completas, mayúscula, punto, signos de apertura.** Escribe como un padre que escribe cartas.
 - **Firma «Papá»** al final de los mensajes, como un SMS de 2005.

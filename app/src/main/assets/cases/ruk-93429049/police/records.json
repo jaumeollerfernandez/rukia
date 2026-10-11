@@ -520,6 +520,12 @@
               "role": "Hija · convive en el domicilio",
               "badge": "FAMILIA",
               "record": "berta"
+            },
+            {
+              "name": "Jordi Serra",
+              "role": "Expareja · padre de sus hijas",
+              "badge": "FAMILIA",
+              "record": "jordi"
             }
           ]
         }
@@ -577,6 +583,31 @@
               "badge": "DESAPARECIDA",
               "tone": "missing",
               "record": "alicia"
+            },
+            {
+              "name": "Montse Vidal",
+              "role": "Madre · convive en el domicilio",
+              "badge": "DENUNCIANTE",
+              "tone": "complainant",
+              "record": "montse"
+            },
+            {
+              "name": "Jordi Serra",
+              "role": "Padre · separado de la madre, vive en Barcelona",
+              "badge": "FAMILIA",
+              "record": "jordi"
+            },
+            {
+              "name": "Marta Serra",
+              "role": "Tía paterna · Olot",
+              "badge": "FAMILIA",
+              "record": "marta"
+            },
+            {
+              "name": "Arnau Serra",
+              "role": "Primo · Olot",
+              "badge": "FAMILIA",
+              "record": "arnau"
             }
           ]
         }
@@ -837,10 +868,16 @@
           "links": [
             {
               "name": "Alicia Serra Vidal",
-              "role": "Padre · separado de la madre",
+              "role": "Hija",
               "badge": "DESAPARECIDA",
               "tone": "missing",
               "record": "alicia"
+            },
+            {
+              "name": "Berta Serra Vidal",
+              "role": "Hija",
+              "badge": "FAMILIA",
+              "record": "berta"
             },
             {
               "name": "Montse Vidal",
@@ -895,10 +932,28 @@
           "links": [
             {
               "name": "Alicia Serra Vidal",
-              "role": "Tía paterna",
+              "role": "Sobrina",
               "badge": "DESAPARECIDA",
               "tone": "missing",
               "record": "alicia"
+            },
+            {
+              "name": "Berta Serra Vidal",
+              "role": "Sobrina",
+              "badge": "FAMILIA",
+              "record": "berta"
+            },
+            {
+              "name": "Jordi Serra",
+              "role": "Hermano",
+              "badge": "FAMILIA",
+              "record": "jordi"
+            },
+            {
+              "name": "Arnau Serra",
+              "role": "Sobrino",
+              "badge": "FAMILIA",
+              "record": "arnau"
             }
           ]
         }
@@ -938,10 +993,28 @@
           "links": [
             {
               "name": "Alicia Serra Vidal",
-              "role": "Primo",
+              "role": "Prima",
               "badge": "DESAPARECIDA",
               "tone": "missing",
               "record": "alicia"
+            },
+            {
+              "name": "Berta Serra Vidal",
+              "role": "Prima",
+              "badge": "FAMILIA",
+              "record": "berta"
+            },
+            {
+              "name": "Jordi Serra",
+              "role": "Tío",
+              "badge": "FAMILIA",
+              "record": "jordi"
+            },
+            {
+              "name": "Marta Serra",
+              "role": "Tía",
+              "badge": "FAMILIA",
+              "record": "marta"
             }
           ]
         }

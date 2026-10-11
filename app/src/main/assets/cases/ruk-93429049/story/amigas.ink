@@ -162,5 +162,8 @@ habéis visto gonpi??? policía en el cráter de santa margarida #from: carla #a
         chicas no es momento #from: nuria #delay: 600
     }
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
 - ->->

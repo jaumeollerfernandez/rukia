@@ -57,6 +57,9 @@
     sin la reina de la colocación somos un desastre #delay: 3
     ona lo hizo bien eh. pero tú eres tú #delay: 4
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

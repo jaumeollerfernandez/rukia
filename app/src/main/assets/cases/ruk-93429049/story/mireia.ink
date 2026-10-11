@@ -79,6 +79,9 @@ lo sabemos tú y yo y ya #delay: 4
     bueno. sin ti y sin sergi. o sea bien a medias #delay: 4
     carla se puso a bailar encima del sofá y se cargó una lámpara. eso sí estuvo bien 😂 #delay: 6
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

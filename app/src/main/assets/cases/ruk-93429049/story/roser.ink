@@ -48,6 +48,19 @@
     ¡Siempre! Una detrás de otra, y todas con nombre de dulce. Canela, Galeta... la última no me acuerdo. #delay: 600
     Unas perras enormes, que asustaban. Pero eran más buenas que el pan. #delay: 5
     -> opciones
+// Con la foto de la yaya delante de la masía (IMG_0391): la perra Trufa y el pozo son de la Rosalia, no de la Pepita.
+* {foto_img_0391 and dia >= 2} [roser, la perra de la rosalia no se llamaría trufa?]
+    {aviso == 0: -> aviso ->}
+    ¡Trufa! ¡Esa! Nombre de dulce, ¿ves? Ya te lo decía yo. #delay: 600
+    La última. Ya debe de ser viejita, como su dueña. ¿Y tú cómo lo sabes, nena? #delay: 6
+    #caduca: D{dia + 1} 00:00
+    ** [tengo una foto de pequeña con la yaya. sale en la caseta]
+        ¡Ay, qué bonito! Delante de la puerta azul, seguro. Con el pozo y el banco de piedra. #delay: 300
+        La de la Pepita no tenía pozo, que en Capsec bajaban a la fuente con cántaros. #delay: 6
+    ** [me lo contó la yaya]
+        Tu yaya lo contaba todo con canciones. Hasta los nombres de las perras. #delay: 300
+    ** [(sin responder)]
+    - - -> opciones
 * {dia >= 4} [roser, mi madre sigue cantando?]
     {aviso == 0: -> aviso ->}
     En la coral no. Dice que ahora canta «con su familia». Al amanecer, en un prado. #delay: 600
@@ -65,6 +78,9 @@
         Uy, con ese «déjalo» ya me quedo yo más tranquila 🙂 #delay: 300
     ** [(sin responder)]
     - - -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

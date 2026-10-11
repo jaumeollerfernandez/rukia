@@ -28,6 +28,9 @@ Enciende el horno cada día a las cinco desde los dieciséis años. Viuda, dos h
 ## Recuerda
 - `pilar.d2.mentira`.
 
+## La llamada del D3
+- Si Alicia la coge, Pilar habla sola y luego escribe que solo oía ruido. Alicia puede decir que está afónica (si el D1 dijo que estaba enferma), que tenía gente delante o que no tenía cobertura (Pilar pregunta «¿aquí dónde?»). Si no la coge, «estaba en la ducha» no se lo cree del todo.
+
 ## Cómo escribe
 - Mayúscula al principio, a menudo **sin punto final**, frases cortas: escribe con las manos llenas de harina.
 - Sin emojis. Llama a Alicia «Alicia» cuando riñe y «nena» o «guapa» cuando se ablanda.

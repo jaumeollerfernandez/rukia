@@ -25,6 +25,9 @@ Tía cómplice. Le felicita los cumpleaños con muchos signos de exclamación. A
 - Quiere sacar a Alicia de esa casa. Sabe que no es imparcial con Montse y lo dice.
 - Si Alicia le dice que la Rosalia no está en ninguna residencia, desconfía de Montse («también dice que está "de duelo" desde hace tres años»).
 
+## Lo que sabe por la galería
+- También recibió el folleto de la Trobada de l'Alba (IMG_0402): se lo dejaron en la parada; la vecina de puesto vio a un señor mayor de barba blanca.
+
 ## Cómo escribe
 - **Mayúsculas, puntos, frases completas**, con naturalidad (no tan rígida como Jordi).
 - Emojis solo en ocasiones especiales (🎂🎉 en el cumpleaños). Exclamaciones múltiples cuando está contenta («Feliz cumple, mi niña!!!»).

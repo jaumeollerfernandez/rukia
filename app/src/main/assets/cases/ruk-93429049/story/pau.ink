@@ -47,7 +47,7 @@
     #caduca: D{dia + 1} 00:00
     ** (tengo) [sí, las tengo yo]
         Vale, uf. Pues tráelas cuando vuelvas, que el refugi es del Ayuntamiento y Quim me mata. #delay: 300
-    ** [no sé dónde están]
+    ** (no_se) [no sé dónde están]
         Pues alguien las tiene. Le preguntaré a Biel, que siempre lo sabe todo y nunca sabe nada 🙄 #delay: 300
     ** [(sin responder)]
     - - -> opciones
@@ -76,6 +76,9 @@
 * {dia >= 2} [pau qué tal por girona?]
     Exámenes de didáctica. Y el tren de vuelta, que cada semana llega más tarde. #delay: 600
     Cuando acabe Magisterio, me compro un coche. O una bici, que no me da para más 😉 #delay: 6
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
     -> charla

@@ -62,5 +62,8 @@
     Ocho meses con una casa de pueblo en Sant Privat que no quiere nadie. #delay: 600
     Tiene encanto, dice el anuncio. Encanto es que no tiene calefacción 😅 #delay: 6
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla

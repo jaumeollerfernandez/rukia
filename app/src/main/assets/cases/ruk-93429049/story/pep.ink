@@ -108,6 +108,9 @@
         Por eso ya no subo a los mases. Antes me los hacía en un día. #delay: 6
     }
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

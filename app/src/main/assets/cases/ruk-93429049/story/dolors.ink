@@ -42,5 +42,8 @@
     Nadie. He dicho que la obra se aplaza. #delay: 600
     Queralt casi me abraza. Jan, como siempre, quería hacer él de Adela. 🎭 #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla

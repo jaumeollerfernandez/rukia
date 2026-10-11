@@ -61,6 +61,9 @@
     Hoy las alcachofas a tres euros el kilo. ¡Tres! En mis tiempos, eso era un traje. #delay: 600
     Y he visto a la Conxita, que dice que tu calle parece un velatorio. Las persianas, nena. #delay: 6
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

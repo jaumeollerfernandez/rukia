@@ -55,5 +55,8 @@
     yo nunca pregunto, por eso me cuentan todo jajaja #delay: 300
     vale. eso no ha quedado bien. pero lo digo con cariño 💛 #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla

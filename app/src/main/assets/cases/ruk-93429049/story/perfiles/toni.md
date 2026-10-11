@@ -36,6 +36,9 @@ Hace el turno del sábado con Alicia. Los sábados por la tarde suben juntos los
 ## Escribe por su cuenta
 - No escribe solo: en el grupo del Banc avisa de Dani (D5 16:10).
 
+## Lo que sabe por la galería
+- Las masías de arriba de Sant Salvador no tienen luz. Si confía, la de la señora de la perra va con velas y un generador que no arranca: Alicia le subía cerillas (IMG_0413).
+
 ## Cómo escribe
 - Mayúscula a veces y minúscula otras, informal. «jajaja», «tranqui», «ali».
 - Emojis: 🙏, 😜, 💪, 🥫, 😂.

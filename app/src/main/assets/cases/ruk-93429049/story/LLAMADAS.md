@@ -8,7 +8,7 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 
 ## 1. `audio/laia_encargo.m4a`: el encargo
 
-- **Cuándo:** en el chat de la sargento Puig, justo después de «Te llamo para darte las instrucciones correctamente.» (el encargo de Laia; el D0 si el caso empieza de tarde o de noche). Si el caso empieza por la mañana, el D1 a las 10:00; si empieza por la tarde o la noche, esa misma noche (D0), un día antes. **El guion tiene que servir para los dos**: nada de «ayer», «anoche» ni «hoy».
+- **Cuándo:** en el chat de la sargento Puig, justo después de «Te llamo para darte las instrucciones correctamente.» (el encargo de Laia), el D1 a las 10:00. El caso siempre empieza esa mañana: abierto a partir de las 12:00, se queda «conectando» hasta medianoche.
 - **Quién:** sargento Laia Puig, Mossos d'Esquadra. Unos 45 años. Voz grave y seca, de alguien que tiene prisa y no se fía de nadie. Habla con Kimo, la persona del CNI que ha pedido para el caso (sin género: nunca dice «él» ni «ella»). Le tiene respeto, pero no le pone las cosas fáciles.
 - **Dónde:** dentro de un coche aparcado. Ruido suave de motor al ralentí; un intermitente se apaga al principio.
 - **Duración:** unos 60 s.

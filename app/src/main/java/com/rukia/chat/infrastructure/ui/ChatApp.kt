@@ -58,10 +58,11 @@ fun ChatApp(caseId: String) {
             val chatListState = rememberLazyListState()
             val contactsState = rememberLazyListState()
             val openChat = { chat: Chat ->
-                // What already arrived shows at once; anything newer is animated in when it arrives.
-                revealFrom = chat.arrivedCount(CaseClock.now(caseId))
+                // What already arrived shows at once; anything newer is animated in when it arrives. Counted after
+                // advancing, so a chat just started from Contacts shows its history (old dates) instead of typing it.
                 m.advanceChat(chat.id)
                 chats = m.listChats()
+                revealFrom = (chats.find { it.id == chat.id } ?: chat).arrivedCount(CaseClock.now(caseId))
                 openId = chat.id
             }
             // A tapped notification asks for a specific chat (the phone only passes it on for this case).
@@ -103,7 +104,8 @@ fun ChatApp(caseId: String) {
                         chats = m.listChats()
                     },
                     onEndCall = { answered ->
-                        m.endCall(open.id, answered)
+                        // Left ringing long enough, the story already took it as missed.
+                        if (m.listChats().find { it.id == open.id }?.ringingCall != null) m.endCall(open.id, answered)
                         chats = m.listChats()
                     },
                 )

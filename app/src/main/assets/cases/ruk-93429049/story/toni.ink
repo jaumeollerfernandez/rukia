@@ -87,9 +87,21 @@
         pues donde estés, que haya calefacción. allí arriba no hay ni luz #delay: 5
     ** [(sin responder)]
     - - -> opciones
+// Con la mochila de la huida (IMG_0413: velas, cerillas, un cargador sin móvil): una masía sin luz.
+* {foto_img_0413 and dia >= 2 and fia_toni > -1} [toni, a qué masías del valle no les llega la luz?]
+    a casi todas les llega ya. a las de arriba de sant salvador, no #delay: 300
+    {fia_toni >= 1:
+        la de la señora de la perra va con velas y un generador que no arranca nunca. por eso le subías cerillas #delay: 6
+    - else:
+        por? te vas de acampada? 😂 #delay: 5
+    }
+    -> opciones
 * {dia >= 2 and fia_toni > -1} [toni qué tal el curro?]
     repartiendo patatas por media garrotxa. hoy 300 kilos #delay: 300
     y la furgo pidiendo jubilación. como yo 😂 #delay: 4
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
     -> charla

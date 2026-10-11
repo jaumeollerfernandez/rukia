@@ -27,6 +27,9 @@ Ella es «prima», su prima mayor favorita, aunque no le preste el Netflix. Le e
 ## Recuerda
 - `arnau.charla.ire`, `arnau.charla.no_ire`.
 
+## Gonpi
+- Si Alicia le pide que archive el vídeo de la rotonda, lo archiva (`arnau_calla`) y desaparece de Gonpi, con el comentario de Berta.
+
 ## Cómo escribe
 - **Ráfagas** de mensajes cortísimos, uno detrás de otro: «prima» / «PRIMA» / «me pasas tu cuenta de netflix».
 - Minúsculas, mayúsculas para gritar («TÚ», «VERDAD QUE SÍ»), sin puntos.

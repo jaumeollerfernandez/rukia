@@ -124,12 +124,27 @@ Mañana a primera hora voy a tu casa. Me abra o no me abra tu madre. Papá #dela
     El año pasado. Diez mil euros «para un curso». No se los di. #delay: 300
     Desde entonces no me coge el teléfono. Hasta esta semana. Papá #delay: 6
     -> opciones
+// Con la libreta de mamá (IMG_0401): el dinero del piso de la yaya no está en ninguna parte.
+* {foto_img_0401 and dia >= 2} [papa, sabes por cuánto vendió mamá el piso de la yaya?]
+    Por ciento veinte mil. Me lo dijo la gestoría, que aún me escriben a mí por error. #delay: 300
+    Y a mí tu madre me dijo que no le había quedado nada. Ciento veinte mil euros no se gastan en dos años, cariño. Papá #delay: 8
+    #caduca: {limite}
+    ** [en una libreta suya pone «c.r.a.» al lado]
+        ¿C.R.A.? No me suena de nada. #delay: 300
+        Pero tu madre nunca ha apuntado en una libreta nada que no fuera dinero. Guárdate esa foto. Papá #delay: 6
+    ** [ya. no sé dónde está]
+        Ni yo. Y eso es lo que me preocupa. Papá #delay: 300
+    ** [(sin responder)]
+    - - -> opciones
 * {dia >= 3 and not d4.no_subas} [papa no subas. de verdad]
     Lo siento, cariño. Esta vez no te voy a hacer caso. Papá #delay: 300
     -> opciones
 * {dia >= 2} [papa qué tal por barcelona?]
     Bien. Solo. Arreglando ascensores que nadie da las gracias por que funcionen. #delay: 300
     El otro día salí en bici hasta Montserrat. Pensé en ti, que de pequeña me decías que la montaña tenía dedos. Papá #delay: 8
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

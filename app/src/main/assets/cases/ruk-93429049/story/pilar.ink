@@ -15,7 +15,7 @@ vale pilar #from: me #at: D-6 14:30
 Alicia ayer no viniste y no avisaste #at: D1 07:05
 Así no se puede trabajar. Llámame cuando leas esto #delay: 20
 Y otra cosa. El otro día cerraste tú y no fichaste la salida #delay: 3 #caduca: D2 07:00
-* [perdona pilar, estoy enferma. lo siento mucho]
+* (enferma) [perdona pilar, estoy enferma. lo siento mucho]
     Pues avisa, mujer. Que me has dejado sola con el horno #delay: 1800
     Ponte buena #delay: 10
 * [ahora no puedo llamarte, pilar]
@@ -48,21 +48,56 @@ Y lo de las barras no me lo invento. Seis. Las cuento siempre #delay: 5 #caduca:
     Mañana te llamo #delay: 1
 - -> d3
 
+// La llamada: Kimo no puede hablar (no tiene la voz de Alicia). Si la coge, Pilar habla sola y luego pregunta por qué
+// no le contestaba; si no, le escribe. En los dos casos Alicia necesita una excusa creíble.
 = d3
 Te llamo, nena #at: D3 07:15 #call: audio/pilar.m4a
+{llamada_pilar_contestada: -> d3_cogida}
 No lo coges. Bueno #delay: 60
 Tú sabrás lo que haces. Pero ten cuidado #delay: 5
+-> d3_barras ->
+#caduca: D4 07:00
+* [estaba en la ducha, perdona]
+    ¿A las siete y cuarto? ¿Tú? #delay: 1800
+    Bueno. Llámame cuando salgas de la ducha, que lo que te tengo que decir no es para escribirlo #delay: 5
+* [no puedo hablar por teléfono ahora. escríbeme]
+    Ya lo veo #delay: 1800
+    Pues aquí me tienes. Por escrito, que es más lento pero también vale #delay: 5
+* [gracias por llamar, pilar]
+    De nada. Y come algo, que estás en los huesos #delay: 1800
+* [(sin responder)]
+- -> d5
+
+= d3_cogida
+Nena, ¿me oías? Yo a ti nada. Solo ruido #delay: 90
+O el móvil del obrador es una birria o tú estás donde no hay cobertura #delay: 5
+-> d3_barras ->
+#caduca: D4 07:00
+* {d1.enferma} [estoy afónica, no me sale la voz. pero te he oído]
+    Ay, nena. Miel con limón y no hables, que lo empeoras #delay: 1800
+    Pues ya sabes lo que pienso. Me lo dices y te aparto las barras #delay: 5
+* [te oía, pero no podía hablar. tenía gente delante]
+    ¿Gente? ¿A las siete de la mañana? #delay: 1800
+    Bueno. No te pregunto. Pero ya has oído lo de tu madre y ese señor #delay: 5
+* [aquí no hay cobertura. te he oído a trozos]
+    ¿Aquí dónde, nena? #delay: 1800
+    #caduca: D4 07:00
+    ** [en casa de una amiga]
+        Pues dile a tu amiga que te dé de comer #delay: 1800
+        Y lo que te he dicho: ojo con tu madre y ese señor. No me gustó cómo me miraban #delay: 5
+    ** [prefiero no decírtelo]
+        Vale. No pregunto más #delay: 1800
+        Pero ten cuidado. Ayer vino tu madre con un señor, y no me gustó cómo me miraban #delay: 5
+    ** [(sin responder)]
+* [(sin responder)]
+- -> d5
+
+// Lo de las barras, si Alicia le mintió el D2.
+= d3_barras
 {d2.mentira:
     Y no me vuelvas a decir que no fuiste tú. Que no me enfado por el pan #delay: 5
 }
-#caduca: D4 07:00
-* [gracias, pilar]
-    De nada. Y come algo, que estás en los huesos #delay: 1800
-* [no puedo hablar por teléfono]
-    Ya lo veo #delay: 1800
-    Pues aquí me tienes. Por escrito, que es más lento pero también vale #delay: 5
-* [(sin responder)]
-- -> d5
+->->
 
 = d5
 {arnau_calla: -> d5_horno}

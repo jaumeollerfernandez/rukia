@@ -84,6 +84,18 @@ obvio 😇 #at: D-8 18:02
         jamás. esa ya habla como tu hermana #delay: 120
     ** [(sin responder)]
     - - -> opciones
+// Con el meme del gato meditando (IMG_0397): Alicia fue una vez a una reunión «del alba» y no quiso volver.
+* {foto_img_0397 and not nuria_denuncia} [te acuerdas del meme del gato meditando que te pasé?]
+    JAJAJA «yo en las reuniones de mi madre» #delay: 120
+    me lo mandaste un domingo a las siete de la mañana. dijiste que te habían llevado a una «del alba» y que no volvías ni muerta #delay: 6
+    #caduca: D{dia + 1} 00:00
+    ** [y te conté qué pasó allí?]
+        que había un señor mayor que hablaba muy bajito y todo el mundo asentía #delay: 120
+        y que tu hermana lloraba de lo feliz que estaba. que daba más miedo que una peli 😶 #delay: 5
+    ** [ni me acordaba]
+        normal tía, eras un zombi a esas horas 😂 #delay: 120
+    ** [(sin responder)]
+    - - -> opciones
 * {not nuria_denuncia} [carla, mi top negro?]
     😇 #delay: 120
     te lo devuelvo cuando vuelvas. es un rehén #delay: 4
@@ -92,6 +104,9 @@ obvio 😇 #at: D-8 18:02
 * {not nuria_denuncia and dia >= 2} [qué tal estética?]
     hoy practicábamos cejas entre nosotras #delay: 120
     a la de al lado le he dejado una más alta que la otra. parece que te esté preguntando algo todo el rato 😭 #delay: 5
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
     -> charla

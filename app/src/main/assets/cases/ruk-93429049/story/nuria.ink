@@ -389,5 +389,8 @@ la puerta azul ✨ #delay: 4 #caduca: D7 06:00
         y te lo voy a decir a ti? #delay: 60
     }
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
 - ->->

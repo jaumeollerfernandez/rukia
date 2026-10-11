@@ -127,6 +127,7 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
 * [eric porfa lo de las barras no se lo cuentes a nadie más]
     {dia >= 3 or (dia == 2 and hora >= 13):
         ali ya lo sabe medio olot por mi post 😅 #delay: 120
+        ~ eric_archiva = true
         perdón. lo archivo #delay: 4
     - else:
         a nadie. bueno, a pilar no hace falta, que ya lo sabe 😅 #delay: 120
@@ -201,6 +202,9 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
 * {dia >= 2 and fia_eric > -1} [qué tal la masa madre nueva?]
     viva. de momento #delay: 120
     le he puesto nombre para que le cueste más morirse. se llama pilarín. no se lo digas a pilar #delay: 5
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

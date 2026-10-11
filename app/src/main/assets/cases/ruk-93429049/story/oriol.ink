@@ -85,6 +85,9 @@ eres un sol #at: D-20 21:45
     de noche, obvio. de día hace calor y hay coches #delay: 4
     mi padre dice que un día me encontrará un jabalí y me lo tendré merecido 🚴🌙 #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

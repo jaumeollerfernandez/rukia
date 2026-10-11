@@ -26,6 +26,20 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | `IMG_0412.jpg` | En la panadería, a la hora de cerrar: una bolsa de tela llena de barras de payés encima del mostrador. En la pared, un reloj marca las 20:58 | 🔎 | Las seis barras que faltan (Èric, Pilar) y el pan que pide Rosalia (D4) |
 | `IMG_0413.jpg` | Mochila abierta encima de la cama: linterna, un jersey, un cargador de pared **sin móvil**, una vela y un paquete de cerillas | 🔎 | Preparó la huida: se iba a algún sitio sin luz eléctrica |
 
+## Preguntas que abre cada foto
+
+Al abrir una foto, la app pone en la historia `foto_img_<número>` y las charlas ofrecen al momento una pregunta nueva sobre lo que se ve (variables en `main.ink`):
+
+| Foto | Chat | La pregunta | Qué se saca |
+|---|---|---|---|
+| `IMG_0391.jpg` (la yaya, la puerta azul, Trufa) | Roser | «la perra de la rosalia no se llamaría trufa?» | La Trufa es de la Rosalia; su casa tiene pozo y banco de piedra, la de la Pepita (Capsec) no. Avisa a Montse, como todo lo que se le escribe |
+| `IMG_0397.jpg` (el gato meditando) | Carla | «te acuerdas del meme del gato meditando?» | Alicia fue una vez a una reunión «del alba» y no quiso volver: un señor mayor que hablaba bajito, Berta llorando de felicidad |
+| `IMG_0401.jpg` (la libreta) | Papá | «sabes por cuánto vendió mamá el piso de la yaya?» | 120.000 €, y a él le dijo que no le había quedado nada |
+| `IMG_0402.jpg` (el folleto) | Marta | «te ha llegado un folleto de una trobada de l'alba?» | Se lo dejó en la parada un señor mayor de barba blanca; es en un cráter con una ermita |
+| `IMG_0409.jpg` (la ruta a pie) | Pol | «cuando me dejaste en la estación, me viste entrar?» | La vio cruzar hacia la rotonda, no hacia los autobuses |
+| `IMG_0411.jpg` (el reembolso) | Laia, D2 08:30 | «En su galería hay un correo: canceló el billete» | `descarta_bus`. Solo si la foto se abrió antes de que Laia pregunte |
+| `IMG_0413.jpg` (la mochila) | Toni | «a qué masías del valle no les llega la luz?» | Las de arriba de Sant Salvador; si confía (`fia_toni`), la de la señora de la perra va con velas |
+
 ## Fotos policiales
 
 Al leer en Policía la ficha de alguien que ha estado detenido (Dani, Ignasi), su reseña aparece al final de la galería: foto de frente y de perfil con la placa («OLOT · 004417»). Mientras no exista la imagen, la app la dibuja (silueta sobre el tallímetro). Las imágenes van en `police/resenas/` (ver MEDIA_PENDIENTE.md).

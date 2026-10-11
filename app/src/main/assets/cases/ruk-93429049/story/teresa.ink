@@ -125,6 +125,9 @@ Descuida. #at: D-3 20:31
         Gracias, mujer. Ánimo me sobra. Lo que me faltan son firmas. #delay: 120
     ** [(sin responder)]
     - - -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

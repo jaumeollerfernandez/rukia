@@ -67,5 +67,8 @@
     un poco. no te emociones #delay: 120
     ponte buena ali 💛 #delay: 3
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla

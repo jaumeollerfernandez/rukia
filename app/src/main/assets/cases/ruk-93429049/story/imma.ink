@@ -50,6 +50,9 @@
 * {dia >= 5} [imma, no vayas eh]
     No pienso. Tú tampoco, ¿eh? Que te conozco. #delay: 600
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

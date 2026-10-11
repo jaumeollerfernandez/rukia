@@ -35,6 +35,8 @@ data class Post(
     val at: String? = null,
     /** An ad: shows «Sponsored» under the author's name. */
     val sponsored: Boolean = false,
+    /** A story variable: once it's true the author has archived the post (the player asked them to) and it's gone. */
+    val hiddenBy: String? = null,
 ) {
     /** Identifies the post in the player's saved likes, so reordering gonpi.json keeps them. */
     val key get() = "$author:$image:${caption.hashCode()}"
@@ -65,11 +67,12 @@ data class Gonpi(val accounts: List<Account> = emptyList(), val posts: List<Post
 
     /**
      * Gonpi as it is at [now]: posts and comments whose [Post.at] / [Comment.at] time, read by [timeOf], hasn't come yet
-     * are left out. Posts with a time come newest first; those without one follow, in file order.
+     * are left out, and so are archived ones ([Post.hiddenBy] is true for [isTrue]). Posts with a time come newest first;
+     * those without one follow, in file order.
      */
-    fun publishedBy(now: Long, timeOf: (String) -> Long?): Gonpi {
+    fun publishedBy(now: Long, isTrue: (String) -> Boolean = { false }, timeOf: (String) -> Long?): Gonpi {
         fun published(at: String?) = at == null || (timeOf(at) ?: 0) <= now
-        return copy(posts = posts.filter { published(it.at) }.map { p -> p.copy(comments = p.comments.filter { published(it.at) }) }
+        return copy(posts = posts.filter { published(it.at) && it.hiddenBy?.let(isTrue) != true }.map { p -> p.copy(comments = p.comments.filter { published(it.at) }) }
             .sortedByDescending { p -> p.at?.let(timeOf) ?: Long.MIN_VALUE })
     }
 }

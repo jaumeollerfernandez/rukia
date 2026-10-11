@@ -10,6 +10,7 @@ import com.rukia.gonpi.application.ToggleLike
 import com.rukia.gonpi.domain.model.Post
 import com.rukia.gonpi.domain.port.ContactDirectory
 import com.rukia.gonpi.domain.port.PostAlarm
+import com.rukia.gonpi.domain.port.StoryFacts
 import com.rukia.gonpi.infrastructure.notifications.AndroidPostAlarm
 import com.rukia.gonpi.infrastructure.persistence.FileLikeRepository
 import com.rukia.gonpi.infrastructure.persistence.JsonGonpiRepository
@@ -22,9 +23,14 @@ import java.time.ZoneId
 
 /**
  * Composition root of the Gonpi app for one case: the only place that knows which adapters back the ports.
- * [contacts] is who search can find; the phone backs it with the chat app's contacts.
+ * [contacts] is who search can find; the phone backs it with the chat app's contacts, and [facts] with its story.
  */
-class GonpiModule(context: Context, caseId: String, contacts: ContactDirectory = ContactDirectory { emptySet() }) {
+class GonpiModule(
+    context: Context,
+    caseId: String,
+    contacts: ContactDirectory = ContactDirectory { emptySet() },
+    facts: StoryFacts = StoryFacts { false },
+) {
     private val content = CaseFolders.content(caseId)
     private val repo = JsonGonpiRepository { path ->
         runCatching { context.assets.open("$content/$path") }.getOrNull()?.use { it.bufferedReader().readText() }
@@ -35,7 +41,7 @@ class GonpiModule(context: Context, caseId: String, contacts: ContactDirectory =
     // A debug case runs ahead of real time, so it never notifies: its posts go up while the tester watches.
     private val alarm = if (isDebugCase(caseId)) PostAlarm { _, _ -> } else AndroidPostAlarm(context, caseId)
 
-    val getGonpi = GetGonpi(repo, timeOf, clock)
+    val getGonpi = GetGonpi(repo, timeOf, clock, facts)
     val searchAccounts = SearchAccounts(contacts)
     val getLikes = GetLikes(likes)
     val toggleLike = ToggleLike(likes)

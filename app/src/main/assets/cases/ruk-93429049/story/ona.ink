@@ -104,6 +104,9 @@ sí!! paso a las 7 #at: D-4 13:05
         a la próxima juegas TÚ #delay: 120
     ** [(sin responder)]
     - - -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

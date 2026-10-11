@@ -15,8 +15,8 @@ import java.util.concurrent.ConcurrentHashMap
  * Its "now" is real time, except in a debug case, which runs [skipped] ahead.
  */
 object CaseClock {
-    /** Opening a case from this hour on starts its D1 the next day. */
-    const val LATE_START_HOUR = 14
+    /** Opening a case from this hour on starts its D1 the next day; until then a real case is "connecting". */
+    const val LATE_START_HOUR = 12
 
     private var filesDir: File? = null
     private val skips = ConcurrentHashMap<String, Long>()
@@ -26,8 +26,8 @@ object CaseClock {
 
     /**
      * Midnight of D1, saved the first time it's asked for so the week keeps its dates. Opened in the morning, D1 is
-     * today; from [LATE_START_HOUR] on it's tomorrow, so the day's timed lines don't all arrive at once. That evening
-     * is D0: stories can tell (`dia` is 0) and introduce the case before it starts.
+     * today; from [LATE_START_HOUR] on it's tomorrow, so the day's timed lines don't all arrive at once. Until then a
+     * real case can't be opened (the case list shows it connecting); a debug one is on D0, with `dia` 0.
      */
     fun start(context: Context, caseId: String, zone: ZoneId = ZoneId.systemDefault()): Long {
         val file = file(context, caseId)

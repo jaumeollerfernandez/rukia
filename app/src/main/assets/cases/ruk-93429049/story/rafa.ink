@@ -45,6 +45,9 @@
     Puedes. Rellenas el papel, pagas la tasa otra vez y rezas. 🚗 #delay: 600
     Te guardo la plaza del mes que viene. Sin llamar a tu casa, que me cuelgan. #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

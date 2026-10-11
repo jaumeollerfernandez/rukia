@@ -58,6 +58,9 @@
     ¡De tu yaya! Me los ha dado tu madre. Dice que donde va no hacen falta macetas. #delay: 600
     Yo los cuido, ¿eh? Riego cada día. #delay: 4
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

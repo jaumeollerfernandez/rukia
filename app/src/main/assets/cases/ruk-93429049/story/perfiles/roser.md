@@ -36,6 +36,9 @@ Entró en la coral de jovencita, cuando la fundaron la Mercè, la Rosalia y la P
 ## Escribe por su cuenta
 - No escribe sola: solo en el grupo de la coral.
 
+## Lo que sabe por la galería
+- Si Alicia le pregunta si la perra de la Rosalia se llamaba Trufa (la foto IMG_0391), lo confirma («nombre de dulce») y, si le dice que sale en una foto suya, recuerda que la casa de la Rosalia tenía pozo y banco de piedra y la de la Pepita no.
+
 ## Cómo escribe
 - Mayúsculas, exclamaciones de abuela: «¡Ay, nena!», «¡Si la fundó ella!».
 - Emojis: 😅, 🙂.

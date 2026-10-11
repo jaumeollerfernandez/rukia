@@ -131,7 +131,7 @@ fun ChatScreen(
                     else Bubble(msg, characters[msg.from], showName = chat.isGroup && first && !msg.fromPlayer, first = first)
                 }
                 typingId?.let { id ->
-                    item(key = "typing") { TypingBubble(first = visible.lastOrNull()?.from != id) }
+                    item(key = "typing") { TypingBubble(characters[id], first = visible.lastOrNull()?.from != id) }
                 }
             }
             val choices = chat.visibleChoices()
@@ -297,23 +297,26 @@ private fun CallPill(msg: Message) {
     }
 }
 
-/** "…" bubble shown where the next message will appear, while its sender types it. */
+/** "…" bubble shown where the next message will appear, while its sender types it, with their picture on its left. */
 @Composable
-private fun TypingBubble(first: Boolean) {
+private fun TypingBubble(sender: Character?, first: Boolean) {
     val transition = rememberInfiniteTransition(label = "typing")
-    Row(
-        Modifier.padding(top = if (first) 10.dp else 2.dp).background(LocalPalette.current.inBubble, bubbleShape(mine = false, first = first))
-            .padding(horizontal = 14.dp, vertical = 14.dp),
-        horizontalArrangement = Arrangement.spacedBy(5.dp),
-    ) {
-        repeat(3) { i ->
-            // Each dot pulses a little after the previous one, so the three ripple.
-            val alpha by transition.animateFloat(
-                0.25f, 1f,
-                infiniteRepeatable(tween(450), RepeatMode.Reverse, initialStartOffset = StartOffset(i * 150)),
-                label = "dot$i",
-            )
-            Box(Modifier.size(8.dp).alpha(alpha).background(LocalPalette.current.subText, CircleShape))
+    Row(Modifier.padding(top = if (first) 10.dp else 2.dp), verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        Avatar(sender, 28)
+        Row(
+            Modifier.background(LocalPalette.current.inBubble, bubbleShape(mine = false, first = first))
+                .padding(horizontal = 14.dp, vertical = 14.dp),
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
+            repeat(3) { i ->
+                // Each dot pulses a little after the previous one, so the three ripple.
+                val alpha by transition.animateFloat(
+                    0.25f, 1f,
+                    infiniteRepeatable(tween(450), RepeatMode.Reverse, initialStartOffset = StartOffset(i * 150)),
+                    label = "dot$i",
+                )
+                Box(Modifier.size(8.dp).alpha(alpha).background(LocalPalette.current.subText, CircleShape))
+            }
         }
     }
 }

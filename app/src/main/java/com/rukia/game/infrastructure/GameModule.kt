@@ -8,6 +8,7 @@ import com.rukia.game.application.CountActiveCases
 import com.rukia.game.application.GetCaseReport
 import com.rukia.game.application.GetCurrentCase
 import com.rukia.game.application.GetLanguage
+import com.rukia.game.application.IsConnecting
 import com.rukia.game.application.ListCases
 import com.rukia.game.application.PlayCase
 import com.rukia.game.application.ReopenCase
@@ -30,7 +31,11 @@ class GameModule(context: Context) {
     private val catalog = CaseCatalog { cases }
     private val current = PrefsCurrentCaseStore(context)
     private val records = PrefsCaseRecords(context)
-    private val progress = CaseProgress { CaseClock.isStarted(context, it) }
+    private val progress = object : CaseProgress {
+        override fun isStarted(caseId: String) = CaseClock.isStarted(context, caseId)
+        override fun start(caseId: String) = CaseClock.start(context, caseId)
+        override fun now(caseId: String) = CaseClock.now(caseId)
+    }
     // How the week went lives in the chat app's story and the Police app's log.
     private val outcome = object : CaseOutcome {
         override fun storyVariables(caseId: String) = StoryVariables { ChatModule.of(context, caseId).getStoryVariable(it) }
@@ -53,9 +58,10 @@ class GameModule(context: Context) {
     }
 
     val listCases = ListCases(catalog)
-    val getCurrentCase = GetCurrentCase(catalog, current)
+    val isConnecting = IsConnecting(progress)
+    val getCurrentCase = GetCurrentCase(catalog, current, progress, isConnecting)
     val reopenCase = ReopenCase(saves, records)
-    val playCase = PlayCase(current, records, reopenCase)
+    val playCase = PlayCase(current, records, reopenCase, progress, isConnecting)
     val closeCase = CloseCase(catalog, current, outcome, records)
     val getCaseReport = GetCaseReport(catalog, records)
     val countActiveCases = CountActiveCases(catalog, progress, records)

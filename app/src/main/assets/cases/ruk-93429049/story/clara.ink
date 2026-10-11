@@ -56,5 +56,8 @@
 * {dia >= 5} [clara gracias por cuidar de todo]
     Para eso estamos. El local te espera. Y los farolillos que sobran también 💛 #delay: 600
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla

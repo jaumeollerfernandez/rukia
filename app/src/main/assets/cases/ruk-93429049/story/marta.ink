@@ -110,12 +110,28 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
     El de la barba hablaba con la Conxita, tu vecina. Le daba un folleto y ella asentía mucho. #delay: 6
     Yo de esa no me fiaría. Lo cuenta todo. #delay: 4
     -> opciones
+// Con el folleto de la Trobada de l'Alba (IMG_0402): Marta también lo recibió.
+* {foto_img_0402 and dia >= 2} [tía, te ha llegado un folleto de una «trobada de l'alba»?]
+    ¿El de la rosa? Me lo dejaron en la parada, entre las fresas. #delay: 300
+    «Para familias», al amanecer, en un cráter con una ermita dibujada. Con desayuno. #delay: 6
+    Subir a un volcán de noche no es una excursión, cariño. Es una penitencia. #delay: 5
+    #caduca: {limite}
+    ** [quién te lo dejó?]
+        No lo vi. Cuando volví del almacén estaba ahí. #delay: 300
+        La de la parada de al lado dice que un señor mayor con barba blanca. Muy educado. #delay: 6
+    ** [no vayas, tía]
+        Ni loca. Yo al alba estoy montando la parada. #delay: 300
+    ** [(sin responder)]
+    - - -> opciones
 * [te quiero tía]
     Y yo a ti, mi niña. Mucho. #delay: 300
     -> opciones
 * {dia >= 2} [tía qué tal la parada?]
     Las fresas a precio de oro y las clientas preguntando por ti. #delay: 300
     Medio mercado sabe que tu madre dice que estás de viaje. El otro medio no se lo cree. #delay: 6
+    -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
     -> opciones
 + [(sin responder)]
 - ->->

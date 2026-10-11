@@ -57,5 +57,8 @@
 * {dia >= 5} [clàudia gracias por estar ahí]
     Siempre. Sin cuota y sin permanencia 😊 #delay: 600
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla

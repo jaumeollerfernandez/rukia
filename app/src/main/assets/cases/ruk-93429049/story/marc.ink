@@ -71,6 +71,9 @@ lo veremos #at: D-5 21:00
     cada mañana. más que antes #delay: 300
     ayer eran como veinte. y en vez de yoga cantaban. con los ojos cerrados. daba un poco de mal rollo 🥶 #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

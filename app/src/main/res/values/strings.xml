@@ -24,6 +24,8 @@
     <string name="cases_kicker">CASE FILES · LEVEL 5</string>
     <string name="case_file">FILE %1$s</string>
     <string name="case_status_open">OPEN</string>
+    <string name="case_status_connecting">CONNECTING TO THE DEVICE</string>
+    <string name="case_connecting_note">The link to the phone goes live at midnight. Come back then.</string>
     <string name="open_case_file">OPEN CASE FILE</string>
     <string name="training">TRAINING</string>
     <plurals name="cases_footer">
@@ -181,9 +183,8 @@
     <string name="officers_on_way">Officers on their way</string>
     <string name="no_squad_anymore">No squad available anymore</string>
     <string name="reset_q">Reset all chats?</string>
-    <string name="reset_text">All data related to this save file will be deleted: every conversation, call and choice made in the story. The story will start again from the beginning: right away if it\'s morning, or tomorrow morning from %1$d:00 on. This can\'t be undone.</string>
+    <string name="reset_text">All data related to this save file will be deleted: every conversation, call and choice made in the story. The story will start again from the beginning: right away if it\'s before %1$d:00, or else at midnight (until then the case is connecting). This can\'t be undone.</string>
     <string name="delete_everything">Delete everything</string>
-    <string name="chats_reset">Chats have been reset</string>
     <string name="operations">Operations</string>
     <string name="ops_none_free">No officers are free right now. Squads become available at set times during the case.</string>
     <string name="ops_squad_until">%1$s, available until %2$s. One squad, one place: choose carefully.</string>

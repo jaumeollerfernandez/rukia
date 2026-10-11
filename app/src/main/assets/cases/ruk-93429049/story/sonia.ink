@@ -67,6 +67,9 @@
     Como siempre: avisa cuando va a llover. #delay: 300
     Mejor que un parte meteorológico. Hoy no llueve, por cierto. #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
 

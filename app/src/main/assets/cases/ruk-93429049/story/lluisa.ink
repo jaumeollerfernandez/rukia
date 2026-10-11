@@ -54,5 +54,8 @@
     ¡Claro! Te pongo con Toni de 10 a 13, como siempre. #delay: 600
     Si no puedes, me avisas y doblo yo. Que ya me toca 😉 #delay: 5
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla

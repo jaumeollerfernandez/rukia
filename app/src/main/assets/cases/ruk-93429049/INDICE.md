@@ -7,71 +7,80 @@ Para buscar algo, empieza aquí y ve a las líneas `archivo:línea` que indica.
 
 | Variable | Qué es | La pone | La lee |
 |---|---|---|---|
-| `dia` |  | *(app: el reloj del caso, antes de cada paso)* | `aina.ink:11` `aina.ink:12` `aina.ink:21` `aina.ink:25` `aina.ink:27` `aina.ink:39` `aina.ink:47` `aina.ink:52` `aina.ink:56` `aina.ink:66` `aina.ink:72` `aina.ink:79` `aina.ink:91` `aina.ink:95` … (+370) |
-| `hora` |  | *(app: el reloj del caso, antes de cada paso)* | `aina.ink:10` `anna.ink:10` `arnau.ink:58` `biel.ink:11` `casal.ink:52` `dani.ink:161` `desconocido.ink:57` `dolors.ink:12` `enric.ink:10` `enric.ink:34` `eric.ink:128` `gemma.ink:11` `hugo.ink:9` `hugo.ink:22` … (+28) |
-| `ultimo_intento` | último día del caso en que el jugador mandó una búsqueda desde la app de Policía (lo pone la app) | *(app: Policía, al mandar una búsqueda)* | `laia.ink:78` |
-| `sospecha_familia` |  | `berta.ink:28` `berta.ink:33` `berta.ink:38` `conxita.ink:65` `familia.ink:101` `main.ink:208` `mama.ink:20` `mama.ink:28` `mama.ink:36` `mama.ink:47` `ramon.ink:69` `roser.ink:72` `veins.ink:63` | `berta.ink:14` `berta.ink:46` `berta.ink:53` `berta.ink:59` `berta.ink:69` `familia.ink:75` `familia.ink:102` `veins.ink:64` |
+| `dia` |  | *(app: el reloj del caso, antes de cada paso)* | `aina.ink:11` `aina.ink:12` `aina.ink:21` `aina.ink:25` `aina.ink:27` `aina.ink:39` `aina.ink:47` `aina.ink:52` `aina.ink:56` `aina.ink:66` `aina.ink:72` `aina.ink:79` `aina.ink:94` `aina.ink:98` … (+375) |
+| `hora` |  | *(app: el reloj del caso, antes de cada paso)* | `aina.ink:10` `anna.ink:10` `arnau.ink:58` `biel.ink:11` `casal.ink:52` `dani.ink:190` `desconocido.ink:57` `dolors.ink:12` `enric.ink:10` `enric.ink:34` `eric.ink:128` `gemma.ink:11` `hugo.ink:9` `hugo.ink:22` … (+28) |
+| `ultimo_intento` | último día del caso en que el jugador mandó una búsqueda desde la app de Policía (lo pone la app) | *(app: Policía, al mandar una búsqueda)* | `laia.ink:65` |
+| `sospecha_familia` |  | `berta.ink:28` `berta.ink:33` `berta.ink:38` `conxita.ink:68` `familia.ink:101` `main.ink:219` `mama.ink:20` `mama.ink:28` `mama.ink:36` `mama.ink:47` `ramon.ink:72` `roser.ink:88` `veins.ink:66` | `berta.ink:14` `berta.ink:46` `berta.ink:53` `berta.ink:59` `berta.ink:69` `familia.ink:75` `familia.ink:102` `veins.ink:67` |
 | `confianza_nuria` |  | `nuria.ink:31` `nuria.ink:36` `nuria.ink:42` `nuria.ink:48` `nuria.ink:57` `nuria.ink:62` `nuria.ink:101` `nuria.ink:104` `nuria.ink:152` `nuria.ink:186` `nuria.ink:196` `nuria.ink:267` `nuria.ink:273` `nuria.ink:325` `nuria.ink:338` `nuria.ink:346` `nuria.ink:350` `nuria.ink:372` | `nuria.ink:90` `nuria.ink:120` `nuria.ink:280` `nuria.ink:330` `nuria.ink:344` `nuria.ink:384` |
 | `nuria_sabe` | el jugador le ha confesado a Núria que no es Alicia | `nuria.ink:65` `nuria.ink:266` | `amigas.ink:161` `nuria.ink:82` `nuria.ink:116` `nuria.ink:154` `nuria.ink:223` `nuria.ink:248` `nuria.ink:254` `nuria.ink:281` `nuria.ink:297` `nuria.ink:312` `nuria.ink:324` `nuria.ink:329` `nuria.ink:344` `nuria.ink:355` … (+7) |
 | `confianza_alicia` |  | `desconocido.ink:12` `desconocido.ink:23` `desconocido.ink:32` `desconocido.ink:37` `desconocido.ink:59` | `desconocido.ink:89` `desconocido.ink:99` `desconocido.ink:135` |
 | `pol_calla` | Pol ha prometido no contar lo de la estación | `pol.ink:30` `pol.ink:37` `pol.ink:65` | `familia.ink:167` `pol.ink:85` `pol.ink:97` `pol.ink:100` `pol.ink:103` `pol.ink:114` `pol.ink:125` |
-| `arnau_calla` | Arnau ha archivado el vídeo de la rotonda y no se lo dirá a nadie | `arnau.ink:43` | `arnau.ink:53` `eric.ink:79` `familia.ink:151` `familia.ink:163` `pilar.ink:68` |
+| `arnau_calla` | Arnau ha archivado el vídeo de la rotonda y no se lo dirá a nadie (desaparece de Gonpi) | `arnau.ink:43` | `arnau.ink:53` `eric.ink:79` `familia.ink:151` `familia.ink:163` `pilar.ink:103` |
+| `eric_archiva` | Èric ha archivado su post de las barras (desaparece de Gonpi) | `eric.ink:130` | — |
+| `foto_img_0391` | la yaya, la puerta azul, el pozo y la Trufa → Roser | — | `roser.ink:52` |
+| `foto_img_0397` | el meme del gato meditando → Carla | — | `carla.ink:88` |
+| `foto_img_0401` | la libreta de mamá: «Piso yaya: 120.000 → C.R.A.» → Papá | — | `jordi.ink:128` |
+| `foto_img_0402` | el folleto de la Trobada de l'Alba → Marta | — | `marta.ink:114` |
+| `foto_img_0409` | la ruta a pie desde la estación hasta «…de Bianya» → Pol | — | `pol.ink:166` |
+| `foto_img_0411` | el reembolso del billete de bus → Laia (D2) | — | `laia.ink:104` |
+| `foto_img_0413` | la mochila con velas, cerillas y un cargador sin móvil → Toni | — | `toni.ink:91` |
 | `aciertos_nuria` |  | `nuria.ink:130` `nuria.ink:137` `nuria.ink:144` | `nuria.ink:149` `nuria.ink:188` |
-| `nuria_denuncia` | Núria suspendió la prueba y va a ir a los Mossos | `nuria.ink:187` | `amigas.ink:73` `amigas.ink:92` `amigas.ink:135` `amigas.ink:142` `amigas.ink:151` `amigas.ink:158` `carla.ink:18` `carla.ink:26` `carla.ink:46` `carla.ink:62` `carla.ink:75` `carla.ink:87` `carla.ink:92` `laia.ink:248` … (+11) |
-| `secta_sabe_rosalia` | la familia ha descubierto que Alicia está con Rosalia | `familia.ink:132` `familia.ink:168` `laura.ink:34` `mama.ink:29` | `central.ink:145` `desconocido.ink:145` `familia.ink:146` `familia.ink:180` `familia.ink:199` `main.ink:196` `main.ink:201` |
-| `sabe_secta` | conoce el nombre «Rosa d'Abril» (el grupo de duelo de la madre) | `claudia.ink:15` `jordi.ink:25` `jordi.ink:123` `laia.ink:307` `laia.ink:467` `laia.ink:565` `laia.ink:575` `laia.ink:584` `marta.ink:20` `pol.ink:38` `sonia.ink:26` | `laia.ink:557` |
-| `sabe_cra` | Laia sabe que «CRA Serveis», el beneficiario del pago «a Hacienda», es Rosa d'Abril | `laia.ink:171` `laia.ink:558` `laia.ink:576` | `laia.ink:557` `laia.ink:564` |
-| `sabe_pan` | faltan barras en la panadería | `eric.ink:24` `eric.ink:30` `eric.ink:167` `eric.ink:181` `pol.ink:59` | `laia.ink:223` |
-| `descarta_bus` |  | `laia.ink:139` `laia.ink:158` | `laia.ink:188` |
-| `sabe_estrellas` |  | `nuria.ink:153` | `laia.ink:219` `laura.ink:32` `nuria.ink:212` `nuria.ink:236` |
-| `sabe_rosalia` |  | `eric.ink:193` `laia.ink:227` `laia.ink:278` `nuria.ink:289` `toni.ink:77` | `laia.ink:260` `laura.ink:32` `mama.ink:27` `pep.ink:76` |
-| `sabe_puerta_azul` | sabe que la casa tiene la puerta azul | `desconocido.ink:100` `nuria.ink:242` `nuria.ink:290` `teresa.ink:93` | `laia.ink:325` `laura.ink:32` `marc.ink:65` |
+| `nuria_denuncia` | Núria suspendió la prueba y va a ir a los Mossos | `nuria.ink:187` | `amigas.ink:73` `amigas.ink:92` `amigas.ink:135` `amigas.ink:142` `amigas.ink:151` `amigas.ink:158` `carla.ink:18` `carla.ink:26` `carla.ink:46` `carla.ink:62` `carla.ink:75` `carla.ink:88` `carla.ink:99` `carla.ink:104` … (+12) |
+| `secta_sabe_rosalia` | la familia ha descubierto que Alicia está con Rosalia | `familia.ink:132` `familia.ink:168` `laura.ink:34` `mama.ink:29` | `central.ink:145` `desconocido.ink:145` `familia.ink:146` `familia.ink:180` `familia.ink:199` `main.ink:207` `main.ink:212` |
+| `sabe_secta` | conoce el nombre «Rosa d'Abril» (el grupo de duelo de la madre) | `claudia.ink:15` `jordi.ink:25` `jordi.ink:123` `laia.ink:273` `laia.ink:433` `laia.ink:531` `laia.ink:541` `laia.ink:550` `marta.ink:20` `pol.ink:38` `sonia.ink:26` | `laia.ink:523` |
+| `sabe_cra` | Laia sabe que «CRA Serveis», el beneficiario del pago «a Hacienda», es Rosa d'Abril | `laia.ink:137` `laia.ink:524` `laia.ink:542` | `laia.ink:523` `laia.ink:530` |
+| `sabe_pan` | faltan barras en la panadería | `eric.ink:24` `eric.ink:30` `eric.ink:168` `eric.ink:182` `pol.ink:59` | `laia.ink:189` |
+| `descarta_bus` |  | `laia.ink:105` `laia.ink:124` | `laia.ink:154` |
+| `sabe_estrellas` |  | `nuria.ink:153` | `laia.ink:185` `laura.ink:32` `nuria.ink:212` `nuria.ink:236` |
+| `sabe_rosalia` |  | `eric.ink:194` `laia.ink:193` `laia.ink:244` `nuria.ink:289` `toni.ink:77` | `laia.ink:226` `laura.ink:32` `mama.ink:27` `pep.ink:76` |
+| `sabe_puerta_azul` | sabe que la casa tiene la puerta azul | `desconocido.ink:100` `nuria.ink:242` `nuria.ink:290` `teresa.ink:93` | `laia.ink:291` `laura.ink:32` `marc.ink:65` |
 | `sabe_pienso` | Ona: en la lista de Alicia había pienso para perro | `ona.ink:42` `ona.ink:71` | — |
-| `sabe_ruta_lotes` | Toni: Alicia subía lotes a una señora con perra de Sant Salvador | `dani.ink:230` `dani.ink:308` `ona.ink:84` `toni.ink:42` `toni.ink:98` | — |
-| `sabe_capsec` | conoce Can Pericot, el mas abandonado de Capsec (también con puerta azul) | `eric.ink:136` `esplai.ink:42` `marc.ink:25` `marta.ink:89` `pau.ink:44` `ramon.ink:17` `roser.ink:17` | `biel.ink:20` `esplai.ink:66` `esplai.ink:72` `esplai.ink:78` `laia.ink:523` `pau.ink:25` `quim.ink:18` `toni.ink:52` |
-| `descarta_capsec` | Biel ha confesado que las llaves y la luz de Can Pericot eran suyas | `biel.ink:21` | `biel.ink:20` `biel.ink:48` `biel.ink:62` `biel.ink:68` `biel.ink:76` `biel.ink:107` `esplai.ink:66` `esplai.ink:72` `esplai.ink:78` `pau.ink:25` |
-| `sabe_residencia` | ha oído que la Rosalia «está en una residencia» | `marta.ink:90` `roser.ink:18` `teresa.ink:39` | `laia.ink:518` `ramon.ink:36` |
-| `residencia_falsa` | Laia ha comprobado que la Rosalia nunca ha estado en ninguna residencia | `laia.ink:519` | — |
-| `dani_sospechoso` |  | `amigas.ink:152` `carla.ink:27` `dani.ink:60` `dani.ink:111` `dani.ink:254` `dani.ink:263` `judit.ink:22` `laia.ink:236` `nuria.ink:365` `paula.ink:49` `pol.ink:170` | `dani.ink:247` `laia.ink:527` |
-| `dani_descartado` |  | `laia.ink:528` | — |
-| `dani_droga` | sabe que Dani menudea (lo confiesa él en el D4 o se lo saca el jugador) | `dani.ink:129` | `dani.ink:156` `dani.ink:259` `dani.ink:268` `dani.ink:273` `dani.ink:277` `laia.ink:531` `laia.ink:538` |
-| `dani_registrado` | el jugador mandó una patrulla al mas del tío de Dani y los Mossos le requisaron el costo | `central.ink:156` | `dani.ink:181` `dani.ink:215` |
-| `dani_avisado` | Dani ya ha contado lo del registro (para no repetirlo) | `dani.ink:186` | `dani.ink:215` |
-| `dani_detenido` | el jugador mandó detener e interrogar a Dani (envio_detencion_dani) | `central.ink:98` `laia.ink:539` | `central.ink:97` `dani.ink:152` `dani.ink:179` `dani.ink:208` `dani.ink:215` `iker.ink:65` `iker.ink:89` `laia.ink:447` `laia.ink:497` `laia.ink:538` |
-| `dani_creido` | tras la confesión, el jugador le cree: lo sueltan y cuenta lo que vio | `central.ink:114` | `dani.ink:179` `dani.ink:180` `dani.ink:208` `dani.ink:214` `iker.ink:65` `laia.ink:447` `laia.ink:497` |
-| `dani_no_creido` | no le cree: Barcelona se lo lleva y el coche de la noche hace el traslado | `central.ink:117` | `central.ink:50` `central.ink:58` `central.ink:71` `dani.ink:179` `iker.ink:85` |
-| `sabe_dani_busca` | alguien le ha dicho a Alicia que Dani va preguntando por ella | `aliments.ink:57` `dani.ink:163` `dani.ink:189` `eric.ink:104` `iker.ink:53` `pilar.ink:88` | `desconocido.ink:111` |
-| `dani_frenado` | detenido (Laia o la operación del D6) o Alicia avisada: la entrega pasa de D6 19:00 a D7 04:00 | `central.ink:100` `desconocido.ink:113` `laia.ink:540` | `laia.ink:355` `laia.ink:368` |
+| `sabe_ruta_lotes` | Toni: Alicia subía lotes a una señora con perra de Sant Salvador | `dani.ink:259` `dani.ink:337` `ona.ink:84` `toni.ink:42` `toni.ink:110` | — |
+| `sabe_capsec` | conoce Can Pericot, el mas abandonado de Capsec (también con puerta azul) | `eric.ink:137` `esplai.ink:42` `marc.ink:25` `marta.ink:89` `pau.ink:44` `ramon.ink:17` `roser.ink:17` | `biel.ink:20` `laia.ink:489` `pau.ink:25` `quim.ink:18` `toni.ink:52` |
+| `descarta_capsec` | Biel ha confesado que las llaves y la luz de Can Pericot eran suyas | `biel.ink:21` | `biel.ink:20` `biel.ink:48` `biel.ink:62` `biel.ink:68` `biel.ink:76` `biel.ink:110` `esplai.ink:67` `esplai.ink:73` `esplai.ink:79` `pau.ink:25` |
+| `sabe_residencia` | ha oído que la Rosalia «está en una residencia» | `marta.ink:90` `roser.ink:18` `teresa.ink:39` | `laia.ink:484` `ramon.ink:36` |
+| `residencia_falsa` | Laia ha comprobado que la Rosalia nunca ha estado en ninguna residencia | `laia.ink:485` | — |
+| `dani_sospechoso` |  | `amigas.ink:152` `carla.ink:27` `dani.ink:60` `dani.ink:140` `dani.ink:283` `dani.ink:292` `judit.ink:22` `laia.ink:202` `nuria.ink:365` `paula.ink:49` `pol.ink:182` | `dani.ink:276` `laia.ink:493` |
+| `dani_descartado` |  | `laia.ink:494` | — |
+| `dani_droga` | sabe que Dani menudea (lo confiesa él en el D4 o se lo saca el jugador) | `dani.ink:158` | `dani.ink:185` `dani.ink:288` `dani.ink:297` `dani.ink:302` `dani.ink:306` `laia.ink:497` `laia.ink:504` |
+| `dani_registrado` | el jugador mandó una patrulla al mas del tío de Dani y los Mossos le requisaron el costo | `central.ink:156` | `dani.ink:210` `dani.ink:244` |
+| `dani_avisado` | Dani ya ha contado lo del registro (para no repetirlo) | `dani.ink:215` | `dani.ink:244` |
+| `dani_detenido` | el jugador mandó detener e interrogar a Dani (envio_detencion_dani) | `central.ink:98` `laia.ink:505` | `central.ink:97` `dani.ink:181` `dani.ink:208` `dani.ink:237` `dani.ink:244` `iker.ink:65` `iker.ink:89` `laia.ink:413` `laia.ink:463` `laia.ink:504` |
+| `dani_creido` | tras la confesión, el jugador le cree: lo sueltan y cuenta lo que vio | `central.ink:114` | `dani.ink:208` `dani.ink:209` `dani.ink:237` `dani.ink:243` `iker.ink:65` `laia.ink:413` `laia.ink:463` |
+| `dani_no_creido` | no le cree: Barcelona se lo lleva y el coche de la noche hace el traslado | `central.ink:117` | `central.ink:50` `central.ink:58` `central.ink:71` `dani.ink:208` `iker.ink:85` |
+| `sabe_dani_busca` | alguien le ha dicho a Alicia que Dani va preguntando por ella | `aliments.ink:57` `dani.ink:192` `dani.ink:218` `eric.ink:104` `iker.ink:53` `pilar.ink:123` | `desconocido.ink:111` |
+| `dani_frenado` | detenido (Laia o la operación del D6) o Alicia avisada: la entrega pasa de D6 19:00 a D7 04:00 | `central.ink:100` `desconocido.ink:113` `laia.ink:506` | `laia.ink:321` `laia.ink:334` |
 | `alicia_avisada` | el jugador le ha dicho a Alicia, por el prepago, que Dani la busca | `desconocido.ink:112` | `desconocido.ink:153` |
-| `alicia_entregada` | Dani y la red se la han llevado: finales 5 y 6, pase lo que pase después | `laia.ink:482` `laia.ink:493` | `central.ink:59` `dani.ink:208` `desconocido.ink:138` `iker.ink:83` `laia.ink:368` `main.ink:192` `main.ink:196` `main.ink:201` |
+| `alicia_entregada` | Dani y la red se la han llevado: finales 5 y 6, pase lo que pase después | `laia.ink:448` `laia.ink:459` | `central.ink:59` `dani.ink:237` `desconocido.ink:138` `iker.ink:83` `laia.ink:334` `main.ink:203` `main.ink:207` `main.ink:212` |
 | `llamada_rosalia_contestada` | lo pone la app cuando el jugador atiende o rechaza una llamada de ese chat | *(app: el teléfono, al atender o rechazar una llamada de ese chat)* | `rosalia.ink:8` |
-| `sabe_prepago` | Mireia: Alicia compró un móvil barato en un estanco de Olot | `mireia.ink:45` | `laia.ink:554` |
-| `fia_toni` |  | `toni.ink:23` `toni.ink:34` `toni.ink:39` `toni.ink:47` `toni.ink:104` | `toni.ink:14` `toni.ink:18` `toni.ink:32` `toni.ink:46` `toni.ink:52` `toni.ink:59` `toni.ink:76` `toni.ink:90` |
-| `fia_teresa` |  | `teresa.ink:27` `teresa.ink:60` `teresa.ink:71` `teresa.ink:76` `teresa.ink:83` `teresa.ink:138` | `teresa.ink:26` `teresa.ink:38` `teresa.ink:55` `teresa.ink:69` `teresa.ink:82` `teresa.ink:92` `teresa.ink:106` `teresa.ink:118` `teresa.ink:159` |
-| `fia_eric` |  | `eric.ink:155` `eric.ink:158` `eric.ink:161` `eric.ink:174` `eric.ink:179` `eric.ink:186` | `eric.ink:135` `eric.ink:150` `eric.ink:166` `eric.ink:172` `eric.ink:185` `eric.ink:192` `eric.ink:197` `eric.ink:201` |
-| `fia_ona` |  | `ona.ink:49` `ona.ink:62` `ona.ink:67` `ona.ink:76` `ona.ink:121` `ona.ink:126` | `ona.ink:23` `ona.ink:35` `ona.ink:37` `ona.ink:60` `ona.ink:75` `ona.ink:83` `ona.ink:96` `ona.ink:163` |
-| `fia_oriol` |  | `oriol.ink:68` `oriol.ink:73` `oriol.ink:79` `oriol.ink:103` `oriol.ink:110` `oriol.ink:115` | `oriol.ink:24` `oriol.ink:26` `oriol.ink:36` `oriol.ink:50` `oriol.ink:52` `oriol.ink:56` `oriol.ink:61` `oriol.ink:66` `oriol.ink:78` `oriol.ink:83` `oriol.ink:141` |
-| `delatado` |  | `main.ink:206` | `eric.ink:173` `laia.ink:508` `main.ink:207` `nuria.ink:345` `ona.ink:36` `ona.ink:61` `oriol.ink:25` `oriol.ink:51` `oriol.ink:67` `teresa.ink:70` `toni.ink:33` |
-| `aviso_delatado` |  | `laia.ink:509` | `laia.ink:508` |
-| `sabe_girona` | ha oído lo de Girona (la prueba de embarazo, la clínica, «no fuimos») | `carla.ink:47` `jan.ink:22` `judit.ink:44` `mireia.ink:27` `sergi.ink:37` | `laia.ink:549` |
-| `girona_descartado` | Mireia ha confesado que la prueba y la clínica eran suyas | `mireia.ink:89` | `laia.ink:549` `mireia.ink:68` `mireia.ink:125` |
-| `mireia_cerrada` | el jugador la presionó y Mireia ya no cuenta nada | `mireia.ink:107` | `mireia.ink:68` `mireia.ink:125` |
+| `llamada_pilar_contestada` | ídem, la llamada de Pilar del D3 | *(app: el teléfono, al atender o rechazar una llamada de ese chat)* | `pilar.ink:55` |
+| `sabe_prepago` | Mireia: Alicia compró un móvil barato en un estanco de Olot | `mireia.ink:45` | `laia.ink:520` |
+| `fia_toni` |  | `toni.ink:23` `toni.ink:34` `toni.ink:39` `toni.ink:47` `toni.ink:116` | `toni.ink:14` `toni.ink:18` `toni.ink:32` `toni.ink:46` `toni.ink:52` `toni.ink:59` `toni.ink:76` `toni.ink:91` `toni.ink:93` `toni.ink:99` |
+| `fia_teresa` |  | `teresa.ink:27` `teresa.ink:60` `teresa.ink:71` `teresa.ink:76` `teresa.ink:83` `teresa.ink:141` | `teresa.ink:26` `teresa.ink:38` `teresa.ink:55` `teresa.ink:69` `teresa.ink:82` `teresa.ink:92` `teresa.ink:106` `teresa.ink:118` `teresa.ink:162` |
+| `fia_eric` |  | `eric.ink:156` `eric.ink:159` `eric.ink:162` `eric.ink:175` `eric.ink:180` `eric.ink:187` | `eric.ink:136` `eric.ink:151` `eric.ink:167` `eric.ink:173` `eric.ink:186` `eric.ink:193` `eric.ink:198` `eric.ink:202` |
+| `fia_ona` |  | `ona.ink:49` `ona.ink:62` `ona.ink:67` `ona.ink:76` `ona.ink:124` `ona.ink:129` | `ona.ink:23` `ona.ink:35` `ona.ink:37` `ona.ink:60` `ona.ink:75` `ona.ink:83` `ona.ink:96` `ona.ink:166` |
+| `fia_oriol` |  | `oriol.ink:68` `oriol.ink:73` `oriol.ink:79` `oriol.ink:106` `oriol.ink:113` `oriol.ink:118` | `oriol.ink:24` `oriol.ink:26` `oriol.ink:36` `oriol.ink:50` `oriol.ink:52` `oriol.ink:56` `oriol.ink:61` `oriol.ink:66` `oriol.ink:78` `oriol.ink:83` `oriol.ink:144` |
+| `delatado` |  | `main.ink:217` | `eric.ink:174` `laia.ink:474` `main.ink:218` `nuria.ink:345` `ona.ink:36` `ona.ink:61` `oriol.ink:25` `oriol.ink:51` `oriol.ink:67` `teresa.ink:70` `toni.ink:33` |
+| `aviso_delatado` |  | `laia.ink:475` | `laia.ink:474` |
+| `sabe_girona` | ha oído lo de Girona (la prueba de embarazo, la clínica, «no fuimos») | `carla.ink:47` `jan.ink:22` `judit.ink:44` `mireia.ink:27` `sergi.ink:37` | `laia.ink:515` |
+| `girona_descartado` | Mireia ha confesado que la prueba y la clínica eran suyas | `mireia.ink:92` | `laia.ink:515` `mireia.ink:68` `mireia.ink:128` |
+| `mireia_cerrada` | el jugador la presionó y Mireia ya no cuenta nada | `mireia.ink:110` | `mireia.ink:68` `mireia.ink:128` |
 | `laura_sabe` | le has dicho a Laura por dónde está Alicia | `laura.ink:29` `laura.ink:33` | `laura.ink:59` `laura.ink:80` `laura.ink:84` `laura.ink:94` `laura.ink:98` `laura.ink:101` `laura.ink:108` |
 | `secta_a_capsec` | le has mandado a Laura (y a la secta) a Capsec | `laura.ink:30` | `laura.ink:51` `laura.ink:80` `marc.ink:38` |
-| `patrulla_en_mas` | Laia ha mandado agentes al mas de la puerta azul | `central.ink:60` `laia.ink:459` | `desconocido.ink:139` `familia.ink:201` `laia.ink:357` `main.ink:192` |
-| `vigilancia_crater` | habrá agentes en el cráter de Santa Margarida al amanecer | `central.ink:72` `laia.ink:475` `laia.ink:589` | `laia.ink:376` `laia.ink:583` `main.ink:212` |
-| `alicia_a_salvo` | Alicia ha bajado con la patrulla | `desconocido.ink:164` `laia.ink:460` | `main.ink:192` |
+| `patrulla_en_mas` | Laia ha mandado agentes al mas de la puerta azul | `central.ink:60` `laia.ink:425` | `desconocido.ink:139` `familia.ink:201` `laia.ink:323` `main.ink:203` |
+| `vigilancia_crater` | habrá agentes en el cráter de Santa Margarida al amanecer | `central.ink:72` `laia.ink:441` `laia.ink:555` | `laia.ink:342` `laia.ink:549` `main.ink:223` |
+| `alicia_a_salvo` | Alicia ha bajado con la patrulla | `desconocido.ink:164` `laia.ink:426` | `main.ink:203` |
 | `llamada_desconocido_contestada` | lo pone la app cuando el jugador atiende o rechaza la llamada del prepago | *(app: el teléfono, al atender o rechazar una llamada de ese chat)* | `desconocido.ink:72` |
-| `alicia_llamo` | con confianza 3, Alicia dio la ubicación exacta por teléfono (D5 noche): Laia la saca esa noche | `desconocido.ink:73` | `desconocido.ink:138` `laia.ink:340` `laia.ink:342` `laia.ink:357` `laia.ink:404` |
-| `iris_ayuda` | Iris va a declarar a los Mossos | `iris.ink:49` | `iris.ink:64` `laia.ink:381` `main.ink:212` |
-| `caso_resuelto` | lo activa la app de Policía si el jugador acierta la pregunta antes del límite | *(app: Policía, al acertar la zona en el mapa)* | `main.ink:192` |
-| `ficha_dani` | la multa de su moto en la carretera de Sant Salvador: abre una pregunta en su charla | *(app: Policía, al leer la ficha «dani»)* | `dani.ink:304` |
-| `sabe_ignasi` | el jugador ya sabe cómo se llama el que «acompaña»: solo investigando la asociación (Laia). Desbloquea su ficha | `laia.ink:197` `laia.ink:471` `laia.ink:559` `laia.ink:566` `laia.ink:578` | *(desbloquea la ficha «ignasi»)* |
-| `ficha_ignasi` | el retiro del alba de hace once años en Santa Margarida: abre una consulta a Laia y una pregunta a Iris | *(app: Policía, al leer la ficha «ignasi»)* | `iris.ink:22` `laia.ink:583` |
-| `sabe_audi` | Dani (D3 noche): la matrícula andorrana del Audi | `dani.ink:108` | `laia.ink:538` *(desbloquea la ficha «audi»)* |
+| `alicia_llamo` | con confianza 3, Alicia dio la ubicación exacta por teléfono (D5 noche): Laia la saca esa noche | `desconocido.ink:73` | `desconocido.ink:138` `laia.ink:306` `laia.ink:308` `laia.ink:323` `laia.ink:370` |
+| `iris_ayuda` | Iris va a declarar a los Mossos | `iris.ink:49` | `iris.ink:64` `laia.ink:347` `main.ink:223` |
+| `caso_resuelto` | lo activa la app de Policía si el jugador acierta la pregunta antes del límite | *(app: Policía, al acertar la zona en el mapa)* | `main.ink:203` |
+| `ficha_dani` | la multa de su moto en la carretera de Sant Salvador: abre una pregunta en su charla | *(app: Policía, al leer la ficha «dani»)* | `dani.ink:333` |
+| `sabe_ignasi` | el jugador ya sabe cómo se llama el que «acompaña»: solo investigando la asociación (Laia). Desbloquea su ficha | `laia.ink:163` `laia.ink:437` `laia.ink:525` `laia.ink:532` `laia.ink:544` | *(desbloquea la ficha «ignasi»)* |
+| `ficha_ignasi` | el retiro del alba de hace once años en Santa Margarida: abre una consulta a Laia y una pregunta a Iris | *(app: Policía, al leer la ficha «ignasi»)* | `iris.ink:22` `laia.ink:549` |
+| `sabe_audi` | Dani (D3 noche): la matrícula andorrana del Audi | `dani.ink:137` | `laia.ink:504` *(desbloquea la ficha «audi»)* |
 | `sabe_furgoneta` | Conxita: la matrícula de la furgoneta que llegó de madrugada | `conxita.ink:20` | *(desbloquea la ficha «furgoneta»)* |
-| `sabe_seat` | Enric, o la consulta a Laia sobre el coche gris | `enric.ink:57` `laia.ink:577` | *(desbloquea la ficha «seat»)* |
-| `final_caso` | el final al que se ha llegado (1–6, ver FINALES.md); lo lee el juego para el informe de cierre | `laia.ink:395` `laia.ink:401` `laia.ink:416` `laia.ink:428` `laia.ink:438` `laia.ink:442` | — |
+| `sabe_seat` | Enric, o la consulta a Laia sobre el coche gris | `enric.ink:60` `laia.ink:543` | *(desbloquea la ficha «seat»)* |
+| `final_caso` | el final al que se ha llegado (1–6, ver FINALES.md); lo lee el juego para el informe de cierre | `laia.ink:361` `laia.ink:367` `laia.ink:382` `laia.ink:394` `laia.ink:404` `laia.ink:408` | — |
 
 ## Cronología
 
@@ -383,8 +392,7 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 08:05 · **sergi** · buenos días gente · `clase.ink:17`
 - 09:30 · **elena** · Hola, Alicia. Soy Elena, tu tutora. · `elena.ink:8`
 - 09:40 · **enric** · Se ha escapado el Rocky. Mestizo negro, collar rojo. Si lo veis, llamadme, por favor 🐕 · `veins.ink:12`
-- 10:00 · **laia** · Buenos días. Son las diez. · `laia.ink:16`
-- 10:00 · **laia** · Conexión establecida. Canal cifrado. · `laia.ink:23`
+- 10:00 · **laia** · Conexión establecida. Canal cifrado. · `laia.ink:10`
 - 10:20 · **teresa** · Buenos días. Ya tenéis los ejemplares en el mostrador. Alicia, el tuyo te lo guardo. · `lectura.ink:18`
 - 11:00 · **quim** · Os recuerdo que el cartel tiene que estar en la imprenta en cinco días. · `festa.ink:17`
 - 11:20 · **nuria** · Alicia. Me ha llamado tu madre. · `nuria.ink:25`
@@ -408,7 +416,7 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 20:10 · **jordi** · Hola cariño. Tu madre me ha dicho que estás unos días en casa de una amiga. ¿Todo bien? Papá · `jordi.ink:14`
 - 20:10 · **sonia** · Ali no ha venido. ¿Alguien sabe algo? · `voley.ink:17`
 - 21:02 · **mama** · Berta, sigues por alli? · `familia.ink:49`
-- 21:30 · **laia** · ¿Algo para el parte de hoy? · `laia.ink:106`
+- 21:30 · **laia** · ¿Algo para el parte de hoy? · `laia.ink:72`
 - 21:40 · **aina** · mañana examen de psico, me quiero morir · `clase.ink:26`
 - 22:15 · **pol** · oye · `pol.ink:23`
 - 22:50 · **carla** · ali si no contestas hoy mañana vamos a tu casa · `amigas.ink:27`
@@ -418,7 +426,7 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 ### D2
 
 - 06:50 · **pilar** · Alicia · `pilar.ink:32`
-- 08:30 · **laia** · Buenos días. · `laia.ink:130`
+- 08:30 · **laia** · Buenos días. · `laia.ink:96`
 - 08:50 · **aina** · examen de psico en 10 min y no me sé nada · `clase.ink:42`
 - 09:40 · **elena** · Buenos días, Alicia. · `elena.ink:31`
 - 10:28 · **banco** · BancRural: Se ha realizado una transferencia de 2.840,00 € desde tu cuenta ****4417. Beneficiario: CRA SERVEIS · `banco.ink:8`
@@ -431,12 +439,12 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 11:15 · **aina** · ha ido fatal · `clase.ink:46`
 - 12:00 · **carla** · hoy vamos a tu casa ali, a las 6 · `amigas.ink:43`
 - 12:00 · **carla** · vale ali, si dices que estás bien... · `amigas.ink:51`
-- 12:10 · **marc** · ali · `marc.ink:79`
+- 12:10 · **marc** · ali · `marc.ink:82`
 - 12:30 · **toni** · Por cierto. Esta mañana ha venido la madre de Alicia. · `aliments.ink:20`
 - 13:20 · **roser** · Me he cruzado con la Montse en el mercado. La he saludado y casi ni me ha mirado. · `coral.ink:28`
 - 13:20 · **eric** · has visto mi post 🕵️🥖 jajaja · `eric.ink:39`
-- 13:30 · **aina** · ali · `aina.ink:113`
-- 16:10 · **laia** · Cámaras de la estación de Olot, anteanoche. · `laia.ink:153`
+- 13:30 · **aina** · ali · `aina.ink:116`
+- 16:10 · **laia** · Cámaras de la estación de Olot, anteanoche. · `laia.ink:119`
 - 17:30 · **sonia** · Recordatorio: partido en tres días a las 11. Convocatoria la víspera. · `voley.ink:36`
 - 18:10 · **silvia** · He ido a dejar a Leo en tu casa y no había nadie. Las persianas bajadas. · `repas.ink:29`
 - 18:10 · **silvia** · He pasado con Leo por delante de tu casa. Las persianas bajadas a las seis de la tarde. · `repas.ink:32`
@@ -456,9 +464,9 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 21:00 · **sergi** · Alicia, te he subido mi mitad de la presentación al drive. · `clase.ink:52`
 - 21:00 · **pau** · Biel se queda con los peques. Clara y yo con los medianos. · `esplai.ink:31`
 - 21:10 · **iker** · hola guapa 😊 · `iker.ink:20`
-- 21:30 · **judit** · ali · `judit.ink:80`
-- 21:30 · **laia** · ¿Algo más para el parte? · `laia.ink:164`
-- 22:40 · **dani** · oye · `dani.ink:79`
+- 21:30 · **judit** · ali · `judit.ink:83`
+- 21:30 · **laia** · ¿Algo más para el parte? · `laia.ink:130`
+- 22:40 · **dani** · oye · `dani.ink:98`
 - 23:10 · **berta** · Sé que no eres Ali. · `berta.ink:15`
 - 23:10 · **berta** · Sé que vas a volver. · `berta.ink:20`
 
@@ -467,21 +475,21 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 00:01 · **carla** · FELIZ CUMPLE MIREIA 🎂🎉 · `amigas.ink:70`
 - 07:00 · **berta** · Buenos días! Gratitud por un día más. · `familia.ink:117`
 - 07:05 · **berta** · Tienes 24 horas para devolverme a mi hermana. · `berta.ink:47`
-- 07:15 · **pilar** · Te llamo, nena · `pilar.ink:52`
+- 07:15 · **pilar** · Te llamo, nena · `pilar.ink:54`
 - 07:20 · **mama** · Llevo tres noches sin dormir. · `familia.ink:118`
 - 08:15 · **enric** · ¡Ha vuelto el Rocky! Estaba en el huerto de los Puigdemont, gordo como una vaca 😂 · `veins.ink:25`
 - 08:20 · **jordi** · Ali. Esta mañana han venido dos Mossos a casa preguntando por ti. · `jordi.ink:49`
 - 08:20 · **jordi** · Buenos días, cariño. ¿Has dormido bien? Papá · `jordi.ink:54`
-- 08:45 · **laia** · Buenos días. · `laia.ink:187`
+- 08:45 · **laia** · Buenos días. · `laia.ink:153`
 - 09:10 · **nuria** · felicidades mire!! · `amigas.ink:72`
 - 10:15 · **elena** · Alicia, he comentado tu situación con la orientadora del centro. · `elena.ink:56`
 - 10:30 · **anna** · Me han dicho en el mercado que Ali está de viaje. Busco otra profe hasta que vuelva. · `repas.ink:38`
 - 11:00 · **teresa** · Alicia, tengo aún «Nada» a tu nombre. Cuando puedas, me lo devuelves, que hay lista de espera. · `lectura.ink:28`
-- 12:10 · **laia** · Lo del banco. CRA Serveis es el nombre comercial de la Associació Comunitat Rosa d'Abril. Sant Joan les Fonts. · `laia.ink:195`
+- 12:10 · **laia** · Lo del banco. CRA Serveis es el nombre comercial de la Associació Comunitat Rosa d'Abril. Sant Joan les Fonts. · `laia.ink:161`
 - 12:30 · **berta** · Quizás deberíamos actuar por nuestra cuenta.Hablemos con todo el que la conoce. Amigas, el chico ese, el traba · `familia.ink:120`
-- 13:40 · **laia** · Otra cosa. Barcelona ha desarticulado esta semana parte de una red que captaba chicas de pueblo por redes soci · `laia.ink:201`
+- 13:40 · **laia** · Otra cosa. Barcelona ha desarticulado esta semana parte de una red que captaba chicas de pueblo por redes soci · `laia.ink:167`
 - 14:25 · **oriol** · ruta colgada en gonpi 🚴🌙 id a verla · `clase.ink:65`
-- 15:30 · **laia** · Mi comisario me pregunta por qué pierdo el tiempo con una mayor de edad que se ha ido de casa. · `laia.ink:204`
+- 15:30 · **laia** · Mi comisario me pregunta por qué pierdo el tiempo con una mayor de edad que se ha ido de casa. · `laia.ink:170`
 - 16:00 · **xavier** · Ensayo cancelado este jueves, estoy afónico. Un director afónico, qué ironía. · `coral.ink:34`
 - 16:00 · **eric** · oye · `eric.ink:61`
 - 17:00 · **nuria** · te dije que te haría tres preguntas. · `nuria.ink:117`
@@ -489,7 +497,7 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 17:00 · **nuria** · tres preguntas. · `nuria.ink:124`
 - 17:30 · **arnau** · prima el vídeo sigue archivado eh. me debes una skin · `arnau.ink:54`
 - 17:30 · **arnau** · prima mi post ya tiene 2.000 visitas 💀 · `arnau.ink:56`
-- 17:40 · **pep** · Sin ensayo y sin contralto. Esta semana me aburro hasta yo. · `pep.ink:116`
+- 17:40 · **pep** · Sin ensayo y sin contralto. Esta semana me aburro hasta yo. · `pep.ink:119`
 - 18:00 · **laura** · hoy he ido a una sesión de mindfulness en un jardín de sant joan les fonts · `laura.ink:48`
 - 18:00 · **sonia** · Convocatoria del partido mañana a las 20 h por aquí. · `voley.ink:43`
 - 18:20 · **laura** · Ali, ¿cómo va el cartel? 🎨 · `festa.ink:24`
@@ -498,42 +506,42 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 19:30 · **pau** · Monis, ¿alguien tiene las llaves del refugi de Can Pericot? En el armario del local solo queda un juego. · `esplai.ink:37`
 - 20:00 · **rafa** · Mañana a las 7:30. DNI y la tasa pagada. Ni un minuto tarde. · `autoescola.ink:22`
 - 20:00 · **sergi** · Mañana a las 10, reunión con Elena para la exposición. Alicia, ¿vienes? · `clase.ink:71`
-- 20:10 · **biel** · oye ali · `biel.ink:93`
+- 20:10 · **biel** · oye ali · `biel.ink:96`
 - 21:00 · **nuria** · chicas. tengo que contaros una cosa · `amigas.ink:74`
 - 21:00 · **casal** · Pedimos luz para una de nuestras familias, que está pasando por un momento muy difícil. · `casal.ink:33`
 - 21:10 · **mama** · Jordi me ha llamado gritando. Que le han ido los Mossos a casa. · `familia.ink:126`
-- 21:15 · **aina** · oye he visto lo de oriol · `aina.ink:135`
-- 21:30 · **dani** · mira mi gonpi · `dani.ink:96`
-- 21:30 · **laia** · Parte. ¿Qué tienes? · `laia.ink:217`
+- 21:15 · **aina** · oye he visto lo de oriol · `aina.ink:138`
+- 21:30 · **dani** · mira mi gonpi · `dani.ink:125`
+- 21:30 · **laia** · Parte. ¿Qué tienes? · `laia.ink:183`
 - 22:00 · **berta** · 🌹 · `familia.ink:129`
 - 22:00 · **pol** · ali solo dime una cosa · `pol.ink:74`
 - 22:30 · **dolors** · Ensayo general sin Adela. Alicia ya me avisó: no puede. · `teatre.ink:24`
 - 22:30 · **dolors** · Alicia no ha venido al ensayo. ¿Alguien sabe algo? · `teatre.ink:30`
 - 23:10 · **guia** · Alicia. Soy quien acompaña a tu madre en el grupo. Ella me ha dado tu número. · `guia.ink:6`
-- 23:15 · **queralt** · Ali. · `queralt.ink:52`
+- 23:15 · **queralt** · Ali. · `queralt.ink:55`
 - 23:40 · **carla** · fotos de la fiesta ya en gonpi 📸 · `amigas.ink:82`
-- 23:40 · **dani** · ey · `dani.ink:103`
+- 23:40 · **dani** · ey · `dani.ink:132`
 - 23:50 · **iker** · oye · `iker.ink:34`
 
 ### D4
 
 - 07:00 · **berta** · Buenos días ☀️ Hoy, ayuno de palabras: solo lo necesario. · `familia.ink:140`
 - 07:05 · **berta** · Sigues ahí. Lo noto. · `berta.ink:54`
-- 07:20 · **hugo** · ali de verdad no vienes?? · `hugo.ink:56`
-- 07:20 · **hugo** · ali dónde estás?? · `hugo.ink:59`
+- 07:20 · **hugo** · ali de verdad no vienes?? · `hugo.ink:59`
+- 07:20 · **hugo** · ali dónde estás?? · `hugo.ink:62`
 - 07:50 · **rafa** · Alicia avisó ayer de que no venía. Al final he llamado a su casa: su madre dice que ha «cambiado de prioridade · `autoescola.ink:35`
 - 07:50 · **rafa** · Alicia no se ha presentado al bus. He llamado a su casa y su madre dice que ha «cambiado de prioridades». · `autoescola.ink:38`
 - 08:00 · **casal** · Recordatorio: el despacho de la Casa os sigue ayudando, sin coste, a preparar el documento de voluntades antic · `casal.ink:38`
-- 08:20 · **rafa** · Alicia. · `rafa.ink:53`
+- 08:20 · **rafa** · Alicia. · `rafa.ink:56`
 - 09:10 · **enric** · Esta noche ha estado un coche gris parado delante de casa de Montse hasta las tantas. Con una rosa pegada en e · `veins.ink:31`
-- 09:30 · **laia** · Esta mañana ha venido a comisaría una tal Núria Gil. · `laia.ink:249`
-- 09:30 · **teresa** · Buenos días, Alicia. El pendrive sigue en el cajón. Por si lo necesitas. · `teresa.ink:146`
-- 10:15 · **laia** · Padrón. Rosalia Masó Puig, 78 años, empadronada en Sant Salvador de Bianya. · `laia.ink:261`
+- 09:30 · **laia** · Esta mañana ha venido a comisaría una tal Núria Gil. · `laia.ink:215`
+- 09:30 · **teresa** · Buenos días, Alicia. El pendrive sigue en el cajón. Por si lo necesitas. · `teresa.ink:149`
+- 10:15 · **laia** · Padrón. Rosalia Masó Puig, 78 años, empadronada en Sant Salvador de Bianya. · `laia.ink:227`
 - 10:50 · **sergi** · Elena dice que la exposición la puedo hacer yo solo si hace falta. · `clase.ink:75`
 - 11:00 · **nuria** · ya está. he ido a los mossos · `nuria.ink:208`
-- 11:15 · **enric** · Alicia, perdona que te escriba. · `enric.ink:68`
-- 11:20 · **sergi** · Alicia. · `sergi.ink:76`
-- 11:30 · **laia** · Barcelona me ha contestado. El número de Iker es de un relaciones públicas de un club del Port Olímpic. · `laia.ink:256`
+- 11:15 · **enric** · Alicia, perdona que te escriba. · `enric.ink:71`
+- 11:20 · **sergi** · Alicia. · `sergi.ink:79`
+- 11:30 · **laia** · Barcelona me ha contestado. El número de Iker es de un relaciones públicas de un club del Port Olímpic. · `laia.ink:222`
 - 11:40 · **mama** · La Marta ha venido a casa. No le he abierto. · `familia.ink:141`
 - 12:00 · **marta** · He ido a tu casa. Tu madre no me ha abierto. · `marta.ink:58`
 - 12:30 · **rosalia** · 📞 · `rosalia.ink:6`
@@ -542,60 +550,60 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 13:30 · **rafa** · Hugo: aprobado con un 28. ¡Milagro! 🎉 · `autoescola.ink:42`
 - 14:00 · **biel** · Salida genial. Nadie perdido, nadie herido. Récord 😎 · `esplai.ink:47`
 - 14:30 · **eric** · pilar dice que si vuelves, el puesto es tuyo · `eric.ink:69`
-- 15:00 · **laia** · Cada día que pasa, más difícil. Mañana pido permiso para mover a gente. No te prometo nada. · `laia.ink:265`
+- 15:00 · **laia** · Cada día que pasa, más difícil. Mañana pido permiso para mover a gente. No te prometo nada. · `laia.ink:231`
 - 16:10 · **mama** · Es el cuarto dia sin noticias de Ali. No puedo más. Hoy he firmado las voluntades anticipadas en el despacho d · `familia.ink:143`
 - 18:00 · **arnau** · prima vas a venir a la comida de la iaia de dentro de tres días? · `arnau.ink:64`
-- 18:30 · **imma** · Ali, perdona que te escriba así. · `imma.ink:58`
-- 19:10 · **anna** · Ali, Martina ha sacado un 8 en el control de decimales 🎉 · `anna.ink:89`
+- 18:30 · **imma** · Ali, perdona que te escriba así. · `imma.ink:61`
+- 19:10 · **anna** · Ali, Martina ha sacado un 8 en el control de decimales 🎉 · `anna.ink:92`
 - 19:20 · **berta** · He llamado a la residencia de Olot. Allí no hay ninguna Rosalia. · `familia.ink:147`
 - 19:30 · **pol** · tu madre ha vuelto. con el de la barba · `pol.ink:86`
 - 19:30 · **pol** · ali lo siento · `pol.ink:90`
 - 20:00 · **jordi** · He hablado con un abogado, cariño. · `jordi.ink:68`
 - 20:00 · **sonia** · Convocatoria para mañana a las 11: Judit, Ona, Clara R., Txell C., Paula B., Gemma F. Colocadora: Ona. · `voley.ink:50`
 - 20:15 · **claudia** · Hoy éramos cuatro gatos. Ali, te echamos de menos en la esterilla de la esquina. · `ioga.ink:30`
-- 20:20 · **ona** · ali me ponen a mí de colocadora 😭 · `ona.ink:134`
+- 20:20 · **ona** · ali me ponen a mí de colocadora 😭 · `ona.ink:137`
 - 20:30 · **casal** · Os pedimos discreción con las familias que lo están pasando mal. Si alguien de fuera pregunta, que hable con l · `casal.ink:39`
 - 20:30 · **laura** · ali, berta dice que mañana suben ellos a capsec a buscarte · `laura.ink:81`
 - 20:30 · **laura** · ali una cosa · `laura.ink:85`
 - 20:30 · **laura** · dentro de dos días hay retiro de silencio en el casal. me apunto!! 🌿 · `laura.ink:90`
-- 21:00 · **dani** · oye · `dani.ink:126`
+- 21:00 · **dani** · oye · `dani.ink:155`
 - 21:05 · **berta** · ¿Has visto el vídeo que subió Arnau? El de la rotonda. · `familia.ink:152`
 - 21:05 · **nuria** · sigo preocupada. mucho · `nuria.ink:213`
 - 21:05 · **nuria** · he subido una foto nuestra a gonpi · `nuria.ink:218`
 - 21:30 · **carla** · alguien ha visto la foto de nuri en gonpi? 🥺 · `amigas.ink:97`
-- 21:30 · **laia** · Parte. · `laia.ink:275`
+- 21:30 · **laia** · Parte. · `laia.ink:241`
 - 22:00 · **mama** · 🌹 · `familia.ink:158`
 - 22:00 · **laura** · ali no me has pasado nada, así que lo he hecho yo 🙃 · `festa.ink:39`
 - 22:00 · **laura** · cartel hecho. no es lo mismo que si lo hubiera hecho ali pero bueno 🙃 · `festa.ink:41`
 - 22:00 · **dolors** · Buscaremos otra Adela. · `teatre.ink:40`
-- 22:10 · **oriol** · oye ali · `oriol.ink:123`
-- 23:20 · **mireia** · ali · `mireia.ink:116`
+- 22:10 · **oriol** · oye ali · `oriol.ink:126`
+- 23:20 · **mireia** · ali · `mireia.ink:119`
 - 23:40 · **desconocido** · hola · `desconocido.ink:8`
 
 ### D5
 
 - 00:30 · **iris** · hola ali. soy iris. la del casal · `iris.ink:8`
 - 01:10 · **iker** · alicia, una cosa · `iker.ink:48`
-- 06:30 · **pilar** · No sé nada de ti, nena. Pero me acuerdo de ti cada mañana al encender el horno · `pilar.ink:82`
+- 06:30 · **pilar** · No sé nada de ti, nena. Pero me acuerdo de ti cada mañana al encender el horno · `pilar.ink:117`
 - 07:00 · **berta** · Buenos días ☀️ Que hoy pese un poco menos. · `familia.ink:162`
-- 08:30 · **laia** · Tengo permiso para dos agentes. Dos. Y a partir de mañana. · `laia.ink:297`
+- 08:30 · **laia** · Tengo permiso para dos agentes. Dos. Y a partir de mañana. · `laia.ink:263`
 - 10:15 · **lluisa** · Alicia, ¿vienes? Son las diez y cuarto · `aliments.ink:49`
 - 10:30 · **nuria** · he soñado otra vez con la casa de las estrellas · `nuria.ink:243`
 - 10:40 · **berta** · He ido a la panadería. · `familia.ink:164`
 - 11:00 · **elena** · Alicia, he tenido que informar a dirección de tus ausencias. Es el protocolo. · `elena.ink:67`
 - 11:00 · **eric** · ali la he liado · `eric.ink:80`
-- 11:20 · **pep** · He pensado en lo que me dijiste de tu yaya. · `pep.ink:133`
-- 11:30 · **pilar** · Nena, esta mañana ha venido tu hermana. Preguntando por el pan · `pilar.ink:69`
+- 11:20 · **pep** · He pensado en lo que me dijiste de tu yaya. · `pep.ink:136`
+- 11:30 · **pilar** · Nena, esta mañana ha venido tu hermana. Preguntando por el pan · `pilar.ink:104`
 - 12:00 · **aina** · alguien tiene el horario de los finales? · `clase.ink:82`
 - 12:15 · **nuria** · me ha llamado la sargento esa. puig · `nuria.ink:268`
 - 12:40 · **teresa** · Ha venido la madre de Alicia a devolver el libro. Muy amable. · `lectura.ink:43`
 - 13:00 · **eric** · hoy hemos hecho cocas de chicharrones. te guardo una 🍞 · `eric.ink:97`
 - 13:00 · **sonia** · Perdemos 1-3. Hemos luchado, chicas. 💪 · `voley.ink:56`
-- 13:05 · **teresa** · Ha venido tu madre. · `teresa.ink:152`
-- 13:30 · **gemma** · ali · `gemma.ink:69`
+- 13:05 · **teresa** · Ha venido tu madre. · `teresa.ink:155`
+- 13:30 · **gemma** · ali · `gemma.ink:72`
 - 13:30 · **nuria** · hoy ha jugado el vóley sin ti. han perdido · `nuria.ink:237`
-- 13:40 · **ona** · lo de alta y al centro funcionó · `ona.ink:155`
-- 15:00 · **sonia** · Ali. · `sonia.ink:75`
+- 13:40 · **ona** · lo de alta y al centro funcionó · `ona.ink:158`
+- 15:00 · **sonia** · Ali. · `sonia.ink:78`
 - 15:30 · **lluisa** · Hoy 71 lotes. ¡Récord! Gracias, equipazo 🥫 · `aliments.ink:53`
 - 16:10 · **toni** · Oye, Alicia, por si lees esto. Esta mañana un chaval en moto me ha parado en el almacén · `aliments.ink:55`
 - 16:20 · **mama** · ¿Qué me pongo pasado mañana? Para lo de la yaya. · `familia.ink:174`
@@ -608,26 +616,26 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 20:30 · **jordi** · Mañana por la tarde subo, cariño. Me quedo en casa de la tía Marta. · `jordi.ink:80`
 - 21:00 · **berta** · Mañana subimos a Sant Salvador con la furgoneta. · `familia.ink:181`
 - 21:30 · **casal** · Trobada de l'Alba: ropa blanca y calzado cómodo. No hace falta traer nada: ni bolso, ni móvil, ni llaves. A la · `casal.ink:43`
-- 21:45 · **laia** · Parte. ¿Qué tienes? · `laia.ink:317`
+- 21:45 · **laia** · Parte. ¿Qué tienes? · `laia.ink:283`
 - 22:00 · **guia** · Buenas noches, Alicia. · `guia.ink:25`
 - 22:10 · **mama** · Nena, pasado mañana hace tres años de la yaya. Si lees esto, ven a cenar a casa. · `familia.ink:184`
 - 22:20 · **carla** · habéis visto lo que ha subido la cuenta esa del casal? la de la madre de ali · `amigas.ink:104`
 - 22:50 · **berta** · Alguien está usando tu móvil. Sé que no eres tú. Devuelvela sana y salva, te daremos todo lo que quieras, lo q · `berta.ink:60`
 - 22:50 · **berta** · Rezo para que cada día estes bien. Me duele el alma no saber donde estás o si estás bien. Quiero que vuelvas a · `berta.ink:62`
-- 23:15 · **dani** · ey · `dani.ink:153`
+- 23:15 · **dani** · ey · `dani.ink:182`
 - 23:30 · **desconocido** · estás ahí? · `desconocido.ink:93`
 
 ### D6
 
 - 00:45 · **iris** · 📞 · `iris.ink:44`
-- 01:30 · **laia** · #at: D6 01:30 · `laia.ink:339`
+- 01:30 · **laia** · #at: D6 01:30 · `laia.ink:305`
 - 07:00 · **casal** · Mañana se sube en ayunas: el desayuno lo compartimos arriba, con el agua de la Casa 🌿 · `casal.ink:47`
 - 07:00 · **berta** · Mañana. · `familia.ink:197`
 - 07:05 · **berta** · Por dios, devuélveme a mi hermana. Dime algo. · `berta.ink:70`
 - 07:05 · **berta** · Mañana te encontraré hermana. Estés donde estés, sé que te encontraré. · `berta.ink:73`
-- 07:40 · **pilar** · Nena, ha venido ese chico de la moto. El Dani · `pilar.ink:87`
+- 07:40 · **pilar** · Nena, ha venido ese chico de la moto. El Dani · `pilar.ink:122`
 - 08:00 · **central** · 📻 Canal de la Central de Olot. Aquí llegarán los informes de los agentes que mandes. · `central.ink:6`
-- 08:00 · **laia** · Hoy es el día. · `laia.ink:341`
+- 08:00 · **laia** · Hoy es el día. · `laia.ink:307`
 - 09:00 · **sergi** · Mañana ensayo de la exposición a las 10. · `clase.ink:88`
 - 09:45 · **eric** · ali · `eric.ink:102`
 - 10:00 · **pol** · he ido a los mossos. les he contado todo. lo de tu madre también · `pol.ink:126`
@@ -636,12 +644,12 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 11:30 · **nuria** · mira lo que he encontrado en el álbum de mi madre · `nuria.ink:291`
 - 12:00 · **laura** · ali ya no me contestas 🥺 · `laura.ink:109`
 - 12:30 · **carla** · chicas y si mañana vamos al cráter a ver qué pasa · `amigas.ink:112`
-- 13:00 · **dani** · #at: D6 13:00 · `dani.ink:178`
+- 13:00 · **dani** · #at: D6 13:00 · `dani.ink:207`
 - 13:00 · **mama** · Mesa puesta. Tres platos. · `familia.ink:198`
 - 16:00 · **arnau** · prima mañana es la comida. la iaia ha hecho canelones 🤤 · `arnau.ink:86`
 - 17:00 · **jordi** · Ya estoy en Olot, en casa de la tía. · `jordi.ink:91`
 - 17:30 · **berta** · Subimos. · `familia.ink:200`
-- 18:00 · **laia** · ⚠️ Conexión perdida con el terminal. · `laia.ink:351`
+- 18:00 · **laia** · ⚠️ Conexión perdida con el terminal. · `laia.ink:317`
 - 18:30 · **berta** · Hay un coche de los Mossos delante de la casa. · `familia.ink:202`
 - 18:30 · **berta** · Puerta azul. Es aquí. · `familia.ink:206`
 - 19:00 · **sonia** · Entreno de recuperación suave mañana a las 18. · `voley.ink:63`
@@ -651,36 +659,36 @@ Cada línea con hora propia (`#at`). Las respuestas con `#delay` llegan después
 - 21:00 · **nuria** · ali... · `nuria.ink:284`
 - 21:30 · **pol** · pase lo que pase mañana, aquí estoy · `pol.ink:138`
 - 22:00 · **casal** · Gracias por este camino compartido. Nos vemos al otro lado de la noche 🌹 · `casal.ink:48`
-- 22:00 · **laia** · ✅ Conexión restablecida. · `laia.ink:352`
-- 22:05 · **laia** · Cuatro horas a oscuras. ¿Sigues ahí? · `laia.ink:353`
+- 22:00 · **laia** · ✅ Conexión restablecida. · `laia.ink:318`
+- 22:05 · **laia** · Cuatro horas a oscuras. ¿Sigues ahí? · `laia.ink:319`
 - 22:30 · **marta** · Tu padre está aquí. No suelta el móvil. · `marta.ink:72`
 - 23:00 · **mama** · Nena. Te esperamos. · `familia.ink:214`
 - 23:50 · **desconocido** · #at: D6 23:50 · `desconocido.ink:136`
 
 ### D7
 
-- 01:30 · **dani** · #at: D7 01:30 · `dani.ink:206`
-- 04:00 · **laia** · Las cuatro. Le he pedido a Tráfico que me avise de cualquier coche que baje del valle. · `laia.ink:369`
+- 01:30 · **dani** · #at: D7 01:30 · `dani.ink:235`
+- 04:00 · **laia** · Las cuatro. Le he pedido a Tráfico que me avise de cualquier coche que baje del valle. · `laia.ink:335`
 - 05:00 · **casal** · Es la hora. · `casal.ink:52`
 - 05:00 · **berta** · Hoy. · `familia.ink:218`
 - 05:00 · **guia** · Hoy amanece para todos. · `guia.ink:42`
 - 05:00 · **iris** · estoy en comisaría. llevo aquí toda la noche · `iris.ink:65`
-- 05:10 · **laia** · En posición en el cráter. Niebla. No se ve ni la ermita. · `laia.ink:377`
-- 05:10 · **laia** · No he dormido. · `laia.ink:380`
+- 05:10 · **laia** · En posición en el cráter. Niebla. No se ve ni la ermita. · `laia.ink:343`
+- 05:10 · **laia** · No he dormido. · `laia.ink:346`
 - 05:30 · **mama** · Ya vamos. Todas de blanco. · `familia.ink:219`
-- 05:30 · **pilar** · Nena, hoy enciendo el horno pensando en ti · `pilar.ink:99`
+- 05:30 · **pilar** · Nena, hoy enciendo el horno pensando en ti · `pilar.ink:134`
 - 05:31 · **berta** · Ali viene con nosotras. 🌹 · `familia.ink:221`
-- 05:40 · **laia** · Iris Ferrer se presentó en comisaría a las tres de la madrugada. Ha declarado todo. · `laia.ink:382`
-- 06:05 · **laia** · Suben linternas por el sendero. Diez, doce personas. Todas de blanco. · `laia.ink:378`
+- 05:40 · **laia** · Iris Ferrer se presentó en comisaría a las tres de la madrugada. Ha declarado todo. · `laia.ink:348`
+- 06:05 · **laia** · Suben linternas por el sendero. Diez, doce personas. Todas de blanco. · `laia.ink:344`
 - 06:20 · **desconocido** · #at: D7 06:20 · `desconocido.ink:177`
 - 06:30 · **casal** · Ha amanecido para todas. 🌹 · `casal.ink:57`
 - 06:30 · **berta** · Ya estamos todas. · `familia.ink:225`
 - 06:30 · **guia** · Ya ha amanecido. · `guia.ink:44`
-- 06:31 · **laia** · 06:31. Entramos. · `laia.ink:396`
-- 06:31 · **laia** · Alicia está a salvo. Está conmigo. · `laia.ink:417`
-- 06:31 · **laia** · 06:31. Entramos. Ignasi Coll, detenido. Montse y Berta, a salvo. · `laia.ink:439`
-- 06:45 · **laia** · Hemos llegado tarde. · `laia.ink:429`
-- 06:45 · **laia** · Hay ambulancias en el cráter. Muchas. · `laia.ink:443`
+- 06:31 · **laia** · 06:31. Entramos. · `laia.ink:362`
+- 06:31 · **laia** · Alicia está a salvo. Está conmigo. · `laia.ink:383`
+- 06:31 · **laia** · 06:31. Entramos. Ignasi Coll, detenido. Montse y Berta, a salvo. · `laia.ink:405`
+- 06:45 · **laia** · Hemos llegado tarde. · `laia.ink:395`
+- 06:45 · **laia** · Hay ambulancias en el cráter. Muchas. · `laia.ink:409`
 - 07:10 · **berta** · Sólo quería ascender, dejar el dolor y el sufrimiento de este mundo terrenal. · `berta.ink:79`
 - 08:00 · **carla** · habéis visto gonpi??? policía en el cráter de santa margarida · `amigas.ink:119`
 - 08:10 · **jordi** · Cariño, me ha llamado una sargento de los Mossos. Voy para la comisaría. · `jordi.ink:104`
@@ -708,22 +716,22 @@ Dónde se les nombra (texto que lee el jugador, sin comentarios). «Desde» es e
 |---|---|---|---|
 | laia (Sgt. Puig 🔒) | Sgt, Laia | D1 | familia.ink (1), jordi.ink (1), laia.ink (3) |
 | central (Central Mossos · Olot 📻) | Central | D6 | central.ink (2), laia.ink (2) |
-| mama (Mamá) | Mamá, Montse | D-6 | coral.ink (1), desconocido.ink (6), familia.ink (20), jordi.ink (5), laia.ink (6), mama.ink (6), marta.ink (2), mireia.ink (1), veins.ink (2) |
+| mama (Mamá) | Mamá, Montse | D-6 | coral.ink (1), desconocido.ink (6), familia.ink (20), jordi.ink (6), laia.ink (6), mama.ink (6), marta.ink (2), mireia.ink (1), veins.ink (2) |
 | berta (Berta) | Berta | D-8 | arnau.ink (2), berta.ink (4), carla.ink (1), desconocido.ink (5), familia.ink (3), jordi.ink (1), laia.ink (5), laura.ink (5) |
-| jordi (Papá) | Papá, Jordi | D-9 | central.ink (1), familia.ink (2), jordi.ink (30) |
-| marta (Tía Marta) | Tía | D-40 | aina.ink (2), amigas.ink (4), carla.ink (2), clase.ink (2), desconocido.ink (1), familia.ink (1), jordi.ink (2), laura.ink (1), lectura.ink (1), marta.ink (12), mireia.ink (1), nuria.ink (4), ona.ink (1), paula.ink (3), pol.ink (1), ramon.ink (1) |
+| jordi (Papá) | Papá, Jordi | D-9 | central.ink (1), familia.ink (2), jordi.ink (33) |
+| marta (Tía Marta) | Tía | D-40 | aina.ink (2), amigas.ink (4), carla.ink (3), clase.ink (2), desconocido.ink (1), familia.ink (1), jordi.ink (2), laura.ink (1), lectura.ink (1), marta.ink (14), mireia.ink (1), nuria.ink (4), ona.ink (1), paula.ink (3), pol.ink (1), ramon.ink (1) |
 | arnau (Arnau 🎮) | Arnau | D2 | arnau.ink (6), eric.ink (1), familia.ink (3), pilar.ink (1) |
-| nuria (Nuri 💛) | Nuri | D-10 | amigas.ink (3), carla.ink (1), desconocido.ink (3), familia.ink (2), mireia.ink (2), nuria.ink (9), paula.ink (1) |
+| nuria (Nuri 💛) | Nuri | D-10 | amigas.ink (3), carla.ink (1), dani.ink (1), desconocido.ink (3), familia.ink (2), mireia.ink (2), nuria.ink (9), paula.ink (1) |
 | carla (Carla) | Carla | D-8 | carla.ink (5), familia.ink (1), judit.ink (3), mireia.ink (3), nuria.ink (2), ona.ink (2), paula.ink (1) |
 | mireia (Mireia) | Mireia | D-8 | amigas.ink (3), banco.ink (1), carla.ink (1), jan.ink (1), mireia.ink (7), nuria.ink (1), sergi.ink (4) |
-| pol (Pol) | Pol | D-20 | central.ink (4), clara.ink (1), dani.ink (3), familia.ink (1), laia.ink (1), nuria.ink (2), pol.ink (18) |
-| dani (Dani) | Dani | D-34 | aliments.ink (1), amigas.ink (2), carla.ink (4), central.ink (11), dani.ink (35), desconocido.ink (4), eric.ink (2), iker.ink (14), judit.ink (2), laia.ink (19), main.ink (1), nuria.ink (2), paula.ink (2), pilar.ink (2), pol.ink (2) |
+| pol (Pol) | Pol | D-20 | central.ink (4), clara.ink (1), dani.ink (5), familia.ink (1), laia.ink (1), nuria.ink (2), pol.ink (19) |
+| dani (Dani) | Dani | D-34 | aliments.ink (1), amigas.ink (2), carla.ink (4), central.ink (11), dani.ink (36), desconocido.ink (4), eric.ink (2), iker.ink (14), judit.ink (2), laia.ink (19), main.ink (1), nuria.ink (2), paula.ink (2), pilar.ink (2), pol.ink (2) |
 | sergi (Sergi (clase)) | Sergi | D-4 | aina.ink (3), amigas.ink (3), clase.ink (12), jan.ink (1), mireia.ink (3), paula.ink (2), sergi.ink (15) |
 | aina (Aina (clase)) | Aina | D1 | aina.ink (16), clase.ink (1), paula.ink (1) |
 | oriol (Oriol (clase)) | Oriol | D-20 | aina.ink (8), clase.ink (3), oriol.ink (21), paula.ink (2) |
 | paula (Paula (clase)) | Paula | D-4 | aina.ink (4), paula.ink (7), sergi.ink (1), voley.ink (1) |
 | elena (Elena (tutora)) | Elena | D-4 | aina.ink (2), clase.ink (3), elena.ink (5), lluisa.ink (1), sergi.ink (2) |
-| pilar (Pilar Forn) | Pilar | D-6 | eric.ink (12), pilar.ink (8) |
+| pilar (Pilar Forn) | Pilar | D-6 | eric.ink (12), pilar.ink (9) |
 | eric (Èric Forn) | Èric | D-6 | familia.ink (1), pilar.ink (2) |
 | sonia (Sonia (entrenadora)) | Sonia | D-4 | ona.ink (4), sonia.ink (13), voley.ink (1) |
 | judit (Judit 🏐) | Judit | D-8 | carla.ink (2), judit.ink (8), ona.ink (6), sonia.ink (4), voley.ink (3) |
@@ -732,10 +740,10 @@ Dónde se les nombra (texto que lee el jugador, sin comentarios). «Desde» es e
 | ramon (Ramon) | Ramon | D2 | gemma.ink (2), lectura.ink (2), ramon.ink (10) |
 | gemma (Gemma) | Gemma | D-20 | gemma.ink (12), ioga.ink (2), lectura.ink (1), ramon.ink (1), voley.ink (1) |
 | xavier (Xavier (coral)) | Xavier | D5 | pep.ink (2), xavier.ink (7) |
-| roser (Roser (coral)) | Roser | D1 | coral.ink (2), pep.ink (6), ramon.ink (1), roser.ink (8), xavier.ink (1) |
+| roser (Roser (coral)) | Roser | D1 | coral.ink (2), pep.ink (6), ramon.ink (1), roser.ink (9), xavier.ink (1) |
 | pep (Pep (coral)) | Pep | D3 | coral.ink (1), pep.ink (18) |
 | lluisa (Lluïsa (Banc d'Aliments)) | Lluïsa | charla | fatima.ink (2), lluisa.ink (6), toni.ink (1) |
-| toni (Toni) | Toni | D-9 | aliments.ink (5), fatima.ink (1), lluisa.ink (5), toni.ink (15) |
+| toni (Toni) | Toni | D-9 | aliments.ink (5), fatima.ink (1), lluisa.ink (5), toni.ink (17) |
 | fatima (Fàtima) | Fàtima | D-9 | aliments.ink (6), fatima.ink (5), lluisa.ink (1), toni.ink (1) |
 | claudia (Clàudia (ioga)) | Clàudia | charla | claudia.ink (6), gemma.ink (1) |
 | imma (Imma) | Imma | D4 | imma.ink (12) |
@@ -755,9 +763,9 @@ Dónde se les nombra (texto que lee el jugador, sin comentarios). «Desde» es e
 | anna (Anna (mare Martina)) | Anna | D4 | anna.ink (14) |
 | silvia (Sílvia (mare Leo)) | Sílvia | charla | silvia.ink (6) |
 | iris (Iris) | Iris | D3 | iris.ink (7), laia.ink (4), main.ink (1) |
-| iker (+34 655 ·· ·· ··) | Iker | D-15 | central.ink (3), dani.ink (6), iker.ink (2), laia.ink (5) |
+| iker (+34 655 ·· ·· ··) | Iker | D-15 | central.ink (3), dani.ink (7), iker.ink (2), laia.ink (5) |
 | guia (+34 639 ·· ·· ··) | Ignasi | D3 | iris.ink (2), laia.ink (14) |
-| rosalia (+34 972 ·· ·· ··) | Rosalia | D-3 | central.ink (6), desconocido.ink (3), eric.ink (2), familia.ink (9), laia.ink (12), laura.ink (2), main.ink (2), mama.ink (4), nuria.ink (3), pep.ink (2), ramon.ink (3), rosalia.ink (2), roser.ink (5), toni.ink (2), xavier.ink (3) |
+| rosalia (+34 972 ·· ·· ··) | Rosalia | D-3 | central.ink (6), desconocido.ink (3), eric.ink (2), familia.ink (9), laia.ink (12), laura.ink (2), main.ink (2), mama.ink (4), nuria.ink (3), pep.ink (2), ramon.ink (3), rosalia.ink (2), roser.ink (6), toni.ink (2), xavier.ink (3) |
 | desconocido (+34 6·· ··· ···) | prepago | D1 | laia.ink (4), mireia.ink (1) |
 | banco (BancRural) | BancRural | D-10 | banco.ink (6) |
-| casal (Rosa d'Abril 🌹) | Rosa | D-20 | arnau.ink (1), carla.ink (1), casal.ink (1), claudia.ink (1), imma.ink (3), ioga.ink (1), jordi.ink (1), laia.ink (8), marta.ink (2), quim.ink (1), silvia.ink (2), sonia.ink (1), veins.ink (1) |
+| casal (Rosa d'Abril 🌹) | Rosa | D-20 | arnau.ink (1), carla.ink (1), casal.ink (1), claudia.ink (1), imma.ink (3), ioga.ink (1), jordi.ink (1), laia.ink (8), marta.ink (3), quim.ink (1), silvia.ink (2), sonia.ink (1), veins.ink (1) |

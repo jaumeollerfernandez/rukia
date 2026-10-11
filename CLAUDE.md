@@ -48,6 +48,9 @@ Contenido del caso RUK-93429049 (`app/src/main/assets/cases/ruk-93429049/`):
   - Memoria con etiquetas de opción, `* (aniversario) [...]`, que se leen después como `{pep.charla.aniversario: ...}`. La etiqueta no puede llamarse como un knot (`roser`, `mama`...).
   - **Opciones excluyentes:** lo que ya no se puede decir tras otra opción desaparece. Saludos, dos versiones de la misma pregunta, una mentira y su verdad: `* (hola) {not buenas} [hola]` / `* (buenas) {not hola} [buenos días]`. Lo mismo entre temas: si Alicia ya dijo algo, no le queda la opción de decir lo contrario como si nada.
   - Opciones concretas, distintas en intención (directa, evasiva, broma, pregunta de vuelta, cortar). Alguna puede salir mal: el personaje lo recuerda.
+  - Si un personaje hace una pregunta, el jugador tiene que poder contestarla (o cortar de forma lógica), no solo cambiar de tema.
+- **Lo que se descubre fuera del chat abre preguntas:** abrir una foto de la galería pone `foto_img_0391` (por `IMG_0391.jpg`) y leer una ficha, `ficha_<id>`; decláralas en `main.ink`. Cada charla tiene un `+ [(actualizar)] -> opciones` invisible que la app elige en ese momento, para que la pregunta nueva salga al instante. Las fotos con pregunta están en MULTIMEDIA.md.
+- **Llamadas:** la historia espera a que la llamada acabe (o a que pasen cinco minutos sin cogerla). Lo que sigue puede leer `llamada_<chat>_contestada` (declárala en `main.ink`). Kimo no puede hablar con la voz de Alicia: si la coge, el que llama solo oye silencio, y Alicia necesita una excusa creíble.
 - **El jugador finge ser Alicia:** los contactos le hablan a ella, cada uno con la voz de su perfil (mayúsculas o no, emojis).
 - **Fechas del caso:** en relativo («ayer», «anteanoche», «dentro de dos días»). Los días de la semana solo para lo que se repite («los sábados», «el jueves hay ensayo»).
 

@@ -26,6 +26,9 @@ Dejó el bachillerato y entró en el Forn; quiere ser panadero de verdad y tener
 ## Recuerda
 - `eric.d1.cogi`, `eric.d2.tambien`.
 
+## Gonpi
+- Si Alicia le pide que no cuente lo de las barras cuando su post ya está publicado (D2 desde las 13:00), lo archiva (`eric_archiva`) y desaparece de Gonpi.
+
 ## Cómo escribe
 - **Minúscula, sin punto**, frases cortas con broma.
 - Emojis: 🍺, 🤐, 🍞, 🕵️🥖, 🙃, 😅, 🤷.

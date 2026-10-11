@@ -54,5 +54,8 @@ Hazlo por mí. #at: D-3 19:02
         La yaya cumple tres años. Tú sabes dónde tienes que estar. #delay: 10 #effect: glitch
     }
     -> opciones
+// Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.
++ [(actualizar)]
+    -> opciones
 + [(sin responder)]
     -> charla
