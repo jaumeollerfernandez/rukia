@@ -1,8 +1,11 @@
 package com.rukia.game.infrastructure
 
+import com.rukia.game.infrastructure.ui.CaseConnect
 import com.rukia.game.infrastructure.ui.MainMenu
+import com.rukia.game.infrastructure.ui.MirrorPowerOn
 import com.rukia.game.infrastructure.ui.OptionsScreen
 import com.rukia.game.infrastructure.ui.ReportScreen
+import com.rukia.game.infrastructure.ui.Splash
 import com.rukia.game.infrastructure.ui.TitleScreen
 import android.Manifest
 import android.app.AlarmManager
@@ -32,6 +35,12 @@ import com.rukia.phone.infrastructure.ui.PhoneScreen
 /** Screens before a case is open. */
 private enum class Menu { Main, Cases, Options }
 
+/** The opening: BARDWARE's logo, then the fiction notice. */
+private object Opening
+
+/** The console connecting to a case's phone, before it opens. */
+private data class Linking(val caseId: String)
+
 /** The closing report of a case. */
 private data class Report(val caseId: String)
 
@@ -59,8 +68,11 @@ class MainActivity : ComponentActivity() {
                 else askExactAlarmsOnce()
             }
 
-            // The case being played opens straight away on launch, until it gets its verdict.
-            var caseId by rememberSaveable { mutableStateOf(game.getCurrentCase()?.id) }
+            // BARDWARE's logo (and, the first time, the fiction notice) open the game, unless a tapped notification opened it.
+            var splash by rememberSaveable { mutableStateOf(AppLaunch.request == null) }
+            // The case being played opens on launch, until it gets its verdict: after the logo, through the console
+            // as when it was first opened; straight away from a notification.
+            var caseId by rememberSaveable { mutableStateOf(if (splash) null else game.getCurrentCase()?.id) }
             var menu by rememberSaveable { mutableStateOf(Menu.Main) }
             // The case whose closing report is on screen, right after its ending or picked from the case list.
             var report by rememberSaveable { mutableStateOf<String?>(null) }
@@ -68,8 +80,24 @@ class MainActivity : ComponentActivity() {
             LaunchedEffect(AppLaunch.request) {
                 AppLaunch.request?.caseId?.takeIf { requested -> game.listCases().any { it.id == requested } }?.let { caseId = it }
             }
-            AnimatedContent(caseId ?: report?.let(::Report) ?: menu, transitionSpec = { fadeIn() togetherWith fadeOut() }, label = "screen") { screen ->
+            // Opening a case from the list: the console pulls the phone, which then switches on like a monitor.
+            var linking by rememberSaveable { mutableStateOf<String?>(null) }
+            var mirrored by remember { mutableStateOf<String?>(null) }
+            AnimatedContent(if (splash) Opening else linking?.let(::Linking) ?: caseId ?: report?.let(::Report) ?: menu, transitionSpec = { fadeIn() togetherWith fadeOut() }, label = "screen") { screen ->
                 when (screen) {
+                    Opening -> Splash(
+                        consented = remember { game.fictionConsent.given() },
+                        onConsent = { game.fictionConsent.give() },
+                        onDone = {
+                            splash = false
+                            if (caseId == null) linking = game.getCurrentCase()?.id
+                        },
+                    )
+                    is Linking -> {
+                        val case = remember(screen) { game.listCases().find { it.id == screen.caseId } }
+                        val done = { mirrored = screen.caseId; caseId = screen.caseId; linking = null }
+                        if (case == null) LaunchedEffect(Unit) { done() } else CaseConnect(case, onDone = done)
+                    }
                     Menu.Main -> MainMenu(onStart = { menu = Menu.Cases }, onOptions = { menu = Menu.Options })
                     Menu.Cases -> TitleScreen(
                         game.listCases(), game.countActiveCases(), reportOf = { game.getCaseReport(it) },
@@ -78,7 +106,7 @@ class MainActivity : ComponentActivity() {
                         onBack = { menu = Menu.Main },
                         onPlay = {
                             // A closed one starts over first. Opened from noon on, a case stays connecting until midnight.
-                            if (game.playCase(it)) caseId = it.id
+                            if (game.playCase(it)) linking = it.id
                         },
                         onReport = { report = it.id },
                         onReplay = { game.reopenCase(it.id) },
@@ -90,16 +118,19 @@ class MainActivity : ComponentActivity() {
                         if (closed == null) LaunchedEffect(Unit) { toCases() }
                         else ReportScreen(closed, onBack = toCases, onReplay = { game.reopenCase(screen.caseId); toCases() })
                     }
-                    else -> PhoneScreen(
-                        screen as String,
-                        onReturnToTitle = { caseId = null; menu = Menu.Main },
-                        // The story reached its ending: the report takes over from the phone.
-                        onCaseOver = {
-                            val id = screen
-                            if (game.closeCase(id) != null) report = id else menu = Menu.Cases
-                            caseId = null
-                        },
-                    )
+                    else -> MirrorPowerOn(game.listCases().find { it.id == screen }?.title.orEmpty(), animate = screen == mirrored) {
+                        PhoneScreen(
+                            screen as String,
+                            onReturnToTitle = { caseId = null; mirrored = null; menu = Menu.Main },
+                            // The story reached its ending: the report takes over from the phone.
+                            onCaseOver = {
+                                val id = screen
+                                if (game.closeCase(id) != null) report = id else menu = Menu.Cases
+                                caseId = null
+                                mirrored = null
+                            },
+                        )
+                    }
                 }
             }
         }

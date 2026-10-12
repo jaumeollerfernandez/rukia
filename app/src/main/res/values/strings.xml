@@ -14,7 +14,37 @@
     <string name="restricted">RESTRICTED</string>
     <string name="agent_kimo">AGENT · KIMO</string>
     <string name="agent_short">AGENT KIMO</string>
-    <string name="special_ops">SPECIAL OPERATIONS UNIT</string>
+    <string name="special_ops">MONITORING OPERATIONS
+IN INVESTIGATIONS</string>
+    <string name="splash_presents">PRESENTS</string>
+    <string name="splash_presents_skip">BARDWARE presents. Tap to skip.</string>
+    <string name="notice_kicker">NOTICE</string>
+    <string name="notice_title">This is a work of fiction</string>
+    <string name="notice_fiction">The characters, events, conversations and places you will see are fictitious or used fictitiously. Nothing that happens is real.</string>
+    <string name="notice_resemblance">Any resemblance to actual persons, living or dead, or to actual events is purely coincidental.</string>
+    <string name="notice_agencies">The agencies and police forces mentioned have not taken part in this game nor endorse it.</string>
+    <string name="notice_note">NOTE</string>
+    <string name="notice_themes">This case deals with sensitive topics: disappearances, manipulation and control in cult-like groups.</string>
+    <string name="notice_continue">CONTINUE</string>
+    <string name="notice_ack">I have read and understand that this is a work of fiction and that nothing in it is real.</string>
+    <string name="notice_ack_hint">Tick the box to continue.</string>
+    <string name="connect_secure">● SECURE</string>
+    <string name="connect_extraction">EXTRACTION · %1$s</string>
+    <string name="connect_mirror_chip">REMOTE MIRROR ACTIVE · %1$s</string>
+    <string name="connect_warn">[ WARN ]</string>
+    <string name="connect_relay">Connecting to %1$s through relay OMI-7…</string>
+    <string name="connect_tunnel">Encrypted tunnel established · AES-256-GCM</string>
+    <string name="connect_host">Host fingerprint verified · SHA256:Qm4x…8fKz</string>
+    <string name="connect_device" formatted="false">Device: ALC-S1 · Android 14 · battery 61 %</string>
+    <string name="connect_unlock">Screen lock bypassed</string>
+    <string name="connect_mount">Mounting /data/user/0 …</string>
+    <string name="connect_contacts">contacts</string>
+    <string name="connect_chats">chats and calls</string>
+    <string name="connect_gallery">gallery</string>
+    <string name="connect_gonpi">profiles and posts</string>
+    <string name="connect_location">Last location: home, %1$s</string>
+    <string name="connect_custody">Integrity verified · chain of custody %1$s/01</string>
+    <string name="connect_mirror">Starting remote mirror of the device…</string>
     <string name="channel_established">&gt; encrypted channel established</string>
     <string name="menu_coords">MADRID · 40.4168 N · 3.7038 W</string>
     <string name="terminal_id" translatable="false">TERMINAL K-05</string>

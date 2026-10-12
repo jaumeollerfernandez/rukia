@@ -15,6 +15,12 @@ interface CurrentCaseStore {
     fun set(caseId: String?)
 }
 
+/** Whether the player said, once, that they understand the game is fiction. */
+interface FictionConsent {
+    fun given(): Boolean
+    fun give()
+}
+
 /** A case's week: whether it has started (it was opened, and not reset since), and its clock. */
 interface CaseProgress {
     fun isStarted(caseId: String): Boolean

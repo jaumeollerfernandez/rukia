@@ -153,7 +153,6 @@ fun ReportScreen(report: CaseReport, onBack: () -> Unit, onReplay: () -> Unit) {
             .padding(start = 18.dp, end = 18.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
-        FlagStripe(3.dp)
         BackHeader(stringResource(R.string.report_kicker), case.title, onBack)
 
         Box(Modifier.fillMaxWidth().background(Term.Card).border(1.dp, color.copy(alpha = 0.6f))) {

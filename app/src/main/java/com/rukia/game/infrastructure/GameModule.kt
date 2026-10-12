@@ -20,7 +20,9 @@ import com.rukia.game.domain.port.CaseProgress
 import com.rukia.game.domain.port.CaseSaves
 import com.rukia.game.domain.port.LanguageSettings
 import com.rukia.game.infrastructure.persistence.PrefsCaseRecords
+import com.rukia.game.domain.port.FictionConsent
 import com.rukia.game.infrastructure.persistence.PrefsCurrentCaseStore
+import com.rukia.game.infrastructure.persistence.PrefsFictionConsent
 import com.rukia.phone.infrastructure.CaseClock
 import com.rukia.phone.infrastructure.CaseFolders
 import com.rukia.phone.infrastructure.Language
@@ -58,6 +60,7 @@ class GameModule(context: Context) {
         override fun set(tag: String) = Language.set(context, tag)
     }
 
+    val fictionConsent: FictionConsent = PrefsFictionConsent(context)
     val listCases = ListCases(catalog)
     val isConnecting = IsConnecting(progress)
     val isCaseStarted = IsCaseStarted(progress)

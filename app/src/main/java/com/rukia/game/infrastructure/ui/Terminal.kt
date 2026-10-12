@@ -47,6 +47,7 @@ internal object Term {
 internal val Rajdhani = FontFamily(Font(R.font.rajdhani_semibold, FontWeight.SemiBold), Font(R.font.rajdhani_bold, FontWeight.Bold))
 internal val PlexMono = FontFamily(Font(R.font.plex_mono_regular, FontWeight.Normal), Font(R.font.plex_mono_semibold, FontWeight.SemiBold))
 internal val Barlow = FontFamily(Font(R.font.barlow_regular, FontWeight.Normal), Font(R.font.barlow_medium, FontWeight.Medium))
+internal val Silkscreen = FontFamily(Font(R.font.silkscreen_regular))
 
 /** Small monospace label, as in the terminal's headers and footers. */
 internal fun mono(size: Int, color: Color = Term.Muted, weight: FontWeight = FontWeight.Normal, spacing: Float = 1f) =
@@ -68,16 +69,6 @@ internal fun Modifier.terminalBackdrop(glow: Boolean = false) = drawBehind {
         val scan = Color.White.copy(alpha = 0.025f)
         var s = 0f
         while (s < size.height) { drawLine(scan, Offset(0f, s), Offset(size.width, s), 1f); s += 3.dp.toPx() }
-    }
-}
-
-/** Red-yellow-red stripe of the Spanish flag, on top of every terminal screen. */
-@Composable
-internal fun FlagStripe(height: Dp) {
-    Row(Modifier.fillMaxWidth().height(height)) {
-        Box(Modifier.weight(1f).fillMaxHeight().drawBehind { drawRect(Color(0xFFAA151B)) })
-        Box(Modifier.weight(2f).fillMaxHeight().drawBehind { drawRect(Color(0xFFF1BF00)) })
-        Box(Modifier.weight(1f).fillMaxHeight().drawBehind { drawRect(Color(0xFFAA151B)) })
     }
 }
 

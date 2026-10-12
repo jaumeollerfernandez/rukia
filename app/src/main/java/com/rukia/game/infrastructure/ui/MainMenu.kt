@@ -32,6 +32,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rukia.R
@@ -39,7 +40,7 @@ import com.rukia.phone.infrastructure.ui.RukiaIcons
 import com.rukia.phone.infrastructure.ui.SystemBars
 import kotlinx.coroutines.delay
 
-/** The first screen: KIMO over a radar, and Start, Options, Exit. */
+/** The first screen: the OMI mark over a radar, and Start, Options, Exit. */
 @Composable
 fun MainMenu(onStart: () -> Unit, onOptions: () -> Unit) {
     SystemBars(lightBottomIcons = true)
@@ -47,7 +48,6 @@ fun MainMenu(onStart: () -> Unit, onOptions: () -> Unit) {
     Column(
         Modifier.fillMaxSize().terminalBackdrop(glow = true).safeDrawingPadding().padding(start = 22.dp, end = 22.dp, top = 8.dp, bottom = 24.dp),
     ) {
-        FlagStripe(4.dp)
         Row(Modifier.fillMaxWidth().padding(top = 10.dp), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
             Text(stringResource(R.string.cni_division), style = mono(11, spacing = 1.2f))
             Text(
@@ -56,18 +56,22 @@ fun MainMenu(onStart: () -> Unit, onOptions: () -> Unit) {
             )
         }
         AgentChip(Modifier.align(Alignment.End).padding(top = 18.dp))
-        Box(Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) {
-            Radar(Modifier.size(300.dp).offset(y = (-20).dp))
-            Column(Modifier.offset(y = (-40).dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text(stringResource(R.string.special_ops), style = mono(11, Term.Cyan, spacing = 3f))
-                Text(
-                    "KIMO", Modifier.padding(start = 20.dp), fontFamily = Rajdhani, fontWeight = FontWeight.Bold,
-                    fontSize = 104.sp, lineHeight = 96.sp, letterSpacing = 20.sp, color = Color(0xFFF4F7FA),
-                )
-                Row {
-                    Text(stringResource(R.string.channel_established), style = mono(12, spacing = 0f))
-                    BlinkingCursor()
-                }
+        Column(
+            Modifier.weight(1f).fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
+        ) {
+            Box(Modifier.size(300.dp, 230.dp), contentAlignment = Alignment.Center) {
+                Radar(Modifier.requiredSize(300.dp))
+                OmiMark(Modifier.size(140.dp))
+            }
+            Text(
+                "OMI", Modifier.padding(start = 18.dp), fontFamily = Rajdhani, fontWeight = FontWeight.Bold,
+                fontSize = 64.sp, lineHeight = 60.sp, letterSpacing = 18.sp, color = Color(0xFFF4F7FA),
+            )
+            Text(stringResource(R.string.special_ops), style = mono(11, Term.Cyan, spacing = 2f).copy(lineHeight = 16.sp, textAlign = TextAlign.Center))
+            Row(Modifier.padding(top = 6.dp)) {
+                Text(stringResource(R.string.channel_established), style = mono(12, spacing = 0f))
+                BlinkingCursor()
             }
         }
         Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -117,6 +121,25 @@ private fun Radar(modifier: Modifier) {
         drawLine(tick, Offset(size.width - 40 * unit, c.y), Offset(size.width, c.y), 1f)
         val r = 140 * unit
         drawArc(Term.Cyan.copy(alpha = 0.55f * 0.08f), sweep - 90f, 36f, useCenter = true, topLeft = Offset(c.x - r, c.y - r), size = Size(2 * r, 2 * r))
+    }
+}
+
+/** The OMI mark: a white O in a reticle, with the amber lock marker (design: KimoMenu). */
+@Composable
+private fun OmiMark(modifier: Modifier) {
+    Canvas(modifier) {
+        val u = size.width / 140f
+        val c = Offset(size.width / 2, size.height / 2)
+        drawCircle(Color(0xFFF4F7FA), 47 * u, c, style = Stroke(17 * u))
+        drawCircle(Term.Cyan.copy(alpha = 0.55f), 29 * u, c, style = Stroke(1f, pathEffect = PathEffect.dashPathEffect(floatArrayOf(2 * u, 4 * u))))
+        val tick = 2.5f * u
+        drawLine(Term.Cyan, Offset(c.x, 4 * u), Offset(c.x, 17 * u), tick)
+        drawLine(Term.Cyan, Offset(c.x, 123 * u), Offset(c.x, 136 * u), tick)
+        drawLine(Term.Cyan, Offset(4 * u, c.y), Offset(17 * u, c.y), tick)
+        drawLine(Term.Cyan, Offset(123 * u, c.y), Offset(136 * u, c.y), tick)
+        drawCircle(Term.Cyan, 3.5f * u, c)
+        drawRect(Term.Amber, Offset(96 * u, 30 * u), Size(14 * u, 14 * u))
+        drawRect(Term.Ground, Offset(96 * u, 30 * u), Size(14 * u, 14 * u), style = Stroke(2.5f * u))
     }
 }
 
@@ -171,7 +194,6 @@ fun OptionsScreen(game: GameModule, onBack: () -> Unit) {
         Modifier.fillMaxSize().terminalBackdrop().safeDrawingPadding().padding(start = 18.dp, end = 18.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        FlagStripe(3.dp)
         BackHeader(stringResource(R.string.options_kicker), stringResource(R.string.options_title), onBack)
         Column(Modifier.padding(top = 8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text(stringResource(R.string.options_language).uppercase(), style = mono(12, weight = FontWeight.SemiBold, spacing = 1.5f))

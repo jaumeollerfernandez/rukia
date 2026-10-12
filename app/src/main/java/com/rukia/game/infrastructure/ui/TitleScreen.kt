@@ -80,7 +80,6 @@ fun TitleScreen(
         Modifier.fillMaxSize().terminalBackdrop().safeDrawingPadding().padding(start = 18.dp, end = 18.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        FlagStripe(3.dp)
         BackHeader(stringResource(R.string.cases_kicker), stringResource(R.string.choose_case), onBack)
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             cases.forEach { case ->
