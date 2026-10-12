@@ -25,6 +25,12 @@
     <string name="case_status_open">ABIERTO</string>
     <string name="case_status_connecting">CONECTANDO CON EL TERMINAL</string>
     <string name="case_connecting_note">El enlace con el teléfono estará activo a medianoche. Vuelve entonces.</string>
+    <string name="start_case_kicker">NUEVO EXPEDIENTE</string>
+    <string name="start_case_title">¿Quieres iniciar el caso?</string>
+    <string name="start_case">INICIAR</string>
+    <string name="connecting_title">Conectando, vuelva mañana.</string>
+    <string name="connection_channel">Conexión con el terminal</string>
+    <string name="connection_established">Conexión establecida en el móvil de %1$s.</string>
     <string name="open_case_file">ABRIR EXPEDIENTE</string>
     <string name="training">ENTRENAMIENTO</string>
     <plurals name="cases_footer">

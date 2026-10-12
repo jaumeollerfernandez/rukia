@@ -8,6 +8,7 @@ import com.rukia.game.application.CountActiveCases
 import com.rukia.game.application.GetCaseReport
 import com.rukia.game.application.GetCurrentCase
 import com.rukia.game.application.GetLanguage
+import com.rukia.game.application.IsCaseStarted
 import com.rukia.game.application.IsConnecting
 import com.rukia.game.application.ListCases
 import com.rukia.game.application.PlayCase
@@ -59,9 +60,10 @@ class GameModule(context: Context) {
 
     val listCases = ListCases(catalog)
     val isConnecting = IsConnecting(progress)
+    val isCaseStarted = IsCaseStarted(progress)
     val getCurrentCase = GetCurrentCase(catalog, current, progress, isConnecting)
     val reopenCase = ReopenCase(saves, records)
-    val playCase = PlayCase(current, records, reopenCase, progress, isConnecting)
+    val playCase = PlayCase(current, records, reopenCase, progress, isConnecting, AndroidConnectionAlarm(context))
     val closeCase = CloseCase(catalog, current, outcome, records)
     val getCaseReport = GetCaseReport(catalog, records)
     val countActiveCases = CountActiveCases(catalog, progress, records)

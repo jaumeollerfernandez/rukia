@@ -26,6 +26,12 @@
     <string name="case_status_open">OPEN</string>
     <string name="case_status_connecting">CONNECTING TO THE DEVICE</string>
     <string name="case_connecting_note">The link to the phone goes live at midnight. Come back then.</string>
+    <string name="start_case_kicker">NEW CASE FILE</string>
+    <string name="start_case_title">Do you want to start the case?</string>
+    <string name="start_case">START</string>
+    <string name="connecting_title">Connecting, come back tomorrow.</string>
+    <string name="connection_channel">Device connection</string>
+    <string name="connection_established">Connection established on %1$s\'s phone.</string>
     <string name="open_case_file">OPEN CASE FILE</string>
     <string name="training">TRAINING</string>
     <plurals name="cases_footer">

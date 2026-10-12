@@ -115,18 +115,25 @@ internal fun ClosedCaseCard(report: CaseReport, onReport: () -> Unit, onReplay: 
 
 /** Asks before playing a closed case again: the week starts over, what was found is kept. */
 @Composable
-internal fun ReplayDialog(title: String, onCancel: () -> Unit, onConfirm: () -> Unit) {
+internal fun ReplayDialog(title: String, onCancel: () -> Unit, onConfirm: () -> Unit) = TermDialog(
+    stringResource(R.string.replay_kicker), stringResource(R.string.replay_title, title), stringResource(R.string.replay_text),
+    stringResource(R.string.replay), onCancel, onConfirm,
+)
+
+/** The terminal's popup: a kicker, a title, an optional text, and a confirm button, with Cancel unless [cancel] is false. */
+@Composable
+internal fun TermDialog(kicker: String, title: String, text: String?, confirm: String, onCancel: () -> Unit, onConfirm: () -> Unit, cancel: Boolean = true) {
     Dialog(onDismissRequest = onCancel) {
         Column(
             Modifier.fillMaxWidth().background(Color(0xFF0C1620)).border(1.dp, Term.Amber).padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            Text(stringResource(R.string.replay_kicker), style = mono(11, Term.Amber, spacing = 1.5f))
-            Text(stringResource(R.string.replay_title, title), fontFamily = Rajdhani, fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Term.Text)
-            Text(stringResource(R.string.replay_text), fontFamily = Barlow, fontSize = 14.sp, lineHeight = 20.sp, color = Term.Body)
+            Text(kicker, style = mono(11, Term.Amber, spacing = 1.5f))
+            Text(title, fontFamily = Rajdhani, fontWeight = FontWeight.Bold, fontSize = 22.sp, color = Term.Text)
+            text?.let { Text(it, fontFamily = Barlow, fontSize = 14.sp, lineHeight = 20.sp, color = Term.Body) }
             Row(Modifier.padding(top = 4.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                OutlineButton(stringResource(R.string.cancel).uppercase(), Modifier.weight(1f), Term.Muted.copy(alpha = 0.4f), onClick = onCancel)
-                AmberButton(stringResource(R.string.replay), Modifier.weight(1f), icon = false, onClick = onConfirm)
+                if (cancel) OutlineButton(stringResource(R.string.cancel).uppercase(), Modifier.weight(1f), Term.Muted.copy(alpha = 0.4f), onClick = onCancel)
+                AmberButton(confirm, Modifier.weight(1f), icon = false, onClick = onConfirm)
             }
         }
     }

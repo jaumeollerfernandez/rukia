@@ -176,6 +176,7 @@ val cases = listOf(
         ),
         days = 7,
         endingVoice = "SGT. LAIA (MOSSOS)",
+        owner = "Alicia",
         endings = rukEndings,
         achievements = rukAchievements,
     ),

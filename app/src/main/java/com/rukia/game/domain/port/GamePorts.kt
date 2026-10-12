@@ -26,6 +26,11 @@ interface CaseProgress {
     fun now(caseId: String): Long
 }
 
+/** Tells the player, at [at], that the phone of a case that was connecting is now there. */
+fun interface ConnectionAlarm {
+    fun set(case: GameCase, at: Long)
+}
+
 /** How a case's week went, read from its save. The game backs it with the chat app's story and the Police app's log. */
 interface CaseOutcome {
     fun storyVariables(caseId: String): StoryVariables

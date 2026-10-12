@@ -74,6 +74,7 @@ class MainActivity : ComponentActivity() {
                     Menu.Cases -> TitleScreen(
                         game.listCases(), game.countActiveCases(), reportOf = { game.getCaseReport(it) },
                         isConnecting = { game.isConnecting(it) },
+                        isStarted = { game.isCaseStarted(it) },
                         onBack = { menu = Menu.Main },
                         onPlay = {
                             // A closed one starts over first. Opened from noon on, a case stays connecting until midnight.

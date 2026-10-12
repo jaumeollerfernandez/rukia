@@ -9,6 +9,7 @@ import com.rukia.game.domain.port.CaseOutcome
 import com.rukia.game.domain.port.CaseProgress
 import com.rukia.game.domain.port.CaseRecords
 import com.rukia.game.domain.port.CaseSaves
+import com.rukia.game.domain.port.ConnectionAlarm
 import com.rukia.game.domain.port.CurrentCaseStore
 import com.rukia.game.domain.port.LanguageSettings
 
@@ -25,6 +26,11 @@ class IsConnecting(private val progress: CaseProgress) {
         case.kind == CaseKind.Case && progress.isStarted(case.id) && progress.now(case.id) < progress.start(case.id)
 }
 
+/** Whether the case's week has started: until then, opening it asks first. */
+class IsCaseStarted(private val progress: CaseProgress) {
+    operator fun invoke(case: GameCase) = progress.isStarted(case.id)
+}
+
 /** The case being played, if there is one, the game still has it and it can be played now. */
 class GetCurrentCase(
     private val catalog: CaseCatalog,
@@ -38,7 +44,8 @@ class GetCurrentCase(
 
 /**
  * Starts playing [case]: its clock starts, and from now on the game opens it on launch. A closed case starts over.
- * False while the case is [IsConnecting]: the phone isn't there yet.
+ * False while the case is [IsConnecting]: the phone isn't there yet, and [alarm] tells the player when it is (the game
+ * then opens it on launch).
  */
 class PlayCase(
     private val store: CurrentCaseStore,
@@ -46,12 +53,16 @@ class PlayCase(
     private val reopen: ReopenCase,
     private val progress: CaseProgress,
     private val connecting: IsConnecting,
+    private val alarm: ConnectionAlarm,
 ) {
     operator fun invoke(case: GameCase): Boolean {
         if (records.get(case.id)?.closed == true) reopen(case.id)
-        progress.start(case.id)
-        if (connecting(case)) return false
+        val start = progress.start(case.id)
         store.set(case.id)
+        if (connecting(case)) {
+            alarm.set(case, start)
+            return false
+        }
         return true
     }
 }

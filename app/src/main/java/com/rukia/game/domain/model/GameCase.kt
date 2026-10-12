@@ -8,6 +8,7 @@ enum class CaseKind { Case, Training, Debug }
  * and its progress in files/cases/<id>/, so cases never share chats or saves. The cases themselves are listed in [cases].
  * [headline], [stamp] and [facts] fill the case file card; like the rest of a case's content, they aren't translated.
  * [endings] and [achievements] fill the report once the story reaches an ending, which quotes [endingVoice]; [days] is how long the case lasts.
+ * [owner] is whose phone it is, for the notification when a case that was connecting goes live.
  */
 class GameCase(
     val id: String,
@@ -20,6 +21,7 @@ class GameCase(
     val facts: List<Pair<String, String>> = emptyList(),
     val days: Int = 0,
     val endingVoice: String = "",
+    val owner: String = "",
     val endings: List<CaseEnding> = emptyList(),
     val achievements: List<Achievement> = emptyList(),
 )

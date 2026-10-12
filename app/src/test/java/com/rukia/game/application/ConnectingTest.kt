@@ -33,7 +33,8 @@ class ConnectingTest {
         override fun save(caseId: String, record: CaseRecord) {}
     }
     private val connecting = IsConnecting(progress)
-    private val play = PlayCase(current, records, ReopenCase({}, records), progress, connecting)
+    private var alarmAt: Long? = null
+    private val play = PlayCase(current, records, ReopenCase({}, records), progress, connecting) { _, at -> alarmAt = at }
     private val currentCase = GetCurrentCase({ listOf(case, debug) }, current, progress, connecting)
 
     @Test fun `a case opened in the morning plays at once`() {
@@ -46,8 +47,10 @@ class ConnectingTest {
         assertFalse(play(case))
         assertTrue(connecting(case))
         assertNull(currentCase())
+        assertEquals(100L, alarmAt)
         now = 100
         assertFalse(connecting(case))
+        assertEquals("c", currentCase()?.id) // opens on launch, without playing it again
         assertTrue(play(case))
         assertEquals("c", currentCase()?.id)
     }

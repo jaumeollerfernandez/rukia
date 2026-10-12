@@ -48,6 +48,7 @@ fun TitleScreen(
     active: Int,
     reportOf: (caseId: String) -> CaseReport?,
     isConnecting: (GameCase) -> Boolean,
+    isStarted: (GameCase) -> Boolean,
     onBack: () -> Unit,
     onPlay: (GameCase) -> Unit,
     onReport: (GameCase) -> Unit,
@@ -62,6 +63,19 @@ fun TitleScreen(
     var tick by remember { mutableIntStateOf(0) }
     LaunchedEffect(Unit) { while (true) { delay(30_000); tick++ } }
     val connecting = remember(cases, tick, replayed) { cases.filter(isConnecting).map { it.id }.toSet() }
+    // A case that was connecting while on this screen opens as soon as its phone is there.
+    var waiting by remember { mutableStateOf(emptySet<String>()) }
+    LaunchedEffect(connecting) {
+        cases.find { it.id in waiting && it.id !in connecting && isStarted(it) }?.let(onPlay)
+        waiting = connecting
+    }
+    var starting by rememberSaveable { mutableStateOf<String?>(null) } // asking before a case's week starts
+    var notice by rememberSaveable { mutableStateOf(false) } // "connecting, come back tomorrow"
+    val open = { case: GameCase ->
+        onPlay(case)
+        tick++
+        notice = isConnecting(case)
+    }
     Column(
         Modifier.fillMaxSize().terminalBackdrop().safeDrawingPadding().padding(start = 18.dp, end = 18.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
@@ -72,7 +86,7 @@ fun TitleScreen(
             cases.forEach { case ->
                 when (case.kind) {
                     CaseKind.Case -> reports[case.id]?.let { ClosedCaseCard(it, { onReport(case) }, { replaying = case.id }) }
-                        ?: CaseFileCard(case, case.id in connecting) { onPlay(case); tick++ }
+                        ?: CaseFileCard(case, case.id in connecting) { if (isStarted(case)) open(case) else starting = case.id }
                     CaseKind.Training -> TrainingCard(case) { onPlay(case) }
                     CaseKind.Debug -> DebugCard(case) { onPlay(case) }
                 }
@@ -90,18 +104,28 @@ fun TitleScreen(
             replayed++
         }
     }
+    cases.find { it.id == starting }?.let { case ->
+        TermDialog(
+            stringResource(R.string.start_case_kicker), stringResource(R.string.start_case_title), null,
+            stringResource(R.string.start_case), onCancel = { starting = null }, onConfirm = { starting = null; open(case) },
+        )
+    }
+    if (notice) TermDialog(
+        stringResource(R.string.case_status_connecting), stringResource(R.string.connecting_title), stringResource(R.string.case_connecting_note),
+        stringResource(R.string.accept).uppercase(), onCancel = { notice = false }, onConfirm = { notice = false }, cancel = false,
+    )
 }
 
 /**
  * A real case: file number, a PRIORITY stamp, the headline, its key facts and a short summary. While [connecting]
- * (opened in the afternoon, it starts at midnight) it shows that instead of the open button, and can't be opened.
+ * (opened in the afternoon, it starts at midnight) it shows that instead of the open button; tapping it says so.
  */
 @Composable
 private fun CaseFileCard(case: GameCase, connecting: Boolean, onClick: () -> Unit) {
     Box(
         Modifier.fillMaxWidth().background(Term.Card).border(1.dp, Term.Amber.copy(alpha = 0.6f))
             .drawBehind { drawRect(Term.Amber, size = size.copy(width = 4.dp.toPx())) }
-            .clickable(enabled = !connecting, role = Role.Button, onClick = onClick),
+            .clickable(role = Role.Button, onClick = onClick),
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {

@@ -30,5 +30,8 @@
         <receiver
             android:name=".gonpi.infrastructure.notifications.GonpiAlarmReceiver"
             android:exported="false" />
+        <receiver
+            android:name=".game.infrastructure.ConnectionAlarmReceiver"
+            android:exported="false" />
     </application>
 </manifest>
