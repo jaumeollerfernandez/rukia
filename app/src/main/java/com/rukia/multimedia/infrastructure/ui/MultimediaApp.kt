@@ -27,6 +27,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import com.rukia.multimedia.infrastructure.MultimediaModule
 import com.rukia.phone.infrastructure.ui.MugshotPicture
+import com.rukia.phone.infrastructure.LocalDarkMode
 import com.rukia.phone.infrastructure.ui.SystemBars
 import com.rukia.phone.infrastructure.media.rememberCaseImage
 
@@ -57,22 +58,25 @@ fun MultimediaApp(caseId: String, flags: StoryFlags = StoryFlags {}, mugshots: G
         return
     }
 
-    SystemBars(lightBottomIcons = false)
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.app_multimedia), fontWeight = FontWeight.Bold) },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = MultimediaOrange, titleContentColor = Color.White),
-            )
-        },
-    ) { padding ->
-        if (photos.isEmpty()) {
-            Box(Modifier.padding(padding).fillMaxSize(), contentAlignment = Alignment.Center) { Text(stringResource(R.string.no_photos), color = Color.Gray) }
-        } else {
-            LazyVerticalGrid(GridCells.Fixed(3), Modifier.padding(padding), contentPadding = PaddingValues(2.dp)) {
-                items(photos) { photo ->
-                    Box(Modifier.padding(2.dp).aspectRatio(1f).background(Color.LightGray).clickable { open = photo.path }) {
-                        PhotoTile(photo, Modifier.fillMaxSize())
+    val dark = LocalDarkMode.current
+    SystemBars(lightBottomIcons = dark)
+    MaterialTheme(colorScheme = if (dark) darkColorScheme() else lightColorScheme()) {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text(stringResource(R.string.app_multimedia), fontWeight = FontWeight.Bold) },
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = MultimediaOrange, titleContentColor = Color.White),
+                )
+            },
+        ) { padding ->
+            if (photos.isEmpty()) {
+                Box(Modifier.padding(padding).fillMaxSize(), contentAlignment = Alignment.Center) { Text(stringResource(R.string.no_photos), color = Color.Gray) }
+            } else {
+                LazyVerticalGrid(GridCells.Fixed(3), Modifier.padding(padding), contentPadding = PaddingValues(2.dp)) {
+                    items(photos) { photo ->
+                        Box(Modifier.padding(2.dp).aspectRatio(1f).background(if (dark) Color.DarkGray else Color.LightGray).clickable { open = photo.path }) {
+                            PhotoTile(photo, Modifier.fillMaxSize())
+                        }
                     }
                 }
             }

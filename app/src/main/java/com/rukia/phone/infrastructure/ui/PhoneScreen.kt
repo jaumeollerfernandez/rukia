@@ -2,6 +2,8 @@ package com.rukia.phone.infrastructure.ui
 
 import com.rukia.chat.infrastructure.ui.CallLayer
 import com.rukia.phone.infrastructure.AppLaunch
+import com.rukia.phone.infrastructure.Appearance
+import com.rukia.phone.infrastructure.LocalDarkMode
 import com.rukia.phone.infrastructure.LocalCaseId
 import com.rukia.phone.domain.model.isDebugCase
 import android.graphics.Color.TRANSPARENT
@@ -61,7 +63,7 @@ fun PhoneScreen(caseId: String, onReturnToTitle: () -> Unit, onCaseOver: () -> U
     // Declared before the app, so the app's own back handlers (e.g. close a chat) win first.
     // On the home screen, back does nothing, like a real phone.
     BackHandler { openId = null }
-    CompositionLocalProvider(LocalCaseId provides caseId) {
+    CompositionLocalProvider(LocalCaseId provides caseId, LocalDarkMode provides remember { Appearance.isDark(context) }) {
         // Every app inherits the kit's font through this; their own MaterialTheme calls keep it.
         MaterialTheme(typography = FigtreeTypography) { Column {
             // A debug case gets the time bar on top; the apps below no longer pad for the status bar it covers.

@@ -23,12 +23,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rukia.chat.domain.model.Character
-import com.rukia.chat.domain.model.PlayerProfile
 import com.rukia.phone.infrastructure.ui.Kit
 
-/** The phone owner's photo and name (fixed by the case: the player uses someone else's phone) and the app's settings. */
+/** The phone owner's photo and name, fixed by the case: the player uses someone else's phone. Dark mode is in the game's Options. */
 @Composable
-fun ProfileScreen(owner: Character?, profile: PlayerProfile, onUpdate: (PlayerProfile) -> Unit) {
+fun ProfileScreen(owner: Character?) {
     val p = LocalPalette.current
     val name = owner?.name ?: stringResource(R.string.you)
 
@@ -43,27 +42,11 @@ fun ProfileScreen(owner: Character?, profile: PlayerProfile, onUpdate: (PlayerPr
                 Text(stringResource(R.string.name), Modifier.weight(1f), fontSize = 17.sp)
                 Text(name, color = p.subText, fontSize = 17.sp)
             }
-            HorizontalDivider(Modifier.padding(start = 16.dp), thickness = 0.5.dp, color = p.separator)
-            SettingRow(Modifier.toggleable(profile.darkMode, role = Role.Switch) { onUpdate(profile.copy(darkMode = it)) }) {
-                Text(stringResource(R.string.dark_mode), Modifier.weight(1f), fontSize = 17.sp)
-                IosSwitch(profile.darkMode)
-            }
         }
-        Text(stringResource(R.string.dark_mode_note), Modifier.padding(start = 32.dp, end = 32.dp, top = 8.dp), color = p.subText, fontSize = 13.sp, lineHeight = 18.sp)
     }
 }
 
 @Composable
 private fun SettingRow(modifier: Modifier, content: @Composable RowScope.() -> Unit) {
     Row(modifier.fillMaxWidth().heightIn(min = 52.dp).padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically, content = content)
-}
-
-/** The design's switch: green track when on, a white knob that slides. The row around it handles the toggle. */
-@Composable
-private fun IosSwitch(checked: Boolean) {
-    val track by animateColorAsState(if (checked) Kit.Online else LocalPalette.current.switchOff, label = "track")
-    val knob by animateDpAsState(if (checked) 20.dp else 0.dp, label = "knob")
-    Box(Modifier.size(51.dp, 31.dp).background(track, RoundedCornerShape(16.dp)).padding(2.dp)) {
-        Box(Modifier.offset(x = knob).size(27.dp).shadow(3.dp, CircleShape).background(Color.White, CircleShape))
-    }
 }

@@ -62,3 +62,9 @@ interface LanguageSettings {
     fun get(): String?
     fun set(tag: String)
 }
+
+/** Dark mode for the remote phone's apps, picked in Options. */
+interface AppearanceSettings {
+    fun isDark(): Boolean
+    fun setDark(dark: Boolean)
+}

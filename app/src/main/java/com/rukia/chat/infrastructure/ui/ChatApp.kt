@@ -15,6 +15,7 @@ import com.rukia.chat.domain.model.PLAYER_ID
 import com.rukia.chat.infrastructure.ChatModule
 import com.rukia.chat.infrastructure.notifications.VisibleChat
 import com.rukia.phone.infrastructure.AppLaunch
+import com.rukia.phone.infrastructure.LocalDarkMode
 import com.rukia.phone.infrastructure.CaseClock
 import com.rukia.phone.infrastructure.ui.SystemBars
 import kotlinx.coroutines.Dispatchers
@@ -30,13 +31,13 @@ fun ChatApp(caseId: String) {
         VisibleChat.caseId = caseId
         onDispose { if (VisibleChat.caseId == caseId) VisibleChat.caseId = null }
     }
-    var profile by remember { mutableStateOf(m.getProfile()) }
+    val dark = LocalDarkMode.current
     // Whose phone this is: the case's `me` character (its name and photo), e.g. Alicia.
     val owner = m.characters[PLAYER_ID]
     // A chat that lives in another app (the sergeant's, in Police) isn't listed here.
     val listChats = { m.listChats().filter { it.app(m.characters) == CHATS_APP } }
 
-    RukiaTheme(dark = profile.darkMode) {
+    RukiaTheme(dark = dark) {
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             // Story chats play their opening lines right away, so they show up as unread messages.
             var chats by remember(m) {
@@ -55,7 +56,7 @@ fun ChatApp(caseId: String) {
             var revealFrom by rememberSaveable { mutableIntStateOf(Int.MAX_VALUE) }
             val open = chats.find { it.id == openId }
             // The call screen restyles the system bars; re-apply ours once a call ends.
-            SystemBars(lightBottomIcons = profile.darkMode, lightTopIcons = profile.darkMode, key = open?.ringingCall == null)
+            SystemBars(lightBottomIcons = dark, lightTopIcons = dark, key = open?.ringingCall == null)
             var tab by rememberSaveable { mutableStateOf(Tab.Chats) }
             // Kept out here so going back from a chat returns to the same spot in the list, not to the top.
             val chatListState = rememberLazyListState()
@@ -89,7 +90,7 @@ fun ChatApp(caseId: String) {
                         )
                         // Opens the 1-to-1 chat with the contact, starting it the first time.
                         Tab.Contacts -> ContactsScreen(m.characters, contactsState) { c -> openChat(m.createChat(listOf(c.id))) }
-                        Tab.Profile -> ProfileScreen(owner, profile, onUpdate = { profile = m.updateProfile(it) })
+                        Tab.Profile -> ProfileScreen(owner)
                     }
                 }
             } else {

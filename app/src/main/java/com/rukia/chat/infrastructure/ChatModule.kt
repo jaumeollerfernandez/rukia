@@ -6,7 +6,6 @@ import com.rukia.chat.infrastructure.notifications.WorkManagerNotifier
 import com.rukia.chat.infrastructure.persistence.AssetCharacterRepository
 import com.rukia.chat.infrastructure.persistence.InkStoryEngine
 import com.rukia.chat.infrastructure.persistence.JsonChatRepository
-import com.rukia.chat.infrastructure.persistence.JsonProfileRepository
 import com.rukia.chat.infrastructure.persistence.readText
 import com.rukia.phone.infrastructure.CaseClock
 import com.rukia.phone.infrastructure.CaseFolders
@@ -24,7 +23,6 @@ class ChatModule private constructor(context: Context, caseId: String) {
     private val saveRoot = CaseFolders.saves(context, caseId, "chat")
     private val chatRepo = JsonChatRepository(context.assets, content, saveRoot)
     private val characterRepo = AssetCharacterRepository(context.assets, content)
-    private val profileRepo = JsonProfileRepository(saveRoot)
     private val story = InkStoryEngine(
         { context.assets.readText("$content/$it") }, File(saveRoot, "story-state.json"),
         caseStart = { CaseClock.start(context, caseId) }, clock = clock,
@@ -49,8 +47,6 @@ class ChatModule private constructor(context: Context, caseId: String) {
     val hearCall = HearCall(chatRepo) { setStoryFlag(it) }
     val listArrivedEffects = ListArrivedEffects(chatRepo, clock)
     val deleteChat = DeleteChat(chatRepo)
-    val getProfile = GetProfile(profileRepo)
-    val updateProfile = UpdateProfile(profileRepo)
     val characters = GetCharacters(characterRepo)()
 
     init {

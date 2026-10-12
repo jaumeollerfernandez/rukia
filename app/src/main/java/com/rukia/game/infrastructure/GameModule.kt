@@ -2,7 +2,9 @@ package com.rukia.game.infrastructure
 
 import android.content.Context
 import com.rukia.chat.infrastructure.ChatModule
+import com.rukia.game.application.ChooseDarkMode
 import com.rukia.game.application.ChooseLanguage
+import com.rukia.game.application.GetDarkMode
 import com.rukia.game.application.CloseCase
 import com.rukia.game.application.CountActiveCases
 import com.rukia.game.application.GetCaseReport
@@ -14,6 +16,7 @@ import com.rukia.game.application.ListCases
 import com.rukia.game.application.PlayCase
 import com.rukia.game.application.ReopenCase
 import com.rukia.game.domain.model.StoryVariables
+import com.rukia.game.domain.port.AppearanceSettings
 import com.rukia.game.domain.port.CaseCatalog
 import com.rukia.game.domain.port.CaseOutcome
 import com.rukia.game.domain.port.CaseProgress
@@ -23,6 +26,7 @@ import com.rukia.game.infrastructure.persistence.PrefsCaseRecords
 import com.rukia.game.domain.port.FictionConsent
 import com.rukia.game.infrastructure.persistence.PrefsCurrentCaseStore
 import com.rukia.game.infrastructure.persistence.PrefsFictionConsent
+import com.rukia.phone.infrastructure.Appearance
 import com.rukia.phone.infrastructure.CaseClock
 import com.rukia.phone.infrastructure.CaseFolders
 import com.rukia.phone.infrastructure.Language
@@ -73,4 +77,10 @@ class GameModule(context: Context) {
     val languages: Map<String, String> = language.available
     val getLanguage = GetLanguage(language)
     val chooseLanguage = ChooseLanguage(language)
+    private val appearance = object : AppearanceSettings {
+        override fun isDark() = Appearance.isDark(context)
+        override fun setDark(dark: Boolean) = Appearance.setDark(context, dark)
+    }
+    val getDarkMode = GetDarkMode(appearance)
+    val chooseDarkMode = ChooseDarkMode(appearance)
 }

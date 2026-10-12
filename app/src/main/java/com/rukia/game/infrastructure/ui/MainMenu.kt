@@ -16,6 +16,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -221,6 +222,22 @@ fun OptionsScreen(game: GameModule, onBack: () -> Unit) {
                 }
             }
             Text(stringResource(R.string.options_language_note), Modifier.padding(horizontal = 2.dp), fontFamily = Barlow, fontSize = 13.sp, lineHeight = 18.sp, color = Term.Muted)
+        }
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text(stringResource(R.string.options_appearance).uppercase(), style = mono(12, weight = FontWeight.SemiBold, spacing = 1.5f))
+            var dark by remember { mutableStateOf(game.getDarkMode()) }
+            Row(
+                Modifier.fillMaxWidth().heightIn(min = 58.dp).border(1.dp, Term.Cyan.copy(alpha = 0.3f)).background(if (dark) Term.Amber.copy(alpha = 0.10f) else Color(0xE60C1620))
+                    .toggleable(dark, role = Role.Switch) { dark = it; game.chooseDarkMode(it) }.padding(horizontal = 16.dp),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp),
+            ) {
+                Text(stringResource(R.string.dark_mode), Modifier.weight(1f), fontFamily = Barlow, fontSize = 17.sp, color = Term.Text)
+                // A square switch, in the terminal's look: amber when on.
+                Box(Modifier.size(46.dp, 24.dp).border(2.dp, if (dark) Term.Amber else Color(0xFF5A6D7E)).padding(3.dp)) {
+                    Box(Modifier.align(if (dark) Alignment.CenterEnd else Alignment.CenterStart).size(16.dp).background(if (dark) Term.Amber else Color(0xFF5A6D7E)))
+                }
+            }
+            Text(stringResource(R.string.dark_mode_note), Modifier.padding(horizontal = 2.dp), fontFamily = Barlow, fontSize = 13.sp, lineHeight = 18.sp, color = Term.Muted)
         }
         Spacer(Modifier.weight(1f))
         Column(Modifier.fillMaxWidth().dashedBorder(Term.Muted.copy(alpha = 0.35f)).padding(horizontal = 16.dp, vertical = 14.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {

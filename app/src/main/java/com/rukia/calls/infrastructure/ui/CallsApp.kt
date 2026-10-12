@@ -36,6 +36,7 @@ import com.rukia.calls.domain.port.CallLog
 import com.rukia.calls.infrastructure.CallsModule
 import com.rukia.phone.domain.model.caseTimeLabel
 import com.rukia.phone.infrastructure.CaseClock
+import com.rukia.phone.infrastructure.LocalDarkMode
 import com.rukia.phone.infrastructure.media.mediaDurationMillis
 import com.rukia.phone.infrastructure.media.playMedia
 import com.rukia.phone.infrastructure.ui.Kit
@@ -47,9 +48,11 @@ import kotlinx.coroutines.withContext
 import java.time.ZoneId
 
 val CallsGreen = Color(0xFF34C759)
-private val Background = Color(0xFFF2F2F7)
-private val SubText = Color(0xFF6C6C70)
-private val Separator = Color(0xFFE2E2E7)
+/** The app's colors, light or dark as picked in the game's Options. */
+private class CallsPalette(val background: Color, val card: Color, val text: Color, val subText: Color, val separator: Color, val segment: Color, val segmentOn: Color)
+
+private val Light = CallsPalette(Color(0xFFF2F2F7), Color.White, Color(0xFF111114), Color(0xFF6C6C70), Color(0xFFE2E2E7), Color(0xFFE3E3E8), Color.White)
+private val Dark = CallsPalette(Color.Black, Color(0xFF1C1C1E), Color(0xFFF2F2F7), Color(0xFFA1A1A8), Color(0xFF38383C), Color(0xFF2C2C30), Color(0xFF48484E))
 
 private fun clip(millis: Long) = (millis / 1000).let { "%d:%02d".format(it / 60, it % 60) }
 
@@ -59,7 +62,9 @@ private fun clip(millis: Long) = (millis / 1000).let { "%d:%02d".format(it / 60,
  */
 @Composable
 fun CallsApp(caseId: String, log: CallLog) {
-    SystemBars(lightBottomIcons = false, lightTopIcons = false)
+    val dark = LocalDarkMode.current
+    val c = if (dark) Dark else Light
+    SystemBars(lightBottomIcons = dark, lightTopIcons = dark)
     val context = LocalContext.current
     val m = remember(log) { CallsModule(log) }
     var tick by remember { mutableIntStateOf(0) } // bumped after listening, to update the marks
@@ -78,29 +83,29 @@ fun CallsApp(caseId: String, log: CallLog) {
     val zone = remember { ZoneId.systemDefault() }
     val shown = calls.filter { !voicemailOnly || it.voicemail }
 
-    Column(Modifier.fillMaxSize().background(Background).statusBarsPadding()) {
+    Column(Modifier.fillMaxSize().background(c.background).statusBarsPadding()) {
         Text(
             stringResource(R.string.app_calls), Modifier.padding(start = 20.dp, end = 20.dp, top = 8.dp, bottom = 10.dp),
-            fontSize = 34.sp, lineHeight = 40.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.6).sp, color = Color(0xFF111114),
+            fontSize = 34.sp, lineHeight = 40.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.6).sp, color = c.text,
         )
-        Row(Modifier.padding(horizontal = 16.dp).fillMaxWidth().background(Color(0xFFE3E3E8), RoundedCornerShape(9.dp)).padding(2.dp).selectableGroup()) {
+        Row(Modifier.padding(horizontal = 16.dp).fillMaxWidth().background(c.segment, RoundedCornerShape(9.dp)).padding(2.dp).selectableGroup()) {
             listOf(false to R.string.calls_all, true to R.string.calls_voicemail).forEach { (only, label) ->
                 val on = voicemailOnly == only
                 Box(
-                    Modifier.weight(1f).height(32.dp).clip(RoundedCornerShape(7.dp)).background(if (on) Color.White else Color.Transparent)
+                    Modifier.weight(1f).height(32.dp).clip(RoundedCornerShape(7.dp)).background(if (on) c.segmentOn else Color.Transparent)
                         .selectable(on, role = Role.Tab) { voicemailOnly = only },
                     contentAlignment = Alignment.Center,
-                ) { Text(stringResource(label), fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = Color(0xFF111114)) }
+                ) { Text(stringResource(label), fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = c.text) }
             }
         }
         if (shown.isEmpty()) Text(
             stringResource(if (voicemailOnly) R.string.calls_no_voicemail else R.string.no_calls),
-            Modifier.padding(20.dp), color = SubText, fontSize = 15.sp,
+            Modifier.padding(20.dp), color = c.subText, fontSize = 15.sp,
         )
         LazyColumn(Modifier.fillMaxSize().padding(top = 12.dp), contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 24.dp)) {
             items(shown, key = { "${it.chatId}:${it.at}" }) { call ->
                 val on = playing == call
-                CallRow(call, caseTimeLabel(call.at, start, zone).replace(" ", " · "), durations[call.audio] ?: 0L, on) {
+                CallRow(c, call, caseTimeLabel(call.at, start, zone).replace(" ", " · "), durations[call.audio] ?: 0L, on) {
                     if (on) playing = null
                     else {
                         m.listenTo(call)
@@ -108,7 +113,7 @@ fun CallsApp(caseId: String, log: CallLog) {
                         playing = call
                     }
                 }
-                HorizontalDivider(Modifier.padding(start = 60.dp), thickness = 0.5.dp, color = Separator)
+                HorizontalDivider(Modifier.padding(start = 60.dp), thickness = 0.5.dp, color = c.separator)
             }
         }
     }
@@ -116,10 +121,10 @@ fun CallsApp(caseId: String, log: CallLog) {
 
 /** One call: the caller's initial, who and when, answered or voicemail, its length, and play. A new voicemail has a dot. */
 @Composable
-private fun CallRow(call: VoiceCall, whenLabel: String, duration: Long, playing: Boolean, onPlay: () -> Unit) {
+private fun CallRow(c: CallsPalette, call: VoiceCall, whenLabel: String, duration: Long, playing: Boolean, onPlay: () -> Unit) {
     val new = call.voicemail && !call.heard
     val label = stringResource(if (playing) R.string.recording_pause else R.string.recording_play, call.caller)
-    Column(Modifier.fillMaxWidth().background(Color.White).padding(horizontal = 12.dp, vertical = 10.dp)) {
+    Column(Modifier.fillMaxWidth().background(c.card).padding(horizontal = 12.dp, vertical = 10.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Box(Modifier.size(8.dp).background(if (new) Kit.Tint else Color.Transparent, CircleShape))
             val tint = runCatching { Color(android.graphics.Color.parseColor(call.color)) }.getOrDefault(Color(0xFF7E57C2))
@@ -127,16 +132,16 @@ private fun CallRow(call: VoiceCall, whenLabel: String, duration: Long, playing:
                 Text(call.caller.firstOrNull { it.isLetter() }?.uppercase() ?: "?", color = Color.White, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
             }
             Column(Modifier.weight(1f)) {
-                Text(call.caller, fontSize = 17.sp, fontWeight = if (new) FontWeight.Bold else FontWeight.Medium, color = Color(0xFF111114), maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Text(call.caller, fontSize = 17.sp, fontWeight = if (new) FontWeight.Bold else FontWeight.Medium, color = c.text, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(5.dp)) {
-                    Icon(if (call.voicemail) RukiaIcons.Voicemail else RukiaIcons.Phone, null, Modifier.size(14.dp), tint = SubText)
+                    Icon(if (call.voicemail) RukiaIcons.Voicemail else RukiaIcons.Phone, null, Modifier.size(14.dp), tint = c.subText)
                     Text(
                         listOf(stringResource(if (call.voicemail) R.string.call_voicemail else R.string.call_answered), whenLabel).joinToString(" · "),
-                        fontSize = 13.sp, color = SubText, maxLines = 1, overflow = TextOverflow.Ellipsis,
+                        fontSize = 13.sp, color = c.subText, maxLines = 1, overflow = TextOverflow.Ellipsis,
                     )
                 }
             }
-            if (duration > 0) Text(clip(duration), fontSize = 13.sp, color = SubText)
+            if (duration > 0) Text(clip(duration), fontSize = 13.sp, color = c.subText)
             if (call.audio != null) Box(
                 Modifier.size(36.dp).background(if (playing) Kit.Tint else CallsGreen, CircleShape).clickable(role = Role.Button, onClick = onPlay)
                     .semantics { contentDescription = label },
@@ -146,7 +151,7 @@ private fun CallRow(call: VoiceCall, whenLabel: String, duration: Long, playing:
         if (playing) {
             val progress = remember { Animatable(0f) }
             LaunchedEffect(duration) { if (duration > 0) progress.animateTo(1f, tween(duration.toInt(), easing = LinearEasing)) }
-            Box(Modifier.padding(start = 60.dp, top = 8.dp).fillMaxWidth().height(3.dp).background(Separator)) {
+            Box(Modifier.padding(start = 60.dp, top = 8.dp).fillMaxWidth().height(3.dp).background(c.separator)) {
                 Box(Modifier.fillMaxWidth(progress.value).fillMaxHeight().background(Kit.Tint))
             }
         }

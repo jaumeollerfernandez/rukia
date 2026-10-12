@@ -4,6 +4,7 @@ import com.rukia.game.domain.model.CaseKind
 import com.rukia.game.domain.model.CaseRecord
 import com.rukia.game.domain.model.CaseReport
 import com.rukia.game.domain.model.GameCase
+import com.rukia.game.domain.port.AppearanceSettings
 import com.rukia.game.domain.port.CaseCatalog
 import com.rukia.game.domain.port.CaseOutcome
 import com.rukia.game.domain.port.CaseProgress
@@ -125,4 +126,12 @@ class ChooseLanguage(private val settings: LanguageSettings) {
         require(tag in settings.available) { "Unknown language $tag" }
         settings.set(tag)
     }
+}
+
+class GetDarkMode(private val settings: AppearanceSettings) {
+    operator fun invoke(): Boolean = settings.isDark()
+}
+
+class ChooseDarkMode(private val settings: AppearanceSettings) {
+    operator fun invoke(dark: Boolean) = settings.setDark(dark)
 }

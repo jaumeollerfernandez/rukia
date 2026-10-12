@@ -150,7 +150,7 @@ EN INVESTIGACIONES</string>
     <string name="no_calls">Aún no hay llamadas</string>
     <string name="name">Nombre</string>
     <string name="dark_mode">Modo oscuro</string>
-    <string name="dark_mode_note">El modo oscuro solo cambia la app Chats.</string>
+    <string name="dark_mode_note">Cambia las apps del teléfono: Chats, Llamadas y Multimedia. Policía y Gonpi van siempre en oscuro.</string>
     <string name="notif_channel">Mensajes</string>
     <string name="notif_call">📞 Llamada de voz</string>
 
@@ -345,4 +345,5 @@ EN INVESTIGACIONES</string>
     <string name="secure_call_muted">SIN SONIDO</string>
     <string name="secure_call_speaking">HABLANDO</string>
     <string name="secure_call_silenced">Sin sonido</string>
+    <string name="options_appearance">Apariencia</string>
 </resources>
