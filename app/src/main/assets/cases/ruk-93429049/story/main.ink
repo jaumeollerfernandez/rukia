@@ -27,10 +27,10 @@ VAR arnau_calla = false    // Arnau ha archivado el vídeo de la rotonda y no se
 VAR eric_archiva = false   // Èric ha archivado su post de las barras (desaparece de Gonpi)
 
 // Fotos de la galería que el jugador ha abierto (las pone la app Multimedia): abren preguntas en los chats (MULTIMEDIA.md).
-VAR foto_img_0391 = false  // la yaya, la puerta azul, el pozo y la Trufa → Roser
-VAR foto_img_0397 = false  // el meme del gato meditando → Carla
-VAR foto_img_0401 = false  // la libreta de mamá: «Piso yaya: 120.000 → C.R.A.» → Papá
-VAR foto_img_0402 = false  // el folleto de la Trobada de l'Alba → Marta
+VAR foto_img_0391 = false  // la yaya y la cachorra Trufa, con un trozo de puerta azul y el pozo → Roser
+VAR foto_img_0397 = false  // el meme del gato meditando un domingo a las 7 → Carla
+VAR foto_img_0401 = false  // la libreta de las facturas: «pis iaia 120.000 → CRA» → Papá
+VAR foto_img_0402 = false  // la nevera: la tarjeta de la Trobada medio tapada → Marta
 VAR foto_img_0409 = false  // la ruta a pie desde la estación hasta «…de Bianya» → Pol
 VAR foto_img_0411 = false  // el reembolso del billete de bus → Laia (D2)
 VAR foto_img_0413 = false  // la mochila con velas, cerillas y un cargador sin móvil → Toni

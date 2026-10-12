@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -45,14 +47,21 @@ fun MultimediaApp(caseId: String, flags: StoryFlags = StoryFlags {}, mugshots: G
     val photos = remember(module) { module.listPhotos() }
     var open by rememberSaveable { mutableStateOf<String?>(null) }
 
-    photos.find { it.path == open }?.let { photo ->
-        LaunchedEffect(photo.path) { withContext(Dispatchers.IO) { module.viewPhoto(photo) } }
+    val start = photos.indexOfFirst { it.path == open }
+    if (start >= 0) {
+        // Swipe left or right for the next photo; each one shown counts as seen.
+        val pager = rememberPagerState(initialPage = start) { photos.size }
+        val photo = photos[pager.currentPage]
+        LaunchedEffect(photo.path) { open = photo.path; withContext(Dispatchers.IO) { module.viewPhoto(photo) } }
         BackHandler { open = null }
         SystemBars(lightBottomIcons = true)
-        Box(Modifier.fillMaxSize().background(Color.Black).clickable { open = null }, contentAlignment = Alignment.Center) {
-            if (photo.plate != null) PhotoTile(photo, Modifier.safeDrawingPadding().fillMaxWidth().aspectRatio(0.8f))
-            else rememberCaseImage(photo.path, maxSize = 2048)?.let {
-                Image(it, photo.path, Modifier.fillMaxSize().safeDrawingPadding(), contentScale = ContentScale.Fit)
+        HorizontalPager(pager, Modifier.fillMaxSize().background(Color.Black), key = { photos[it].path }) { page ->
+            val shown = photos[page]
+            Box(Modifier.fillMaxSize().clickable { open = null }, contentAlignment = Alignment.Center) {
+                if (shown.plate != null) PhotoTile(shown, Modifier.safeDrawingPadding().fillMaxWidth().aspectRatio(0.8f))
+                else rememberCaseImage(shown.path, maxSize = 2048)?.let {
+                    Image(it, shown.path, Modifier.fillMaxSize().safeDrawingPadding(), contentScale = ContentScale.Fit)
+                }
             }
         }
         return

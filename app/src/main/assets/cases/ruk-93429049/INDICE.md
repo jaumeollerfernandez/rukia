@@ -17,10 +17,10 @@ Para buscar algo, empieza aquí y ve a las líneas `archivo:línea` que indica.
 | `pol_calla` | Pol ha prometido no contar lo de la estación | `pol.ink:30` `pol.ink:37` `pol.ink:65` | `familia.ink:167` `pol.ink:85` `pol.ink:97` `pol.ink:100` `pol.ink:103` `pol.ink:114` `pol.ink:125` |
 | `arnau_calla` | Arnau ha archivado el vídeo de la rotonda y no se lo dirá a nadie (desaparece de Gonpi) | `arnau.ink:43` | `arnau.ink:53` `eric.ink:79` `familia.ink:151` `familia.ink:163` `pilar.ink:103` |
 | `eric_archiva` | Èric ha archivado su post de las barras (desaparece de Gonpi) | `eric.ink:130` | — |
-| `foto_img_0391` | la yaya, la puerta azul, el pozo y la Trufa → Roser | — | `roser.ink:52` |
-| `foto_img_0397` | el meme del gato meditando → Carla | — | `carla.ink:88` |
-| `foto_img_0401` | la libreta de mamá: «Piso yaya: 120.000 → C.R.A.» → Papá | — | `jordi.ink:132` |
-| `foto_img_0402` | el folleto de la Trobada de l'Alba → Marta | — | `marta.ink:114` |
+| `foto_img_0391` | la yaya y la cachorra Trufa, con un trozo de puerta azul y el pozo → Roser | — | `roser.ink:52` |
+| `foto_img_0397` | el meme del gato meditando un domingo a las 7 → Carla | — | `carla.ink:88` |
+| `foto_img_0401` | la libreta de las facturas: «pis iaia 120.000 → CRA» → Papá | — | `jordi.ink:132` |
+| `foto_img_0402` | la nevera: la tarjeta de la Trobada medio tapada → Marta | — | `marta.ink:114` |
 | `foto_img_0409` | la ruta a pie desde la estación hasta «…de Bianya» → Pol | — | `pol.ink:166` |
 | `foto_img_0411` | el reembolso del billete de bus → Laia (D2) | — | `laia.ink:104` |
 | `foto_img_0413` | la mochila con velas, cerillas y un cargador sin móvil → Toni | — | `toni.ink:91` |

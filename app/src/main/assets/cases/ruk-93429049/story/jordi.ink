@@ -133,8 +133,8 @@ Mañana a primera hora voy a tu casa. Me abra o no me abra tu madre. Papá #dela
     Por ciento veinte mil. Me lo dijo la gestoría, que aún me escriben a mí por error. #delay: 300
     Y a mí tu madre me dijo que no le había quedado nada. Ciento veinte mil euros no se gastan en dos años, cariño. Papá #delay: 8
     #caduca: {limite}
-    ** [en una libreta suya pone «c.r.a.» al lado]
-        ¿C.R.A.? No me suena de nada. #delay: 300
+    ** [en su libreta de las facturas pone «cra» al lado]
+        ¿CRA? No me suena de nada. #delay: 300
         Pero tu madre nunca ha apuntado en una libreta nada que no fuera dinero. Guárdate esa foto. Papá #delay: 6
     ** [ya. no sé dónde está]
         Ni yo. Y eso es lo que me preocupa. Papá #delay: 300

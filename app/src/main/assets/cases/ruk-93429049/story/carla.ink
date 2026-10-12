@@ -86,7 +86,7 @@ obvio 😇 #at: D-8 18:02
     - - -> opciones
 // Con el meme del gato meditando (IMG_0397): Alicia fue una vez a una reunión «del alba» y no quiso volver.
 * {foto_img_0397 and not nuria_denuncia} [te acuerdas del meme del gato meditando que te pasé?]
-    JAJAJA «yo en las reuniones de mi madre» #delay: 120
+    JAJAJA «fingiendo paz interior» #delay: 120
     me lo mandaste un domingo a las siete de la mañana. dijiste que te habían llevado a una «del alba» y que no volvías ni muerta #delay: 6
     #caduca: D{dia + 1} 00:00
     ** [y te conté qué pasó allí?]
