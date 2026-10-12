@@ -10,7 +10,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.border
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -30,7 +29,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.rukia.R
-import com.rukia.phone.infrastructure.ui.Glow
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.semantics.Role
+import com.rukia.game.infrastructure.ui.Barlow
+import com.rukia.game.infrastructure.ui.CutCorners
+import com.rukia.game.infrastructure.ui.Rajdhani
+import com.rukia.game.infrastructure.ui.Term
+import com.rukia.game.infrastructure.ui.TermDialog
+import com.rukia.game.infrastructure.ui.mono
+import com.rukia.game.infrastructure.ui.terminalBackdrop
 import com.rukia.phone.infrastructure.ui.RukiaIcons
 import com.rukia.phone.infrastructure.ui.SystemBars
 import androidx.compose.foundation.text.KeyboardActions
@@ -40,7 +50,6 @@ import androidx.compose.ui.text.input.ImeAction
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.rukia.phone.infrastructure.ui.glow
 import com.rukia.police.domain.model.CaseQuestion
 import com.rukia.police.domain.model.Place
 import com.rukia.police.domain.model.Search
@@ -68,10 +77,10 @@ import kotlin.math.sin
 
 private val CATALONIA = BoundingBox(42.9, 3.4, 40.45, 0.1)
 private const val MAX_RADIUS = 30_000.0
-private val Miss = Color(0xFF8E8E93)
-private val Hit = Color(0xFFFF9500)
-private val Found = Color(0xFF34C759)
-private val PlaceColor = Color(0xFFAF52DE)
+private val Miss = Color(0xFF8FA3B5)
+private val Hit = Color(0xFFFF9F1C)
+private val Found = Color(0xFF7FD9A0)
+private val PlaceColor = Color(0xFFF2B33D)
 
 /** A tap this close to a place's pin (in dp) puts the zone right on it. */
 private const val SNAP_DP = 28
@@ -82,6 +91,7 @@ private const val SNAP_DP = 28
  */
 @Composable
 fun SolveCaseScreen(
+    caseTitle: String,
     question: CaseQuestion,
     /** The case's places the player knows of: marked on the map and suggested by the search box. */
     places: List<Place>,
@@ -91,6 +101,7 @@ fun SolveCaseScreen(
     onSearch: (Spot, Double) -> Unit,
 ) {
     BackHandler(onBack = onBack)
+    SystemBars(lightBottomIcons = true)
     var focus by remember { mutableStateOf<Focus?>(null) }
     var query by rememberSaveable { mutableStateOf("") }
     var notFound by remember { mutableStateOf(false) }
@@ -116,7 +127,6 @@ fun SolveCaseScreen(
             }
         }
     }
-    val c = LocalPolice.current
     // 0..1 on a log scale, so small zones get as much of the slider as big ones.
     var size by rememberSaveable { mutableFloatStateOf(0.5f) }
     val radius = question.tolerance * (MAX_RADIUS / question.tolerance).pow(size.toDouble())
@@ -126,75 +136,119 @@ fun SolveCaseScreen(
     val pending = board.pending(time)
     val last = board.searches.lastOrNull()?.takeIf { it.day == board.today && pending == null }
 
-    Column(Modifier.fillMaxSize().background(c.background)) {
-        SubHeader(stringResource(R.string.solve_case), onBack)
+    Column(Modifier.fillMaxSize().background(Term.Ground)) {
+        Row(
+            Modifier.fillMaxWidth().background(Color(0xFF0B121B)).drawBehind {
+                drawLine(Term.Cyan.copy(alpha = 0.3f), Offset(0f, this.size.height), Offset(this.size.width, this.size.height), 1.dp.toPx())
+            }.statusBarsPadding().padding(horizontal = 14.dp, vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Box(Modifier.size(40.dp).border(1.dp, Term.Cyan.copy(alpha = 0.35f)).clickable(role = Role.Button, onClick = onBack), contentAlignment = Alignment.Center) {
+                Icon(RukiaIcons.ArrowLeft, stringResource(R.string.back), Modifier.size(20.dp), tint = Term.Text)
+            }
+            Column(Modifier.weight(1f)) {
+                Text(stringResource(R.string.solve_kicker, caseTitle), style = mono(10, Term.Cyan, spacing = 1.5f))
+                Text(stringResource(R.string.solve_case), fontFamily = Rajdhani, fontWeight = FontWeight.Bold, fontSize = 23.sp, lineHeight = 25.sp, color = Term.Text)
+            }
+            Text(
+                stringResource(R.string.solve_day, board.today, board.lastDay ?: board.today),
+                Modifier.border(1.dp, Term.Amber).padding(horizontal = 8.dp, vertical = 4.dp), style = mono(11, Term.Amber, FontWeight.SemiBold, 0f),
+            )
+        }
         Box(Modifier.weight(1f).clipToBounds()) {
             SearchMap(question, places, board.searches, draft?.takeIf { board.canSearch }, radius, now, focus, Modifier.fillMaxSize()) { if (board.canSearch) draft = it }
             Column(
-                Modifier.padding(12.dp).fillMaxWidth().background(c.card.copy(alpha = 0.95f), RoundedCornerShape(16.dp)).padding(horizontal = 14.dp, vertical = 12.dp),
-                verticalArrangement = Arrangement.spacedBy(2.dp),
+                Modifier.padding(10.dp).fillMaxWidth().background(Color(0xE0070B12)).border(1.dp, Term.Cyan.copy(alpha = 0.4f)).padding(horizontal = 12.dp, vertical = 10.dp),
+                verticalArrangement = Arrangement.spacedBy(3.dp),
             ) {
-                Text(question.question, fontSize = 17.sp, fontWeight = FontWeight.Bold)
-                Text(stringResource(R.string.map_hint), color = c.subText, fontSize = 13.sp, lineHeight = 17.sp)
+                Text(stringResource(R.string.solve_objective), style = mono(10, Term.Amber, spacing = 1.5f))
+                Text(question.question, fontFamily = Rajdhani, fontWeight = FontWeight.Bold, fontSize = 19.sp, lineHeight = 21.sp, color = Term.Text)
+                Text(stringResource(R.string.map_hint), fontFamily = Barlow, fontSize = 12.sp, lineHeight = 16.sp, color = Term.Muted)
                 OutlinedTextField(
-                    query, { query = it; notFound = false }, Modifier.fillMaxWidth().padding(top = 8.dp).onFocusChanged { typing = it.isFocused },
-                    placeholder = { Text(stringResource(R.string.search_place)) },
+                    query, { query = it; notFound = false }, Modifier.fillMaxWidth().padding(top = 6.dp).onFocusChanged { typing = it.isFocused },
+                    placeholder = { Text(stringResource(R.string.search_place), color = Term.Muted) },
                     singleLine = true, isError = notFound,
                     supportingText = if (notFound) ({ Text(stringResource(R.string.place_not_found)) }) else null,
                     trailingIcon = {
-                        if (looking) CircularProgressIndicator(Modifier.size(20.dp), strokeWidth = 2.dp)
-                        else IconButton(find) { Icon(RukiaIcons.Search, stringResource(R.string.search_place)) }
+                        if (looking) CircularProgressIndicator(Modifier.size(20.dp), color = Term.Cyan, strokeWidth = 2.dp)
+                        else IconButton(find) { Icon(RukiaIcons.Search, stringResource(R.string.search_place), tint = Term.Cyan) }
                     },
                     keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
                     keyboardActions = KeyboardActions(onSearch = { find() }),
-                    shape = RoundedCornerShape(12.dp),
+                    shape = RoundedCornerShape(0.dp),
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Term.Text, unfocusedTextColor = Term.Text, cursorColor = Term.Cyan,
+                        focusedBorderColor = Term.Cyan, unfocusedBorderColor = Term.Cyan.copy(alpha = 0.35f),
+                        focusedContainerColor = Color(0xFF0C1620), unfocusedContainerColor = Color(0xFF0C1620),
+                    ),
                 )
                 // The places the case points to, while typing: one tap and the zone is there.
                 val suggested = places.filter { it.matches(query) }
                 if (typing && suggested.isNotEmpty()) {
-                    Text(stringResource(R.string.case_places), Modifier.padding(top = 6.dp), color = c.subText, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.case_places).uppercase(), Modifier.padding(top = 6.dp), style = mono(10, Term.Muted, FontWeight.SemiBold, 1f))
                     Column(Modifier.heightIn(max = 220.dp).verticalScroll(rememberScrollState())) {
                         for (place in suggested) Row(
                             Modifier.fillMaxWidth().clickable { pick(place) }.padding(vertical = 8.dp),
                             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp),
                         ) {
-                            Box(Modifier.size(12.dp).background(PlaceColor, RoundedCornerShape(6.dp)))
+                            Box(Modifier.size(10.dp).background(PlaceColor))
                             Column {
-                                Text(place.name, fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
-                                if (place.note.isNotEmpty()) Text(place.note, color = c.subText, fontSize = 13.sp, lineHeight = 16.sp)
+                                Text(place.name, fontFamily = Barlow, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, color = Term.Text)
+                                if (place.note.isNotEmpty()) Text(place.note, fontFamily = Barlow, fontSize = 13.sp, lineHeight = 16.sp, color = Term.Muted)
                             }
                         }
                     }
                 }
             }
         }
-        Column(Modifier.fillMaxWidth().background(c.card).navigationBarsPadding().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Column(
+            Modifier.fillMaxWidth().background(Color(0xFF0C1620)).drawBehind { drawLine(Term.Cyan, Offset.Zero, Offset(this.size.width, 0f), 1.dp.toPx()) }
+                .navigationBarsPadding().padding(horizontal = 14.dp, vertical = 12.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
             DayStrip(board, pending)
             when {
-                pending != null -> Notice(Color(0xFF1A63F0), "…", stringResource(R.string.squad_searching), stringResource(R.string.result_in, countdown(pending.readyAt - time)))
+                pending != null -> Notice(Term.Cyan, "…", stringResource(R.string.squad_searching), stringResource(R.string.result_in, countdown(pending.readyAt - time)))
                 last != null && last.accuracy == 0 -> Notice(Miss, "✕", stringResource(R.string.zone_miss_title), stringResource(R.string.zone_miss_text))
                 last != null -> Notice(Hit, "${last.accuracy}%", stringResource(R.string.zone_hit_title, last.accuracy), stringResource(R.string.zone_hit_text))
-                !board.canSearch -> Text(stringResource(R.string.solve_closed), color = c.subText, fontSize = 15.sp)
+                !board.canSearch -> Text(stringResource(R.string.solve_closed), fontFamily = Barlow, fontSize = 15.sp, color = Term.Muted)
                 else -> {
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                        Text(stringResource(R.string.radius), fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
-                        Slider(size, { size = it }, Modifier.weight(1f))
-                        Text("%.1f km".format(radius / 1000), Modifier.width(64.dp), fontSize = 15.sp, fontWeight = FontWeight.SemiBold, textAlign = TextAlign.End)
+                        Text(stringResource(R.string.radius).uppercase(), Modifier.width(52.dp), style = mono(11, Term.Muted, FontWeight.SemiBold, 1f))
+                        Slider(
+                            size, { size = it }, Modifier.weight(1f),
+                            colors = SliderDefaults.colors(thumbColor = Term.Cyan, activeTrackColor = Term.Cyan, inactiveTrackColor = Term.Cyan.copy(alpha = 0.2f)),
+                        )
+                        Text(
+                            if (radius < 1000) "%d m".format(radius.toInt()) else "%.1f km".format(radius / 1000), Modifier.width(64.dp),
+                            style = mono(14, if (radius <= question.tolerance * 1.01) Found else Term.Text, FontWeight.SemiBold, 0f).copy(textAlign = TextAlign.End),
+                        )
                     }
-                    Button(
-                        { confirming = true }, Modifier.fillMaxWidth().height(52.dp), enabled = draft != null, shape = RoundedCornerShape(14.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = c.tint, disabledContainerColor = c.ctaOffBackground, disabledContentColor = c.ctaOffText),
-                    ) { Text(stringResource(if (draft != null) R.string.send_squad else R.string.place_zone_first), fontSize = 17.sp, fontWeight = FontWeight.Bold) }
+                    Box(
+                        Modifier.fillMaxWidth().heightIn(min = 54.dp).clip(CutCorners).background(if (draft != null) Term.Amber else Term.Muted.copy(alpha = 0.15f))
+                            .clickable(enabled = draft != null, role = Role.Button) { confirming = true },
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            (if (draft != null) stringResource(R.string.send_squad) + " ›" else stringResource(R.string.place_zone_first)).uppercase(),
+                            fontFamily = Rajdhani, fontWeight = FontWeight.Bold, fontSize = 18.sp, letterSpacing = 2.sp,
+                            color = if (draft != null) Term.Ink else Term.Muted,
+                        )
+                    }
                 }
             }
         }
     }
 
-    if (confirming) IosAlert(stringResource(R.string.send_squad_q), stringResource(R.string.send_squad_text), stringResource(R.string.send), onDismiss = { confirming = false }) {
-        confirming = false
-        draft?.let { onSearch(it, radius) }
-        draft = null
-    }
+    if (confirming) TermDialog(
+        stringResource(R.string.solve_kicker, caseTitle), stringResource(R.string.send_squad_q), stringResource(R.string.send_squad_text),
+        stringResource(R.string.send).uppercase(), onCancel = { confirming = false },
+        onConfirm = {
+            confirming = false
+            draft?.let { onSearch(it, radius) }
+            draft = null
+        },
+    )
 }
 
 /** A request to show [spot]; not a data class, so searching the same place again moves the map back to it. */
@@ -205,23 +259,22 @@ private fun countdown(millis: Long) = (millis.coerceAtLeast(0) / 1000).let { "%d
 /** One cell per case day up to the deadline: what that day's search found. */
 @Composable
 private fun DayStrip(board: SearchBoard, pending: Search?) {
-    val c = LocalPolice.current
-    Row(horizontalArrangement = Arrangement.spacedBy(5.dp)) {
+    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
         for (n in 1..maxOf(board.lastDay ?: 0, board.today, 1)) {
             val s = board.searches.find { it.day == n }
             val (color, value) = when {
-                s == null -> (if (n == board.today) c.tint else c.subText) to (if (n == board.today) stringResource(R.string.today) else "·")
-                s == pending -> c.tint to "…"
+                s == null -> (if (n == board.today) Term.Cyan else Term.Dim) to (if (n == board.today) stringResource(R.string.today).uppercase() else "·")
+                s == pending -> Term.Cyan to "…"
                 s.accuracy == 0 -> Miss to "✕"
                 else -> (if (s.accuracy == 100) Found else Hit) to "${s.accuracy}%"
             }
+            val lit = s != null || n == board.today
             Column(
-                Modifier.weight(1f).height(44.dp).background(color.copy(alpha = 0.14f), RoundedCornerShape(10.dp))
-                    .then(if (n == board.today) Modifier.border(1.5.dp, color, RoundedCornerShape(10.dp)) else Modifier),
+                Modifier.weight(1f).height(40.dp).background(color.copy(alpha = if (lit) 0.12f else 0.06f)).border(1.dp, if (lit) color else Term.Muted.copy(alpha = 0.15f)),
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center,
             ) {
-                Text("D$n", color = color, fontSize = 11.sp, fontWeight = FontWeight.Bold)
-                Text(value, color = color, fontSize = 11.sp, fontWeight = FontWeight.SemiBold, maxLines = 1)
+                Text("D$n", style = mono(10, color, FontWeight.SemiBold, 0f))
+                Text(value, style = mono(10, color, spacing = 0f), maxLines = 1)
             }
         }
     }
@@ -229,13 +282,13 @@ private fun DayStrip(board: SearchBoard, pending: Search?) {
 
 @Composable
 private fun Notice(color: Color, badge: String, title: String, text: String) {
-    Row(Modifier.fillMaxWidth().background(color.copy(alpha = 0.12f), RoundedCornerShape(14.dp)).padding(horizontal = 14.dp, vertical = 12.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-        Box(Modifier.size(40.dp).background(color, RoundedCornerShape(20.dp)), contentAlignment = Alignment.Center) {
-            Text(badge, color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.ExtraBold)
+    Row(Modifier.fillMaxWidth().background(color.copy(alpha = 0.08f)).border(1.dp, color).padding(12.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        Box(Modifier.defaultMinSize(minWidth = 44.dp).height(44.dp).border(2.dp, color).padding(horizontal = 4.dp), contentAlignment = Alignment.Center) {
+            Text(badge, fontFamily = Rajdhani, fontWeight = FontWeight.Bold, fontSize = 17.sp, color = color)
         }
         Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-            Text(title, fontSize = 16.sp, fontWeight = FontWeight.Bold)
-            Text(text, color = LocalPolice.current.subText, fontSize = 14.sp, lineHeight = 19.sp)
+            Text(title, fontFamily = Rajdhani, fontWeight = FontWeight.Bold, fontSize = 18.sp, color = color)
+            Text(text, fontFamily = Barlow, fontSize = 14.sp, lineHeight = 19.sp, color = Term.Body)
         }
     }
 }
@@ -244,8 +297,7 @@ private fun Notice(color: Color, badge: String, title: String, text: String) {
 @Composable
 private fun SearchMap(question: CaseQuestion, places: List<Place>, searches: List<Search>, draft: Spot?, radius: Double, now: () -> Long, focus: Focus?, modifier: Modifier, onTap: (Spot) -> Unit) {
     val context = LocalContext.current
-    val dark = isSystemInDarkTheme()
-    val tint = LocalPolice.current.tint
+    val tint = Term.Cyan
     val stationLabel = stringResource(R.string.station)
     val map = remember {
         Configuration.getInstance().apply {
@@ -284,7 +336,7 @@ private fun SearchMap(question: CaseQuestion, places: List<Place>, searches: Lis
     LaunchedEffect(pending) { while (pending != null && now() < pending.readyAt) { map.invalidate(); delay(50) } }
 
     AndroidView({ map }, modifier) { m ->
-        m.overlayManager.tilesOverlay.setColorFilter(if (dark) TilesOverlay.INVERT_COLORS else null)
+        m.overlayManager.tilesOverlay.setColorFilter(TilesOverlay.INVERT_COLORS)
         m.overlays.clear()
         for (s in searches) {
             val color = when { s == pending -> tint; s.accuracy == 0 -> Miss; s.accuracy == 100 -> Found; else -> Hit }
@@ -326,7 +378,7 @@ private class PlacesOverlay(private val places: List<Place>, private val density
     private val pin = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = PlaceColor.toArgb() }
     private val ring = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = android.graphics.Color.WHITE; style = Paint.Style.STROKE; strokeWidth = 3 * density }
     private val pill = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = PlaceColor.toArgb() }
-    private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = android.graphics.Color.WHITE; textSize = 13 * density; isFakeBoldText = true }
+    private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Term.Ink.toArgb(); textSize = 13 * density; isFakeBoldText = true }
     private val p = Point()
 
     override fun draw(canvas: Canvas, projection: Projection) {
@@ -400,26 +452,24 @@ private fun carAt(station: Spot, s: Search, t: Double, i: Int): Spot {
 
 /** Once a squad confirms the place. The case goes on until the story's ending, which closes it: back returns to the phone. */
 @Composable
-fun VerdictScreen(onReturnToTitle: () -> Unit) {
+fun VerdictScreen(caseTitle: String, onReturnToTitle: () -> Unit) {
     SystemBars(lightBottomIcons = true)
-    val accent = Color(0xFFE0B354)
     Column(
-        Modifier.fillMaxSize()
-            .glow(Color(0xFF0D1117), Glow(Color(0xFF3A2F10), 0.5f, 1f, 1f))
-            .safeDrawingPadding()
-            .padding(horizontal = 32.dp),
+        Modifier.fillMaxSize().terminalBackdrop().safeDrawingPadding().padding(horizontal = 28.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(18.dp, Alignment.CenterVertically),
     ) {
-        Text(stringResource(R.string.case_solved), color = accent, fontSize = 40.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = 4.sp, textAlign = TextAlign.Center)
+        Text(stringResource(R.string.case_file, caseTitle), style = mono(11, Term.Muted, spacing = 2f))
         Text(
-            stringResource(R.string.solved_text),
-            Modifier.padding(top = 16.dp), color = Color.White.copy(alpha = 0.82f), fontSize = 17.sp, lineHeight = 24.sp, textAlign = TextAlign.Center,
+            stringResource(R.string.case_solved),
+            Modifier.rotate(-6f).border(4.dp, Found).padding(3.dp).border(1.dp, Found).padding(horizontal = 16.dp, vertical = 10.dp),
+            style = mono(26, Found, FontWeight.SemiBold, 3f).copy(lineHeight = 30.sp, textAlign = TextAlign.Center),
         )
-        Button(
-            onReturnToTitle, Modifier.padding(top = 48.dp).height(50.dp), shape = RoundedCornerShape(25.dp),
-            contentPadding = PaddingValues(horizontal = 28.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = accent, contentColor = Color(0xFF0D1117)),
-        ) { Text(stringResource(R.string.return_title), fontSize = 17.sp, fontWeight = FontWeight.Bold) }
+        Text(stringResource(R.string.solved_text), fontFamily = Barlow, fontSize = 17.sp, lineHeight = 24.sp, color = Color(0xFFD3DCE4), textAlign = TextAlign.Center)
+        Box(
+            Modifier.padding(top = 14.dp).heightIn(min = 52.dp).clip(CutCorners).background(Term.Amber).clickable(role = Role.Button, onClick = onReturnToTitle)
+                .padding(horizontal = 26.dp),
+            contentAlignment = Alignment.Center,
+        ) { Text(stringResource(R.string.return_title).uppercase(), fontFamily = Rajdhani, fontWeight = FontWeight.Bold, fontSize = 18.sp, letterSpacing = 2.sp, color = Term.Ink) }
     }
 }

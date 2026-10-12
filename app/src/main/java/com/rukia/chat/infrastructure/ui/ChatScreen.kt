@@ -1,5 +1,6 @@
 package com.rukia.chat.infrastructure.ui
 
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import com.rukia.R
 import androidx.compose.animation.core.*
@@ -47,31 +48,23 @@ import kotlinx.coroutines.delay
 /** Rough time a character "types" before a message appears. */
 private fun typingMillis(text: String) = (500L + text.length * 30L).coerceAtMost(2_500L)
 
+/** How much of a chat is on screen: [shown] messages, who is typing the next one, and the call ringing, if any. */
+class Reveal(val shown: Int, val typingId: String?, val ringing: Message?)
+
 /**
  * Messages from index [revealFrom] on are new: the player's own appear at once, the others one by one after a
- * "typing…" pause. Choices only show once everything has been revealed.
+ * "typing…" pause. A call rings once its message is revealed; the rest waits until it ends. Everything shown counts
+ * as read ([onRead]), and while the chat is on screen its messages don't come as notifications.
  */
 @Composable
-fun ChatScreen(
-    chat: Chat,
-    characters: Map<String, Character>,
-    revealFrom: Int,
-    /** Unread chats other than this one, badged on the back button. */
-    otherUnread: Int,
-    onBack: () -> Unit,
-    onRead: (count: Int) -> Unit,
-    onChoose: (Int) -> Unit,
-    onEndCall: (answered: Boolean) -> Unit,
-) {
+fun rememberReveal(chat: Chat, revealFrom: Int, onRead: (count: Int) -> Unit): Reveal {
     val caseId = LocalCaseId.current
     var shown by rememberSaveable(chat.id) { mutableIntStateOf(minOf(revealFrom, chat.arrivedCount(CaseClock.now(caseId)))) }
-    // While this chat is on screen, its arriving messages show here instead of as notifications.
     DisposableEffect(chat.id) {
         VisibleChat.id = chat.id
         onDispose { if (VisibleChat.id == chat.id) VisibleChat.id = null }
     }
     var typingId by remember { mutableStateOf<String?>(null) }
-    // A call rings once its message is revealed; the rest of the conversation waits until it ends.
     val ringing = chat.messages.take(shown).lastOrNull { it.call == CallStatus.RINGING }
     LaunchedEffect(chat.messages.size, ringing == null) {
         while (shown < chat.messages.size && chat.messages.take(shown).none { it.call == CallStatus.RINGING }) {
@@ -88,9 +81,32 @@ fun ChatScreen(
             shown++
         }
     }
-    val listState = rememberLazyListState()
-    // Everything on screen counts as read.
     LaunchedEffect(shown) { onRead(shown) }
+    return Reveal(shown, typingId, ringing)
+}
+
+/**
+ * Messages from index [revealFrom] on are new: the player's own appear at once, the others one by one after a
+ * "typing…" pause. Choices only show once everything has been revealed. Calls aren't shown: they ring over the whole
+ * phone and live in the Calls app; while one rings, what follows waits.
+ */
+@Composable
+fun ChatScreen(
+    chat: Chat,
+    characters: Map<String, Character>,
+    revealFrom: Int,
+    /** Unread chats other than this one, badged on the back button. */
+    otherUnread: Int,
+    onBack: () -> Unit,
+    onRead: (count: Int) -> Unit,
+    onChoose: (Int) -> Unit,
+) {
+    val caseId = LocalCaseId.current
+    val reveal = rememberReveal(chat, revealFrom, onRead)
+    val shown = reveal.shown
+    val typingId = reveal.typingId
+    val ringing = reveal.ringing
+    val listState = rememberLazyListState()
     // Keep the newest bubble in view, including the typing dots.
     LaunchedEffect(shown, typingId) {
         val last = shown - 1 + if (typingId != null) 1 else 0
@@ -127,8 +143,7 @@ fun ChatScreen(
                         )
                     }
                     val first = prev == null || prev.from != msg.from || prev.call != null
-                    if (msg.call != null) CallPill(msg)
-                    else Bubble(msg, characters[msg.from], showName = chat.isGroup && first && !msg.fromPlayer, first = first)
+                    if (msg.call == null) Bubble(msg, characters[msg.from], showName = chat.isGroup && first && !msg.fromPlayer, first = first)
                 }
                 typingId?.let { id ->
                     item(key = "typing") { TypingBubble(characters[id], first = visible.lastOrNull()?.from != id) }
@@ -139,21 +154,6 @@ fun ChatScreen(
                 Choices(choices, onChoose)
             } else {
                 Spacer(Modifier.navigationBarsPadding().height(8.dp))
-            }
-        }
-        if (ringing != null) {
-            // Answering a call with audio plays it before hanging up; without audio it ends right away.
-            // Saved, so a recreated screen keeps the call going instead of ringing again.
-            var answered by rememberSaveable(ringing) { mutableStateOf(false) }
-            val audio = ringing.audio
-            if (answered && audio != null) {
-                OngoingCallScreen(characters[ringing.from], audio, onHangUp = { onEndCall(true) })
-            } else {
-                IncomingCallScreen(
-                    characters[ringing.from],
-                    onAnswer = { if (audio != null) answered = true else onEndCall(true) },
-                    onDecline = { onEndCall(false) },
-                )
             }
         }
     }
@@ -217,13 +217,17 @@ private fun Choices(choices: List<IndexedValue<String>>, onChoose: (Int) -> Unit
     val p = LocalPalette.current
     // Ignore a second tap that lands before the screen updates with the new choices.
     var picked by remember(choices) { mutableStateOf(false) }
+    // Many replies cover the conversation: they can be folded down to read it, and opened again.
+    var folded by rememberSaveable(choices) { mutableStateOf(false) }
     HorizontalDivider(thickness = 0.5.dp, color = p.separator)
     Column(
         Modifier.fillMaxWidth().background(p.bar).navigationBarsPadding().padding(start = 14.dp, end = 14.dp, top = 10.dp, bottom = 12.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Text(stringResource(R.string.choose_reply), Modifier.padding(horizontal = 4.dp), color = p.subText, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
-        choices.forEach { (i, text) ->
+        FoldHeader(folded, choices.size, { folded = !folded }) {
+            Text(stringResource(R.string.choose_reply), Modifier.padding(horizontal = 4.dp), color = p.subText, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
+        }
+        if (!folded) choices.forEach { (i, text) ->
             val shape = RoundedCornerShape(24.dp)
             Row(
                 Modifier.fillMaxWidth().heightIn(min = 48.dp).clip(shape).background(p.choiceBackground).border(1.dp, p.choiceBorder, shape)
@@ -240,6 +244,27 @@ private fun Choices(choices: List<IndexedValue<String>>, onChoose: (Int) -> Unit
         }
     }
 }
+
+/**
+ * The replies' header: [title], and a button that folds them down or opens them again. With only a couple of replies
+ * there's nothing to fold, so it's just the title. When folded it says how many are waiting ([count]).
+ */
+@Composable
+internal fun FoldHeader(folded: Boolean, count: Int, onToggle: () -> Unit, color: Color = LocalPalette.current.tint, title: @Composable () -> Unit) {
+    if (count <= FOLD_FROM && !folded) return title()
+    val label = stringResource(if (folded) R.string.choices_show else R.string.choices_hide)
+    Row(
+        Modifier.fillMaxWidth().heightIn(min = 36.dp).clickable(role = Role.Button, onClick = onToggle).semantics { contentDescription = label },
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Box(Modifier.weight(1f)) { title() }
+        if (folded) Text(pluralStringResource(R.plurals.choices_waiting, count, count), color = color, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
+        Icon(if (folded) RukiaIcons.ChevronUp else RukiaIcons.ChevronDown, null, Modifier.padding(start = 6.dp).size(22.dp), tint = color)
+    }
+}
+
+/** From how many replies they can be folded. */
+private const val FOLD_FROM = 2
 
 /** Rounded bubble; the corner on the speaker's side is tight when it continues a run. */
 private fun bubbleShape(mine: Boolean, first: Boolean) = if (mine) {
@@ -281,24 +306,6 @@ private fun Bubble(msg: Message, sender: Character?, showName: Boolean, first: B
             if (msg.time.isNotEmpty()) Text(msg.time, Modifier.align(Alignment.End), color = fg.copy(alpha = 0.65f), fontSize = 11.sp, lineHeight = 14.sp)
         }
     }
-    }
-}
-
-/** A call in the conversation: a centered pill, green for a call that happened, red for a missed one. */
-@Composable
-private fun CallPill(msg: Message) {
-    val p = LocalPalette.current
-    val status = msg.call ?: return
-    val missed = status == CallStatus.DECLINED
-    val fg = if (missed) p.missedText else p.callText
-    Box(Modifier.fillMaxWidth().padding(top = 12.dp), contentAlignment = Alignment.Center) {
-        Row(
-            Modifier.background(if (missed) p.missedBackground else p.callBackground, RoundedCornerShape(18.dp)).padding(horizontal = 16.dp, vertical = 9.dp),
-            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Icon(RukiaIcons.Phone, null, Modifier.size(18.dp), tint = fg)
-            Text(listOf(callLabel(status), msg.time).filter { it.isNotEmpty() }.joinToString(" · "), color = fg, fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
-        }
     }
 }
 

@@ -29,6 +29,8 @@ data class Spot(val lat: Double, val lon: Double) {
 @Serializable
 data class CaseQuestion(
     val question: String, val target: Spot, val station: Spot, val tolerance: Double = 500.0, val deadline: String? = null,
+    /** The police station in charge, shown atop the Police app (e.g. "COMISARÍA GARROTXA"). */
+    val unit: String = "",
     /** More police stations around the map, besides the main [station]. */
     val stations: List<Spot> = emptyList(),
     /** Places the story points to, marked on the map and suggested by the search box once the player knows of them. */

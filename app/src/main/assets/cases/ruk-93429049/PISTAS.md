@@ -17,7 +17,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚠️ trampa (empeora el caso) · �
   - 🔎💬 Toni (IMG_0413): las masías de arriba de Sant Salvador no tienen luz; si confía, la de la señora de la perra va con velas.
   - 🔎💬 Papá (IMG_0401): el piso de la yaya se vendió por 120.000 € y Montse le dijo que no le quedó nada. Marta (IMG_0402): el folleto se lo dejó el de la barba blanca. Carla (IMG_0397): Alicia fue a una reunión «del alba» y no quiso volver.
 - **Gonpi archiva.** Si Alicia se lo pide, Arnau archiva el vídeo de la rotonda (`arnau_calla`) y Èric su post de las barras (`eric_archiva`): desaparecen del feed.
-- **Llamadas.** La historia espera a saber si el jugador cogió la llamada. Pilar (D3): si la coge, solo oye ruido y pregunta; si no, le escribe. Alicia elige la excusa (afónica, gente delante, sin cobertura, la ducha).
+- **Llamadas.** Suenan sobre cualquier app y quedan en la app Llamadas: contestada, se oye en el momento; si no, salta el buzón de voz con el mismo audio. La historia espera a saber si el jugador la cogió. Pilar (D3): si la coge, solo oye ruido y pregunta; si no, le deja el mensaje en el buzón y le escribe. Papá (D2): igual. Alicia elige la excusa (afónica, gente delante, sin cobertura, la ducha).
 - **Consultas a Laia.** Después de cada parte nocturno, Laia ofrece **una** comprobación para el día siguiente. Las opciones dependen de lo averiguado: residencias, Can Pericot, la coartada de Dani, el prepago, el coche gris. Hay que elegir.
 - **Riesgo.** Escribir a los adultos cotillas (Ramon, Roser, Conxita) sube `sospecha_familia`; a mamá por privado o en el grupo de vecinos (Montse está en él), más. Contarle a Laura dónde está Alicia se lo cuenta a Berta.
 
@@ -72,7 +72,7 @@ Laia ya no reconoce el nombre «Rosa d'Abril» el D1: un grupo de duelo no es de
 | 🔎 Llamada de Rosalia, fijo de Sant Salvador | Rosalia, Laia | D4 |
 | 🔎 Alicia desde el prepago: antena de Bracons, puerta azul | Desconocido, Laia | D4-D5 |
 | 🔎 Puerta azul y pozo; la foto «mas de la rosalia» | Núria | D5-D6 |
-| 🔎 Con confianza 3, Alicia llama y da la ubicación exacta. Laia la saca esa madrugada y ella le cuenta la secta y la ceremonia (`alicia_llamo`, FINALES.md pieza I) | Alicia (prepago), Laia | D5 noche |
+| 🔎 Con confianza 3, Alicia llama y da la ubicación exacta. Si el jugador la coge o escucha el mensaje del buzón antes de las D6 01:30, Laia la saca esa madrugada y ella le cuenta la secta y la ceremonia (`alicia_llamo`, FINALES.md pieza I) | Alicia (prepago), Laia | D5 noche |
 
 También en Gonpi (perfiles de los contactos, ver `GONPI.md`): el lomo de «Masies de la Vall de Bianya» (@teresa.llibres), la foto de la coral de 1979 con la yaya Mercè, la Rosalia y la Pepita (@roser.canta) y el dibujo de la Laieta con la perra (@clara.moni, D4). Pista falsa: la «noche épica» de @biel.gg en Can Pericot (D2), que también la descarta si se lee el comentario de Pau.
 
@@ -123,6 +123,19 @@ Señales de que Laura es del Casal: su comentario «cuánto cuesta» en el post 
 Dos operaciones nuevas en `police/actions.json`: **Can Pericot** (`envio_capsec`) y **las residencias de Olot** (`envio_residencia`). Las dos son pistas falsas: gastan una de las dos salidas.
 Una tercera operación, **el mas del tío de Dani** (`envio_dani`), también es pista falsa: aparece costo y una báscula, ni rastro de Alicia.
 La cuarta, **detener a Dani** (`envio_detencion_dani`), gasta una salida pero frena su búsqueda (`dani_frenado`) y puede devolver una pista verdadera si el jugador le cree. Si no le cree, la operación de la noche (mas, masías o cráter) se queda sin coche. Si Laia ya lo detuvo desde la consulta, la salida se gasta para nada.
+
+Como los lugares del mapa, un destino de Operaciones solo sale cuando el jugador ya sabe de él (`unlockedBy` en `actions.json`), para que la lista no dé pistas:
+
+| Destino | Sale con |
+|---|---|
+| Estación de Olot, casa de Pol, casa del padre | desde el principio |
+| Mas de la Rosalia | `sabe_rosalia` o `sabe_puerta_azul` |
+| Masías de Bracons | `sabe_ruta_lotes`, `sabe_rosalia`, `sabe_puerta_azul` o `ficha_dani` |
+| Can Pericot | `sabe_capsec` |
+| Residencias | `sabe_residencia` |
+| Mas del tío de Dani, detener a Dani | `dani_sospechoso` o `dani_droga` |
+| Piso de Núria, piso del tío de Jan | `sabe_girona` |
+| Cráter, vigilar el cráter | `ficha_ignasi` o `vigilancia_crater` |
 
 ## Fichas policiales (app Policía)
 

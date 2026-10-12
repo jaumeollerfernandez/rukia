@@ -26,10 +26,10 @@ class AdvanceChat(
     operator fun invoke(chatId: String): Chat = synchronized(story) {
         var chat = requireNotNull(chats.find(chatId)) { "Chat $chatId not found" }
         val now = clock.millis()
-        // A ringing call holds the story until the player picks up or hangs up, so what follows knows which
-        // (`llamada_<chat>_contestada`). Left ringing, it's a missed call.
+        // A ringing call holds the story until the player picks up or it goes to voicemail, so what follows knows which
+        // (`llamada_<chat>_contestada`). Left ringing (the game was closed), it goes to voicemail.
         chat.ringingCall?.let { call ->
-            if (now - call.deliverAt < MISSED_CALL_MILLIS) return chat
+            if (now - call.deliverAt < VOICEMAIL_AFTER_MILLIS) return chat
             chat = EndCall(chats, story)(chatId, answered = false)
         }
         val silent = chat.choices.indexOf(SILENT_CHOICE)
@@ -45,8 +45,8 @@ class AdvanceChat(
     }
 
     companion object {
-        /** How long a call rings, plus the longest call, before it counts as missed. */
-        const val MISSED_CALL_MILLIS = 5 * 60_000L
+        /** How long a call can ring, plus the longest call, before the story takes it as gone to voicemail. */
+        const val VOICEMAIL_AFTER_MILLIS = 5 * 60_000L
     }
 }
 

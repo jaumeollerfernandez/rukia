@@ -96,7 +96,7 @@ fun RecordsScreen(caseTitle: String, board: RecordsBoard, caseTimeOf: (Long) -> 
         Column(Modifier.padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                 Text(stringResource(R.string.records_kicker, caseTitle), style = mono(11, c.subText, FontWeight.SemiBold))
-                Text(stringResource(R.string.police_records), fontSize = 32.sp, lineHeight = 38.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.5).sp)
+                Text(stringResource(R.string.police_records), fontFamily = com.rukia.game.infrastructure.ui.Rajdhani, fontSize = 32.sp, lineHeight = 36.sp, fontWeight = FontWeight.Bold)
             }
             Row(
                 Modifier.fillMaxWidth().height(38.dp).background(c.separator, RoundedCornerShape(10.dp)).padding(horizontal = 11.dp),

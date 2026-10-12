@@ -121,7 +121,6 @@ EN INVESTIGACIONES</string>
 
     <!-- Chats -->
     <string name="tab_chats">Chats</string>
-    <string name="tab_calls">Llamadas</string>
     <string name="tab_contacts">Contactos</string>
     <string name="tab_profile">Perfil</string>
     <string name="delete_group_q">¿Eliminar el grupo?</string>
@@ -141,7 +140,6 @@ EN INVESTIGACIONES</string>
     <string name="choose_reply">Elige tu respuesta</string>
     <string name="call_incoming">Llamada de voz entrante</string>
     <string name="call_voice">Llamada de voz</string>
-    <string name="call_missed">Llamada de voz perdida</string>
     <string name="call_badge">Llamada de voz de Chats</string>
     <string name="call_incoming_status">Llamada entrante…</string>
     <string name="decline">Rechazar</string>
@@ -199,42 +197,22 @@ EN INVESTIGACIONES</string>
 
     <!-- Policía -->
     <string name="police">Policía</string>
-    <string name="section_game">Partida</string>
-    <string name="solve_case">Resolver el caso</string>
+    <string name="solve_case">Rescate de Alicia</string>
     <string name="solve_closed">Cerrado: el plazo ha terminado</string>
     <string name="return_title">Volver al menú</string>
-    <string name="return_title_sub">Sal del caso. El progreso se guarda</string>
-    <string name="section_evidence">Pruebas</string>
     <string name="call_recordings">Grabaciones de llamadas</string>
-    <string name="call_recordings_sub">Vuelve a escuchar las llamadas que contestaste</string>
     <string name="section_admin">Administración</string>
-    <string name="admin_footer">Borra todas las conversaciones y decisiones de la historia de este caso.</string>
     <string name="reset_chats">Reiniciar chats</string>
-    <string name="send_officers_q">¿Enviar agentes?</string>
-    <string name="send_officers_text">%1$s irá a: %2$s. Su informe llegará a Chats. Esta patrulla no se podrá enviar a ningún otro sitio.</string>
-    <string name="the_squad">La patrulla</string>
     <string name="send">Enviar</string>
-    <string name="officers_on_way">Agentes en camino</string>
     <string name="no_squad_anymore">Ya no queda ninguna patrulla disponible</string>
     <string name="reset_q">¿Reiniciar todos los chats?</string>
     <string name="reset_text">Se borrarán todos los datos de esta partida: cada conversación, llamada y decisión de la historia. La historia volverá a empezar desde el principio: al momento si es antes de las %1$d:00; si no, a medianoche (hasta entonces el caso estará conectando). No se puede deshacer.</string>
     <string name="delete_everything">Borrar todo</string>
     <string name="operations">Operaciones</string>
-    <string name="ops_none_free">Ahora mismo no hay agentes libres. Las patrullas quedan disponibles a horas concretas durante el caso.</string>
-    <string name="ops_squad_until">%1$s, disponible hasta las %2$s. Una patrulla, un sitio: elige con cuidado.</string>
-    <string name="send_patrol">Enviar una patrulla</string>
-    <string name="send_inspect">Enviar agentes a inspeccionar</string>
-    <string name="squad_sent_at">Patrulla enviada a las %1$s</string>
     <string name="no_squad">No hay patrullas disponibles</string>
-    <string name="next_shift">Espera al siguiente turno</string>
     <string name="no_recordings">Aún no hay llamadas grabadas. Aquí aparecerán las que contestes.</string>
-    <string name="answered_calls">Llamadas contestadas</string>
-    <string name="tap_to_listen">Toca una llamada para volver a escucharla.</string>
-    <string name="playing">Reproduciendo…</string>
-    <string name="call_at">Llamada de las %1$s</string>
     <string name="case_solved">ZONA CONFIRMADA</string>
     <string name="solved_text">Los Mossos tienen la ubicación.\nEl caso se cierra cuando llegue el desenlace.</string>
-    <string name="solve_sub">Una zona al día: envía una patrulla a buscar</string>
     <string name="search_place">Buscar un lugar</string>
     <string name="case_places">Lugares del caso</string>
     <string name="place_not_found">Lugar no encontrado en Cataluña</string>
@@ -253,9 +231,7 @@ EN INVESTIGACIONES</string>
     <string name="station">Comisaría</string>
 
     <!-- Fichas policiales -->
-    <string name="section_investigation">Investigación</string>
     <string name="police_records">Fichas policiales</string>
-    <string name="police_records_sub">Fichas, huellas y atestados</string>
     <string name="records_kicker">CONSULTA · EXP. %1$s</string>
     <string name="records_search">Nombre, DNI o matrícula</string>
     <string name="records_people">Personas</string>
@@ -293,4 +269,80 @@ EN INVESTIGACIONES</string>
         <item>ANULAR</item>
         <item>MEÑIQUE</item>
     </string-array>
+    <string name="police_hub_title">Central de Policía</string>
+    <string name="police_channel_sub">Canal cifrado · parte a las 21:30</string>
+    <string name="police_online">EN LÍNEA</string>
+    <string name="police_day">DÍA %1$d · %2$s</string>
+    <string name="police_last_day">ÚLTIMO DÍA</string>
+    <string name="police_today">DISPONIBLE HOY</string>
+    <string name="police_squad_until">%1$s · hasta las %2$s</string>
+    <string name="police_assign">ASIGNAR</string>
+    <string name="police_zone">Zona del día</string>
+    <string name="police_zone_sub">1 verificación disponible en el mapa</string>
+    <string name="police_mark">MARCAR</string>
+    <string name="police_tools">HERRAMIENTAS</string>
+    <string name="police_map">Mapa del caso</string>
+    <string name="police_records_short">Fichas</string>
+    <string name="police_recordings">Grabaciones</string>
+    <string name="police_ops_kicker">CENTRAL · DÍA %1$d · %2$s</string>
+    <string name="police_sent_to">Patrulla enviada a %1$s. El informe llegará a Chats.</string>
+    <string name="police_pick_destination">ELIGE DESTINO</string>
+    <string name="police_patrol">PATRULLA</string>
+    <string name="police_inspection">INSPECCIÓN</string>
+    <string name="police_pick_one">Elige un destino</string>
+    <string name="police_send">Enviar patrulla ›</string>
+    <string name="police_order">ORDEN DE SALIDA</string>
+    <string name="police_send_q">¿Enviar la patrulla a %1$s?</string>
+    <string name="police_send_text">%1$s. Destino: %2$s. El informe llegará a Chats. Esta patrulla no podrá ir a ningún otro sitio.</string>
+    <string name="police_squad_sent">ENVIADA %1$s</string>
+    <string name="police_squad_open">DISPONIBLE · QUEDAN %1$d h %2$d min</string>
+    <string name="police_squad_locked">BLOQUEADA HASTA %1$s</string>
+    <string name="police_squad_gone">NO SALIÓ</string>
+    <string name="police_tag_sent">ENVIADA</string>
+    <string name="police_tag_locked">BLOQUEADA</string>
+    <string name="channel_encrypted">CIFRADO</string>
+    <string name="channel_reply">TU RESPUESTA</string>
+    <string name="channel_until">HASTA %1$s</string>
+    <string name="channel_pick">ELIGE UNA RESPUESTA</string>
+    <string name="channel_send">ENVIAR ›</string>
+    <plurals name="police_days_left">
+        <item quantity="one">QUEDA %d DÍA</item>
+        <item quantity="many">QUEDAN %d DÍAS</item>
+        <item quantity="other">QUEDAN %d DÍAS</item>
+    </plurals>
+    <string name="solve_kicker">LOCALIZACIÓN · %1$s</string>
+    <string name="solve_day">DÍA %1$d/%2$d</string>
+    <string name="solve_objective">OBJETIVO</string>
+    <string name="recordings_kicker">PRUEBAS · LLAMADAS CONTESTADAS</string>
+    <string name="recordings_count">GRABACIONES</string>
+    <string name="recordings_total">MIN EN TOTAL</string>
+    <string name="recordings_unheard">SIN ESCUCHAR</string>
+    <string name="recordings_note">Se guardan todas las llamadas: las que contestas y los mensajes que dejan en el buzón de voz.</string>
+    <string name="recording_play">Escuchar la llamada de %1$s</string>
+    <string name="recording_pause">Parar la llamada de %1$s</string>
+    <string name="choices_hide">Ocultar las respuestas</string>
+    <string name="choices_show">Mostrar las respuestas</string>
+    <plurals name="choices_waiting">
+        <item quantity="one">%d respuesta</item>
+        <item quantity="many">%d respuestas</item>
+        <item quantity="other">%d respuestas</item>
+    </plurals>
+    <string name="app_calls">Llamadas</string>
+    <string name="calls_all">Todas</string>
+    <string name="calls_voicemail">Buzón de voz</string>
+    <string name="calls_no_voicemail">No hay mensajes en el buzón de voz</string>
+    <string name="call_voicemail">Mensaje de voz</string>
+    <string name="call_answered">Contestada</string>
+    <string name="answer">Contestar</string>
+    <string name="secure_call_incoming_strip">CANAL OMI · ENTRANTE</string>
+    <string name="secure_call_priority">%1$s · PRIORIDAD ALTA</string>
+    <string name="secure_call_incoming">LLAMADA ENTRANTE</string>
+    <string name="secure_call_channel">CANAL</string>
+    <string name="secure_call_recording">GRABACIÓN</string>
+    <string name="secure_call_automatic">Automática</string>
+    <string name="secure_call_note">Si no contestas, el mensaje queda en el buzón de voz y en Grabaciones</string>
+    <string name="secure_call_live">EN LÍNEA · %1$s</string>
+    <string name="secure_call_muted">SIN SONIDO</string>
+    <string name="secure_call_speaking">HABLANDO</string>
+    <string name="secure_call_silenced">Sin sonido</string>
 </resources>

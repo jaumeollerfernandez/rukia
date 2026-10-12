@@ -67,16 +67,16 @@ mañana a esta hora. si puedo #delay: 4 #caduca: D5 01:00
 * [(sin responder)]
 - -> d5
 
-// Si cogió la llamada, Laia tiene la ubicación. Si no, solo la puerta azul.
+// La ubicación llega al móvil, pero solo sirve si alguien la oye: cogida, o escuchada en el buzón de voz antes de que
+// Laia mire a las 01:30 (laia.d6). Si no, Alicia sigue sola esa noche.
 = tras_llamada
 {llamada_desconocido_contestada:
-    ~ alicia_llamo = true
     ya está. ya lo sabes #delay: 10
-    que vengan sin sirenas. y que no se lo digan a mi madre #delay: 5
 - else:
-    vale. no puedes hablar #delay: 10
-    busca la puerta azul. es lo único que te puedo decir #delay: 5
+    te lo he dejado en el buzón de voz. escúchalo esta noche, por favor #delay: 10
+    no sé si mañana tendré batería #delay: 4
 }
+que vengan sin sirenas. y que no se lo digan a mi madre #delay: 5
 ->->
 
 = se_va

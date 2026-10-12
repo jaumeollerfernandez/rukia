@@ -2,7 +2,7 @@
 
 ## Datos
 - Sargento de los Mossos d'Esquadra, comisaría de Olot. Unos 45 años.
-- Chat oculto «Sgt. Puig 🔒», un canal cifrado con el jugador (Kimo).
+- «Sgt. Laia Puig», un canal cifrado con el jugador (Kimo) dentro de la app de Policía, no en Chats (`"app": "police"` en `characters.json`). Sus notificaciones abren ese canal.
 - Horario: 08:00-15:00 y 20:00-23:00. Cada noche, a las 21:30, pide el parte.
 
 ## Biografía

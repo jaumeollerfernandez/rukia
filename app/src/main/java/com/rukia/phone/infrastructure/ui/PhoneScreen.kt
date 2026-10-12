@@ -1,5 +1,6 @@
 package com.rukia.phone.infrastructure.ui
 
+import com.rukia.chat.infrastructure.ui.CallLayer
 import com.rukia.phone.infrastructure.AppLaunch
 import com.rukia.phone.infrastructure.LocalCaseId
 import com.rukia.phone.domain.model.isDebugCase
@@ -77,6 +78,8 @@ fun PhoneScreen(caseId: String, onReturnToTitle: () -> Unit, onCaseOver: () -> U
                 }
                 // The ending's last line closes the case: the game takes over with the closing report.
                 EffectsLayer(caseId) { if (it == CASE_CLOSED) onCaseOver() }
+                // Calls ring over whatever app is open.
+                CallLayer(caseId)
             }
         } }
     }

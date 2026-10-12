@@ -46,6 +46,7 @@ class ChatModule private constructor(context: Context, caseId: String) {
     val setStoryFlag = SetStoryFlag(story, chatRepo, notifier, clock)
     val playStoryEvent = PlayStoryEvent(chatRepo, story, notifier, clock)
     val listCalls = ListCalls(chatRepo)
+    val hearCall = HearCall(chatRepo) { setStoryFlag(it) }
     val listArrivedEffects = ListArrivedEffects(chatRepo, clock)
     val deleteChat = DeleteChat(chatRepo)
     val getProfile = GetProfile(profileRepo)

@@ -1,22 +1,22 @@
 {
   "channel": "central",
   "squads": [
-    { "id": "manana", "label": "Dos agentes y un coche", "from": "D6 08:00", "until": "D6 12:00" },
-    { "id": "noche", "label": "Última salida", "from": "D6 22:05", "until": "D7 02:00" }
+    { "id": "manana", "name": "Patrulla de mañana", "label": "Dos agentes y un coche", "from": "D6 08:00", "until": "D6 12:00" },
+    { "id": "noche", "name": "Última salida", "label": "Una patrulla nocturna", "from": "D6 22:05", "until": "D7 02:00" }
   ],
   "operations": [
-    { "id": "mas_rosalia", "label": "Mas de la Rosalia, Sant Salvador de Bianya", "knot": "envio_mas", "type": "patrol" },
-    { "id": "masias_bracons", "label": "Batida por las masías de la subida a Bracons", "knot": "envio_masias", "type": "inspect" },
-    { "id": "can_pericot", "label": "Can Pericot, el refugio del esplai en Capsec", "knot": "envio_capsec", "type": "inspect" },
-    { "id": "residencia", "label": "Residencias de ancianos de Olot", "knot": "envio_residencia", "type": "inspect" },
-    { "id": "estacion_olot", "label": "Estación de autobuses de Olot", "knot": "envio_estacion", "type": "inspect" },
-    { "id": "dani_mas", "label": "El mas del tío de Dani, en la Vall d'en Bas", "knot": "envio_dani", "type": "inspect" },
-    { "id": "dani_detencion", "label": "Detener a Dani Rius e interrogarlo", "knot": "envio_detencion_dani", "type": "inspect" },
-    { "id": "casa_pol", "label": "Casa de Pol, en Olot", "knot": "envio_pol", "type": "inspect" },
-    { "id": "girona", "label": "El piso de Núria en Girona", "knot": "envio_girona", "type": "inspect" },
-    { "id": "piso_jan", "label": "El piso vacío del tío de Jan, en el barri vell de Girona", "knot": "envio_piso_jan", "type": "inspect" },
-    { "id": "barcelona", "label": "Casa del padre, en Barcelona", "knot": "envio_barcelona", "type": "inspect" },
-    { "id": "crater", "label": "Cráter de Santa Margarida", "knot": "envio_crater", "type": "inspect", "squads": ["manana"] },
-    { "id": "vigilar_crater", "label": "Vigilar el cráter de Santa Margarida al amanecer", "knot": "envio_vigilancia", "type": "patrol", "squads": ["noche"] }
+    { "id": "mas_rosalia", "label": "Mas de la Rosalia, Sant Salvador de Bianya", "title": "Mas de la Rosalia", "place": "Sant Salvador de Bianya", "icon": "house", "knot": "envio_mas", "type": "patrol", "unlockedBy": ["sabe_rosalia", "sabe_puerta_azul"] },
+    { "id": "masias_bracons", "label": "Batida por las masías de la subida a Bracons", "title": "Masías de Bracons", "place": "Batida por la subida", "icon": "mountain", "knot": "envio_masias", "type": "inspect", "unlockedBy": ["sabe_ruta_lotes", "sabe_rosalia", "sabe_puerta_azul", "ficha_dani"] },
+    { "id": "can_pericot", "label": "Can Pericot, el refugio del esplai en Capsec", "title": "Can Pericot", "place": "Refugio del esplai, Capsec", "icon": "tent", "knot": "envio_capsec", "type": "inspect", "unlockedBy": ["sabe_capsec"] },
+    { "id": "residencia", "label": "Residencias de ancianos de Olot", "title": "Residencias", "place": "Ancianos de Olot", "icon": "building", "knot": "envio_residencia", "type": "inspect", "unlockedBy": ["sabe_residencia"] },
+    { "id": "estacion_olot", "label": "Estación de autobuses de Olot", "title": "Estación de Olot", "place": "Autobuses", "icon": "bus", "knot": "envio_estacion", "type": "inspect" },
+    { "id": "dani_mas", "label": "El mas del tío de Dani, en la Vall d'en Bas", "title": "Mas del tío de Dani", "place": "Vall d'en Bas", "icon": "house", "knot": "envio_dani", "type": "inspect", "unlockedBy": ["dani_sospechoso", "dani_droga"] },
+    { "id": "dani_detencion", "label": "Detener a Dani Rius e interrogarlo", "title": "Detener a Dani", "place": "Detención e interrogatorio", "icon": "cuffs", "knot": "envio_detencion_dani", "type": "inspect", "unlockedBy": ["dani_sospechoso", "dani_droga"] },
+    { "id": "casa_pol", "label": "Casa de Pol, en Olot", "title": "Casa de Pol", "place": "Olot", "icon": "house", "knot": "envio_pol", "type": "inspect" },
+    { "id": "girona", "label": "El piso de Núria en Girona", "title": "Piso de Núria", "place": "Girona", "icon": "building", "knot": "envio_girona", "type": "inspect", "unlockedBy": ["sabe_girona"] },
+    { "id": "piso_jan", "label": "El piso vacío del tío de Jan, en el barri vell de Girona", "title": "Piso del tío de Jan", "place": "Barri vell, Girona", "icon": "building", "knot": "envio_piso_jan", "type": "inspect", "unlockedBy": ["sabe_girona"] },
+    { "id": "barcelona", "label": "Casa del padre, en Barcelona", "title": "Casa del padre", "place": "Barcelona", "icon": "city", "knot": "envio_barcelona", "type": "inspect" },
+    { "id": "crater", "label": "Cráter de Santa Margarida", "title": "Cráter de Santa Margarida", "place": "Inspección de día", "icon": "volcano", "knot": "envio_crater", "type": "inspect", "squads": ["manana"], "unlockedBy": ["ficha_ignasi", "vigilancia_crater"] },
+    { "id": "vigilar_crater", "label": "Vigilar el cráter de Santa Margarida al amanecer", "title": "Vigilar el cráter", "place": "Solo con la última salida", "icon": "eye", "knot": "envio_vigilancia", "type": "patrol", "squads": ["noche"], "unlockedBy": ["ficha_ignasi", "vigilancia_crater"] }
   ]
 }

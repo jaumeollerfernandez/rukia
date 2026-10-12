@@ -1,6 +1,8 @@
 # Guiones de llamadas: caso RUK-93429049
 
-Cada audio es lo que se oye al contestar. El jugador **nunca habla**: al otro lado siempre hay silencio, y el guion lo tiene en cuenta (pausas, «¿hola?», «no hace falta que digas nada»).
+Las llamadas suenan en el móvil, sobre cualquier app, y quedan todas en la app **Llamadas**. Si el jugador contesta, oye el audio en ese momento; si rechaza o la deja sonar (30 s), salta el **buzón de voz** y el mismo audio queda como mensaje de voz, para escucharlo cuando quiera. No hay llamadas perdidas.
+
+Cada audio tiene que servir **para las dos cosas**: contestada (al otro lado hay silencio, porque el jugador **nunca habla**) y mensaje en el buzón. Nada de «no te oigo» ni de «te dejo un mensaje»: pausas, «¿hola?», «yo hablo».
 
 Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio/` con el nombre indicado.
 
@@ -48,9 +50,9 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 
 > ¿Ali? ¿Cariño?
 >
-> *(Pausa.)* ¿Me oyes? No te oigo nada… Bueno, da igual, yo hablo.
+> *(Pausa.)* Bueno, yo hablo, que si no, no lo digo.
 >
-> Solo quería oírte. Bueno, que me oyeras tú a mí. *(Risa nerviosa.)*
+> Solo quería que me oyeras. *(Risa nerviosa.)*
 >
 > Tu madre me ha llamado esta mañana. Me ha dicho que estás con una amiga, que estás bien. Y me ha pedido una cosa rara: que si te veo o me llamas, la llame a ella *antes que a nadie*. Así, con esas palabras. Está asustada, quiere que vuelvas a casa.
 >
@@ -79,7 +81,7 @@ Formato de grabación: `.m4a` u `.ogg`, mono, en `cases/ruk-93429049/media/audio
 - **Dónde:** en el obrador, en plena faena. Se oyen el ventilador del horno, una bandeja metálica, una radio lejos y la campanilla de la puerta en un momento.
 - **Duración:** unos 30 s.
 
-> ¿Alicia? Nena, ¿me oyes?
+> ¿Alicia? Nena, soy la Pilar.
 >
 > *(Bandeja contra el mármol.)* Mira, no te voy a reñir. Bueno, sí, pero luego.
 >
@@ -240,7 +242,7 @@ Todos los audios del caso tienen ya su guion.
 
 ## 9. `audio/alicia_ubicacion.m4a`: dónde estoy
 
-- **Cuándo:** D5, entre las 23:30 y la 01:00, en el chat del prepago, solo con `confianza_alicia` 3 y si el jugador le pide «Dime dónde estás». No lo escribe porque su madre puede leer su móvil, así que llama. Si el jugador lo coge, Laia escucha la grabación y la saca esa misma madrugada.
+- **Cuándo:** D5, entre las 23:30 y la 01:00, en el chat del prepago, solo con `confianza_alicia` 3 y si el jugador le pide «Dime dónde estás». No lo escribe porque su madre puede leer su móvil, así que llama. Si el jugador la coge, o escucha el mensaje en el buzón de voz antes de las D6 01:30, Laia escucha la grabación y la saca esa misma madrugada. Si no, el mensaje se queda sin escuchar y no hay rescate.
 - **Quién:** Alicia, 18 años. Primera vez que el jugador la oye. Susurra, con el móvil al 4 % de batería.
 - **Dónde:** fuera de la masía, de noche. Viento entre los árboles, la perra Trufa olisqueando cerca. Muy al final, un perro ladra a lo lejos.
 - **Duración:** unos 25 s.

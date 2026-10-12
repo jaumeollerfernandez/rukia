@@ -69,6 +69,7 @@ VAR alicia_avisada = false   // el jugador le ha dicho a Alicia, por el prepago,
 VAR alicia_entregada = false // Dani y la red se la han llevado: finales 5 y 6, pase lo que pase después
 VAR llamada_rosalia_contestada = false // lo pone la app cuando el jugador atiende o rechaza una llamada de ese chat
 VAR llamada_pilar_contestada = false   // ídem, la llamada de Pilar del D3
+VAR llamada_jordi_contestada = false   // ídem, la llamada de Papá del D2
 VAR sabe_prepago = false     // Mireia: Alicia compró un móvil barato en un estanco de Olot
 
 // Confianza de los contactos con pistas verdaderas: 1 confía (cuenta más), 0 normal, -1 recela (no cuenta nada hasta que
@@ -97,6 +98,7 @@ VAR patrulla_en_mas = false   // Laia ha mandado agentes al mas de la puerta azu
 VAR vigilancia_crater = false // habrá agentes en el cráter de Santa Margarida al amanecer
 VAR alicia_a_salvo = false    // Alicia ha bajado con la patrulla
 VAR llamada_desconocido_contestada = false // lo pone la app cuando el jugador atiende o rechaza la llamada del prepago
+VAR llamada_desconocido_escuchada = false  // lo pone la app cuando el jugador escucha el mensaje del prepago en el buzón de voz
 VAR alicia_llamo = false      // con confianza 3, Alicia dio la ubicación exacta por teléfono (D5 noche): Laia la saca esa noche
 VAR iris_ayuda = false        // Iris va a declarar a los Mossos
 VAR caso_resuelto = false     // lo activa la app de Policía si el jugador acierta la pregunta antes del límite

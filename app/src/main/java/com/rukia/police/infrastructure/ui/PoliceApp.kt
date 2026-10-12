@@ -2,9 +2,9 @@ package com.rukia.police.infrastructure.ui
 
 import androidx.compose.ui.res.stringResource
 import com.rukia.R
+import com.rukia.game.infrastructure.ui.Barlow
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,6 +24,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.activity.compose.BackHandler
+import com.rukia.phone.infrastructure.AppLaunch
 import com.rukia.phone.infrastructure.CaseClock
 import com.rukia.phone.infrastructure.ui.Kit
 import com.rukia.phone.infrastructure.ui.RukiaIcons
@@ -41,41 +43,37 @@ import kotlinx.coroutines.launch
 val PoliceBlue = Color(0xFF1A237E)
 internal val Danger = Color(0xFFD32F2F)
 
-/** Colors of the Police app, from the design canvas. It follows the device's dark mode. */
+/** Colors of the Police app's screens that read them (records, alerts). */
 internal class PolicePalette(
     val background: Color, val card: Color, val text: Color, val subText: Color, val preview: Color, val separator: Color,
     val chevron: Color, val red: Color, val tint: Color, val warnBackground: Color, val warnText: Color,
     val alert: Color, val alertSeparator: Color, val ctaOffBackground: Color, val ctaOffText: Color,
 )
 
-private val LightPolice = PolicePalette(
-    background = Color(0xFFF2F2F7), card = Color.White, text = Color(0xFF111114), subText = Color(0xFF6C6C70), preview = Color(0xFF3A3A3F),
-    separator = Color(0xFFE2E2E7), chevron = Color(0xFFB4B4BA), red = Color(0xFFC62A20), tint = Kit.Tint,
-    warnBackground = Color(0xFFFDECEA), warnText = Color(0xFFA1251B), alert = Color(0xFFF6F6F8), alertSeparator = Color(0xFFC9C9CF),
-    ctaOffBackground = Color(0xFFDCDCE1), ctaOffText = Color(0xFF5C5C62),
+/** The Police app in the game's terminal look (design: Police v2): dark, cyan accents. */
+internal val OmiPolice = PolicePalette(
+    background = Color(0xFF070B12), card = Color(0xFF0C1620), text = Color(0xFFE6EDF3), subText = Color(0xFF8FA3B5), preview = Color(0xFFB5C3D0),
+    separator = Color(0x333FD0E0), chevron = Color(0xFF5A6D7E), red = Color(0xFFFF6B6E), tint = Color(0xFF3FD0E0),
+    warnBackground = Color(0x1AFF6B6E), warnText = Color(0xFFFF8A8C), alert = Color(0xFF0C1620), alertSeparator = Color(0x4D3FD0E0),
+    ctaOffBackground = Color(0x268FA3B5), ctaOffText = Color(0xFF8FA3B5),
 )
 
-private val DarkPolice = PolicePalette(
-    background = Color.Black, card = Color(0xFF1C1C1E), text = Color(0xFFF2F2F7), subText = Color(0xFFA1A1A8), preview = Color(0xFFC4C4CA),
-    separator = Color(0xFF38383C), chevron = Color(0xFF5A5A60), red = Color(0xFFFF6B60), tint = Color(0xFF6E9BFF),
-    warnBackground = Color(0xFF3A1715), warnText = Color(0xFFFF9A90), alert = Color(0xFF2C2C30), alertSeparator = Color(0xFF48484E),
-    ctaOffBackground = Color(0xFF2C2C30), ctaOffText = Color(0xFFA1A1A8),
-)
-
-internal val LocalPolice = staticCompositionLocalOf { LightPolice }
+internal val LocalPolice = staticCompositionLocalOf { OmiPolice }
 
 /**
- * Police Department app for the case shown as [caseLabel] ("CASE 0") and [caseTitle]. [listCallRecordings] gives the
- * answered calls, [onResetChats] wipes the chat app's save, [onSolved] tells the story the case was solved, [onSearched] that a squad was sent to search on a case day, and
- * [onRecordRead] that the player read a police record (its story flag), [isStoryTrue] reads a story variable (what unlocks
- * a vehicle's record), and [onReturnToTitle] leaves the phone. The phone wires them in.
+ * Police Department app for the case [caseTitle]. [channel] is the sergeant's secure chat, inside the app.
+ * [listCallRecordings] gives the calls (answered or from the voicemail) and [onCallHeard] marks one listened to, [onResetChats] wipes the chat app's save, [onSolved] tells the story
+ * the case was solved, [onSearched] that a squad was sent to search on a case day, and [onRecordRead] that the player
+ * read a police record (its story flag), [isStoryTrue] reads a story variable (what unlocks a vehicle's record), and
+ * [onReturnToTitle] leaves the phone. The phone wires them in.
  */
 @Composable
 fun PoliceApp(
     caseId: String,
-    caseLabel: String,
     caseTitle: String,
+    channel: PoliceChannel?,
     listCallRecordings: () -> List<RecordedCall>,
+    onCallHeard: (RecordedCall) -> Unit,
     onResetChats: () -> Unit,
     onSolved: () -> Unit,
     onSearched: (day: Int) -> Unit,
@@ -84,20 +82,26 @@ fun PoliceApp(
     isStoryTrue: (variable: String) -> Boolean,
     onReturnToTitle: () -> Unit,
 ) {
-    val dark = isSystemInDarkTheme()
-    val c = if (dark) DarkPolice else LightPolice
-    SystemBars(lightBottomIcons = dark, lightTopIcons = dark)
+    val c = OmiPolice
+    SystemBars(lightBottomIcons = true, lightTopIcons = true)
     val context = LocalContext.current.applicationContext
     val m = remember(caseId) { PoliceModule(context, caseId, save = { onResetChats() }, radio = Radio(onReport), flags = StoryFlags(onRecordRead), facts = StoryFacts(isStoryTrue)) }
-    var confirming by remember { mutableStateOf(false) }
     var solving by rememberSaveable { mutableStateOf(false) }
+    var chatting by rememberSaveable { mutableStateOf(false) }
+    var operating by rememberSaveable { mutableStateOf(false) }
+    // A tapped notification of the sergeant's opens her channel (the phone passes on the chat id).
+    LaunchedEffect(AppLaunch.argument) {
+        if (AppLaunch.argument != null && channel != null) { AppLaunch.argument = null; chatting = true }
+    }
+    val unread by produceState(channel?.unread?.invoke() ?: 0, channel, chatting) { while (true) { value = channel?.unread?.invoke() ?: 0; delay(3_000) } }
     var listeningCalls by rememberSaveable { mutableStateOf(false) }
+    var heard by remember { mutableIntStateOf(0) } // bumped after listening to a recording, so it's no longer new
     var browsingRecords by rememberSaveable { mutableStateOf(false) }
     var openRecord by rememberSaveable { mutableStateOf<String?>(null) }
     var requested by remember { mutableIntStateOf(0) } // bumped after asking for a record, to show it at once
     // Records come in with the case's clock: look again every few seconds.
     val records by produceState(m.getRecords(), m, requested) { while (true) { value = m.getRecords(); delay(5_000) } }
-    var picked by remember { mutableStateOf<Operation?>(null) }
+    var failed by remember { mutableStateOf(false) } // the squad went off shift before it was sent
     // Squads come and go with the case's clock: look again every few seconds.
     var sent by remember { mutableIntStateOf(0) } // bumped after sending a squad, to show it at once
     val board by produceState(m.getOperations(), m, sent) { while (true) { value = m.getOperations(); delay(5_000) } }
@@ -106,16 +110,29 @@ fun PoliceApp(
     // The result that solves it may come in while the app is closed: tell the story when it's first seen. The case itself
     // closes with the story's ending.
     LaunchedEffect(searches.solved) { if (searches.solved) onSolved() }
-    val snackbar = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
 
-    val scheme = (if (dark) darkColorScheme() else lightColorScheme()).copy(primary = c.tint, background = c.background, surface = c.card)
+    val scheme = darkColorScheme().copy(primary = c.tint, background = c.background, surface = c.card)
     CompositionLocalProvider(LocalPolice provides c) {
         MaterialTheme(colorScheme = scheme) {
-            CompositionLocalProvider(LocalContentColor provides c.text) {
+            CompositionLocalProvider(LocalContentColor provides c.text, LocalTextStyle provides LocalTextStyle.current.copy(fontFamily = Barlow)) {
                 when {
-                    searches.solved -> VerdictScreen(onReturnToTitle)
-                    listeningCalls -> CallRecordingsScreen(remember { listCallRecordings() }) { listeningCalls = false }
+                    searches.solved -> VerdictScreen(caseTitle, onReturnToTitle)
+                    chatting && channel != null -> channel.content { chatting = false }
+                    operating -> {
+                        BackHandler { operating = false; failed = false }
+                        OperationsScreen(board, CaseClock.now(caseId), searches.today, m::timeOf, failed, onBack = { operating = false; failed = false }) { op ->
+                            // The squad may have gone off shift while the order was being confirmed.
+                            failed = runCatching { m.dispatchSquad(op.id) }.isFailure
+                            sent++
+                        }
+                    }
+                    listeningCalls -> {
+                        val calls = remember(heard) { listCallRecordings() }
+                        CallRecordingsScreen(
+                            calls, calls.filter { !it.heard }.map { it.audio }.toSet(), m::caseTimeOf,
+                            onHeard = { onCallHeard(it); heard++ }, onBack = { listeningCalls = false },
+                        )
+                    }
                     openRecord != null -> {
                         val opened = remember(openRecord) { runCatching { m.readRecord(openRecord!!) }.getOrNull() }
                         if (opened == null) LaunchedEffect(Unit) { openRecord = null }
@@ -136,99 +153,33 @@ fun PoliceApp(
                         },
                         onOpen = { openRecord = it },
                     )
-                    solving -> SolveCaseScreen(m.getCaseQuestion(), remember { m.getKnownPlaces() }, searches, { CaseClock.now(caseId) }, onBack = { solving = false }, onFind = { m.findPlace(it) }) { at, radius ->
+                    solving -> SolveCaseScreen(caseTitle, m.getCaseQuestion(), remember { m.getKnownPlaces() }, searches, { CaseClock.now(caseId) }, onBack = { solving = false }, onFind = { m.findPlace(it) }) { at, radius ->
                         // the deadline may have passed while the alert was open
                         runCatching { m.searchZone(at, radius) }.onSuccess { onSearched(it.day) }
                         searched++
                     }
-                    else -> Box(Modifier.fillMaxSize().background(c.background)) {
-                        Column(
-                            Modifier.fillMaxSize().verticalScroll(rememberScrollState()).statusBarsPadding().navigationBarsPadding()
-                                .padding(start = 16.dp, end = 16.dp, bottom = 24.dp),
-                            verticalArrangement = Arrangement.spacedBy(22.dp),
-                        ) {
-                            Text(
-                                stringResource(R.string.app_police), Modifier.padding(start = 4.dp, top = 8.dp),
-                                fontSize = 34.sp, lineHeight = 40.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.6).sp,
-                            )
-                            CaseCard(caseLabel, caseTitle, m.getCaseQuestion().question)
-                            Section(stringResource(R.string.section_game)) {
-                                // Past the case's deadline there's nothing left to solve, unless the last squad is still out.
-                                val closed = m.deadline?.let { CaseClock.now(caseId) > it } == true && searches.pending(CaseClock.now(caseId)) == null
-                                if (closed) ActionRow(RukiaIcons.Search, Danger, stringResource(R.string.solve_case), stringResource(R.string.solve_closed), trailing = {}) {}
-                                else ActionRow(RukiaIcons.Search, Danger, stringResource(R.string.solve_case), stringResource(R.string.solve_sub)) { solving = true }
-                                RowDivider()
-                                ActionRow(RukiaIcons.Exit, PoliceBlue, stringResource(R.string.return_title), stringResource(R.string.return_title_sub), onClick = onReturnToTitle)
-                            }
-                            if (m.hasOperations) OperationsSection(board, m.operationLabels) { picked = it }
-                            if (m.hasRecords) Section(stringResource(R.string.section_investigation)) {
-                                ActionRow(RukiaIcons.IdCard, Color(0xFF455A64), stringResource(R.string.police_records), stringResource(R.string.police_records_sub)) { browsingRecords = true }
-                            }
-                            Section(stringResource(R.string.section_evidence)) {
-                                ActionRow(RukiaIcons.Phone, Kit.Accept, stringResource(R.string.call_recordings), stringResource(R.string.call_recordings_sub)) { listeningCalls = true }
-                            }
-                            Section(stringResource(R.string.section_admin), footer = stringResource(R.string.admin_footer)) {
-                                Text(
-                                    stringResource(R.string.reset_chats),
-                                    Modifier.fillMaxWidth().clickable(role = Role.Button) { confirming = true }.heightIn(min = 48.dp)
-                                        .padding(horizontal = 16.dp, vertical = 12.dp),
-                                    color = c.red, fontSize = 17.sp, fontWeight = FontWeight.Medium,
-                                )
-                            }
-                        }
-                        SnackbarHost(snackbar, Modifier.align(Alignment.BottomCenter).navigationBarsPadding())
-                    }
-                }
-
-                picked?.let { op ->
-                    val onWay = stringResource(R.string.officers_on_way)
-                    val noneLeft = stringResource(R.string.no_squad_anymore)
-                    IosAlert(
-                        title = stringResource(R.string.send_officers_q),
-                        text = stringResource(R.string.send_officers_text, board.squad?.label ?: stringResource(R.string.the_squad), op.label),
-                        confirm = stringResource(R.string.send),
-                        onDismiss = { picked = null },
-                    ) {
-                        picked = null
-                        // The squad may have gone off shift while the alert was open.
-                        val ok = runCatching { m.dispatchSquad(op.id) }.isSuccess
-                        sent++
-                        scope.launch { snackbar.showSnackbar(if (ok) onWay else noneLeft) }
-                    }
-                }
-
-                if (confirming) {
-                    IosAlert(
-                        title = stringResource(R.string.reset_q),
-                        text = stringResource(R.string.reset_text, CaseClock.LATE_START_HOUR),
-                        confirm = stringResource(R.string.delete_everything),
-                        onDismiss = { confirming = false },
-                    ) {
-                        confirming = false
-                        m.resetSave.reset()
-                        // Back to the case list: the week starts when the case is opened again (at midnight, from noon on).
-                        onReturnToTitle()
+                    else -> {
+                        val now = CaseClock.now(caseId)
+                        // Past the case's deadline there's nothing left to solve, unless the last squad is still out.
+                        val closed = m.deadline?.let { now > it } == true && searches.pending(now) == null
+                        val unit = m.getCaseQuestion().unit
+                        PoliceHub(
+                            listOf(unit, stringResource(R.string.case_file, caseTitle)).filter { it.isNotEmpty() }.joinToString(" · "),
+                            HubState(now, searches, board.takeIf { m.hasOperations }, records.rows.count { it.status == RecordStatus.Ready }.takeIf { m.hasRecords }, closed,
+                                remember(heard, listeningCalls) { listCallRecordings().count { !it.heard } }),
+                            channel, unread,
+                            onChannel = { chatting = true }, onOps = { operating = true }, onMap = { solving = true },
+                            onRecords = { browsingRecords = true }, onRecordings = { listeningCalls = true },
+                            onReturnToTitle = onReturnToTitle,
+                            onReset = {
+                                m.resetSave.reset()
+                                // Back to the case list: the week starts when the case is opened again (at midnight, from noon on).
+                                onReturnToTitle()
+                            },
+                        )
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-private fun CaseCard(label: String, title: String, question: String) {
-    val c = LocalPolice.current
-    Column(
-        Modifier.fillMaxWidth().background(c.card, RoundedCornerShape(16.dp)).padding(horizontal = 16.dp, vertical = 22.dp),
-        horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp),
-    ) {
-        Box(Modifier.size(64.dp).background(PoliceBlue, RoundedCornerShape(17.dp)), contentAlignment = Alignment.Center) {
-            Icon(RukiaIcons.Shield, null, Modifier.size(34.dp), tint = Color.White)
-        }
-        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(2.dp)) {
-            Text(label, color = c.subText, fontSize = 13.sp, fontWeight = FontWeight.SemiBold, letterSpacing = 0.6.sp)
-            Text(title, fontSize = 22.sp, fontWeight = FontWeight.Bold)
-            Text(question, color = c.preview, fontSize = 15.sp, lineHeight = 20.sp, textAlign = TextAlign.Center)
         }
     }
 }

@@ -5,8 +5,8 @@ import com.rukia.chat.domain.port.ChatRepository
 import com.rukia.chat.domain.port.StoryEngine
 
 /**
- * The player picks up or declines the ringing call. The story learns it through the ink variable
- * `llamada_<chatId>_contestada`, if it declares one, so a caller can ring again only if nobody picked up.
+ * The player picks up the ringing call, or it goes to voicemail (declined or left ringing). The story learns which
+ * through the ink variable `llamada_<chatId>_contestada`, if it declares one.
  */
 class EndCall(private val chats: ChatRepository, private val story: StoryEngine? = null) {
     operator fun invoke(chatId: String, answered: Boolean): Chat {

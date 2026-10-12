@@ -48,7 +48,7 @@ fun callLabel(status: CallStatus) = stringResource(
     when (status) {
         CallStatus.RINGING -> R.string.call_incoming
         CallStatus.ANSWERED -> R.string.call_voice
-        CallStatus.DECLINED -> R.string.call_missed
+        CallStatus.VOICEMAIL -> R.string.call_voicemail
     }
 )
 
@@ -94,28 +94,22 @@ fun IncomingCallScreen(caller: Character?, onAnswer: () -> Unit, onDecline: () -
 }
 
 /**
- * An answered call, shown like a real one: who's on the line and how long the call has lasted. What the caller
- * says plays from [audio]; the call hangs up when it ends or the player hangs up.
+ * Plays what the caller says from [audio] ([muted] silences it) and hangs up ([onDone]) when it ends; a missing file
+ * is a silent call the player hangs up. Like a real call, the screen goes dark against the ear. Returns the seconds so far.
  */
 @Composable
-fun OngoingCallScreen(caller: Character?, audio: String, onHangUp: () -> Unit) {
-    BackHandler {} // hang up with the button
-    SystemBars(lightBottomIcons = true)
+internal fun callAudio(audio: String, muted: Boolean, onDone: () -> Unit): Int {
     val context = LocalContext.current
     val caseId = LocalCaseId.current
-    val hangUp by rememberUpdatedState(onHangUp)
+    val done by rememberUpdatedState(onDone)
     var player by remember { mutableStateOf<MediaPlayer?>(null) }
     var seconds by remember { mutableIntStateOf(0) }
-    var muted by remember { mutableStateOf(false) }
-    var speaker by remember { mutableStateOf(false) }
     LaunchedEffect(Unit) { while (true) { delay(1_000); seconds++ } }
     DisposableEffect(audio) {
-        // A missing file just means a silent call the player hangs up themselves.
-        player = runCatching { playMedia(context, caseId, audio) { hangUp() } }.getOrNull()
+        player = runCatching { playMedia(context, caseId, audio) { done() } }.getOrNull()
         onDispose { player?.release(); player = null }
     }
     LaunchedEffect(muted, player) { player?.setVolume(if (muted) 0f else 1f, if (muted) 0f else 1f) }
-    // Like a real call: the screen goes dark against the ear, so a cheek can't press anything.
     DisposableEffect(Unit) {
         val power = context.getSystemService(PowerManager::class.java)
         val lock = power?.takeIf { it.isWakeLockLevelSupported(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK) }
@@ -123,6 +117,20 @@ fun OngoingCallScreen(caller: Character?, audio: String, onHangUp: () -> Unit) {
             ?.apply { acquire(10 * 60_000L) } // released on hang-up; the timeout only guards against a leak
         onDispose { if (lock?.isHeld == true) lock.release() }
     }
+    return seconds
+}
+
+/**
+ * An answered call, shown like a real one: who's on the line and how long the call has lasted. What the caller
+ * says plays from [audio]; the call hangs up when it ends or the player hangs up.
+ */
+@Composable
+fun OngoingCallScreen(caller: Character?, audio: String, onHangUp: () -> Unit) {
+    BackHandler {} // hang up with the button
+    SystemBars(lightBottomIcons = true)
+    var muted by remember { mutableStateOf(false) }
+    var speaker by remember { mutableStateOf(false) }
+    val seconds = callAudio(audio, muted, onHangUp)
 
     Column(
         Modifier.fillMaxSize().callBackdrop(caller.tint()).safeDrawingPadding().padding(start = 28.dp, end = 28.dp, top = 48.dp, bottom = 40.dp),
@@ -168,7 +176,7 @@ private fun RoundCallButton(label: String?, color: Color, iconRotation: Float, c
 
 /** Phone ringtone + vibration while on screen. */
 @Composable
-private fun Ringing() {
+internal fun Ringing() {
     val context = LocalContext.current
     DisposableEffect(Unit) {
         val ringtone = RingtoneManager.getRingtone(context, RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE))
@@ -179,23 +187,6 @@ private fun Ringing() {
         onDispose {
             ringtone?.stop()
             vibrator?.cancel()
-        }
-    }
-}
-
-@Composable
-fun CallsScreen(calls: List<CallRecord>, characters: Map<String, Character>) {
-    val p = LocalPalette.current
-    LazyColumn(Modifier.fillMaxSize()) {
-        item { LargeTitle(stringResource(R.string.tab_calls)) }
-        if (calls.isEmpty()) item { Text(stringResource(R.string.no_calls), Modifier.padding(horizontal = 20.dp), color = p.subText, fontSize = 15.sp) }
-        items(calls) { call ->
-            val missed = call.status == CallStatus.DECLINED
-            val color = if (missed) p.red else p.subText
-            PersonRow(
-                characters[call.from], "${callLabel(call.status)} · ${call.time}", nameColor = if (missed) p.red else Color.Unspecified,
-                subtitleIcon = { Icon(RukiaIcons.Phone, null, Modifier.size(14.dp), tint = color) },
-            )
         }
     }
 }

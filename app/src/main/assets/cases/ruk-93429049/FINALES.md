@@ -77,11 +77,11 @@ En `desconocido`, D4 23:40:
 Con eso `confianza_alicia` llega a 3. En D5 23:30, «Dime dónde estás…» da la puerta azul y la llamada de la pieza I.
 
 ### I. La llamada de Alicia (con confianza 3)
-En `desconocido`, D5 23:30, con `confianza_alicia` 3 (pieza F), elige «Dime dónde estás. Mandaremos una patrulla…». Alicia no lo escribe: **te llama** (`audio/alicia_ubicacion.m4a`). Si coges la llamada (`alicia_llamo`):
+En `desconocido`, D5 23:30, con `confianza_alicia` 3 (pieza F), elige «Dime dónde estás. Mandaremos una patrulla…». Alicia no lo escribe: **te llama** (`audio/alicia_ubicacion.m4a`). Si la coges, o escuchas su mensaje en el buzón de voz (app Llamadas o Grabaciones) antes de las D6 01:30, Laia la oye contigo (`alicia_llamo`). Si no la escuchas a tiempo, esa noche no pasa nada y Alicia sigue sola en el mas:
 - A las D6 01:30, Laia escucha la grabación y manda el coche de guardia al mas, **sin gastar salida**. Alicia, en comisaría (`patrulla_en_mas`, `alicia_a_salvo`): a salvo de la secta y de Dani.
 - Alicia se lo cuenta todo: Rosa d'Abril, los ayunos, el agua, los papeles, Ignasi Coll (`sabe_secta`, `sabe_ignasi`) y la Trobada de l'Alba. Con su declaración, Laia pone gente en el cráter (`vigilancia_crater`).
 - Te lleva directo al **final 1**. Las dos salidas del D6 quedan libres (para logros: el mas del tío de Dani, la detención…).
-- Si no la coges, solo te queda «busca la puerta azul». Esta opción ocupa el hueco del aviso de Dani (H3) esa noche.
+- Esta opción ocupa el hueco del aviso de Dani (H3) esa noche.
 
 ### G. Fichas policiales (opcional, dan pistas)
 En Policía › Fichas policiales se pide una ficha y llega horas después (12 h el D1, 10 el D2, 8 el D3, 6 el D4, 4 el D5, 2 el D6, 1 el D7). Solo se tramita una a la vez. Leerla pone `ficha_<id>`:

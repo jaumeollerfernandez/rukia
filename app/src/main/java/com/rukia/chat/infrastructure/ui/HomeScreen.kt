@@ -24,7 +24,7 @@ import com.rukia.chat.domain.model.Character
 import com.rukia.phone.infrastructure.ui.Kit
 import com.rukia.phone.infrastructure.ui.RukiaIcons
 
-enum class Tab(@StringRes val label: Int) { Chats(R.string.tab_chats), Calls(R.string.tab_calls), Contacts(R.string.tab_contacts), Profile(R.string.tab_profile) }
+enum class Tab(@StringRes val label: Int) { Chats(R.string.tab_chats), Contacts(R.string.tab_contacts), Profile(R.string.tab_profile) }
 
 /** The tab's content above the iOS-style tab bar. [unreadChats] badges the Chats tab. */
 @Composable
@@ -45,7 +45,6 @@ fun HomeScreen(tab: Tab, onTab: (Tab) -> Unit, owner: Character?, unreadChats: I
                     Box {
                         when (t) {
                             Tab.Chats -> Icon(if (selected) RukiaIcons.ChatFilled else RukiaIcons.Chat, null, Modifier.size(26.dp), tint = color)
-                            Tab.Calls -> Icon(RukiaIcons.Phone, null, Modifier.size(26.dp), tint = color)
                             Tab.Contacts -> Icon(if (selected) RukiaIcons.PersonFilled else RukiaIcons.Person, null, Modifier.size(26.dp), tint = color)
                             // The phone owner's picture, ringed when the tab is selected.
                             Tab.Profile -> Box(if (selected) Modifier.border(2.dp, color, CircleShape).padding(2.dp) else Modifier) {

@@ -123,7 +123,6 @@ IN INVESTIGATIONS</string>
 
     <!-- Chats -->
     <string name="tab_chats">Chats</string>
-    <string name="tab_calls">Calls</string>
     <string name="tab_contacts">Contacts</string>
     <string name="tab_profile">Profile</string>
     <string name="delete_group_q">Delete group?</string>
@@ -143,7 +142,6 @@ IN INVESTIGATIONS</string>
     <string name="choose_reply">Choose your reply</string>
     <string name="call_incoming">Incoming voice call</string>
     <string name="call_voice">Voice call</string>
-    <string name="call_missed">Missed voice call</string>
     <string name="call_badge">Chats voice call</string>
     <string name="call_incoming_status">Incoming call…</string>
     <string name="decline">Decline</string>
@@ -201,42 +199,22 @@ IN INVESTIGATIONS</string>
 
     <!-- Police Department -->
     <string name="police">Police</string>
-    <string name="section_game">Game</string>
-    <string name="solve_case">Solve the case</string>
+    <string name="solve_case">Rescue of Alicia</string>
     <string name="solve_closed">Closed: the deadline has passed</string>
     <string name="return_title">Return to title</string>
-    <string name="return_title_sub">Leave the case. Progress is kept</string>
-    <string name="section_evidence">Evidence</string>
     <string name="call_recordings">Call recordings</string>
-    <string name="call_recordings_sub">Listen again to the calls you answered</string>
     <string name="section_admin">Administration</string>
-    <string name="admin_footer">Deletes every conversation and story choice in this case.</string>
     <string name="reset_chats">Reset chats</string>
-    <string name="send_officers_q">Send officers?</string>
-    <string name="send_officers_text">%1$s will go to: %2$s. Their report will arrive in Chats. This squad can\'t be sent anywhere else.</string>
-    <string name="the_squad">The squad</string>
     <string name="send">Send</string>
-    <string name="officers_on_way">Officers on their way</string>
     <string name="no_squad_anymore">No squad available anymore</string>
     <string name="reset_q">Reset all chats?</string>
     <string name="reset_text">All data related to this save file will be deleted: every conversation, call and choice made in the story. The story will start again from the beginning: right away if it\'s before %1$d:00, or else at midnight (until then the case is connecting). This can\'t be undone.</string>
     <string name="delete_everything">Delete everything</string>
     <string name="operations">Operations</string>
-    <string name="ops_none_free">No officers are free right now. Squads become available at set times during the case.</string>
-    <string name="ops_squad_until">%1$s, available until %2$s. One squad, one place: choose carefully.</string>
-    <string name="send_patrol">Send a patrol</string>
-    <string name="send_inspect">Send officers to inspect</string>
-    <string name="squad_sent_at">Squad sent at %1$s</string>
     <string name="no_squad">No squad available</string>
-    <string name="next_shift">Wait for the next shift</string>
     <string name="no_recordings">No calls recorded yet. Calls you answer show up here.</string>
-    <string name="answered_calls">Answered calls</string>
-    <string name="tap_to_listen">Tap a call to listen to it again.</string>
-    <string name="playing">Playing…</string>
-    <string name="call_at">Call at %1$s</string>
     <string name="case_solved">ZONE CONFIRMED</string>
     <string name="solved_text">The Mossos have the location.\nThe case closes when it reaches its end.</string>
-    <string name="solve_sub">One zone a day: send a squad to search it</string>
     <string name="search_place">Search a place</string>
     <string name="case_places">Case places</string>
     <string name="place_not_found">Place not found in Catalonia</string>
@@ -255,9 +233,7 @@ IN INVESTIGATIONS</string>
     <string name="station">Station</string>
 
     <!-- Police records -->
-    <string name="section_investigation">Investigation</string>
     <string name="police_records">Police records</string>
-    <string name="police_records_sub">Records, fingerprints and reports</string>
     <string name="records_kicker">LOOKUP · FILE %1$s</string>
     <string name="records_search">Name, ID or plate</string>
     <string name="records_people">People</string>
@@ -295,4 +271,78 @@ IN INVESTIGATIONS</string>
         <item>RING</item>
         <item>LITTLE</item>
     </string-array>
+    <string name="police_hub_title">Police Central</string>
+    <string name="police_channel_sub">Encrypted channel · report at 21:30</string>
+    <string name="police_online">ONLINE</string>
+    <string name="police_day">DAY %1$d · %2$s</string>
+    <string name="police_last_day">LAST DAY</string>
+    <string name="police_today">AVAILABLE TODAY</string>
+    <string name="police_squad_until">%1$s · until %2$s</string>
+    <string name="police_assign">ASSIGN</string>
+    <string name="police_zone">Today\'s zone</string>
+    <string name="police_zone_sub">1 check available on the map</string>
+    <string name="police_mark">MARK</string>
+    <string name="police_tools">TOOLS</string>
+    <string name="police_map">Case map</string>
+    <string name="police_records_short">Records</string>
+    <string name="police_recordings">Recordings</string>
+    <string name="police_ops_kicker">CENTRAL · DAY %1$d · %2$s</string>
+    <string name="police_sent_to">Squad sent to %1$s. The report will arrive in Chats.</string>
+    <string name="police_pick_destination">PICK A DESTINATION</string>
+    <string name="police_patrol">PATROL</string>
+    <string name="police_inspection">INSPECTION</string>
+    <string name="police_pick_one">Pick a destination</string>
+    <string name="police_send">Send squad ›</string>
+    <string name="police_order">DISPATCH ORDER</string>
+    <string name="police_send_q">Send the squad to %1$s?</string>
+    <string name="police_send_text">%1$s. Destination: %2$s. The report will arrive in Chats. This squad won\'t be able to go anywhere else.</string>
+    <string name="police_squad_sent">SENT %1$s</string>
+    <string name="police_squad_open">AVAILABLE · %1$d h %2$d min LEFT</string>
+    <string name="police_squad_locked">LOCKED UNTIL %1$s</string>
+    <string name="police_squad_gone">DIDN\'T GO OUT</string>
+    <string name="police_tag_sent">SENT</string>
+    <string name="police_tag_locked">LOCKED</string>
+    <string name="channel_encrypted">ENCRYPTED</string>
+    <string name="channel_reply">YOUR REPLY</string>
+    <string name="channel_until">UNTIL %1$s</string>
+    <string name="channel_pick">PICK A REPLY</string>
+    <string name="channel_send">SEND ›</string>
+    <plurals name="police_days_left">
+        <item quantity="one">%d DAY LEFT</item>
+        <item quantity="other">%d DAYS LEFT</item>
+    </plurals>
+    <string name="solve_kicker">LOCATION · %1$s</string>
+    <string name="solve_day">DAY %1$d/%2$d</string>
+    <string name="solve_objective">OBJECTIVE</string>
+    <string name="recordings_kicker">EVIDENCE · ANSWERED CALLS</string>
+    <string name="recordings_count">RECORDINGS</string>
+    <string name="recordings_total">MIN IN TOTAL</string>
+    <string name="recordings_unheard">UNHEARD</string>
+    <string name="recordings_note">Every call is kept: the ones you answer and the messages left in the voicemail.</string>
+    <string name="recording_play">Play the call from %1$s</string>
+    <string name="recording_pause">Stop the call from %1$s</string>
+    <string name="choices_hide">Hide the replies</string>
+    <string name="choices_show">Show the replies</string>
+    <plurals name="choices_waiting">
+        <item quantity="one">%d reply</item>
+        <item quantity="other">%d replies</item>
+    </plurals>
+    <string name="app_calls">Calls</string>
+    <string name="calls_all">All</string>
+    <string name="calls_voicemail">Voicemail</string>
+    <string name="calls_no_voicemail">No voicemail messages</string>
+    <string name="call_voicemail">Voicemail</string>
+    <string name="call_answered">Answered</string>
+    <string name="answer">Answer</string>
+    <string name="secure_call_incoming_strip">OMI CHANNEL · INCOMING</string>
+    <string name="secure_call_priority">%1$s · HIGH PRIORITY</string>
+    <string name="secure_call_incoming">INCOMING CALL</string>
+    <string name="secure_call_channel">CHANNEL</string>
+    <string name="secure_call_recording">RECORDING</string>
+    <string name="secure_call_automatic">Automatic</string>
+    <string name="secure_call_note">If you don\'t answer, the message is left in the voicemail and in Recordings</string>
+    <string name="secure_call_live">ON THE LINE · %1$s</string>
+    <string name="secure_call_muted">SOUND OFF</string>
+    <string name="secure_call_speaking">SPEAKING</string>
+    <string name="secure_call_silenced">Sound off</string>
 </resources>

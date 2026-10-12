@@ -49,11 +49,11 @@ Y lo de las barras no me lo invento. Seis. Las cuento siempre #delay: 5 #caduca:
 - -> d3
 
 // La llamada: Kimo no puede hablar (no tiene la voz de Alicia). Si la coge, Pilar habla sola y luego pregunta por qué
-// no le contestaba; si no, le escribe. En los dos casos Alicia necesita una excusa creíble.
+// no le contestaba; si no, le deja el mensaje en el buzón de voz y le escribe. En los dos casos Alicia necesita una excusa creíble.
 = d3
 Te llamo, nena #at: D3 07:15 #call: audio/pilar.m4a
 {llamada_pilar_contestada: -> d3_cogida}
-No lo coges. Bueno #delay: 60
+No lo coges. Te lo he dejado en el buzón, escúchalo #delay: 60
 Tú sabrás lo que haces. Pero ten cuidado #delay: 5
 -> d3_barras ->
 #caduca: D4 07:00

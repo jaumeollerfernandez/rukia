@@ -10,6 +10,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.rukia.chat.domain.model.Chat
+import com.rukia.chat.domain.model.CHATS_APP
 import com.rukia.chat.domain.model.PLAYER_ID
 import com.rukia.chat.infrastructure.ChatModule
 import com.rukia.chat.infrastructure.notifications.VisibleChat
@@ -32,19 +33,21 @@ fun ChatApp(caseId: String) {
     var profile by remember { mutableStateOf(m.getProfile()) }
     // Whose phone this is: the case's `me` character (its name and photo), e.g. Alicia.
     val owner = m.characters[PLAYER_ID]
+    // A chat that lives in another app (the sergeant's, in Police) isn't listed here.
+    val listChats = { m.listChats().filter { it.app(m.characters) == CHATS_APP } }
 
     RukiaTheme(dark = profile.darkMode) {
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             // Story chats play their opening lines right away, so they show up as unread messages.
             var chats by remember(m) {
                 m.advanceAll()
-                mutableStateOf(m.listChats())
+                mutableStateOf(listChats())
             }
             // The story keeps moving while the app is open (timed lines, expired choices): pick up what it wrote.
             LaunchedEffect(m) {
                 while (true) {
                     delay(5_000)
-                    chats = withContext(Dispatchers.IO) { m.advanceAll(); m.listChats() }
+                    chats = withContext(Dispatchers.IO) { m.advanceAll(); listChats() }
                 }
             }
             var openId by rememberSaveable { mutableStateOf<String?>(null) }
@@ -52,7 +55,7 @@ fun ChatApp(caseId: String) {
             var revealFrom by rememberSaveable { mutableIntStateOf(Int.MAX_VALUE) }
             val open = chats.find { it.id == openId }
             // The call screen restyles the system bars; re-apply ours once a call ends.
-            SystemBars(lightBottomIcons = profile.darkMode, lightTopIcons = profile.darkMode, key = open?.ringingCall)
+            SystemBars(lightBottomIcons = profile.darkMode, lightTopIcons = profile.darkMode, key = open?.ringingCall == null)
             var tab by rememberSaveable { mutableStateOf(Tab.Chats) }
             // Kept out here so going back from a chat returns to the same spot in the list, not to the top.
             val chatListState = rememberLazyListState()
@@ -61,7 +64,7 @@ fun ChatApp(caseId: String) {
                 // What already arrived shows at once; anything newer is animated in when it arrives. Counted after
                 // advancing, so a chat just started from Contacts shows its history (old dates) instead of typing it.
                 m.advanceChat(chat.id)
-                chats = m.listChats()
+                chats = listChats()
                 revealFrom = (chats.find { it.id == chat.id } ?: chat).arrivedCount(CaseClock.now(caseId))
                 openId = chat.id
             }
@@ -82,9 +85,8 @@ fun ChatApp(caseId: String) {
                         Tab.Chats -> ChatListScreen(
                             chats, m.characters, now, chatListState,
                             onOpen = openChat,
-                            onDelete = { chat -> m.deleteChat(chat.id); chats = m.listChats() },
+                            onDelete = { chat -> m.deleteChat(chat.id); chats = listChats() },
                         )
-                        Tab.Calls -> CallsScreen(remember(chats) { m.listCalls() }, m.characters)
                         // Opens the 1-to-1 chat with the contact, starting it the first time.
                         Tab.Contacts -> ContactsScreen(m.characters, contactsState) { c -> openChat(m.createChat(listOf(c.id))) }
                         Tab.Profile -> ProfileScreen(owner, profile, onUpdate = { profile = m.updateProfile(it) })
@@ -92,7 +94,7 @@ fun ChatApp(caseId: String) {
                 }
             } else {
                 // Back to the list, refreshed so the chat no longer shows as unread.
-                val close = { openId = null; chats = m.listChats() }
+                val close = { openId = null; chats = listChats() }
                 BackHandler(onBack = close)
                 ChatScreen(
                     open, m.characters, revealFrom,
@@ -101,12 +103,7 @@ fun ChatApp(caseId: String) {
                     onRead = { count -> m.markChatRead(open.id, count) },
                     onChoose = { choice ->
                         m.chooseReply(open.id, choice)
-                        chats = m.listChats()
-                    },
-                    onEndCall = { answered ->
-                        // Left ringing long enough, the story already took it as missed.
-                        if (m.listChats().find { it.id == open.id }?.ringingCall != null) m.endCall(open.id, answered)
-                        chats = m.listChats()
+                        chats = listChats()
                     },
                 )
             }

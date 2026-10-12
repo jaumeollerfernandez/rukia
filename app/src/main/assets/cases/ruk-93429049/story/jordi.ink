@@ -35,7 +35,11 @@ Llámame cuando puedas. Hace mucho que no hablamos. #delay: 50 #caduca: D2 09:00
 
 = d2
 Cariño, te llamo un momento. #at: D2 20:30 #call: audio/jordi.m4a
-No has dicho nada. Supongo que había mala cobertura. #delay: 120
+{llamada_jordi_contestada:
+    No has dicho nada. Supongo que había mala cobertura. #delay: 120
+- else:
+    Te he dejado un mensaje en el buzón. Escúchalo cuando puedas. #delay: 120
+}
 Escríbeme cuando puedas. Papá #delay: 5 #caduca: D3 09:00
 * [papa te he oído. estoy bien. no le digas a mamá que te he escrito]
     Vale. No le diré nada. #delay: 300

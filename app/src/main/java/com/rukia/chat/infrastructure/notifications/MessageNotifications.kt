@@ -17,7 +17,7 @@ import com.rukia.chat.domain.model.Message
 import com.rukia.phone.infrastructure.AppLaunch
 import com.rukia.phone.infrastructure.Language
 
-/** WhatsApp-style message notification; tapping it opens the chat in the game. */
+/** WhatsApp-style message notification; tapping it opens the chat in the game, in the app it lives in. */
 object MessageNotifications {
     private const val CHANNEL = "messages"
 
@@ -40,7 +40,7 @@ object MessageNotifications {
             style.addMessage(if (m.call != null) res.getString(R.string.notif_call) else m.text, m.deliverAt, sender)
         }
         val open = PendingIntent.getActivity(
-            context, notificationId, AppLaunch.intent(context, caseId, "chat", chat.id),
+            context, notificationId, AppLaunch.intent(context, caseId, chat.app(characters), chat.id),
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
         val notification = NotificationCompat.Builder(context, CHANNEL)

@@ -42,7 +42,7 @@ y nos ha dado una fecha #delay: 5
 
 = d6
 📞 #at: D6 00:45 #call: audio/iris.m4a
-por si no lo has cogido: es a las seis y media. en el cráter de santa margarida #delay: 60
+por si no se oye bien el mensaje: es a las seis y media. en el cráter de santa margarida #delay: 60
 el que nos acompaña lleva unas botellas en la furgoneta. dice que es «agua de luz» #delay: 6
 no voy a ir. creo #delay: 10 #caduca: D6 02:00
 * [Iris, ve a los Mossos de Olot. Pregunta por la sargento Puig.]

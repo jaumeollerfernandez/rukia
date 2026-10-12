@@ -301,8 +301,12 @@ Mañana es el día. Duerme algo. #delay: 3
 // D6: el jugador decide dónde van los agentes desde la app de Policía (police/actions.json).
 // Los informes llegan al chat «Central» (central.ink) y activan patrulla_en_mas / vigilancia_crater.
 = d6
-// Si Alicia dio la ubicación por teléfono (desconocido.tras_llamada, D5 noche), Laia la saca de madrugada.
+// Si Alicia dio la ubicación por teléfono (desconocido.tras_llamada, D5 noche) y el jugador la ha oído (cogiendo la
+// llamada, o en el buzón de voz antes de esta hora), Laia la saca de madrugada. Escuchada más tarde, ya no.
 #at: D6 01:30
+{llamada_desconocido_contestada or llamada_desconocido_escuchada:
+    ~ alicia_llamo = true
+}
 {alicia_llamo: -> rescate_llamada ->}
 Hoy es el día. #at: D6 08:00
 {alicia_llamo:
@@ -424,7 +428,7 @@ Lo siento. #delay: 10 #effect: case_closed
 = rescate_llamada
 ~ patrulla_en_mas = true
 ~ alicia_a_salvo = true
-He escuchado la llamada del prepago. La graba la Central. #delay: 4
+Has oído lo del prepago. Yo también: la Central graba lo que oyes en ese móvil. #delay: 4
 El Mas de la Rosalia. Pasado el desvío de Sant Salvador, puerta azul y un pozo. #delay: 5
 Mando el coche de guardia. Ahora. Sin sirenas, como ha pedido. #delay: 5
 La tenemos. Estaba en el pozo de detrás de la casa, con la perra. Helada, pero bien. #delay: 2400

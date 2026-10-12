@@ -99,9 +99,16 @@ class ChatUseCasesTest {
         assertEquals(emptyList(), ListCalls(repo)(), "a ringing call isn't history yet")
 
         EndCall(repo)("rukia", answered = false)
-        assertEquals(listOf(CallRecord("rukia", "rukia", "10:30", CallStatus.DECLINED, "audio/hi.m4a")), ListCalls(repo)())
+        val call = repo.find("rukia")!!.messages.last()
+        assertEquals(listOf(CallRecord("rukia", "rukia", "10:30", CallStatus.VOICEMAIL, "audio/hi.m4a", call.deliverAt)), ListCalls(repo)())
         assertNull(repo.find("rukia")!!.ringingCall)
         assertFailsWith<IllegalArgumentException> { EndCall(repo)("rukia", answered = true) }
+
+        // Listening to the voicemail marks it heard and tells the story.
+        val flags = mutableListOf<String>()
+        HearCall(repo) { flags += it }("rukia", call.deliverAt)
+        assertTrue(ListCalls(repo)().single().heard)
+        assertEquals(listOf("llamada_rukia_escuchada"), flags)
     }
 
     @Test fun `a ringing call holds the story until it ends, and left ringing it's missed`() {
@@ -122,7 +129,7 @@ class ChatUseCasesTest {
         assertEquals(1, advances, "still ringing: the story waits")
         val missed = AdvanceChat(repo, story, notifier, clockAt(10, 36))("rukia")
         assertEquals(listOf(false), story.answered)
-        assertEquals(CallStatus.DECLINED, missed.messages[1].call)
+        assertEquals(CallStatus.VOICEMAIL, missed.messages[1].call)
         assertEquals("after the call", missed.messages.last().text)
     }
 

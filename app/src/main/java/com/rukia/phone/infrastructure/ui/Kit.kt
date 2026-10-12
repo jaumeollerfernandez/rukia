@@ -98,6 +98,8 @@ object RukiaIcons {
     val Search = icon("M4 11a7 7 0 1 0 14 0a7 7 0 1 0 -14 0", "M20 20l-3.5-3.5")
     val ChevronRight = icon("M9 5l7 7-7 7")
     val ChevronLeft = icon("M15 5l-7 7 7 7")
+    val ChevronDown = icon("M5 9l7 7 7-7")
+    val ChevronUp = icon("M5 15l7-7 7 7")
     val Close = icon("M6 6l12 12", "M18 6L6 18")
     val Exit = icon("M14 4h5v16h-5", "M10 8l-4 4 4 4", "M6 12h10")
     val Warning = icon("M12 3l10 18H2z", "M12 10v4", "M12 17.5v.5")
@@ -115,6 +117,21 @@ object RukiaIcons {
     val MicOff = icon("M12 3a3 3 0 0 1 3 3v5a3 3 0 0 1 -6 0v-5a3 3 0 0 1 3 -3z", "M5 11a7 7 0 0 0 14 0", "M12 18v3", "M4 4l16 16")
     val Play = icon("M8 5l11 7-11 7z", filled = true)
     val Stop = icon("M7 7h10v10H7z", filled = true)
+    val Voicemail = icon("M3 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0", "M14 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0", "M6.5 15.5h11")
+    // The Police app's tools and destinations (design: PoliceHub, PoliceOps).
+    val Car = icon("M3 16v-3l2-5h14l2 5v3z", "M3 16h18v2H3z", "M5.2 18.5a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0", "M15.2 18.5a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0", "M10 5h4M12 3v2")
+    val Target = icon("M4 12a8 8 0 1 0 16 0a8 8 0 1 0 -16 0", "M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0", "M12 2v3M12 19v3M2 12h3M19 12h3")
+    val Pin = icon("M12 21s-6-5.6-6-10.5a6 6 0 0 1 12 0C18 15.4 12 21 12 21z", "M9.7 10.5a2.3 2.3 0 1 0 4.6 0a2.3 2.3 0 1 0 -4.6 0")
+    val Waveform = icon("M4 12v0M7.5 8v8M11 5v14M14.5 9v6M18 7v10M21 11v2")
+    val House = icon("M3 11l9-7 9 7", "M5 10v10h14V10", "M10 20v-6h4v6")
+    val Mountain = icon("M3 20l6-10 4 6 3-4 5 8z")
+    val Tent = icon("M3 20L12 4l9 16z", "M9 20l3-6 3 6")
+    val Building = icon("M5 21V4h10v17", "M15 9h4v12", "M8 8h2M8 12h2M8 16h2", "M3 21h18")
+    val Bus = icon("M5 4h14v13H5z", "M5 11h14", "M8 20v-3M16 20v-3")
+    val Cuffs = icon("M3 15a4 4 0 1 0 8 0a4 4 0 1 0 -8 0", "M13 15a4 4 0 1 0 8 0a4 4 0 1 0 -8 0", "M7 11V8a5 5 0 0 1 10 0v3")
+    val City = icon("M3 21h18", "M5 21V10l4-3v14", "M9 21V5h6v16", "M15 21v-9h4v9")
+    val Volcano = icon("M3 20l5-9h8l5 9z", "M12 7V3M9 6L8 4M15 6l1-2")
+    val Eye = icon("M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z", "M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0")
 
     private fun icon(vararg paths: String, filled: Boolean = false) =
         ImageVector.Builder(defaultWidth = 24.dp, defaultHeight = 24.dp, viewportWidth = 24f, viewportHeight = 24f).apply {

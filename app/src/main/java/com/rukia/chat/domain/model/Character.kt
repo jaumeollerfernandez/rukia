@@ -21,6 +21,8 @@ data class Character(
      * [online] says whether they always are. A reply to the player outside these hours waits until the next range starts.
      */
     val hours: String? = null,
+    /** The phone app their chat lives in, instead of Chats, e.g. "police" for the sergeant's secure channel. */
+    val app: String? = null,
 ) {
     private fun ranges() = hours.orEmpty().split(',').mapNotNull { range ->
         val (from, to) = range.split('-').map { it.trim() }.takeIf { it.size == 2 } ?: return@mapNotNull null

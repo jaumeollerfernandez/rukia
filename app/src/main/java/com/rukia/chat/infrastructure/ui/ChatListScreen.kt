@@ -110,14 +110,6 @@ private fun ChatRow(chat: Chat, characters: Map<String, Character>, now: Long, o
 @Composable
 private fun Preview(chat: Chat, characters: Map<String, Character>, msg: Message) {
     val p = LocalPalette.current
-    if (msg.call != null) {
-        val color = if (msg.call == CallStatus.DECLINED) p.red else p.preview
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(5.dp)) {
-            Icon(RukiaIcons.Phone, null, Modifier.size(15.dp), tint = color)
-            Text(callLabel(msg.call), color = color, fontSize = 15.sp, lineHeight = 20.sp, maxLines = 1)
-        }
-        return
-    }
     val sender = when {
         msg.fromPlayer -> stringResource(R.string.you)
         chat.isGroup -> characters[msg.from]?.name ?: msg.from

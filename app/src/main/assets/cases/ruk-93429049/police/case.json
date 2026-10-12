@@ -1,5 +1,6 @@
 {
   "question": "¿Dónde está Alicia ahora mismo?",
+  "unit": "COMISARÍA GARROTXA",
   "target": { "lat": 42.2155, "lon": 2.426 },
   "station": { "lat": 42.179, "lon": 2.493 },
   "stations": [

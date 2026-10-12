@@ -74,8 +74,8 @@ class PoliceModule(
     val findPlace = FindPlace(NominatimPlaceFinder(context.packageName), caseFile)
     val getSearches = GetSearches(searches, dayOf, deadline, CaseClock.clock(caseId))
     val searchZone = SearchZone(caseFile, searches, getSearches, dayOf, CaseClock.clock(caseId))
-    val getOperations = GetOperations(operations, dispatches, timeOf, CaseClock.clock(caseId))
-    val dispatchSquad = DispatchSquad(operations, dispatches, radio, timeOf, CaseClock.clock(caseId))
+    val getOperations = GetOperations(operations, dispatches, timeOf, CaseClock.clock(caseId), facts)
+    val dispatchSquad = DispatchSquad(operations, dispatches, radio, timeOf, CaseClock.clock(caseId), facts)
     /** Whether the case has field operations at all (police/actions.json). */
     val hasOperations = operations.operations().squads.isNotEmpty()
     val squadCount = operations.operations().squads.size
@@ -89,4 +89,6 @@ class PoliceModule(
     val hasRecords get() = records.records().records.isNotEmpty()
     /** A case time as "D3 18:40". */
     fun caseTimeOf(millis: Long) = labelOf(millis)
+    /** "D6 08:00" as epoch millis. */
+    fun timeOf(spec: String) = timeOf.invoke(spec)
 }

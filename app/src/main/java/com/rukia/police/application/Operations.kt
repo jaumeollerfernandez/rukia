@@ -6,6 +6,7 @@ import com.rukia.police.domain.model.Squad
 import com.rukia.police.domain.port.DispatchLog
 import com.rukia.police.domain.port.OperationsRepository
 import com.rukia.police.domain.port.Radio
+import com.rukia.police.domain.port.StoryFacts
 import java.time.Clock
 
 /** The squad that can be sent right now: its time range is open and it hasn't gone out yet. */
@@ -16,17 +17,20 @@ private fun openSquad(repo: OperationsRepository, log: DispatchLog, now: Long, t
     }
 }
 
-/** [timeOf] turns a case time ("D6 08:00") into epoch millis. */
+/** [timeOf] turns a case time ("D6 08:00") into epoch millis. Only the destinations the player knows of ([facts]) are listed. */
 class GetOperations(
     private val repo: OperationsRepository,
     private val log: DispatchLog,
     private val timeOf: (String) -> Long?,
     private val clock: Clock = Clock.systemDefaultZone(),
+    private val facts: StoryFacts = StoryFacts { false },
 ) {
     operator fun invoke(): OperationsBoard {
         val squad = openSquad(repo, log, clock.millis(), timeOf)
-        val operations = squad?.let { s -> repo.operations().operations.filter { it.allows(s) } }.orEmpty()
-        return OperationsBoard(squad, squad?.let { timeOf(it.until) }, operations, log.all())
+        val case = repo.operations()
+        val known = case.operations.filter { it.known(facts) }
+        val operations = squad?.let { s -> known.filter { it.allows(s) } }.orEmpty()
+        return OperationsBoard(squad, squad?.let { timeOf(it.until) }, operations, log.all(), case.squads, known)
     }
 }
 
@@ -37,12 +41,14 @@ class DispatchSquad(
     private val radio: Radio,
     private val timeOf: (String) -> Long?,
     private val clock: Clock = Clock.systemDefaultZone(),
+    private val facts: StoryFacts = StoryFacts { false },
 ) {
     operator fun invoke(operationId: String) {
         val now = clock.millis()
         val squad = requireNotNull(openSquad(repo, log, now, timeOf)) { "No squad available now" }
         val operation = requireNotNull(repo.operations().operations.find { it.id == operationId }) { "Unknown operation $operationId" }
         require(operation.allows(squad)) { "${squad.id} can't go to $operationId" }
+        require(operation.known(facts)) { "$operationId isn't known yet" }
         log.add(Dispatch(operation.id, squad.id, now))
         radio.report(repo.operations().channel, operation.knot)
     }

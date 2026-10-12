@@ -45,7 +45,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rukia.calls.domain.model.VoiceCall
+import com.rukia.calls.domain.port.CallLog
+import com.rukia.calls.infrastructure.CallsModule
+import com.rukia.calls.infrastructure.ui.CallsApp
+import com.rukia.calls.infrastructure.ui.CallsGreen
 import com.rukia.chat.domain.model.CallStatus
+import com.rukia.chat.domain.model.CHATS_APP
 import com.rukia.chat.domain.model.PLAYER_ID
 import com.rukia.chat.infrastructure.ChatModule
 import com.rukia.police.domain.model.RecordedCall
@@ -59,6 +65,8 @@ import com.rukia.gonpi.infrastructure.ui.GonpiPink
 import com.rukia.multimedia.infrastructure.ui.MultimediaApp
 import com.rukia.multimedia.infrastructure.ui.MultimediaOrange
 import com.rukia.police.infrastructure.ui.PoliceApp
+import com.rukia.police.infrastructure.ui.PoliceChannel
+import com.rukia.chat.infrastructure.ui.SecureChannel
 import com.rukia.police.infrastructure.ui.PoliceBlue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -66,6 +74,24 @@ import kotlinx.coroutines.withContext
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
+
+/** The phone's calls for the Calls app, from the story in the chat app. */
+private fun callLog(context: Context, caseId: String) = object : CallLog {
+    override fun calls() = ChatModule.of(context, caseId).let { chat ->
+        chat.listCalls().map { c ->
+            val who = chat.characters[c.from]
+            VoiceCall(c.chatId, who?.name ?: c.from, who?.status.orEmpty(), who?.color ?: "#7E57C2", c.at, c.audio, c.status == CallStatus.VOICEMAIL, c.heard)
+        }
+    }
+
+    override fun hear(call: VoiceCall) = ChatModule.of(context, caseId).hearCall(call.chatId, call.at)
+}
+
+/** Messages not yet read in the chats that live in [app] (not in Chats). */
+private fun appUnread(context: Context, caseId: String, app: String): Int {
+    val chat = ChatModule.of(context, caseId)
+    return chat.listChats().filter { it.app(chat.characters) == app }.sumOf { it.unreadCount(CaseClock.now(caseId)) }
+}
 
 /** [badge] is the count shown on the icon (0 hides it); the home screen re-reads it every few seconds, off the main thread. */
 class PhoneApp(
@@ -79,26 +105,40 @@ class PhoneApp(
  */
 fun installedApps(context: Context, caseId: String, onReturnToTitle: () -> Unit) = listOf(
     PhoneApp(
+        "calls", R.string.app_calls, RukiaIcons.Phone, CallsGreen,
+        badge = { CallsModule(callLog(context, caseId)).countNewVoicemails() },
+    ) { CallsApp(caseId, remember(caseId) { callLog(context, caseId) }) },
+    PhoneApp(
         "chat", R.string.app_chats, RukiaIcons.Chat, Color(0xFF25D366),
-        badge = { ChatModule.of(context, caseId).listChats().count { it.unreadCount(CaseClock.now(caseId)) > 0 } },
+        badge = {
+            val chat = ChatModule.of(context, caseId)
+            chat.listChats().count { it.app(chat.characters) == CHATS_APP && it.unreadCount(CaseClock.now(caseId)) > 0 }
+        },
     ) { ChatApp(caseId) },
     PhoneApp(
         "police", R.string.app_police, RukiaIcons.Shield, PoliceBlue,
         // ponytail: reads the records files on each badge refresh (every 3 s); cache it if it shows up in a profile.
         badge = {
             PoliceModule(context, caseId, facts = { ChatModule.of(context, caseId).getStoryVariable(it) == true })
-                .getRecords().rows.count { it.status == RecordStatus.Ready }
+                .getRecords().rows.count { it.status == RecordStatus.Ready } + appUnread(context, caseId, "police")
         },
     ) {
         val case = cases.first { it.id == caseId }
+        // The sergeant's chat lives in the Police app, as a secure channel.
+        val channel = remember(caseId) {
+            ChatModule.of(context, caseId).characters.values.firstOrNull { it.app == "police" }?.let { contact ->
+                PoliceChannel(contact.name, contact.status, unread = { appUnread(context, caseId, "police") }) { onBack -> SecureChannel(caseId, contact.id, onBack) }
+            }
+        }
         PoliceApp(
-            caseId, caseLabel = stringResource(R.string.case_number, case.number), caseTitle = case.title,
+            caseId, caseTitle = case.title, channel = channel,
             listCallRecordings = {
                 val chat = ChatModule.of(context, caseId)
-                chat.listCalls().filter { it.status == CallStatus.ANSWERED }.mapNotNull { call ->
-                    call.audio?.let { RecordedCall(chat.characters[call.from]?.name ?: call.from, call.time, it) }
+                chat.listCalls().mapNotNull { call ->
+                    call.audio?.let { RecordedCall(chat.characters[call.from]?.name ?: call.from, call.time, it, chat.characters[call.from]?.status.orEmpty(), call.at, call.chatId, call.heard) }
                 }
             },
+            onCallHeard = { ChatModule.of(context, caseId).hearCall(it.chatId, it.at) },
             onResetChats = {
                 ChatModule.of(context, caseId).resetProgress()
                 CaseClock.reset(context, caseId) // the week starts again the next time the case is opened

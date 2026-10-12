@@ -4,6 +4,7 @@ import com.rukia.phone.infrastructure.CaseFolders
 import com.rukia.phone.infrastructure.LocalCaseId
 import android.content.Context
 import android.content.res.AssetManager
+import android.media.MediaMetadataRetriever
 import android.media.MediaPlayer
 import android.graphics.BitmapFactory
 import androidx.compose.runtime.Composable
@@ -41,10 +42,28 @@ fun rememberCaseImage(path: String, maxSize: Int = MAX_IMAGE_SIZE): ImageBitmap?
     }.value
 }
 
+private fun openMedia(context: Context, caseId: String, path: String) = listOf("${CaseFolders.content(caseId)}/media/$path", "${CaseFolders.SHARED_MEDIA}/$path")
+    .firstNotNullOfOrNull { runCatching { context.assets.openFd(it) }.getOrNull() }
+
+/** How long the clip at [path] lasts, in millis; null if it's missing. Reads the file: call it off the main thread. */
+fun mediaDurationMillis(context: Context, caseId: String, path: String): Long? {
+    val fd = openMedia(context, caseId, path) ?: return null
+    return fd.use {
+        val retriever = MediaMetadataRetriever()
+        try {
+            retriever.setDataSource(it.fileDescriptor, it.startOffset, it.length)
+            retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull()
+        } catch (_: RuntimeException) {
+            null
+        } finally {
+            retriever.release()
+        }
+    }
+}
+
 /** Plays [path] (e.g. "audio/call.m4a") from the case's media, falling back to shared media; null if it's in neither. */
 fun playMedia(context: Context, caseId: String, path: String, onDone: () -> Unit): MediaPlayer? {
-    val fd = listOf("${CaseFolders.content(caseId)}/media/$path", "${CaseFolders.SHARED_MEDIA}/$path")
-        .firstNotNullOfOrNull { runCatching { context.assets.openFd(it) }.getOrNull() } ?: return null
+    val fd = openMedia(context, caseId, path) ?: return null
     return MediaPlayer().apply {
         fd.use { setDataSource(it.fileDescriptor, it.startOffset, it.length) }
         setOnCompletionListener { onDone() }

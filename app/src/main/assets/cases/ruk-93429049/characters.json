@@ -1,6 +1,6 @@
 [
   { "id": "me", "name": "Alicia", "status": "", "color": "#7E57C2", "hidden": true, "photo": "photos/alicia.jpg" },
-  { "id": "laia", "name": "Sgt. Puig 🔒", "status": "", "color": "#263238", "hidden": true },
+  { "id": "laia", "name": "Sgt. Laia Puig", "status": "Mossos d'Esquadra · Olot", "color": "#263238", "hidden": true, "app": "police" },
   { "id": "central", "name": "Central Mossos · Olot 📻", "status": "", "color": "#1A237E", "hidden": true },
 
   { "id": "mama", "name": "Mamá", "status": "Cada amanecer es una promesa ☀️", "color": "#F9A825", "hours": "09:00-22:00", "photo": "photos/mama.jpg" },

@@ -50,4 +50,15 @@ class OperationsTest {
         assertEquals(listOf("farm", "watch"), night.operations.map { it.id })
         assertEquals(listOf(Dispatch("farm", "day", 900)), night.dispatched)
     }
+
+    @Test fun `a destination only shows once the player knows of it`() {
+        val gated = Operations(squads = ops.squads, operations = ops.operations + Operation("mill", "The mill", "envio_mill", unlockedBy = listOf("knows_mill")))
+        val repo = object : OperationsRepository { override fun operations() = gated }
+        val known = mutableSetOf<String>()
+        val board = { GetOperations(repo, log, times::get, at(900)) { it in known }() }
+        assertEquals(listOf("farm", "watch"), board().all.map { it.id }, "the mill isn't a lead yet")
+        assertFailsWith<IllegalArgumentException> { DispatchSquad(repo, log, { _, _ -> }, times::get, at(900)) { it in known }("mill") }
+        known += "knows_mill"
+        assertEquals(listOf("farm", "mill"), board().operations.map { it.id })
+    }
 }
