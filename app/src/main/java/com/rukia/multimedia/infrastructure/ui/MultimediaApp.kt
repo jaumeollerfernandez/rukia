@@ -17,6 +17,14 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.calculatePan
+import androidx.compose.foundation.gestures.calculateZoom
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -60,7 +68,7 @@ fun MultimediaApp(caseId: String, flags: StoryFlags = StoryFlags {}, mugshots: G
             Box(Modifier.fillMaxSize().clickable { open = null }, contentAlignment = Alignment.Center) {
                 if (shown.plate != null) PhotoTile(shown, Modifier.safeDrawingPadding().fillMaxWidth().aspectRatio(0.8f))
                 else rememberCaseImage(shown.path, maxSize = 2048)?.let {
-                    Image(it, shown.path, Modifier.fillMaxSize().safeDrawingPadding(), contentScale = ContentScale.Fit)
+                    Image(it, shown.path, Modifier.fillMaxSize().safeDrawingPadding().pinchZoom(), contentScale = ContentScale.Fit)
                 }
             }
         }
@@ -91,6 +99,35 @@ fun MultimediaApp(caseId: String, flags: StoryFlags = StoryFlags {}, mugshots: G
             }
         }
     }
+}
+
+/**
+ * Pinch to zoom (1x-5x) and drag to pan while zoomed. Gestures are only consumed with two fingers or when already
+ * zoomed, so the pager still swipes at 1x. Lets go back to 1x when the pinch shrinks it below.
+ */
+private fun Modifier.pinchZoom(): Modifier = composed {
+    var scale by remember { mutableFloatStateOf(1f) }
+    var offset by remember { mutableStateOf(Offset.Zero) }
+    pointerInput(Unit) {
+        awaitEachGesture {
+            awaitFirstDown(requireUnconsumed = false)
+            do {
+                val event = awaitPointerEvent()
+                val multi = event.changes.size > 1
+                if (multi || scale > 1f) {
+                    val zoom = event.calculateZoom()
+                    scale = (scale * zoom).coerceIn(1f, 5f)
+                    offset = if (scale == 1f) Offset.Zero else {
+                        val maxX = size.width * (scale - 1) / 2
+                        val maxY = size.height * (scale - 1) / 2
+                        val o = offset + event.calculatePan()
+                        Offset(o.x.coerceIn(-maxX, maxX), o.y.coerceIn(-maxY, maxY))
+                    }
+                    event.changes.forEach { it.consume() }
+                }
+            } while (event.changes.any { it.pressed })
+        }
+    }.graphicsLayer { scaleX = scale; scaleY = scale; translationX = offset.x; translationY = offset.y }
 }
 
 /** A photo filling [modifier]: a police photo drawn with its plate until its picture exists, any other one as it is. */

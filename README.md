@@ -70,6 +70,8 @@ Characters can also have a `photo` (path inside `media/`), used as their profile
 
 **Placeholder media.** `tools/placeholders.ps1 -Case app\src\main\assets\cases\<caseId>` (Windows PowerShell, needs ffmpeg) creates a provisional file for everything a case's `MEDIA_PENDIENTE.md` lists: a colored card with the file's path and description for each image, and the call's script read by the system's Spanish voice for each audio. It never overwrites a file, so it only fills in what's missing; replace a placeholder by saving the real file under the same name.
 
+**Image prompts.** Each image in `MEDIA_PENDIENTE.md` has a prompt that refers to characters, animals and places as `{alicia}`, `{mas_rosalia}`… (defined once in its section 0). `node tools/prompt.mjs IMG_0393.jpg` prints the final prompt and which reference photos (`tools/refs/<caseId>/<token>.jpg`) to attach, in order; `--ref <token>` prints the prompt for a character's reference portrait, `--refs` lists which ones are still missing.
+
 **`multimedia/`**: the player's photo gallery, shown by the Multimedia app. Every image dropped here (`.jpg`, `.png`, `.webp`, ...) appears in the grid, sorted by file name; tapping one opens it full screen and sets the ink variable `foto_<file name in lower case>` (`foto_img_0391` for `IMG_0391.jpg`) to `true` if `main.ink` declares it, so a chat can ask about what the player saw. No list to edit: add or remove files and rebuild.
 
 ## Saving

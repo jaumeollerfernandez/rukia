@@ -78,6 +78,7 @@ Contenido del caso RUK-93429049 (`app/src/main/assets/cases/ruk-93429049/`):
 - **Tests:** `./gradlew.bat :app:testDebugUnitTest`.
   - Si `StoryIndexTest` falla diciendo «INDICE.md regenerado», es que la historia cambió: pásalos otra vez.
   - `CaseWeekTest` juega la semana entera y compila la historia. `StoryRulesTest` comprueba las reglas en segundos.
+- **Prompt de una imagen:** `node tools/prompt.mjs <ruta>` (p. ej. `IMG_0393.jpg`) arma el prompt final de MEDIA_PENDIENTE.md y dice qué fotos de `tools/refs/ruk-93429049/` adjuntar y en qué orden. Los personajes, animales y lugares que se repiten son fichas `{token}` de la sección 0: una imagen nueva usa la ficha, no copia sus rasgos. `--refs` lista las fichas sin foto.
 - **Audio provisional de una llamada:** es lo que hace `tools/placeholders.ps1`, pero solo para ese archivo, porque el script entero crea todo lo que falta.
   - La voz «Microsoft Helena Desktop» (System.Speech) lee las líneas `> ` de su sección en LLAMADAS.md, sin acotaciones y empezando con «Audio provisional.».
   - Después, ffmpeg la convierte: `-ac 1 -c:a aac -b:a 64k`.
