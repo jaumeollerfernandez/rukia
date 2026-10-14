@@ -17,7 +17,12 @@ import { fileURLToPath } from "node:url";
 const caso = "ruk-93429049";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const lines = readFileSync(join(root, "app/src/main/assets/cases", caso, "MEDIA_PENDIENTE.md"), "utf8").split(/\r?\n/);
-const refFile = (t) => process.argv.includes("--sin-ref") ? undefined : ["jpg", "jpeg", "png", "webp"].map((e) => join(root, "tools/refs", caso, `${t}.${e}`)).find(existsSync);
+// --refs-fotos: la referencia de una persona es su foto de perfil oficial (media/photos), si existe; los lugares y animales no.
+const NO_PERSONA = new Set(["forn", "casal", "hostalnou", "voley", "excursions", "pabellon", "cocina", "cuarto_alicia", "calle_del_pont", "crater", "mas_rosalia", "can_pericot", "trufa", "trufa_cachorra", "rocky"]);
+const FOTO = { montse: "mama", ignasi: "guia" };
+const fotoOficial = (t) => process.argv.includes("--refs-fotos") && !NO_PERSONA.has(t)
+  ? ["jpg", "png", "webp"].map((e) => join(root, "app/src/main/assets/cases", caso, "media/photos", `${FOTO[t] ?? t}.${e}`)).find(existsSync) : undefined;
+const refFile = (t) => process.argv.includes("--sin-ref") ? undefined : fotoOficial(t) ?? ["jpg", "jpeg", "png", "webp"].map((e) => join(root, "tools/refs", caso, `${t}.${e}`)).find(existsSync);
 const ESTILO = new Set(["movil", "movil_texto"]); // fichas de estilo: sin foto de referencia
 const FOOTER = "No watermark, no logos of real brands, no text other than the text quoted in this prompt, no distorted hands.";
 

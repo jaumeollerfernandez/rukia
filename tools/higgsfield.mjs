@@ -131,7 +131,7 @@ if (flag("--ref")) {
     jobs.push({ name: `ref ${t}`, prompt: r.stdout.trim(), attach: [], out: join(root, "tools/refs", caso, `${t}.jpg`) });
   }
 } else {
-  const r = node(["--all", ...(flag("--sin-ref") ? ["--sin-ref"] : [])]);
+  const r = node(["--all", ...(flag("--sin-ref") ? ["--sin-ref"] : []), ...(flag("--refs-fotos") ? ["--refs-fotos"] : [])]);
   if (r.status !== 0) throw new Error(r.stderr);
   const valued = ["--refs-dir", "--ref-oficial", "--only", "--group", "--resolution", "--quality", "--model", "--budget", "--cost", "--concurrency", "--ref"];
   const targets = args.filter((a, i) => !a.startsWith("--") && !valued.includes(args[i - 1]));
