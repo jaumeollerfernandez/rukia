@@ -25,11 +25,11 @@
     blanco y en botella 🥛 #delay: 3
     -> opciones
 * [judit has visto mis rodilleras?]
-    las viejas? las tiré, daban asco #delay: 120
-    me he comprado unas nuevas. negras. preciosas. 45 pavos 😍 #delay: 4
+    las tuyas? en tu bolsa, en el maletero de ona. desde el último entreno #delay: 120
+    yo me he comprado unas nuevas. negras. preciosas. 45 pavos 😍 #delay: 4
     #caduca: D{dia + 1} 00:00
-    ** [las tiraste??]
-        daban ASCO ali. olían a vestuario de 2019 #delay: 120
+    ** [y siguen ahí?]
+        sí. y tu toalla también. pobre ona, su coche huele a vestuario de 2019 🤢 #delay: 120
         te dejo las mías un día. uno #delay: 4
     ** [45 pavos por unas rodilleras??]
         son una inversión 😎 #delay: 120
@@ -52,7 +52,7 @@
     vale. perdón. lo intento #delay: 4
     pero si me cuentas algo, bueno, que no me lo cuentes jajaja #delay: 4
     -> opciones
-* {dia >= 5} [cómo fue el partido?]
+* {(dia >= 6 or (dia == 5 and hora >= 13))} [cómo fue el partido?]
     perdimos 😭 #delay: 120
     sin la reina de la colocación somos un desastre #delay: 3
     ona lo hizo bien eh. pero tú eres tú #delay: 4

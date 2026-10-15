@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import com.rukia.phone.infrastructure.ui.PhotoPopup
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.semantics.Role
@@ -282,7 +283,7 @@ private fun Bubble(msg: Message, sender: Character?, showName: Boolean, first: B
         horizontalArrangement = if (mine) Arrangement.End else Arrangement.spacedBy(6.dp),
         verticalAlignment = Alignment.Bottom,
     ) {
-    if (!mine) { if (first) Avatar(sender, 28) else Spacer(Modifier.size(28.dp)) }
+    if (!mine) { if (first) Avatar(sender, 28, zoomable = true) else Spacer(Modifier.size(28.dp)) }
     Column(horizontalAlignment = if (mine) Alignment.End else Alignment.Start) {
         if (showName && sender != null) {
             Text(sender.name, Modifier.padding(start = 12.dp, bottom = 2.dp), color = sender.colorValue(), fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
@@ -298,8 +299,11 @@ private fun Bubble(msg: Message, sender: Character?, showName: Boolean, first: B
         }
         if (viewing && msg.image != null) ImageViewer(msg.image) { viewing = false }
         val fg = if (mine) Color.White else LocalPalette.current.text
+        // Tapping the bubble shows its sender's photo up close.
+        var face by remember { mutableStateOf(false) }
+        if (face && sender != null) PhotoPopup(sender.photo, sender.name, sender.colorValue()) { face = false }
         Column(
-            Modifier.widthIn(max = 270.dp).background(if (mine) Kit.Tint else LocalPalette.current.inBubble, bubbleShape(mine, first))
+            Modifier.widthIn(max = 270.dp).clip(bubbleShape(mine, first)).clickable(enabled = sender != null) { face = true }.background(if (mine) Kit.Tint else LocalPalette.current.inBubble, bubbleShape(mine, first))
                 .padding(start = 14.dp, end = 12.dp, top = 9.dp, bottom = 6.dp),
         ) {
             Text(msg.text, color = fg, fontSize = 16.sp, lineHeight = 21.sp)

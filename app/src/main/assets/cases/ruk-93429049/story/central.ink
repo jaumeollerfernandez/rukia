@@ -9,7 +9,7 @@
 === envio_estacion ===
 Unidad en camino a la estación de autobuses de Olot. #delay: 5
 En la estación. Revisamos andenes, consigna y la cafetería. #delay: 900
-Nadie la ha visto desde aquella noche. El de la taquilla se acuerda de ella: compró y no subió. #delay: 1200
+Nadie la ha visto desde aquella noche. En taquilla no consta ningún billete: el suyo era por internet. #delay: 1200
 Sin novedad. Volvemos. #delay: 30
 -> DONE
 
@@ -48,7 +48,7 @@ Alguien está preparando algo aquí. #delay: 10
 
 === envio_masias ===
 {dani_no_creido: -> sin_coche}
-Unidad en camino a Sant Salvador de Bianya. Batida por las masías de la subida a Bracons. #delay: 5
+Unidad en camino a Sant Esteve d'en Bas. Batida por las masías de Joanetes, hacia la Collada de Bracons. #delay: 5
 Hemos llamado a cuatro puertas de once. Caminos de tierra, perros, nadie sabe nada. #delay: 3600
 En una, una señora mayor no ha querido ni abrir. Tenía una perra que no paraba de ladrar. #delay: 60
 Sin saber cuál es, así no llegamos. Volvemos. #delay: 20
@@ -57,8 +57,9 @@ Sin saber cuál es, así no llegamos. Volvemos. #delay: 20
 === envio_mas ===
 {dani_no_creido: -> sin_coche}
 {alicia_entregada: -> mas_vacio}
+{alicia_llamo: -> mas_ya_rescatada}
 ~ patrulla_en_mas = true
-Unidad en camino al Mas de la Rosalia, en la subida a Bracons. #delay: 5
+Unidad en camino al Mas de la Rosalia, en la zona de Joanetes, por la carretera de la Collada de Bracons. #delay: 5
 Ya estamos allí. #delay: 2400
 Puerta azul. Dintel de piedra de 1782. Un pozo delante. #delay: 5
 Nos ha abierto una anciana, Rosalia Masó. Dice que vive sola con su perra. #delay: 8
@@ -70,13 +71,22 @@ Dejamos a un agente vigilando el camino. Si alguien sube, lo sabremos. #delay: 5
 === envio_vigilancia ===
 {dani_no_creido: -> sin_coche}
 ~ vigilancia_crater = true
-Recibido. Con lo de los papeles y el «tránsito», fiscalía nos da gente. #delay: 60
+{iris.papeles or desconocido.verdad or iris_ayuda:Recibido. Con lo de los papeles y el «tránsito», fiscalía nos da gente.|Recibido. Sin nada para fiscalía, vamos los que hay.} #delay: 60
 A las cinco estaremos en el cráter de Santa Margarida. Sin uniforme. La sargento Puig viene con nosotros. #delay: 10
+-> DONE
+
+// Laia ya la sacó de madrugada (laia.rescate_llamada): la patrulla solo vigila.
+=== mas_ya_rescatada ===
+~ patrulla_en_mas = true
+Unidad en camino al Mas de la Rosalia, en la zona de Joanetes, por la carretera de la Collada de Bracons. #delay: 5
+Ya estamos allí. #delay: 2400
+La señora dice que de madrugada ya vinieron los nuestros a por la chica. Está tranquila, con su perra. #delay: 8
+Dejamos a un agente vigilando el camino. Si alguien sube, lo sabremos. #delay: 5
 -> DONE
 
 // La red ya se la ha llevado (laia.entrega_tarde): llegan a un mas sin Alicia.
 === mas_vacio ===
-Unidad en camino al Mas de la Rosalia, en la subida a Bracons. #delay: 5
+Unidad en camino al Mas de la Rosalia, en la zona de Joanetes, por la carretera de la Collada de Bracons. #delay: 5
 Ya estamos allí. #delay: 2400
 Puerta azul. Un pozo delante. La puerta, abierta. #delay: 5
 Rosalia Masó, sentada en la cocina con una brecha en la frente. La perra, tumbada a sus pies, cojeando. #delay: 8

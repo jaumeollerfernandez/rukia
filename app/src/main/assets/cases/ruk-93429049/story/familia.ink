@@ -53,7 +53,7 @@ Que es normal estar preocupadas, pero que esa energía también puede estar alej
 Quizás esta pasando un mal momento, o necesitaba despejarse. Sea lo que sea, tiene que volver. Debe volver, la echo de menos. #from: berta #delay: 8
 Hemos pasado por mucho, pero la familia debe estar completa. #from: berta #delay: 5
 Lo sé. Seguro que está bien. La encontraremos #from: mama #delay: 60
-Ayer fui a los Mossos con tu hermana. Mejor que conste, por si acaso. Es raro este comportamiento, estoy muy preocupada por mi pequeña. #from: mama #delay: 10
+Ayer fui a los Mossos. Sola, sin hacer ruido. Mejor que conste, por si acaso. Es raro este comportamiento, estoy muy preocupada por mi pequeña. #from: mama #delay: 10
 Mejor seguir guardandolo para nosotras y nuestros cercanos. Seguro que ha sido una chiquillada. #from: berta #delay: 30
 ¿Has comido algo? #from: berta #delay: 20
 No me entra nada. Hoy ayuno, por ella. Me ayuda a tener la mente despejada. #from: mama #delay: 40
@@ -77,10 +77,11 @@ Lo entenderá. Son cosas de casa, mamá. Ahora hay que pensar en encontrarla. #f
     En la caja de metal de la cocina. Ya no lo dejo en el cajón. #from: mama #delay: 120
     Bien. Que esté seguro de momento, por si llama desde algun lado, su numero se lo sabe. #from: berta #delay: 10
 }
+(espera) #at: D2 18:55
 {amigas.d1.vienen:
-    Han venido sus amigas. Les he dicho que estaba de retiro. #from: mama #at: D2 18:55
-    ¿Se lo han creído? #from: berta #delay: 300
-    La rubia no. La Carla. #from: mama #delay: 60
+    Han venido sus amigas. Les he dicho que está de retiro. #from: berta #at: D2 18:55
+    ¿Se lo han creído? #from: mama #delay: 300
+    La rubia no. La Carla. #from: berta #delay: 60
     Esa es una petarda, siempre está metiendo mierda en todos lados. Malditas cotillas #from: berta #delay: 20
 }
 La tía Marta va diciendo cosas en el mercado. #from: mama #at: D2 20:15
@@ -99,7 +100,9 @@ Espero que estes bien hija, te echamos de menos🌹 #from: mama #delay: 30 #cadu
 // Si el jugador escribe en el grupo, la familia sabe que alguien usa el móvil. Se llama como túnel: -> escribe_en_familia ->
 = escribe_en_familia
 ~ sospecha_familia += 2
-{sospecha_familia <= 2:
+// La primera vez que Montse lo descubre, en este grupo, en el de vecinos o por privado.
+{not movil_visto:
+    ~ movil_visto = true
     ¿Alicia? #from: mama #delay: 15
     Mamá. Su móvil está en el cajón de tu cuarto. #from: berta #delay: 10 #effect: glitch
     Ve a mirarlo. Ahora. #from: berta #delay: 3
@@ -121,13 +124,13 @@ Quizás deberíamos actuar por nuestra cuenta.Hablemos con todo el que la conoce
 Ya he llamado a todos. #from: mama #delay: 600
 ¿Y la gente de la yaya? Las del valle. #from: berta #delay: 60
 ¿La Rosalia? Está en una residencia de Olot desde hace años. Ni se acordará de la niña. #from: mama #delay: 300
-Pues mejor. Ya sabemos como es la iaia #from: berta #delay: 20
+Pues mejor. Ya sabemos como era la iaia #from: berta #delay: 20
 {laia.d2.a_barcelona or laia.d2.a_barcelona_sin:
     Jordi me ha llamado gritando. Que le han ido los Mossos a casa. #from: mama #at: D3 21:10
     Si se pone nervioso, es que algo esconde. Si las pistas llegan a Barcelona que la busquen. Por dios que no la hayan raptado o algo. #from: berta #delay: 120
 }
 🌹 #from: berta #at: D3 22:00 #caduca: D4 08:00
-* [la rosalia no está en ninguna residencia]
+* {residencia_falsa} [la rosalia no está en ninguna residencia]
     -> escribe_en_familia ->
     ~ secta_sabe_rosalia = true
     ¿Cómo que no? #from: mama #delay: 60
@@ -143,10 +146,11 @@ Bien hecho. #from: berta #delay: 600
 Es el cuarto dia sin noticias de Ali. No puedo más. Hoy he firmado las voluntades anticipadas en el despacho de siempre. Después de lo de la yaya en la UCI, no quiero que nadie tenga que decidir por mí. Nunca se sabe. #from: mama #at: D4 16:10
 Yo las firmé en primavera, es un momento y listos. Así nadie pasa por lo que pasamos con la yaya. #from: berta #delay: 300
 Ali debería hacerlas tambien, ahora que es mayor de edad. Las hará cuando vuelva. #from: mama #delay: 60
+(espera) #at: D4 19:20
 {secta_sabe_rosalia:
     He llamado a la residencia de Olot. Allí no hay ninguna Rosalia. #from: berta #at: D4 19:20
     Entonces... #from: mama #delay: 60
-    Entonces mañana subimos al valle. #from: berta #delay: 10
+    Entonces está en el valle. Con ella. #from: berta #delay: 10
 }
 {not arnau_calla:
     ¿Has visto el vídeo que subió Arnau? El de la rotonda. #from: berta #at: D4 21:05
@@ -177,6 +181,7 @@ Y la de Ali también. Ya la tengo planchada. #from: berta #delay: 10
 Y no llevemos nada más. Ni bolso ni móvil. Se sube a oscuras y es un momento para ella, no para hacer fotos. Fuera pantallas que estamos enganchadas todo el dia #from: berta #delay: 30
 ¿Ni las llaves de casa? #from: mama #delay: 120
 Llevate las llaves si quieres mamá. #from: berta #delay: 10
+(espera) #at: D5 21:00
 {secta_sabe_rosalia:
     Mañana subimos a Sant Salvador con la furgoneta. #from: berta #at: D5 21:00
     La traeremos a casa a tiempo para la cena. #from: berta #delay: 10
@@ -196,8 +201,10 @@ Nena, pasado mañana hace tres años de la yaya. Si lees esto, ven a cenar a cas
 = d6
 Mañana. #from: berta #at: D6 07:00
 Mesa puesta. Tres platos. #from: mama #at: D6 13:00
+(espera) #at: D6 17:30
 {secta_sabe_rosalia:
     Subimos. #from: berta #at: D6 17:30
+    (espera) #at: D6 18:30
     {patrulla_en_mas:
         Hay un coche de los Mossos delante de la casa. #from: berta #at: D6 18:30
         Damos la vuelta. #from: berta #delay: 5
@@ -220,6 +227,7 @@ Ya vamos. Todas de blanco. #from: mama #at: D7 05:30
 {capturada():
     Ali viene con nosotras. 🌹 #from: berta #at: D7 05:31
 }
+(espera) #at: D7 06:30
 {
 - capturada() and not familia_salvada():
     Ya estamos todas. #from: berta #at: D7 06:30 #effect: hacked

@@ -106,19 +106,23 @@
               "source": "Galería del terminal · pendiente de confirmar"
             },
             {
-              "time": "D-1 23:30",
+              "time": "D-1 23:40",
               "text": "Un amigo la deja en la estación de autobuses de Olot.",
               "source": "Declaración testifical"
             },
             {
-              "time": "D1",
-              "text": "Cámaras de la estación: pendiente de visionado.",
-              "source": "Solicitado",
-              "done": false
+              "time": "D-1 23:58",
+              "text": "Pago de taxi con destino Joanetes (Vall d'en Bas).",
+              "source": "Recibo de la cooperativa de taxis de Olot · pendiente de confirmar"
+            },
+            {
+              "time": "D2 16:10",
+              "text": "Cámaras de la estación (D-1 23:41): la deja un coche gris, con mochila y bolsa de tela. A las 23:56 cruza andando hacia la rotonda, hacia la salida de Bianya; no sube al bus de las 23:55.",
+              "source": "Cámaras de la estación · visionado"
             },
             {
               "time": "—",
-              "text": "Llamadas entrantes desde un fijo de Sant Salvador de Bianya en las últimas semanas, siempre en sábado.",
+              "text": "Llamadas entrantes desde un fijo de Joanetes en las últimas semanas, siempre en sábado.",
               "source": "Operadora · titular pendiente de identificar",
               "done": false
             },
@@ -267,7 +271,7 @@
               "code": "TRÁFICO 077310",
               "date": "Hace un mes · sábado 13:40",
               "title": "Exceso de velocidad · 84 km/h en tramo de 50",
-              "detail": "Motocicleta 4417 KLM. Radar de la carretera de Sant Salvador de Bianya, sentido bajada. Sanción abonada.",
+              "detail": "Motocicleta 4417 KLM. Radar de la carretera de Joanetes, sentido bajada. Sanción abonada.",
               "state": "SANCIÓN ABONADA",
               "tone": "neutral"
             }

@@ -17,7 +17,7 @@ mira este meme 💀 #delay: 2
 #delay: 2 #image: chat/arnau_meme.jpg
 es literalmente tu hermana cuando se pone en modo zen jajajaja #delay: 4
 ah no que ahora va de luz y amaneceres y nosequé #delay: 10
-berta ya no viene ni a las comidas de la iaia #delay: 6 #caduca: D2 15:00
+berta ya no viene ni a las comidas de la iaia carme #delay: 6 #caduca: D2 15:00
 * [jajajaja]
     VERDAD QUE SÍ #delay: 30
     vale me voy a ranked bye #delay: 4
@@ -32,7 +32,7 @@ berta ya no viene ni a las comidas de la iaia #delay: 6 #caduca: D2 15:00
 = d2
 prima #at: D2 18:45
 has visto mi post 💀 me he abierto la rodilla en la rotonda #delay: 3
-el vídeo es de anteanoche. y quién sale al fondo??? #delay: 30
+el vídeo es de hace tres noches. y quién sale al fondo??? #delay: 30
 TÚ #delay: 2
 con una bolsa de pan gigante jajajaja #delay: 3
 qué hacías ahí a esas horas. te fugabas o qué 😂 #delay: 5 #caduca: D3 15:00

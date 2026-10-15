@@ -5,7 +5,7 @@
 - Gonpi: @clara.moni (sus publicaciones, en `gonpi/gonpi.json`).
 
 ## Biografía
-Amiga de Alicia en el esplai. Guarda en la pared del local el dibujo que la Laieta hizo para Alicia: una casita con la puerta azul, un perro enorme y estrellas, «la casa de la abuela de la Ali», la de la historia que Alicia contaba a los peques.
+Amiga de Alicia en el esplai. Guarda en la pared del local el dibujo que la Laieta hizo para Alicia: una casita en el bosque, un perro enorme y estrellas, «la casa de la abuela de la Ali», la de la historia que Alicia contaba a los peques.
 
 ## Perfil psicológico
 - **Tierna, observadora y con chispa:** pilla a Biel en un segundo («tú nunca contestas en un segundo 👀»).

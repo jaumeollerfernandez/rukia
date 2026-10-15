@@ -14,8 +14,14 @@ data class StoryLine(
     val image: String? = null,
 )
 
-/** [expiresAt]: if the player hasn't chosen by then (epoch millis), the story takes the silent choice on its own. */
-data class StoryStep(val lines: List<StoryLine>, val choices: List<String>, val expiresAt: Long? = null)
+/**
+ * [expiresAt]: if the player hasn't chosen by then (epoch millis), the story takes the silent choice on its own.
+ * [waitUntil]: the story stopped at a pause line ([PAUSE_LINE]) and goes on at that time, so what follows sees the story as it is then.
+ */
+data class StoryStep(val lines: List<StoryLine>, val choices: List<String>, val expiresAt: Long? = null, val waitUntil: Long? = null)
+
+/** A script line that is never shown: with an `#at` tag, the chat waits there until that time (`(espera) #at: D3 22:30`). */
+const val PAUSE_LINE = "(espera)"
 
 /** Runs the branching script. Each chat has its own place in the story; story variables are shared by all chats. */
 interface StoryEngine {

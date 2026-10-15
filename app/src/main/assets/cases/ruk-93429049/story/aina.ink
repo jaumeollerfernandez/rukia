@@ -22,7 +22,7 @@
     no pasa nada tía #delay: 120
     bueno sí pasa. nos tenías preocupadas. pero no pasa nada 😭 #delay: 5
     -> opciones
-* (psico) {dia >= 2 and not examen} [aina qué tal el examen de psico?]
+* (psico) {(dia >= 3 or (dia == 2 and hora >= 12)) and not examen} [aina qué tal el examen de psico?]
     un 4,8. me quiero morir #delay: 120
     #caduca: D{dia + 1} 00:00
     ** [hay recuperación?]
@@ -63,7 +63,7 @@
     ** [(sin responder)]
     - - -> opciones
 // Si Aina no le ha escrito ya por el comentario.
-* (sobre_oriol) {dia >= 3 and not comentario} [aina tú crees lo que dice oriol?]
+* (sobre_oriol) {((dia == 3 and hora >= 15) or dia >= 4) and not comentario} [aina tú crees lo que dice oriol?]
     yo sí 🙋 #delay: 120
     oriol es raro pero no se inventa cosas. si dice que te vio subiendo la carretera de bracons a la una, es que te vio #delay: 6
     paula dice que ve fantasmas. pero el lobo del año pasado era un perro de pastor ENORME, eh. casi un lobo #delay: 6
@@ -115,7 +115,7 @@
 = examen
 ali #at: D2 13:30
 ha ido FATAL el de psico #delay: 4
-tú estás bien? sergi dice que estás mala #delay: 5
+tú estás bien? {clase.d1.mala:sergi dice que estás mala|nadie sabe nada de ti} #delay: 5
 #caduca: D{dia + 1} 00:00
 * (gripe) [sí, una gripe horrible]
     ay pobre 😭 #delay: 120

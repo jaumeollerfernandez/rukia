@@ -5,7 +5,7 @@
     { "id": "noche", "name": "Última salida", "label": "Una patrulla nocturna", "from": "D6 22:05", "until": "D7 02:00" }
   ],
   "operations": [
-    { "id": "mas_rosalia", "label": "Mas de la Rosalia, Sant Salvador de Bianya", "title": "Mas de la Rosalia", "place": "Sant Salvador de Bianya", "icon": "house", "knot": "envio_mas", "type": "patrol", "unlockedBy": ["sabe_rosalia", "sabe_puerta_azul"] },
+    { "id": "mas_rosalia", "label": "Mas de la Rosalia, Joanetes", "title": "Mas de la Rosalia", "place": "Joanetes", "icon": "house", "knot": "envio_mas", "type": "patrol", "unlockedBy": ["sabe_rosalia", "sabe_puerta_azul"] },
     { "id": "masias_bracons", "label": "Batida por las masías de la subida a Bracons", "title": "Masías de Bracons", "place": "Batida por la subida", "icon": "mountain", "knot": "envio_masias", "type": "inspect", "unlockedBy": ["sabe_ruta_lotes", "sabe_rosalia", "sabe_puerta_azul", "ficha_dani"] },
     { "id": "can_pericot", "label": "Can Pericot, el refugio del esplai en Capsec", "title": "Can Pericot", "place": "Refugio del esplai, Capsec", "icon": "tent", "knot": "envio_capsec", "type": "inspect", "unlockedBy": ["sabe_capsec"] },
     { "id": "residencia", "label": "Residencias de ancianos de Olot", "title": "Residencias", "place": "Ancianos de Olot", "icon": "building", "knot": "envio_residencia", "type": "inspect", "unlockedBy": ["sabe_residencia"] },

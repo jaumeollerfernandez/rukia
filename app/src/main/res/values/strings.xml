@@ -230,6 +230,8 @@ IN INVESTIGATIONS</string>
     <string name="zone_miss_text">The squad found nothing. Try another area tomorrow.</string>
     <string name="zone_hit_title">Inside this zone · %1$d%%</string>
     <string name="zone_hit_text">Too wide to find the exact place. Draw a smaller zone tomorrow.</string>
+    <string name="notif_zone_found">Exact zone. Open the map to see what the squad found.</string>
+    <string name="notif_record_ready">%1$s\'s record has arrived.</string>
     <string name="station">Station</string>
 
     <!-- Police records -->

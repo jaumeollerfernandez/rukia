@@ -32,9 +32,12 @@
     En irse, sí. En cómo, no. #delay: 300
     Si yo fuera Adela, me habría ido a un sitio donde nadie me buscara. Lejos de los ojos del pueblo. Con alguien que me quisiera de verdad. #delay: 7
     #caduca: D{dia + 1} 00:00
-    ** [eso hice]
-        Ali... #delay: 300
-        No me digas dónde. Así no tendré que mentir si me preguntan. #delay: 5
+    // Lo contrario de lo que le dijo después del chiste de Jan, no.
+    ** (eso_hice) {not chiste.no_ido} [eso hice]
+        {chiste.lo_tengo:Ya me lo dijiste. Y sigo sin querer saber dónde.|Ali...} #delay: 300
+        {not chiste.lo_tengo:
+            No me digas dónde. Así no tendré que mentir si me preguntan. #delay: 5
+        }
         Pero cuídate. Que no acabe como en Lorca. #delay: 4
     ** [es solo una obra]
         Ya. Solo una obra. Por eso me dio un escalofrío. #delay: 300
@@ -56,10 +59,10 @@ Ali. #at: D3 23:15
 No le hagas caso a Jan. Es un bocazas con buen fondo. #delay: 5
 Y si de verdad te has ido, que sea a un sitio adonde ir. 🎭 #delay: 6
 #caduca: D{dia + 1} 00:00
-* [lo tengo, queralt]
+* (lo_tengo) [lo tengo, queralt]
     Pues no me lo digas. Así no tendré que mentir. #delay: 300
     Cuídate. #delay: 3
-* [no me he ido a ningún sitio]
+* (no_ido) {not charla.eso_hice} [no me he ido a ningún sitio]
     Vale. Entonces descansa. Que el ensayo no se va a ninguna parte. #delay: 300
 * [(sin responder)]
 - ->->

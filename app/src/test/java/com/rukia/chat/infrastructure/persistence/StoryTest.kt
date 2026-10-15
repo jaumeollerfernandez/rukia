@@ -124,6 +124,34 @@ class StoryTest {
         assertEquals(start + 36 * 3_600_000L, second.expiresAt)
     }
 
+    @Test fun `a pause line waits, so the condition after it sees the story as it is then`() {
+        val zone = java.time.ZoneOffset.UTC
+        val start = java.time.LocalDate.of(2026, 1, 1).atStartOfDay(zone).toInstant().toEpochMilli()
+        fun at(day: Int, hour: Int) = java.time.Clock.fixed(java.time.Instant.ofEpochMilli(start + (day - 1) * 86_400_000L + hour * 3_600_000L), zone)
+        val timed = """
+            VAR dia = 0
+            VAR told = false
+            -> DONE
+            === laia ===
+            First. #at: D1 08:00
+            (espera) #at: D3 22:00
+            {told:
+                Told. #at: D3 22:30
+            - else:
+                Not told. #at: D3 22:30
+            }
+            -> DONE
+        """.trimIndent()
+        val file = tempState()
+        fun engine(clock: java.time.Clock) = InkStoryEngine({ timed }, file, caseStart = { start }, clock = clock)
+
+        val first = engine(at(1, 9)).advance("laia")
+        assertEquals(listOf("First."), first.lines.map { it.text }, "the pause line isn't shown")
+        assertEquals(start + 2 * 86_400_000L + 22 * 3_600_000L, first.waitUntil)
+        engine(at(2, 9)).setVariable("told", true)
+        assertEquals(listOf("Told."), engine(at(3, 23)).advance("laia").lines.map { it.text })
+    }
+
     @Test fun `a save from an older story starts over instead of crashing`() {
         engine().advance("rukia") // saved while waiting at rukia's choices
         val rewritten = InkStoryEngine({ "-> DONE\n=== uryu ===\nNew story.\n-> DONE" }, state)

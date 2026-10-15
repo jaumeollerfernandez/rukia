@@ -119,6 +119,9 @@ No sé nada de ti, nena. Pero me acuerdo de ti cada mañana al encender el horno
 
 // D6: Dani también ha pasado por el Forn (la deuda de Dani, PISTAS.md).
 = d6
+// Detenido, Dani no puede ir al Forn.
+(espera) #at: D6 07:40
+{dani_detenido: -> d7}
 Nena, ha venido ese chico de la moto. El Dani #at: D6 07:40
 ~ sabe_dani_busca = true
 Quería saber a quién le subías el pan. Le he dicho que a nadie #delay: 5

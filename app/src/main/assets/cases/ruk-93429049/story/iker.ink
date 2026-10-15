@@ -61,7 +61,7 @@ solo dime por qué zona estás 😊 #delay: 4 #caduca: D5 14:00
 
 // La víspera de la entrega: aprieta.
 = d6
-#at: D6 10:30
+(espera) #at: D6 10:30
 {dani_detenido and not dani_creido: -> d7}
 guapa
 la habitación ya está lista. y dani también 😉 #delay: 5
@@ -78,7 +78,7 @@ nadie de tu familia se va a enterar #delay: 4 #caduca: D6 18:00
 
 // Si ya se la han llevado, el número deja de existir: no vuelve a escribir.
 = d7
-#at: D7 09:00
+(espera) #at: D7 09:00
 {
 - alicia_entregada:
     -> DONE

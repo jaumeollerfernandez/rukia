@@ -9,11 +9,11 @@
 = charla
 - (opciones)
 #caduca: D{dia + 1} 00:00
-* {dia >= 3} [fàtima gracias por doblar turno 💛]
+* {aliments.d4 and (not aliments.d3.voy or dia >= 6 or (dia == 5 and hora >= 11))} [fàtima gracias por doblar turno 💛]
     ¡De nada! Me debes un té 🫖 #delay: 300
     -> opciones
 * [fàtima cómo fue el sábado?]
-    {dia >= 5:
+    {dia >= 6 or (dia == 5 and hora >= 16):
         ¡71 lotes! Récord. Lluïsa casi llora 😂 #delay: 600
         Y yo he tenido que hacer el pastel, que lo prometí. #delay: 5
     - else:

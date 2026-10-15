@@ -249,7 +249,7 @@ Todos los audios del caso tienen ya su guion.
 
 > *(Respiración. Susurra.)* Soy yo. No tengo batería, así que escucha.
 >
-> El Mas de la Rosalia. Pasado el desvío de Sant Salvador, el camino de tierra que sube a la izquierda.
+> El Mas de la Rosalia. Pasado Joanetes, el camino de tierra que sube a la izquierda.
 >
 > Puerta azul. Un pozo delante. Si no la ves, la perra os encontrará antes.
 >

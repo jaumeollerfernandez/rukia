@@ -24,7 +24,14 @@ Será que se mudan. Muchas gracias a ella de todos modos 🙏 #from: lluisa #del
 -> d3
 
 = d3
-Alicia, ¿cuento contigo el sábado? #from: lluisa #at: D3 19:00 #caduca: D4 19:00
+// Si Alicia ya le dijo por privado que no puede, Lluïsa no pregunta: reparte el turno.
+(espera) #at: D3 19:00
+{lluisa.charla.no_voy:
+    Alicia este sábado no puede. Fàtima, ¿puedes doblar? #from: lluisa
+    Sí, sin problema 💪 #from: fatima #delay: 300
+    -> d4
+}
+Alicia, ¿cuento contigo el sábado? #from: lluisa #caduca: D4 19:00
 * [esta semana no puedo, lo siento mucho]
     No pasa nada. Fàtima, ¿puedes doblar? #from: lluisa #delay: 600
     Sí, sin problema 💪 #from: fatima #delay: 300
@@ -51,11 +58,14 @@ Alicia, ¿cuento contigo el sábado? #from: lluisa #at: D3 19:00 #caduca: D4 19:
     voy 💪 #from: fatima #delay: 300
 }
 Hoy 71 lotes. ¡Récord! Gracias, equipazo 🥫 #from: lluisa #at: D5 15:30
-// La deuda de Dani: va preguntando por Alicia (PISTAS.md). Toni es el primero que lo cuenta.
-Oye, Alicia, por si lees esto. Esta mañana un chaval en moto me ha parado en el almacén #from: toni #at: D5 16:10
-Preguntaba a qué masías subías tú los lotes. Que era tu novio, que estaba preocupado #from: toni #delay: 6
-~ sabe_dani_busca = true
-No le he dicho nada. No me ha gustado cómo miraba la furgoneta #from: toni #delay: 5
+// La deuda de Dani: va preguntando por Alicia (PISTAS.md). Toni es el primero que lo cuenta. Si está detenido, no.
+(espera) #at: D5 16:10
+{not dani_detenido:
+    Oye, Alicia, por si lees esto. Esta mañana un chaval en moto me ha parado en el almacén #from: toni
+    Preguntaba a qué masías subías tú los lotes. Que era tu novio, que estaba preocupado #from: toni #delay: 6
+    ~ sabe_dani_busca = true
+    No le he dicho nada. No me ha gustado cómo miraba la furgoneta #from: toni #delay: 5
+}
 -> d6
 
 = d6

@@ -92,7 +92,7 @@ y me ha dicho que te dejaste el móvil en casa. pero ahora te sale en línea #de
     mañana te pregunto cosas. a ver si eres ali o no #delay: 5
     -> d2_fin
 }
-buenos días #at: D2 10:40
+- (recuerdo) buenos días #at: D2 10:40
 ayer al final no me contaste nada #delay: 4
 esta noche he soñado contigo #delay: 120
 cuando tu iaia nos llevó a ver las estrellas a aquella casa sin luz. te acuerdas? #delay: 6

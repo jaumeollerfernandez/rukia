@@ -24,7 +24,7 @@
     - - -> opciones
 * {dia >= 2} [sonia, mi madre ha pagado la cuota?]
     ~ sabe_secta = true
-    Ahora que lo dices. Tu madre vino ayer a darte de baja. Y a pedirme que le devolviera el trimestre. #delay: 300
+    Ahora que lo dices. Tu madre vino {dia == 2:ayer|{dia == 3:anteayer|el otro día}} a darte de baja. Y a pedirme que le devolviera el trimestre. #delay: 300
     Dijo que ahora vas a ir más a lo de su asociación. Rosa d'Abril, o algo así. #delay: 6
     Le dije que eres mayor de edad y que la baja la firmas tú. #delay: 5
     No le gustó nada. #delay: 4
@@ -55,7 +55,7 @@
         Lo es cuando te caes en mi pista. Pero vale. #delay: 6
     ** [(sin responder)]
     - - -> opciones
-* {dia >= 5 and not pista} [cómo fue el partido?]
+* {(dia >= 6 or (dia == 5 and hora >= 13)) and not pista} [cómo fue el partido?]
     Perdimos 3 a 1. Hemos luchado, chicas 💪. Bueno, tú no. #delay: 300
     Ona ha estado bien. Judit ha estrenado rodilleras y aun así no ha recibido ni una. #delay: 5
     -> opciones

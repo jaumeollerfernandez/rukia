@@ -15,7 +15,7 @@
     A ti. Los lotes de las masías los sube Toni mientras tanto. #delay: 600
     -> opciones
 * [cuántos lotes hicisteis?]
-    {dia >= 5:
+    {dia >= 6 or (dia == 5 and hora >= 16):
         71. ¡Récord! 🥫 #delay: 600
         Faltabas tú para el 72, que siempre te llevas el de la masía de arriba. #delay: 5
     - else:
@@ -31,9 +31,9 @@
     }
     -> opciones
 * {dia >= 3} [lluïsa, el lote de la masía de arriba quién lo sube ahora?]
-    Toni lo intenta, pero la señora no le abre. #delay: 600
+    Toni, pero la señora casi no le abre. #delay: 600
     Ya sabes cómo es: si no lo subes tú, no quiere nada. Dice que «la nena» ya sabe lo que necesita. #delay: 6
-    Toni se lo deja en la piedra de la entrada y la perra no le deja ni acercarse 🙏 #delay: 6
+    Toni dice que solo le abre para preguntar por ti 🙏 #delay: 6
     #caduca: D{dia + 1} 00:00
     ** [que le suba también pienso]
         Ya lo hace. Media caja. Esa perra come más que Toni, y mira que es difícil 😉 #delay: 300

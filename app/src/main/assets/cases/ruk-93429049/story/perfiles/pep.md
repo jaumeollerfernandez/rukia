@@ -6,7 +6,7 @@
 - Gonpi: @pep.carter (sus publicaciones, en `gonpi/gonpi.json`).
 
 ## Biografía
-Repartió el correo por todo el valle durante cuarenta años: conoce cada mas y cada camino. Le han mordido perros en once mases (el peor, el mastín de Can Pericot, cuando vivía la Pepita). A la Rosalia le dejaba el correo en el pozo, con una piedra encima, porque la perra no le dejaba acercarse al buzón. En la coral es el gracioso. Vio a Montse y a Berta en el mercado, vestidas de blanco de arriba abajo.
+Repartió el correo por todo el valle durante cuarenta años: conoce cada mas y cada camino. Le han mordido perros en once mases (el peor, el mastín de Can Pericot, cuando vivía la Pepita). En la coral es el gracioso. Vio a Montse y a Berta en el mercado, vestidas de blanco de arriba abajo.
 
 ## Perfil psicológico
 - **Bromista y bonachón.** Se ríe de todo, también de Roser («Roser, que te conozco»).

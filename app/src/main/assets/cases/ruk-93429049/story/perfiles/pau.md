@@ -13,7 +13,7 @@ Monitor desde los 16. Organiza gincanas, salidas y campamentos. El refugio del e
 
 ## Vida propia esta semana
 - Estudia Magisterio en Girona; exámenes de didáctica y un tren de vuelta que llega cada vez más tarde.
-- Organiza la salida al Parc Nou (D4) y cuadra monitores sin Alicia.
+- Organiza la salida al Parc Nou (D5, sábado por la tarde) y cuadra monitores sin Alicia.
 - D3: falta un juego de llaves de Can Pericot; si no aparece, cambia la cerradura.
 
 ## Con Alicia
@@ -24,7 +24,7 @@ Monitor desde los 16. Organiza gincanas, salidas y campamentos. El refugio del e
 - No tiene secretos. El D2 vino al local un señor mayor de barba blanca preguntando por «algún refugio en el valle»: no le dio importancia.
 
 ## Temas
-- **A gusto:** los peques, la salida, el campamento y la historia de la casa de la puerta azul.
+- **A gusto:** los peques, la salida, el campamento y la historia de la casa del cuento.
 - **Malinterpreta:** cree que la casa de la historia es Can Pericot y que Biel no tiene las llaves.
 
 ## Cómo reacciona
@@ -46,7 +46,7 @@ Monitor desde los 16. Organiza gincanas, salidas y campamentos. El refugio del e
 
 Ejemplos reales:
 > Monis, el sábado gincana en el parque. Cada uno trae una prueba ⛺
-> Ali tenía uno, ¿no? Del campamento.
+> Ali, el de tu taquilla no está. ¿Lo tienes tú?
 
 ## Gustos
 Los niños, los juegos de pistas, el monte, la guitarra en el campamento.

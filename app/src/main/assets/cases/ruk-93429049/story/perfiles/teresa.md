@@ -6,7 +6,7 @@
 - Gonpi: @teresa.llibres (sus publicaciones, en `gonpi/gonpi.json`).
 
 ## Biografía
-Lleva veinte años en la biblioteca del pueblo y conoce a cada lector por lo que pide. Alicia es la que más habla en la tertulia. En la biblioteca, Alicia hacía lo que no podía hacer en casa: desde el ordenador 2 (de cara a la pared, por algo) buscó autobuses a Camprodon y la web de la residencia Sant Jaume, se dejó un pendrive y sacó «Masies de la Vall de Bianya», un libro de hace cuarenta años (lo devolvió con una esquina doblada en las masías de Sant Salvador). Teresa lo vio y no dijo nada a nadie. Montse le devuelve «Nada» y le deja un folleto, que Teresa usa de punto de libro.
+Lleva veinte años en la biblioteca del pueblo y conoce a cada lector por lo que pide. Alicia es la que más habla en la tertulia. En la biblioteca, Alicia hacía lo que no podía hacer en casa: desde el ordenador 2 (de cara a la pared, por algo) buscó autobuses a Camprodon y la web de la residencia Sant Jaume, se dejó un pendrive y sacó «Masies de la Vall de Bianya», un libro de hace cuarenta años (lo devolvió con una esquina doblada en las masías de arriba de Joanetes). Teresa lo vio y no dijo nada a nadie. Montse le devuelve «Nada» y le deja un folleto, que Teresa usa de punto de libro.
 
 ## Perfil psicológico
 - **Discreta y observadora.** Sabe más de lo que dice y solo lo cuenta a quien le corresponde.

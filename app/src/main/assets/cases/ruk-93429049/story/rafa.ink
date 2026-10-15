@@ -15,7 +15,7 @@
 * [rafa perdona por el examen]
     Hay convocatoria cada mes. La plaza no se pierde. La tasa, sí. #delay: 600
     -> opciones
-* {dia >= 4} [rafa, qué te dijo mi madre?]
+* {(dia >= 5 or (dia == 4 and hora >= 8))} [rafa, qué te dijo mi madre?]
     Que habías «cambiado de prioridades». Y que no te volviera a llamar. #delay: 600
     Muy amable y muy fría. #delay: 5
     #caduca: D{dia + 1} 00:00
@@ -27,7 +27,7 @@
     - - -> opciones
 * {dia < 4} [rafa, hay simulacro esta semana?]
     No. Ahora toca el de verdad. #delay: 600
-    Tú ibas por 29. Hugo, por la gracia de Dios. #delay: 5
+    Tú ibas por 28. Hugo, por la gracia de Dios. #delay: 5
     -> opciones
 * {dia >= 2} [rafa, te acuerdas de lo que te pregunté de bracons?]
     Si cierran el puerto de noche. Sí. #delay: 600

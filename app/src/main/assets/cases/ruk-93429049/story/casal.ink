@@ -50,6 +50,7 @@ Gracias por este camino compartido. Nos vemos al otro lado de la noche 🌹 #at:
 
 = d7
 Es la hora. #at: D7 05:00
+(espera) #at: D7 06:30
 {
 - familia_salvada():
     Este canal ya no está disponible. #at: D7 09:00

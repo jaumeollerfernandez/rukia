@@ -29,7 +29,7 @@ no se lo cuento a nadie, te lo prometo 🤞 #delay: 4 #caduca: D3 18:00
         ~ laura_sabe = true
         ~ secta_a_capsec = true
         capsec!! vale. mañana te la subo 💛 #delay: 60
-    ** {sabe_rosalia or sabe_estrellas or sabe_puerta_azul} [subiendo hacia bracons, pasado sant salvador]
+    ** {sabe_rosalia or sabe_estrellas or sabe_puerta_azul} [subiendo hacia bracons, pasado joanetes]
         ~ laura_sabe = true
         ~ secta_sabe_rosalia = true
         uy qué lejos. vale, ya miro cómo 🌻 #delay: 60
@@ -69,7 +69,7 @@ tu hermana estaba allí. súper maja. hemos hablado un montón de ti 🥰 #delay
     que se nota que te quiere un montón #delay: 4
     y que el casal no es lo que la gente dice. que es como una familia 🌹 #delay: 6
 * [y tú qué hacías en el casal?]
-    me apetecía probar #delay: 120
+    tu hermana me invitó hace unas semanas. y me he quedado #delay: 120
     estoy en un momento raro, sabes? sin curro, sin saber qué hacer #delay: 5
     y allí te escuchan. de verdad. nadie te mira raro 🥹 #delay: 5
 * [(sin responder)]
@@ -98,7 +98,7 @@ tu hermana estaba allí. súper maja. hemos hablado un montón de ti 🥰 #delay
 * {not laura_sabe} [suena bien]
     verdad?? 🥰 #delay: 120
     ya te contaré!! bueno, no, que es de silencio jajaja #delay: 4
-* {laura_sabe} [laura, por qué se lo has dicho?]
+* (porque) {laura_sabe} [laura, por qué se lo has dicho?]
     no sé!! #delay: 120
     me preguntó y me salió. es tu hermana, ali. te quiere 🥺 #delay: 5
 * [(sin responder)]
@@ -106,7 +106,7 @@ tu hermana estaba allí. súper maja. hemos hablado un montón de ti 🥰 #delay
 
 = d6
 {not laura_sabe: -> d7}
-ali ya no me contestas 🥺 #at: D6 12:00
+{d4.porque:ali perdóname otra vez 🥺|ali ya no me contestas 🥺} #at: D6 12:00
 berta dice que mañana es un día muy especial y que estarás. de verdad? #delay: 6
 #caduca: D7 06:00
 * [no le digas nada más a berta]

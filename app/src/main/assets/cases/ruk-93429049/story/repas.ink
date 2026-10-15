@@ -1,4 +1,4 @@
-// Las madres de Martina y Leo, a quienes Alicia da clases de repaso de mates. Le pagan por Bizum.
+// Las madres de Martina y Leo, a quienes Alicia da clases de repaso de mates. Últimamente le pagan en efectivo: ella lo pidió.
 
 === repas ===
 -> historial
@@ -8,7 +8,7 @@ Ali, ¿puedes este jueves a las 18? Martina tiene control de fracciones 📐 #fr
 sí, perfecto #from: me #at: D-11 14:20
 Leo también, ¿os juntáis? Así os lo pagamos a medias 😊 #from: silvia #at: D-11 14:30
 vale, los dos juntos #from: me #at: D-11 15:00
-Martina ha sacado un 7,5 🎉 ¡Gracias, Ali! Te hago el Bizum. #from: anna #at: D-5 19:00
+Martina ha sacado un 7,5 🎉 ¡Gracias, Ali! El jueves te lo pago en mano, como me pediste. #from: anna #at: D-5 19:00
 🥳🥳 #from: me #at: D-5 20:10
 -> d1
 

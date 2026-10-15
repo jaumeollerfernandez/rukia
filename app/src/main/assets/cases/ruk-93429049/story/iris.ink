@@ -15,7 +15,7 @@ lo de los papeles #delay: 4 #caduca: D5 02:00
     ali? #delay: 60
     tu hermana dice que no tienes el móvil. pero quiero creer que eres tú #delay: 5
     -> papeles ->
-* [¿Quién eres?]
+* [¿Y tú qué tienes que ver con eso?]
     alguien que también firmó #delay: 60
     y que ahora no puede dormir #delay: 5
 // Solo con la ficha de Ignasi (app Policía): Iris adelanta cuándo y dónde, un día antes de su llamada.

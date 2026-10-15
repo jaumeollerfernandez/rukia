@@ -42,8 +42,8 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 5. **D-120**: vóley, foto de equipo. ⚪
 
 **@excursions.bianya** (desconocido: el jugador solo llega aquí si cotillea los comentarios):
-- **D-60**: una masía con la **puerta azul** y el dintel de 1782 🔎🔎. *«Ruta Sant Salvador de Bianya → Collada de Bracons. A media subida, un mas de 1782 con la porta blava y un pozo que todavía da agua. La señora de la casa (78 años, ¡como una rosa!) nos invitó a un vaso y nos presentó a su perra 🐕. Sin luz eléctrica ni cobertura: así se vive allí arriba.»* Ya no dice el nombre del mas ni el de la perra: «como una rosa» es el único guiño. Une `IMG_0391` (puerta azul, pozo, perra), `IMG_0405` (la vista de Bracons) y la llamada de Rosalia.
-- **D-45**: 🎭 **Can Pericot**, en Capsec: otra masía con la **puerta azul** (descolorida), vacía, sin pozo ni perro. *«Capsec. Can Pericot, vacío desde hace años, con su porta blava ya descolorida. Ahora es el refugio del esplai: si pasáis, ¡dejadlo limpio! 🙏»*. Comentan .esplai («Las llaves, en el local del esplai 😉») y **.serra** («el mejor refugi del mundo 💙»). El señuelo de la segunda puerta azul: la yaya Mercè pintó las dos (ver `PISTAS.md`).
+- **D-60**: una masía con la **puerta azul** y el dintel de 1782 🔎🔎. *«Ruta Joanetes → Collada de Bracons. A media subida, un mas de 1782 con la porta blava y un pozo que todavía da agua. La señora de la casa (78 años, ¡como una rosa!) nos invitó a un vaso y nos presentó a su perra 🐕. Sin luz eléctrica ni cobertura: así se vive allí arriba.»* Ya no dice el nombre del mas ni el de la perra: «como una rosa» es el único guiño. Une `IMG_0391` (puerta azul, pozo, perra), `IMG_0405` (la vista de Bracons) y la llamada de Rosalia.
+- **D-45**: 🎭 **Can Pericot**, en Capsec: otra masía con la **puerta azul** (descolorida), vacía, sin pozo ni perro. *«Capsec. Can Pericot, vacío desde hace años, con su porta blava ya descolorida. Ahora es el refugio del esplai: si pasáis, ¡dejadlo limpio! 🙏»*. Comentan .esplai («Las llaves, en el local del esplai 😉») y **.serra** («el mejor refugi del mundo 💙»). El señuelo de la segunda puerta azul: la yaya Mercè pintó las dos (ver `PISTAS.md`). Marc ya no lo refuerza (no nombra Can Pericot); queda aquí y en `central.ink`.
 - **D-30**, **D-15**: rutas por la Alta Garrotxa, el Santuari del Mont, una cascada. ⚪
 
 **@acompanya.casal**: parece la cuenta de un facilitador de mindfulness. Hace tres días cuenta que «una joven» le preguntó en el círculo por qué cuesta soltar: es Alicia, la noche que el chat Familia llama «lo que has compartido» 🔎. Frases sobre soltar lo material («Lo que posees acaba poseyéndote») 🔎 y sobre alejarse de la familia («Hay vínculos que sanan y vínculos que pesan… aunque lleven tu apellido»), que Montse agradece: «Gracias por devolverme a mi familia» 🔎.
@@ -72,8 +72,8 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | 10:30 | @montse.vidal | Unas manos abiertas al sol. *«Cerrar etapas también es cuidar de los tuyos 🌸»*. Coincide con la transferencia de 2.840 € («lo de Hacienda») | 🔎 Ambiguo |
 | 11:00 | @rosadabril.casal | El tejado nuevo de la sala. *«Gracias a la generosidad de nuestras familias, la sala nueva ya tiene tejado 🌹»*. Montse comenta «🙏» | 🔎 Media hora después de la transferencia a «CRA Serveis» (la bio dice «Comunitat Rosa d'Abril (CRA)») |
 | 13:00 | @eric.forner | Cesta vacía en el Forn. *«Caso abierto: seis barras de payés desaparecidas 🕵️🥖»*. Comentario de @forncanbatlle: «Èric, a trabajar 😤» | 🔎 Pista del pan, en tono de broma. Desaparece si Alicia le pide a Èric que no lo cuente (`hiddenBy: eric_archiva`) |
-| 18:40 | @arnau.gg | Foto de un «fail» con la bici, hecha **anteanoche a las 22:50 en la rotonda del Hostalnou**. Al fondo, borrosa, una chica con mochila y una **bolsa con barras que asoman**. *«la rotonda maldita 💀»* | 🔎🔎 Es Alicia esperando a Pol con el pan. Encaja con el chat de Arnau del D2. Desaparece si Alicia le pide que lo archive (`hiddenBy: arnau_calla`) |
-| 22:00 | @pol.rider | Foto nocturna del salpicadero, con el reloj a las **23:41**; por la ventana se ve la estación de autobuses de Olot. *«taxi nocturno 🚕»*. La publicó anteanoche y la vuelve a subir hoy, o aparece archivada | 🎭 Confirma que la dejó en la estación |
+| 18:40 | @arnau.gg | Foto de un «fail» con la bici, hecha **hace tres noches a las 23:10 en la rotonda del Hostalnou**. Al fondo, borrosa, una chica con mochila y una **bolsa con barras que asoman**. *«la rotonda maldita 💀»* | 🔎🔎 Es Alicia esperando a Pol con el pan. Encaja con el chat de Arnau del D2. Desaparece si Alicia le pide que lo archive (`hiddenBy: arnau_calla`) |
+| 22:00 | @pol.rider | Foto nocturna del salpicadero, con el reloj a las **23:41**; por la ventana se ve la estación de autobuses de Olot. *«taxi nocturno 🚕»*. La publicó hace tres noches y la vuelve a subir hoy, o aparece archivada | 🎭 Confirma que la dejó en la estación |
 | 23:10 | @dani.moto | Foto nocturna de una terraza de bar con una mochila negra sobre la mesa. *«noche de curro 🌙»*. Comenta @carla.bcn_: «tú y tu curro 🙄» | 🎭 Refuerza que "algo" hace de noche (en realidad menudea) |
 
 ## D3
@@ -82,7 +82,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 |---|---|---|---|
 | 07:00 | @berta.luz | *«Frase del alba: Quien de verdad te quiere, te espera sin hacer preguntas.»* | 🔎 |
 | 11:00 | @dani.moto | Carrusel de un concierto en Barcelona. *«Barna anteanoche 🔥»*, con la entrada fechada | 🎭→⚪ Es la coartada de Dani: estaba en Barcelona |
-| 14:20 | @oriol.pedals | Captura de la ruta en bici: *«Subida nocturna a Bracons 🌙 · 1:12 h»*, hecha anteanoche entre la 01:00 y las 02:30. Comentario de @oriol.pedals: «por cierto a mitad de subida vi a una chica sola andando por el arcén con una mochila. a esas horas! casi me paro» | 🔎🔎 Alicia subiendo andando hacia Bracons. Se cruza con `IMG_0409` (ruta a pie «…de Bianya») |
+| 14:20 | @oriol.pedals | Captura de la ruta en bici: *«Subida nocturna a Bracons 🌙 · 1:12 h»*, hecha hace tres noches entre la 01:00 y las 02:30. Comentario de @oriol.pedals: «por cierto a mitad de subida vi a una chica sola andando por el arcén con una mochila. a esas horas! casi me paro» | 🔎🔎 Alicia subiendo andando hacia Bracons. Se cruza con `IMG_0409` (ruta a pie «…de Bianya») |
 | 18:30 | @lauravila_ | Cojines y velas en un jardín. *«primera sesión de mindfulness 🌿 qué paz»*. Comenta @berta.luz: «Bienvenida a casa, hermana 🌹» | 🔎 Laura entra en el Casal: lo que le cuentes llega a Berta (chat `laura`) |
 | 20:00 | @mire.ia | Fiesta de cumpleaños (la que planeaban en el grupo). *«los 18 con mis personas (falta una 💔)»* | ⚪ |
 | 23:10 | @acompanya.casal | Comenta el último post de Alicia: **«Pensamos mucho en ti, Alicia. Tu madre y tu hermana te esperan 🌹»**. A la misma hora le escribe por privado | 🔎 Un hombre de 61 años que comenta a una chica de 18: raro, no alarmante |
@@ -92,7 +92,7 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | Hora | Quién | Publicación | Tipo |
 |---|---|---|---|
 | 07:00 | @berta.luz | *«Frase del alba: No todo el que se aleja se pierde. Y quien se pierde, vuelve a casa.»* | 🔎 |
-| 09:00 | @hostalnou.debianya | «Aviso: la carretera de Bracons tendrá obras en el tramo de Sant Salvador de 9 a 14 h» | ⚪ (pero sitúa el lugar) |
+| 09:00 | @hostalnou.debianya | «Aviso: la carretera de Bracons tendrá obras en el tramo de Joanetes de 9 a 14 h» | ⚪ (pero sitúa el lugar) |
 | 16:00 | @iris.ambllum | Amanecer, foto movida. *«no todos los amaneceres son iguales»*. Comentario de @berta.luz: «¿Qué quieres decir, hermana? 🙏». Iris no contesta | 🔎 Las dudas de Iris; ese mismo día empieza a escribir |
 | 18:00 | @rosadabril.casal | *«Tarde de mindfulness abierta en el jardín. Ven tal como eres 🌿»*. @lauravila_ pregunta cuánto cuesta; la cuenta contesta «La primera vez, nada 🌹 Escríbenos por privado» | ⚪/🔎 Captación: el precio nunca se dice en público |
 | 21:00 | @nuriii.g | Foto antigua con Alicia. *«vuelve pronto. sé que estás bien. lo sé»* (si `confianza_nuria` es alta, añade «✨🏡»: guiño a las estrellas) | 🔎 |
@@ -157,7 +157,7 @@ Cada cuenta tiene entre dos y cinco publicaciones escritas con la voz de su fich
 | @teresa.llibres, D-35: novedades de la sección local | 🔎 | En el lomo de un libro se lee «Masies de la Vall de Bianya» (el que se llevó Alicia) |
 | @roser.canta, D-70: la coral en 1979 | 🔎 | La yaya Mercè, la Rosalia y la Pepita juntas: las dos amigas existen |
 | @imma.respira, D2 21:00: el folleto del mercado | ⚪/🔎 | Captación de Rosa d'Abril en el mercado |
-| @clara.moni, D4 15:00: el dibujo de la Laieta | 🔎 | Puerta azul **con perro** y estrellas: no es Can Pericot |
+| @clara.moni, D4 15:00: el dibujo de la Laieta | 🔎 | Casita en el bosque con **perro** enorme y estrellas (en el chat ya no dice «puerta azul»): no es Can Pericot |
 | @biel.gg, D2 23:30: «noche épica 🕯️🌲» | 🎭 | Velas y saco de dormir en Can Pericot. Pau comenta «eso es el refugi???»: la luz de Capsec era Biel |
 | @jordi.serra.bcn, D-45: la habitación de Ali | ⚪ | El padre que espera |
 | @marta (fruites.canserra), D4 13:00 | ⚪ | Cierra la parada después de que Montse no le abra |

@@ -12,19 +12,19 @@
 }
 - (opciones)
 #caduca: {caduca(enric_escribe())}
-* (rocky) {dia < 3} [enric, ha vuelto el rocky?]
+* (rocky) {(dia == 1 and hora >= 10) or dia == 2 or (dia == 3 and hora < 8)} [enric, ha vuelto el rocky?]
     Aún no 😢 Gracias por preguntar, Alicia. #delay: 600
     Si lo ves, tiene miedo a los petardos. Llámalo bajito. #delay: 5
     -> opciones
-* {dia >= 3 and not rocky} [enric, qué alegría lo del rocky]
+* {(dia >= 4 or (dia == 3 and hora >= 9)) and not rocky} [enric, qué alegría lo del rocky]
     ¡Gracias, Alicia! Estaba gordo como una vaca 😂 #delay: 600
     -> opciones
-* {dia >= 3 and rocky} [al final apareció el rocky!]
+* {(dia >= 4 or (dia == 3 and hora >= 9)) and rocky} [al final apareció el rocky!]
     ¡Sí! Gracias por preguntar el otro día. #delay: 600
     En el huerto de los Puigdemont, zampándose las tomateras. Tres días de fiesta. #delay: 6
     Volvió con el collar lleno de barro y sin ninguna gana de disculparse 😂 #delay: 5
     -> opciones
-* {dia >= 4 and not barba} [enric, viste quién había en el coche gris?]
+* {veins.d4 and not barba} [enric, viste quién había en el coche gris?]
     -> barba ->
     -> opciones
 * [enric, me arreglas la bici cuando vuelva?]

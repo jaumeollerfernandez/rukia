@@ -35,7 +35,7 @@ class AdvanceChat(
         val silent = chat.choices.indexOf(SILENT_CHOICE)
         when {
             // What comes next is only written once everything already said has arrived, so it can depend on the moment.
-            chat.messages.any { !it.arrivedBy(now) } -> chat
+            chat.messages.any { !it.arrivedBy(now) } || chat.waitUntil > now -> chat
             chat.choices.isEmpty() -> continueChat(chat, story.advance(chatId), clock, chats, notifier)
             // The player let the choices expire: the story takes the silent one, and nothing is sent.
             chat.choicesExpireAt in 1..now && silent >= 0 ->
@@ -79,11 +79,13 @@ internal fun continueChat(
             if (line.call) Message(from, "", time, CallStatus.RINGING, deliverAt = at, audio = line.callAudio) else null,
         )
     }
-    val updated = chat.continuedWith(before + lines, step.choices, step.expiresAt ?: 0).let {
+    val updated = chat.continuedWith(before + lines, step.choices, step.expiresAt ?: 0, step.waitUntil ?: 0).let {
         if (history > 0 && chat.readCount >= chat.messages.size) it.readUpTo(chat.messages.size + before.size + history) else it
     }
     chats.save(updated)
     lines.filter { it.deliverAt > now }.forEach { notifier.notifyWhenDelivered(chat.id, it) }
+    // A pause has nothing to show, but the story must wake up then to go on, even with the game closed.
+    step.waitUntil?.takeIf { it > now }?.let { notifier.notifyWhenDelivered(chat.id, Message(chat.defaultSpeaker(), "", deliverAt = it)) }
     return updated
 }
 

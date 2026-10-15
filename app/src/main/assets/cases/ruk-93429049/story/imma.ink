@@ -43,10 +43,6 @@
         Uy, se me ha muerto el móvil de la cámara. Te lo enseño en clase, ¿vale? 🧘‍♀️ #delay: 300
     ** [(sin responder)]
     - - -> opciones
-* {dia >= 4 and not llamada} [imma, te volvieron a llamar?]
-    Ayer. Una chica joven, con voz muy dulce. Me dijo que «aún había sitio para mí». #delay: 600
-    ¿Sitio para qué? Ni que fuera un autobús. #delay: 5
-    -> opciones
 * {dia >= 5} [imma, no vayas eh]
     No pienso. Tú tampoco, ¿eh? Que te conozco. #delay: 600
     -> opciones

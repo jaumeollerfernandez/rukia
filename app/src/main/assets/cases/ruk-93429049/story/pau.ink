@@ -32,8 +32,8 @@
     ** [(sin responder)]
     - - -> opciones
 * {dia < 4} [pau, qué hacemos el sábado con los peques?]
-    Salida al Parc Nou. Salimos a las 10 de la plaza. #delay: 600
-    {pau.charla.perdon:
+    Salida al Parc Nou. Salimos a las 4 de la plaza. #delay: 600
+    {pau.charla.perdon or esplai.d1.no_puedo or esplai.d1.cambio:
         Los tuyos se los queda Biel. Ya sabes. #delay: 5
     - else:
         ¿Te encargas tú de los peques? Siempre te hacen más caso a ti. #delay: 5
@@ -52,7 +52,7 @@
     ** [(sin responder)]
     - - -> opciones
 * {dia >= 2} [pau, te acuerdas del campamento?]
-    ¡Cómo no! La noche que se fue la luz y contaste la historia de la casa de la puerta azul para que los peques no lloraran. #delay: 600
+    ¡Cómo no! La noche que se fue la luz y contaste la historia de la casa del cuento para que los peques no lloraran. #delay: 600
     La Laieta aún la pide. «La de la abuela de la Ali y la perra gigante.» #delay: 6
     Yo siempre pensé que te la inventabas. #delay: 4
     #caduca: D{dia + 1} 00:00

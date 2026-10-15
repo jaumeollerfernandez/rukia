@@ -4,6 +4,7 @@ import com.rukia.police.domain.model.SearchBoard
 import com.rukia.police.domain.model.Search
 import com.rukia.police.domain.model.Spot
 import com.rukia.police.domain.port.CaseFileRepository
+import com.rukia.police.domain.port.ResultAlarm
 import com.rukia.police.domain.port.SearchLog
 import java.time.Clock
 
@@ -35,6 +36,7 @@ class SearchZone(
     private val board: GetSearches,
     private val dayOf: (Long) -> Int,
     private val clock: Clock = Clock.systemDefaultZone(),
+    private val alarm: ResultAlarm = ResultAlarm {},
 ) {
     operator fun invoke(center: Spot, radius: Double): Search {
         require(board().canSearch) { "No squad can go out now" }
@@ -43,6 +45,6 @@ class SearchZone(
         val question = caseFile.question()
         val from = question.nearestStation(center)
         val (travel, duration) = Search.timing(from.metersTo(center), radius)
-        return Search(dayOf(now), center, radius, now, question.accuracy(center, radius), from, travel, duration).also(log::add)
+        return Search(dayOf(now), center, radius, now, question.accuracy(center, radius), from, travel, duration).also { log.add(it); alarm.set(it.readyAt) }
     }
 }

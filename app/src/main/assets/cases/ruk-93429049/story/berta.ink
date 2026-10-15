@@ -11,6 +11,7 @@ Siempre igual 🙄 #at: D-5 08:41
 -> d2
 
 = d2
+(espera) #at: D2 23:10
 {sospecha_familia >= 2:
     Sé que no eres Ali. #at: D2 23:10
     El móvil de Ali está en casa. Y tú estás dentro. #delay: 8
@@ -43,6 +44,7 @@ Buenas noches 🌹 #delay: 15 #caduca: D3 08:00
 - -> d3
 
 = d3
+(espera) #at: D3 07:05
 {sospecha_familia >= 3:
     Tienes 24 horas para devolverme a mi hermana. #at: D3 07:05
     No la toques, ni se te ocurra hacerle nada. Iré a por ti, seas quien seas. #delay: 10
@@ -50,12 +52,14 @@ Buenas noches 🌹 #delay: 15 #caduca: D3 08:00
 -> d4
 
 = d4
+(espera) #at: D4 07:05
 {sospecha_familia >= 3:
     Sigues ahí. Lo noto. #at: D4 07:05
 }
 -> d5
 
 = d5
+(espera) #at: D5 22:50
 {sospecha_familia >= 3:
     Alguien está usando tu móvil. Sé que no eres tú. Devuelvela sana y salva, te daremos todo lo que quieras, lo que necesites. Por favor almenos di algo, dime donde esta  #at: D5 22:50 
 - else:
@@ -66,6 +70,7 @@ Tengo que llamarte, tengo que intentarlo #delay: 10 #call: audio/berta.m4a
 -> d6
 
 = d6
+(espera) #at: D6 07:05
 {sospecha_familia >= 3:
     Por dios, devuélveme a mi hermana. Dime algo. #at: D6 07:05
     Que es lo que quieres? dinero? que te hemos hecho. Dinos dónde esta #delay:10
@@ -75,6 +80,7 @@ Tengo que llamarte, tengo que intentarlo #delay: 10 #call: audio/berta.m4a
 -> d7
 
 = d7
+(espera) #at: D7 07:10
 {familia_salvada():
     Sólo quería ascender, dejar el dolor y el sufrimiento de este mundo terrenal. #at: D7 07:10
     Quien te has creído para robarme ese destino, robarme estar en calma con mis seres queridos.#delay:5

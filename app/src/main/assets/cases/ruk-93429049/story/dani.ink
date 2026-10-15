@@ -21,7 +21,7 @@ no te tomo el pelo. somos amigos y punto #from: me #at: D-33 08:10
 amigos 😂 vale guay #at: D-33 08:11
 con quién estabas ayer en la plaza? te vi con un chico #at: D-20 21:15
 con pol. es mi amigo, dani #from: me #at: D-20 21:30
-pol el de la furgo? no me gusta ese tío #at: D-20 21:31
+pol el del golf gris? no me gusta ese tío #at: D-20 21:31
 deja de seguirle en gonpi, hazme caso #at: D-20 21:31
 no eres quién para decirme eso #from: me #at: D-20 21:50
 perdona. me preocupo por ti #at: D-20 21:51
@@ -204,7 +204,7 @@ tengo la moto. en una hora estoy donde digas #delay: 4 #caduca: D6 03:00
 // D6: si el jugador mandó una patrulla a su mas, los Mossos le han requisado el costo.
 // Si lo detuvieron y el jugador le creyó, cuenta lo que vio (liberado); si no le creyó, ya no escribe.
 = d6
-#at: D6 13:00
+(espera) #at: D6 13:00
 {dani_no_creido or (dani_detenido and not dani_creido): -> d7}
 {dani_creido: -> liberado -> d7}
 {dani_registrado:
@@ -217,7 +217,7 @@ tengo la moto. en una hora estoy donde digas #delay: 4 #caduca: D6 03:00
 // Desesperado: ya sabe la zona (la siguió un sábado), le falta la casa.
 ~ sabe_dani_busca = true
 ali porfa #delay: 3
-sé que estás por sant salvador. te seguí una vez, ya lo sabes #delay: 6
+sé que estás por joanetes. te seguí una vez{liberado or charla.radar:, ya lo sabes|. un sábado. no te enfades} #delay: 6
 me falta saber cuál. he preguntado a medio valle #delay: 5
 dímelo tú. es mejor que te encuentre yo que otros #delay: 8
 no me hagas esto ali #delay: 60 #caduca: D6 17:00
@@ -232,7 +232,11 @@ no me hagas esto ali #delay: 60 #caduca: D6 17:00
 - -> d7
 
 = d7
-#at: D7 01:30
+{dani_frenado:
+    (espera) #at: D7 05:00
+- else:
+    (espera) #at: D7 01:30
+}
 // Ya la ha entregado (laia.entrega_tarde). Último mensaje y desaparece.
 {alicia_entregada and not (dani_detenido and not dani_creido):
     perdóname #delay: 1
@@ -255,7 +259,7 @@ ali #delay: 1
 me han soltado. con una orden de alejamiento. supongo que me lo merezco #delay: 6
 lo que les dije es verdad. quería que te vinieras conmigo. que fueras mía. ya sé cómo suena #delay: 8
 te seguí una vez con la moto. hace un mes, un sábado #delay: 10
-no fuiste ni a capsec ni a barna. subiste en la furgo del banc d'aliments hacia sant salvador #delay: 6
+no fuiste ni a capsec ni a barna. subiste en la furgo del banc d'aliments hacia joanetes #delay: 6
 ~ sabe_ruta_lotes = true
 te bajaste en un mas con una perra enorme que me ladró desde lejos. me di la vuelta #delay: 6
 no te volveré a escribir #delay: 20
@@ -266,14 +270,16 @@ no te volveré a escribir #delay: 20
 - (opciones)
 #caduca: {limite}
 * [dani dónde estabas la noche que me fui?]
-    {dia < 3:
+    // Lo de Barcelona lo cuenta él en d3 (D3 21:30).
+    {not d3:
         por ahí #delay: 120
         por? me echabas de menos? 😏 #delay: 4
     - else:
         te lo he dicho. en barna, en un concierto. mira mi gonpi #delay: 120
     }
     -> opciones
-* {dani_sospechoso} [tú me has seguido con la moto?]
+// Si ya ha confesado que la siguió, no lo niega.
+* {dani_sospechoso and not liberado and not charla.radar} [tú me has seguido con la moto?]
     seguido? #delay: 120
     he pasado por tu calle alguna vez. vivo al lado de la gasolinera, paso siempre por ahí #delay: 5
     vale, igual alguna vez de más 🙃 #delay: 30
@@ -330,10 +336,10 @@ no te volveré a escribir #delay: 20
     }
     -> opciones
 // Solo con su ficha (app Policía): la multa del radar lo delata. Cuenta lo mismo que si lo sueltan, sin gastar una salida.
-* {ficha_dani and not liberado} [dani, tu moto salta un radar en la carretera de sant salvador. un sábado, hace un mes. qué hacías ahí?]
+* (radar) {ficha_dani and not liberado} [dani, tu moto salta un radar en la carretera de joanetes. un sábado, hace un mes. qué hacías ahí?]
     ...cómo sabes tú eso #delay: 150
     vale. te seguí. ya está, lo he dicho #delay: 10
-    no fuiste ni a capsec ni a barna. subiste en la furgo del banc d'aliments hacia sant salvador #delay: 6
+    no fuiste ni a capsec ni a barna. subiste en la furgo del banc d'aliments hacia joanetes #delay: 6
     ~ sabe_ruta_lotes = true
     te bajaste en un mas con una perra enorme que me ladró desde lejos. me di la vuelta y al bajar me cazó el radar #delay: 8
     no se lo digas a nadie, porfa. bastante tengo #delay: 5

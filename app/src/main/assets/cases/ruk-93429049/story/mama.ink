@@ -18,11 +18,19 @@ Hazlo por mí. #at: D-3 19:02
 #caduca: D{dia + 1} 00:00
 * (hola) [mamá]
     ~ sospecha_familia += 2
-    ¿Alicia? #delay: 60
-    ... #delay: 120
-    Tu móvil está aquí, nena. En la cocina. Lo acabo de ver encenderse. #delay: 10 #effect: glitch
-    Si eres tú, vuelve. Antes de lo de la yaya. Todo está perdonado. #delay: 8
-    Si no eres tú, que Dios te perdone. #delay: 20
+    // Si ya lo descubrió en un grupo, no se sorprende.
+    {movil_visto:
+        Otra vez tú. #delay: 60
+        Sé que no eres ella. Su móvil está en la cocina y se enciende solo. #delay: 10 #effect: glitch
+        Si sabes dónde está, dile que vuelva. Antes de lo de la yaya. #delay: 8
+    - else:
+        ¿Alicia? #delay: 60
+        ... #delay: 120
+        Tu móvil está aquí, nena. En la cocina. Lo acabo de ver encenderse. #delay: 10 #effect: glitch
+        Si eres tú, vuelve. Antes de lo de la yaya. Todo está perdonado. #delay: 8
+        Si no eres tú, que Dios te perdone. #delay: 20
+    }
+    ~ movil_visto = true
     -> opciones
 * {sabe_rosalia} [mamá, dónde está la rosalia?]
     ~ sospecha_familia += 2
@@ -34,7 +42,7 @@ Hazlo por mí. #at: D-3 19:02
     -> opciones
 * (quiero) [te quiero mamá]
     ~ sospecha_familia += 2
-    {hola or no_busqueis:
+    {hola or no_busqueis or movil_visto:
         Si eres tú, ven a decírmelo a la cara. #delay: 60
         Y si no eres tú, no uses su voz. #delay: 8
     - else:
@@ -45,7 +53,7 @@ Hazlo por mí. #at: D-3 19:02
     -> opciones
 * (no_busqueis) [mamá, estoy bien. no me busquéis]
     ~ sospecha_familia += 2
-    {hola or quiero:
+    {hola or quiero or movil_visto:
         Otra vez tú. #delay: 60
         Quien seas: nadie la busca. La esperamos. Que no es lo mismo. #delay: 8
     - else:

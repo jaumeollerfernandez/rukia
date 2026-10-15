@@ -60,12 +60,14 @@ no he dicho eso #delay: 2 #caduca: D3 13:00
 = d3
 oye #at: D3 16:00
 pilar está rarísima hoy. te ha llamado? #delay: 3
-me ha preguntado si alguna vez te he visto llevar pan a «la señora de arriba» #delay: 5
-ni idea de qué habla 🤷 #delay: 4
+me ha preguntado si alguna vez te he visto llevar pan a «la señora de arriba». que tú se lo dijiste una vez #delay: 5
+yo de eso ni idea 🤷 #delay: 4
 -> charla("D4 14:25") ->
 -> d4
 
 = d4
+// Si sabe que es la policía, ya no le escribe como a Alicia (charla, «Trabajo con los Mossos»).
+{charla.mossos: -> charla("D5 10:55") -> d5}
 pilar dice que si vuelves, el puesto es tuyo #at: D4 14:30
 {d2.tambien:
     y yo te espero. y no para la birra 🙃 #delay: 4
@@ -77,8 +79,8 @@ pilar dice que si vuelves, el puesto es tuyo #at: D4 14:30
 
 = d5
 {arnau_calla: -> d5_cocas}
-ali la he liado #at: D5 11:00
-ha venido tu hermana y le he dicho lo de «la señora de arriba» sin pensar #delay: 4
+{charla.mossos:oye, lo de la policía. la he liado|ali la he liado} #at: D5 11:00
+ha venido {charla.mossos:la hermana de alicia|tu hermana} y le he dicho lo de «la señora de arriba» sin pensar #delay: 4
 me ha sonreído de una manera rarísima #delay: 5
 perdóname #delay: 3
 #caduca: D6 09:00
@@ -94,20 +96,25 @@ perdóname #delay: 3
 - -> d6
 
 = d5_cocas
-hoy hemos hecho cocas de chicharrones. te guardo una 🍞 #at: D5 13:00
+{not charla.mossos:
+    hoy hemos hecho cocas de chicharrones. te guardo una 🍞 #at: D5 13:00
+}
 -> d6
 
 // D6: Dani pregunta por ella en el Forn (la deuda de Dani, PISTAS.md).
 = d6
-ali #at: D6 09:45
-ha venido el dani ese de la moto. a preguntarme si sabía en qué mas estabas #delay: 4
+// Detenido, Dani no puede ir al Forn.
+(espera) #at: D6 09:45
+{dani_detenido: -> d7}
+{charla.mossos:oye, lo de la policía|ali} #at: D6 09:45
+ha venido el dani ese de la moto. a preguntarme si sabía en qué mas {charla.mossos:estaba alicia|estabas} #delay: 4
 ~ sabe_dani_busca = true
 le he dicho que ni idea. que es verdad #delay: 5
 pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
 #caduca: D7 06:00
 * [gracias por no decirle nada]
     no sé nada, es mi superpoder #delay: 120
-    pero ese tío me ha dado mal rollo. ten cuidado ali #delay: 5
+    pero ese tío me ha dado mal rollo. {charla.mossos:encontradla antes que él|ten cuidado ali} #delay: 5
 * [si vuelve, avísame]
     hecho. y le tiro la masa madre a la cara #delay: 120
 * [(sin responder)]
@@ -119,7 +126,7 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
 
 // Huecos para escribirle. Èric lo cuenta todo sin darse cuenta: la pista del pienso (cierta) y la de Capsec (falsa).
 // Confianza (fia_eric): preguntarle qué dijo Pilar es un desliz (Alicia estaba delante), y la pone a prueba con la masa madre
-// (le debe un café, historial D-3). Si confía, cuenta para quién decía Alicia que era el pan (la Rosalia). Si recela,
+// (le debe un café, historial D-3). Si confía, cuenta lo de «la señora de arriba» y el pienso. Si recela,
 // la mentira solo cuela sin rumores; la verdad la cree, pero es un bocazas y lo cuenta en el Forn (delata).
 = charla(limite)
 - (opciones)
@@ -137,7 +144,7 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
     ~ sabe_capsec = true
     yo nunca sé nada, es mi superpoder #delay: 120
     oye y ahora que lo dices #delay: 30
-    el mes pasado me pediste que te subiera en moto al refugio del esplai, en capsec. el mas de la puerta azul #delay: 6
+    el mes pasado me pediste que te subiera en moto al refugio del esplai, en capsec #delay: 6
     que ibas a dejar unas cosas para una acampada. una mochila enorme #delay: 5
     tiene que ver con esto? #delay: 4
     #caduca: D{dia + 1} 00:00
@@ -148,8 +155,9 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
         una acampada sola, con mochila de mudanza, en un mas vacío. normalísimo 🙃 #delay: 5
     ** [(sin responder)]
     - - -> opciones
-* {dia >= 3 and fia_eric > -1} [qué te dijo pilar exactamente de la señora de arriba?]
-    si estabas delante jajaja #delay: 120
+// Después de que Èric lo cuente (d3, 16:00).
+* {d3 and fia_eric > -1} [qué te dijo pilar exactamente de la señora de arriba?]
+    si a ti te lo dijo ella. estabas delante jajaja #delay: 120
     oye estás rarísima. a ver, qué me debes por lo de la masa madre? #delay: 5
     #caduca: D{dia + 1} 00:00
     ** [un café]
@@ -183,17 +191,11 @@ pero estaba rarísimo. sudando. y con un ojo morado #delay: 4
         lo de pilar: que te vio salir con barras de más para «la señora de arriba». y un saco de pienso para perro grande #delay: 6
     }
     -> opciones
-* {fia_eric == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
+* (mossos) {fia_eric == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
     ~ fia_eric = 1
     ~ delata()
     la policía??? #delay: 60
     vale vale. lo que sea. pero esto se lo tengo que contar a pilar #delay: 5
-    -> opciones
-// Solo si confía.
-* {fia_eric >= 1 and dia >= 3} [eric, alguna vez te dije para quién era el pan?]
-    ~ sabe_rosalia = true
-    una vez. «para la rosalia, que si no le sube nadie, no baja» #delay: 120
-    pensé que era una abuela de tu familia #delay: 5
     -> opciones
 * {dia >= 2 and fia_eric > -1} [estoy bien eric. de verdad]
     vale. te creo #delay: 120

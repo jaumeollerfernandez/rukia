@@ -9,6 +9,7 @@ import com.rukia.police.domain.model.RecordStatus
 import com.rukia.police.domain.model.RecordsBoard
 import com.rukia.police.domain.port.RecordLog
 import com.rukia.police.domain.port.RecordsRepository
+import com.rukia.police.domain.port.ResultAlarm
 import com.rukia.police.domain.port.StoryFlags
 import com.rukia.police.domain.port.StoryFacts
 import java.text.Collator
@@ -53,7 +54,8 @@ class GetRecords(
                 else -> RecordStatus.Ready
             }
             RecordRow(record, status, request)
-        }
+        // The one in process first, then those that came in, then the rest; each group keeps the order above.
+        }.sortedBy { when (it.status) { RecordStatus.Pending -> 0; RecordStatus.Ready, RecordStatus.Read -> 1; RecordStatus.Available -> 2 } }
         return RecordsBoard(rows, rows.firstOrNull { it.status == RecordStatus.Pending }?.request, repo.records().hoursOn(dayOf(now)))
     }
 }
@@ -64,13 +66,14 @@ class RequestRecord(
     private val log: RecordLog,
     private val board: GetRecords,
     private val clock: Clock = Clock.systemDefaultZone(),
+    private val alarm: ResultAlarm = ResultAlarm {},
 ) {
     operator fun invoke(recordId: String): RecordRequest {
         val now = clock.millis()
         val current = board()
         require(current.canRequest) { "Another record is on its way" }
         require(current.rows.any { it.record.id == recordId && it.status == RecordStatus.Available }) { "Record $recordId can't be requested" }
-        return RecordRequest(recordId, now, now + current.hoursNow * HOUR).also { log.save(log.all() + it) }
+        return RecordRequest(recordId, now, now + current.hoursNow * HOUR).also { log.save(log.all() + it); alarm.set(it.readyAt) }
     }
 }
 

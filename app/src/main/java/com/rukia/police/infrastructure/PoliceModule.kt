@@ -6,6 +6,7 @@ import com.rukia.police.application.FindPlace
 import com.rukia.police.application.GetCaseQuestion
 import com.rukia.police.application.GetKnownPlaces
 import com.rukia.police.infrastructure.geocoding.NominatimPlaceFinder
+import com.rukia.police.infrastructure.notifications.AndroidResultAlarm
 import com.rukia.police.application.GetOperations
 import com.rukia.police.application.GetSearches
 import com.rukia.police.application.SearchZone
@@ -73,7 +74,8 @@ class PoliceModule(
     val getKnownPlaces = GetKnownPlaces(caseFile, facts)
     val findPlace = FindPlace(NominatimPlaceFinder(context.packageName), caseFile)
     val getSearches = GetSearches(searches, dayOf, deadline, CaseClock.clock(caseId))
-    val searchZone = SearchZone(caseFile, searches, getSearches, dayOf, CaseClock.clock(caseId))
+    private val resultAlarm = AndroidResultAlarm(context, caseId)
+    val searchZone = SearchZone(caseFile, searches, getSearches, dayOf, CaseClock.clock(caseId), resultAlarm)
     val getOperations = GetOperations(operations, dispatches, timeOf, CaseClock.clock(caseId), facts)
     val dispatchSquad = DispatchSquad(operations, dispatches, radio, timeOf, CaseClock.clock(caseId), facts)
     /** Whether the case has field operations at all (police/actions.json). */
@@ -82,7 +84,7 @@ class PoliceModule(
     val operationLabels = operations.operations().operations.associate { it.id to it.label }
 
     val getRecords = GetRecords(records, recordLog, dayOf, CaseClock.clock(caseId), facts)
-    val requestRecord = RequestRecord(records, recordLog, getRecords, CaseClock.clock(caseId))
+    val requestRecord = RequestRecord(records, recordLog, getRecords, CaseClock.clock(caseId), resultAlarm)
     val readRecord = ReadRecord(records, recordLog, flags, timeOf, labelOf, CaseClock.clock(caseId))
     val listMugshots = ListMugshots(records, recordLog)
     /** Whether the case has police records (police/records.json). */

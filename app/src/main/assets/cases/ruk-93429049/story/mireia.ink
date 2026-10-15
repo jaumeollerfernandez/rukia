@@ -106,7 +106,7 @@ lo sabemos tú y yo y ya #delay: 4
         cuando puedas me lo cuentas. yo te he contado lo mío 🤍 #delay: 5
     ** [(sin responder)]
         ali? #delay: 600
-* [mire, la gente dice que estoy embarazada. di la verdad]
+* {carla.charla.oido} [mire, la gente dice que estoy embarazada. di la verdad]
     ~ mireia_cerrada = true
     no puedes pedirme eso #delay: 120
     si se entera mi padre me mata #delay: 5
@@ -118,7 +118,7 @@ lo sabemos tú y yo y ya #delay: 4
 = culpa
 ali #at: D4 23:20
 no duermo #delay: 4
-carla sigue diciendo lo de girona. que eras tú. y yo callada como una rata 🥺 #delay: 6
+{carla.charla.desmiente:carla dice que tú le has dicho que no. pero la gente sigue con lo de girona|carla sigue diciendo lo de girona. que eras tú}. y yo callada como una rata 🥺 #delay: 6
 lo siento mucho #delay: 4
 -> girona ->
 ->->

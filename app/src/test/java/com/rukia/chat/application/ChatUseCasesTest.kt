@@ -64,6 +64,23 @@ class ChatUseCasesTest {
         assertFailsWith<IllegalArgumentException> { create(listOf("nobody")) }
     }
 
+    @Test fun `a pause holds the chat until its time and wakes the story then`() {
+        val wake = clockAt(10, 0).millis()
+        var calls = 0
+        val story = object : StoryEngine {
+            override fun advance(chatId: String) = StoryStep(emptyList(), emptyList(), waitUntil = wake.takeIf { calls++ == 0 })
+            override fun choose(chatId: String, index: Int) = StoryStep(emptyList(), emptyList())
+            override fun reset() {}
+        }
+        repo.save(Chat("rukia", listOf("rukia")))
+
+        assertEquals(wake, AdvanceChat(repo, story, notifier, clockAt(9, 0))("rukia").waitUntil)
+        assertEquals(listOf(wake), notifier.scheduled.map { it.deliverAt }, "an alarm to go on, even with the game closed")
+        AdvanceChat(repo, story, notifier, clockAt(9, 30))("rukia")
+        assertEquals(1, calls, "still waiting: the story isn't asked again")
+        assertEquals(0, AdvanceChat(repo, story, notifier, clockAt(10, 1))("rukia").waitUntil)
+    }
+
     @Test fun `story lines become messages and a choice is sent as the player's reply`() {
         val story = object : StoryEngine {
             override fun advance(chatId: String) =

@@ -11,7 +11,7 @@
 = charla
 - (opciones)
 #caduca: D{dia + 1} 00:00
-* {fia_toni > -1} [toni perdona por el turno]
+* {fia_toni > -1 and not mossos} [toni perdona por el turno]
     tranqui ali. fàtima es una máquina 💪 #delay: 300
     pero me debes galletas del forn. dos paquetes #delay: 4
     -> opciones
@@ -40,10 +40,10 @@
         ... #delay: 300
         vale. perdona. con todo lo que se dice, uno ya no sabe #delay: 5
         ~ sabe_ruta_lotes = true
-        las de arriba de sant salvador, en la subida a bracons. can xic, les feixes y la de la perra #delay: 6
+        las de arriba de joanetes, en la subida a bracons. can xic, les feixes y la de la perra #delay: 6
     }
     -> opciones
-* {fia_toni == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
+* (mossos) {fia_toni == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
     ~ fia_toni = 1
     «los mossos». por el móvil de ella #delay: 300
     mira. si es para encontrarla, me da igual quién seas #delay: 6
@@ -56,7 +56,7 @@
         ali tú estás bien? que hoy me preguntas cosas que sabes de memoria #delay: 6
     }
     -> opciones
-* {dia >= 2 and fia_toni > -1} [toni, qué donó mi madre?]
+* {(dia >= 3 or (dia == 2 and hora >= 13)) and fia_toni > -1} [toni, qué donó mi madre?]
     cuatro cajas. mantas, una cafetera, un reloj de pared, fotos enmarcadas #delay: 300
     y tu ropa de vóley. lo sabías? #delay: 5
     las fotos no las podemos dar. te las guardo? #delay: 4
@@ -73,8 +73,15 @@
     ** [(sin responder)]
     - - -> opciones
 // Solo si confía: la Rosalia le dijo que «la nena» iba a quedarse con ella.
-* {fia_toni >= 1 and dia >= 3} [toni, la señora de la perra te ha dicho algo de mí?]
+* {fia_toni >= 1 and dia >= 3} [{mossos:toni, la señora de la perra ha dicho algo de alicia?|toni, la señora de la perra te ha dicho algo de mí?}]
     ~ sabe_rosalia = true
+    // A la policía se lo cuenta sin más: no le pregunta a «Alicia» si está allí.
+    {mossos:
+        el sábado subí yo solo el lote. la rosalia, la señora de la perra, me preguntó por ella #delay: 300
+        «la nena me dijo que vendría a quedarse unos días, que le haría compañía» #delay: 6
+        si la buscáis, yo empezaría por esa casa. la de arriba de joanetes #delay: 8
+        -> opciones
+    }
     el sábado subí yo solo el lote. la rosalia me preguntó por ti #delay: 300
     «la nena me dijo que vendría a quedarse unos días, que le haría compañía». me hizo gracia #delay: 6
     estás allí, verdad? tranquila. no se lo diré a nadie #delay: 8
@@ -89,7 +96,7 @@
     - - -> opciones
 // Con la mochila de la huida (IMG_0413: velas, cerillas, un cargador sin móvil): una masía sin luz.
 * {foto_img_0413 and dia >= 2 and fia_toni > -1} [toni, a qué masías del valle no les llega la luz?]
-    a casi todas les llega ya. a las de arriba de sant salvador, no #delay: 300
+    a casi todas les llega ya. a las de arriba de joanetes, no #delay: 300
     {fia_toni >= 1:
         la de la señora de la perra va con velas y un generador que no arranca nunca. por eso le subías cerillas #delay: 6
     - else:
@@ -108,7 +115,7 @@
 
 = ruta
 ~ sabe_ruta_lotes = true
-a las de arriba de sant salvador, en la subida a bracons. can xic, les feixes y la de la señora de la perra #delay: 6
+a las de arriba de joanetes, en la subida a bracons. can xic, les feixes y la de la señora de la perra #delay: 6
 a esa le subías también pan. y pienso, que la perra se comía media caja 😂 #delay: 5
 ->->
 

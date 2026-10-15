@@ -25,7 +25,7 @@
     perdonada. a cambio de un café #delay: 120
     y de una explicación. el café primero ☕ #delay: 4
     -> opciones
-* {dia >= 3 and dia <= 5} [paula has visto el comentario de oriol?]
+* {((dia == 3 and hora >= 15) or dia == 4 or dia == 5)} [paula has visto el comentario de oriol?]
     lo de la tía de bracons? #delay: 120
     oriol ve fantasmas. el año pasado juró que había visto un lobo y era un perro de pastor #delay: 5
     #caduca: D{dia + 1} 00:00
@@ -36,7 +36,7 @@
         EL LOBO. lo contó una semana entera #delay: 120
     ** [(sin responder)]
     - - -> opciones
-* [paula llegas tarde a clase?]
+* {dia != 5 and dia != 6} [paula llegas tarde a clase?]
     literal estoy corriendo con el café en la mano #delay: 120
     voy tarde voy tarde voy tarde #delay: 2
     -> opciones

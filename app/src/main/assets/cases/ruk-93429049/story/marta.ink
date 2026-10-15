@@ -37,7 +37,7 @@ Ali, esta mañana he visto a tu madre en la oficina del banco. #at: D2 11:10
 Con un señor mayor, barba blanca, muy bien vestido. Un gestor, por el traje. Ella firmaba y él miraba. #delay: 6
 Ni me ha saludado. Me ha mirado como si no me conociera. #delay: 10
 ¿Tu madre tiene problemas de dinero, cariño? No quiero meterme, pero me preocupa. #delay: 15 #caduca: D3 10:00
-* [dice que era para pagar a hacienda lo del piso de la yaya]
+* (hacienda) [dice que era para pagar a hacienda lo del piso de la yaya]
     ¿A Hacienda? #delay: 300
     Hacienda no te espera en la oficina con un señor de barba, cariño. Se paga por internet. #delay: 8
     Pero bueno. Yo qué sé. Esta noche hablo con tu padre. #delay: 10
@@ -74,6 +74,7 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
 -> d7
 
 = d7
+(espera) #at: D7 08:30
 {rescatada():
     Tu padre se ha ido corriendo a la comisaría. Ali, cariño, qué alegría. #at: D7 08:30
 - else:
@@ -91,7 +92,7 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
     Poco, cariño. La madre de tu madre y yo no nos tratábamos mucho. #delay: 300
     Sé que subía mucho al valle a ver a dos amigas de juventud. Las dos en masías, sin luz. #delay: 6
     Una era de Capsec, la Pepita de Can Pericot. Esa murió hace unos años. #delay: 5
-    La otra, de por Sant Salvador. El nombre no me sale. Tu madre me dijo que está en una residencia. #delay: 6
+    La otra, de por Joanetes. El nombre no me sale. Tu madre me dijo que está en una residencia. #delay: 6
     ¿Por qué lo preguntas? #delay: 4
     #caduca: {limite}
     ** [por nada, tía. me acordé de ella]
@@ -105,7 +106,7 @@ Te queremos mucho, Ali. Pase lo que pase. #delay: 5
     Dime dónde y voy ahora mismo. Con el coche y con tu padre si hace falta. #delay: 300
     No hace falta que me expliques nada. #delay: 5
     -> opciones
-* {dia >= 4} [tía, has vuelto a ver ese coche gris?]
+* {d4} [tía, has vuelto a ver ese coche gris?]
     Esta mañana, delante del mercado. #delay: 300
     El de la barba hablaba con la Conxita, tu vecina. Le daba un folleto y ella asentía mucho. #delay: 6
     Yo de esa no me fiaría. Lo cuenta todo. #delay: 4

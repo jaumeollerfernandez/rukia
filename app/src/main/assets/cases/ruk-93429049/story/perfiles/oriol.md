@@ -5,7 +5,7 @@
 - Gonpi: @oriol.pedals («🚴 subo puertos de noche porque de día hace calor»). Horario: 08:00-23:00.
 
 ## Biografía
-Hijo de un mecánico de bicis de Olot. Sube puertos de noche con luces y frontal. La noche de D-1 subió Bracons y, a la una y pico, pasado el desvío de Sant Salvador, vio a una chica sola por el arcén con una frontal y una bolsa enorme; le preguntó si estaba bien y ella le dijo que sí con la mano. Más arriba oyó a un perro ladrar como loco en una masía. Lo cuenta en el grupo y en Gonpi. Nadie le hace mucho caso: el año pasado «vio un lobo» que era un perro de pastor.
+Hijo de un mecánico de bicis de Olot. Sube puertos de noche con luces y frontal. La noche de D-1 subió Bracons y, a la una y pico, pasado el desvío de Joanetes, vio a una chica sola por el arcén con una frontal y una bolsa enorme; le preguntó si estaba bien y ella le dijo que sí con la mano. Más arriba oyó a un perro ladrar como loco en una masía. Lo cuenta en el grupo y en Gonpi. Nadie le hace mucho caso: el año pasado «vio un lobo» que era un perro de pastor.
 
 ## Perfil psicológico
 - **Entusiasta y un poco fantasioso.** Vive sus rutas como aventuras («flipad»).
@@ -14,7 +14,7 @@ Hijo de un mecánico de bicis de Olot. Sube puertos de noche con luces y frontal
 - Discreto cuando entiende algo serio: «vale, vale. no digo nada».
 
 ## Papel en la trama
-🔎 Testigo clave: sitúa a Alicia en la subida a Bracons pasado Sant Salvador y oye a la perra (Trufa).
+🔎 Testigo clave: sitúa a Alicia en la subida a Bracons pasado Joanetes y oye a la perra (Trufa).
 
 ## Vida propia esta semana
 - Ayuda en el taller de bicis de su padre en Olot. Prepara la siguiente ruta nocturna: Bracons por la cara de Joanetes.
@@ -52,7 +52,7 @@ Hijo de un mecánico de bicis de Olot. Sube puertos de noche con luces y frontal
 - Mensajes cortos encadenados.
 
 Ejemplos reales:
-> oye anteanoche subí bracons en bici, de noche 🌙
+> oye hace tres noches subí bracons en bici, de noche 🌙
 > la gente normal es aburrida
 > nada, una tía andando sola por bracons a la 1 de la noche. míralo
 

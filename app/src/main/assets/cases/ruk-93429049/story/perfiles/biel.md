@@ -18,7 +18,7 @@ Monitor desde hace dos años, más por los amigos que por vocación. Tiene un ju
 ## Vida propia esta semana
 - Repone yogures en el súper («mi vida es un lineal de lácteos»). Juega al lol.
 - Con Noa buscan un sitio donde estar tranquilos: ya lo encontraron (Can Pericot).
-- D4: lleva a los peques de Alicia a la salida del Parc Nou.
+- D5 (sábado por la tarde): lleva a los peques de Alicia a la salida del Parc Nou.
 
 ## Con Alicia
 - Compañero de monitores, de bromas («la mejor y la peor a la vez»). Confianza de colegas.

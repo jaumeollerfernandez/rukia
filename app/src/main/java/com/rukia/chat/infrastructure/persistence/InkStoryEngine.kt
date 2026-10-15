@@ -2,6 +2,7 @@ package com.rukia.chat.infrastructure.persistence
 
 import com.bladecoder.ink.compiler.Compiler
 import com.bladecoder.ink.compiler.IFileHandler
+import com.rukia.chat.domain.port.PAUSE_LINE
 import com.rukia.chat.domain.port.StoryEngine
 import com.rukia.chat.domain.port.StoryLine
 import com.rukia.chat.domain.port.StoryStep
@@ -21,7 +22,8 @@ import java.time.Instant
  *
  * Supported line tags: `#from: <characterId>` sets the speaker; `#call` makes the speaker call the player after the line (`#call: audio/x.m4a` plays that clip if answered);
  * `#delay: <seconds>` makes the line arrive that long after the previous one (with a notification if the app is closed);
- * `#at: D3 22:15` makes it arrive at that case time instead, and the story pauses there until then;
+ * `#at: D3 22:15` makes it arrive at that case time instead, and the story pauses there until then (on a `(espera)` line,
+ * which isn't shown, the chat waits for that time before going on, so the conditions after it are checked then);
  * `#caduca: D3 23:00` on the line before some choices makes them expire then (the silent choice is taken);
  * `#effect: <name>` plays a phone screen effect when the line arrives; `#image: <media path>` shows a picture in the bubble.
  * Before each step the story's `dia` and `hora` variables, if it declares them, are set to the current case day and hour.
@@ -99,13 +101,16 @@ class InkStoryEngine(
         val start = caseStart()
         setClockVariables(now, start)
         var expiresAt: Long? = null
+        var waitUntil: Long? = null
         val lines = buildList {
             while (story.canContinue()) {
                 val text = story.Continue().trim()
                 val tags = story.currentTags.associate { it.substringBefore(':').trim() to it.substringAfter(':', "").trim() }
                 val at = tags["at"]?.let { caseTime(it, start, clock.zone) }
                 tags["caduca"]?.let { expiresAt = caseTime(it, start, clock.zone) }
-                if (text.isNotEmpty()) {
+                if (text == PAUSE_LINE) {
+                    if (at != null && at > now) { waitUntil = at; break }
+                } else if (text.isNotEmpty()) {
                     add(StoryLine(
                         tags["from"]?.takeIf { it.isNotEmpty() }, text, "call" in tags, tags["delay"]?.toIntOrNull() ?: 0,
                         tags["call"]?.takeIf { it.isNotEmpty() }, tags["effect"]?.takeIf { it.isNotEmpty() },
@@ -121,7 +126,7 @@ class InkStoryEngine(
         // Chats with nothing new are advanced every few seconds: only save when the story moved.
         if (changed || lines.isNotEmpty()) stateFile.writeText(story.state.toJson())
         val choices = if (story.canContinue()) emptyList() else story.currentChoices.map { it.text }
-        return StoryStep(lines, choices, expiresAt.takeIf { choices.isNotEmpty() })
+        return StoryStep(lines, choices, expiresAt.takeIf { choices.isNotEmpty() }, waitUntil)
     }
 
     /** `dia` and `hora`, if the story declares them: the case day (1 = D1) and the hour, so a chat can answer differently each day. */

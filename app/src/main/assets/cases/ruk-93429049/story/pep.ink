@@ -1,6 +1,6 @@
 // Pep, de la coral. Bromista. Vio a Montse y a Berta vestidas de blanco. Fue cartero del valle cuarenta años: conoce
-// cada mas. Pista menor: si el jugador ya sabe el nombre de la Rosalia, recuerda que vive arriba, sin luz, con una perra
-// que no deja acercarse al buzón. No da el sitio exacto.
+// cada mas. Pista menor: preguntado por los mases, recuerda que arriba quedan viudas de las de antes que ya no bajan.
+// No da nombres ni el sitio exacto.
 // Vida propia: la rodilla (le operan en otoño), el huerto, la Nati (su mujer) y la coral sin ensayo esta semana.
 // Escribe él solo dos veces: el D3, cuando se cancela el ensayo, y el D5, si Alicia le habló del aniversario de la yaya.
 
@@ -71,22 +71,12 @@
         Cuatro gatos. Un holandés que hace queso, los de las vacas... #delay: 120
         Y alguna viuda de las de antes, de las que ya no bajan ni a misa. #delay: 8
         ¿Tú no subías de pequeña con tu yaya? Ella sí que se los sabía. #delay: 6
-    ** [(sin responder)]
-    - - -> opciones
-* {sabe_rosalia} [pep, tú le llevabas las cartas a la rosalia?]
-    ¡La Rosalia! Más de treinta años. Arriba del todo, donde la carretera se pone fea. #delay: 600
-    Nunca recibía cartas. Solo el recibo de la luz, hasta que le cortaron la luz y dejó de llegarle hasta eso. #delay: 8
-    Siempre con una perra que no me dejaba ni tocar el buzón. Le dejaba el correo en el pozo, con una piedra encima. #delay: 6
-    ¿Por qué lo preguntas, nena? #delay: 5
-    #caduca: D{dia + 1} 00:00
-    ** [la yaya hablaba mucho de ella]
-        Eran uña y carne. Si sube alguien a verla, que le lleve pan. Siempre pedía pan. #delay: 300
-    ** [me preocupa. está sola allí arriba]
-        Sola no. Con la perra, que vale por tres. #delay: 300
-        Pero sí, mujer. Si alguien sube, que le lleve pan. Siempre pedía pan. #delay: 8
-        Yo con esta rodilla ya no llego ni al buzón de mi casa. #delay: 6
-    ** [por nada, curiosidad]
-        Curiosidad. Ya. Igualita que tu yaya 😂 #delay: 300
+        #caduca: D{dia + 1} 00:00
+        *** [sí. a casa de una amiga suya]
+            Pues esa casa la sabrás tú mejor que yo. Yo solo sabía dónde mordían los perros 😅 #delay: 120
+        *** [no me acuerdo de mucho]
+            Normal. Eras un piojo. Tu yaya te subía en la mochila. #delay: 120
+        *** [(sin responder)]
     ** [(sin responder)]
     - - -> opciones
 * {dia >= 4 and dia < 7} [pep, la roser qué dice de mí?]

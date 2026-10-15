@@ -4,7 +4,7 @@
 -> historial
 
 = historial
-Ensayo el jueves a las 20:30 en la parroquia. Repasad el «Cant dels ocells» 🎶 #from: xavier #at: D-15 18:00
+Ensayo el jueves a las 19:00 en la parroquia. Repasad el «Cant dels ocells» 🎶 #from: xavier #at: D-15 18:00
 yo no llego, tengo entreno. el siguiente sí #from: me #at: D-15 19:10
 Contraltos sin Alicia... que Dios nos pille confesados 😅 #from: pep #at: D-15 19:12
 Ali, dile a tu madre que la echamos de menos en las sopranos. ¡Un año ya! #from: roser #at: D-10 21:00
@@ -16,7 +16,7 @@ Pues dicho queda 🙂 #from: roser #at: D-10 23:41
 Este domingo cantamos en la misa de las 12. Camisa blanca y pantalón negro, como siempre. #from: xavier #at: D1 19:00
 ¿Alicia viene? Que me quedo sola en las contraltos #from: roser #delay: 1800
 #caduca: D2 13:00
-* [este domingo no puedo, roser. perdona]
+* (no_puedo) [este domingo no puedo, roser. perdona]
     ¡Ay, nena! Pues canto por las dos 😅 #from: roser #delay: 900
     Que Dios nos pille confesados x2 #from: pep #delay: 600
 * [a lo mejor]
@@ -40,11 +40,17 @@ Ensayo cancelado este jueves, estoy afónico. Un director afónico, qué ironía
 
 = d5
 Domingo, misa de las 12. Sin falta. #from: xavier #at: D5 20:00
+// Si ya le dijo el D1 que este domingo no podía, Roser no vuelve a preguntar.
+{d1.no_puedo:
+    Ya sé que tú no vienes, nena. Cantaremos por ti. Y el Pep más fuerte que nadie. #from: roser #delay: 900
+    eso está hecho 😂 #from: pep #delay: 300
+    -> d6
+}
 Alicia, si puedes, ven aunque sea a escuchar. #from: roser #delay: 900
 #caduca: D6 20:00
 * [lo intentaré]
     Con eso me conformo 🙂 #from: roser #delay: 900
-* [esta vez tampoco. cantad bonito]
+* [no puedo ir. cantad bonito]
     Cantaremos por ti, nena. Y el Pep más fuerte que nadie. #from: roser #delay: 900
     eso está hecho 😂 #from: pep #delay: 300
 * [(sin responder)]

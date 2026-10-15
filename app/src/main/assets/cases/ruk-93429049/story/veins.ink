@@ -37,7 +37,7 @@ Son amigos nuestros, Enric. No te preocupes. #from: mama #delay: 1800
 -> d6
 
 = d6
-Mañana hay corte de luz de 18 a 22, lo ha dicho el Ayuntamiento. Cargad los móviles. #from: conxita #at: D6 10:30
+Hoy hay corte de luz de 18 a 22, lo ha dicho el Ayuntamiento. Cargad los móviles. #from: conxita #at: D6 10:30
 -> d7
 
 = d7
@@ -64,7 +64,9 @@ Mañana hay corte de luz de 18 a 22, lo ha dicho el Ayuntamiento. Cargad los mó
 
 = pillada
 ~ sospecha_familia += 2
-{sospecha_familia <= 2:
+// La primera vez que Montse lo descubre (también en el grupo familiar o por privado).
+{not movil_visto:
+    ~ movil_visto = true
     ¿Alicia? #from: mama #delay: 120
     Ali, ¿eres tú? 😳 #from: conxita #delay: 30
     Perdonad. El móvil de Alicia lo tengo yo, en casa. Alguien nos está gastando una broma de muy mal gusto. #from: mama #delay: 300 #effect: glitch

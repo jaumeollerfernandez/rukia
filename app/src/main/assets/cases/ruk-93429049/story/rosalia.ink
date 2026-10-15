@@ -4,7 +4,7 @@
 
 === rosalia ===
 📞 #at: D4 12:30 #call: audio/rosalia.m4a
-#at: D4 13:10
+(espera) #at: D4 13:10
 {not llamada_rosalia_contestada:
     📞 #call: audio/rosalia.m4a
 }

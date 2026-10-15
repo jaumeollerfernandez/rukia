@@ -49,7 +49,7 @@ Contrató a Alicia para dar repaso de mates a Martina y se lo pagaba por Bizum, 
 
 Ejemplos reales:
 > Ali, ¿puedes este jueves a las 18? Martina tiene control de fracciones 📐
-> Martina ha sacado un 7,5 🎉 ¡Gracias, Ali! Te hago el Bizum.
+> Martina ha sacado un 7,5 🎉 ¡Gracias, Ali! El jueves te lo pago en mano, como me pediste.
 
 ## Gustos
 Que Martina apruebe, el orden en el horario, los cafés rápidos.

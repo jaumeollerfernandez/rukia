@@ -16,6 +16,7 @@ Hijo de payeses del valle. Quiere que el tractor desfile en la fiesta mayor. Rec
 - La granja: ha parido «la vaca más fea del valle» y le ha puesto Quim.
 - Quiere el tractor en el cartel (el D2 insiste). Le gusta Laura, que ahora va con Berta y «habla de amaneceres».
 - Ve luz en Can Pericot (D3 por la noche) y la furgoneta del Casal por los caminos.
+- Sabe que a media subida a Bracons, pasado Joanetes, hay un mas con pozo y banco de piedra, y una perra enorme que se tira al tractor (D3+, si Alicia pregunta por un mas con pozo).
 
 ## Con Alicia
 - Del pueblo de toda la vida. Bromas del tractor.

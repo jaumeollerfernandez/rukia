@@ -19,6 +19,7 @@ VAR ultimo_intento = 0 // último día del caso en que el jugador mandó una bú
 
 // Riesgo de que la familia (la secta) note que alguien usa el móvil. 0-5.
 VAR sospecha_familia = 0
+VAR movil_visto = false    // Montse ya ha comprobado que el móvil de Alicia está en casa y que alguien lo usa (familia, veins, mama)
 VAR confianza_nuria = 0
 VAR nuria_sabe = false     // el jugador le ha confesado a Núria que no es Alicia
 VAR confianza_alicia = 0
@@ -47,7 +48,7 @@ VAR sabe_estrellas = false
 VAR sabe_rosalia = false
 VAR sabe_puerta_azul = false // sabe que la casa tiene la puerta azul
 VAR sabe_pienso = false    // Ona: en la lista de Alicia había pienso para perro
-VAR sabe_ruta_lotes = false // Toni: Alicia subía lotes a una señora con perra de Sant Salvador
+VAR sabe_ruta_lotes = false // Toni: Alicia subía lotes a una señora con perra de Joanetes
 
 // Pistas falsas y ruido que se puede descartar.
 VAR sabe_capsec = false      // conoce Can Pericot, el mas abandonado de Capsec (también con puerta azul)
@@ -103,7 +104,7 @@ VAR alicia_llamo = false      // con confianza 3, Alicia dio la ubicación exact
 VAR iris_ayuda = false        // Iris va a declarar a los Mossos
 VAR caso_resuelto = false     // lo activa la app de Policía si el jugador acierta la pregunta antes del límite
 // Fichas policiales (app Policía): las pone la app cuando el jugador lee la ficha que pidió (ver police/records.json).
-VAR ficha_dani = false        // la multa de su moto en la carretera de Sant Salvador: abre una pregunta en su charla
+VAR ficha_dani = false        // la multa de su moto en la carretera de Joanetes: abre una pregunta en su charla
 VAR sabe_ignasi = false       // el jugador ya sabe cómo se llama el que «acompaña»: solo investigando la asociación (Laia). Desbloquea su ficha
 VAR ficha_ignasi = false      // el retiro del alba de hace once años en Santa Margarida: abre una consulta a Laia y una pregunta a Iris
 // Matrículas que da la historia: desbloquean la ficha del vehículo en Policía (police/records.json, unlockedBy).

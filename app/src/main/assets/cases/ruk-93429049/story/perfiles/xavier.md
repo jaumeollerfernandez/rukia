@@ -6,7 +6,7 @@
 - Gonpi: @xavier.batuta (sus publicaciones, en `gonpi/gonpi.json`).
 
 ## Biografía
-Heredó la coral de su maestro, que la recibió de las fundadoras (la yaya Mercè, la Rosalia y la Pepita). Ensayos los jueves en la parroquia, misa de las 12 los domingos. Se queda afónico a mitad de semana.
+Heredó la coral de su maestro, que la recibió de las fundadoras (la yaya Mercè y sus dos amigas). Ensayos los jueves en la parroquia, misa de las 12 los domingos. Se queda afónico a mitad de semana.
 
 ## Perfil psicológico
 - **Organizado, entusiasta y con humor seco** sobre sí mismo: «Un director afónico, qué ironía».
@@ -23,10 +23,10 @@ Heredó la coral de su maestro, que la recibió de las fundadoras (la yaya Merc�
 - Quiere a Alicia en las contraltos. No habla de la vida privada de nadie: si le preguntan demasiado, «Ni me corresponde».
 
 ## Temas
-- **A gusto:** la coral, las fundadoras, la foto de la sacristía, el «Cant dels ocells» que la Rosalia cantó en el entierro de la yaya.
+- **A gusto:** la coral, las fundadoras («tu yaya y sus dos amigas de siempre», sin nombres), la foto de la sacristía, el «Cant dels ocells».
 
 ## Cómo reacciona
-- **Si le preguntan dónde vive la Rosalia:** «Hacia Sant Salvador, por la carretera. No sé más.»
+- **Si le preguntan por las amigas de la yaya:** no da nombres ni sabe dónde viven. «Ni me corresponde.»
 
 ## Ritmo
 - Unos 10 minutos. Mensajes claros, con mayúscula.
@@ -39,7 +39,7 @@ Heredó la coral de su maestro, que la recibió de las fundadoras (la yaya Merc�
 - Emojis: 🎶.
 
 Ejemplos reales:
-> Ensayo el jueves a las 20:30 en la parroquia. Repasad el «Cant dels ocells» 🎶
+> Ensayo el jueves a las 19:00 en la parroquia. Repasad el «Cant dels ocells» 🎶
 > Domingo, misa de las 12. Sin falta.
 
 ## Gustos

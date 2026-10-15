@@ -10,7 +10,7 @@ Qué elegir para ver cada final y cómo conseguir cada logro (sección [Logros](
 - Las salidas de la Policía (D6) se mandan desde la app **Policía**:
   - **Mañana:** de D6 08:00 a 12:00.
   - **Noche:** de D6 22:05 a D7 02:00.
-- **Resolver el caso** en la app Policía (marcar el Mas de la Rosalia en el mapa antes de D7 06:30) pone `caso_resuelto`. Un intento al día: si fallas, no pasa nada; esa zona queda descartada y puedes volver a intentarlo al día siguiente. Una zona de 500 m o menos da el 100%. El mapa marca los lugares del caso que ya conoces (`police/case.json`, `places`): la casa y la estación desde el principio; Sant Salvador de Bianya con `sabe_ruta_lotes`, `sabe_rosalia`, `sabe_puerta_azul` o `ficha_dani`; Can Pericot con `sabe_capsec`; el cráter con `ficha_ignasi` o `vigilancia_crater`; el mas del tío de Dani con `dani_sospechoso` o `dani_droga`; Girona con `sabe_girona`. El Mas de la Rosalia no sale nunca: Sant Salvador queda a unos 4 km y desde ahí se afina con el porcentaje.
+- **Resolver el caso** en la app Policía (marcar el Mas de la Rosalia en el mapa antes de D7 06:30) pone `caso_resuelto`. Un intento al día: si fallas, no pasa nada; esa zona queda descartada y puedes volver a intentarlo al día siguiente. Una zona de 500 m o menos da el 100%. El mapa marca los lugares del caso que ya conoces (`police/case.json`, `places`): la casa y la estación desde el principio; Masías de Joanetes con `sabe_ruta_lotes`, `sabe_rosalia`, `sabe_puerta_azul` o `ficha_dani`; Can Pericot con `sabe_capsec`; el cráter con `ficha_ignasi` o `vigilancia_crater`; el mas del tío de Dani con `dani_sospechoso` o `dani_droga`; Girona con `sabe_girona`. El Mas de la Rosalia no sale nunca: Joanetes queda a unos 4 km y desde ahí se afina con el porcentaje.
 - **El caso se cierra** cuando llega la última línea del final de Laia (`#effect: case_closed`): sale el sello «EXPEDIENTE CERRADO» y el informe de cierre con el final (`final_caso`), los logros y los finales descubiertos. Resolverlo en el mapa no lo cierra antes. «Repetir» borra la partida pero conserva logros y finales.
 
 ## Qué decide el final
@@ -42,7 +42,7 @@ En el informe de cierre, cada final trae la **declaración de Laia a la prensa**
 Cada final se monta con estas piezas. Las horas son de la partida.
 
 ### Salvar a Alicia: `rescatada()` (basta una)
-- **A. Patrulla al mas:** en D6, manda la salida de la mañana o la de la noche a «Mas de la Rosalia, Sant Salvador de Bianya» → `patrulla_en_mas`. La de la noche solo llega a tiempo si frenaste a Dani (pieza H); si no, encuentra el mas vacío.
+- **A. Patrulla al mas:** en D6, manda la salida de la mañana o la de la noche a «Mas de la Rosalia, Joanetes» → `patrulla_en_mas`. La de la noche solo llega a tiempo si frenaste a Dani (pieza H); si no, encuentra el mas vacío.
 - **B. Resolver el caso:** marca el Mas de la Rosalia en el mapa antes de la entrega (D6 18:00, o D7 04:00 con Dani frenado) → `caso_resuelto`.
 - **C. Alicia baja con la patrulla:** solo añade texto, porque ya hace falta A. En `desconocido`, D6 23:50, elige «Sí. Baja con ellos» → `alicia_a_salvo`. Antes tienes que haberte ganado su confianza (pieza F).
 
@@ -85,7 +85,7 @@ En `desconocido`, D5 23:30, con `confianza_alicia` 3 (pieza F), elige «Dime dó
 
 ### G. Fichas policiales (opcional, dan pistas)
 En Policía › Fichas policiales se pide una ficha y llega horas después (12 h el D1, 10 el D2, 8 el D3, 6 el D4, 4 el D5, 2 el D6, 1 el D7). Solo se tramita una a la vez. Leerla pone `ficha_<id>`:
-- **Dani** (`ficha_dani`): la multa del radar de Sant Salvador abre en su charla «tu moto salta un radar…» → `sabe_ruta_lotes`, lo mismo que si lo detienes y le crees, sin gastar una salida.
+- **Dani** (`ficha_dani`): la multa del radar de Joanetes abre en su charla «tu moto salta un radar…» → `sabe_ruta_lotes`, lo mismo que si lo detienes y le crees, sin gastar una salida.
 - **Ignasi** (`ficha_ignasi`): la pieza D' y, en `iris` (D5 00:30), «¿Sabes lo que pasó hace once años…?», donde Iris adelanta el cuándo y el dónde. Da el logro «El precedente».
 - Las demás solo informan. El Seat gris sube al cráter al amanecer los tres días antes del caso; la furgoneta, con Iris al volante y garrafas de agua; Montse vendió el piso de la yaya por 120.000 € (como en la libreta, IMG_0401).
 - Quien tiene reseña (Dani, Ignasi, Marc) deja en Multimedia sus fotos policiales de frente y de perfil.
@@ -121,8 +121,8 @@ Salen en el informe de cierre (al llegar el final de Laia, D7). Se calculan con 
 | **El billete señuelo** | `descarta_bus` | En el parte de Laia del D2 (08:30, antes de las 14:00) elige «En su galería hay un correo: canceló el billete…» o «Pol, su ex, la llevó…»: las dos piden las cámaras, que el D2 16:10 confirman que no subió al bus. Si eliges «Barcelona» o no contestas, se pierde |
 | **CRA Serveis** | `sabe_cra` | En el parte del D2 (21:30) elige «…en el banco el beneficiario es «CRA Serveis»». También con las consultas a Laia «¿Qué es «Rosa d'Abril»…?» o, desde el D4, «¿De quién es el coche gris…?» |
 | **Donde vimos las estrellas** | `sabe_estrellas` | Aprueba la prueba de Núria del D3 (17:00-18:00): «el port de la selva» y «una pulsera roja» (IMG_0393, IMG_0395 o la ficha policial de Alicia) |
-| **La porta blava** | `sabe_puerta_azul` | Cualquiera: Núria lo recuerda el D5 10:30 si aprobaste su prueba; Teresa, si confía (D3+, «teresa, fotocopié algo de ese libro?»); Alicia por el prepago (D5 23:30, con `confianza_alicia` 3); Núria el D6 con `confianza_nuria` ≥ 2 |
-| **Un fijo en Sant Salvador** | `sabe_rosalia` | Cualquiera: contarle a Laia lo del pan para la Rosalia (parte D3) o la llamada de la anciana (parte D4); Èric o Toni si confían (D3+); Núria el D6 con `confianza_nuria` ≥ 2 |
+| **La porta blava** | `sabe_puerta_azul` | Cualquiera: Núria lo recuerda el D5 10:30 si aprobaste su prueba; Alicia por el prepago (D5 23:30, con `confianza_alicia` 3); Núria el D6 con `confianza_nuria` ≥ 2 |
+| **Un fijo en Joanetes** | `sabe_rosalia` | Cualquiera: contarle a Laia lo del pan para la Rosalia (parte D3) o la llamada de la anciana (parte D4); Toni si confía (D3+); Núria el D6 con `confianza_nuria` ≥ 2 |
 | **Confianza** | `confianza_alicia` ≥ 3 | Pieza F: en `desconocido` (D4 23:40) elige «Trabajo con una sargento…», «Porque si fuera de ellos…» y «Cuídate, Alicia…» |
 | **El precedente** | `ficha_ignasi` | Primero hay que saber su nombre (ver pieza D'). Luego pide y lee su ficha policial |
 

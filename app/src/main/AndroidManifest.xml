@@ -33,5 +33,8 @@
         <receiver
             android:name=".game.infrastructure.ConnectionAlarmReceiver"
             android:exported="false" />
+        <receiver
+            android:name=".police.infrastructure.notifications.ResultAlarmReceiver"
+            android:exported="false" />
     </application>
 </manifest>

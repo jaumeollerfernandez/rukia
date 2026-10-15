@@ -13,7 +13,7 @@
 #caduca: {caduca(hugo_escribe())}
 * [hugo 🚗]
     ali!! #delay: 300
-    {dia >= 4:
+    {(dia >= 5 or (dia == 4 and hora >= 8)):
         no viniste 😢 #delay: 3
     - else:
         te guardo sitio en el bus. el día del examen no me dejes solo #delay: 3
@@ -33,7 +33,7 @@
     no!! te la dejé hace dos semanas porque decías que ibas a estar «sin enchufe unos días» #delay: 4
     pensé que te ibas de acampada. quédatela, total tengo tres #delay: 4
     -> opciones
-* {dia >= 3} [hugo, rafa ha dicho algo de mí?]
+* {(dia >= 5 or (dia == 4 and hora >= 8))} [hugo, rafa ha dicho algo de mí?]
     que llamó a tu casa y le colgaron #delay: 300
     bueno, que le dijeron algo muy educado y luego le colgaron. rafa estaba ofendidísimo jajaja #delay: 4
     -> opciones

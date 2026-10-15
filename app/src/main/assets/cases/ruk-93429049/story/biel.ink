@@ -17,7 +17,7 @@
     qué #delay: 600
     por qué me miras así por whatsapp #delay: 3
     -> opciones
-* {sabe_capsec and not descarta_capsec} [biel, las llaves del refugi las tienes tú, no?]
+* {sabe_capsec and not descarta_capsec and (dia >= 4 or (dia == 3 and hora >= 20) or pau.charla.falta)} [biel, las llaves del refugi las tienes tú, no?]
     ~ descarta_capsec = true
     ... #delay: 600
     vale sí #delay: 30

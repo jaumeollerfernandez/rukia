@@ -8,8 +8,10 @@
 = charla
 - (opciones)
 #caduca: D{dia + 1} 00:00
-* (obra) [dolors, lo siento por la obra. no voy a poder]
-    {dia >= 4 or (dia == 3 and hora >= 22):
+// Si ya se lo dijo en el grupo del teatro, no se lo repite.
+* (obra) {not teatre.d3.no_voy and not teatre.d3.no_voy2} [dolors, lo siento por la obra. no voy a poder]
+    // El ensayo general es el D3 a las 20:30.
+    {dia >= 4 or (dia == 3 and hora >= 20):
         Ya buscaremos otra Adela. #delay: 600
     - else:
         Gracias por decírmelo antes del ensayo, Alicia. Eso es de buena actriz. #delay: 600
@@ -21,7 +23,7 @@
     Si no puedes venir, dímelo. No pasa nada, pero dímelo. 🎭 #delay: 5
     -> opciones
 * {dia >= 2} [dolors, mi madre ha hablado contigo?]
-    Vino ayer al local. Muy correcta. #delay: 600
+    Vino {dia == 2:ayer|{dia == 3:anteayer|el otro día}} al local. Muy correcta. #delay: 600
     Me dijo que dejabas el teatro, que ahora tenías «otras prioridades» y que no te llamáramos. #delay: 6
     Le dije que eso me lo tenías que decir tú. Treinta años dando clase me han enseñado a no fiarme de los recados. #delay: 6
     #caduca: D{dia + 1} 00:00
@@ -39,7 +41,7 @@
     Y porque Lorca escribió la mejor obra sobre madres que encierran a sus hijas «por su bien». #delay: 6
     -> opciones
 * {dia >= 4} [dolors, quién hace de adela ahora?]
-    Nadie. He dicho que la obra se aplaza. #delay: 600
+    Nadie. Lo he pensado mejor: sin ti, la obra se aplaza. #delay: 600
     Queralt casi me abraza. Jan, como siempre, quería hacer él de Adela. 🎭 #delay: 5
     -> opciones
 // Invisible: la app la elige cuando algo de fuera (una foto, una ficha) puede abrir preguntas nuevas.

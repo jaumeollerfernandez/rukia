@@ -64,6 +64,8 @@ data class Chat(
     val readCount: Int = 0,
     /** When the [choices] expire (epoch millis) and the story takes [SILENT_CHOICE] on its own. 0 = never. */
     val choicesExpireAt: Long = 0,
+    /** The story paused here until this time (epoch millis) before writing more. 0 = not waiting. */
+    val waitUntil: Long = 0,
 ) {
     val isGroup get() = participants.size > 1
 
@@ -79,8 +81,8 @@ data class Chat(
     /** Lines without a speaker come from the other person in a 1-to-1 chat. Group lines must name one. */
     fun defaultSpeaker() = participants.first()
 
-    fun continuedWith(newMessages: List<Message>, choices: List<String>, choicesExpireAt: Long = 0) =
-        copy(messages = messages + newMessages, choices = choices, choicesExpireAt = choicesExpireAt)
+    fun continuedWith(newMessages: List<Message>, choices: List<String>, choicesExpireAt: Long = 0, waitUntil: Long = 0) =
+        copy(messages = messages + newMessages, choices = choices, choicesExpireAt = choicesExpireAt, waitUntil = waitUntil)
 
     /** Messages arrive in order, so the ones that have arrived are always the first ones. */
     fun arrivedCount(nowMillis: Long) = messages.indexOfFirst { !it.arrivedBy(nowMillis) }.let { if (it == -1) messages.size else it }

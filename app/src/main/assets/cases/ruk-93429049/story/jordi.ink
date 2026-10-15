@@ -41,7 +41,7 @@ Cariño, te llamo un momento. #at: D2 20:30 #call: audio/jordi.m4a
     Te he dejado un mensaje en el buzón. Escúchalo cuando puedas. #delay: 120
 }
 Escríbeme cuando puedas. Papá #delay: 5 #caduca: D3 09:00
-* [papa te he oído. estoy bien. no le digas a mamá que te he escrito]
+* (oido) [papa te he oído. estoy bien. no le digas a mamá que te he escrito]
     Vale. No le diré nada. #delay: 300
     Pero si en dos días no sé de ti, cojo el coche y subo. Papá #delay: 5
 * [(sin responder)]
@@ -59,7 +59,7 @@ Escríbeme cuando puedas. Papá #delay: 5 #caduca: D3 09:00
 }
 * [papa estoy bien. de verdad. no vengas]
     Vale. Te creo. Bueno, quiero creerte. Papá #delay: 300
-* [papa, mamá me ha quitado el dinero de la cuenta]
+* (dinero) [papa, mamá me ha quitado el dinero de la cuenta]
     ¿Cómo? #delay: 60
     ¿Todo? #delay: 10
     Si es por la plusvalía del piso de la yaya, eso lo pagó tu madre hace dos años. Me acuerdo porque discutimos. #delay: 30
@@ -69,8 +69,13 @@ Escríbeme cuando puedas. Papá #delay: 5 #caduca: D3 09:00
 -> d4
 
 = d4
-He hablado con un abogado, cariño. #at: D4 20:00
-Dice que lo de tu cuenta se puede denunciar, pero que tardará. #delay: 5
+// Lo de la cuenta solo lo sabe si se lo dijo Alicia, o Marta (marta.ink, D2).
+{d3.dinero or marta.d2.hacienda:
+    He hablado con un abogado, cariño. #at: D4 20:00
+    Dice que lo de tu cuenta se puede denunciar, pero que tardará. #delay: 5
+- else:
+    Cariño, no me quedo tranquilo. Tu madre no me coge el teléfono. #at: D4 20:00
+}
 Pasado mañana subo a Olot. Quiero verte. Papá #delay: 8 #caduca: D5 20:00
 * [vale papa. gracias]
     No me las des. Tendría que haberlo hecho hace un año. Papá #delay: 300
@@ -117,7 +122,7 @@ Mañana a primera hora voy a tu casa. Me abra o no me abra tu madre. Papá #dela
 = charla(limite)
 - (opciones)
 #caduca: {limite}
-* [papa te acuerdas de la casa de la amiga de la yaya mercè? la de las estrellas]
+* {nuria.d2.recuerdo or sabe_estrellas} [papa te acuerdas de la casa de la amiga de la yaya mercè? la de las estrellas]
     Vagamente, cariño. Fuimos un par de veranos, cuando eras muy pequeña. #delay: 300
     Una masía sin luz, con un perro que me mordió el pantalón. Me acuerdo del perro más que de la casa. #delay: 6
     Subíamos por la carretera de Bracons... o por la de Capsacosta. Hace quince años, perdóname. #delay: 8
@@ -140,7 +145,8 @@ Mañana a primera hora voy a tu casa. Me abra o no me abra tu madre. Papá #dela
         Ni yo. Y eso es lo que me preocupa. Papá #delay: 300
     ** [(sin responder)]
     - - -> opciones
-* {dia >= 3 and not d4.no_subas} [papa no subas. de verdad]
+// Solo si él ha dicho que subiría (d2).
+* {d2.oido and not d4.no_subas} [papa no subas. de verdad]
     Lo siento, cariño. Esta vez no te voy a hacer caso. Papá #delay: 300
     -> opciones
 * {dia >= 2} [papa qué tal por barcelona?]

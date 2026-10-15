@@ -1,4 +1,4 @@
-// Clara, monitora del esplai. Guarda el dibujo de la Laieta: una casa de puerta azul con perro y estrellas.
+// Clara, monitora del esplai. Guarda el dibujo de la Laieta: una casa con perro y estrellas.
 // Tierna y observadora: se da cuenta de que en Can Pericot no hay perro. Ruido: manualidades, los peques, el local.
 // Vida propia: prácticas en una guardería de Olot; los farolillos del esplai.
 
@@ -13,7 +13,7 @@
     -> opciones
 * {dia >= 4} [clara me guardas el dibujo de la laieta?]
     Claro. Lo tengo colgado en el local. #delay: 600
-    La puerta azul, el perro, las estrellas... Dice que es la casa de «la abuela de la Ali», la de la historia que les contabas. #delay: 6
+    Una casita, un perro enorme, las estrellas... Dice que es la casa de «la abuela de la Ali», la de la historia que les contabas. #delay: 6
     Yo pensaba que era Can Pericot. Pero allí no hay perro, ¿no? #delay: 6
     #caduca: D{dia + 1} 00:00
     ** [no, allí no hay perro]

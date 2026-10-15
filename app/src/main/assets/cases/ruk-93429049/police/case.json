@@ -1,7 +1,7 @@
 {
   "question": "¿Dónde está Alicia ahora mismo?",
   "unit": "COMISARÍA GARROTXA",
-  "target": { "lat": 42.2155, "lon": 2.426 },
+  "target": { "lat": 42.11984160538798, "lon": 2.389210292877064 },
   "station": { "lat": 42.179, "lon": 2.493 },
   "stations": [
     { "lat": 41.9794, "lon": 2.8214 },
@@ -31,9 +31,9 @@
       "note": "El billete de bus de la noche que se fue"
     },
     {
-      "name": "Sant Salvador de Bianya",
+      "name": "Masías de Joanetes",
       "spot": { "lat": 42.2429, "lon": 2.4114 },
-      "note": "Las masías del valle, subiendo hacia Bracons",
+      "note": "Las masías de arriba de Joanetes, subiendo hacia la Collada de Bracons",
       "unlockedBy": [
         "sabe_ruta_lotes",
         "sabe_rosalia",

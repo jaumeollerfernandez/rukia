@@ -86,7 +86,8 @@ fun RecordsScreen(caseTitle: String, board: RecordsBoard, caseTimeOf: (Long) -> 
     BackHandler(onBack = onBack)
     val c = LocalPolice.current
     var query by rememberSaveable { mutableStateOf("") }
-    var vehicles by rememberSaveable { mutableStateOf(false) }
+    // Opens on the tab of the record in process, which leads its list.
+    var vehicles by rememberSaveable { mutableStateOf(board.pending?.let { p -> board.rows.find { it.record.id == p.record }?.record?.vehicle } == true) }
     var asking by remember { mutableStateOf<RecordRow?>(null) }
     val rows = board.rows.filter { it.record.vehicle == vehicles && it.record.matches(query) }
     val pendingName = board.pending?.let { p -> board.rows.find { it.record.id == p.record }?.record?.name }

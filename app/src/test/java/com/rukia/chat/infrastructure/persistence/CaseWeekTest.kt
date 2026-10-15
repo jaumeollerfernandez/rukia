@@ -157,10 +157,11 @@ class CaseWeekTest {
         val story = InkStoryEngine({ case.resolve(it).readText() }, File(createTempDirectory().toFile(), "state.json"), { start }, clock)
         val d1 = story.advance("oriol")
         assertEquals(start + 86_400_000L, d1.expiresAt, "open until midnight")
-        assertTrue(d1.choices.none { "bracons" in it }, "the D2 question isn't there yet: ${d1.choices}")
+        assertTrue(d1.choices.none { "ruta" in it }, "the D2 question isn't there yet: ${d1.choices}")
         clock.millis += 86_400_000L
         val d2 = story.choose("oriol", d1.choices.indexOf("(sin responder)"))
-        assertTrue(d2.lines.isEmpty() && d2.choices.any { "bracons" in it }, "D2 brings its question: ${d2.choices}")
+        assertTrue(d2.lines.isEmpty() && d2.choices.any { "ruta" in it }, "D2 brings its question: ${d2.choices}")
+        assertTrue(d2.choices.none { "bracons" in it }, "nobody has told of the girl on Bracons yet (D3, Oriol's post): ${d2.choices}")
         assertEquals(start + 2 * 86_400_000L, d2.expiresAt)
     }
 }

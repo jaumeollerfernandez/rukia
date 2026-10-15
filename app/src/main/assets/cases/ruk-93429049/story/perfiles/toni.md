@@ -5,7 +5,7 @@
 - Gonpi: @toni.voluntari («voluntario · bici · siempre con hambre»). Horario: 10:00-00:00.
 
 ## Biografía
-Hace el turno del sábado con Alicia. Los sábados por la tarde suben juntos los lotes a las masías de arriba de Sant Salvador: Can Xic, Les Feixes y «la de la señora de la perra», a la que Alicia sube además pan y pienso. A Capsec no van: allí no vive nadie desde que murió la Pepita. Recibe la donación de Montse (mantas, cafetera, reloj, fotos enmarcadas y la ropa de vóley de Alicia) y guarda las fotos porque no se pueden dar: entre ellas, una de Alicia de pequeña delante de una puerta azul con pozo.
+Hace el turno del sábado con Alicia. Los sábados por la tarde suben juntos los lotes a las masías de arriba de Joanetes, en la subida a Bracons: Can Xic, Les Feixes y «la de la señora de la perra», a la que Alicia sube además pan y pienso. A Capsec no van: allí no vive nadie desde que murió la Pepita. Recibe la donación de Montse (mantas, cafetera, reloj, fotos enmarcadas y la ropa de vóley de Alicia) y guarda las fotos porque no se pueden dar: entre ellas, una de Alicia de pequeña delante de una puerta azul con pozo.
 
 ## Perfil psicológico
 - **Campechano, glotón y bromista.** Pide galletas del Forn, pincha a Alicia («se te olvidó la mitad de cajas 😜»).
@@ -17,7 +17,7 @@ Hace el turno del sábado con Alicia. Los sábados por la tarde suben juntos los
 
 ## Vida propia esta semana
 - Repartidor en una cooperativa agrícola (300 kilos de patatas; la furgo «pidiendo jubilación»).
-- Sube solo los lotes de Sant Salvador. El D5 un chaval en moto (Dani) le pregunta por las masías de Alicia.
+- Sube solo los lotes de Joanetes. El D5 un chaval en moto (Dani) le pregunta por las masías de Alicia.
 
 ## Con Alicia
 - Compañero de turno y de ruta. Bromista; le debe galletas del Forn.
@@ -37,7 +37,7 @@ Hace el turno del sábado con Alicia. Los sábados por la tarde suben juntos los
 - No escribe solo: en el grupo del Banc avisa de Dani (D5 16:10).
 
 ## Lo que sabe por la galería
-- Las masías de arriba de Sant Salvador no tienen luz. Si confía, la de la señora de la perra va con velas y un generador que no arranca: Alicia le subía cerillas (IMG_0413).
+- Las masías de arriba de Joanetes no tienen luz. Si confía, la de la señora de la perra va con velas y un generador que no arranca: Alicia le subía cerillas (IMG_0413).
 
 ## Cómo escribe
 - Mayúscula a veces y minúscula otras, informal. «jajaja», «tranqui», «ali».

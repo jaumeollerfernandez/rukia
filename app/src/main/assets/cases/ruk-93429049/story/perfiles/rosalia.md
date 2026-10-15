@@ -1,7 +1,7 @@
 # Rosalia Masó Puig
 
 ## Datos
-- 78 años. Viuda de Josep Pujol Vila (murió en 2009). Empadronada en Sant Salvador de Bianya, diseminado.
+- 78 años. Viuda de Josep Pujol Vila (murió en 2009). Empadronada en Joanetes (Sant Esteve d'en Bas), diseminado.
 - Vive sola con la perra Trufa en el mas de la puerta azul (dintel de 1782, pozo delante), a media subida a la Collada de Bracons. Sin luz eléctrica ni cobertura. Teléfono fijo antiguo a nombre del marido.
 - Chat oculto con el número «+34 972 ·· ·· ··». **No escribe: solo llama** (D4, 12:30 y 13:10, el mismo audio).
 

@@ -23,7 +23,7 @@ lo veremos #at: D-5 21:00
     -> opciones
 * {dia >= 4} [has visto luz por algún mas de noche?]
     ~ sabe_capsec = true
-    anoche en can pericot, en capsec. a las tantas #delay: 300
+    {dia == 4:anoche|la otra noche} en can pericot, en capsec. a las tantas #delay: 300
     luz de velas o de linterna. el mas está vacío desde que murió la pepita #delay: 5
     okupas o algo. o fantasmas jajaja #delay: 4
     #caduca: D{dia + 1} 00:00
@@ -62,9 +62,9 @@ lo veremos #at: D-5 21:00
         tranqui. si apenas me habla #delay: 120
     ** [(sin responder)]
     - - -> opciones
-* {dia >= 3 and sabe_puerta_azul} [marc, conoces alguna casa con la puerta azul?]
-    dos #delay: 300
-    can pericot, en capsec. y otra más arriba, subiendo a bracons. esa con un pozo delante #delay: 5
+* {dia >= 3 and (sabe_puerta_azul or teresa.charla.fotocopia)} [marc, subiendo a bracons hay algún mas con un pozo delante?]
+    uno #delay: 300
+    a media subida, pasado el desvío de joanetes. con un banco de piedra en la puerta #delay: 5
     en esa no paro nunca. hay una perra enorme que se tira al tractor como si fuera un ciervo #delay: 5
     -> opciones
 * {dia >= 4} [marc, la gente de blanco del prado, sigue?]

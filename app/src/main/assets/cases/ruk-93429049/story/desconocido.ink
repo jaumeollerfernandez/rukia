@@ -11,7 +11,7 @@ mi móvil sale en línea. y yo no lo tengo #delay: 6 #caduca: D5 01:00
 * [ali? soy yo, nuri]
     ~ confianza_alicia -= 1
     nuri no sabe mi pin #delay: 30
-    y nuri me llama «tía», no «ali» con interrogante #delay: 5
+    y nuri sabe que mi móvil está en casa. no me escribiría a este número desde él #delay: 5
     no me mientas. quién eres #delay: 4 #caduca: D5 01:00
     ** [Trabajo con una sargento de los Mossos. Te estamos buscando.]
         -> verdad
@@ -133,7 +133,7 @@ si vienen, me escondo en el bosque. me lo conozco #delay: 6 #caduca: D6 01:00
 // Todo se decide a las 23:50: si la red ya se la ha llevado (laia.entrega_tarde), el prepago calla.
 = d6
 {confianza_alicia < 1: -> fin_d6}
-#at: D6 23:50
+(espera) #at: D6 23:50
 // Ya está en comisaría desde la madrugada (laia.rescate_llamada): no hace falta que escriba.
 {alicia_entregada or alicia_llamo: -> fin_d6}
 {patrulla_en_mas:
@@ -150,7 +150,8 @@ si vienen, me escondo en el bosque. me lo conozco #delay: 6 #caduca: D6 01:00
     si no escribo más... #delay: 10
     -> fin_d6
 }
-{alicia_avisada:
+// Detenido o camino de Barcelona, Dani no puede subir.
+{alicia_avisada and not dani_detenido and not dani_no_creido:
     esta tarde ha subido una moto. era dani #delay: 1
     me he metido en el pozo. le he oído preguntarle a la rosalia por «la nena» #delay: 8
     ella le ha dicho que vive sola. se ha ido. pero ha dicho que volvería #delay: 6
@@ -174,7 +175,7 @@ ojalá no #delay: 5
 
 // Si la rescataron, escribe desde comisaría. Si se la llevó la familia o la red, el prepago no vuelve a encenderse.
 = d7
-#at: D7 06:20
+(espera) #at: D7 06:20
 {not rescatada(): -> DONE}
 estoy en comisaría. me han dejado cargar el móvil 😅 #at: D7 09:30
 mamá y berta están... {familia_salvada(): bien. en otra sala. no me dejan verlas aún | en el hospital} #delay: 8

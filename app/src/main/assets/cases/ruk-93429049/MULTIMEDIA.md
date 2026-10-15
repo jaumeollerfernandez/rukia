@@ -24,8 +24,8 @@ Leyenda: 🔎 pista · 🎭 pista falsa · ⚪ ruido
 | `IMG_0405.jpg` | **Cielo estrellado** a través de una ventana de madera vieja con postigos. Al fondo, la silueta de una montaña con una **antena en la cima** | 🔎 | El post de Alicia con la misma foto, donde @excursions.bianya comenta «¡esta vista es desde la subida a Bracons!». Más la frase de Núria «donde vimos las estrellas» (D3) |
 | `IMG_0407.jpg` | Selfi de Alicia sonriendo forzado, con el uniforme del Forn | ⚪ | |
 | `IMG_0409.jpg` | **Captura de pantalla de un mapa**: una ruta **a pie** de **2 h 10 min**. El origen es «Estació d'autobusos, Olot». El destino queda tapado por una notificación («Nuri: tía mañana vienes a girona o qué») y solo se lee **«…de Bianya»** | 🔎🔎 | Desmiente el bus: no iba a Barcelona, iba andando a algún sitio «de Bianya». Se cruza con Oriol (D3: la vio caminando de noche por la carretera de Bracons) |
-| `IMG_0410.jpg` | Captura de un **billete de bus** Olot → Barcelona Nord, 23:55 de anteanoche, 14,20 € | 🎭 | Pista falsa principal. Encaja con lo que cuenta Pol |
-| `IMG_0411.jpg` | Captura de un correo: **«Tu reembolso de 14,20 € está en camino»**, de la misma compañía de autobuses, recibido a las 21:14 de anteanoche | 🔎 | Desmonta el billete: lo compró y lo canceló **antes** de que Pol la llevara a la estación. El rastro era un señuelo. Activa `descarta_bus` si se lo cuentas a Laia |
+| `IMG_0410.jpg` | Captura de un **billete de bus** Olot → Barcelona Nord, 23:55 de hace tres noches, 14,20 € | 🎭 | Pista falsa principal. Encaja con lo que cuenta Pol |
+| `IMG_0411.jpg` | Captura de un correo: **«Tu reembolso de 14,20 € está en camino»**, de la misma compañía de autobuses, recibido a las 21:14 de hace tres noches | 🔎 | Desmonta el billete: lo compró y lo canceló **antes** de que Pol la llevara a la estación. El rastro era un señuelo. Activa `descarta_bus` si se lo cuentas a Laia |
 | `IMG_0412.jpg` | En la panadería, a la hora de cerrar: una bolsa de tela llena de barras de payés encima del mostrador. En la pared, un reloj marca las 20:58 | 🔎 | Las seis barras que faltan (Èric, Pilar) y el pan que pide Rosalia (D4) |
 | `IMG_0413.jpg` | Mochila abierta encima de la cama: linterna, un jersey, un cargador de pared **sin móvil**, una vela y un paquete de cerillas | 🔎 | Preparó la huida: se iba a algún sitio sin luz eléctrica |
 
@@ -41,11 +41,82 @@ Al abrir una foto, la app pone en la historia `foto_img_<número>` y las charlas
 | `IMG_0402.jpg` (la nevera: la tarjeta medio tapada) | Marta | «te ha llegado un folleto de una trobada de l'alba?» | Se lo dejó en la parada un señor mayor de barba blanca; es en un cráter con una ermita |
 | `IMG_0409.jpg` (la ruta a pie) | Pol | «cuando me dejaste en la estación, me viste entrar?» | La vio cruzar hacia la rotonda, no hacia los autobuses |
 | `IMG_0411.jpg` (el reembolso) | Laia, D2 08:30 | «En su galería hay un correo: canceló el billete» | `descarta_bus`. Solo si la foto se abrió antes de que Laia pregunte |
-| `IMG_0413.jpg` (la mochila) | Toni | «a qué masías del valle no les llega la luz?» | Las de arriba de Sant Salvador; si confía (`fia_toni`), la de la señora de la perra va con velas |
+| `IMG_0413.jpg` (la mochila) | Toni | «a qué masías del valle no les llega la luz?» | Las de arriba de Joanetes; si confía (`fia_toni`), la de la señora de la perra va con velas |
 
 ## Fotos policiales
 
 Al leer en Policía la ficha de alguien que ha estado detenido (Dani, Ignasi), su reseña aparece al final de la galería: foto de frente y de perfil con la placa («OLOT · 004417»). Mientras no exista la imagen, la app la dibuja (silueta sobre el tallímetro). Las imágenes van en `police/resenas/` (ver MEDIA_PENDIENTE.md).
+
+## Relleno
+
+Fotos sin pista: ⚪ ruido para que el carrete parezca real. No tienen variable ni pregunta en la historia (ninguna se cruza con un chat).
+
+La galería ordena por nombre de archivo, así que cada relleno lleva el nombre de la foto de la historia que tiene justo antes: `IMG_0391_021.jpg` sale entre `IMG_0391.jpg` y `IMG_0393.jpg`. Así se mezclan con las de la historia y cuesta encontrar las de pista. Se han reducido a 1600 px para verse bien en el móvil. El nombre original de cada una está en la tabla.
+
+| Archivo | Original | Tipo |
+|---|---|---|
+| `IMG_0390_018.jpg` | `IMG_20220417_104901.jpg` | ⚪ relleno |
+| `IMG_0391_001.jpg` | `01.jpg` | ⚪ relleno |
+| `IMG_0391_021.jpg` | `IMG_20220417_110816.jpg` | ⚪ relleno |
+| `IMG_0391_037.jpg` | `IMG_20230114_103657.jpg` | ⚪ relleno |
+| `IMG_0391_038.jpg` | `IMG_20230114_103958.jpg` | ⚪ relleno |
+| `IMG_0391_053.jpg` | `IMG_20230114_110228.jpg` | ⚪ relleno |
+| `IMG_0393_054.jpg` | `IMG_20230114_110235.jpg` | ⚪ relleno |
+| `IMG_0393_055.jpg` | `IMG_20230114_110258.jpg` | ⚪ relleno |
+| `IMG_0394_008.jpg` | `20241207_141930.jpg` | ⚪ relleno |
+| `IMG_0394_020.jpg` | `IMG_20220417_110717.jpg` | ⚪ relleno |
+| `IMG_0394_036.jpg` | `IMG_20230114_103227.jpg` | ⚪ relleno |
+| `IMG_0395_035.jpg` | `IMG_20230114_103057.jpg` | ⚪ relleno |
+| `IMG_0395_046.jpg` | `IMG_20230114_105425.jpg` | ⚪ relleno |
+| `IMG_0397_007.jpg` | `20241109_121725.jpg` | ⚪ relleno |
+| `IMG_0397_011.jpg` | `IMG_20220416_214408.jpg` | ⚪ relleno |
+| `IMG_0397_027.jpg` | `IMG_20220918_124051.jpg` | ⚪ relleno |
+| `IMG_0397_032.jpg` | `IMG_20230114_102614.jpg` | ⚪ relleno |
+| `IMG_0397_042.jpg` | `IMG_20230114_104934.jpg` | ⚪ relleno |
+| `IMG_0397_043.jpg` | `IMG_20230114_105200.jpg` | ⚪ relleno |
+| `IMG_0397_052.jpg` | `IMG_20230114_110038.jpg` | ⚪ relleno |
+| `IMG_0398_041.jpg` | `IMG_20230114_104716.jpg` | ⚪ relleno |
+| `IMG_0398_050.jpg` | `IMG_20230114_105756.jpg` | ⚪ relleno |
+| `IMG_0400_015.jpg` | `IMG_20220417_104422.jpg` | ⚪ relleno |
+| `IMG_0400_051.jpg` | `IMG_20230114_105901.jpg` | ⚪ relleno |
+| `IMG_0401_017.jpg` | `IMG_20220417_104855.jpg` | ⚪ relleno |
+| `IMG_0401_023.jpg` | `IMG_20220423_103232.jpg` | ⚪ relleno |
+| `IMG_0401_030.jpg` | `IMG_20221209_202514.jpg` | ⚪ relleno |
+| `IMG_0402_012.jpg` | `IMG_20220416_214411.jpg` | ⚪ relleno |
+| `IMG_0402_013.jpg` | `IMG_20220416_214419.jpg` | ⚪ relleno |
+| `IMG_0402_024.jpg` | `IMG_20220902_080426.jpg` | ⚪ relleno |
+| `IMG_0402_026.jpg` | `IMG_20220918_122126.jpg` | ⚪ relleno |
+| `IMG_0402_028.jpg` | `IMG_20220918_124106.jpg` | ⚪ relleno |
+| `IMG_0403_049.jpg` | `IMG_20230114_105544.jpg` | ⚪ relleno |
+| `IMG_0403_059.jpg` | `IMG_20230114_110918.jpg` | ⚪ relleno |
+| `IMG_0403_060.jpg` | `IMG_20230114_111425.jpg` | ⚪ relleno |
+| `IMG_0405_014.jpg` | `IMG_20220417_104324.jpg` | ⚪ relleno |
+| `IMG_0405_019.jpg` | `IMG_20220417_110705.jpg` | ⚪ relleno |
+| `IMG_0405_040.jpg` | `IMG_20230114_104631.jpg` | ⚪ relleno |
+| `IMG_0405_047.jpg` | `IMG_20230114_105434.jpg` | ⚪ relleno |
+| `IMG_0405_048.jpg` | `IMG_20230114_105511.jpg` | ⚪ relleno |
+| `IMG_0405_057.jpg` | `IMG_20230114_110437.jpg` | ⚪ relleno |
+| `IMG_0406_031.jpg` | `IMG_20230114_100815.jpg` | ⚪ relleno |
+| `IMG_0406_033.jpg` | `IMG_20230114_102747.jpg` | ⚪ relleno |
+| `IMG_0407_002.jpg` | `20230510_131141.jpg` | ⚪ relleno |
+| `IMG_0407_009.jpg` | `IMG_20191028_092222.jpg` | ⚪ relleno |
+| `IMG_0407_029.jpg` | `IMG_20220918_125239.jpg` | ⚪ relleno |
+| `IMG_0407_058.jpg` | `IMG_20230114_110550.jpg` | ⚪ relleno |
+| `IMG_0407_062.jpg` | `IMG_20230121_153257.jpg` | ⚪ relleno |
+| `IMG_0409_006.jpg` | `20240104_222941.jpg` | ⚪ relleno |
+| `IMG_0409_010.jpg` | `IMG_20220416_214405.jpg` | ⚪ relleno |
+| `IMG_0409_045.jpg` | `IMG_20230114_105402.jpg` | ⚪ relleno |
+| `IMG_0410_005.jpg` | `20230925_073027.jpg` | ⚪ relleno |
+| `IMG_0410_025.jpg` | `IMG_20220903_220204.jpg` | ⚪ relleno |
+| `IMG_0410_034.jpg` | `IMG_20230114_103033.jpg` | ⚪ relleno |
+| `IMG_0410_056.jpg` | `IMG_20230114_110422.jpg` | ⚪ relleno |
+| `IMG_0410_061.jpg` | `IMG_20230114_111554.jpg` | ⚪ relleno |
+| `IMG_0411_003.jpg` | `20230708_185126.jpg` | ⚪ relleno |
+| `IMG_0411_022.jpg` | `IMG_20220417_110831.jpg` | ⚪ relleno |
+| `IMG_0411_039.jpg` | `IMG_20230114_104407.jpg` | ⚪ relleno |
+| `IMG_0412_004.jpg` | `20230804_224404.jpg` | ⚪ relleno |
+| `IMG_0412_044.jpg` | `IMG_20230114_105345.jpg` | ⚪ relleno |
+| `IMG_0413_016.jpg` | `IMG_20220417_104842.jpg` | ⚪ relleno |
 
 ## Notas
 

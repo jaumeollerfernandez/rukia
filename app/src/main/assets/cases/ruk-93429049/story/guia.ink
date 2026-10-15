@@ -40,6 +40,7 @@ No hace falta que traigas nada. Solo a ti. #delay: 5 #caduca: D6 23:00
 
 = d7
 Hoy amanece para todos. #at: D7 05:00
+(espera) #at: D7 06:30
 {capturada() and not familia_salvada():
     Ya ha amanecido. #at: D7 06:30 #call: audio/guia_final.m4a
 }

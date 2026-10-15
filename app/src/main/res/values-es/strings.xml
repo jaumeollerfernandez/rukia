@@ -228,6 +228,8 @@ EN INVESTIGACIONES</string>
     <string name="zone_miss_text">La patrulla no ha encontrado nada. Prueba otra zona mañana.</string>
     <string name="zone_hit_title">Dentro de esta zona · %1$d%%</string>
     <string name="zone_hit_text">Demasiado amplia para dar con el sitio exacto. Marca una zona más pequeña mañana.</string>
+    <string name="notif_zone_found">Zona exacta. Abre el mapa para ver qué ha encontrado la patrulla.</string>
+    <string name="notif_record_ready">Ha llegado la ficha de %1$s.</string>
     <string name="station">Comisaría</string>
 
     <!-- Fichas policiales -->

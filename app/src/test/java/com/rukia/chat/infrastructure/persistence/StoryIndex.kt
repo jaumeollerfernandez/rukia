@@ -68,9 +68,9 @@ class StoryIndex(val case: File) {
     private val atRegex = Regex("""#at:\s*D(-?\d+)\s+(\d{1,2}:\d{2})""")
     private val fromRegex = Regex("""#from:\s*(\w+)""")
 
-    /** Every line with its own case time (`#at`), in order. */
+    /** Every line with its own case time (`#at`), in order. Pauses (`(espera)`) aren't read by anyone. */
     val timeline: List<Timed> by lazy {
-        lines.filter { !it.isComment }.mapNotNull { l ->
+        lines.filter { !it.isComment && !it.trimmed.startsWith(com.rukia.chat.domain.port.PAUSE_LINE) }.mapNotNull { l ->
             atRegex.find(l.text)?.let { m ->
                 val speaker = fromRegex.find(l.text)?.groupValues?.get(1) ?: l.file.removeSuffix(".ink")
                 Timed(m.groupValues[1].toInt(), m.groupValues[2].padStart(5, '0'), speaker, l)

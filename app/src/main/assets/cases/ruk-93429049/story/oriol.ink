@@ -21,10 +21,10 @@ eres un sol #at: D-20 21:45
 - (opciones)
 #caduca: {caduca(oriol_escribe())}
 // Preguntar por «la chica» como si fuera otra, o decirle que era ella: después de confesarlo, ya no se pregunta así.
-* (chica) {dia >= 2 and fia_oriol > -1 and not era_yo and not duda} [oriol cuéntame lo de la chica de bracons]
-    {delatado >= 1: -> prueba ->}
+* (chica) {sabe_chica() and fia_oriol > -1 and not era_yo and not duda} [oriol cuéntame lo de la chica de bracons]
+    {delatado >= 1 and fia_oriol < 1: -> prueba ->}
     {fia_oriol == -1: -> opciones}
-    -> lo_que_vio ->
+    -> lo_que_vio(false) ->
     por? #delay: 4
     #caduca: D{dia + 1} 00:00
     ** [por nada. me ha dado curiosidad]
@@ -33,7 +33,7 @@ eres un sol #at: D-20 21:45
         pues dile que la próxima vez lleve chaleco reflectante. casi me la como #delay: 120
     ** [(sin responder)]
     - - -> opciones
-* (era_yo) {dia >= 2 and fia_oriol > -1 and not duda} [oriol, no le digas a nadie que me viste]
+* (era_yo) {sabe_chica() and fia_oriol > -1 and not duda} [oriol, no le digas a nadie que me viste]
     eras tú??? 😳 #delay: 120
     ali qué hacías ahí a la una de la mañana #delay: 4
     #caduca: D{dia + 1} 00:00
@@ -48,13 +48,13 @@ eres un sol #at: D-20 21:45
         vale. no digo nada #delay: 5
     - - -> opciones
 * {(era_yo or duda.yo) and not chica and fia_oriol > -1} [qué viste exactamente esa noche?]
-    {delatado >= 1: -> prueba ->}
+    {delatado >= 1 and fia_oriol < 1: -> prueba ->}
     {fia_oriol == -1: -> opciones}
     pues a ti. supongo #delay: 120
-    -> lo_que_vio ->
+    -> lo_que_vio(true) ->
     -> opciones
-* (giro) {dia >= 3 and fia_oriol > -1 and (chica or era_yo or duda)} [y no giró hacia ningún sitio?]
-    seguía subiendo cuando la perdí de vista #delay: 120
+* (giro) {dia >= 3 and fia_oriol > -1 and (chica or era_yo or duda)} [{era_yo or duda.yo:y no me viste girar hacia ningún sitio?|y no giró hacia ningún sitio?}]
+    {era_yo or duda.yo:seguías subiendo cuando te perdí de vista|seguía subiendo cuando la perdí de vista} #delay: 120
     eso sí: un poco más arriba, en una masía, un perro ladraba como loco. a esas horas. mal rollo #delay: 6
     -> opciones
 // Solo si confía.
@@ -72,10 +72,10 @@ eres un sol #at: D-20 21:45
     - else:
         ~ fia_oriol = 0
         vale... perdona #delay: 120
-        lo de bracons: a la 1 y pico, pasado el desvío de sant salvador. una chica con frontal y una bolsa enorme #delay: 6
+        lo de bracons: a la 1 y pico, pasado el desvío de joanetes. una chica con frontal y una bolsa enorme #delay: 6
     }
     -> opciones
-* {fia_oriol == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
+* (mossos) {fia_oriol == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
     ~ fia_oriol = 1
     joder #delay: 120
     vale. lo que necesitéis. yo solo la vi esa noche #delay: 5
@@ -91,11 +91,18 @@ eres un sol #at: D-20 21:45
 + [(sin responder)]
     -> charla
 
-= lo_que_vio
-a la 1 y pico. pasado el desvío de sant salvador, ya en la subida #delay: 120
-andaba por el arcén con una linterna en la frente y una bolsa enorme. le pesaba un montón #delay: 5
-le pregunté si estaba bien y me hizo que sí con la mano. sin mirarme #delay: 5
-chaqueta verde, creo #delay: 4
+// [a_ti]: se lo cuenta a la chica que vio.
+= lo_que_vio(a_ti)
+a la 1 y pico. pasado el desvío de joanetes, ya en la subida #delay: 120
+{a_ti:
+    andabas por el arcén con una linterna en la frente y una bolsa enorme. te pesaba un montón #delay: 5
+    te pregunté si estabas bien y me hiciste que sí con la mano. sin mirarme #delay: 5
+    y la chaqueta verde. eso sí que lo vi #delay: 4
+- else:
+    andaba por el arcén con una linterna en la frente y una bolsa enorme. le pesaba un montón #delay: 5
+    le pregunté si estaba bien y me hizo que sí con la mano. sin mirarme #delay: 5
+    chaqueta verde, creo #delay: 4
+}
 ->->
 
 = prueba
@@ -141,7 +148,11 @@ pero la chica de bracons. no serías tú no? #delay: 5
 
 // La hora de hoy a la que Oriol escribe por su cuenta (0: hoy no escribe).
 === function oriol_escribe() ===
-{dia == 4 and fia_oriol >= 0 and not oriol.charla.chica and not oriol.charla.era_yo and not oriol.duda:
+{dia == 4 and fia_oriol >= 0 and not oriol.charla.mossos and not oriol.charla.chica and not oriol.charla.era_yo and not oriol.duda:
     ~ return 22
 }
 ~ return 0
+
+// Alicia ya ha oído hablar de la chica de Bracons: el comentario de Oriol (clase.ink, D3 14:25) o su respuesta en el grupo (D2).
+=== function sabe_chica() ===
+~ return clase.d2.quien or dia >= 4 or (dia == 3 and hora >= 15)

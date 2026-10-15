@@ -9,7 +9,7 @@
 - (opciones)
 #caduca: D{dia + 1} 00:00
 * [quim perdona por el cartel]
-    {dia >= 5 or (dia == 4 and hora >= 22):
+    {festa.cartel:
         No te preocupes, Alicia. Laura lo ha apañado. #delay: 600
     - else:
         ¿Lo vas a poder hacer? Si no, Laura se ofrece. Pero dímelo, que la imprenta no espera. #delay: 600
@@ -24,7 +24,7 @@
     }
     -> opciones
 * [quim, cómo va la fiesta mayor?]
-    Orquesta cerrada. Castillo hinchable, pendiente. Cartel, en la imprenta en cinco días 🎉 #delay: 600
+    Orquesta cerrada. Castillo hinchable, pendiente. Cartel, {dia >= 6:ya en la imprenta|{dia == 5:mañana a la imprenta|en la imprenta en {6 - dia} días}} 🎉 #delay: 600
     Si ves a Marc, dile que el tractor no es una carroza. #delay: 5
     #caduca: D{dia + 1} 00:00
     ** [el tractor es una tradición, quim]
@@ -33,7 +33,7 @@
         Si vienes, sí. Si no, lo hace Laura con las de su grupo. Dicen que harán «crepes conscientes». No sé qué es eso. #delay: 300
     ** [(sin responder)]
     - - -> opciones
-* {dia >= 5 or (dia == 4 and hora >= 22)} [quim, cómo ha quedado el cartel de laura?]
+* {festa.cartel} [quim, cómo ha quedado el cartel de laura?]
     Correcto. Una rosa grande en el centro y mucho dorado. #delay: 600
     No era lo que hablamos, pero dice que es «más espiritual». A mí me parece un anuncio de colonia. #delay: 6
     -> opciones

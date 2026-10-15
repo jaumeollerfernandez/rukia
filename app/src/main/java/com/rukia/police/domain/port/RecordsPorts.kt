@@ -24,3 +24,8 @@ fun interface StoryFlags {
 fun interface StoryFacts {
     fun isTrue(name: String): Boolean
 }
+
+/** Notifies the player when something they asked for comes in at [at] (epoch millis): a record or a search's result. */
+fun interface ResultAlarm {
+    fun set(at: Long)
+}

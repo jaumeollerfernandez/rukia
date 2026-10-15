@@ -23,7 +23,7 @@ obvio 😇 #at: D-8 18:02
         contesta en el grupo tía que nos tienes a todas locas #delay: 3
     }
     -> opciones
-* {not nuria_denuncia} [has oído algo de mí por ahí?]
+* (oido) {not nuria_denuncia} [has oído algo de mí por ahí?]
     ~ dani_sospechoso = true
     en olot dicen de todo #delay: 120
     que te has ido a barcelona con el dani ese de la moto #delay: 4
@@ -43,7 +43,7 @@ obvio 😇 #at: D-8 18:02
         y que no tienes tan mal gusto #delay: 3
     ** [(sin responder)]
     - - -> opciones
-* (embarazo) {not nuria_denuncia and dia >= 2} [quién dice que estoy embarazada?]
+* (embarazo) {not nuria_denuncia and oido} [quién dice que estoy embarazada?]
     ~ sabe_girona = true
     la prima de judit. trabaja en una farmacia de girona #delay: 120
     dice que te vio comprar una prueba de embarazo. hace como dos semanas #delay: 5

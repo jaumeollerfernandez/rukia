@@ -56,7 +56,7 @@ Perfecto. #at: D-4 21:31
     Muy profesional. Elena te pondrá un 10 en ética. #delay: 5
     -> opciones
 * [sergi, cuándo es la exposición?]
-    En una semana. Y tengo mi parte, la tuya a medias y a Paula comiéndose los resúmenes. #delay: 120
+    {dia == 4:En una semana|En {11 - dia} días}. Y tengo mi parte, la tuya a medias y a Paula comiéndose los resúmenes. #delay: 120
     -> opciones
 * {dia >= 4} [sergi, estás bien?]
     No mucho. #delay: 300

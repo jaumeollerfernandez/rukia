@@ -140,7 +140,7 @@ Para repetir un lugar entre fotos. Su foto de referencia es **una vista general*
 - [ ] `audio/rosalia.m4a`: D4, Rosalia (~45 s). 🔎 Que se oigan «la nena», el pan, la perra Trufa y «la puerta azul»
 - [ ] `audio/berta.m4a`: D5, Berta (~25 s). Eco, mantra de fondo y una vela; que la consigna de la rosa se entienda
 - [ ] `audio/iris.m4a`: D6, Iris (~50 s). Susurro, grifo, pasos. Que se oigan claros «seis y media», «cráter de Santa Margarida» y «agua de luz»
-- [ ] `audio/alicia_ubicacion.m4a`: D5 noche, Alicia por el prepago (~25 s). Susurro, viento, la perra. Que se oigan claros «Mas de la Rosalia», «desvío de Sant Salvador», «puerta azul» y «pozo»
+- [ ] `audio/alicia_ubicacion.m4a`: D5 noche, Alicia por el prepago (~25 s). Susurro, viento, la perra. Que se oigan claros «Mas de la Rosalia», «desvío de Joanetes», «puerta azul» y «pozo»
 - [ ] `audio/alicia_final.m4a`: D7, Alicia (~30 s). Sitio cerrado, radio policial bajita, la perra; sin motor ni viento, para que valga en el coche patrulla, en comisaría o junto al cráter. Sirve para los finales 1, 2 y 3
 - [ ] `audio/guia_final.m4a`: D7, Ignasi (~20 s). Viento y pájaros; solo en el final malo
 
@@ -275,7 +275,7 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [x] `gonpi/berta_d4.jpg` Amanecer con frase («No todo el que se aleja se pierde…»)
   - Prompt: `Spiritual coach Instagram post: a sunrise, a pastel sky over hills, a small bird silhouette. Overlaid centred in an elegant thin serif font: "No todo el que se aleja se pierde. Y quien se pierde, vuelve a casa." A tiny golden rose icon in the corner. Aspect ratio 1:1.`
 - [x] `gonpi/hostalnou_d4.jpg` Cartel de obras en la carretera de Bracons
-  - Prompt: `Village council notice poster in Catalan, simple official A4 layout with a yellow road-works warning triangle icon and black text: "Obres a la carretera de Bracons", "Tram de Sant Salvador", "De 9 a 14 h", and a small line "Ajuntament de l'Hostalnou de Bianya". Photographed pinned on a cork board. Aspect ratio 1:1.`
+  - Prompt: `Village council notice poster in Catalan, simple official A4 layout with a yellow road-works warning triangle icon and black text: "Obres a la carretera de Bracons", "Tram de Joanetes", "De 9 a 14 h", and a small line "Ajuntament de l'Hostalnou de Bianya". Photographed pinned on a cork board. Aspect ratio 1:1.`
 - [x] `gonpi/iris_d4.jpg` Amanecer movido
   - Prompt: `Blurry shaky smartphone photo of a sunrise over the Garrotxa hills taken quickly and secretly through a window, a bit of a curtain edge and a window frame in the shot, muted colours, motion blur, tilted horizon, the feeling of a photo taken in a hurry by someone afraid of being seen. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/casal_d4.jpg` Jardín del Casal al atardecer, esterillas en el césped

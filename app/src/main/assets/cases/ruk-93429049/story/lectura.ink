@@ -9,9 +9,9 @@ yo ya voy por la mitad, qué agobio la casa de la calle aribau #from: me #at: D-
 Esa casa es un personaje más, Alicia. Bien visto. #from: teresa #at: D-25 22:05
 Yo aún no lo he empezado. Como siempre 🙈 #from: gemma #at: D-24 09:15
 A mi edad lo leí tres veces y aún no entiendo a la tía Angustias #from: ramon #at: D-24 11:30
-Gracias por la tertulia de ayer. Alicia, lo que dijiste de Andrea y su familia dio para mucho 👏 #from: teresa #at: D-7 10:10
-es que a veces la familia es lo que más te ahoga, no? #from: me #at: D-7 12:02
-Para el mes que viene: «El infinito en un junco», de Irene Vallejo. #from: teresa #at: D-7 12:30
+Gracias por la tertulia de ayer. Alicia, lo que dijiste de Andrea y su familia dio para mucho 👏 #from: teresa #at: D-5 10:10
+es que a veces la familia es lo que más te ahoga, no? #from: me #at: D-5 12:02
+Para el mes que viene: «El infinito en un junco», de Irene Vallejo. #from: teresa #at: D-5 12:30
 -> d1
 
 = d1

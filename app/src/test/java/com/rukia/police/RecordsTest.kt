@@ -91,6 +91,10 @@ class RecordsTest {
             ))
         }
         assertEquals(listOf("eric", "alicia", "berta", "laura", "roser", "iker"), GetRecords(people, log, dayOf, clock)().rows.map { it.record.id })
+
+        // The one in process leads, then those that came in, read or not, still by surname.
+        log.all = listOf(RecordRequest("roser", 0, 0, read = true), RecordRequest("alicia", 0, 0), RecordRequest("iker", 0, hour))
+        assertEquals(listOf("iker", "alicia", "roser", "eric", "berta", "laura"), GetRecords(people, log, dayOf, clock)().rows.map { it.record.id })
     }
 
     @Test fun `a vehicle only shows up once a record or the story gives it away`() {

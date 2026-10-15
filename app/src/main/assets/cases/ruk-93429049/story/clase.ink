@@ -24,7 +24,7 @@ Alicia, la exposición. Necesito saber si cuento contigo. #from: sergi #delay: 3
 el bocata de la cafetería hoy es un crimen #from: paula #at: D1 13:45
 literal #from: oriol #delay: 20
 mañana examen de psico, me quiero morir #from: aina #at: D1 21:40 #caduca: D2 12:00
-* [estoy mala, perdonad. sergi luego te escribo]
+* (mala) [estoy mala, perdonad. sergi luego te escribo]
     Vale. Mejórate. #from: sergi #delay: 180
     ponte buena ali 💛 #from: paula #delay: 60
 * [sergi, empieza tú la exposición si quieres]
@@ -44,7 +44,7 @@ yo tampoco #from: paula #delay: 20
 Os pasé mis resúmenes ayer. #from: sergi #delay: 30
 sergi te quiero #from: paula #delay: 5
 ha ido fatal #from: aina #at: D2 11:15
-oye anteanoche subí bracons en bici, de noche 🌙 #from: oriol #at: D2 19:30
+oye hace tres noches subí bracons en bici, de noche 🌙 #from: oriol #at: D2 19:30
 mañana cuelgo la ruta en gonpi, flipad #from: oriol #delay: 5
 quién sube un puerto de noche, oriol #from: aina #delay: 60
 la gente normal duerme #from: paula #delay: 20
@@ -55,7 +55,7 @@ Alicia, te he subido mi mitad de la presentación al drive. #from: sergi #at: D2
 * [sergi, no creo que pueda hacer mi parte]
     Pues dímelo con tiempo. #from: sergi #delay: 300
     Ya está dicho. Vale. #from: sergi #delay: 10
-* [oriol, quién subió bracons contigo?]
+* (quien) [oriol, quién subió bracons contigo?]
     nadie. yo solo. con mi frontal y mi soledad 🚴🌙 #from: oriol #delay: 120
     bueno y una tía rara. mañana os cuento #from: oriol #delay: 5
 * [(sin responder)]
@@ -69,7 +69,13 @@ yo sí 🙋 #from: aina #delay: 30
 qué comentario #from: aina #delay: 200
 nada, una tía andando sola por bracons a la 1 de la noche. míralo #from: oriol #delay: 60
 Mañana a las 10, reunión con Elena para la exposición. Alicia, ¿vienes? #from: sergi #at: D3 20:00
--> d4
+#caduca: D4 09:00
+* [no puedo, sergi. ve tú]
+    Vale. Voy solo. #from: sergi #delay: 300
+* [dile a elena que lo siento]
+    Se lo diré. Pero mejor se lo dices tú. #from: sergi #delay: 300
+* [(sin responder)]
+- -> d4
 
 = d4
 Elena dice que la exposición la puedo hacer yo solo si hace falta. #from: sergi #at: D4 10:50

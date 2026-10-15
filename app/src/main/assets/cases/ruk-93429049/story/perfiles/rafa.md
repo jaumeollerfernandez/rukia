@@ -17,7 +17,7 @@ Treinta años dando clase. Lleva a sus alumnos en autobús al examen de Girona. 
 - El examen teórico del D4 en Girona: Hugo aprueba con un 28. Café de gasolinera.
 
 ## Con Alicia
-- Profesor exigente que la aprecia (iba por 29). Le extrañó la pregunta de Bracons de noche.
+- Profesor exigente que la aprecia (iba por 28). Le extrañó la pregunta de Bracons de noche.
 
 ## Objetivo y secreto
 - Quiere que sus alumnos aprueben. Le ofende que le cuelguen. No tiene secretos.

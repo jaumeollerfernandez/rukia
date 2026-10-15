@@ -19,9 +19,9 @@
     ¡Si la fundó ella! Con la Rosalia y la Pepita. Las tres sopranos del valle. #delay: 600
     La Mercè les pintó la puerta de casa a las dos. Azul, de la misma lata. Decía que así siempre se encontrarían. #delay: 8
     La Pepita murió, la pobre. Y la Rosalia, me dijo tu madre, está en una residencia de Olot. Qué pena. #delay: 6
-    ¿Dónde vivían? Una en Capsec y otra por Sant Salvador, eso seguro. Cuál en cada sitio... ya no lo sé, nena. #delay: 8
+    ¿Dónde vivían? Una en Capsec y otra por Joanetes, eso seguro. Cuál en cada sitio... ya no lo sé, nena. #delay: 8
     #caduca: D{dia + 1} 00:00
-    ** [la rosalia vivía por sant salvador, creo]
+    ** [la rosalia vivía por joanetes, creo]
         ¡Puede ser! Tú tienes la cabeza de tu yaya, nena. Yo ya mezclo hasta las letras de las canciones. #delay: 300
     ** [en qué residencia está?]
         En la grande de Olot. Sant Jaume, creo. Eso me dijo tu madre en el mercado. #delay: 300
@@ -43,7 +43,7 @@
     ¡Una de 1979! Las tres sopranos en la escalera de la iglesia. La he colgado en Gonpi, mira mi perfil. #delay: 600
     Tu yaya en medio, la Pepita a la izquierda con su moño y la Rosalia a la derecha, con la perra a los pies. Siempre con perra, esa mujer. #delay: 8
     -> opciones
-* {dia >= 3} [roser, la rosalia tenía perro?]
+* (perro) {dia >= 3} [roser, la rosalia tenía perro?]
     {aviso == 0: -> aviso ->}
     ¡Siempre! Una detrás de otra, y todas con nombre de dulce. Canela, Galeta... la última no me acuerdo. #delay: 600
     Unas perras enormes, que asustaban. Pero eran más buenas que el pan. #delay: 5
@@ -51,7 +51,7 @@
 // Con la foto de la yaya delante de la masía (IMG_0391): la perra Trufa y el pozo son de la Rosalia, no de la Pepita.
 * {foto_img_0391 and dia >= 2} [roser, la perra de la rosalia no se llamaría trufa?]
     {aviso == 0: -> aviso ->}
-    ¡Trufa! ¡Esa! Nombre de dulce, ¿ves? Ya te lo decía yo. #delay: 600
+    ¡Trufa! ¡Esa! {perro:Nombre de dulce, ¿ves? Ya te lo decía yo.|Todas sus perras tenían nombre de dulce: Canela, Galeta... y Trufa.} #delay: 600
     La última. Ya debe de ser viejita, como su dueña. ¿Y tú cómo lo sabes, nena? #delay: 6
     #caduca: D{dia + 1} 00:00
     ** [tengo una foto de pequeña con la yaya. sale en la caseta]

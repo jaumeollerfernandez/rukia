@@ -31,7 +31,7 @@ Hace el encargo (audio) y explica el móvil y la app de Policía en el tutorial:
 
 ## Cómo escribe
 - **Frases cortas, con punto.** Mayúsculas correctas. Ni un emoji.
-- Telegrafía de policía: «Cámaras de la estación de Olot, anteanoche.», «23:41. Un coche gris la deja delante.»
+- Telegrafía de policía: «Cámaras de la estación de Olot, hace tres noches.», «23:41. Un coche gris la deja delante.»
 - Preguntas directas: «Raro cómo.», «¿Apellido? ¿Dirección?»
 - Ironía seca: «Muy oportuno.», «Legal. Asqueroso, pero legal.»
 - Cierra cada noche igual: «Mañana más.»

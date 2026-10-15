@@ -93,7 +93,7 @@ sí!! paso a las 7 #at: D-4 13:05
         cuando quieras me la cuentas. con un helado o algo #delay: 6
     ** [(sin responder)]
     - - -> opciones
-* {dia >= 5 and fia_ona > -1} [ona qué tal el partido?]
+* {(dia >= 6 or (dia == 5 and hora >= 13)) and fia_ona > -1} [ona qué tal el partido?]
     1-3 😭 #delay: 120
     sonia dice que lo he hecho genial pero lo dice por decir #delay: 6
     #caduca: D{dia + 1} 00:00

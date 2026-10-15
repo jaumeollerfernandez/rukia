@@ -35,17 +35,28 @@ Ali, ¿cómo va el cartel? 🎨 #from: laura #at: D3 18:20 #caduca: D4 18:20
 - -> d4
 
 = d4
+// Si Alicia prometió el cartel «en dos días», Laura la espera hasta el D5 por la noche.
 {d3.medias:
-    ali no me has pasado nada, así que lo he hecho yo 🙃 #from: laura #at: D4 22:00
+    (espera) #at: D5 20:00
 - else:
-    cartel hecho. no es lo mismo que si lo hubiera hecho ali pero bueno 🙃 #from: laura #at: D4 22:00
+    (espera) #at: D4 22:00
+}
+-> cartel ->
+-> d5
+
+// Laura lo ha hecho ella. Quim lo comenta desde aquí (quim.ink).
+= cartel
+{d3.medias:
+    ali no me has pasado nada, así que lo he hecho yo 🙃 #from: laura
+- else:
+    cartel hecho. no es lo mismo que si lo hubiera hecho ali pero bueno 🙃 #from: laura
 }
 sale un tractor? #from: marc #delay: 60
 no #from: laura #delay: 5
 {marc.tractor.prometo:
     ali me prometiste uno pequeñito 😢 #from: marc #delay: 30
 }
--> d5
+->->
 
 = d5
 -> d6

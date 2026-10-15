@@ -28,7 +28,7 @@ fun rememberMediaImage(path: String?, maxSize: Int = MAX_IMAGE_SIZE): ImageBitma
     val assets = LocalContext.current.assets
     val caseMedia = "${CaseFolders.content(LocalCaseId.current)}/media"
     return remember(caseMedia, path, maxSize) {
-        path?.let { decodeMedia(assets, "$caseMedia/$it", maxSize) ?: decodeMedia(assets, "${CaseFolders.SHARED_MEDIA}/$it", maxSize) }
+        path?.let { decodeMedia(assets, "$caseMedia/$it", maxSize) ?: decodeMedia(assets, "${CaseFolders.SHARED_MEDIA}/$it", maxSize) }?.asImageBitmap()
     }
 }
 
@@ -38,9 +38,13 @@ fun rememberCaseImage(path: String, maxSize: Int = MAX_IMAGE_SIZE): ImageBitmap?
     val assets = LocalContext.current.assets
     val full = "${CaseFolders.content(LocalCaseId.current)}/$path"
     return produceState<ImageBitmap?>(null, full, maxSize) {
-        value = withContext(Dispatchers.IO) { decodeMedia(assets, full, maxSize) }
+        value = withContext(Dispatchers.IO) { decodeMedia(assets, full, maxSize)?.asImageBitmap() }
     }.value
 }
+
+/** Like [rememberMediaImage] outside Compose (e.g. a notification): the bitmap at [path] in the case's media or the shared one; null if missing. */
+fun mediaBitmap(context: Context, caseId: String, path: String, maxSize: Int = 256) =
+    decodeMedia(context.assets, "${CaseFolders.content(caseId)}/media/$path", maxSize) ?: decodeMedia(context.assets, "${CaseFolders.SHARED_MEDIA}/$path", maxSize)
 
 private fun openMedia(context: Context, caseId: String, path: String) = listOf("${CaseFolders.content(caseId)}/media/$path", "${CaseFolders.SHARED_MEDIA}/$path")
     .firstNotNullOfOrNull { runCatching { context.assets.openFd(it) }.getOrNull() }
@@ -80,5 +84,4 @@ private fun decodeMedia(assets: AssetManager, path: String, maxSize: Int = MAX_I
     var sample = 1
     while (maxOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= maxSize) sample *= 2
     assets.open(path).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = sample }) }
-        ?.asImageBitmap()
 }.getOrNull()

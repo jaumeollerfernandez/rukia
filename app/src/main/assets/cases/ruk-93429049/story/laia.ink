@@ -76,9 +76,9 @@ Por tanto: no desperdicies los intentos, pero no los dejes pasar. Cada noche, co
 * [La madre y la hermana hablan raro en su grupo.]
     Raro cómo. #delay: 4
     #caduca: D2 08:00
-    ** [Van a un grupo de duelo. Hablan mucho de un señor mayor que «las acompaña».]
-        Un grupo de duelo no es delito, y tener un amigo mayor tampoco. #delay: 8
-        Si encuentras algo más que «un señor», me lo pasas. Un nombre, un sitio, dinero. #delay: 5
+    ** [Van a un grupo de duelo. Dicen que «el grupo» les ayuda a esperarla.]
+        Un grupo de duelo no es delito. Y esperar a una hija, tampoco. #delay: 8
+        Si encuentras algo más que «un grupo», me lo pasas. Un nombre, un sitio, dinero. #delay: 5
     ** [No sé. Parece una secta.]
         Las sectas no se denuncian solas. Necesito nombres. #delay: 5
     ** [(sin responder)]
@@ -98,7 +98,7 @@ La madre llamó anoche a comisaría. Dice que ha encontrado en el ordenador de A
 Quiere que la busquemos allí. Con el padre. #delay: 4
 Muy oportuno. #delay: 3
 ¿Tienes algo antes de que mueva a nadie? #delay: 4 #caduca: D2 14:00
-* [Pol, su ex, la llevó anteanoche a la estación de Olot.]
+* [Pol, su ex, la llevó hace tres noches a la estación de Olot.]
     Eso encaja con el billete. Pero no me fío de lo que encaja tan bien. #delay: 8
     -> camaras
 * {foto_img_0411} [En su galería hay un correo: canceló el billete esa misma noche.]
@@ -116,10 +116,10 @@ Muy oportuno. #delay: 3
 
 = camaras
 Pido las cámaras de la estación de autobuses. Dame unas horas. #delay: 6
-Cámaras de la estación de Olot, anteanoche. #at: D2 16:10
+Cámaras de la estación de Olot, hace tres noches. #at: D2 16:10
 23:41. Un coche gris la deja delante. Lleva una mochila y una bolsa de tela grande. #delay: 4
 23:55. Sale el bus de Barcelona. Ella no sube. #delay: 4
-23:58. Se va andando, hacia la salida de Bianya. #delay: 4
+23:56. Cruza andando hacia la rotonda, hacia la salida de Bianya. No hacia las dársenas. #delay: 4
 Después, nada. No hay más cámaras por esa zona. #delay: 3
 ~ descarta_bus = true
 No se fue a Barcelona. Se quedó en el valle. #delay: 5
@@ -189,13 +189,13 @@ Parte. ¿Qué tienes? #at: D3 21:30 #caduca: D4 08:00
 * {sabe_pan} [Se llevó pan de la panadería. Seis barras. Para alguien más.]
     Pan para alguien que no puede bajar a comprarlo. #delay: 8
     Alguien mayor. O alguien escondido. O las dos cosas. #delay: 4
-* [La jefa de la panadería habla de una tal Rosalia. Alicia le sube pan.]
+* {sabe_pan or sabe_ruta_lotes} [Alicia subía pan a «la señora de arriba». La madre habla de una tal Rosalia, una amiga de la abuela.]
     ~ sabe_rosalia = true
     Rosalia. #delay: 8
     ¿Apellido? ¿Dirección? #delay: 3
-    Nada, ¿no? Lo busco en el padrón. Rosalias de más de setenta años en la Vall de Bianya no habrá muchas. #delay: 6
-* [Un compañero de clase la vio andando de noche por la carretera de Bracons.]
-    Bracons. #delay: 8
+    Nada, ¿no? Lo busco en el padrón. Rosalias de más de setenta años en la Garrotxa no habrá muchas. #delay: 6
+* {clase.d3 or oriol.charla.chica or oriol.charla.era_yo or oriol.duda} [Un compañero de clase la vio andando de noche por la carretera de Joanetes.]
+    Joanetes. #delay: 8
     Esa carretera sube hasta la collada. Pocas casas, mucho bosque. #delay: 4
     Si iba andando con peso, no pudo ir muy lejos. #delay: 4
 * (iker_parte) {iker.d2} [Un tal Iker, amigo de Dani, le ofrece trabajo en Barcelona: piso pagado y «trae el DNI».]
@@ -224,7 +224,7 @@ Mañana más. #delay: 3
     Y adivina quién le pasó el número de Alicia. #delay: 4
 }
 {sabe_rosalia:
-    Padrón. Rosalia Masó Puig, 78 años, empadronada en Sant Salvador de Bianya. #at: D4 10:15
+    Padrón. Rosalia Masó Puig, 78 años, empadronada en Sant Esteve d'en Bas, en Joanetes. #at: D4 10:15
     Dirección: «Disseminat». Ni calle ni número. #delay: 4
     En ese diseminado hay unas cuarenta masías. Desde aquí no sé cuál es la suya. #delay: 5
 }
@@ -243,7 +243,7 @@ Parte. #at: D4 21:30 #caduca: D5 08:00
 * [Me ha llamado una anciana desde un fijo. Preguntaba por «la nena» y por el pan.]
     ~ sabe_rosalia = true
     Dame un minuto. #delay: 10
-    Fijo a nombre de Josep Pujol Vila, fallecido en 2009. Sant Salvador de Bianya, diseminado. #delay: 90
+    Fijo a nombre de Josep Pujol Vila, fallecido en 2009. Joanetes, Sant Esteve d'en Bas, diseminado. #delay: 90
     Su viuda: Rosalia Masó. #delay: 4
     Ya tengo la parroquia y el nombre. Me falta la casa. #delay: 5
     Y no puedo mandar patrullas a llamar a cuarenta puertas sin una orden y sin que la madre se entere. #delay: 5
@@ -268,7 +268,7 @@ Mañana te pediré que me digas dónde mirar. Piensa bien qué me vas a decir. #
     Dame el número. #delay: 3
     Prepago sin registrar. Lo compraron en un estanco de Olot hace un mes. #delay: 120
     Anoche, a las 23:40, se conectó a la antena de la Collada de Bracons. #delay: 5
-    Bajo esa antena, en el diseminado de Sant Salvador, hay once masías. Once, no cuarenta. #delay: 6
+    Bajo esa antena, en el diseminado de Joanetes, hay once masías. Once, no cuarenta. #delay: 6
 * {iris.d4} [Una chica del Casal, Iris, dice que les han hecho firmar que lo donan todo «en caso de tránsito».]
     ~ sabe_secta = true
     «En caso de tránsito». #delay: 10
@@ -285,7 +285,7 @@ Parte. ¿Qué tienes? #at: D5 21:45 #caduca: D6 08:00
 * [El grupo de la madre sube al cráter de Santa Margarida al alba. De blanco y sin móviles.]
     Ahí estaré yo. Con todo lo que me dejen llevar. #delay: 8
     Pero si antes no sacamos a Alicia de donde esté, de poco servirá. #delay: 5
-* [Una furgoneta blanca del Casal va parando en cada mas camino de Bracons.]
+* [Una furgoneta blanca del Casal va parando en cada mas camino de Joanetes.]
     Entonces van por delante de nosotros. #delay: 8
     Mañana a primera hora quiero un sitio. Uno. #delay: 4
 * {sabe_puerta_azul} [La casa tiene la puerta azul.]
@@ -303,7 +303,7 @@ Mañana es el día. Duerme algo. #delay: 3
 = d6
 // Si Alicia dio la ubicación por teléfono (desconocido.tras_llamada, D5 noche) y el jugador la ha oído (cogiendo la
 // llamada, o en el buzón de voz antes de esta hora), Laia la saca de madrugada. Escuchada más tarde, ya no.
-#at: D6 01:30
+(espera) #at: D6 01:30
 {llamada_desconocido_contestada or llamada_desconocido_escuchada:
     ~ alicia_llamo = true
 }
@@ -335,6 +335,7 @@ Mañana amanece. #delay: 3
 // Cada final pone `final_caso` y su última línea lleva `#effect: case_closed`: cuando llega, el juego cierra el caso y abre el informe.
 = d7
 // Con Dani frenado, la red no llega hasta la madrugada: la salida de la noche aún podía salvarla.
+(espera) #at: D7 04:00
 {dani_frenado and not alicia_entregada:
     Las cuatro. Le he pedido a Tráfico que me avise de cualquier coche que baje del valle. #at: D7 04:00
     {a_merced_de_dani():
@@ -343,6 +344,7 @@ Mañana amanece. #delay: 3
         De momento, nada. #delay: 3
     }
 }
+(espera) #at: D7 05:10
 {vigilancia_crater:
     En posición en el cráter. Niebla. No se ve ni la ermita. #at: D7 05:10
     Suben linternas por el sendero. Diez, doce personas. Todas de blanco. #at: D7 06:05
@@ -353,6 +355,7 @@ Mañana amanece. #delay: 3
         Fiscalía ha mandado una unidad al cráter. Van justos. #delay: 5
     }
 }
+(espera) #at: D7 06:30
 {
 - familia_salvada() and (rescatada() or capturada()): -> final_bueno
 - rescatada(): -> final_alicia_sola
@@ -429,7 +432,7 @@ Lo siento. #delay: 10 #effect: case_closed
 ~ patrulla_en_mas = true
 ~ alicia_a_salvo = true
 Has oído lo del prepago. Yo también: la Central graba lo que oyes en ese móvil. #delay: 4
-El Mas de la Rosalia. Pasado el desvío de Sant Salvador, puerta azul y un pozo. #delay: 5
+El Mas de la Rosalia. Pasado Joanetes, subiendo hacia la Collada de Bracons, puerta azul y un pozo. #delay: 5
 Mando el coche de guardia. Ahora. Sin sirenas, como ha pedido. #delay: 5
 La tenemos. Estaba en el pozo de detrás de la casa, con la perra. Helada, pero bien. #delay: 2400
 La traigo a comisaría. #delay: 5
@@ -440,7 +443,7 @@ No es un grupo de duelo. Ayunos «solidarios». Un agua que les da la Casa y que
 Papeles para que no las reanimen. Testamentos a favor de la asociación. Su madre y su hermana ya los han firmado. #delay: 6
 ~ sabe_ignasi = true
 Al frente, Ignasi Coll. El de la barba blanca. El que acompaña a su madre a todas partes. #delay: 5
-Mañana, al alba, la «Trobada de l'Alba» en el cráter de Santa Margarida. La séptima alba desde que murió la yaya. #delay: 6
+Mañana, al alba, la «Trobada de l'Alba» en el cráter de Santa Margarida. Tres años de la muerte de la yaya, y la séptima alba de su semana de recogimiento. #delay: 6
 «Solo familias completas». Por eso la buscaban. Iban a subir con ella o sin ella. #delay: 5
 ~ vigilancia_crater = true
 Con su declaración, fiscalía me da gente. Al amanecer estaremos en el cráter. #delay: 6
@@ -450,7 +453,7 @@ Las dos salidas de mañana siguen siendo tuyas. Gracias, Kimo. #delay: 4
 // La red se lleva a Alicia durante el apagón (D6 19:20). Laia lo cuenta al volver la conexión.
 = entrega_tarde
 ~ alicia_entregada = true
-Mientras estabas a oscuras, el 112 ha recibido una llamada desde un fijo de Sant Salvador. A las 19:20. #delay: 4
+Mientras estabas a oscuras, el 112 ha recibido una llamada desde un fijo de Joanetes. A las 19:20. #delay: 4
 Una anciana. Rosalia Masó. Que se han llevado a «la nena». #delay: 5
 Un chico en moto y dos hombres en una furgoneta blanca. A ella la han tirado al suelo. A la perra, una patada. #delay: 6
 La moto es de Dani Rius. #delay: 5
@@ -461,7 +464,7 @@ A Alicia ya no la podemos ayudar desde aquí. A su madre y a su hermana, todaví
 // Con Dani frenado, la red tarda más: se la lleva de madrugada, si para entonces nadie la ha sacado de allí.
 = entrega_madrugada
 ~ alicia_entregada = true
-04:20. Una furgoneta blanca sin luces ha bajado por la pista de Sant Salvador. Detrás, una moto. #delay: 1200
+04:20. Una furgoneta blanca sin luces ha bajado por la pista de Joanetes. Detrás, una moto. #delay: 1200
 Cuando Tráfico ha llegado al cruce, ya no estaban. #delay: 5
 Rosalia Masó ha llamado al 112. Se han llevado a «la nena» mientras dormía. #delay: 5
 {dani_detenido and not dani_creido:
@@ -485,7 +488,7 @@ He avisado a la frontera. #delay: 4
 - else: {~¿Quieres que compruebe algo? Una cosa, no más.|Una consulta para mañana. Elige bien.|Tengo un hueco para una comprobación. ¿Qué miro?} #delay: 4
 }
 #caduca: {limite}
-* {sabe_residencia or dia >= 3} [Comprueba si en alguna residencia de Olot hay una tal Rosalia.]
+* {sabe_residencia or dia >= 4 or (dia == 3 and hora >= 13)} [Comprueba si en alguna residencia de Olot hay una tal Rosalia.]
     ~ residencia_falsa = true
     Hecho. #delay: 300
     En las tres residencias de Olot, ninguna Rosalia. Ni ahora ni en los últimos diez años. #delay: 5
@@ -513,7 +516,7 @@ He avisado a la frontera. #delay: 4
     Por tráfico de drogas lo puedo tener setenta y dos horas. Voy a por él. #delay: 5
     Detenido. Dice que no sabe nada de Alicia. Miente fatal. #delay: 1200
     En su móvil, fotos de ella hechas de lejos. Se las mandó a Iker hace dos días. #delay: 5
-    Y una búsqueda en el mapa: «masies sant salvador de bianya». #delay: 5
+    Y una búsqueda en el mapa: «masies joanetes». #delay: 5
     No habla. Le dan más miedo los del Audi que yo. #delay: 5
     Sin él, a quien sea que esté buscándola le costará más. No mucho más. #delay: 6
 * {sabe_girona and not girona_descartado} [Mira si Alicia fue a una clínica de Girona hace unos días.]
@@ -535,20 +538,20 @@ He avisado a la frontera. #delay: 4
     ~ sabe_secta = true
     ~ sabe_ignasi = true
     El registro de voluntades anticipadas es de Salud. Me deben un favor. #delay: 400
-    Montse Vidal. Documento registrado hoy. Testigos: Ignasi Coll Ferrer y Berta Serra. #delay: 5
+    Montse Vidal. Documento registrado {dia == 4:hoy|{dia == 5:ayer|hace unos días}}. Testigos: Ignasi Coll Ferrer y Berta Serra. #delay: 5
     Pide que no la reanimen. Pase lo que pase. #delay: 5
-    Y hoy mismo, en una notaría de Olot, un testamento. Heredera universal: la Associació Comunitat Rosa d'Abril. #delay: 6
+    Y {dia == 4:hoy mismo|ese mismo día}, en una notaría de Olot, un testamento. Heredera universal: la Associació Comunitat Rosa d'Abril. #delay: 6
     La hermana, lo mismo. En primavera. #delay: 4
     Una mujer sana de 52 años que no quiere que la reanimen y lo deja todo a su grupo de duelo. La misma semana. #delay: 6
     Eso ya no es una estafa, Kimo. #delay: 4
-* {dia >= 4} [¿De quién es el coche gris con una rosa dorada que ronda su casa?]
+* {veins.d4 or marta.d4} [¿De quién es el coche gris con una rosa dorada que ronda su casa?]
     ~ sabe_secta = true
     ~ sabe_cra = true
     ~ sabe_seat = true
     ~ sabe_ignasi = true
     Seat gris a nombre de CRA Serveis. Es la Associació Comunitat Rosa d'Abril, de Sant Joan les Fonts. #delay: 300
     Tres multas de aparcamiento en Olot. Lo conduce Ignasi Coll. #delay: 5
-    Y anteanoche lo pararon en un control de Sant Joan les Fonts a las tres de la madrugada. Volvía del valle. #delay: 5
+    Y {dia == 4:anteanoche|hace unas noches} lo pararon en un control de Sant Joan les Fonts a las tres de la madrugada. Volvía del valle. #delay: 5
 // Solo con la ficha de Ignasi (app Policía): el precedente. Laia vigila el cráter sin gastar una salida de la Policía.
 * {ficha_ignasi and dia >= 4 and not vigilancia_crater} [Mira el atestado de Ignasi Coll de hace once años: una mujer muerta en un retiro al alba en el cráter de Santa Margarida.]
     ~ sabe_secta = true

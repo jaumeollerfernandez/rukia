@@ -70,6 +70,7 @@ en mi casa a las 9. traed algo. lo que sea #from: mireia #delay: 30 #caduca: D3 
 FELIZ CUMPLE MIREIA 🎂🎉 #from: carla #at: D3 00:01
 graciaaas 😭💛 #from: mireia #delay: 300
 felicidades mire!! #from: nuria #at: D3 09:10
+(espera) #at: D3 21:00
 {nuria_denuncia:
     chicas. tengo que contaros una cosa #from: nuria #at: D3 21:00
     quien escribe desde el móvil de ali no es ali #from: nuria #delay: 5
@@ -80,7 +81,11 @@ felicidades mire!! #from: nuria #at: D3 09:10
     me da miedo tía #from: carla #delay: 60
 }
 fotos de la fiesta ya en gonpi 📸 #from: carla #at: D3 23:40
-{d2.vendre:
+// Después de lo que ha contado Núria, ya no le hablan a Ali.
+{
+- nuria_denuncia:
+    no sé ni para qué lo digo aquí 😶 #from: carla #delay: 30
+- d2.vendre:
     dijiste que vendrías 💔 #from: mireia #delay: 30
 - else:
     faltabas tú, ali 💔 #from: mireia #delay: 30
@@ -104,7 +109,7 @@ fotos de la fiesta ya en gonpi 📸 #from: carla #at: D3 23:40
 habéis visto lo que ha subido la cuenta esa del casal? la de la madre de ali #from: carla #at: D5 22:20
 lo del cráter? #from: mireia #delay: 60
 subir al cráter de madrugada todos de blanco. parece una boda hippie #from: carla #delay: 10
-ali dime que no vas a ir a eso #from: mireia #delay: 30
+{nuria_denuncia:y si ali está metida en eso? 😶|ali dime que no vas a ir a eso} #from: mireia #delay: 30
 -> charla("D6 12:25") ->
 -> d6
 

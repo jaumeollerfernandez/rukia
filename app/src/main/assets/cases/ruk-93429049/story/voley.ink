@@ -18,25 +18,32 @@ Ali no ha venido. ¿Alguien sabe algo? #from: sonia #at: D1 20:10
 otra vez desaparecida 🙄 jajaja #from: judit #delay: 60
 Judit. #from: sonia #delay: 20
 perdón 🙊 #from: judit #delay: 10 #caduca: D2 17:00
-* [perdona sonia, estoy mala. el partido no sé si llego]
+* (mala) [perdona sonia, estoy mala. el partido no sé si llego]
     Cuídate. Te guardo el puesto, pero dime algo antes del partido. #from: sonia #delay: 600
     ponte buena reina 💛 #from: ona #delay: 30
-* [no voy a poder jugar el partido. ona, te toca]
+* (no_juego) [no voy a poder jugar el partido. ona, te toca]
     Gracias por decírmelo con tiempo, Ali. Eso también es ser equipo. #from: sonia #delay: 600
     yo??? 😭 #from: ona #delay: 30
     ona colocadora. que dios nos pille confesadas #from: judit #delay: 20
 * [judit qué graciosa 🙄]
     perdóoon 🙊 #from: judit #delay: 60
     Ali, ¿y tú cómo estás? ¿Vienes al partido? #from: sonia #delay: 300
+    #caduca: D2 17:00
+    ** (no_creo) [no creo que pueda, sonia. lo siento]
+        Gracias por decírmelo, Ali. Cuídate. #from: sonia #delay: 600
+    ** [(sin responder)]
 * [(sin responder)]
     Ali, necesito saberlo antes del partido. #from: sonia #delay: 1
 - -> d2
 
 = d2
 Recordatorio: partido en tres días a las 11. Convocatoria la víspera. #from: sonia #at: D2 17:30
-@Ali necesito respuesta 🙏 #from: sonia #delay: 5
-la ali es que ni lee #from: judit #delay: 300
-dejadla, igual está mal de verdad #from: ona #delay: 30
+// Solo insiste si Alicia no le ha contestado.
+{not (d1.mala or d1.no_juego or d1.no_creo):
+    @Ali necesito respuesta 🙏 #from: sonia #delay: 5
+    la ali es que ni lee #from: judit #delay: 300
+    dejadla, igual está mal de verdad #from: ona #delay: 30
+}
 -> d3
 
 = d3

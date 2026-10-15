@@ -1,4 +1,4 @@
-// Pol, el exnovio, de Olot. Tiene coche. Anteanoche llevó a Alicia a la estación de autobuses de Olot (la pista falsa).
+// Pol, el exnovio, de Olot. Tiene coche. La noche de D-1 llevó a Alicia a la estación de autobuses de Olot (la pista falsa).
 // Lo que Alicia no le dijo: el rastro hacia la estación lo dejó a propósito.
 
 === pol ===
@@ -52,7 +52,7 @@ de momento #delay: 30 #caduca: D2 01:00
 
 = d2
 oye #at: D2 18:30
-no dejo de darle vueltas a lo de anteanoche #delay: 4
+no dejo de darle vueltas a lo de hace tres noches #delay: 4
 cuando te dejé en la estación no fuiste a los buses #delay: 6
 te vi por el retrovisor. te ibas andando hacia la salida de bianya #delay: 5
 con una bolsa de pan enorme. pan. a las doce de la noche #delay: 6
@@ -164,12 +164,18 @@ pase lo que pase mañana, aquí estoy #at: D6 21:30 #caduca: D7 05:00
     -> opciones
 // Con la captura de la ruta a pie (IMG_0409): Pol la vio irse andando, no hacia los autobuses.
 * {foto_img_0409} [pol, cuando me dejaste en la estación, me viste entrar?]
-    no. bueno #delay: 120
-    por el retrovisor te vi cruzar. hacia la rotonda, no hacia las dársenas #delay: 5
-    pensé que ibas al cajero. con la bolsa del pan y todo #delay: 5
+    // El D2 ya se lo contó.
+    {d2:
+        no. ya te lo dije #delay: 120
+        cruzaste hacia la rotonda, hacia la salida de bianya. no hacia las dársenas #delay: 5
+    - else:
+        no. bueno #delay: 120
+        por el retrovisor te vi cruzar. hacia la rotonda, no hacia las dársenas #delay: 5
+        pensé que ibas al cajero. con la bolsa del pan y todo #delay: 5
+    }
     #caduca: {limite}
     ** [no se lo digas a nadie]
-        a quién se lo voy a decir. si nadie me pregunta por ti #delay: 120
+        {d4 and not pol_calla:ya es tarde, ali. lo siento|tranqui. a tu madre y al de la barba no les he dicho nada} #delay: 120
     ** [iba a coger otro bus]
         a esas horas? ya no salía ninguno, ali #delay: 120
     ** [(sin responder)]

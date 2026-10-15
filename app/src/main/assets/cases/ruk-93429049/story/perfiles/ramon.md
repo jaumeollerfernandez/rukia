@@ -14,7 +14,7 @@ Viudo, con nietos («pesa más que mi nieto»). De joven bailaba sardanas en las
 - Bienintencionado: quiere alegrar a Montse diciéndole que su hija le ha escrito.
 
 ## Papel en la trama
-⚠️ Escribirle sube `sospecha_familia` (se lo cuenta a Montse). 🎭 Cruza a las amigas de la yaya: pone a la Rosalia en Capsec y a la Pepita en Bracons, y repite lo de la residencia.
+⚠️ Escribirle sube `sospecha_familia` (se lo cuenta a Montse). 🎭 Cruza a las amigas de la yaya: pone a «una de Capsec» (sin nombre) en Capsec y a la Pepita en Bracons, y repite lo de la residencia.
 
 ## Vida propia esta semana
 - El mercado cada mañana (las alcachofas a tres euros), el vermut, los nietos.
@@ -24,12 +24,12 @@ Viudo, con nietos («pesa más que mi nieto»). De joven bailaba sardanas en las
 - Cariño de abuelo del pueblo. Quiere alegrar a Montse diciéndole que Alicia le ha escrito.
 
 ## Objetivo y secreto
-- No tiene secretos: no sabe guardarlos. Su nuera trabaja en la residencia Sant Jaume y le confirmó que allí no hay ninguna Rosalia.
+- No tiene secretos: no sabe guardarlos. Su nuera trabaja en la residencia Sant Jaume y le confirmó que allí no hay nadie del valle de la edad de la yaya. Nunca nombra a la otra amiga.
 - Si Alicia le pide que no se lo cuente a su madre, ya es tarde («la he llamado»), y pide perdón.
 
 ## Temas
 - **A gusto:** la yaya y sus amigas, las sardanas, el mercado, la Conxita.
-- **Malinterpreta:** cruza a la Rosalia y a la Pepita (Capsec / Bracons) y lo reconoce si se lo corrigen.
+- **Malinterpreta:** cruza a las dos amigas (Capsec / Bracons; solo nombra a la Pepita) y lo reconoce si se lo corrigen.
 
 ## Cómo reacciona
 - **Si le corrigen:** «¡Puede ser! A mi edad, los nombres van y vienen como las golondrinas.»

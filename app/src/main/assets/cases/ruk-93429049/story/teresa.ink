@@ -1,7 +1,7 @@
 // Teresa, la bibliotecaria. Discreta: no se lo cuenta a nadie. Alicia usaba el ordenador de la biblioteca para lo que
 // no quería que se viera en casa: el billete de bus (señuelo), Camprodon (señuelo), las residencias y el libro de masías.
 // Confianza (fia_teresa): preguntarle qué libros sacó es un desliz, así que la prueba con el libro que debe («Nada»,
-// grupo de lectura). Si confía, más adelante le da la fotocopia del mas de 1782 (la puerta azul). Si recela, una mentira
+// grupo de lectura). Si confía, más adelante le da la fotocopia del mas de 1782 (pozo, subida a Bracons). Si recela, una mentira
 // solo cuela si el pueblo aún no habla del móvil; la verdad sí funciona: Teresa es discreta y colabora.
 // Vida propia: el Ayuntamiento quiere cerrar la biblioteca por las tardes; ella prepara un escrito con firmas.
 // Escribe ella sola el D4 (el pendrive, si no se lo han preguntado) y el D5 (tras la visita de Montse), si no recela.
@@ -79,7 +79,7 @@ Descuida. #at: D-3 20:31
         -> libros ->
     }
     -> opciones
-* {fia_teresa == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
+* (mossos) {fia_teresa == -1} [Trabajo con los Mossos. Buscamos a Alicia.]
     ~ fia_teresa = 1
     Lo suponía. #delay: 300
     Pregunte lo que necesite. Y descuide: en esta biblioteca no se cuenta nada a nadie. #delay: 6
@@ -89,11 +89,10 @@ Descuida. #at: D-3 20:31
     -> libros ->
     -> opciones
 // Solo si confía: la fotocopia que Alicia se dejó en la bandeja.
-* {fia_teresa >= 1 and dia >= 3} [teresa, fotocopié algo de ese libro?]
-    ~ sabe_puerta_azul = true
-    Sí. Me pediste la fotocopiadora un sábado. Una página sola. #delay: 300
-    Un mas de 1782, con pozo delante y la puerta pintada de azul. «A mitja pujada de Bracons», dice el pie. #delay: 8
-    Te dejaste una copia en la bandeja. La tengo en el cajón, con el pendrive. #delay: 5
+* (fotocopia) {fia_teresa >= 1 and dia >= 3} [teresa, fotocopié algo de ese libro?]
+    Sí. {mossos:Alicia me pidió|Me pediste} la fotocopiadora un sábado. Una página sola. #delay: 300
+    Un mas de 1782, con un pozo delante y un banco de piedra junto a la entrada. «Damunt de Joanetes, camí de Bracons», dice el pie. #delay: 8
+    {mossos:Se dejó|Te dejaste} una copia en la bandeja. La tengo en el cajón, con el pendrive. #delay: 5
     #caduca: D{dia + 1} 00:00
     ** [sabes si esa casa sigue en pie?]
         No lo sé. El libro tiene cuarenta años y la mitad de esas masías ya son ruinas o casas de turismo. #delay: 120
@@ -103,8 +102,8 @@ Descuida. #at: D-3 20:31
         Ni siquiera sé por qué te interesa. Y prefiero seguir sin saberlo. #delay: 8
     ** [(sin responder)]
     - - -> opciones
-* {dia >= 5 and fia_teresa > -1} [teresa qué te dijo mi madre?]
-    Que dejas el club. Que ahora tienes «otras lecturas». #delay: 300
+* {(dia >= 6 or (dia == 5 and hora >= 13)) and fia_teresa > -1} [teresa qué te dijo mi madre?]
+    {mossos:Que Alicia deja el club. Que ahora tiene «otras lecturas».|Que dejas el club. Que ahora tienes «otras lecturas».} #delay: 300
     Me dejó un folleto de un retiro. Lo uso de punto de libro. #delay: 5
     #caduca: D{dia + 1} 00:00
     ** [yo no dejo el club]
@@ -131,10 +130,17 @@ Descuida. #at: D-3 20:31
 + [(sin responder)]
     -> charla
 
+// A la policía le habla de Alicia; a «Alicia», de tú.
 = libros
-«Nada», como te decía. Y uno de la sección local: «Masies de la Vall de Bianya». #delay: 6
-Me hizo gracia: no se lo lleva nunca nadie. #delay: 5
-Lo devolviste con una esquina doblada. En las masías de Sant Salvador. #delay: 6
+{charla.mossos:
+    «Nada», que aún lo tiene. Y uno de la sección local: «Masies de la Vall de Bianya». #delay: 6
+    Me hizo gracia: no se lo lleva nunca nadie. #delay: 5
+    Lo devolvió con una esquina doblada. En las masías de arriba de Joanetes. #delay: 6
+- else:
+    «Nada», que aún lo tienes. Y uno de la sección local: «Masies de la Vall de Bianya». #delay: 6
+    Me hizo gracia: no se lo lleva nunca nadie. #delay: 5
+    Lo devolviste con una esquina doblada. En las masías de arriba de Joanetes. #delay: 6
+}
 ->->
 
 = recela
@@ -152,7 +158,7 @@ No hay prisa. Solo que no me gusta guardar cosas ajenas sin que su dueña lo sep
 
 // D5, después de que Montse devuelva «Nada» (lectura.ink, 12:40).
 = visita
-Ha venido tu madre. #at: D5 13:05
+{charla.mossos:Ha venido la madre de Alicia.|Ha venido tu madre.} #at: D5 13:05
 No le he dicho nada del pendrive. Ni me lo ha preguntado. #delay: 10
 ->->
 
@@ -160,6 +166,8 @@ No le he dicho nada del pendrive. Ni me lo ha preguntado. #delay: 10
 === function teresa_escribe() ===
 {
 - fia_teresa < 0:
+    ~ return 0
+- dia == 4 and teresa.charla.mossos:
     ~ return 0
 - dia == 4 and not teresa.charla.pendrive and not teresa.recordatorio:
     ~ return 9

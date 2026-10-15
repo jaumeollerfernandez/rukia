@@ -41,7 +41,7 @@ Lleva cincuenta años en la misma casa y la misma ventana. Organiza el grupo de 
 Ejemplos reales:
 > Recordatorio: el martes pasan a recoger trastos viejos. Dejadlos delante de casa antes de las 8.
 > Montse, ¿estáis bien? Hace días que veo las persianas bajadas a mediodía.
-> Mañana hay corte de luz de 18 a 22, lo ha dicho el Ayuntamiento. Cargad los móviles.
+> Hoy hay corte de luz de 18 a 22, lo ha dicho el Ayuntamiento. Cargad los móviles.
 
 ## Gustos
 La ventana, el mercado, los grupos de WhatsApp, las misas de domingo.
