@@ -15,7 +15,7 @@
 //           --refs-fotos (cada referencia se sustituye por su foto oficial media/photos/<ficha>.jpg si existe),
 //           --sin-ref (genera sin fotos de referencia: caras nuevas solo con la descripción de la ficha),
 //           --force (regenera aunque ya exista o esté marcada [x] en MEDIA_PENDIENTE.md), --concurrency N (por defecto 2).
-// Grok admite hasta 10 imágenes de referencia (image_urls). Las fichas {movil}/{movil_texto} van dentro del prompt.
+// Grok admite hasta 10 imágenes de referencia (image_urls). Las fichas {movil} van dentro del prompt.
 // Campos y rutas: https://docs.higgsfield.ai/docs/models/grok-image-2/generate-and-edit.md (compruébalos si responde 4xx).
 import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";

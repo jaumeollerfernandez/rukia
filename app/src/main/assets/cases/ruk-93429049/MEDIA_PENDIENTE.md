@@ -102,12 +102,11 @@ Si dos fichas son la misma persona en otra edad (`alicia_nina`, `ignasi_50`…),
 
 ### Estilo (no es una persona: no lleva foto)
 
-Se añade al final de **toda foto hecha con el móvil** (selfies, fotos de perfil, fotos sueltas de la galería y de Gonpi). Va como `{movil}` y se cambia aquí, en un único sitio. No va en capturas de pantalla, memes, copias escaneadas, carteles, logos, ilustraciones, fotos «profesionales» de cuentas con estilo propio (Casal, Guía, Berta, Policía) ni en las 🔎 donde hay que leer un texto (esas llevan `{movil_texto}`).
+Se añade al final de **toda foto hecha con el móvil** (selfies, fotos de perfil, fotos sueltas de la galería y de Gonpi). Va como `{movil}` y se cambia aquí, en un único sitio. No va en capturas de pantalla, memes, copias escaneadas, carteles, logos, ilustraciones, fotos «profesionales» de cuentas con estilo propio (Casal, Guía, Berta, Policía). También lo llevan las 🔎 donde hay que leer un texto: se generan con `{movil}` y calidad `low`, y si el texto sale mal se corrige después con un editor.
 
 - [ ] `movil`: Photographic look, a low-quality unedited snapshot from a cheap old phone or compact digital camera from around 2008-2012, low resolution with a small sensor, soft focus and slightly out of focus, details smudged and not razor-sharp, noticeable digital noise and grain, strong JPEG compression artifacts, muddy shadows and blown-out highlights with low dynamic range, slightly washed-out colours with a faint warm cast, a little camera shake or motion blur, dim underexposed low available light with lifted noisy shadows, imperfect casual framing, harsh direct on-camera flash only if the scene allows it (flat hard shadows right behind the subject), real skin with pores and blemishes, no retouching, no studio lighting, no cinematic colour grading, not clear, not crisp, not a professional photograph.
-- [ ] `movil_texto`: Photographic look, a low-quality unedited snapshot from a cheap old phone or compact digital camera from around 2008-2012, low resolution with a small sensor, a slightly soft overall image, noticeable digital noise and grain, visible JPEG compression, muddy shadows and slightly blown highlights with low dynamic range, slightly washed-out colours with a faint warm cast, dim underexposed low available light, a little camera shake, imperfect casual framing, harsh direct on-camera flash only if the scene allows it, no studio lighting, no cinematic colour grading, not a professional photograph, but any printed or written text in the picture stays sharp, in focus and perfectly legible
 
-Se usa **`{movil_texto}`** (más suave) en las fotos de móvil que no llevan `{movil}`: las 🔎 donde hay que leer un texto, las de las cuentas de Gonpi y las demás fotos sin personas de la galería. Mantiene el aire de móvil de hace unos años (no todo súper nítido) sin tapar el texto.
+Antes había una ficha `{movil_texto}`, más suave, para las fotos sin personas y las de texto; se retiró porque salían demasiado nítidas y rompían la estética. Ahora todas usan `{movil}`.
 
 ### Animales
 
@@ -162,15 +161,15 @@ Las ve la app Multimedia, ordenadas por nombre. Son fotos de móvil corrientes, 
 - [x] `IMG_0398.jpg` Selfi de Alicia y Ona en el coche, la bolsa de vóley detrás (**rehacer**: antes era Berta al amanecer)
   - Prompt: `Front-camera smartphone selfie inside a small hatchback on a sunny country road in the Garrotxa, taken by the driver with one hand: {ona} at the wheel, singing with her mouth wide open and her eyes half-closed, and in the passenger seat {alicia} laughing with her head tipped back, her ponytail loose; both wearing blue and orange volleyball club tracksuit tops. On the back seat, clearly visible between them, a big blue sports bag with the knee pads sticking out of the open zip. Green hills through the windows, sun strap of light across the dashboard, slightly blurry from the movement. {movil} Aspect ratio 3:4.`
 - [x] `IMG_0400.jpg` 🔎 Desde la ventana, de noche: furgoneta blanca delante de casa descargando garrafas sin etiqueta; matrícula ilegible (**rehacer**: antes era la fachada del Casal)
-  - Prompt: `Grainy night photo taken with a smartphone from a first-floor window of {cuarto_alicia} through slightly fogged glass, with the dark edge of the wooden window frame visible at the bottom of the picture: looking down on {calle_del_pont} wet from rain, lit only by one orange street lamp. A plain white van with no logos is parked in front of the door with its rear doors open; two blurred human silhouettes carry big plastic water jugs with no labels towards the house. The number plate is completely unreadable because of the glare of the lamp on it. Quiet, slightly eerie, ambiguous like a routine delivery; no faces visible. Heavy noise, low light, slight motion blur. {movil_texto} Aspect ratio 3:4.`
+  - Prompt: `Grainy night photo taken with a smartphone from a first-floor window of {cuarto_alicia} through slightly fogged glass, with the dark edge of the wooden window frame visible at the bottom of the picture: looking down on {calle_del_pont} wet from rain, lit only by one orange street lamp. A plain white van with no logos is parked in front of the door with its rear doors open; two blurred human silhouettes carry big plastic water jugs with no labels towards the house. The number plate is completely unreadable because of the glare of the lamp on it. Quiet, slightly eerie, ambiguous like a routine delivery; no faces visible. Heavy noise, low light, slight motion blur. {movil} Aspect ratio 3:4.`
 - [x] `IMG_0401.jpg` 🔎 Libreta de la madre con las facturas de casa; entre ellas «pis iaia 120.000 → CRA ✔» (**rehacer**: el texto ha cambiado)
-  - Prompt: `Hurried, slightly blurry smartphone photo taken from above at a bit of an angle of an open spiral notebook on a kitchen table, with a coffee mug sitting on one top corner and covering part of the page. Adult neat cursive handwriting in blue ballpoint, one item per line, in Catalan, with small tick marks: "llum 64,20 ✔", "aigua 31,80 ✔", "comunitat ✔", "pis iaia 120.000 → CRA ✔", "M ✔  B ✔", "A: pendent", "dijous: papers al despatx". Plain squared paper, a ballpoint pen lying across the page, dim yellowish kitchen light. It must look ordinary and boring: just household bills. {movil_texto} Aspect ratio 3:4.`
+  - Prompt: `Hurried, slightly blurry smartphone photo taken from above at a bit of an angle of an open spiral notebook on a kitchen table, with a coffee mug sitting on one top corner and covering part of the page. Adult neat cursive handwriting in blue ballpoint, one item per line, in Catalan, with small tick marks: "llum 64,20 ✔", "aigua 31,80 ✔", "comunitat ✔", "pis iaia 120.000 → CRA ✔", "M ✔  B ✔", "A: pendent", "dijous: papers al despatx". Plain squared paper, a ballpoint pen lying across the page, dim yellowish kitchen light. It must look ordinary and boring: just household bills. {movil} Aspect ratio 3:4.`
 - [x] `IMG_0402.jpg` 🔎 La nevera: el horario del Forn en el centro; detrás asoma media tarjeta con el cráter y la ermita (**rehacer**: antes era el folleto entero)
-  - Prompt: `Smartphone photo of the door of the old white fridge in {cocina}, taken straight on from a metre away. In the centre, held by two magnets, a printed bakery shift schedule table with several rows underlined in pink highlighter. Around it: a souvenir magnet of El Port de la Selva (a small ceramic boat), a volleyball fixtures calendar, a handwritten shopping list on yellow paper, a take-away pizza magnet. Partly hidden behind the top-right corner of the schedule, only about half visible, a small cream-coloured card with a fine black line drawing of half a round volcanic crater with a tiny hermitage inside and cut-off elegant serif text: "...obada de l'Al..." and, lower, "...famílies". The card must be easy to miss but readable if you zoom in. Dim warm kitchen light, small reflection on the door. {movil_texto} Aspect ratio 3:4.`
+  - Prompt: `Smartphone photo of the door of the old white fridge in {cocina}, taken straight on from a metre away. In the centre, held by two magnets, a printed bakery shift schedule table with several rows underlined in pink highlighter. Around it: a souvenir magnet of El Port de la Selva (a small ceramic boat), a volleyball fixtures calendar, a handwritten shopping list on yellow paper, a take-away pizza magnet. Partly hidden behind the top-right corner of the schedule, only about half visible, a small cream-coloured card with a fine black line drawing of half a round volcanic crater with a tiny hermitage inside and cut-off elegant serif text: "...obada de l'Al..." and, lower, "...famílies". The card must be easy to miss but readable if you zoom in. Dim warm kitchen light, small reflection on the door. {movil} Aspect ratio 3:4.`
 - [x] `IMG_0403.jpg` Masa madre derramada
   - Prompt: `Smartphone photo in {forn} early in the morning: a big glass jar of sourdough starter knocked over on the stainless steel counter, pale sticky dough spilled and dripping over the edge, scattered flour dust, a wooden spoon, one tag with "6:05" written on it in marker. Cold fluorescent light mixed with the first daylight from the shop window, shot from above at a slant, a little blurry because it was taken in a hurry and in a mood. {movil} Aspect ratio 1:1.`
 - [x] `IMG_0405.jpg` 🔎 Cielo estrellado desde una ventana con postigos; la montaña con la antena
-  - Prompt: `Night photograph taken from inside a dark room, through an open old wooden window with rustic wooden shutters pushed open on both sides, set deep in a thick whitewashed stone wall (the thick sill is visible in the foreground, slightly out of focus). Outside, a sky full of stars with the Milky Way visible, no clouds. On the horizon the dark forested silhouette of a mountain ridge, the Collada de Bracons, with a very small telecom antenna with a tiny red light at its summit. No artificial lights anywhere, no buildings, no cars, completely quiet. Long exposure with a little noise, the slightly tilted framing of a phone resting on the sill. Aspect ratio 3:4.`
+  - Prompt: `Night photograph taken from inside a dark room, through an open old wooden window with rustic wooden shutters pushed open on both sides, set deep in a thick whitewashed stone wall (the thick sill is visible in the foreground, slightly out of focus). Outside, a sky full of stars with the Milky Way visible, no clouds. On the horizon the dark forested silhouette of a mountain ridge, the Collada de Bracons, with a very small telecom antenna with a tiny red light at its summit. No artificial lights anywhere, no buildings, no cars, completely quiet. Long exposure with a little noise, the slightly tilted framing of a phone resting on the sill. {movil} Aspect ratio 3:4.`
 - [x] `IMG_0406.jpg` 🎭/🔎 Selfi en el bus a Girona con la chica de la capucha (Mireia: rizo negro y gafas redondas)
   - Prompt: `Front-camera smartphone selfie inside a regional bus in the early morning: {alicia} in the window seat, hair in a loose ponytail, sleepy half-closed eyes, a tired small smile, wearing a grey hoodie. Next to her, in the aisle seat, {mireia} with her hoodie hood pulled up and her head bent over her phone, so that her face is mostly hidden: only a curly black lock of hair and the round tortoiseshell frames of her glasses are visible under the hood. Through the window behind them, a blue road sign reading "Girona" and a grey sky. Flat bus lighting, cold tones, a little grain. {movil} Aspect ratio 3:4.`
 - [x] `IMG_0407.jpg` Selfi con el uniforme del Forn
@@ -182,9 +181,9 @@ Las ve la app Multimedia, ordenadas por nombre. Son fotos de móvil corrientes, 
 - [x] `IMG_0411.jpg` 🔎 Captura del correo «Tu reembolso de 14,20 € está en camino», 21:14
   - Prompt: `Smartphone screenshot of an email open in a generic fictional email app, clean flat UI, no real brand. Sender name of a fictional bus company, subject in bold "Tu reembolso de 14,20 € está en camino", received at "21:14", a short body: "Hemos tramitado la cancelación de tu billete Olot → Barcelona Nord. Recibirás el importe en 3-5 días hábiles." Phone status bar with the time 21:15. Aspect ratio 9:16.`
 - [x] `IMG_0412.jpg` 🔎 Bolsa de tela con barras sobre el mostrador del Forn; reloj a las 20:58
-  - Prompt: `Smartphone photo at closing time inside {forn}: a big cloth tote bag, stuffed with crusty "pa de pagès" loaves with their tips sticking out, sits on the wooden counter next to the brass scale. In the upper background, a round white wall clock with black numerals whose hands clearly show 20:58. Nearly empty wooden shelves, one last basket with two loaves, the shop lights half off, warm dim light from one bulb. Taken by someone in a hurry: slight tilt, a little blurry. {movil_texto} Aspect ratio 3:4.`
+  - Prompt: `Smartphone photo at closing time inside {forn}: a big cloth tote bag, stuffed with crusty "pa de pagès" loaves with their tips sticking out, sits on the wooden counter next to the brass scale. In the upper background, a round white wall clock with black numerals whose hands clearly show 20:58. Nearly empty wooden shelves, one last basket with two loaves, the shop lights half off, warm dim light from one bulb. Taken by someone in a hurry: slight tilt, a little blurry. {movil} Aspect ratio 3:4.`
 - [x] `IMG_0413.jpg` 🔎 Mochila: linterna, jersey, cargador sin móvil, vela, cerillas
-  - Prompt: `Overhead smartphone photo of an open hiking backpack lying on a single bed with a dark green quilt in {cuarto_alicia}, its contents laid out neatly beside it: a black flashlight, a folded thick wool jumper in oatmeal colour, a white wall phone charger plugged into nothing with its cable coiled and no phone, one plain white candle and a box of matches. Soft warm desk lamp light, a wooden desk and a corner of a poster visible at the edge. Practical, calm, deliberate; nothing else on the bed. {movil_texto} Aspect ratio 4:3.`
+  - Prompt: `Overhead smartphone photo of an open hiking backpack lying on a single bed with a dark green quilt in {cuarto_alicia}, its contents laid out neatly beside it: a black flashlight, a folded thick wool jumper in oatmeal colour, a white wall phone charger plugged into nothing with its cable coiled and no phone, one plain white candle and a box of matches. Soft warm desk lamp light, a wooden desk and a corner of a poster visible at the edge. Practical, calm, deliberate; nothing else on the bed. {movil} Aspect ratio 4:3.`
 
 ## 3. Imágenes de Gonpi (`media/gonpi/`)
 
@@ -192,9 +191,9 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 
 **Antes del D1**
 - [x] `gonpi/alicia_dm1.jpg` 🔎 Amanecer sobre el valle («a veces hay que irse para salvarse»)
-  - Prompt: `Smartphone photo of a sunrise over the misty Vall de Bianya in the Garrotxa, Catalonia, taken from a hillside above the village at the first light: pink and orange sky, layers of forested volcanic hills fading into mist, a few stone farmhouses with terracotta roofs in the valley floor, a thin church tower. Calm and melancholic, slightly desaturated like a photo posted by a teenager at 7 a.m., no filter text, no people. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Smartphone photo of a sunrise over the misty Vall de Bianya in the Garrotxa, Catalonia, taken from a hillside above the village at the first light: pink and orange sky, layers of forested volcanic hills fading into mist, a few stone farmhouses with terracotta roofs in the valley floor, a thin church tower. Calm and melancholic, slightly desaturated like a photo posted by a teenager at 7 a.m., no filter text, no people. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/alicia_dm12.jpg` 🔎 La misma vista estrellada que `IMG_0405`
-  - Prompt: `Night photo taken from inside a dark room through an open old wooden window with rustic wooden shutters in a thick stone wall, a sky full of stars and the Milky Way above the dark forested ridge of the Collada de Bracons with a tiny telecom antenna on its summit, no artificial light, the same composition as a photo taken from the same spot, a little lighter and more cropped than the original. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Night photo taken from inside a dark room through an open old wooden window with rustic wooden shutters in a thick stone wall, a sky full of stars and the Milky Way above the dark forested ridge of the Collada de Bracons with a tiny telecom antenna on its summit, no artificial light, the same composition as a photo taken from the same spot, a little lighter and more cropped than the original. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/alicia_dm40.jpg` 🔎 Cumpleaños con la **pulsera roja** en primer plano
   - Prompt: `Close-up smartphone photo of the left wrist of {alicia}, light olive skin, a thin red string bracelet in sharp focus, her hand holding a plate with a slice of homemade birthday cake, a number "18" candle blurred in the background and the face of a smiling girl out of focus behind it. Warm kitchen light, a little grain. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/alicia_dm90.jpg` 🔎 Playa de El Port de la Selva con Núria
@@ -202,11 +201,11 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/alicia_dm120.jpg` Foto del equipo de vóley
   - Prompt: `Smartphone team photo of a girls' junior volleyball team in blue and orange jerseys, two rows, in {pabellon}; in the front row {alicia} wearing number 7, serious face, arms crossed, next to {ona}; behind them {judit}; a ball held in the middle. Harsh gym light, slightly off-centre framing. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/excursions_dm60.jpg` 🔎 El Mas de la Rosalia: **puerta azul, dintel 1782**, la perra
-  - Prompt: `Hiking club photo, taken on a sunny day by a hiker on the road: {mas_rosalia} seen from the front and slightly from below, halfway up a narrow dirt road through dense beech forest. The bright blue wooden door and the carved stone lintel with "1782" are clearly legible; the round stone well is in front of the door; {trufa} sits by the door looking at the camera with her tongue out. A few hikers' backpacks on the ground at the lower edge. Lush green Garrotxa hills, midday light, honest amateur photo. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Hiking club photo, taken on a sunny day by a hiker on the road: {mas_rosalia} seen from the front and slightly from below, halfway up a narrow dirt road through dense beech forest. The bright blue wooden door and the carved stone lintel with "1782" are clearly legible; the round stone well is in front of the door; {trufa} sits by the door looking at the camera with her tongue out. A few hikers' backpacks on the ground at the lower edge. Lush green Garrotxa hills, midday light, honest amateur photo. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/excursions_dm45.jpg` 🎭 Can Pericot (Capsec): masía abandonada, **puerta azul descolorida**, sin pozo ni perro. Que no se confunda con la del dm60: piedra más oscura, ventanas tapiadas
-  - Prompt: `Hiking club photo on an overcast day: {can_pericot} seen from the front in a forest clearing in Capsec, the faded peeling pale-blue door, the dark basalt stone, the bricked-up windows, ivy and brambles climbing the walls, the collapsed part of the roof. No well, no dog, no people, no bench. The blue of the door must look clearly different from a bright blue: washed-out, grey-blue. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Hiking club photo on an overcast day: {can_pericot} seen from the front in a forest clearing in Capsec, the faded peeling pale-blue door, the dark basalt stone, the bricked-up windows, ivy and brambles climbing the walls, the collapsed part of the roof. No well, no dog, no people, no bench. The blue of the door must look clearly different from a bright blue: washed-out, grey-blue. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/excursions_dm30.jpg` Santuari del Mont
-  - Prompt: `Hiking photo from the summit of the Santuari del Mont, a small sanctuary of old stone with a bell gable on a rocky hilltop, wide views over the green volcanic Garrotxa and the blue line of the Pyrenees on the horizon, two hikers' backpacks and a water bottle in the foreground, clear afternoon light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Hiking photo from the summit of the Santuari del Mont, a small sanctuary of old stone with a bell gable on a rocky hilltop, wide views over the green volcanic Garrotxa and the blue line of the Pyrenees on the horizon, two hikers' backpacks and a water bottle in the foreground, clear afternoon light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/excursions_dm15.jpg` Cascada de la Alta Garrotxa
   - Prompt: `Hiking photo of a hidden waterfall falling about five metres into a green pool in a mossy limestone gorge of the Alta Garrotxa, beech trees leaning over it, soft light through the leaves, silky water from a slightly long exposure, a hiker's boot at the edge of the frame. Aspect ratio 1:1.`
 - [x] `gonpi/guia_a.jpg`, `gonpi/guia_b.jpg`, `gonpi/guia_c.jpg`: estilo coach: amaneceres, manos, una taza de infusión, con frases sobreimpresas
@@ -249,7 +248,7 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [x] `gonpi/dani_c.jpg` 🎭 Terraza de bar de noche con una mochila negra sobre la mesa (placeholder: copia de `dani_a.jpg`)
   - Prompt: `Smartphone photo at night of a table on the bar terrace of a small Catalan town, a black backpack on the table next to a half-empty glass of beer and a phone, warm string lights, the rest of the terrace blurred, a casual ordinary shot that hides nothing. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/montse_d2.jpg` 🔎 Manos abiertas al sol («Cerrar etapas también es cuidar de los tuyos»)
-  - Prompt: `Photo of two thin open hands raised towards the morning sun, light shining through the fingers, a green valley blurred behind, soft and spiritual, slightly overexposed like a photo posted by a middle-aged woman with a clean filter. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of two thin open hands raised towards the morning sun, light shining through the fingers, a green valley blurred behind, soft and spiritual, slightly overexposed like a photo posted by a middle-aged woman with a clean filter. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/casal_d2.jpg` 🔎 El tejado nuevo de la sala del Casal (media hora después de la transferencia; **rehacer**)
   - Prompt: `Smartphone photo of a brand-new terracotta tile roof on a new stone extension of {casal}, scaffolding still up, a worker's ladder, a small golden rose painted above the new door, sunny morning, clean construction site, a proud documentary shot. Aspect ratio 1:1.`
 - [x] `gonpi/eric_d2.jpg` 🔎 Cesta de pan vacía en el Forn
@@ -263,13 +262,13 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [x] `gonpi/berta_d3.jpg` Amanecer con frase («Quien de verdad te quiere, te espera…»)
   - Prompt: `Spiritual coach Instagram post: a sunrise over the valley, pastel sky, a thin ribbon of mist. Overlaid centred in an elegant thin serif font: "Quien de verdad te quiere, te espera sin hacer preguntas." A tiny golden rose icon in the corner. Aspect ratio 1:1.`
 - [x] `gonpi/dani_d3.jpg` 🔎 Concierto en Barcelona con la entrada fechada
-  - Prompt: `Smartphone photo taken from the crowd at a rock concert in a small club in Barcelona, stage lights in red and blue, a blurred singer on stage, raised arms and phones. In the lower right corner, a hand holding a paper ticket in sharp focus, a plain fictional venue ticket printed "ENTRADA · SALA 2 · 22:30" and, large and clearly readable, a date "14/06" (the date is fixed afterwards in an editor to the night before Alicia disappeared). Shaky, noisy, flashing lights. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Smartphone photo taken from the crowd at a rock concert in a small club in Barcelona, stage lights in red and blue, a blurred singer on stage, raised arms and phones. In the lower right corner, a hand holding a paper ticket in sharp focus, a plain fictional venue ticket printed "ENTRADA · SALA 2 · 22:30" and, large and clearly readable, a date "14/06" (the date is fixed afterwards in an editor to the night before Alicia disappeared). Shaky, noisy, flashing lights. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/oriol_d3.jpg` 🔎 Captura de la ruta en bici «Subida nocturna a Bracons 🌙 · 1:12 h»
   - Prompt: `Screenshot of a fictional cycling app activity page, dark mode: a winding mountain road route drawn in orange on a dark map of the Garrotxa, title "Subida nocturna a Bracons 🌙", stats "1:12 h", "14,3 km", "+780 m", a small elevation chart below, a start time "00:40". Clean flat UI, no real brand. Aspect ratio 1:1.`
 - [x] `gonpi/mireia_d3.jpg` Fiesta de cumpleaños de Mireia
   - Prompt: `Smartphone photo of a birthday party in a living room in a Catalan village at night: {mireia} blowing out the candles of a cake, round glasses reflecting the flames, balloons and a "18" garland, friends cheering and clapping around her with flash-lit faces, cups on a table. Warm and messy. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/laura_d3.jpg` 🔎 Cojines y velas en un jardín, con una rosa dorada pequeña en una esquina (el jardín del Casal)
-  - Prompt: `Smartphone photo of cream meditation cushions and lit tea-light candles on the lawn of the garden of {casal} at dusk, a low stone wall behind, and in one corner of the picture a small golden rose ornament on a wooden post, taken by an enthusiastic newcomer, slightly tilted. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Smartphone photo of cream meditation cushions and lit tea-light candles on the lawn of the garden of {casal} at dusk, a low stone wall behind, and in one corner of the picture a small golden rose ornament on a wooden post, taken by an enthusiastic newcomer, slightly tilted. {movil} Aspect ratio 1:1.`
 
 **D4**
 - [x] `gonpi/berta_d4.jpg` Amanecer con frase («No todo el que se aleja se pierde…»)
@@ -299,9 +298,9 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [x] `gonpi/hostalnou_d6.jpg` 🔎 Cartel del corte de luz de 18:00 a 22:00
   - Prompt: `Village council notice poster in Catalan, simple official A4 layout with a black lightning bolt icon and the text "Tall de subministrament elèctric", "Avui de 18:00 a 22:00", "Disculpeu les molèsties", and a small line "Ajuntament de l'Hostalnou de Bianya". Photographed pinned on a cork board. Aspect ratio 1:1.`
 - [x] `gonpi/montse_d6.jpg` 🔎 Mesa puesta para tres
-  - Prompt: `Photo of a dinner table set for three in a simple old village kitchen with a stone wall, a white tablecloth, three white plates, three glasses, one lit candle in the middle, nothing else on the table, no people, an eerie stillness, cold evening light from a window. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a dinner table set for three in a simple old village kitchen with a stone wall, a white tablecloth, three white plates, three glasses, one lit candle in the middle, nothing else on the table, no people, an eerie stillness, cold evening light from a window. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/excursions_d6.jpg` 🔎 Camino de tierra cortado; una furgoneta blanca al fondo
-  - Prompt: `Hiking club photo on an overcast day: a dirt track in a beech forest on the way up to Bracons blocked by a red and white striped barrier, a white van with no logos parked further up the track, slightly out of focus, wet leaves on the ground, a hiker's hand holding a map at the lower edge. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Hiking club photo on an overcast day: a dirt track in a beech forest on the way up to Bracons blocked by a red and white striped barrier, a white van with no logos parked further up the track, slightly out of focus, wet leaves on the ground, a hiker's hand holding a map at the lower edge. {movil} Aspect ratio 1:1.`
 
 **D7**
 - [x] `gonpi/guia_d7.jpg` Imagen negra («Hoy amanece para todos.»)
@@ -315,29 +314,29 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/lectura_a.jpg` Tertulia del club de lectura en la biblioteca, ejemplares de «Nada» sobre la mesa
   - Prompt: `Smartphone photo of a book club meeting in the small public library of L'Hostalnou de Bianya: people of different ages (a young woman, two retired men, a woman with a stroller) around a large wooden table with several paperback copies of the novel "Nada" by Carmen Laforet, cups of coffee, shelves of books behind, warm library light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/coral_a.jpg` La coral cantando en la parroquia, camisas blancas
-  - Prompt: `Photo of a village choir of about twenty singers singing inside a small Romanesque stone church in the Garrotxa, white shirts and black trousers, a conductor ({xavier}) with raised hands in front, sheet music in their hands, bare stone vaults, warm light from a small window. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a village choir of about twenty singers singing inside a small Romanesque stone church in the Garrotxa, white shirts and black trousers, a conductor ({xavier}) with raised hands in front, sheet music in their hands, bare stone vaults, warm light from a small window. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/aliments_a.jpg` Voluntarios con cajas de comida; Alicia de espaldas con chaleco
-  - Prompt: `Photo of volunteers carrying cardboard food boxes in the warehouse of the food bank of Olot, green volunteer vests, shelves with tins; in the foreground a young woman seen from behind, thick dark brown hair in a loose ponytail ({alicia}), wearing a green vest and lifting a box. Neutral warehouse light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of volunteers carrying cardboard food boxes in the warehouse of the food bank of Olot, green volunteer vests, shelves with tins; in the foreground a young woman seen from behind, thick dark brown hair in a loose ponytail ({alicia}), wearing a green vest and lifting a box. Neutral warehouse light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/aliments_d2.jpg` 🔎 Cuatro cajas de donación: ropa, mantas, una cafetera y un reloj de pared
-  - Prompt: `Photo of four large cardboard donation boxes side by side on a warehouse floor, overflowing with: one with folded clothes, one with wool blankets, one with an old Italian moka coffee maker and some kitchen items, one with a wooden wall clock on top; a handwritten label "DONACIÓ" on one. Neutral light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of four large cardboard donation boxes side by side on a warehouse floor, overflowing with: one with folded clothes, one with wool blankets, one with an old Italian moka coffee maker and some kitchen items, one with a wooden wall clock on top; a handwritten label "DONACIÓ" on one. Neutral light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/claudia_a.jpg` Sala del polideportivo con esterillas
-  - Prompt: `Photo of a room in the municipal sports centre of a Catalan town, blue yoga mats laid out in rows with folded blankets on each, a wall of mirrors, wooden bars along one wall, warm evening light through a high window, no people. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a room in the municipal sports centre of a Catalan town, blue yoga mats laid out in rows with folded blankets on each, a wall of mirrors, wooden bars along one wall, warm evening light through a high window, no people. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/esplai_a.jpg` Niños con globos de agua en el parque, monitores empapados
-  - Prompt: `Photo of laughing kids throwing water balloons in a village park under plane trees, a few soaking-wet young camp monitors in the middle with neck scarves, water drops frozen in the air, strong sunshine, joyful chaos. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of laughing kids throwing water balloons in a village park under plane trees, a few soaking-wet young camp monitors in the middle with neck scarves, water drops frozen in the air, strong sunshine, joyful chaos. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/teatre_a.jpg` Ensayo en el escenario del local social
-  - Prompt: `Photo of an amateur theatre rehearsal on the small stage of a village social centre in Catalonia: about eight actors dressed in black reading from scripts, a director ({dolors}) seated in the front, wooden floor, a bare backdrop, a few folding chairs, plain light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an amateur theatre rehearsal on the small stage of a village social centre in Catalonia: about eight actors dressed in black reading from scripts, a director ({dolors}) seated in the front, wooden floor, a bare backdrop, a few folding chairs, plain light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/teatre_d4.jpg` Cartel «Buscamos Adela»
   - Prompt: `Amateur theatre group poster: a black and white ink drawing of a Spanish window with iron bars and a lace curtain, and below the text in Catalan in a bold serif font: "Busquem una Adela" with "La casa de Bernarda Alba" in smaller letters, a thin black border, off-white paper texture. Aspect ratio 1:1.`
 - [ ] `gonpi/autoescola_d4.jpg` Coche de autoescuela con una «L» y confeti
-  - Prompt: `Photo of a white driving school car with a rooftop sign with a big "L", covered in confetti and streamers, parked on a street in Olot, a few smiling people in the background, sunny. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a white driving school car with a rooftop sign with a big "L", covered in confetti and streamers, parked on a street in Olot, a few smiling people in the background, sunny. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/pau_a.jpg` Monitores de campamento, Alicia entre ellos
-  - Prompt: `Group photo of about ten summer camp monitors in a forest clearing in the Garrotxa, all wearing yellow neck scarves and the same orange T-shirt, in two rows; among them, in the back row, {alicia} with her hair in a loose ponytail, and in front {pau} with a guitar. Warm summer light filtered by the trees. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Group photo of about ten summer camp monitors in a forest clearing in the Garrotxa, all wearing yellow neck scarves and the same orange T-shirt, in two rows; among them, in the back row, {alicia} with her hair in a loose ponytail, and in front {pau} with a guitar. Warm summer light filtered by the trees. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/queralt_a.jpg` Selfie de Queralt y Alicia con vestidos negros de ensayo
   - Prompt: `Smartphone selfie backstage of two young women in plain black rehearsal dresses: {queralt} with her red lipstick and dramatic eyebrows leaning in, and {alicia} behind her, her hair tied back, smiling a little, a clothes rail with costumes and a mirror with bulbs in the background. Mixed warm and white light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/gemma_a.jpg` Esterilla enrollada y un vermut en una terraza
-  - Prompt: `Photo of a rolled-up yoga mat leaning against a chair next to a glass of vermouth with an olive and a slice of orange on a café terrace table in a Catalan town square, sunny, a small plate of crisps, relaxed. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a rolled-up yoga mat leaning against a chair next to a glass of vermouth with an olive and a slice of orange on a café terrace table in a Catalan town square, sunny, a small plate of crisps, relaxed. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/toni_d5.jpg` Almacén lleno de lotes preparados
-  - Prompt: `Photo of the food bank warehouse in Olot full of prepared boxes stacked up to the shoulders on pallets, each with a printed label, neat rows, a pallet jack, neutral fluorescent light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of the food bank warehouse in Olot full of prepared boxes stacked up to the shoulders on pallets, each with a printed label, neat rows, a pallet jack, neutral fluorescent light. {movil} Aspect ratio 1:1.`
 
 **Perfiles de los contactos** (cada contacto tiene su cuenta y se puede buscar en Gonpi). Fotos de móvil normales, cada una con el estilo de su autor: ver su ficha en [story/perfiles/](story/perfiles/).
 
@@ -349,199 +348,199 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/jordi_dm110.jpg` Selfi de un hombre de 55 con casco de bici, sudado, con Barcelona al fondo
   - Prompt: `Front-camera selfie of {jordi} wearing a bright cycling helmet, sweaty and red-faced with an awkward friendly smile, glasses slightly fogged, on a path in the Collserola hills with Barcelona and the sea far below in a hazy morning light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/marta_d4.jpg` Su parada del mercado de Olot con la persiana a medio bajar, cajas de fruta tapadas (D4)
-  - Prompt: `Photo of a fruit and vegetable stall in the covered market of Olot with its metal shutter half pulled down and the wooden crates of fruit covered with cloths and cardboard, a handwritten price sign in Catalan hanging crooked, the aisle empty and the neighbouring stalls busy, flat market light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a fruit and vegetable stall in the covered market of Olot with its metal shutter half pulled down and the wooden crates of fruit covered with cloths and cardboard, a handwritten price sign in Catalan hanging crooked, the aisle empty and the neighbouring stalls busy, flat market light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/marta_dm40.jpg` Marta abrazando a Alicia en su 18 cumpleaños, las dos riendo, en una cocina
   - Prompt: `Candid smartphone photo in {cocina}: {marta} hugging {alicia} from the side in a big squeeze, both laughing with their eyes closed, Marta's copper-red hair against Alicia's dark brown ponytail, a "18" candle cake on the table in front of them, warm light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/marta_dm3.jpg` Cajas de cerezas en la parada, con un cartelito escrito a mano «Cireres de la vall»
-  - Prompt: `Photo of wooden crates of dark red cherries at a market stall in Olot, a handwritten cardboard sign in Catalan "Cireres de la vall" and a price in marker, a green apron hanging at the edge, bright morning light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of wooden crates of dark red cherries at a market stall in Olot, a handwritten cardboard sign in Catalan "Cireres de la vall" and a price in marker, a green apron hanging at the edge, bright morning light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/arnau_dm3.jpg` Captura de pantalla de un videojuego con el rango a punto de subir (inventado, sin marcas reales)
   - Prompt: `Screenshot of a fictional online video game ranked-match results screen: a dark purple fantasy UI, a progress bar almost full toward "Diamante", a glowing rank emblem, a list of six player names with scores, the word "VICTORIA". No real brand, no real game logo. Aspect ratio 1:1.`
 - [x] `gonpi/arnau_dm25.jpg` Una bandeja de canelones gratinados en la mesa de la iaia, mantel de cuadros
-  - Prompt: `Photo of a big baking tray of Catalan cannelloni with golden gratinated béchamel on a grandmother's table with a red-and-white checkered tablecloth, a wooden serving spoon, a bread basket and a bottle of water, hungry-teenager framing taken from slightly above, warm kitchen light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a big baking tray of Catalan cannelloni with golden gratinated béchamel on a grandmother's table with a red-and-white checkered tablecloth, a wooden serving spoon, a bread basket and a bottle of water, hungry-teenager framing taken from slightly above, warm kitchen light. {movil} Aspect ratio 1:1.`
 
 *Amigos*
 - [x] `gonpi/nuria_dm9.jpg` Girona de noche: las casas del Onyar iluminadas reflejadas en el río
-  - Prompt: `Night photo of the colourful houses along the Onyar river in Girona reflected in the dark water, the cathedral and its staircase lit above, a pedestrian bridge, photographed from the bank by a tourist-like student, slight noise. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Night photo of the colourful houses along the Onyar river in Girona reflected in the dark water, the cathedral and its staircase lit above, a pedestrian bridge, photographed from the bank by a tourist-like student, slight noise. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/nuria_dm35.jpg` Núria con el uniforme de prácticas de Enfermería, haciendo el signo de la victoria
   - Prompt: `Smartphone photo of {nuria} in a white-and-light-blue nursing student uniform with a lanyard badge, making a victory sign and a wide smile with her dimples, in a university corridor in Girona with a noticeboard behind her, fluorescent light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/carla_dm6.jpg` Selfi de Carla en el espejo con el pelo recién cortado, mariposa en la funda del móvil
   - Prompt: `Mirror selfie of {carla} with a fresh shoulder-length cut and a blonde balayage, a butterfly sticker on her phone case, fashionable makeup, hand on hip, a tidy teenage bedroom with fairy lights behind her. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/carla_dm22.jpg` Hoguera de noche en el bosque, siluetas de cuatro chicas alrededor
-  - Prompt: `Night photo of a campfire in a beech forest of the Garrotxa with the silhouettes of four girls sitting around it on logs, faces mostly in shadow, sparks in the air, orange light on the tree trunks, taken from a bit far away. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Night photo of a campfire in a beech forest of the Garrotxa with the silhouettes of four girls sitting around it on logs, faces mostly in shadow, sparks in the air, orange light on the tree trunks, taken from a bit far away. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/mireia_dm15.jpg` Pies con calcetines gordos sobre una manta, el portátil con una serie de fondo
-  - Prompt: `Cosy photo of a pair of feet in thick wool socks on a fleece blanket on a sofa, a laptop on the knees in the background playing a series, a mug of tea, soft evening light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Cosy photo of a pair of feet in thick wool socks on a fleece blanket on a sofa, a laptop on the knees in the background playing a series, a mug of tea, soft evening light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/mireia_dm50.jpg` Las cuatro amigas (Núria, Carla, Mireia y Alicia) en una terraza, abrazadas
   - Prompt: `Smartphone photo of four 18-year-old girls hugging on a café terrace in Olot, the faces close together: {alicia}, {carla}, {mireia} and {nuria}, all smiling at the camera, a table with glasses of soft drinks, a plane tree and an old stone building behind them. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/pol_dm20.jpg` El motor de un coche abierto en un taller, manos con grasa
-  - Prompt: `Photo of an open car engine bay in a small mechanic's workshop in Olot, two hands with black grease holding a wrench, tools hanging on the wall, a work light, a little oily floor. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an open car engine bay in a small mechanic's workshop in Olot, two hands with black grease holding a wrench, tools hanging on the wall, a work light, a little oily floor. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/pol_dm75.jpg` Salpicadero de un Golf de noche, carretera de curvas iluminada por los faros
-  - Prompt: `Night photo through the windscreen of a Volkswagen Golf of a winding mountain road through the Garrotxa forests lit by the headlights, the dashboard glowing softly, hands on the wheel at the edge, speed discretion. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Night photo through the windscreen of a Volkswagen Golf of a winding mountain road through the Garrotxa forests lit by the headlights, the dashboard glowing softly, hands on the wheel at the edge, speed discretion. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/eric_dm4.jpg` Un tarro de masa madre volcado y seco, con una cinta de «escena del crimen» de papel
-  - Prompt: `Humorous photo of a knocked-over sourdough starter jar with dried starter on a steel bakery counter, a strip of yellow paper tape with hand-drawn "ESCENA DEL CRIMEN" written on it stuck around the jar like crime scene tape, taken with a straight face. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Humorous photo of a knocked-over sourdough starter jar with dried starter on a steel bakery counter, a strip of yellow paper tape with hand-drawn "ESCENA DEL CRIMEN" written on it stuck around the jar like crime scene tape, taken with a straight face. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/eric_dm12.jpg` Un tarro de masa madre recién hecha con una etiqueta que pone «PACO»
-  - Prompt: `Photo of a fresh sourdough starter in a clean glass jar with a handwritten paper label "PACO" and a hand-drawn smiley face, on a wooden shelf in {forn}, a rubber band marking its height, soft morning light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a fresh sourdough starter in a clean glass jar with a handwritten paper label "PACO" and a hand-drawn smiley face, on a wooden shelf in {forn}, a rubber band marking its height, soft morning light. {movil} Aspect ratio 1:1.`
 
 *Clase y estudios*
 - [ ] `gonpi/sergi_d4.jpg` Un portátil con una presentación abierta y una taza de café, en un escritorio ordenado (D4)
   - Prompt: `Photo of a laptop showing a slide presentation titled "La soledad no deseada en el medio rural" and a white mug of coffee on a very tidy desk with a notebook and three coloured highlighters in a row, neutral light. Aspect ratio 1:1.`
 - [x] `gonpi/sergi_dm6.jpg` Mesa de biblioteca con apuntes subrayados en tres colores
-  - Prompt: `Photo of a library table in Olot covered with printed notes underlined in three colours (yellow, pink, green), a pencil case, an open textbook and a pair of thin glasses folded on top, neat and obsessive, soft overhead light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a library table in Olot covered with printed notes underlined in three colours (yellow, pink, green), a pencil case, an open textbook and a pair of thin glasses folded on top, neat and obsessive, soft overhead light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/sergi_dm21.jpg` Sergi cruzando la meta de una carrera popular con el dorsal puesto
-  - Prompt: `Photo of {sergi} crossing the finish line of a local 10K race in the streets of Olot with his bib number pinned on his shirt, serious concentrated face, other runners behind, spectators with a banner, daylight. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {sergi} crossing the finish line of a local 10K race in the streets of Olot with his bib number pinned on his shirt, serious concentrated face, other runners behind, spectators with a banner, daylight. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/aina_d2.jpg` Un bocadillo a medio comer sobre los apuntes de psicología (D2)
-  - Prompt: `Photo of a half-eaten sandwich on top of messy psychology notes and a highlighter, crumbs over the pages, a can of soda at the edge, a student desk in a bedroom, lamp light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a half-eaten sandwich on top of messy psychology notes and a highlighter, crumbs over the pages, a can of soda at the edge, a student desk in a bedroom, lamp light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/aina_dm4.jpg` Aina tumbada en la cama rodeada de apuntes, tapándose la cara
-  - Prompt: `Photo of {aina} lying on her back on a bed surrounded by scattered notes and highlighters, covering her face with both hands in despair, messy bun, a cat-print duvet, bright afternoon light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {aina} lying on her back on a bed surrounded by scattered notes and highlighters, covering her face with both hands in despair, messy bun, a cat-print duvet, bright afternoon light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/aina_dm30.jpg` Un gato atigrado encima de un libro abierto
-  - Prompt: `Photo of a tabby cat lying on top of an open textbook on a desk, looking at the camera with a calm smug expression, a pencil rolling off, warm lamp light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a tabby cat lying on top of an open textbook on a desk, looking at the camera with a calm smug expression, a pencil rolling off, warm lamp light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/paula_d3.jpg` Tres vasos de café de máquina vacíos en fila (D3)
-  - Prompt: `Photo of three empty plastic vending-machine coffee cups in a perfect row on a classroom desk, a half-open notebook and a pen beside them, a grey morning window, ironic. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of three empty plastic vending-machine coffee cups in a perfect row on a classroom desk, a half-open notebook and a pen beside them, a grey morning window, ironic. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/paula_dm2.jpg` Un café en la mano con el reloj del aula de fondo marcando las 11
-  - Prompt: `Photo of a hand holding a paper cup of coffee in a classroom, with a round wall clock in the background clearly showing 11:00, rows of empty desks, sleepy mood. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a hand holding a paper cup of coffee in a classroom, with a round wall clock in the background clearly showing 11:00, rows of empty desks, sleepy mood. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/paula_dm18.jpg` Un bocadillo de cafetería triste, primer plano dramático
   - Prompt: `Dramatic close-up of a sad cafeteria sandwich with limp lettuce and one slice of ham on a plastic tray, under a harsh light and a very serious tone, as if it were a still from a drama. Aspect ratio 1:1.`
 - [x] `gonpi/oriol_dm9.jpg` Bicicleta apoyada en un mojón de carretera de noche, con la luna
-  - Prompt: `Night photo of a road bike leaning on a stone road marker on a mountain pass in the Garrotxa, a full moon above the dark forested slopes, the bike's rear light glowing red, quiet and atmospheric. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Night photo of a road bike leaning on a stone road marker on a mountain pass in the Garrotxa, a full moon above the dark forested slopes, the bike's rear light glowing red, quiet and atmospheric. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/oriol_dm30.jpg` Un frontal de bici encendido que deslumbra la cámara
-  - Prompt: `Photo of a powerful bike headlamp switched on, dazzling the camera with a starburst of light, on a dark forest road at night, the shape of a bike frame barely visible. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a powerful bike headlamp switched on, dazzling the camera with a starburst of light, on a dark forest road at night, the shape of a bike frame barely visible. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/elena_dm10.jpg` Foto de grupo del ciclo delante de un edificio de Girona; Alicia en la segunda fila, sonriendo poco
-  - Prompt: `Group photo of about twenty vocational training students in front of the brick entrance of a college building in Girona, two rows, a sunny morning; {elena} the teacher stands at the left side; in the second row {alicia} with her hair tied back smiling only a little, and {sergi} next to her with his glasses. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Group photo of about twenty vocational training students in front of the brick entrance of a college building in Girona, two rows, a sunny morning; {elena} the teacher stands at the left side; in the second row {alicia} with her hair tied back smiling only a little, and {sergi} next to her with his glasses. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/elena_dm60.jpg` Un aula vacía con «Benvinguts» escrito en la pizarra
-  - Prompt: `Photo of an empty classroom with neat rows of desks, and on the whiteboard written in green marker "Benvinguts", a pile of unopened folders on the teacher's desk, morning light through the blinds. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an empty classroom with neat rows of desks, and on the whiteboard written in green marker "Benvinguts", a pile of unopened folders on the teacher's desk, morning light through the blinds. {movil} Aspect ratio 1:1.`
 
 *Panadería*
 - [ ] `gonpi/pilar_d7.jpg` El horno de leña del Forn encendido en la oscuridad, solo se ve el fuego (D7)
-  - Prompt: `Photo of the wood-fired oven of {forn} burning in total darkness, the iron door open, only the fire's orange glow and a few loaves on the peel visible, sparks, deep shadows. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of the wood-fired oven of {forn} burning in total darkness, the iron door open, only the fire's orange glow and a few loaves on the peel visible, sparks, deep shadows. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/pilar_dm7.jpg` Cocas de recapte en una bandeja de horno
-  - Prompt: `Photo of Catalan "coca de recapte" flatbreads topped with roasted red peppers, aubergine and onions on a dark baking tray, still hot, a wooden peel and a kitchen cloth, early light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of Catalan "coca de recapte" flatbreads topped with roasted red peppers, aubergine and onions on a dark baking tray, still hot, a wooden peel and a kitchen cloth, early light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/pilar_dm30.jpg` El escaparate del Forn Can Batlle con globos y un cartel «60 anys»
-  - Prompt: `Photo of the shop window of {forn} from the street, filled with bread and pastries, decorated with silver and gold balloons and a sign in Catalan "60 anys · Forn Can Batlle" painted in white on the glass, an old street of Olot reflected on the window. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of the shop window of {forn} from the street, filled with bread and pastries, decorated with silver and gold balloons and a sign in Catalan "60 anys · Forn Can Batlle" painted in white on the glass, an old street of Olot reflected on the window. {movil} Aspect ratio 1:1.`
 
 *Vóley*
 - [x] `gonpi/sonia_d5.jpg` La pista vacía después del partido, un balón en el suelo (D5)
-  - Prompt: `Photo of {pabellon} empty after a volleyball match, the lights half off, a single ball resting on the floor near the net, folded bleachers, a forgotten towel on a bench. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {pabellon} empty after a volleyball match, the lights half off, a single ball resting on the floor near the net, folded bleachers, a forgotten towel on a bench. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/sonia_dm3.jpg` Entreno: una jugadora de espaldas con el 7 colocando el balón (Alicia)
-  - Prompt: `Photo of a volleyball training session in {pabellon}: a girl seen from behind wearing number 7 with a dark brown ponytail ({alicia}), setting the ball with both hands above her forehead, teammates blurred in the background, tight sports hall light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a volleyball training session in {pabellon}: a girl seen from behind wearing number 7 with a dark brown ponytail ({alicia}), setting the ball with both hands above her forehead, teammates blurred in the background, tight sports hall light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/sonia_dm40.jpg` El equipo juvenil con un trofeo, todas gritando; Alicia con el 7
-  - Prompt: `Photo of a girls' junior volleyball team in blue and orange kit shouting with joy and holding up a small trophy together in {pabellon}; in the middle {alicia} wearing number 7, her mouth wide open; {sonia} at the side with a clenched fist. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a girls' junior volleyball team in blue and orange kit shouting with joy and holding up a small trophy together in {pabellon}; in the middle {alicia} wearing number 7, her mouth wide open; {sonia} at the side with a clenched fist. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/judit_d4.jpg` Bolsa de deporte preparada con las rodilleras encima (D4)
-  - Prompt: `Photo of a packed blue sports bag on a bedroom floor with new black volleyball knee pads placed on top, a water bottle and a pair of trainers beside it, ready for tomorrow. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a packed blue sports bag on a bedroom floor with new black volleyball knee pads placed on top, a water bottle and a pair of trainers beside it, ready for tomorrow. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/judit_dm2.jpg` Unas rodilleras nuevas, todavía con la etiqueta
-  - Prompt: `Photo of a pair of brand-new black volleyball knee pads still with the cardboard tag and a price sticker, on a bedspread, taken proudly from above. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a pair of brand-new black volleyball knee pads still with the cardboard tag and a price sticker, on a bedspread, taken proudly from above. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/judit_dm25.jpg` El vestuario del pabellón, bancos con mochilas y zapatillas
-  - Prompt: `Photo of the changing room of a sports hall: wooden benches with sports backpacks, towels and trainers scattered, wet footprints, lockers, harsh white light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of the changing room of a sports hall: wooden benches with sports backpacks, towels and trainers scattered, wet footprints, lockers, harsh white light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/ona_d5.jpg` Ona sentada en el banquillo con la toalla en la cabeza (D5)
-  - Prompt: `Photo of {ona} sitting on a bench in {pabellon} after a match, a white towel over her head and shoulders, tired, looking at the camera with a small sad smile, bottle in her hand. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {ona} sitting on a bench in {pabellon} after a match, a white towel over her head and shoulders, tired, looking at the camera with a small sad smile, bottle in her hand. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/ona_dm5.jpg` Selfi de Ona conduciendo de día, música en la pantalla del coche
   - Prompt: `Front-camera selfie of {ona} driving in daylight on a country road in the Garrotxa, sunglasses pushed up on her head, the car's screen showing a music app, a green landscape through the window, a relaxed smile. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/ona_dm55.jpg` Ona y Alicia sentadas en el capó de un coche, con la equipación del club
-  - Prompt: `Photo of {ona} and {alicia} sitting side by side on the bonnet of a small car in the car park of a sports hall, both wearing blue and orange club tracksuits, legs swinging, laughing at something off-camera, golden evening light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {ona} and {alicia} sitting side by side on the bonnet of a small car in the car park of a sports hall, both wearing blue and orange club tracksuits, legs swinging, laughing at something off-camera, golden evening light. {movil} Aspect ratio 1:1.`
 
 *Grupos del pueblo*
 - [x] `gonpi/teresa_dm7.jpg` Sillas en círculo en la biblioteca, ejemplares de «Nada» encima de una mesa
-  - Prompt: `Photo of chairs arranged in a circle in a small village library, a table in the middle with several copies of the novel "Nada" and a thermos, tall wooden bookshelves behind, warm lamp light, empty before the club arrives. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of chairs arranged in a circle in a small village library, a table in the middle with several copies of the novel "Nada" and a thermos, tall wooden bookshelves behind, warm lamp light, empty before the club arrives. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/teresa_dm35.jpg` 🔎 Estantería de «Secció local» con libros nuevos; en el lomo de uno se lee «Masies de la Vall de Bianya»
-  - Prompt: `Photo of a library shelf with a printed label card "Secció local" and a row of new books standing, one of them with its spine clearly legible and facing the camera: "Masies de la Vall de Bianya". The other spines show other local titles in Catalan. Soft library light, shallow depth of field but the legible spine in focus. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a library shelf with a printed label card "Secció local" and a row of new books standing, one of them with its spine clearly legible and facing the camera: "Masies de la Vall de Bianya". The other spines show other local titles in Catalan. Soft library light, shallow depth of field but the legible spine in focus. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/ramon_dm9.jpg` Corro de sardanas en la plaza, gente mayor con alpargatas
-  - Prompt: `Photo of elderly Catalans dancing the sardana in a circle holding hands in a village square, the circle seen from outside with their bags piled in the middle, espadrilles, a small band on the side, a sunny Sunday. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of elderly Catalans dancing the sardana in a circle holding hands in a village square, the circle seen from outside with their bags piled in the middle, espadrilles, a small band on the side, a sunny Sunday. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/ramon_dm80.jpg` Un abuelo con cuatro nietos en un banco
-  - Prompt: `Photo of {ramon} sitting on a stone bench with four grandchildren of different ages around him, one on his knee, all smiling, a flat cap, a plaza behind them, afternoon sun. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {ramon} sitting on a stone bench with four grandchildren of different ages around him, one on his knee, all smiling, a flat cap, a plaza behind them, afternoon sun. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/ramon_dm150.jpg` Foto antigua en blanco y negro de una colla sardanista, 1968
   - Prompt: `Old black and white photo from 1968 of a group of young sardana dancers (about 16 teenagers in their Sunday best, boys in dark trousers and girls in light dresses) posing in a Catalan village square, the church behind, creased edges, a handwritten "1968" in white ink on the lower border. Aspect ratio 1:1.`
 - [x] `gonpi/xavier_dm4.jpg` Partituras nuevas sobre el atril del piano de la parroquia
-  - Prompt: `Photo of new sheet music on the stand of an old upright piano in a Romanesque church, stone walls and a candle in the background, a pencil resting on the keys, still, quiet light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of new sheet music on the stand of an old upright piano in a Romanesque church, stone walls and a candle in the background, a pencil resting on the keys, still, quiet light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/xavier_dm30.jpg` Ensayo de la coral: la fila de contraltos, Alicia entre ellas
-  - Prompt: `Photo of a choir rehearsal in a stone church seen from the conductor's side, the alto row singing with sheet music, among them {alicia} with her mouth open in a song and her hair tied back, lit by a warm lamp. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a choir rehearsal in a stone church seen from the conductor's side, the alto row singing with sheet music, among them {alicia} with her mouth open in a song and her hair tied back, lit by a warm lamp. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/roser_dm1.jpg` Geranios rojos en un balcón de piedra
-  - Prompt: `Photo of red geraniums in clay pots along the stone balcony of an old village house, a wooden shutter half open, a slice of blue sky, watered, taken by an older person from below. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of red geraniums in clay pots along the stone balcony of an old village house, a wooden shutter half open, a slice of blue sky, watered, taken by an older person from below. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/roser_dm70.jpg` 🔎 Foto antigua (1979) de cuatro mujeres con partituras; tres de unos cuarenta y una muy joven. Que se reconozca a la yaya Mercè (la de `IMG_0391`)
   - Prompt: `Old faded colour photo from 1979 of four Catalan women holding sheet music in front of a Romanesque church door, seventies clothes and hairstyles: three women in their forties, one of them ({merce}) with short curly hair, a round kind face and deep laugh lines, laughing, and one very young woman at the end, with a ponytail. Yellowish cast, soft focus, a white border. Aspect ratio 1:1.`
 - [x] `gonpi/pep_dm3.jpg` Tomates enormes en una cesta de mimbre
-  - Prompt: `Photo of huge ripe tomatoes of different shapes in a wicker basket in a vegetable garden, a hand for scale with a thumb at the edge, rows of plants behind, afternoon sun. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of huge ripe tomatoes of different shapes in a wicker basket in a vegetable garden, a hand for scale with a thumb at the edge, rows of plants behind, afternoon sun. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/pep_dm12.jpg` Una vieja furgoneta amarilla de Correos aparcada en un camino de tierra
-  - Prompt: `Photo of an old yellow Spanish postal van with a faded logo parked on a dirt road among green meadows of the Vall de Bianya, a few boxes visible in the open back, summer. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an old yellow Spanish postal van with a faded logo parked on a dirt road among green meadows of the Vall de Bianya, a few boxes visible in the open back, summer. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/lluisa_dm14.jpg` Voluntarios del Banc d'Aliments con petos verdes entre cajas; Alicia en una esquina
-  - Prompt: `Photo of food bank volunteers in green vests among stacked boxes in a warehouse, smiling; in a corner at the right {alicia}, with a thick dark brown ponytail, holding a box and looking at the camera a little shyly. Neutral light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of food bank volunteers in green vests among stacked boxes in a warehouse, smiling; in a corner at the right {alicia}, with a thick dark brown ponytail, holding a box and looking at the camera a little shyly. Neutral light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/lluisa_dm50.jpg` La Fageda d'en Jordà en otoño
-  - Prompt: `Photo of the Fageda d'en Jordà beech forest in autumn: tall grey trunks, golden leaves covering the volcanic ground, a thin path, soft low sunlight through the trees. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of the Fageda d'en Jordà beech forest in autumn: tall grey trunks, golden leaves covering the volcanic ground, a thin path, soft low sunlight through the trees. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/toni_dm7.jpg` Cajas de lotes apiladas en una furgoneta
-  - Prompt: `Photo of food boxes stacked inside the open rear of a white delivery van, neatly tied with tape, labelled with handwritten names, an early morning street behind. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of food boxes stacked inside the open rear of a white delivery van, neatly tied with tape, labelled with handwritten names, an early morning street behind. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/toni_dm20.jpg` Bici en la vía verde del Carrilet, con un puente de hierro
-  - Prompt: `Photo of a bicycle leaning on a railing on the Carrilet greenway next to an old iron railway bridge in the Garrotxa, green vegetation, a river below, golden light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a bicycle leaning on a railing on the Carrilet greenway next to an old iron railway bridge in the Garrotxa, green vegetation, a river below, golden light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/fatima_dm6.jpg` Vaso de té con menta en la mesa de una sala de descanso de hospital
   - Prompt: `Photo of a small glass of mint tea on a table in a hospital break room, a few mint leaves floating, a plastic chair, a notice board with Catalan notices behind, flat light. Aspect ratio 1:1.`
 - [x] `gonpi/fatima_dm28.jpg` Una fuente de cuscús en el centro de una mesa familiar
-  - Prompt: `Photo of a big dish of couscous with vegetables and chickpeas in the centre of a family table, other dishes around it, hands reaching in, a patterned tablecloth, warm light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a big dish of couscous with vegetables and chickpeas in the centre of a family table, other dishes around it, hands reaching in, a patterned tablecloth, warm light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/gemma_dm3.jpg` Un vermut con aceitunas en una terraza
-  - Prompt: `Photo of a glass of vermouth with olives, a slice of orange and ice, with a bowl of crisps on a terrace table in a Catalan town square, midday sun. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a glass of vermouth with olives, a slice of orange and ice, with a bowl of crisps on a terrace table in a Catalan town square, midday sun. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/gemma_dm16.jpg` Un libro abierto por la página 12 con un punto de libro
-  - Prompt: `Photo of a paperback book lying open at page 12, with a ribbon-shaped bookmark between the pages, on a bed with white sheets, the page number "12" clearly visible, soft light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a paperback book lying open at page 12, with a ribbon-shaped bookmark between the pages, on a bed with white sheets, the page number "12" clearly visible, soft light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/claudia_dm8.jpg` Esterilla con vistas a los volcanes de la Garrotxa
-  - Prompt: `Photo of a rolled-out yoga mat on a hillside meadow with a view of the green volcanic cones of the Garrotxa, early morning mist in the valley, a water bottle. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a rolled-out yoga mat on a hillside meadow with a view of the green volcanic cones of the Garrotxa, early morning mist in the valley, a water bottle. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/claudia_dm45.jpg` Clase de ioga en el césped del Parc Nou de Olot
-  - Prompt: `Photo of an outdoor yoga class on the lawn of the Parc Nou in Olot, about a dozen people on mats in a pose, plane trees, a sunny morning, seen from behind and from the side. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an outdoor yoga class on the lawn of the Parc Nou in Olot, about a dozen people on mats in a pose, plane trees, a sunny morning, seen from behind and from the side. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/imma_d2.jpg` Una mano sujetando el folleto de Rosa d'Abril (rosa dorada, «Sanar el alma») (D2)
-  - Prompt: `Photo of a hand holding a cream-coloured flyer with a golden rose logo and the printed text "Rosa d'Abril" and "Sanar el alma", market stalls blurred behind, as if the hand were hesitating to throw it away, daylight. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a hand holding a cream-coloured flyer with a golden rose logo and the printed text "Rosa d'Abril" and "Sanar el alma", market stalls blurred behind, as if the hand were hesitating to throw it away, daylight. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/imma_dm3.jpg` Un brote verde en una maceta, en una ventana
-  - Prompt: `Photo of a small green sprout in a terracotta pot on a windowsill, a sliver of curtain, soft light, a hopeful, quiet picture. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a small green sprout in a terracotta pot on a windowsill, a sliver of curtain, soft light, a hopeful, quiet picture. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/pau_dm12.jpg` Niños empapados riendo, globos de agua reventados
-  - Prompt: `Photo of soaked kids laughing among burst colourful water balloons on the grass of a village park, a monitor in a neck scarf laughing behind them, sunny. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of soaked kids laughing among burst colourful water balloons on the grass of a village park, a monitor in a neck scarf laughing behind them, sunny. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/clara_d4.jpg` 🔎 El dibujo de la Laieta colgado en el local: casita con la **puerta azul**, un **perro enorme** marrón y estrellas; escrito con letra de niña «PER LA ALI» (D4)
-  - Prompt: `Photo of a child's crayon drawing pinned with tape to a wall of a youth club: a little stone house drawn with grey rectangles, a big bright blue door, a huge brown dog beside it, much taller than the door, a lot of yellow stars in a dark blue sky, and across the top in childish capital letters "PER LA ALI". Paper slightly crumpled, other drawings partly visible at the edges. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a child's crayon drawing pinned with tape to a wall of a youth club: a little stone house drawn with grey rectangles, a big bright blue door, a huge brown dog beside it, much taller than the door, a lot of yellow stars in a dark blue sky, and across the top in childish capital letters "PER LA ALI". Paper slightly crumpled, other drawings partly visible at the edges. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/clara_dm9.jpg` Dibujos de niños pegados en una pared
-  - Prompt: `Photo of children's drawings of animals, houses and suns stuck all over a wall of a youth club, a variety of colourful papers, some curled, a clothes line of drawings above. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of children's drawings of animals, houses and suns stuck all over a wall of a youth club, a variety of colourful papers, some curled, a clothes line of drawings above. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/biel_d2.jpg` 🎭 Interior de piedra a oscuras con velas, un saco de dormir y latas; en un rincón se intuye una puerta azul desconchada (Can Pericot) (D2)
-  - Prompt: `Dark photo, taken with flash on, inside an old room of rough dark basalt stone with a few lit candles stuck in bottles, a sleeping bag rolled out on the floor and several beer cans, in a far corner a peeling pale-blue wooden door barely visible, the feeling of a teenagers' hideout, grainy. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Dark photo, taken with flash on, inside an old room of rough dark basalt stone with a few lit candles stuck in bottles, a sleeping bag rolled out on the floor and several beer cans, in a far corner a peeling pale-blue wooden door barely visible, the feeling of a teenagers' hideout, grainy. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/biel_dm20.jpg` Los monitores del esplai con pañuelos al cuello en una explanada
-  - Prompt: `Group photo of youth club monitors with colourful neck scarves in a meadow in the Vall de Bianya, arms around shoulders, a few kids at the edges, green hills behind. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Group photo of youth club monitors with colourful neck scarves in a meadow in the Vall de Bianya, arms around shoulders, a few kids at the edges, green hills behind. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/quim_dm14.jpg` Mesa de reunión con el programa de la Festa Major y bocadillos
-  - Prompt: `Photo of a meeting table in a small council room with a printed village festival programme in Catalan, plates of bocadillos, plastic cups and papers, a window with a view of the village, flat light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a meeting table in a small council room with a printed village festival programme in Catalan, plates of bocadillos, plastic cups and papers, a window with a view of the village, flat light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/quim_dm60.jpg` Sardanas en la plaza Major del Hostalnou, vista desde el balcón del Ayuntamiento
-  - Prompt: `Photo of sardana dancers in a circle in the main square of {hostalnou} seen from the town hall balcony, whose iron railing is visible at the edge, the square with plane trees and a bar terrace, a sunny festival morning. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of sardana dancers in a circle in the main square of {hostalnou} seen from the town hall balcony, whose iron railing is visible at the edge, the square with plane trees and a bar terrace, a sunny festival morning. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/marc_dm8.jpg` Campo de trigo segado al atardecer
-  - Prompt: `Photo of a harvested wheat field with round straw bales at sunset in the Vall de Bianya, a golden low light and the green hills in the distance, a tractor track in the stubble. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a harvested wheat field with round straw bales at sunset in the Vall de Bianya, a golden low light and the green hills in the distance, a tractor track in the stubble. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/marc_dm40.jpg` Un tractor verde recién lavado, brillando al sol
-  - Prompt: `Photo of {marc}'s freshly washed green tractor shining in the sun next to a stone farmhouse, water still running off the mudguards, a bucket and a hose on the ground. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {marc}'s freshly washed green tractor shining in the sun next to a stone farmhouse, water still running off the mudguards, a bucket and a hose on the ground. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/laura_dm10.jpg` Girasoles en un campo, a contraluz
   - Prompt: `Photo of sunflowers in a field backlit by the setting sun, the petals glowing, a thin dirt path, pretty and a bit oversaturated by a phone filter. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/laura_dm30.jpg` Atardecer naranja sobre los tejados del Hostalnou
-  - Prompt: `Photo of an orange sunset over the terracotta roofs of {hostalnou} from a terrace, a pot of flowers at the edge of the frame, a warm sky, soft filter. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an orange sunset over the terracotta roofs of {hostalnou} from a terrace, a pot of flowers at the edge of the frame, a warm sky, soft filter. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/conxita_dm2.jpg` Imagen de «buenos días» con flores, taza de café y el texto «Bon dia» en letra cursiva
   - Prompt: `Cheesy forwarded "good morning" image: a bouquet of pink roses and daisies, a steaming cup of coffee on a lace doily, sparkles, and the text "Bon dia" in pink cursive with a drop shadow at the top, slightly pixelated like a meme shared on a messaging app. Aspect ratio 1:1.`
 - [x] `gonpi/conxita_dm20.jpg` La calle del Pont con macetas en las ventanas
-  - Prompt: `Photo of {calle_del_pont} by day: a narrow stone village street with flower pots on the windowsills and wooden balconies, geraniums, a cat sitting on a step, taken from a doorway by a neighbour. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {calle_del_pont} by day: a narrow stone village street with flower pots on the windowsills and wooden balconies, geraniums, a cat sitting on a step, taken from a doorway by a neighbour. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/enric_d3.jpg` El perro Rocky (mestizo negro, collar rojo) lleno de barro, feliz (D3)
-  - Prompt: `Photo of {rocky} covered in mud from nose to tail, standing in a vegetable patch with his tongue out, tail blurred from wagging, clearly very happy, a farmhouse behind. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {rocky} covered in mud from nose to tail, standing in a vegetable patch with his tongue out, tail blurred from wagging, clearly very happy, a farmhouse behind. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/enric_dm5.jpg` Rocky dormido en un sofá
-  - Prompt: `Photo of {rocky} sleeping curled up on a worn old sofa with a crochet blanket, his red collar visible, one paw twitching, warm afternoon light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {rocky} sleeping curled up on a worn old sofa with a crochet blanket, his red collar visible, one paw twitching, warm afternoon light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/rafa_dm15.jpg` Un coche de autoescuela con la «L» en el techo
-  - Prompt: `Photo of a white driving school car with a roof sign with a big "L" parked on a street in Olot, a learner's hand-drawn "mucho ánimo" sign on the dashboard, sunny. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a white driving school car with a roof sign with a big "L" parked on a street in Olot, a learner's hand-drawn "mucho ánimo" sign on the dashboard, sunny. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/rafa_dm40.jpg` Una moto en un mirador del Collsacabra
-  - Prompt: `Photo of a touring motorcycle parked at a viewpoint on the cliffs of the Collsacabra, a wide misty valley below, a helmet on the saddle, golden light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a touring motorcycle parked at a viewpoint on the cliffs of the Collsacabra, a wide misty valley below, a helmet on the saddle, golden light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/hugo_d4.jpg` La hoja del resultado del examen teórico con un 28, sujetada con las dos manos (D4)
-  - Prompt: `Photo of two hands holding a printed driving theory exam result sheet with the score "28" circled in pen and "APTO" written below, taken proudly from above, a table edge in the frame. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of two hands holding a printed driving theory exam result sheet with the score "28" circled in pen and "APTO" written below, taken proudly from above, a table edge in the frame. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/hugo_dm10.jpg` Pantalla de un test de conducir con un 19 en rojo
-  - Prompt: `Photo of a laptop screen of an online driving theory practice test showing a big red "19" and "No apto", a hand over the mouth of the person looking, a bedroom desk, a can of energy drink. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a laptop screen of an online driving theory practice test showing a big red "19" and "No apto", a hand over the mouth of the person looking, a bedroom desk, a can of energy drink. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/dolors_dm18.jpg` Actores sentados en círculo con los textos de Lorca en las manos
-  - Prompt: `Photo of amateur actors sitting in a circle on folding chairs in a village social centre, each with a printed script of a Lorca play in hand, some in black, cups of coffee on the floor, a director ({dolors}) in a colourful scarf gesturing. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of amateur actors sitting in a circle on folding chairs in a village social centre, each with a printed script of a Lorca play in hand, some in black, cups of coffee on the floor, a director ({dolors}) in a colourful scarf gesturing. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/dolors_dm200.jpg` Foto antigua de un escenario de pueblo con el telón rojo, 1998
   - Prompt: `Old photo from 1998 of a small village theatre stage with a red velvet curtain half open and a painted backdrop of a Spanish courtyard, a date stamp in orange numbers in the lower right "98 6 21", slightly overexposed from the flash. Aspect ratio 1:1.`
 - [ ] `gonpi/queralt_dm9.jpg` Queralt vestida de negro, de Bernarda, con un bastón
-  - Prompt: `Photo of {queralt} dressed all in black as Bernarda Alba, a stern expression, holding a wooden cane, a bare stage and a white wall behind her, theatrical side light, red lipstick. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {queralt} dressed all in black as Bernarda Alba, a stern expression, holding a wooden cane, a bare stage and a white wall behind her, theatrical side light, red lipstick. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/queralt_dm40.jpg` La fachada del Institut del Teatre de Barcelona
-  - Prompt: `Photo of the facade of a drama school building in Barcelona, a grey stone and glass modern building with a banner, a few students on the steps, a clear day. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of the facade of a drama school building in Barcelona, a grey stone and glass modern building with a banner, a few students on the steps, a clear day. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/jan_dm6.jpg` Brindis con jarras de cerveza en un bar de Girona
-  - Prompt: `Photo of a toast with beer mugs held together over a table in a bar in the old quarter of Girona at night, hands only and one blurred friend's face, warm lights and foam spilling. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a toast with beer mugs held together over a table in a bar in the old quarter of Girona at night, hands only and one blurred friend's face, warm lights and foam spilling. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/jan_dm18.jpg` Jan entre bastidores, sentado, con cara de aburrido
-  - Prompt: `Photo of {jan} sitting on a flight case backstage with a script in his lap, pulling a bored face with one eyebrow raised, curtains and a clothes rail behind him. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {jan} sitting on a flight case backstage with a script in his lap, pulling a bored face with one eyebrow raised, curtains and a clothes rail behind him. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/anna_dm5.jpg` Un examen de fracciones con un 7,5 en rojo, pegado en la nevera
-  - Prompt: `Photo of a primary school fractions exam with a red "7,5" and a star drawn by a teacher, stuck on a fridge door with a magnet shaped like a lemon, other kid drawings around it, kitchen light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a primary school fractions exam with a red "7,5" and a star drawn by a teacher, stuck on a fridge door with a magnet shaped like a lemon, other kid drawings around it, kitchen light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/anna_dm60.jpg` Las casas blancas de Cadaqués y el mar
-  - Prompt: `Photo of the whitewashed houses of Cadaqués and its church on a hill above a calm blue Mediterranean bay, small boats at anchor, bright summer light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of the whitewashed houses of Cadaqués and its church on a hill above a calm blue Mediterranean bay, small boats at anchor, bright summer light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/silvia_dm3.jpg` Una masía reformada y luminosa con placas solares (no se parece a las de puerta azul)
   - Prompt: `Real estate photo of a bright renovated Catalan masia with a white wooden door, large glass windows, solar panels on the roof and a swimming pool, a neat green lawn, green hills, blue sky. It must look modern and clearly different from an old grey stone masia with a blue door. Aspect ratio 1:1.`
 - [ ] `gonpi/silvia_dm30.jpg` Un niño de 11 años con equipación de fútbol en un campo de césped artificial
-  - Prompt: `Photo of an 11-year-old boy in a red-and-white football kit and shin guards on an artificial turf pitch in Olot, the ball under his foot, a proud smile, floodlights switched on in the evening. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an 11-year-old boy in a red-and-white football kit and shin guards on an artificial turf pitch in Olot, the ball under his foot, a proud smile, floodlights switched on in the evening. {movil} Aspect ratio 1:1.`
 
 **Cuentas que sigue Alicia** (grupos, influencers y locales, todos inventados: camuflan el caso con lo que le gusta a ella; ver «Gustos» en [story/perfiles/alicia.md](story/perfiles/alicia.md)). Estilo de cuenta profesional: fotos cuidadas, carteles, carruseles con texto.
 
@@ -554,9 +553,9 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/nitsdagost_dm120.jpg` Estudio de grabación con guitarras y mantas
   - Prompt: `Photo of a cosy home recording studio with acoustic guitars on stands, wool blankets hung on the walls for sound, a microphone with a pop filter, cables on the floor, warm lamp light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/juliavents_d5.jpg` Frase escrita a mano en una libreta: «No cal que ningú entengui per què te'n vas» (D5)
-  - Prompt: `Photo of an open notebook with a handwritten line in black ink in Catalan: "No cal que ningú entengui per què te'n vas", slightly slanted handwriting, a pencil beside it, soft natural light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an open notebook with a handwritten line in black ink in Catalan: "No cal que ningú entengui per què te'n vas", slightly slanted handwriting, a pencil beside it, soft natural light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/juliavents_dm20.jpg` Júlia sentada en el suelo de una habitación pequeña con la guitarra
-  - Prompt: `Photo of a 25-year-old Catalan female singer-songwriter with wavy dark hair sitting on the floor of a small bedroom with an acoustic guitar on her lap, window light, bare feet, a plant, a plain wall. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a 25-year-old Catalan female singer-songwriter with wavy dark hair sitting on the floor of a small bedroom with an acoustic guitar on her lap, window light, bare feet, a plant, a plain wall. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/juliavents_dm70.jpg` Cartel de gira con cuatro ciudades
   - Prompt: `Tour poster for a singer-songwriter: a pencil drawing of a guitar and a bird, a list of dates in a clean serif font "Girona · Olot · Vic · Manresa" with fictional dates, cream paper. Aspect ratio 1:1.`
 - [ ] `gonpi/nova_d1.jpg` Portada del disco «NEÓN»: la cantante bajo luces violetas (D1, anuncio)
@@ -566,7 +565,7 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/fanals_d2.jpg` Cartel del festival: farolillos en una calle de Olot de noche, primeros nombres (D2, anuncio)
   - Prompt: `Festival poster: paper lanterns in orange and yellow glowing along an old narrow street of Olot at night, text in an elegant font "Fanals · Festival de llum · Olot", and below a line of fictional band names in small caps. Aspect ratio 1:1.`
 - [ ] `gonpi/fanals_dm300.jpg` Público con farolillos en una plaza, de noche
-  - Prompt: `Photo of a crowd holding glowing paper lanterns in a town square of Olot at night, a church in the background, faces lit softly from below, a magical feeling. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a crowd holding glowing paper lanterns in a town square of Olot at night, a church in the background, faces lit softly from below, a magical feeling. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/celfosc_d5.jpg` La Vía Láctea sobre la silueta de los volcanes (D5)
   - Prompt: `Astrophotography of the Milky Way arching over the silhouettes of the volcanic cones of the Garrotxa, a few lights of a village far below, deep blue sky and stars. Aspect ratio 1:1.`
 - [ ] `gonpi/celfosc_dm15.jpg` Carrusel con un mapa dibujado de la Garrotxa y tres estrellas marcadas: Alta Garrotxa, Bassegoda y la subida a Bracons
@@ -574,9 +573,9 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [x] `gonpi/celfosc_dm45.jpg` Larga exposición con estelas de estrellas fugaces sobre una montaña
   - Prompt: `Long exposure astrophotography with several meteor trails over the Puig de Bassegoda, a dark sky with a few clouds lit by the moon, star trails slightly curved. Aspect ratio 1:1.`
 - [x] `gonpi/nordenlla_d1.jpg` Aurora boreal verde y violeta sobre un pueblo nevado (D1)
-  - Prompt: `Photo of a green and violet aurora borealis over a small snowy village in northern Norway, wooden houses with lit windows, snow in the foreground, stars. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a green and violet aurora borealis over a small snowy village in northern Norway, wooden houses with lit windows, snow in the foreground, stars. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/nordenlla_dm25.jpg` Cabaña de madera roja sola junto a un fiordo
-  - Prompt: `Photo of a lonely red wooden cabin next to a Norwegian fjord, calm water and mountains, a grey-blue dawn light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a lonely red wooden cabin next to a Norwegian fjord, calm water and mountains, a grey-blue dawn light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/tintalenta_d6.jpg` Ilustración a tinta: una ventana con postigos, una manta y estrellas (D6)
   - Prompt: `Black ink illustration on white paper, fine pen hatching: a window with open wooden shutters in a thick stone wall, a folded blanket on the sill and a sky full of small stars outside, a very calm composition. Aspect ratio 1:1.`
 - [x] `gonpi/tintalenta_dm10.jpg` Ilustración a tinta de una masía de piedra con la puerta abierta (puerta sin color)
@@ -590,17 +589,17 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/psicologia_dm33.jpg` Fondo crema con la frase «Tu cuerpo no exagera. Te está avisando»
   - Prompt: `Instagram quote slide on a cream background with the text centred in a clean serif font: "Tu cuerpo no exagera. Te está avisando.", a small handle at the bottom, minimalist. Aspect ratio 1:1.`
 - [ ] `gonpi/filsocial_d4.jpg` Una anciana en la puerta de una masía con una voluntaria joven (de espaldas, sin puerta azul) (D4)
-  - Prompt: `Photo of an elderly Catalan woman in an apron at the white-painted wooden door of a stone farmhouse in the Garrotxa, talking to a young volunteer seen from behind with a ponytail and a backpack, a bag of groceries in her hand, a warm afternoon. The door is white or natural wood; it must NOT be blue. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of an elderly Catalan woman in an apron at the white-painted wooden door of a stone farmhouse in the Garrotxa, talking to a young volunteer seen from behind with a ponytail and a backpack, a bag of groceries in her hand, a warm afternoon. The door is white or natural wood; it must NOT be blue. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/filsocial_dm28.jpg` Taller con alumnos sentados en círculo; se reconoce a Elena y a Alicia
-  - Prompt: `Photo of a workshop with about twelve students sitting in a circle on chairs in a bright classroom, {elena} leading with her shoulder-length hair and glasses, and among the students {alicia} with a thick dark brown ponytail and faint freckles listening carefully; a flipchart in the background. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a workshop with about twelve students sitting in a circle on chairs in a bright classroom, {elena} leading with her shoulder-length hair and glasses, and among the students {alicia} with a thick dark brown ponytail and faint freckles listening carefully; a flipchart in the background. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/protectora_d2.jpg` Perro grande, negro, con el hocico canoso, mirando a cámara (D2)
-  - Prompt: `Photo of a big old black dog with a grey muzzle looking straight at the camera with a sad hopeful expression, sitting in a concrete kennel run at an animal shelter, a blanket and a metal bowl, soft light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a big old black dog with a grey muzzle looking straight at the camera with a sad hopeful expression, sitting in a concrete kennel run at an animal shelter, a blanket and a metal bowl, soft light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/protectora_dm18.jpg` Perrita mestiza con un lazo saliendo con su familia
-  - Prompt: `Photo of a small mixed-breed dog with a red bow leaving an animal shelter in the arms of a smiling young couple and a child, adoption day, a banner "Adopta" behind. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a small mixed-breed dog with a red bow leaving an animal shelter in the arms of a smiling young couple and a child, adoption day, a banner "Adopta" behind. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/marroig_d4.jpg` Mar Roig celebrando un punto en un pabellón lleno (D4)
-  - Prompt: `Photo of {mar_roig} celebrating a point with a clenched fist and a shout in a packed sports hall, teammates running to her, the crowd blurred behind, a professional team in dark red kit. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {mar_roig} celebrating a point with a clenched fist and a shout in a packed sports hall, teammates running to her, the crowd blurred behind, a professional team in dark red kit. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/marroig_dm22.jpg` Mar Roig con el equipo juvenil de Olot; Alicia a su lado con la rodillera firmada
-  - Prompt: `Photo of {mar_roig} in her pro kit posing with a girls' junior team in {pabellon}; next to her, {alicia} wearing number 7 holds up a black knee pad signed with a marker, smiling widely; a banner behind them. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {mar_roig} in her pro kit posing with a girls' junior team in {pabellon}; next to her, {alicia} wearing number 7 holds up a black knee pad signed with a marker, smiling widely; a banner behind them. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/memes_d4.jpg` Meme: gato con cara de terror y el texto «quan la teva mare diu "ja en parlarem"» (D4)
   - Prompt: `Meme: a close-up of a terrified wide-eyed cat, with the caption in Catalan in white Impact text across the bottom: "quan la teva mare diu ""ja en parlarem""", and a plain dark background. Aspect ratio 1:1.`
 - [ ] `gonpi/memes_d1.jpg` Meme: un tractor delante de una fila de coches en una carretera de curvas (D1)
@@ -608,25 +607,25 @@ Una por publicación, con nombre `<cuenta>_<día>.jpg` (si una cuenta publica do
 - [ ] `gonpi/memes_dm6.jpg` Meme: skyline de Nueva York con el texto «Girona»
   - Prompt: `Meme: the New York skyline at night with the caption in white Impact text at the bottom "GIRONA" and above in smaller letters "Girona vista des del bus". Aspect ratio 1:1.`
 - [ ] `gonpi/lacova_d5.jpg` Ejemplares de «Mujercitas» en el escaparate de la librería (D5)
-  - Prompt: `Photo of several copies of "Mujercitas" (Little Women) arranged in the window of an old bookshop in Olot with a green awning and a handwritten sign "Recomanem", warm interior light, a reflection of the street. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of several copies of "Mujercitas" (Little Women) arranged in the window of an old bookshop in Olot with a green awning and a handwritten sign "Recomanem", warm interior light, a reflection of the street. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/lacova_dm14.jpg` «Nada», de Carmen Laforet, sobre una mesa de madera con un café
-  - Prompt: `Photo of the paperback novel "Nada" by Carmen Laforet on a wooden table next to a cup of coffee and a spoon, an open window with light, a bookmark, calm. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of the paperback novel "Nada" by Carmen Laforet on a wooden table next to a cup of coffee and a spoon, an open window with light, a bookmark, calm. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/granja_dm4.jpg` Mesas con estudiantes, apuntes y tazas de chocolate (anuncio)
-  - Prompt: `Photo of marble café tables with students studying, notes and cups of thick Catalan hot chocolate with melindros on saucers in an old-style granja in Olot, mirrored walls, brass fittings, warm light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of marble café tables with students studying, notes and cups of thick Catalan hot chocolate with melindros on saucers in an old-style granja in Olot, mirrored walls, brass fittings, warm light. {movil} Aspect ratio 1:1.`
 - [x] `gonpi/granja_dm30.jpg` Bandeja de melindros recién hechos
-  - Prompt: `Photo of a baking tray of freshly baked Catalan melindros ladyfingers with sugar on top, a wooden spoon, a bit of steam, a kitchen towel, warm light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a baking tray of freshly baked Catalan melindros ladyfingers with sugar on top, a wooden spoon, a bit of steam, a kitchen towel, warm light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/vintage_d2.jpg` Perchero con chaquetas de los 90: verdes, granates, pana (D2, anuncio)
   - Prompt: `Photo of a metal clothes rack with 90s jackets in green, burgundy and corduroy on wooden hangers in a second-hand shop in Olot, a neon sign "Vintage Olot" in the corner, retro posters. Aspect ratio 1:1.`
 - [x] `gonpi/vintage_dm60.jpg` Una chaqueta verde de pana colgada sola (la de Alicia)
-  - Prompt: `Photo of a single worn green corduroy jacket hanging alone on a wooden hanger against a white wall in a second-hand shop, a small price tag still on the sleeve, soft side light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a single worn green corduroy jacket hanging alone on a wooden hanger against a white wall in a second-hand shop, a small price tag still on the sleeve, soft side light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/volcanica_d4.jpg` Cartel «2x1 días de entreno» con una pizza y un balón de vóley (D4, anuncio)
   - Prompt: `Advertising poster with a pizza and a volleyball side by side on a red table and the text in Catalan in bold white letters "2x1 dies d'entrenament", a small logo "La Volcànica" at the bottom, playful colours. Aspect ratio 1:1.`
 - [ ] `gonpi/volcanica_dm11.jpg` Mesa larga con el equipo juvenil de vóley y pizzas
-  - Prompt: `Photo of a long table in a pizzeria in Olot with a girls' volleyball team in club tracksuits eating pizzas and laughing, cans of soda, stacks of boxes, strong overhead light. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a long table in a pizzeria in Olot with a girls' volleyball team in club tracksuits eating pizzas and laughing, cans of soda, stacks of boxes, strong overhead light. {movil} Aspect ratio 1:1.`
 - [ ] `gonpi/cinema_d5.jpg` Cartel de la película inventada «La casa de los veranos»: una niña y su abuela en un porche (D5, anuncio)
   - Prompt: `Movie poster for a fictional film "La casa de los veranos": a young girl and her grandmother sitting on the porch of a stone farmhouse at golden hour, the title in a warm serif font at the bottom, a small "Cine Garrotxa" logo, painterly style. Aspect ratio 1:1.`
 - [x] `gonpi/cinema_dm20.jpg` Palomitas y entradas sobre una butaca roja
-  - Prompt: `Photo of a bucket of popcorn and two paper cinema tickets on a red velvet seat, a glowing screen blurred in the background. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of a bucket of popcorn and two paper cinema tickets on a red velvet seat, a glowing screen blurred in the background. {movil} Aspect ratio 1:1.`
 
 ## 4. Fotos de perfil (`media/photos/`)
 
@@ -717,7 +716,7 @@ Sirven de avatar en los chats y en Gonpi. Sin foto, se ve la inicial con el colo
 - [ ] `protectora` Logo: huella de perro naranja
   - Prompt: `Logo of an animal shelter: an orange dog paw print with a small heart in the central pad, white background, flat vector. Aspect ratio 1:1.`
 - [ ] `marroig` Jugadora de vóley con el 7, colocando
-  - Prompt: `Photo of {mar_roig} wearing number 7, setting the ball with both hands above her forehead in mid-game in a professional sports hall, a blurred crowd behind. {movil_texto} Aspect ratio 1:1.`
+  - Prompt: `Photo of {mar_roig} wearing number 7, setting the ball with both hands above her forehead in mid-game in a professional sports hall, a blurred crowd behind. {movil} Aspect ratio 1:1.`
 - [ ] `memes` Un tractor con gafas de sol
   - Prompt: `A green tractor wearing a pair of black sunglasses, meme style, on a sunny country road, a flat comic rendering. Aspect ratio 1:1.`
 - [ ] `lacova` Fachada de una librería antigua con toldo

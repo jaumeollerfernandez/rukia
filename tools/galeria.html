@@ -1,0 +1,110 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galería del caso</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; font: 14px system-ui; background: #111; color: #eee; }
+  header { position: sticky; top: 0; z-index: 5; background: #181818; border-bottom: 1px solid #333; padding: 8px 12px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  header select, header input[type=text] { background: #222; color: #eee; border: 1px solid #444; border-radius: 4px; padding: 5px 8px; font: inherit; }
+  header label { display: flex; gap: 4px; align-items: center; color: #bbb; } #res { color: #aaa; margin-left: auto; }
+  #rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; padding: 12px; }
+  .tarj { background: #1b1b1b; border: 2px solid #2a2a2a; border-radius: 8px; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+  .tarj.saltada { border-color: #555; } .tarj.cambiada { border-color: #2e7d32; } .tarj.arrastrando { border-color: #4da3ff; background: #1c2735; }
+  .tarj img.p { width: 100%; aspect-ratio: 1; object-fit: contain; background: #000; border-radius: 4px; cursor: zoom-in; }
+  .nom { font-size: 12px; word-break: break-all; color: #ccc; }
+  .desc { font-size: 12px; color: #ddd; line-height: 1.35; } .desc i { color: #777; } .desc b { color: #fc6; font-weight: normal; }
+  details { font-size: 11px; color: #999; } details p { margin: 4px 0; } summary { cursor: pointer; color: #8ab4f8; } .est { font-size: 11px; color: #999; }
+  .cambiada .est { color: #6c6; } .saltada .est { color: #aaa; }
+  .antes { display: flex; gap: 6px; align-items: center; font-size: 11px; color: #999; } .antes img { width: 56px; height: 56px; object-fit: contain; background: #000; }
+  .btns { display: flex; gap: 6px; flex-wrap: wrap; } .niv { background: #222; color: #eee; border: 1px solid #444; border-radius: 4px; }
+  .dos { display: flex; gap: 4px; } .dos figure { margin: 0; flex: 1; min-width: 0; } .dos figcaption { font-size: 10px; color: #999; text-align: center; } button { font: inherit; padding: 5px 10px; border: 0; border-radius: 5px; color: #fff; background: #444; cursor: pointer; }
+  button.ok { background: #555; } button.on { background: #2e7d32; } button.red { background: #7a3a1a; }
+  .tarj input[type=text] { width: 100%; box-sizing: border-box; background: #222; color: #ccc; border: 1px solid #333; border-radius: 4px; padding: 3px 6px; font-size: 11px; }
+  #zoom { position: fixed; inset: 0; background: rgba(0,0,0,.92); display: none; place-items: center; z-index: 10; cursor: zoom-out; } #zoom img { max-width: 94vw; max-height: 94vh; }
+  #aviso { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); background: #333; padding: 8px 14px; border-radius: 6px; display: none; z-index: 11; }
+</style>
+<header>
+  <select id="grupo"></select>
+  <select id="filtro"><option value="">Todas</option><option>sin revisar</option><option>saltada</option><option>cambiada</option></select>
+  <input type="text" id="busca" placeholder="Buscar nombre…">
+  <label><input type="checkbox" id="ajustar" checked> Ajustar al formato de la original</label>
+  <span id="res"></span>
+</header>
+<div id="rejilla"></div>
+<div id="zoom"><img></div><div id="aviso"></div>
+<script>
+let lista = [];
+const $ = id => document.getElementById(id), v = {};   // v: versión para saltar la caché de la imagen
+const aviso = t => { const a = $('aviso'); a.textContent = t; a.style.display = 'block'; clearTimeout(aviso.t); aviso.t = setTimeout(() => a.style.display = 'none', 3500); };
+const q = r => encodeURIComponent(r);
+const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+async function cargar() {
+  lista = await (await fetch('/api/lista')).json();
+  const grupos = [...new Set(lista.map(i => i.grupo))];
+  const sel = $('grupo').value;
+  $('grupo').innerHTML = '<option value="">Todas las carpetas</option>' + grupos.map(g => `<option ${g === sel ? 'selected' : ''}>${g}</option>`).join('');
+  pinta();
+}
+function pinta() {
+  const g = $('grupo').value, f = $('filtro').value, b = $('busca').value.toLowerCase();
+  const vis = lista.filter(i => (!g || i.grupo === g) && (!f || i.estado === f) && (!b || i.ruta.toLowerCase().includes(b)));
+  $('res').textContent = `${vis.length} mostradas · ${lista.filter(i => i.estado === 'saltada').length} saltadas · ${lista.filter(i => i.estado === 'cambiada').length} cambiadas · ${lista.filter(i => i.estado === 'sin revisar').length} sin revisar`;
+  $('rejilla').innerHTML = vis.map(i => `
+    <div class="tarj ${i.estado === 'sin revisar' ? '' : i.estado}" data-r="${i.ruta}">
+      ${i.hayPrevia
+        ? `<div class="dos"><figure><img class="p" src="/img?ruta=${q(i.ruta)}&v=${v[i.ruta] || 0}"><figcaption>actual</figcaption></figure><figure><img class="p" src="/img?ruta=${q(i.ruta)}&previa=1&v=${v[i.ruta] || 0}"><figcaption>con filtro</figcaption></figure></div>`
+        : `<img class="p" loading="lazy" src="/img?ruta=${q(i.ruta)}&v=${v[i.ruta] || 0}">`}
+      <div class="nom">${i.ruta.replace(/^(media\/)?/, '')}</div>
+      <div class="desc">${i.info?.desc ? esc(i.info.desc) : '<i>Sin descripción en MEDIA_PENDIENTE.md / MULTIMEDIA.md</i>'}${i.info?.tipo ? ` <b>${esc(i.info.tipo)}</b>` : ''}</div>
+      ${i.info?.cruza || i.info?.prompt ? `<details><summary>Más</summary>${i.info.cruza ? `<p><b>Se cruza con:</b> ${esc(i.info.cruza)}</p>` : ''}${i.info.prompt ? `<p><b>Prompt:</b> ${esc(i.info.prompt)}</p>` : ''}</details>` : ''}
+      <div class="est">${i.estado === 'cambiada' ? 'cambiada' + (i.origen ? ' · ' + i.origen : '') : i.estado === 'saltada' ? 'saltada: me quedo con esta' : 'sin revisar · arrastra una foto aquí para cambiarla'}</div>
+      ${i.hayAntes ? `<div class="antes"><img src="/img?ruta=${q(i.ruta)}&antes=1&v=${v[i.ruta] || 0}"> antes</div>` : ''}
+      <div class="btns">
+        ${i.hayPrevia
+          ? '<button class="on" data-a="quedar">Quedarme con la filtrada</button><button class="ok" data-a="descartar">Descartar</button>'
+          : '<select class="niv"><option>suave</option><option selected>normal</option><option>fuerte</option></select><button class="ok" data-a="filtro">Filtro móvil</button>'}
+        ${i.estado === 'cambiada' ? '<button class="red" data-a="deshacer">Deshacer</button>' : `<button class="${i.estado === 'saltada' ? 'on' : 'ok'}" data-a="saltar">${i.estado === 'saltada' ? '✓ Saltada' : 'Saltar'}</button>`}
+      </div>
+      <input type="text" placeholder="Autor / enlace de la foto nueva (opcional)" value="${(i.autor || '').replace(/"/g, '&quot;')}">
+    </div>`).join('');
+}
+
+$('rejilla').addEventListener('click', async e => {
+  const t = e.target.closest('.tarj'); if (!t) return; const r = t.dataset.r;
+  if (e.target.classList.contains('p')) { $('zoom').querySelector('img').src = e.target.src; $('zoom').style.display = 'grid'; return; }
+  const a = e.target.dataset.a; if (!a) return;
+  if (a === 'saltar') { const i = lista.find(x => x.ruta === r); await post('/api/estado', r, { estado: i.estado === 'saltada' ? 'sin revisar' : 'saltada' }); }
+  if (a === 'filtro') {
+    aviso('Aplicando filtro…');
+    const r2 = await (await fetch(`/api/filtro?ruta=${q(r)}&nivel=${t.querySelector('.niv').value}`, { method: 'POST' })).json();
+    if (!r2.ok) return aviso('Error: ' + r2.error);
+    v[r] = Date.now();
+  }
+  if (a === 'quedar') { await fetch(`/api/filtro-aplicar?ruta=${q(r)}`, { method: 'POST' }); v[r] = Date.now(); aviso('Te quedas con la filtrada'); }
+  if (a === 'descartar') await fetch(`/api/filtro-descartar?ruta=${q(r)}`, { method: 'POST' });
+  if (a === 'deshacer') { await post('/api/deshacer', r, {}); v[r] = Date.now(); aviso('Vuelta a la original'); }
+  await cargar();
+});
+$('rejilla').addEventListener('change', e => { if (e.target.type === 'text') post('/api/estado', e.target.closest('.tarj').dataset.r, { autor: e.target.value }); });
+$('zoom').onclick = () => $('zoom').style.display = 'none';
+const post = (url, r, body) => fetch(`${url}?ruta=${q(r)}`, { method: 'POST', body: JSON.stringify(body) });
+
+// arrastrar y soltar una foto sobre una tarjeta
+for (const ev of ['dragover', 'dragenter']) $('rejilla').addEventListener(ev, e => { const t = e.target.closest('.tarj'); if (t) { e.preventDefault(); t.classList.add('arrastrando'); } });
+$('rejilla').addEventListener('dragleave', e => e.target.closest('.tarj')?.classList.remove('arrastrando'));
+$('rejilla').addEventListener('drop', async e => {
+  const t = e.target.closest('.tarj'); if (!t) return; e.preventDefault(); t.classList.remove('arrastrando');
+  const file = e.dataTransfer.files[0]; if (!file) return;
+  if (!/^image\//.test(file.type)) return aviso('Eso no es una imagen');
+  const r = t.dataset.r;
+  const res = await (await fetch(`/api/subir?ruta=${q(r)}&nombre=${q(file.name)}&ajustar=${$('ajustar').checked ? 1 : 0}`, { method: 'POST', body: file })).json();
+  if (!res.ok) return aviso('Error: ' + res.error);
+  v[r] = Date.now(); aviso(res.ajustada ? `Cambiada (${res.ajustada.w}×${res.ajustada.h})` : 'Cambiada'); await cargar();
+});
+// que soltar fuera de una tarjeta no abra la imagen en el navegador
+addEventListener('dragover', e => e.preventDefault()); addEventListener('drop', e => e.preventDefault());
+for (const id of ['grupo', 'filtro']) $(id).onchange = pinta; $('busca').oninput = pinta;
+cargar();
+</script>

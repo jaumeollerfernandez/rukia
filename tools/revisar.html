@@ -1,0 +1,75 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revisar imágenes de Gonpi</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; font: 15px system-ui; background: #111; color: #eee; display: flex; height: 100vh; }
+  #lista { width: 240px; overflow: auto; border-right: 1px solid #333; padding: 8px; flex: none; }
+  #lista div { padding: 4px 6px; border-radius: 4px; cursor: pointer; font-size: 12px; display: flex; justify-content: space-between; gap: 6px; }
+  #lista div:hover { background: #222; } #lista div.sel { background: #2a3a55; }
+  .ch { font-size: 11px; opacity: .8; } .usada { color: #6c6; } .saltada { color: #999; } .lista { color: #fc6; } .gen { color: #6af; }
+  main { flex: 1; padding: 16px; overflow: auto; }
+  h1 { font-size: 17px; margin: 0 0 4px; } p.ctx { margin: 0 0 10px; color: #bbb; }
+  .par { display: flex; gap: 16px; flex-wrap: wrap; } .par figure { margin: 0; } .par img { width: min(46vw, 480px); aspect-ratio: 1; object-fit: contain; background: #000; display: block; }
+  figcaption { font-size: 12px; color: #999; padding: 4px 0; }
+  .acc { margin: 14px 0; display: flex; gap: 10px; flex-wrap: wrap; }
+  button { font: inherit; padding: 10px 18px; border: 0; border-radius: 6px; cursor: pointer; color: #fff; }
+  #b-usar { background: #2e7d32; } #b-rehacer { background: #b26a00; } #b-saltar { background: #555; } #b-deshacer { background: #444; }
+  button:disabled { opacity: .4; cursor: default; }
+  details { color: #aaa; font-size: 12px; max-width: 1000px; } .err { color: #f77; }
+  #res { color: #aaa; margin-bottom: 8px; }
+</style>
+<aside id="lista"></aside>
+<main>
+  <div id="res"></div>
+  <div id="ficha"></div>
+</main>
+<script>
+let datos = null, sel = null;
+const $ = id => document.getElementById(id);
+const estadoTxt = i => i.generando ? ['generando…', 'gen'] : i.estado === 'usada' ? ['usada', 'usada'] : i.estado === 'saltada' ? ['saltada', 'saltada'] : i.versiones ? ['lista', 'lista'] : i.error ? ['error', 'err'] : ['en cola', ''];
+
+async function cargar() {
+  datos = await (await fetch('/api/estado')).json();
+  if (!sel || !datos.items.find(i => i.dest === sel)) sel = (siguiente() || datos.items[0]).dest;
+  pinta();
+}
+function siguiente(desde) {
+  const l = datos.items; let k = desde ? l.findIndex(i => i.dest === desde) + 1 : 0;
+  return l.slice(k).find(i => i.estado === 'pendiente' && i.versiones) || (desde ? null : null);
+}
+function pinta() {
+  const hechas = datos.items.filter(i => i.estado === 'usada').length, listas = datos.items.filter(i => i.estado === 'pendiente' && i.versiones).length;
+  $('res').textContent = `${hechas} usadas · ${listas} listas para revisar · ${datos.items.filter(i => i.generando).length} generando · generadas automáticas ${datos.auto}/${datos.maxAuto}`;
+  $('lista').innerHTML = datos.items.map(i => { const [t, c] = estadoTxt(i); return `<div class="${i.dest === sel ? 'sel' : ''}" data-d="${i.dest}"><span>${i.dest.replace('gonpi/', '')}</span><span class="ch ${c}">${t}</span></div>`; }).join('');
+  document.querySelectorAll('#lista div').forEach(d => d.onclick = () => { sel = d.dataset.d; pinta(); });
+  const i = datos.items.find(x => x.dest === sel), [t] = estadoTxt(i);
+  $('ficha').innerHTML = `
+    <h1>${i.dest} <span class="ch">${t}</span></h1><p class="ctx">${i.contexto}</p>
+    <div class="par">
+      <figure><img src="/img/actual/${i.id}?t=${i.estado}"><figcaption>En el juego ahora${i.estado === 'usada' ? ' (ya es la nueva)' : ''}</figcaption></figure>
+      <figure>${i.versiones ? `<img src="/img/nueva/${i.id}/${i.versiones}">` : `<div style="width:300px;height:300px;display:grid;place-items:center;background:#000">${i.generando ? 'generando…' : 'sin generar'}</div>`}<figcaption>Nueva (versión ${i.versiones || '—'})${i.generando && i.versiones ? ' · generando otra…' : ''}</figcaption></figure>
+    </div>
+    ${i.error ? `<p class="err">Error: ${i.error}</p>` : ''}
+    <div class="acc">
+      <button id="b-usar" ${i.versiones && i.estado !== 'usada' ? '' : 'disabled'}>Usar nueva (U)</button>
+      <button id="b-rehacer" ${i.generando ? 'disabled' : ''}>Rehacer (R)</button>
+      <button id="b-saltar" ${i.versiones ? '' : 'disabled'}>Saltar (S)</button>
+      ${i.estado === 'usada' ? '<button id="b-deshacer">Volver a la anterior</button>' : ''}
+    </div>
+    <details><summary>Prompt</summary><p>${i.prompt.replace(/</g, '&lt;')}</p></details>`;
+  $('b-usar').onclick = () => hacer('usar'); $('b-rehacer').onclick = () => hacer('rehacer'); $('b-saltar').onclick = () => hacer('saltar');
+  if ($('b-deshacer')) $('b-deshacer').onclick = () => hacer('deshacer');
+}
+async function hacer(accion) {
+  const antes = sel;
+  await fetch('/api/accion', { method: 'POST', body: JSON.stringify({ dest: sel, accion }) });
+  await cargar0();
+  if (accion === 'usar' || accion === 'saltar') { const s = siguiente(antes) || siguiente(); if (s) sel = s.dest; }
+  pinta();
+}
+async function cargar0() { datos = await (await fetch('/api/estado')).json(); }
+addEventListener('keydown', e => { if (e.target.tagName === 'BUTTON' && e.key === 'Enter') return; const k = e.key.toLowerCase(); if (k === 'u' && !$('b-usar').disabled) hacer('usar'); if (k === 'r' && !$('b-rehacer').disabled) hacer('rehacer'); if (k === 's' && !$('b-saltar').disabled) hacer('saltar'); });
+cargar(); setInterval(async () => { const viejo = JSON.stringify(datos); await cargar0(); if (JSON.stringify(datos) !== viejo) { if (!datos.items.find(i => i.dest === sel)) sel = datos.items[0].dest; pinta(); } }, 3000);
+</script>

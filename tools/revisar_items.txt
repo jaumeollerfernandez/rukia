@@ -1,0 +1,104 @@
+# destino | contexto (de MEDIA_PENDIENTE.md). Imágenes de Gonpi sin personas, en el orden de revisión.
+gonpi/alicia_dm1 | Amanecer sobre el valle («a veces hay que irse para salvarse»)
+gonpi/excursions_dm30 | Santuari del Mont
+gonpi/excursions_dm15 | Cascada de la Alta Garrotxa
+gonpi/excursions_d6 | Camino de tierra cortado; una furgoneta blanca al fondo
+gonpi/guia_a | , `gonpi/guia_b.jpg`, `gonpi/guia_c.jpg`: estilo coach: amaneceres, manos, una taza de infusión, con frases sobreimpresas
+gonpi/guia_b | , `gonpi/guia_b.jpg`, `gonpi/guia_c.jpg`: estilo coach: amaneceres, manos, una taza de infusión, con frases sobreimpresas
+gonpi/guia_c | , `gonpi/guia_b.jpg`, `gonpi/guia_c.jpg`: estilo coach: amaneceres, manos, una taza de infusión, con frases sobreimpresas
+gonpi/berta_d1 | Amanecer con la frase del alba sobreimpresa («Suelta lo que pesa…»)
+gonpi/berta_d2 | Amanecer con frase («Dar es la forma más pura de recibir.»)
+gonpi/berta_d3 | Amanecer con frase («Quien de verdad te quiere, te espera…»)
+gonpi/berta_d4 | Amanecer con frase («No todo el que se aleja se pierde…»)
+gonpi/berta_d5 | Amanecer con frase («Viste el alma de blanco…»)
+gonpi/berta_d6 | Amanecer con frase («Lo mejor está a punto de amanecer.»)
+gonpi/berta_d7 | Final malo: amanecer («Ya estamos todas.»)
+gonpi/iris_d4 | Amanecer movido
+gonpi/casal_d5 | Cráter de Santa Margarida con la ermita (anuncio de la Trobada de l'Alba; **rehacer** sin el texto)
+gonpi/laura_d5 | Atardecer en el Hostalnou
+gonpi/laura_dm30 | Atardecer naranja sobre los tejados del Hostalnou
+gonpi/laura_dm10 | Girasoles en un campo, a contraluz
+gonpi/marc_dm8 | Campo de trigo segado al atardecer
+gonpi/lluisa_dm50 | La Fageda d'en Jordà en otoño
+gonpi/claudia_dm8 | Esterilla con vistas a los volcanes de la Garrotxa
+gonpi/celfosc_d5 | La Vía Láctea sobre la silueta de los volcanes (D5)
+gonpi/celfosc_dm45 | Larga exposición con estelas de estrellas fugaces sobre una montaña
+gonpi/nordenlla_d1 | Aurora boreal verde y violeta sobre un pueblo nevado (D1)
+gonpi/nordenlla_dm25 | Cabaña de madera roja sola junto a un fiordo
+gonpi/anna_dm60 | Las casas blancas de Cadaqués y el mar
+gonpi/nuria_dm9 | Girona de noche: las casas del Onyar iluminadas reflejadas en el río
+gonpi/jordi_d6 | Desde el coche, la entrada a Olot con los volcanes al fondo, cielo nublado (D6)
+gonpi/nitsdagost_dm50 | Portada del single «Estels»: una ventana de madera abierta a un cielo estrellado
+gonpi/roser_dm1 | Geranios rojos en un balcón de piedra
+gonpi/pep_dm3 | Tomates enormes en una cesta de mimbre
+gonpi/imma_dm3 | Un brote verde en una maceta, en una ventana
+gonpi/casal_d4 | Jardín del Casal al atardecer, esterillas en el césped
+gonpi/laura_d3 | Cojines y velas en un jardín, con una rosa dorada pequeña en una esquina (el jardín del Casal)
+gonpi/conxita_dm20 | La calle del Pont con macetas en las ventanas
+gonpi/silvia_dm3 | Una masía reformada y luminosa con placas solares (no se parece a las de puerta azul)
+gonpi/guia_d | Círculo de cojines vacío con velas, de noche
+gonpi/elena_dm60 | Un aula vacía con «Benvinguts» escrito en la pizarra
+gonpi/sonia_d5 | La pista vacía después del partido, un balón en el suelo (D5)
+gonpi/judit_dm25 | El vestuario del pabellón, bancos con mochilas y zapatillas
+gonpi/claudia_a | Sala del polideportivo con esterillas
+gonpi/teresa_dm7 | Sillas en círculo en la biblioteca, ejemplares de «Nada» encima de una mesa
+gonpi/jordi_dm45 | Una habitación juvenil vacía en un piso de Barcelona: cama hecha, cojín morado, estantería casi vacía
+gonpi/marta_d4 | Su parada del mercado de Olot con la persiana a medio bajar, cajas de fruta tapadas (D4)
+gonpi/toni_d5 | Almacén lleno de lotes preparados
+gonpi/pilar_dm30 | El escaparate del Forn Can Batlle con globos y un cartel «60 anys»
+gonpi/queralt_dm40 | La fachada del Institut del Teatre de Barcelona
+gonpi/lacova_d5 | Ejemplares de «Mujercitas» en el escaparate de la librería (D5)
+gonpi/dolors_dm200 | Foto antigua de un escenario de pueblo con el telón rojo, 1998
+gonpi/nova_dm15 | Ensayo en un escenario enorme vacío
+gonpi/nitsdagost_dm120 | Estudio de grabación con guitarras y mantas
+gonpi/fanals_d2 | Cartel del festival: farolillos en una calle de Olot de noche, primeros nombres (D2, anuncio)
+gonpi/teatre_a | Ensayo en el escenario del local social
+gonpi/biel_d2 | Interior de piedra a oscuras con velas, un saco de dormir y latas; en un rincón se intuye una puerta azul desconchada (Can Pericot) (D2)
+gonpi/casal_d2 | El tejado nuevo de la sala del Casal (media hora después de la transferencia; **rehacer**)
+gonpi/eric_d2 | Cesta de pan vacía en el Forn
+gonpi/eric_dm4 | Un tarro de masa madre volcado y seco, con una cinta de «escena del crimen» de papel
+gonpi/eric_dm12 | Un tarro de masa madre recién hecha con una etiqueta que pone «PACO»
+gonpi/pilar_d7 | El horno de leña del Forn encendido en la oscuridad, solo se ve el fuego (D7)
+gonpi/pilar_dm7 | Cocas de recapte en una bandeja de horno
+gonpi/granja_dm30 | Bandeja de melindros recién hechos
+gonpi/arnau_dm25 | Una bandeja de canelones gratinados en la mesa de la iaia, mantel de cuadros
+gonpi/fatima_dm6 | Vaso de té con menta en la mesa de una sala de descanso de hospital
+gonpi/fatima_dm28 | Una fuente de cuscús en el centro de una mesa familiar
+gonpi/gemma_dm3 | Un vermut con aceitunas en una terraza
+gonpi/gemma_a | Esterilla enrollada y un vermut en una terraza
+gonpi/gemma_dm16 | Un libro abierto por la página 12 con un punto de libro
+gonpi/aina_d2 | Un bocadillo a medio comer sobre los apuntes de psicología (D2)
+gonpi/aina_dm30 | Un gato atigrado encima de un libro abierto
+gonpi/paula_d3 | Tres vasos de café de máquina vacíos en fila (D3)
+gonpi/paula_dm18 | Un bocadillo de cafetería triste, primer plano dramático
+gonpi/paula_dm2 | Un café en la mano con el reloj del aula de fondo marcando las 11
+gonpi/sergi_d4 | Un portátil con una presentación abierta y una taza de café, en un escritorio ordenado (D4)
+gonpi/sergi_dm6 | Mesa de biblioteca con apuntes subrayados en tres colores
+gonpi/marta_dm3 | Cajas de cerezas en la parada, con un cartelito escrito a mano «Cireres de la vall»
+gonpi/toni_dm7 | Cajas de lotes apiladas en una furgoneta
+gonpi/aliments_d2 | Cuatro cajas de donación: ropa, mantas, una cafetera y un reloj de pared
+gonpi/judit_d4 | Bolsa de deporte preparada con las rodilleras encima (D4)
+gonpi/judit_dm2 | Unas rodilleras nuevas, todavía con la etiqueta
+gonpi/montse_d6 | Mesa puesta para tres
+gonpi/casal_c | Cesta llena de móviles apagados a la entrada del Casal (retiro de silencio)
+gonpi/vintage_dm60 | Una chaqueta verde de pana colgada sola (la de Alicia)
+gonpi/vintage_d2 | Perchero con chaquetas de los 90: verdes, granates, pana (D2, anuncio)
+gonpi/cinema_dm20 | Palomitas y entradas sobre una butaca roja
+gonpi/lacova_dm14 | «Nada», de Carmen Laforet, sobre una mesa de madera con un café
+gonpi/teresa_dm35 | Estantería de «Secció local» con libros nuevos; en el lomo de uno se lee «Masies de la Vall de Bianya»
+gonpi/pep_dm12 | Una vieja furgoneta amarilla de Correos aparcada en un camino de tierra
+gonpi/clara_dm9 | Dibujos de niños pegados en una pared
+gonpi/anna_dm5 | Un examen de fracciones con un 7,5 en rojo, pegado en la nevera
+gonpi/juliavents_d5 | Frase escrita a mano en una libreta: «No cal que ningú entengui per què te'n vas» (D5)
+gonpi/pol_d2 | Salpicadero de noche, reloj a las **23:41**, la estación de Olot por la ventana
+gonpi/pol_dm75 | Salpicadero de un Golf de noche, carretera de curvas iluminada por los faros
+gonpi/pol_dm20 | El motor de un coche abierto en un taller, manos con grasa
+gonpi/oriol_dm9 | Bicicleta apoyada en un mojón de carretera de noche, con la luna
+gonpi/oriol_dm30 | Un frontal de bici encendido que deslumbra la cámara
+gonpi/toni_dm20 | Bici en la vía verde del Carrilet, con un puente de hierro
+gonpi/rafa_dm40 | Una moto en un mirador del Collsacabra
+gonpi/marc_d1 | Tractor en la fiesta del pueblo
+gonpi/marc_dm40 | Un tractor verde recién lavado, brillando al sol
+gonpi/memes_d1 | Meme: un tractor delante de una fila de coches en una carretera de curvas (D1)
+gonpi/rafa_dm15 | Un coche de autoescuela con la «L» en el techo
+gonpi/autoescola_d4 | Coche de autoescuela con una «L» y confeti

@@ -1,6 +1,0 @@
-{
-  "question": "Where is the hacker hiding?",
-  "target": { "lat": 41.3851, "lon": 2.1734 },
-  "station": { "lat": 41.3809, "lon": 2.1228 },
-  "tolerance": 500
-}

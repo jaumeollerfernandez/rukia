@@ -23,7 +23,7 @@ const FOTO = { montse: "mama", ignasi: "guia" };
 const fotoOficial = (t) => process.argv.includes("--refs-fotos") && !NO_PERSONA.has(t)
   ? ["jpg", "png", "webp"].map((e) => join(root, "app/src/main/assets/cases", caso, "media/photos", `${FOTO[t] ?? t}.${e}`)).find(existsSync) : undefined;
 const refFile = (t) => process.argv.includes("--sin-ref") ? undefined : fotoOficial(t) ?? ["jpg", "jpeg", "png", "webp"].map((e) => join(root, "tools/refs", caso, `${t}.${e}`)).find(existsSync);
-const ESTILO = new Set(["movil", "movil_texto"]); // fichas de estilo: sin foto de referencia
+const ESTILO = new Set(["movil"]); // fichas de estilo: sin foto de referencia
 const FOOTER = "No watermark, no logos of real brands, no text other than the text quoted in this prompt, no distorted hands.";
 
 const fichas = {};
